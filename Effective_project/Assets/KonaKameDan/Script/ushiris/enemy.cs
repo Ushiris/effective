@@ -4,33 +4,16 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-    int HP = 1;
+    Life life;
 
-    private void Awake()
+    private void Start()
     {
-        if (HP <= 0)
-        {
-            Debug.Log("Default HP is 0.");
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (HP <= 0)
-        {
-            Dead();
-        }
+        life = gameObject.AddComponent<Life>();
+        life.addLastword(Dead);
     }
 
     void Dead()
     {
         Destroy(gameObject);
-    }
-
-    int damege(int fouce)
-    {
-        HP -= fouce;
-        return fouce;
     }
 }
