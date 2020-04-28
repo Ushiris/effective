@@ -18,13 +18,14 @@ public class EffectFusionUi : MonoBehaviour
 
     //デバッグ用
     //[SerializeField] int debugNum;
-    [SerializeField] List<int> debugNumList = new List<int>();
+    //[SerializeField] List<int> debugNumList = new List<int>();
 
     // Start is called before the first frame update
     void Start()
     {
         //初期化
         GetEffectFusionList = new List<int>();
+        GetHitPosNum = 0;
 
         gameObject.SetActive(false);
     }
@@ -42,7 +43,7 @@ public class EffectFusionUi : MonoBehaviour
 
         //デバッグ
         //debugNum = GetHitPosNum;
-        debugNumList = GetEffectFusionList;
+        //debugNumList = GetEffectFusionList;
     }
 
     //角度を決める

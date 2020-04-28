@@ -9,6 +9,8 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] GameObject effectFusionUI_Obj;
     [SerializeField] GameObject effectFusionUI_CircleMakeByPizza;
 
+    [SerializeField] GameObject textObj;
+
     public int EffectListCount = 10;
 
     public static UI_Manager GetUI_Manager;
@@ -39,11 +41,13 @@ public class UI_Manager : MonoBehaviour
             {
                 effectFusionUI_Obj.SetActive(true);
                 //effectFusionUI_CircleMakeByPizza.SetActive(true);
+                textObj.SetActive(true);
             }
             else
             {
                 effectFusionUI_Obj.SetActive(false);
                 //effectFusionUI_CircleMakeByPizza.SetActive(false);
+                textObj.SetActive(false);
             }
         }
     }
@@ -64,5 +68,14 @@ public class UI_Manager : MonoBehaviour
     public static List<int> GetEffectFusionUI_ChoiceList()
     {
         return new List<int>(EffectFusionUi.GetEffectFusionList);
+    }
+
+    /// <summary>
+    /// カーソルがあるアイテム名
+    /// </summary>
+    /// <returns></returns>
+    public static int GetEffectFusionUI_ChoiceNum()
+    {
+        return EffectFusionUi.GetHitPosNum;
     }
 }
