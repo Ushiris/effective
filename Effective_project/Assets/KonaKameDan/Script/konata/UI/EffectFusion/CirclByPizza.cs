@@ -29,6 +29,7 @@ public class CirclByPizza : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //監視オブジェクトがアクティブになった時にUIを生成する
         if (EffectFusionUiObj.activeSelf)
         {
             cutNum = UI_Manager.GetUI_Manager.EffectListCount;
@@ -46,7 +47,7 @@ public class CirclByPizza : MonoBehaviour
                     minAng += ang;
                 }
 
-                isStart = false;    //監視オブジェクトがアクティブになった時にUIを生成する
+                isStart = false; 
             }
 
             for (int i = 0; i < cutNum; i++)

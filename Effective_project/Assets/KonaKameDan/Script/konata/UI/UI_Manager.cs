@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// UIのマネージャー
+/// </summary>
 public class UI_Manager : MonoBehaviour
 {
     [Header("アーツを作るUI表示")]
