@@ -9,8 +9,8 @@ using UnityEngine.UI;
 public class EffectFusionUi : MonoBehaviour
 {
     [SerializeField] KeyCode effectFusionUI_ChoiceKey = KeyCode.Mouse0;
-    [SerializeField] int cutNum = 10;
 
+    int cutNum = 10;
     float ang;
 
     public static int GetHitPosNum { get; private set; }
@@ -18,27 +18,31 @@ public class EffectFusionUi : MonoBehaviour
 
     //デバッグ用
     //[SerializeField] int debugNum;
-    //[SerializeField] List<int> debugNumList = new List<int>();
+    [SerializeField] List<int> debugNumList = new List<int>();
 
     // Start is called before the first frame update
     void Start()
     {
-        //切る数を変える
-        ang = 360 / cutNum;
-
         //初期化
         GetEffectFusionList = new List<int>();
+
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        cutNum = UI_Manager.GetUI_Manager.EffectListCount;
+
+        //切る数を変える
+        ang = 360 / cutNum;
+
         ChoiceNum();
         ChoiceList();
 
         //デバッグ
         //debugNum = GetHitPosNum;
-        //debugNumList = GetEffectFusionList;
+        debugNumList = GetEffectFusionList;
     }
 
     //角度を決める
@@ -82,7 +86,7 @@ public class EffectFusionUi : MonoBehaviour
             }
             else
             {
-                if (GetEffectFusionList.Count < 3&& PossessionEffectList.GetIsPossessionEffect(GetHitPosNum))
+                if (GetEffectFusionList.Count < 3)
                 {
                     //リスト内に選択したものがない場合リストに格納する
                     GetEffectFusionList.Add(GetHitPosNum);

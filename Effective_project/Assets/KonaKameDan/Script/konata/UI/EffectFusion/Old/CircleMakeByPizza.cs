@@ -19,13 +19,15 @@ public class CircleMakeByPizza : MonoBehaviour
 
     float ang;
     float minAng;
-    [SerializeField] int cutNum = 10;
+    int cutNum;
 
     List<GameObject> pizzaList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
+        cutNum = UI_Manager.GetUI_Manager.EffectListCount;
+
         //切る数を変える
         ang = 360 / cutNum;
 

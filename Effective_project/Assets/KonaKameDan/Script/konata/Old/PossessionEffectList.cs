@@ -7,12 +7,23 @@ using UnityEngine;
 /// </summary>
 public class PossessionEffectList : MonoBehaviour
 {
+    public enum Name { a, b, c }
+    Name EffectName;
+
+
     [System.Serializable]
     public class PossessionEffect
     {
-        public bool flag;
+        [HideInInspector] public string name;   //所持アイテムの名前
+        public bool flag;                       //所持フラグ
+        public int count;
     }
-    public PossessionEffect[] possessionEffect = new PossessionEffect[10];
+    public List<PossessionEffect> possessionEffect = new List<PossessionEffect>()
+    {
+        new PossessionEffect{name=Name.a.ToString() },
+        new PossessionEffect{name=Name.b.ToString() },
+        new PossessionEffect{name=Name.c.ToString() }
+    };
 
     static PossessionEffectList GetEffectList;
 
@@ -25,7 +36,7 @@ public class PossessionEffectList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
     /// <summary>
@@ -37,4 +48,6 @@ public class PossessionEffectList : MonoBehaviour
     {
         return GetEffectList.possessionEffect[num].flag;
     }
+
+    public static int GetEffectListCount() { return GetEffectList.possessionEffect.Count; }
 }

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectFusionUI_ChoiceKey: 323
-  cutNum: 10
+  debugNumList: 
 --- !u!114 &60677236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60677232}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9e7f39b1c8643d4dbe699b18918d674, type: 3}
   m_Name: 
@@ -198,7 +198,6 @@ MonoBehaviour:
   ObjPizza: {fileID: 336181473803189188, guid: b7ce9f1d7de7ebe4fb457a98445172b4, type: 3}
   pos: {x: 0, y: 0, z: 0}
   canvas: {fileID: 79485289}
-  cutNum: 10
 --- !u!1 &79485289
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 79485290}
+  - component: {fileID: 79485291}
   m_Layer: 5
   m_Name: PizzaPivot
   m_TagString: Untagged
@@ -231,9 +231,26 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &79485291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79485289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d936625dc62f5ce488e40103e444aaaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjPizza: {fileID: 8573260699995251158, guid: 21ed78e51bf48e248be399c3bd6b0f2e,
+    type: 3}
+  EffectFusionUiObj: {fileID: 60677232}
+  pos: {x: 0, y: 0, z: 0}
+  canvas: {fileID: 79485289}
 --- !u!1 &218353827
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1195471061
 GameObject:
@@ -596,7 +613,7 @@ Camera:
   m_GameObject: {fileID: 1450147476}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -659,7 +676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1768762803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,16 +690,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possessionEffect:
-  - flag: 1
-  - flag: 1
-  - flag: 1
-  - flag: 0
-  - flag: 0
-  - flag: 0
-  - flag: 0
-  - flag: 0
-  - flag: 0
-  - flag: 0
+  - name: 
+    flag: 0
+    count: 0
+  - name: 
+    flag: 0
+    count: 0
+  - name: 
+    flag: 0
+    count: 0
+  - name: 
+    flag: 0
+    count: 0
+  - name: 
+    flag: 0
+    count: 0
+  - name: 
+    flag: 0
+    count: 0
+  - name: 
+    flag: 0
+    count: 0
+  - name: 
+    flag: 0
+    count: 0
+  - name: 
+    flag: 0
+    count: 0
+  - name: 
+    flag: 0
+    count: 0
 --- !u!4 &1768762804
 Transform:
   m_ObjectHideFlags: 0
@@ -695,7 +732,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1841824358
 GameObject:
@@ -801,6 +838,7 @@ MonoBehaviour:
   effectFusionUI_ActiveKey: 101
   effectFusionUI_Obj: {fileID: 60677232}
   effectFusionUI_CircleMakeByPizza: {fileID: 79485289}
+  EffectListCount: 8
 --- !u!4 &1899092520
 Transform:
   m_ObjectHideFlags: 0
@@ -813,5 +851,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -6,12 +6,22 @@ public class UI_Manager : MonoBehaviour
 {
     [Header("アーツを作るUI表示")]
     [SerializeField] KeyCode effectFusionUI_ActiveKey = KeyCode.E;
-    public GameObject effectFusionUI_Obj;
-    public GameObject effectFusionUI_CircleMakeByPizza;
+    [SerializeField] GameObject effectFusionUI_Obj;
+    [SerializeField] GameObject effectFusionUI_CircleMakeByPizza;
+
+    public int EffectListCount = 10;
+
+    public static UI_Manager GetUI_Manager;
+
+    void Awake()
+    {
+        GetUI_Manager = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -28,12 +38,12 @@ public class UI_Manager : MonoBehaviour
             if (!effectFusionUI_Obj.activeSelf)
             {
                 effectFusionUI_Obj.SetActive(true);
-                effectFusionUI_CircleMakeByPizza.SetActive(true);
+                //effectFusionUI_CircleMakeByPizza.SetActive(true);
             }
             else
             {
                 effectFusionUI_Obj.SetActive(false);
-                effectFusionUI_CircleMakeByPizza.SetActive(false);
+                //effectFusionUI_CircleMakeByPizza.SetActive(false);
             }
         }
     }
