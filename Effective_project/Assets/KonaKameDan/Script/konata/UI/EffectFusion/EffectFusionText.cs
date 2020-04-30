@@ -20,9 +20,9 @@ public class EffectFusionText : MonoBehaviour
     void Update()
     {
         txt.text = "";
-        for (int i = 0; i < UI_Manager.GetEffectFusionUI_ChoiceList().Count; i++)
+        for (int i = 0; i < UI_Manager.GetEffectFusionUI_ChoiceList.Count; i++)
         {
-            txt.text += " " + UI_Manager.GetEffectFusionUI_ChoiceList()[i];
+            txt.text += " " + UI_Manager.GetEffectFusionUI_ChoiceList[i];
         }
     }
 }

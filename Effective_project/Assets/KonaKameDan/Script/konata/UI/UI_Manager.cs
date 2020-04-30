@@ -10,10 +10,21 @@ public class UI_Manager : MonoBehaviour
     [Header("アーツを作るUI表示")]
     [SerializeField] KeyCode effectFusionUI_ActiveKey = KeyCode.E;
     [SerializeField] GameObject effectFusionUI_Obj;
-    [SerializeField] GameObject effectFusionUI_CircleMakeByPizza;
+    //[SerializeField] GameObject effectFusionUI_CircleMakeByPizza;
 
     [SerializeField] GameObject textObj;
 
+    [Header("アーツセット表示タイミング")]
+    public float artsSetTimingTnterval = 0.1f;
+
+    [Header("アーツ表示UIサイズ")]
+    //public float artsDeckDefaultSiz = 0.5f;
+    public float artsSelectSiz = 0.6f;
+
+    [Header("アーツ表示UI間の幅")]
+    public float artsDeckSpace = 80f;
+
+    [Header("エフェクトの最大の数")]
     public int EffectListCount = 10;
 
     public static UI_Manager GetUI_Manager;
@@ -68,17 +79,27 @@ public class UI_Manager : MonoBehaviour
     /// 選択したエフェクトのリスト
     /// </summary>
     /// <returns></returns>
-    public static List<int> GetEffectFusionUI_ChoiceList()
+    public static List<int> GetEffectFusionUI_ChoiceList
     {
-        return new List<int>(EffectFusionUi.GetEffectFusionList);
+        get { return new List<int>(EffectFusionUi.GetEffectFusionList); }
     }
 
     /// <summary>
     /// カーソルがあるアイテム名
     /// </summary>
     /// <returns></returns>
-    public static int GetEffectFusionUI_ChoiceNum()
+    public static int GetEffectFusionUI_ChoiceNum
     {
-        return EffectFusionUi.GetHitPosNum;
+        get { return EffectFusionUi.GetHitPosNum; }
     }
+
+    /// <summary>
+    /// 選択したアーツセット
+    /// </summary>
+    /// <returns></returns>
+    public static int GetChoiceArtsDeckNum
+    {
+        get { return ArtsDeckChangeControll.GetNum; }
+    }
+    
 }
