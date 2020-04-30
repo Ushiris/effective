@@ -10,6 +10,6 @@ public class EffectObjectMove : MonoBehaviour
     {
         sin = Mathf.Sin(Time.time);
         transform.Rotate(new Vector3(0.0f, rotationSpeed, 0.0f));
-        transform.position = new Vector3(0.0f, sin, 0.0f);
+        transform.position = new Vector3(transform.position.x, sin, transform.position.z);
     }
 }
