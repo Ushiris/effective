@@ -363,6 +363,7 @@ MonoBehaviour:
   effectFusionUI_ActiveKey: 101
   effectFusionUI_Obj: {fileID: 1769067748}
   textObj: {fileID: 2022142854}
+  artsEntryKey: 113
   artsSetTimingTnterval: 0.1
   artsSelectSiz: 0.6
   artsDeckSpace: 80
@@ -606,7 +607,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objPizza: {fileID: 8573260699995251158, guid: 21ed78e51bf48e248be399c3bd6b0f2e,
     type: 3}
-  EffectFusionUiObj: {fileID: 1769067748}
   pos: {x: 0, y: 0, z: 0}
   canvas: {fileID: 413742545}
 --- !u!1 &565469929
@@ -727,6 +727,49 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!1 &644342994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644342996}
+  - component: {fileID: 644342995}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &644342995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644342994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee824b85e03c0e4ea9ee5c2907d68dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &644342996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644342994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797106813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,6 +1361,8 @@ GameObject:
   - component: {fileID: 1741725765}
   - component: {fileID: 1741725764}
   - component: {fileID: 1741725769}
+  - component: {fileID: 1741725771}
+  - component: {fileID: 1741725770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1427,6 +1472,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &1741725770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741725763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f69a1b39c0e9c44baee1b98c3b962c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectObject_tag: EffectObject
+--- !u!114 &1741725771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741725763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c96309cb7f1e747880ba9274e2ec81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectObjectAcquisition: []
+  effectObjectName: []
 --- !u!1 &1769067748
 GameObject:
   m_ObjectHideFlags: 0
