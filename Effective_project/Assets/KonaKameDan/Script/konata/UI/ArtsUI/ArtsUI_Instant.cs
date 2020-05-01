@@ -58,6 +58,6 @@ public class ArtsUI_Instant : MonoBehaviour
     //アーツをセットするボタン
     bool OnTrigger()
     {
-        return UI_Manager.ArtsEntryTrigger();
+        return UI_Manager.ArtsEntryTrigger() && UI_Manager.GetIsEffectFusionUI_ChoiceActive;
     }
 }
