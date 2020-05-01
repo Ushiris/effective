@@ -14,6 +14,9 @@ public class UI_Manager : MonoBehaviour
 
     [SerializeField] GameObject textObj;
 
+    [Header("アーツを登録するキー")]
+    public KeyCode artsEntryKey = KeyCode.Q;
+
     [Header("アーツセット表示タイミング")]
     public float artsSetTimingTnterval = 0.1f;
 
@@ -37,7 +40,7 @@ public class UI_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -73,6 +76,15 @@ public class UI_Manager : MonoBehaviour
     bool EffectFusionUI_ActiveTrigger()
     {
         return Input.GetKeyDown(effectFusionUI_ActiveKey);
+    }
+
+    /// <summary>
+    /// アーツを登録するボタン
+    /// </summary>
+    /// <returns></returns>
+    public static bool ArtsEntryTrigger()
+    {
+        return Input.GetKeyDown(GetUI_Manager.artsEntryKey);
     }
 
     /// <summary>
