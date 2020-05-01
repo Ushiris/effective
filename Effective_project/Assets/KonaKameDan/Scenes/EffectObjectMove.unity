@@ -811,3 +811,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c96309cb7f1e747880ba9274e2ec81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectObjectAcquisition: []
+  effectObjectName: []
