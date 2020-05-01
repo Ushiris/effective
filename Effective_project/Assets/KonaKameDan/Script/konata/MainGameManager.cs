@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// インゲームのマネージャー
+/// </summary>
 public class MainGameManager : MonoBehaviour
 {
 
@@ -22,6 +25,6 @@ public class MainGameManager : MonoBehaviour
     /// </summary>
     public static List<EffectObjectAcquisition.EffectObjectClass> GetPlEffectList
     {
-        get { return new List<EffectObjectAcquisition.EffectObjectClass>(EffectObjectAcquisition.GetEffectObjAcquisition.effectObjectAcquisition); }
+        get { return new List<EffectObjectAcquisition.EffectObjectClass>(EffectObjectAcquisition.GetEffectList); }
     }
 }

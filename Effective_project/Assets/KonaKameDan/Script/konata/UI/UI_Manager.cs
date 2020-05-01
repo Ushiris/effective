@@ -34,6 +34,7 @@ public class UI_Manager : MonoBehaviour
 
     void Awake()
     {
+        //所持エフェクト
         EffectListCount = MainGameManager.GetPlEffectList.Count;
 
         GetUI_Manager = this;
@@ -48,13 +49,16 @@ public class UI_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //所持エフェクト
+        EffectListCount = MainGameManager.GetPlEffectList.Count;
+
         EffectFusionUI();
     }
 
     void EffectFusionUI()
     {
         //アーツを作るUI表示
-        if (EffectFusionUI_ActiveTrigger())
+        if (EffectFusionUI_ActiveTrigger() && MainGameManager.GetPlEffectList.Count != 0)
         {
             if (!effectFusionUI_Obj.activeSelf)
             {

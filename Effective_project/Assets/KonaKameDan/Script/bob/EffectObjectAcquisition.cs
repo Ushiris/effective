@@ -11,13 +11,8 @@ public class EffectObjectAcquisition : MonoBehaviour
         public int count;
     }
     private EffectObjectID effectObjectID;
-    public List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
+    static List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
     public List<string> effectObjectName = new List<string>();// リスト作成
-
-    /// <summary>
-    /// 取得したエフェクト一覧
-    /// </summary>
-    public static EffectObjectAcquisition GetEffectObjAcquisition { get; private set; }
 
     private void OnTriggerEnter(Collider other)// 何かに当たった瞬間
     {
@@ -27,9 +22,6 @@ public class EffectObjectAcquisition : MonoBehaviour
         effectObjectID = anotherObject.GetComponent<EffectObjectID>();
 
         AddEffect(effectObjectID.effectObjectType);
-
-        //渡す用
-        GetEffectObjAcquisition = this;
     }
 
     void AddEffect(EffectObjectID.EffectObjectType type)
@@ -42,5 +34,13 @@ public class EffectObjectAcquisition : MonoBehaviour
             effectObjectAcquisition.Add(new EffectObjectClass { name = effectName, count = 1 });// リストに作成
             effectObjectName.Add(effectName);
         }
+    }
+
+    /// <summary>
+    /// 所持しているエフェクト取得用
+    /// </summary>
+    public static List<EffectObjectClass> GetEffectList
+    {
+        get { return new List<EffectObjectClass>(effectObjectAcquisition); }
     }
 }
