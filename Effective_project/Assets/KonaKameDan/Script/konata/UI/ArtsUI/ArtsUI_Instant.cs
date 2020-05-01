@@ -55,9 +55,9 @@ public class ArtsUI_Instant : MonoBehaviour
         obj.transform.SetParent(childObj[UI_Manager.GetChoiceArtsDeckNum].transform, false);
     }
 
-    //
+    //アーツをセットするボタン
     bool OnTrigger()
     {
-        return Input.GetKeyDown(KeyCode.Q);
+        return UI_Manager.ArtsEntryTrigger();
     }
 }
