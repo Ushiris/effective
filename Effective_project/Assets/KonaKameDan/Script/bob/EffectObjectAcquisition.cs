@@ -21,47 +21,26 @@ public class EffectObjectAcquisition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)// 何かに当たった瞬間
     {
+        if (other.gameObject.GetComponent<EffectObjectID>() == null) return;
+
         GameObject anotherObject = other.gameObject;
         effectObjectID = anotherObject.GetComponent<EffectObjectID>();
 
-        switch (effectObjectID.effectObjectType)// 当たったエフェクトオブジェクトが何かを取得
-        {
-            case EffectObjectID.EffectObjectType.RED:
-                if (effectObjectName.Contains("赤"))
-                    effectObjectAcquisition[effectObjectName.IndexOf("赤")].count++;// ストック追加
-                else
-                {
-                    effectObjectAcquisition.Add(new EffectObjectClass { name = "赤", count = 1 });// リストに作成
-                    effectObjectName.Add("赤");
-                }
-                break;
-
-            case EffectObjectID.EffectObjectType.BLUE:
-                if (effectObjectName.Contains("青"))
-                    effectObjectAcquisition[effectObjectName.IndexOf("青")].count++;// ストック追加
-                else
-                {
-                    effectObjectAcquisition.Add(new EffectObjectClass { name = "青", count = 1 });// リストに作成
-                    effectObjectName.Add("青");
-                }
-                break;
-
-            case EffectObjectID.EffectObjectType.EYLLOW:
-                if (effectObjectName.Contains("黄"))
-                    effectObjectAcquisition[effectObjectName.IndexOf("黄")].count++;// ストック追加
-                else
-                {
-                    effectObjectAcquisition.Add(new EffectObjectClass { name = "黄", count = 1 });// リストに作成
-                    effectObjectName.Add("黄");
-                }
-                break;
-
-            default:
-                Debug.Log("その他");
-                break;
-        }
+        AddEffect(effectObjectID.effectObjectType);
 
         //渡す用
         GetEffectObjAcquisition = this;
+    }
+
+    void AddEffect(EffectObjectID.EffectObjectType type)
+    {
+        var effectName = EffectObjectID.effectDictionary[type];
+        if (effectObjectName.Contains(effectName))
+            effectObjectAcquisition[effectObjectName.IndexOf(effectName)].count++;// ストック追加
+        else
+        {
+            effectObjectAcquisition.Add(new EffectObjectClass { name = effectName, count = 1 });// リストに作成
+            effectObjectName.Add(effectName);
+        }
     }
 }

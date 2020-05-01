@@ -9,7 +9,13 @@ public class EffectObjectID : MonoBehaviour
     {
         RED,
         BLUE,
-        EYLLOW
+        YELLOW
     }
+    public static Dictionary<EffectObjectType, string> effectDictionary = new Dictionary<EffectObjectType, string>() {
+        { EffectObjectType.BLUE,"青"},
+        { EffectObjectType.RED,"赤"},
+        {EffectObjectType.YELLOW,"黄" }
+    };
+
     public EffectObjectType effectObjectType;
 }
