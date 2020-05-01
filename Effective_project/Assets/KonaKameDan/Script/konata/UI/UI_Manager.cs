@@ -9,7 +9,7 @@ public class UI_Manager : MonoBehaviour
 {
     [Header("アーツを作るUI表示")]
     [SerializeField] KeyCode effectFusionUI_ActiveKey = KeyCode.E;
-    [SerializeField] GameObject effectFusionUI_Obj;
+    public GameObject effectFusionUI_Obj;
     //[SerializeField] GameObject effectFusionUI_CircleMakeByPizza;
 
     [SerializeField] GameObject textObj;
@@ -85,6 +85,14 @@ public class UI_Manager : MonoBehaviour
     public static bool ArtsEntryTrigger()
     {
         return Input.GetKeyDown(GetUI_Manager.artsEntryKey);
+    }
+
+    /// <summary>
+    /// エフェクト選択メニュー画面がアクティブかどうか
+    /// </summary>
+    public static bool GetIsEffectFusionUI_ChoiceActive
+    {
+        get { return GetUI_Manager.effectFusionUI_Obj.activeSelf; }
     }
 
     /// <summary>

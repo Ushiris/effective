@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class CirclByPizza : MonoBehaviour
 {
     [SerializeField] GameObject objPizza;
-    [SerializeField] GameObject EffectFusionUiObj;
     [SerializeField] Vector3 pos;
     [SerializeField] GameObject canvas;
 
@@ -30,7 +29,7 @@ public class CirclByPizza : MonoBehaviour
     void Update()
     {
         //監視オブジェクトがアクティブになった時にUIを生成する
-        if (EffectFusionUiObj.activeSelf)
+        if (UI_Manager.GetIsEffectFusionUI_ChoiceActive)
         {
             cutNum = UI_Manager.GetUI_Manager.EffectListCount;
 
