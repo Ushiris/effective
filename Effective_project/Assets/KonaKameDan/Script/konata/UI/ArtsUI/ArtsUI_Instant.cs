@@ -35,14 +35,21 @@ public class ArtsUI_Instant : MonoBehaviour
                         break;
                     }
                 }
+
+                InstantUI();
             }
             else
             {
-                //生成
-                GameObject obj = Instantiate(artsDeckObj);
-                obj.transform.SetParent(childObj[UI_Manager.GetChoiceArtsDeckNum].transform, false);
+                InstantUI();
             }
         }
+    }
+
+    void InstantUI()
+    {
+        //生成
+        GameObject obj = Instantiate(artsDeckObj);
+        obj.transform.SetParent(childObj[UI_Manager.GetChoiceArtsDeckNum].transform, false);
     }
 
     //

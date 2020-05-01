@@ -22,6 +22,25 @@ public class ArtsDeckUI_Instant : MonoBehaviour
     {
         artsCount = UI_Manager.GetEffectFusionUI_ChoiceList.Count;
 
+        if (artsCount > 1)
+        {
+            Resize();
+            ImageChange();
+        }
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    /// <summary>
+    /// アイコン位置操作
+    /// </summary>
+    void Resize()
+    {
         //オブジェクトの幅を取得
         float fixSpace = artsText.GetComponent<RectTransform>().sizeDelta.x;
         float iconWidth = artsIcon.GetComponent<RectTransform>().sizeDelta.x;
@@ -41,8 +60,13 @@ public class ArtsDeckUI_Instant : MonoBehaviour
             fixSpace = artsIconList[i].GetComponent<RectTransform>().localPosition.x + iconWidth / 2;
             fixSpace += space;
         }
+    }
 
-        //画像差し替え
+    /// <summary>
+    /// 画像差し替え
+    /// </summary>
+    void ImageChange()
+    {
         for (int i = 0; i < UI_Manager.GetEffectFusionUI_ChoiceList.Count; i++)
         {
             int num = UI_Manager.GetEffectFusionUI_ChoiceList[i];
@@ -51,12 +75,6 @@ public class ArtsDeckUI_Instant : MonoBehaviour
                 artsIconList[i + 1].GetComponent<Image>().sprite = UI_Image.GetUI_Image.effectIconList[num];
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     /// <summary>
