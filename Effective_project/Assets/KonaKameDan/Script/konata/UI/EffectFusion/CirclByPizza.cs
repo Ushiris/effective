@@ -53,7 +53,7 @@ public class CirclByPizza : MonoBehaviour
             for (int i = 0; i < cutNum; i++)
             {
                 //選択した場合色を変える
-                if (UI_Manager.GetEffectFusionUI_ChoiceList().Contains(i))
+                if (UI_Manager.GetEffectFusionUI_ChoiceList.Contains(i))
                 {
                     Color color = new Color(Color.yellow.r, Color.yellow.g, Color.yellow.b, 0.5f);
                     pizzaList[i].transform.GetChild(0).gameObject.GetComponent<Image>().color = color;
