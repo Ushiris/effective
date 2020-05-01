@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// アーツセットの登録
+/// </summary>
 public class ArtsUI_Instant : MonoBehaviour
 {
     [SerializeField] GameObject artsDeckObj;

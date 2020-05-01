@@ -27,7 +27,6 @@ public class ArtsDeckUI_Instant : MonoBehaviour
             Resize();
             ImageChange();
         }
-
     }
 
     // Update is called once per frame

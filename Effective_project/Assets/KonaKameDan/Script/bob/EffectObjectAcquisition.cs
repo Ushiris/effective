@@ -13,6 +13,12 @@ public class EffectObjectAcquisition : MonoBehaviour
     private EffectObjectID effectObjectID;
     public List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
     public List<string> effectObjectName = new List<string>();// リスト作成
+
+    /// <summary>
+    /// 取得したエフェクト一覧
+    /// </summary>
+    public static EffectObjectAcquisition GetEffectObjAcquisition { get; private set; }
+
     private void OnTriggerEnter(Collider other)// 何かに当たった瞬間
     {
         GameObject anotherObject = other.gameObject;
@@ -54,5 +60,8 @@ public class EffectObjectAcquisition : MonoBehaviour
                 Debug.Log("その他");
                 break;
         }
+
+        //渡す用
+        GetEffectObjAcquisition = this;
     }
 }
