@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class EffectObjectMove : MonoBehaviour
 {
-    public float rotationSpeed;
     [SerializeField] float sin;// 上下運動用
+    private float oldPositionY;// 初めの高さ
+    public float rotationSpeed;// 回転スピード
+    public float sinAdjustment;// 揺れ幅調整
+
+    private void Start()
+    {
+        oldPositionY = transform.position.y;
+    }
     void Update()
     {
-        sin = Mathf.Sin(Time.time);
+        sin = Mathf.Sin(Time.time) * sinAdjustment;
         transform.Rotate(new Vector3(0.0f, rotationSpeed, 0.0f));
-        transform.position = new Vector3(transform.position.x, sin, transform.position.z);
+        transform.position = new Vector3(transform.position.x, sin + oldPositionY + sinAdjustment, transform.position.z);
     }
 }
