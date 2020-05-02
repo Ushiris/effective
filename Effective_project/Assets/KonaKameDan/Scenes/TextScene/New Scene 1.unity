@@ -122,6 +122,8 @@ GameObject:
   m_Component:
   - component: {fileID: 234225285}
   - component: {fileID: 234225284}
+  - component: {fileID: 234225287}
+  - component: {fileID: 234225286}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -141,9 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11864d51775fca40977263ba1e24b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNum: 10
-  maxEffectNum: 3
-  artsDataList: []
 --- !u!4 &234225285
 Transform:
   m_ObjectHideFlags: 0
@@ -158,6 +157,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &234225286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234225283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642123f3145c37a4ebf161347a71d5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &234225287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234225283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe26a22c450d6d458ef06d978730d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxNum: 10
+  maxEffectNum: 3
+  artsDataList: []
 --- !u!1 &1582791758
 GameObject:
   m_ObjectHideFlags: 0
