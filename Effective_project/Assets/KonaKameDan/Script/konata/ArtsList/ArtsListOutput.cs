@@ -41,7 +41,7 @@ public class ArtsListOutput : MonoBehaviour
         foreach (var a in artsDataList)
         {
             string str = a.name + "," + ChangeStrArr(a.effectList);
-
+            str = str.Trim(',');
 
             strList.Add(str);
         }

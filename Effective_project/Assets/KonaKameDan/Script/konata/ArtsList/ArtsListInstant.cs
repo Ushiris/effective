@@ -37,7 +37,7 @@ public class ArtsListInstant : MonoBehaviour
 
         for (; ; )
         {
-            if (count < 1) break;
+            if (count < 2) break;
 
             //コンビネーションの表を作成
             foreach (var n in Permutation.Enumerate(nums, count, false))
