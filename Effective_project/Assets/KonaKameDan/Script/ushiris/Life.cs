@@ -11,15 +11,11 @@ public class Life : MonoBehaviour
 
     int HP = 1;
 
-    List<HeartBeat> beat;
-    List<Dead> dead;
+    List<HeartBeat> beat=new List<HeartBeat>();
+    List<Dead> dead = new List<Dead>();
 
     private void Awake()
     {
-        //init life behaviour
-        beat.Add(() => { });
-        dead.Add(() => { });
-
         //error
         if (HP <= 0)
         {
