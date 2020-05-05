@@ -15,4 +15,13 @@ public class enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    
+}
+
+
+public class EffectFusionMap:MonoBehaviour
+{
+    string effectName;
+    List<EffectFusionMap> derivation;
 }
