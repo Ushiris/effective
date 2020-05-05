@@ -27,9 +27,8 @@ public class EnemyFind : MonoBehaviour
         return enemy;
     }
 
-#nullable enable 
     //射撃等のターゲットにすべき敵を取得します。
-    public GameObject? GetNearEnemyPos(Vector3 pivot)
+    public GameObject GetNearEnemyPos(Vector3 pivot)
     {
         if (enemy.Count == 0) return null; //敵が見当たらない場合にnullを返します。
 
@@ -48,6 +47,5 @@ public class EnemyFind : MonoBehaviour
 
         return result;
     }
-#nullable disable
 
 }
