@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyFind : MonoBehaviour
 {
-    List<GameObject> enemy;
+    List<GameObject> enemy=new List<GameObject>();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,7 +38,7 @@ public class EnemyFind : MonoBehaviour
         enemy.ForEach((tr) =>
         {
             var dist_x = Vector3.Distance(pivot, tr.transform.position);
-            if (dist_min < dist_x)
+            if (dist_min > dist_x)
             {
                 result = tr;
                 dist_min = dist_x;
