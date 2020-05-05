@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     Life life;
     private void Start()
@@ -15,4 +15,13 @@ public class enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    
+}
+
+
+public class EffectFusionMap:MonoBehaviour
+{
+    string effectName;
+    List<EffectFusionMap> derivation;
 }
