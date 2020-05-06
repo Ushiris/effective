@@ -51,6 +51,9 @@ public class TextInput : MonoBehaviour
                 datas.Add(new ArtsList.ArtsData());
             }
 
+            //IDの取得
+            datas[count].id = arr[(int)ArtsList.ArtsDataName.ID].Remove(0, 1);
+
             //名前の挿入
             datas[count].name = arr[(int)ArtsList.ArtsDataName.Name];
 

@@ -184,6 +184,8 @@ MonoBehaviour:
   maxNum: 10
   maxEffectNum: 3
   artsDataList: []
+  s: 
+  i: 0
 --- !u!1 &1582791758
 GameObject:
   m_ObjectHideFlags: 0

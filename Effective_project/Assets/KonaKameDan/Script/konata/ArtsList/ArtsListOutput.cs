@@ -40,7 +40,10 @@ public class ArtsListOutput : MonoBehaviour
 
         foreach (var a in artsDataList)
         {
-            string str = a.name + "," + ChangeStrArr(a.effectList);
+            //テキストに書き込む順番
+            string str = "'" + a.id + "," + a.name + "," + ChangeStrArr(a.effectList);
+
+
             str = str.Trim(',');
 
             strList.Add(str);

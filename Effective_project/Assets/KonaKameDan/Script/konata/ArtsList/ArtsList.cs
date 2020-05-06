@@ -10,49 +10,62 @@ public class ArtsList : MonoBehaviour
     //クラスの順番表
     public enum ArtsDataName
     {
-        Name, EffectList
+        ID, Name, EffectList
     }
 
     [SerializeField] int maxNum = 10;
     [SerializeField] int maxEffectNum = 3;
 
-    public static string textLink = "Assets/Resources/ArtsList.txt";
+    public static string textLink = "Assets/Resources/ArtsList.csv";
     string ArtsListTextName = "ArtsList";
 
     [System.Serializable]
     public class ArtsData
     {
         public string name;
+        public string id;
         public List<int> effectList = new List<int>();  //最後にすること(順番)
     }
     public List<ArtsData> artsDataList = new List<ArtsData>();
 
+    //渡すよう
     public static ArtsList GetArtsList;
+
+    public string s;
+    public int i;
+
+    private void Awake()
+    {
+        ArtsListTextInput(true);
+        ArtsListSearchSetUp();
+
+        GetArtsList = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        GetArtsList = this;
+        //ArtsDataInstant();
+        //TextOutput();
 
-
-        ArtsListTextInput(true);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       i= ArtsListSearch.GetArtsNumListChangeStr(s);
     }
 
+    //組み合わせを生成する
     void ArtsDataInstant()
     {
-        //組み合わせを生成する
         artsDataList = new List<ArtsData>(ArtsListInstant.InstantArtsList(maxNum, maxEffectNum));
     }
 
+    //テキストに書き出し
     void TextOutput()
     {
-        //テキストに書き出し
         ArtsListOutput.TextOutput(artsDataList);
     }
 
@@ -60,5 +73,11 @@ public class ArtsList : MonoBehaviour
     void ArtsListTextInput(bool newCreate)
     {
         TextInput.ArtsListTextInput(ArtsListTextName, artsDataList, newCreate);
+    }
+
+    //検索用の起動
+    void ArtsListSearchSetUp()
+    {
+        ArtsListSearch.SearchSetting(artsDataList);
     }
 }

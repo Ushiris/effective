@@ -49,6 +49,9 @@ public class ArtsListInstant : MonoBehaviour
                 {
                     //組み合わせ生成
                     artsDataList[loopCount].effectList.Add(x);
+
+                    //IDの生成
+                    artsDataList[loopCount].id += x;
                 }
 
                 //文字
@@ -61,7 +64,6 @@ public class ArtsListInstant : MonoBehaviour
 
         return new List<ArtsList.ArtsData>(artsDataList);
     }
-   
 
 }
 
