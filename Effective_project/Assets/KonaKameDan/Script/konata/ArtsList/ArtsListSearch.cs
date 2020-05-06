@@ -27,8 +27,7 @@ public class ArtsListSearch : MonoBehaviour
     /// <param name="items"></param>
     /// <returns></returns>
     public static int GetArtsNumListChangeStr<T>(IEnumerable<T> items)
-    {
-        
+    {      
         return GetArtsNum(ListChangeStr(items));
     }
 
@@ -42,34 +41,15 @@ public class ArtsListSearch : MonoBehaviour
     {
         int num = nameList.IndexOf(item);
 
-        if (-1 != num) return num;  //名前での検索
+        //名前での検索
+        if (-1 != num) return num;
         else
         {
-            num = Judge(item);      //IDでの検索
+            //IDでの検索
+            num = idList.IndexOf(MySort.strSort(item));
         }
 
         return num;
-
-        int Judge(string str)
-        {
-            //文字のソート
-            char[] strArr = str.ToCharArray();
-            Array.Sort(strArr);
-            str = string.Join(null, strArr);
-
-            int count = 0;
-
-            //リストの中身と一致するものがあれば、配列番号を返す
-            foreach (var id in idList)
-            {
-                if (id == str)
-                {
-                    return count;
-                }
-                count++;
-            }
-            return -1;
-        }
     }
 
     /// <summary>
@@ -100,11 +80,22 @@ public class ArtsListSearch : MonoBehaviour
         {
             nameList.Add(data.name);
 
-            //IDのソート
-            char[] idArr = data.id.ToCharArray();
-            Array.Sort(idArr);
-
-            idList.Add(string.Join(null, idArr));
+            idList.Add(MySort.strSort(data.id));
         }
+    }
+}
+
+public static class MySort
+{
+    /// <summary>
+    /// stringのソート
+    /// </summary>
+    /// <param name="item"></param>
+    /// <returns></returns>
+    public static string strSort(string item)
+    {
+        char[] c = item.ToCharArray();
+        Array.Sort(c);
+        return string.Join(null, c);
     }
 }

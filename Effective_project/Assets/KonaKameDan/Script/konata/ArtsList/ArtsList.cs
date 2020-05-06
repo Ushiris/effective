@@ -54,7 +54,8 @@ public class ArtsList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       i= ArtsListSearch.GetArtsNumListChangeStr(s);
+        //検索
+       i= ArtsListSearch.GetArtsNum(string.Join(null,s));
     }
 
     //組み合わせを生成する
