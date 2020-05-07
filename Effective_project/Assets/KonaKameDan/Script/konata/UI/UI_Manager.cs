@@ -36,8 +36,7 @@ public class UI_Manager : MonoBehaviour
     void Awake()
     {
         //所持エフェクト
-
-        EffectListCount = MainGameManager.GetPlEffectList.Count;
+        if (!onEffectListCauntDebug) EffectListCount = MainGameManager.GetPlEffectList.Count;
 
         GetUI_Manager = this;
     }
