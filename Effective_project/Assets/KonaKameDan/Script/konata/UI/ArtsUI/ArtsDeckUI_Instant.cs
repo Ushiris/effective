@@ -45,7 +45,7 @@ public class ArtsDeckUI_Instant : MonoBehaviour
         float iconWidth = artsIcon.GetComponent<RectTransform>().sizeDelta.x;
 
         //アーツ名表示用テキストの生成
-        InstantObj(artsText, fixSpace / 2 - iconWidth / 2, artsCount + 2);
+        InstantObj(artsText, fixSpace / 2, artsCount + 2);
 
         float f = fixSpace / 2 + space;
         fixSpace = artsIconList[0].GetComponent<RectTransform>().localPosition.x + f;

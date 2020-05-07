@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &60677234
@@ -229,7 +229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79485291
@@ -928,8 +928,6 @@ MonoBehaviour:
   maxNum: 10
   maxEffectNum: 3
   artsDataList: []
-  s: 
-  i: 0
 --- !u!4 &1415889323
 Transform:
   m_ObjectHideFlags: 0
@@ -1289,7 +1287,7 @@ MonoBehaviour:
   artsSelectSiz: 0.6
   artsDeckSpace: 80
   EffectListCount: 10
-  onEffectListCauntDebug: 0
+  onEffectListCauntDebug: 1
 --- !u!4 &1899092520
 Transform:
   m_ObjectHideFlags: 0

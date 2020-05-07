@@ -19,6 +19,7 @@ public class TextInput : MonoBehaviour
 
     }
 
+
     /// <summary>
     /// テキストからアーツのデータを読み込む
     /// </summary>
@@ -60,6 +61,7 @@ public class TextInput : MonoBehaviour
             //組み合わせの挿入
             for (int i = (int)ArtsList.ArtsDataName.EffectList; i < arr.Length; i++)
             {
+                if (arr[i].Trim().Length == 0) break; //何もない場合ループから抜け出す
                 if (isCreate)
                 {
                     datas[count].effectList.Add(0);
