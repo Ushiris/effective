@@ -5,7 +5,7 @@ using System;
 
 public class ArtsListSearch : MonoBehaviour
 {
-    new static List<string> nameList = new List<string>();
+    static List<string> nameList = new List<string>();
     static List<string> idList = new List<string>();
 
     // Start is called before the first frame update
@@ -47,6 +47,7 @@ public class ArtsListSearch : MonoBehaviour
         {
             //IDでの検索
             num = idList.IndexOf(MySort.strSort(item));
+            if (num == -1) Debug.LogError("サーチ先がありません");
         }
 
         return num;

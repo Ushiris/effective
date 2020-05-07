@@ -16,8 +16,8 @@ public class ArtsList : MonoBehaviour
     [SerializeField] int maxNum = 10;
     [SerializeField] int maxEffectNum = 3;
 
-    public static string textLink = "Assets/Resources/ArtsList.csv";
-    string ArtsListTextName = "ArtsList";
+    string textLink = "Assets/Resources/ArtsList.csv";
+    string artsListTextName = "ArtsList";
 
     [System.Serializable]
     public class ArtsData
@@ -30,9 +30,6 @@ public class ArtsList : MonoBehaviour
 
     //渡すよう
     public static ArtsList GetArtsList;
-
-    public string s;
-    public int i;
 
     private void Awake()
     {
@@ -54,8 +51,7 @@ public class ArtsList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //検索
-       i= ArtsListSearch.GetArtsNum(string.Join(null,s));
+
     }
 
     //組み合わせを生成する
@@ -67,18 +63,43 @@ public class ArtsList : MonoBehaviour
     //テキストに書き出し
     void TextOutput()
     {
-        ArtsListOutput.TextOutput(artsDataList);
+        ArtsListOutput.TextOutput(textLink, artsDataList);
     }
 
     //テキストの読み込み
     void ArtsListTextInput(bool newCreate)
     {
-        TextInput.ArtsListTextInput(ArtsListTextName, artsDataList, newCreate);
+        TextInput.ArtsListTextInput(artsListTextName, artsDataList, newCreate);
     }
 
     //検索用の起動
     void ArtsListSearchSetUp()
     {
         ArtsListSearch.SearchSetting(artsDataList);
+    }
+
+    /// <summary>
+    /// 名前またはIDから条件に合ったアーツデータを返す
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="time"></param>
+    /// <returns></returns>
+    public static　ArtsData GetLookedForArts<T>(IEnumerable<T> itme)
+    {
+        int num = ArtsListSearch.GetArtsNum(string.Join(null, itme));
+        return GetArtsList.artsDataList[num];
+    }
+
+    /// <summary>
+    /// 選択したものからアーツデータを持ってくる
+    /// </summary>
+    public static ArtsData GetSelectArts
+    {
+        get
+        {
+            string data = string.Join(null, UI_Manager.GetEffectFusionUI_ChoiceList);
+            int num = ArtsListSearch.GetArtsNum(data);
+            return GetArtsList.artsDataList[num];
+        }
     }
 }

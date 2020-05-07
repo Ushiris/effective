@@ -29,12 +29,14 @@ public class UI_Manager : MonoBehaviour
 
     [Header("エフェクトの最大の数")]
     public int EffectListCount = 10;
+    [SerializeField] bool onEffectListCauntDebug;
 
     public static UI_Manager GetUI_Manager;
 
     void Awake()
     {
         //所持エフェクト
+
         EffectListCount = MainGameManager.GetPlEffectList.Count;
 
         GetUI_Manager = this;
@@ -49,8 +51,12 @@ public class UI_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //所持エフェクト
-        EffectListCount = MainGameManager.GetPlEffectList.Count;
+        if (!onEffectListCauntDebug)
+        {
+            EffectListCount = MainGameManager.GetPlEffectList.Count;
+        }
 
         EffectFusionUI();
     }
@@ -58,7 +64,7 @@ public class UI_Manager : MonoBehaviour
     void EffectFusionUI()
     {
         //アーツを作るUI表示
-        if (EffectFusionUI_ActiveTrigger() && MainGameManager.GetPlEffectList.Count != 0)
+        if (EffectFusionUI_ActiveTrigger() && EffectListCount != 0)
         {
             if (!effectFusionUI_Obj.activeSelf)
             {

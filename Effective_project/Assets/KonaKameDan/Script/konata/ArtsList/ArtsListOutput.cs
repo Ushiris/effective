@@ -24,9 +24,9 @@ public class ArtsListOutput : MonoBehaviour
     /// テキストに書き出す
     /// </summary>
     /// <param name="artsDataList"></param>
-    public static void TextOutput(List<ArtsList.ArtsData> artsDataList)
+    public static void TextOutput(string textLink, List<ArtsList.ArtsData> artsDataList)
     {
-        File.WriteAllLines(ArtsList.textLink, ArtsDataChangeStr(artsDataList));
+        File.WriteAllLines(textLink, ArtsDataChangeStr(artsDataList));
     } 
 
     /// <summary>

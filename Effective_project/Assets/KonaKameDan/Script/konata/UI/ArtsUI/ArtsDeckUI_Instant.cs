@@ -12,7 +12,7 @@ public class ArtsDeckUI_Instant : MonoBehaviour
     [SerializeField] GameObject artsText;
     [SerializeField] float space = 10f;
 
-    public int artsCount;
+    int artsCount;
 
     //渡すことのできる
     public List<GameObject> artsIconList = new List<GameObject>();
@@ -66,14 +66,20 @@ public class ArtsDeckUI_Instant : MonoBehaviour
     /// </summary>
     void ImageChange()
     {
+
+        //アイコンを入れる
         for (int i = 0; i < UI_Manager.GetEffectFusionUI_ChoiceList.Count; i++)
         {
             int num = UI_Manager.GetEffectFusionUI_ChoiceList[i];
             if (UI_Image.GetUI_Image.effectIconList.Count > num)
             {
+                //画像
                 artsIconList[i + 1].GetComponent<Image>().sprite = UI_Image.GetUI_Image.effectIconList[num];
             }
         }
+
+        //文字の挿入
+        artsIconList[0].GetComponent<Text>().text = ArtsList.GetSelectArts.name;
     }
 
     /// <summary>

@@ -246,7 +246,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objPizza: {fileID: 8573260699995251158, guid: 21ed78e51bf48e248be399c3bd6b0f2e,
     type: 3}
-  EffectFusionUiObj: {fileID: 60677232}
   pos: {x: 0, y: 0, z: 0}
   canvas: {fileID: 79485289}
 --- !u!1 &103116532
@@ -897,6 +896,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377808454}
   m_CullTransparentMesh: 0
+--- !u!1 &1415889321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1415889323}
+  - component: {fileID: 1415889322}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1415889322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415889321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe26a22c450d6d458ef06d978730d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxNum: 10
+  maxEffectNum: 3
+  artsDataList: []
+  s: 
+  i: 0
+--- !u!4 &1415889323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415889321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1450147476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,12 +1283,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectFusionUI_ActiveKey: 101
   effectFusionUI_Obj: {fileID: 60677232}
-  effectFusionUI_CircleMakeByPizza: {fileID: 79485289}
   textObj: {fileID: 981636920}
+  artsEntryKey: 113
   artsSetTimingTnterval: 0.1
   artsSelectSiz: 0.6
   artsDeckSpace: 80
   EffectListCount: 10
+  onEffectListCauntDebug: 0
 --- !u!4 &1899092520
 Transform:
   m_ObjectHideFlags: 0
