@@ -2,20 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class Life : MonoBehaviour
 {
     public delegate void HeartBeat();
     public delegate void Dead();
 
+    int MaxHP { get; set; }
     int HP = 1;
+
+    StopWatch timer;
 
     List<HeartBeat> beat=new List<HeartBeat>();
     List<Dead> dead = new List<Dead>();
 
     private void Awake()
     {
+        timer = gameObject.AddComponent<StopWatch>();
+        timer.LapTime = 1f;
+        timer.LapEvent = () => { beat.ForEach((live) => { live(); }); };
+
         //error
         if (HP <= 0)
         {
@@ -25,7 +30,6 @@ public class Life : MonoBehaviour
 
     private void Update()
     {
-        beat.ForEach((live) => { live(); });
         if (HP <= 0)
         {
             dead.ForEach((lastword) => { lastword(); });
@@ -47,5 +51,12 @@ public class Life : MonoBehaviour
         int true_damege = fouce;
         HP -= true_damege;
         return true_damege;
+    }
+
+    public int Heal(int fouce)
+    {
+        int true_heal = (HP + fouce > MaxHP) ? fouce - (MaxHP - HP) : fouce;
+        HP += true_heal;
+        return true_heal;
     }
 }
