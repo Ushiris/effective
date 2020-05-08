@@ -61,9 +61,6 @@ public class UI_Manager : MonoBehaviour
         }
 
         EffectFusionUI();
-
-
-        
     }
 
     void EffectFusionUI()

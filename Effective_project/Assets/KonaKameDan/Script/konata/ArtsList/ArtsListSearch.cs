@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// アーツデータから目的の物を探す
+/// </summary>
 public class ArtsListSearch : MonoBehaviour
 {
     static List<string> nameList = new List<string>();

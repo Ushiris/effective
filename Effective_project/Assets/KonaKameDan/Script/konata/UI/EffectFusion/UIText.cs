@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// カーソルのある位置のアイテム名を出す(ピザ)
+/// </summary>
 public class UIText : MonoBehaviour
 {
     Text txt;
