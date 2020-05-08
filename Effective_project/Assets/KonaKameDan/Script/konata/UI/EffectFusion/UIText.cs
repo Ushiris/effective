@@ -15,6 +15,6 @@ public class UIText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = UI_Manager.GetEffectFusionUI_ChoiceNum.ToString();
+        txt.text = UI_Manager.GetEffectFusionUI_ChoiceNum.num.ToString();
     }
 }

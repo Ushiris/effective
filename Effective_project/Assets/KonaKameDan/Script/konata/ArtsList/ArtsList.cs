@@ -97,7 +97,7 @@ public class ArtsList : MonoBehaviour
     {
         get
         {
-            string data = string.Join(null, UI_Manager.GetEffectFusionUI_ChoiceList);
+            string data = string.Join(null, UI_Manager.GetEffectFusionUI_ChoiceNum.numList);
             int num = ArtsListSearch.GetArtsNum(data);
             return GetArtsList.artsDataList[num];
         }

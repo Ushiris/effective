@@ -9,6 +9,7 @@ public class EffectObjectAcquisition : MonoBehaviour
     {
         [HideInInspector] public string name;
         public int count;
+        public int id;
     }
     private EffectObjectID effectObjectID;
     static List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
@@ -32,6 +33,10 @@ public class EffectObjectAcquisition : MonoBehaviour
         else
         {
             effectObjectAcquisition.Add(new EffectObjectClass { name = effectName, count = 1 });// リストに作成
+
+            //IDの追加
+            effectObjectAcquisition[effectObjectAcquisition.Count - 1].id = (int)type;
+
             effectObjectName.Add(effectName);
         }
     }
