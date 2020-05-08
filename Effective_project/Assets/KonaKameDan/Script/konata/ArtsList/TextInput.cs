@@ -19,6 +19,7 @@ public class TextInput : MonoBehaviour
 
     }
 
+
     /// <summary>
     /// テキストからアーツのデータを読み込む
     /// </summary>
@@ -51,12 +52,16 @@ public class TextInput : MonoBehaviour
                 datas.Add(new ArtsList.ArtsData());
             }
 
+            //IDの取得
+            datas[count].id = arr[(int)ArtsList.ArtsDataName.ID].TrimStart('\'');
+
             //名前の挿入
             datas[count].name = arr[(int)ArtsList.ArtsDataName.Name];
 
             //組み合わせの挿入
             for (int i = (int)ArtsList.ArtsDataName.EffectList; i < arr.Length; i++)
             {
+                if (arr[i].Trim().Length == 0) break; //何もない場合ループから抜け出す
                 if (isCreate)
                 {
                     datas[count].effectList.Add(0);

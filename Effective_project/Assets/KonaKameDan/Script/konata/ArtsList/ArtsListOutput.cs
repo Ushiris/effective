@@ -24,9 +24,9 @@ public class ArtsListOutput : MonoBehaviour
     /// テキストに書き出す
     /// </summary>
     /// <param name="artsDataList"></param>
-    public static void TextOutput(List<ArtsList.ArtsData> artsDataList)
+    public static void TextOutput(string textLink, List<ArtsList.ArtsData> artsDataList)
     {
-        File.WriteAllLines(ArtsList.textLink, ArtsDataChangeStr(artsDataList));
+        File.WriteAllLines(textLink, ArtsDataChangeStr(artsDataList));
     } 
 
     /// <summary>
@@ -40,7 +40,10 @@ public class ArtsListOutput : MonoBehaviour
 
         foreach (var a in artsDataList)
         {
-            string str = a.name + "," + ChangeStrArr(a.effectList);
+            //テキストに書き込む順番
+            string str = "'" + a.id + "," + a.name + "," + ChangeStrArr(a.effectList);
+
+
             str = str.Trim(',');
 
             strList.Add(str);
