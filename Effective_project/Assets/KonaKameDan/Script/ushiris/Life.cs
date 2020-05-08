@@ -32,12 +32,12 @@ public class Life : MonoBehaviour
         }
     }
 
-    public void addLastword(Dead func)
+    public void AddLastword(Dead func)
     {
         dead.Add(func);
     }
 
-    public void addBeat(HeartBeat func)
+    public void AddBeat(HeartBeat func)
     {
         beat.Add(func);
     }

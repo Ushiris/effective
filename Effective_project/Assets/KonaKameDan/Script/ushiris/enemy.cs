@@ -8,20 +8,11 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         life = gameObject.AddComponent<Life>();
-        life.addLastword(Dead);
+        life.AddLastword(Dead);
     }
 
     void Dead()
     {
         Destroy(gameObject);
     }
-
-    
-}
-
-
-public class EffectFusionMap:MonoBehaviour
-{
-    string effectName;
-    List<EffectFusionMap> derivation;
 }

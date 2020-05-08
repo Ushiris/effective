@@ -16,6 +16,7 @@
 [Ll]ogs/
 /[Mm]emoryCaptures/
 [Mm]emoryCaptures/
+SineVFX/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -64,3 +65,4 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+Effective_project/Assets/SineVFX.meta
