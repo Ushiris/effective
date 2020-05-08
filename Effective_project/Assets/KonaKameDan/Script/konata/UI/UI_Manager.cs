@@ -17,6 +17,9 @@ public class UI_Manager : MonoBehaviour
     [Header("アーツを登録するキー")]
     public KeyCode artsEntryKey = KeyCode.Q;
 
+    [Header("アーツを選択するキー")]
+    public KeyCode effectFusionUI_ChoiceKey = KeyCode.Mouse0;
+
     [Header("アーツセット表示タイミング")]
     public float artsSetTimingTnterval = 0.1f;
 
@@ -107,21 +110,19 @@ public class UI_Manager : MonoBehaviour
     }
 
     /// <summary>
-    /// 選択したエフェクトのリスト
+    /// 選択したエフェクト
     /// </summary>
-    /// <returns></returns>
-    public static List<int> GetEffectFusionUI_ChoiceList
+    public static EffectFusionUi.NumAndList GetEffectFusionUI_ChoiceNum
     {
-        get { return new List<int>(EffectFusionUi.GetEffectFusionList); }
+        get { return EffectFusionUi.GetHitPosItem; }
     }
 
     /// <summary>
-    /// カーソルがあるアイテム名
+    /// 選択したエフェクトの角度
     /// </summary>
-    /// <returns></returns>
-    public static int GetEffectFusionUI_ChoiceNum
+    public static EffectFusionUi.NumAndList GetEffectFusionUI_ChoiceAng
     {
-        get { return EffectFusionUi.GetHitPosNum; }
+        get { return EffectFusionUi.GetHitPosAng; }
     }
 
     /// <summary>
@@ -132,5 +133,4 @@ public class UI_Manager : MonoBehaviour
     {
         get { return ArtsDeckChangeControll.GetNum; }
     }
-    
 }

@@ -49,7 +49,7 @@ public class CircleMakeByPizza : MonoBehaviour
             if (PossessionEffectList.GetIsPossessionEffect(i))
             {
                 //選択した場合色を変える
-                if (UI_Manager.GetEffectFusionUI_ChoiceList.Contains(i))
+                if (UI_Manager.GetEffectFusionUI_ChoiceNum.numList.Contains(i))
                 {
                     pizzaList[i].GetComponent<Image>().sprite = onPizzaImage.sprite;
                 }

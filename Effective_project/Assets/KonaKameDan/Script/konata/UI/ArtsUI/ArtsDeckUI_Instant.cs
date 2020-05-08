@@ -20,7 +20,7 @@ public class ArtsDeckUI_Instant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        artsCount = UI_Manager.GetEffectFusionUI_ChoiceList.Count;
+        artsCount = UI_Manager.GetEffectFusionUI_ChoiceNum.numList.Count;
 
         if (artsCount > 1)
         {
@@ -68,9 +68,9 @@ public class ArtsDeckUI_Instant : MonoBehaviour
     {
 
         //アイコンを入れる
-        for (int i = 0; i < UI_Manager.GetEffectFusionUI_ChoiceList.Count; i++)
+        for (int i = 0; i < UI_Manager.GetEffectFusionUI_ChoiceNum.numList.Count; i++)
         {
-            int num = UI_Manager.GetEffectFusionUI_ChoiceList[i];
+            int num = UI_Manager.GetEffectFusionUI_ChoiceNum.numList[i];
             if (UI_Image.GetUI_Image.effectIconList.Count > num)
             {
                 //画像

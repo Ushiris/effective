@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// カーソルのある位置のアイテム名を出す(ピザ)
+/// </summary>
 public class UIText : MonoBehaviour
 {
     Text txt;
@@ -15,6 +18,6 @@ public class UIText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = UI_Manager.GetEffectFusionUI_ChoiceNum.ToString();
+        txt.text = UI_Manager.GetEffectFusionUI_ChoiceNum.num.ToString();
     }
 }

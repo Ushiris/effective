@@ -49,19 +49,14 @@ public class CirclByPizza : MonoBehaviour
                 isStart = false; 
             }
 
-            for (int i = 0; i < cutNum; i++)
+            //選択した場合色を変えるフラグ発行
+            if (OnTrigger())
             {
-                //選択した場合色を変える
-                if (UI_Manager.GetEffectFusionUI_ChoiceList.Contains(i))
-                {
-                    Color color = new Color(Color.yellow.r, Color.yellow.g, Color.yellow.b, 0.5f);
-                    pizzaList[i].transform.GetChild(0).gameObject.GetComponent<Image>().color = color;
-                }
-                else
-                {
-                    Color color = new Color(Color.black.r, Color.black.g, Color.black.b, 0.5f);
-                    pizzaList[i].transform.GetChild(0).gameObject.GetComponent<Image>().color =color;
-                }
+                int num = UI_Manager.GetEffectFusionUI_ChoiceAng.num;
+                PizzaObj s = pizzaList[num].transform.GetChild(0).gameObject.GetComponent<PizzaObj>();
+
+                if (s.isChangeColor) s.isChangeColor = false;
+                else s.isChangeColor = true;
             }
         }
         else
@@ -78,5 +73,11 @@ public class CirclByPizza : MonoBehaviour
 
             isStart = true;
         }
+    }
+
+    //
+    bool OnTrigger()
+    {
+        return Input.GetKeyDown(UI_Manager.GetUI_Manager.effectFusionUI_ChoiceKey);
     }
 }

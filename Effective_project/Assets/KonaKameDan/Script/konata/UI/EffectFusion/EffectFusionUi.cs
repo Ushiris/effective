@@ -1,31 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// 自身の角度をもとに自身から見たマウスの角度を取得する
 /// </summary>
 public class EffectFusionUi : MonoBehaviour
 {
-    [SerializeField] KeyCode effectFusionUI_ChoiceKey = KeyCode.Mouse0;
-
     int cutNum = 10;
     float ang;
 
-    public static int GetHitPosNum { get; private set; }
-    public static List<int> GetEffectFusionList { get; private set; }
-
-    //デバッグ用
-    //[SerializeField] int debugNum;
-    //[SerializeField] List<int> debugNumList = new List<int>();
+    public class NumAndList
+    {
+        public int num;
+        public List<int> numList;
+    }
+    public static NumAndList GetHitPosItem { get; private set; }
+    public static NumAndList GetHitPosAng { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
         //初期化
-        GetEffectFusionList = new List<int>();
-        GetHitPosNum = 0;
+        GetHitPosItem = new NumAndList();
+        GetHitPosItem.numList = new List<int>();
+        GetHitPosAng = new NumAndList();
+        GetHitPosAng.numList = new List<int>();
 
         gameObject.SetActive(false);
     }
@@ -39,11 +39,20 @@ public class EffectFusionUi : MonoBehaviour
         ang = 360 / cutNum;
 
         ChoiceNum();
-        ChoiceList();
+ 
 
-        //デバッグ
-        //debugNum = GetHitPosNum;
-        //debugNumList = GetEffectFusionList;
+        //所持しているエフェクトからidを持ってくる
+        if (MainGameManager.GetPlEffectList.Count != 0)
+        {
+            GetHitPosItem.num = MainGameManager.GetPlEffectList[GetHitPosAng.num].id;
+        }
+        else
+        {
+            GetHitPosItem.num = GetHitPosAng.num;
+        }
+
+        ChoiceList(GetHitPosItem);
+        ChoiceList(GetHitPosAng);
     }
 
     //角度を決める
@@ -58,7 +67,7 @@ public class EffectFusionUi : MonoBehaviour
         //マウスが上に来た時0にする
         if (targetAng <= minAng || targetAng > minAng + ang * (cutNum - 1))
         {
-            GetHitPosNum = 0;
+            GetHitPosAng.num = 0;
         }
         else
         {
@@ -67,7 +76,7 @@ public class EffectFusionUi : MonoBehaviour
             {
                 if (targetAng > minAng && targetAng <= minAng + ang)
                 {
-                    GetHitPosNum = i;
+                    GetHitPosAng.num = i;
                     break;
                 }
                 minAng += ang;
@@ -76,21 +85,21 @@ public class EffectFusionUi : MonoBehaviour
     }
 
     //選択したものをリストに格納する
-    void ChoiceList()
+    void ChoiceList(NumAndList item)
     {
         if (EffectFusionUI_ChoiceTrigger())
         {
-            if (GetEffectFusionList.Contains(GetHitPosNum))
+            if (item.numList.Contains(item.num))
             {
                 //同じものを選択した場合、それを消す
-                GetEffectFusionList.Remove(GetHitPosNum);
+                item.numList.Remove(item.num);
             }
             else
             {
-                if (GetEffectFusionList.Count < 3)
+                if (item.numList.Count < 3)
                 {
                     //リスト内に選択したものがない場合リストに格納する
-                    GetEffectFusionList.Add(GetHitPosNum);
+                    item.numList.Add(item.num);
                 }
             }
         }
@@ -102,6 +111,6 @@ public class EffectFusionUi : MonoBehaviour
     /// <returns></returns>
     bool EffectFusionUI_ChoiceTrigger()
     {
-        return Input.GetKeyDown(effectFusionUI_ChoiceKey);
+        return Input.GetKeyDown(UI_Manager.GetUI_Manager.effectFusionUI_ChoiceKey);
     }
 }
