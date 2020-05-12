@@ -22,6 +22,7 @@ public class StopWatch : MonoBehaviour
 
         if (LapTime > LapTimer)
         {
+            LapEvent();
             LapTimer -= LapTime;
         }
     }

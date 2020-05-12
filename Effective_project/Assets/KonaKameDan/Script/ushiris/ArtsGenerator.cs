@@ -5,10 +5,13 @@ using UnityEngine.Networking;
 
 public class ArtsGenerator : MonoBehaviour
 {
-    List<string> getData()
+    public List<string> GetData()
     {
         return new List<string>();
     }
 
-
+    public List<ArtsActionElements.ArtsAction> GetActions(List<string> data)
+    {
+        return new List<ArtsActionElements.ArtsAction>();
+    }
 }

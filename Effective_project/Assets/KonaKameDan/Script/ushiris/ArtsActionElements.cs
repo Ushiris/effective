@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class ArtsActionElements : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public delegate void ArtsAction(GameObject arts);
+    public Dictionary<string, ArtsAction> actions = new Dictionary<string, ArtsAction>();
 }
