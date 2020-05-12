@@ -19,12 +19,16 @@ public class ArtsList : MonoBehaviour
     string textLink = "Assets/Resources/ArtsList.csv";
     string artsListTextName = "ArtsList";
 
+    string actionNamesTextLink = "Assets/Resources/ActionName.csv";
+    string actionNamesArtsListTextName = "ArtsListActionName";
+
     [System.Serializable]
     public class ArtsData
     {
         public string name;
         public string id;
         public List<int> effectList = new List<int>();  //最後にすること(順番)
+        public List<string> actionNames = new List<string>();
     }
     public List<ArtsData> artsDataList = new List<ArtsData>();
 
@@ -45,7 +49,7 @@ public class ArtsList : MonoBehaviour
         //ArtsDataInstant();
         //TextOutput();
 
-        
+
     }
 
     // Update is called once per frame
@@ -69,7 +73,7 @@ public class ArtsList : MonoBehaviour
     //テキストの読み込み
     void ArtsListTextInput(bool newCreate)
     {
-        TextInput.ArtsListTextInput(artsListTextName, artsDataList, newCreate);
+        TextInput.ArtsDataBaseInput(artsListTextName, actionNamesArtsListTextName, artsDataList, newCreate);
     }
 
     //検索用の起動
@@ -84,7 +88,7 @@ public class ArtsList : MonoBehaviour
     /// <typeparam name="T"></typeparam>
     /// <param name="time"></param>
     /// <returns></returns>
-    public static　ArtsData GetLookedForArts<T>(IEnumerable<T> itme)
+    public static ArtsData GetLookedForArts<T>(IEnumerable<T> itme)
     {
         int num = ArtsListSearch.GetArtsNum(string.Join(null, itme));
         return GetArtsList.artsDataList[num];
