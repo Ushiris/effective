@@ -56,7 +56,10 @@ public class CirclByPizza : MonoBehaviour
                 PizzaObj s = pizzaList[num].transform.GetChild(0).gameObject.GetComponent<PizzaObj>();
 
                 if (s.isChangeColor) s.isChangeColor = false;
-                else s.isChangeColor = true;
+                else if (UI_Manager.GetEffectFusionUI_ChoiceAng.numList.Count < 3)
+                {
+                    s.isChangeColor = true;
+                }
             }
         }
         else
