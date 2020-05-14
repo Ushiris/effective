@@ -39,7 +39,7 @@ public class EffectFusionUi : MonoBehaviour
         ang = 360 / cutNum;
 
         ChoiceNum();
- 
+
 
         //所持しているエフェクトからidを持ってくる
         if (MainGameManager.GetPlEffectList.Count != 0)
@@ -51,8 +51,11 @@ public class EffectFusionUi : MonoBehaviour
             GetHitPosItem.num = GetHitPosAng.num;
         }
 
-        ChoiceList(GetHitPosItem);
-        ChoiceList(GetHitPosAng);
+        if (EffectFusionUI_ChoiceTrigger())
+        {
+            ChoiceList(GetHitPosItem);
+            ChoiceList(GetHitPosAng);
+        }
     }
 
     //角度を決める
@@ -87,20 +90,17 @@ public class EffectFusionUi : MonoBehaviour
     //選択したものをリストに格納する
     void ChoiceList(NumAndList item)
     {
-        if (EffectFusionUI_ChoiceTrigger())
+        if (item.numList.Contains(item.num))
         {
-            if (item.numList.Contains(item.num))
+            //同じものを選択した場合、それを消す
+            item.numList.Remove(item.num);
+        }
+        else
+        {
+            if (item.numList.Count < 3)
             {
-                //同じものを選択した場合、それを消す
-                item.numList.Remove(item.num);
-            }
-            else
-            {
-                if (item.numList.Count < 3)
-                {
-                    //リスト内に選択したものがない場合リストに格納する
-                    item.numList.Add(item.num);
-                }
+                //リスト内に選択したものがない場合リストに格納する
+                item.numList.Add(item.num);
             }
         }
     }
