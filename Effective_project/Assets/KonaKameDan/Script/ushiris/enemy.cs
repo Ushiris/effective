@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     Life life;
+
     private void Start()
     {
         life = gameObject.AddComponent<Life>();

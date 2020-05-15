@@ -6,7 +6,7 @@ public class StopWatch : MonoBehaviour
 {
     public delegate void TimeEvent();
 
-    float lifeTime = 0f;
+    public float LifeTime { get; private set; }
     float LapTimer = 0f;
 
     public TimeEvent LapEvent { get; set; }
@@ -17,11 +17,12 @@ public class StopWatch : MonoBehaviour
     void Update()
     {
         float delta = Time.deltaTime;
-        lifeTime += delta;
+        LifeTime += delta;
         LapTimer += delta;
 
         if (LapTime > LapTimer)
         {
+            LapEvent();
             LapTimer -= LapTime;
         }
     }
