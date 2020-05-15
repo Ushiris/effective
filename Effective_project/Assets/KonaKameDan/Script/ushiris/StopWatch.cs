@@ -6,7 +6,7 @@ public class StopWatch : MonoBehaviour
 {
     public delegate void TimeEvent();
 
-    float lifeTime = 0f;
+    public float lifeTime { get; private set; }
     float LapTimer = 0f;
 
     public TimeEvent LapEvent { get; set; }
