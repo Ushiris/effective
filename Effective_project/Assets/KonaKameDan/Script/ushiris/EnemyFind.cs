@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyFind : MonoBehaviour
 {
-    List<GameObject> enemy=new List<GameObject>();
+    List<GameObject> enemy = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other)
     {
