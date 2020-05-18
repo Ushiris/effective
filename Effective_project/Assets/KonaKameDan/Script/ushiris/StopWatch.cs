@@ -9,6 +9,8 @@ public class StopWatch : MonoBehaviour
     public float LifeTime { get; private set; }
     float LapTimer = 0f;
 
+    bool isActive = true;
+
     public TimeEvent LapEvent { get; set; }
 
     public float LapTime { get; set; }
@@ -16,6 +18,8 @@ public class StopWatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isActive) return;
+
         float delta = Time.deltaTime;
         LifeTime += delta;
         LapTimer += delta;
@@ -25,5 +29,10 @@ public class StopWatch : MonoBehaviour
             LapEvent();
             LapTimer -= LapTime;
         }
+    }
+
+    public void Pause(bool pause)
+    {
+        isActive = pause;
     }
 }
