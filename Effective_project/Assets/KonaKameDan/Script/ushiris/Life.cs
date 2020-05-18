@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,8 +21,11 @@ public class Life : MonoBehaviour
 
     private void Awake()
     {
+        HP = int.MaxValue;
+        MaxHP = int.MaxValue;
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = 1f;
+        beat.Add(() => { CheckDead(); });
         timer.LapEvent = () => { beat.ForEach((live) => { live(); }); };
 
         //error
@@ -31,33 +35,34 @@ public class Life : MonoBehaviour
         }
     }
 
-    private void Update()
+    private bool CheckDead()
     {
-        if (HP <= 0)
-        {
-            timer.Pause(true);
-            dead.ForEach((lastword) => { lastword(); });
-        }
+        if (!(HP <= 0)) return false;
+
+        timer.Pause(true);
+        dead.ForEach((lastword) => { lastword(); });
+
+        return true;
     }
 
     public void AddLastword(Dead func)
     {
-        dead.Add(func);
+        dead.Insert(0,func);
     }
 
     public void AddBeat(HeartBeat func)
     {
-        beat.Add(func);
+        beat.Insert(0,func);
     }
 
     public void AddDamageFunc(DamageEvent func)
     {
-        damageEvent.Add(func);
+        damageEvent.Insert(0,func);
     }
 
     public void AddHealFunc(DamageEvent func)
     {
-        healEvent.Add(func);
+        healEvent.Insert(0,func);
     }
 
     public int Damage(int fouce)
@@ -65,6 +70,8 @@ public class Life : MonoBehaviour
         int true_damege = fouce;
         HP -= true_damege;
         damageEvent.ForEach((damage) => { damage(true_damege); });
+        CheckDead();
+
         return true_damege;
     }
 
@@ -73,6 +80,21 @@ public class Life : MonoBehaviour
         int true_heal = (HP + fouce > MaxHP) ? fouce - (MaxHP - HP) : fouce;
         HP += true_heal;
         healEvent.ForEach((heal) => { heal(true_heal); });
+
         return true_heal;
+    }
+
+    //return true is error
+    public bool LifeSetup(int max_hp,int def_hp)
+    {
+        MaxHP = max_hp;
+
+        if (def_hp > MaxHP)
+        {
+            def_hp = MaxHP;
+            return true;
+        }
+
+        return false;
     }
 }
