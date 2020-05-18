@@ -6,14 +6,17 @@ public class Life : MonoBehaviour
 {
     public delegate void HeartBeat();
     public delegate void Dead();
+    public delegate int DamageEvent(int true_damage);
 
-    int MaxHP { get; set; }
-    int HP = 1;
+    public int MaxHP { get; private set; }
+    public int HP { get; private set; }
 
     StopWatch timer;
 
     List<HeartBeat> beat=new List<HeartBeat>();
     List<Dead> dead = new List<Dead>();
+    List<DamageEvent> damageEvent = new List<DamageEvent>();
+    List<DamageEvent> healEvent = new List<DamageEvent>();
 
     private void Awake()
     {
@@ -32,6 +35,7 @@ public class Life : MonoBehaviour
     {
         if (HP <= 0)
         {
+            timer.Pause(true);
             dead.ForEach((lastword) => { lastword(); });
         }
     }
@@ -46,10 +50,21 @@ public class Life : MonoBehaviour
         beat.Add(func);
     }
 
+    public void AddDamageFunc(DamageEvent func)
+    {
+        damageEvent.Add(func);
+    }
+
+    public void AddHealFunc(DamageEvent func)
+    {
+        healEvent.Add(func);
+    }
+
     public int Damage(int fouce)
     {
         int true_damege = fouce;
         HP -= true_damege;
+        damageEvent.ForEach((damage) => { damage(true_damege); });
         return true_damege;
     }
 
@@ -57,6 +72,7 @@ public class Life : MonoBehaviour
     {
         int true_heal = (HP + fouce > MaxHP) ? fouce - (MaxHP - HP) : fouce;
         HP += true_heal;
+        healEvent.ForEach((heal) => { heal(true_heal); });
         return true_heal;
     }
 }
