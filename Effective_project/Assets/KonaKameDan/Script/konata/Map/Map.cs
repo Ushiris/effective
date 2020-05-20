@@ -1,138 +1,120 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 
+/// <summary>
+/// マップを管理
+/// </summary>
 public class Map : MonoBehaviour
 {
+    //オブジェクトの種類
     public enum ObjType
     {
         Nothing, Wall, Goal, Start, ProhibitedArea
-
     }
+    //マップを二次元配列で作成しているため、わかりやすくするための物
+    public enum MapDataArrLength { Width, Depth }
 
     [Header("生成する範囲")]
-    [SerializeField] int w = 100;
-    [SerializeField] int d = 100;
+    [SerializeField] int w = 200;
+    [SerializeField] int d = 200;
 
-    [SerializeField] float h = 1;
-    [SerializeField] float siz = 1f;
+    [SerializeField] float h = 1.5f;
+    [SerializeField] float siz = 5f;
 
     [Header("オブジェクトが埋まった時に道を作る")]
-    [SerializeField] int roadSpace = 3;
-    [SerializeField] int roadLength = 20;
+    [SerializeField] int roadSpace = 5;
+    [SerializeField] int roadLength = 30;
 
     [Header("ノイズの細かさ")]
-    [SerializeField] float chaos = 8f;
+    [SerializeField] float chaos = 30f;
 
-    [Header("生成するオブジェクト"), NamedArrayAttribute(new string[]
+    [Header("オブジェクト")]
+    [SerializeField] GameObject frameObj;
+    [SerializeField] GameObject wallObj;
+
+    [System.Serializable]
+    public class EventObj   //インスペクター上で操作ができるようにするための物
     {
-        "地面","壁","ゴール","スタート"
-    })]
-    [SerializeField] List<GameObject> obj = new List<GameObject>();
+        [HideInInspector] public string name;
+        [HideInInspector] public ObjType objType;
+        public GameObject obj;
+    }
+    [Header("イベントオブジェクト"),SerializeField]
+    List<EventObj> inspectorExclusive = new List<EventObj>() {
+        new EventObj{name=ObjType.Start.ToString(),objType=ObjType.Start },
+        new EventObj{name=ObjType.Goal.ToString(),objType=ObjType.Goal }
+    };
 
     [Header("シード値")]
     [SerializeField] int seed;
 
-    ObjType[,] mapData;
 
-    List<string> text = new List<string>();
+    ObjType[,] mapData;
+    Dictionary<ObjType, GameObject> eventObj = new Dictionary<ObjType, GameObject>();
+
+    /// <summary>
+    /// イベントを設置できる場所
+    /// </summary>
+    public static List<V2> RandomPutEventTable = new List<V2>();
 
     // Start is called before the first frame update
     void Start()
     {
-        if (seed == 0) seed = Random.seed;
-        else Random.seed = seed;
+        //シード値固定用
+        if (seed != 0) Random.seed = seed;
 
-        //地面の生成
-        ObjInstant(new Vector3(w / 2, -1, d / 2), new Vector3(w, 1, d));
+        //地形データ生成
+        mapData = TerrainDataInstant.InstantMapChip(w, d, h, chaos);
+        TerrainDataInstant.InstantProhibitedArea(mapData);
 
-        //外枠作成
-        ObjInstant(new Vector3(0.5f, 0, d / 2), new Vector3(1, 1, d));
-        ObjInstant(new Vector3(w - 0.5f, 0, d / 2), new Vector3(1, 1, d));
-        ObjInstant(new Vector3(w / 2, 0, 0.5f), new Vector3(w, 1, 1));
-        ObjInstant(new Vector3(w / 2, 0, d - 0.5f), new Vector3(w, 1, 1));
+        //イベントを登録
+        MapEvent.InstantEvent(mapData, ObjType.Start);
+        MapEvent.InstantEvent(mapData, ObjType.Goal);
 
-        mapData = MapDataCreate.InstantMapChip(w, d, h, chaos);
-        MapDataCreate.InstantEvent(mapData, ObjType.Goal);
-        MapDataCreate.InstantEvent(mapData, ObjType.Start);
+        //登録したイベントのデータを取得
+        int xStart = MapEvent.eventPos[ObjType.Start].x;
+        int zStart = MapEvent.eventPos[ObjType.Start].z;
+        int xGoal = MapEvent.eventPos[ObjType.Goal].x;
+        int zGoal = MapEvent.eventPos[ObjType.Goal].z;
 
-        MapDataCreate.InstantRoad(mapData, ObjType.Goal, roadLength, roadSpace);
-        MapDataCreate.InstantRoad(mapData, ObjType.Start, roadLength, roadSpace);
+        //イベントが壁に囲まれている場合壁を破壊する
+        MapRoadInstant.IfWall_MakeRoad(mapData, xStart, zStart, roadLength, roadSpace);
+        MapRoadInstant.IfWall_MakeRoad(mapData, xGoal, zGoal, roadLength, roadSpace);
 
+        //マップデータをテキストに出力する
+        MapDebug.TextOutput(mapData, "Assets/MapData.txt");
 
-        ObjSet((int)ObjType.Goal, (int)ObjType.ProhibitedArea);
+        //オブジェクトを生成
+        ListToDictionary();
+        MapMaterialization.InstantFrame(w, d, frameObj, transform);
+        MapMaterialization.ObjSet(mapData, wallObj, eventObj, transform);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    void ObjSet(int objMin, int objMax)
+    //インスペクタ上に出したものをディクショナリに格納しなおす
+    void ListToDictionary()
     {
-        //オブジェクト設置
-        for (int x = 1; x < w - 1; x++)
+        foreach(EventObj obj in inspectorExclusive)
         {
-            text.Add("");
-            for (int z = 1; z < d - 1; z++)
-            {
-                if (mapData[x, z] == ObjType.Wall)
-                {
-                    //周りをキューブで囲むように設置
-                    if (On(x, z))
-                    {
-                        InstantRoom(obj[(int)ObjType.Wall], x, z);
-                    }
-                }
-                else
-                {
-                    for (int i = objMin; i < objMax; i++)
-                    {
-                        if (mapData[x, z] == (ObjType)i)
-                        {
-                            InstantRoom(obj[i], x, z);
-                        }
-                    }
-                }
-
-                int num = (int)mapData[x, z];
-                text[text.Count - 1] += " " + num.ToString();
-            }
+            eventObj.Add(obj.objType, obj.obj);
         }
-        File.WriteAllLines("Assets/a.txt", text);
     }
+}
 
-    bool On(int x, int z)
-    {
-        bool b = false;
-        for (int i = 0; i <= (int)ObjType.ProhibitedArea; i++)
-        {
-            if (mapData[x - 1, z] == (ObjType)i ||
-                mapData[x + 1, z] == (ObjType)i ||
-                mapData[x, z - 1] == (ObjType)i ||
-                mapData[x, z + 1] == (ObjType)i)
-            {
-                b = true;
-            }
-            if (i == 0) i = (int)ObjType.Wall;
-        }
-        return b;
-    }
+public class V2
+{
+    public int x;
+    public int z;
 
-    void InstantRoom(GameObject instantObj, float x, float z)
+    public V2(int x = 0, int z = 0)
     {
-        GameObject cube = Instantiate(instantObj, new Vector3(x, 0, z), new Quaternion());
-        cube.transform.SetParent(transform);
-    }
-
-    //地面作成
-    void ObjInstant(Vector3 pos, Vector3 siz)
-    {
-        GameObject ground = Instantiate(obj[0], transform);
-        float fix = obj[(int)ObjType.Wall].transform.localScale.y / 2;
-        ground.transform.localPosition = new Vector3(pos.x - fix, pos.y, pos.z - fix);
-        ground.transform.localScale = siz;
+        this.x = x;
+        this.z = z;
     }
 }
