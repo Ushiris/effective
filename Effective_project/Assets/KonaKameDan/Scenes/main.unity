@@ -1384,7 +1384,7 @@ PrefabInstance:
     - target: {fileID: 1763825007565174878, guid: 3163ec49460829e4aa3d33af320b7557,
         type: 3}
       propertyPath: onEffectListCauntDebug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1763825007565174879, guid: 3163ec49460829e4aa3d33af320b7557,
         type: 3}
