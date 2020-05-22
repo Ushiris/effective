@@ -11,9 +11,9 @@ public class Life : MonoBehaviour
 
     public int MaxHP { get; private set; }
     public int HP { get; private set; }
+    public uint BeatTime { get; private set; }
 
     StopWatch timer;
-
     List<HeartBeat> beat=new List<HeartBeat>();
     List<Dead> dead = new List<Dead>();
     List<DamageEvent> damageEvent = new List<DamageEvent>();
@@ -21,9 +21,10 @@ public class Life : MonoBehaviour
 
     private void Awake()
     {
+        timer = gameObject.AddComponent<StopWatch>();
+
         HP = int.MaxValue;
         MaxHP = int.MaxValue;
-        timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = 1f;
         beat.Add(() => { CheckDead(); });
         timer.LapEvent = () => { beat.ForEach((live) => { live(); }); };
@@ -39,6 +40,7 @@ public class Life : MonoBehaviour
     {
         if (!(HP <= 0)) return false;
 
+        Debug.Log("lastword.");
         timer.Pause(true);
         dead.ForEach((lastword) => { lastword(); });
 
@@ -85,8 +87,9 @@ public class Life : MonoBehaviour
     }
 
     //return true is error
-    public bool LifeSetup(int max_hp,int def_hp)
+    public bool LifeSetup(int max_hp,int def_hp,uint def_beat)
     {
+        BeatTime = def_beat;
         MaxHP = max_hp;
 
         if (def_hp > MaxHP)

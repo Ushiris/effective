@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         slider.maxValue = maxHP;
         slider.value = maxHP;
 
-        if (life.LifeSetup(maxHP, defHP)) Debug.Log("Error init HP");
+        if (life.LifeSetup(maxHP, defHP, 1)) Debug.Log("Error init HP");
         life.AddLastword(Dead);
         life.AddDamageFunc(Damage);
         life.AddHealFunc(Heal);
@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
 
     void Dead()
     {
+        Debug.Log("destroy:" + name);
         Destroy(gameObject);
     }
 
