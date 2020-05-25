@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 1300106182}
   - component: {fileID: 1300106181}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,7 +483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300106180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.45, y: 0.86, z: 0}
+  m_LocalPosition: {x: 2.45, y: 2.39, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -569,6 +569,7 @@ GameObject:
   - component: {fileID: 1730302870}
   - component: {fileID: 1730302869}
   - component: {fileID: 1730302868}
+  - component: {fileID: 1730302871}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -624,6 +625,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1730302871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730302867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9659b6f420decc244b3a0d9f1d031388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_key: 103
+  target_enemy: {fileID: 0}
 --- !u!1001 &1779980293
 PrefabInstance:
   m_ObjectHideFlags: 0

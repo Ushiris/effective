@@ -24,7 +24,7 @@ public class StopWatch : MonoBehaviour
         LifeTime += delta;
         LapTimer += delta;
 
-        if (LapTime > LapTimer)
+        if (LapTime < LapTimer)
         {
             LapEvent();
             LapTimer -= LapTime;
