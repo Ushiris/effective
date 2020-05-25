@@ -81,7 +81,7 @@ public class Status : MonoBehaviour
             foreach (var def in defaultStatus)
             {
                 status[def.enumName] = def.f * lv;
-                Debug.Log(status[def.enumName]);
+                Debug.Log(def.name + " " + status[def.enumName]);
             }
             tmpLv = Lv;
         }
