@@ -13,6 +13,7 @@ public class UI_Manager : MonoBehaviour
     //[SerializeField] GameObject effectFusionUI_CircleMakeByPizza;
 
     [SerializeField] GameObject textObj;
+    [SerializeField] GameObject cameraControlObj;
 
     [Header("アーツを登録するキー")]
     public KeyCode artsEntryKey = KeyCode.Q;
@@ -47,7 +48,7 @@ public class UI_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Confined; //カーソルをウィンドウ内に
     }
 
     // Update is called once per frame
@@ -73,12 +74,24 @@ public class UI_Manager : MonoBehaviour
                 effectFusionUI_Obj.SetActive(true);
                 //effectFusionUI_CircleMakeByPizza.SetActive(true);
                 textObj.SetActive(true);
+
+                //カメラ操作を切る
+                cameraControlObj.GetComponent<TpsPlayerControl>().enabled = false;
+
+                //マウスカーソルを表示
+                Cursor.visible = true;
             }
             else
             {
                 effectFusionUI_Obj.SetActive(false);
                 //effectFusionUI_CircleMakeByPizza.SetActive(false);
                 textObj.SetActive(false);
+
+                //カメラ操作を復活させる
+                cameraControlObj.GetComponent<TpsPlayerControl>().enabled = true;
+
+                //マウスカーソルを非表示
+                Cursor.visible = false;
             }
         }
     }
