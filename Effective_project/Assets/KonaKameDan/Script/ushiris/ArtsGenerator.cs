@@ -6,8 +6,9 @@ using UnityEngine.Networking;
 public class ArtsGenerator : MonoBehaviour
 {
     //get arts function name list
-    public List<string> GetData()
+    public List<string> GetData(string ID)
     {
+         Resources.Load("ArtsListActionName.csv");
         //error return
         return new List<string>();
     }
