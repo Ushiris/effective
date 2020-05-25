@@ -341,8 +341,63 @@ MonoBehaviour:
     m_ConstantMin: 0
     m_ConstantMax: 0
   Lv: 1
+  expCurve:
+    m_Mode: 1
+    m_CurveMultiplier: 100
+    m_CurveMin:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_CurveMax:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1.4716983
+        outSlope: 1.4716983
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.062499996
+      - serializedVersion: 3
+        time: 100
+        value: 100
+        inSlope: 0.21292178
+        outSlope: 0.21292178
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.5451542
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ConstantMin: 0
+    m_ConstantMax: 0
+  EXP: 0
+  isLevelUpEXP: 1
   levelUpTimeScale: 10
-  islevelUpTimeScale: 1
+  islevelUpTimeScale: 0
   defaultStatus:
   - name: HP
     enumName: 0

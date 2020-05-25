@@ -6,13 +6,19 @@ public class Status : MonoBehaviour
 {
     public enum Name {DROP_EXP, HP, STR, DEF , DEX,Last }
 
+    [Header("レベルアップ時にステータスが上がる幅")]
     [SerializeField] ParticleSystem.MinMaxCurve lvCurve;
     public int Lv;
     int tmpLv;
 
+    [Header("LevelUpに必要な経験値数")]
+    [SerializeField] ParticleSystem.MinMaxCurve expCurve;
+    public float EXP;
+    [SerializeField] bool isLevelUpEXP = false;
+
     [Header("〇〇秒後にレベルアップ")]
     [SerializeField] float levelUpTimeScale = 10;
-    [SerializeField] bool islevelUpTimeScale = true;
+    [SerializeField] bool islevelUpTimeScale = false;
 
     [Header("デフォルト")]
     [SerializeField] StatusClass[] defaultStatus = new StatusClass[]
@@ -53,15 +59,15 @@ public class Status : MonoBehaviour
     {
         LevelUp();
         if (islevelUpTimeScale) LvTime();
+        if (isLevelUpEXP) LevelUp_EXP();
     }
 
-    //特定の時間が経過するとレベルが上がる
-    void LvTime()
+    void LevelUp_EXP()
     {
-        if (levelUpTimeScale < Time.time)
+        if (EXP > expCurve.Evaluate(Lv))
         {
+            EXP = 0;
             Lv++;
-            levelUpTimeScale *= 2;
         }
     }
 
@@ -78,6 +84,16 @@ public class Status : MonoBehaviour
                 Debug.Log(status[def.enumName]);
             }
             tmpLv = Lv;
+        }
+    }
+
+    //特定の時間が経過するとレベルが上がる
+    void LvTime()
+    {
+        if (levelUpTimeScale < Time.time)
+        {
+            Lv++;
+            levelUpTimeScale *= 2;
         }
     }
 }
