@@ -226,7 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curve:
     m_Mode: 1
-    m_CurveMultiplier: 100
+    m_CurveMultiplier: 5
     m_CurveMin:
       serializedVersion: 2
       m_Curve:
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvCurve:
     m_Mode: 1
-    m_CurveMultiplier: 100
+    m_CurveMultiplier: 5
     m_CurveMin:
       serializedVersion: 2
       m_Curve: []
@@ -318,22 +318,22 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
+        time: 1
+        value: 1
+        inSlope: 0.033614814
+        outSlope: 0.033614814
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0
+        outWeight: 0.7535512
       - serializedVersion: 3
         time: 100
         value: 100
-        inSlope: 2
-        outSlope: 2
+        inSlope: 0.06593389
+        outSlope: 0.06593389
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.1456256
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
