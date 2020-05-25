@@ -37,10 +37,17 @@ public class ArtsList : MonoBehaviour
 
     private void Awake()
     {
-        ArtsListTextInput(true);
-        ArtsListSearchSetUp();
-
-        GetArtsList = this;
+        if (GetArtsList == null)
+        {
+            ArtsListTextInput(true);
+            ArtsListSearchSetUp();
+            GetArtsList = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     // Start is called before the first frame update
