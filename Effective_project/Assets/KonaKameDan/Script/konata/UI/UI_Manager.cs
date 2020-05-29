@@ -8,7 +8,7 @@ using UnityEngine;
 public class UI_Manager : MonoBehaviour
 {
     [Header("アーツを作るUI表示")]
-    [SerializeField] KeyCode effectFusionUI_ActiveKey = KeyCode.E;
+    public KeyCode effectFusionUI_ActiveKey = KeyCode.E;
     public GameObject effectFusionUI_Obj;
     //[SerializeField] GameObject effectFusionUI_CircleMakeByPizza;
 
@@ -103,7 +103,7 @@ public class UI_Manager : MonoBehaviour
     /// <returns></returns>
     bool EffectFusionUI_ActiveTrigger()
     {
-        return Input.GetKeyDown(effectFusionUI_ActiveKey);
+        return Input.GetKeyDown(GetUI_Manager.effectFusionUI_ActiveKey);
     }
 
     /// <summary>

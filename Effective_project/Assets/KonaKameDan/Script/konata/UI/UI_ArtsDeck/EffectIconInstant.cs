@@ -28,8 +28,7 @@ public class EffectIconInstant : MonoBehaviour
     void Update()
     {
         if (img.enabled) move();
-        else PosReset();
-
+        //else PosReset();
     }
 
     //ポジションのリセット
