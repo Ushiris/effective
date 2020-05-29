@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
 
     void Dead()
     {
-        Debug.Log("destroy:" + name);
+        Debug.Log("dead:" + name);
         Destroy(gameObject);
     }
 
