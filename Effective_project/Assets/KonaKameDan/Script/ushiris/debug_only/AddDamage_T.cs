@@ -11,6 +11,7 @@ public class AddDamage_T : MonoBehaviour
     {
         target_enemy = GameObject.Find("enemy");
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(debug_key))
