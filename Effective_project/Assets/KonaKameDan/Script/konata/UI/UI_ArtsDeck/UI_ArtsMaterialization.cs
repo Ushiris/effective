@@ -4,14 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// アーツを表示するUIの画像を切り替えるやつ
+/// </summary>
 public class UI_ArtsMaterialization : MonoBehaviour
 {
     enum ICON { Right, Center, Left }
     enum NAME_FRAME { Outside, Center, Inside }
 
+    [SerializeField] float interval = 0.3f;
     public bool displaySwitch;
     bool isReset = true;
-    [SerializeField] float interval = 0.3f;
+    int count;
 
 
     [System.Serializable]
@@ -21,7 +25,7 @@ public class UI_ArtsMaterialization : MonoBehaviour
         public GameObject obj;
     }
 
-    [SerializeField]
+    [SerializeField, Header("名前のところの線")]
     List<Obj> nameFrame = new List<Obj>()
     {
         new Obj{name="outsideNameFrame"},
@@ -29,7 +33,7 @@ public class UI_ArtsMaterialization : MonoBehaviour
         new Obj{name="insideNameFrame"},
     };
 
-    [SerializeField]
+    [SerializeField, Header("アイコンのところの線")]
     List<Obj> iconFrame = new List<Obj>()
     {
         new Obj{name="rightIconFrame"},
@@ -37,7 +41,7 @@ public class UI_ArtsMaterialization : MonoBehaviour
         new Obj{name="leftIconFrame"},
     };
 
-    [SerializeField]
+    [SerializeField, Header("アイコン")]
     List<Obj> icon = new List<Obj>()
     {
         new Obj{name="rightIcon"},
@@ -56,35 +60,36 @@ public class UI_ArtsMaterialization : MonoBehaviour
         foreach (var obj in icon) displayTurn.Add(obj.obj);
         foreach (var obj in iconFrame) displayTurn.Add(obj.obj);
         foreach (var obj in nameFrame) displayTurn.Add(obj.obj);
+
+        //初期化
+        IntervalDisplay(false, displayTurn.Count);
     }
 
     // Update is called once per frame
     void Update()
     {
-        int count = UI_Manager.GetEffectFusionUI_ChoiceNum.numList.Count;
+        count = UI_Manager.GetEffectFusionUI_ChoiceNum.numList.Count;
 
         if (displaySwitch)
         {
+            //画面をリセット
+            IntervalDisplay(false, displayTurn.Count);
+            MoveReset();
+
+            //画像を切り替える
             for (int i = 0; i < count; i++)
             {
                 int num = UI_Manager.GetEffectFusionUI_ChoiceNum.numList[i];
                 ImageChange(i, num);
             }
 
-            //名称
+            //名称を切り替える
             artsNameText.text = ArtsList.GetSelectArts.name;
 
+            //画像を表示する
             IntervalDisplay(true, count, interval);
-            isReset = true;
         }
-        else
-        {
-            if (isReset)
-            {
-                IntervalDisplay(false, displayTurn.Count);
-                isReset = false;
-            }
-        }
+
     }
 
     //表示＆表示にかかる時間設定
@@ -96,6 +101,8 @@ public class UI_ArtsMaterialization : MonoBehaviour
             {
                 displayTurn[i].GetComponent<ActiveImageDelay>().Delay(on, intervalTime * i);
             }
+
+            //文字の表示
             artsNameText.GetComponent<ActiveTextMeshProDelay>().Delay(on, intervalTime * displayTurn.Count);
         }
         else if (count == 2)
@@ -107,10 +114,18 @@ public class UI_ArtsMaterialization : MonoBehaviour
             nameFrame[(int)NAME_FRAME.Inside].obj.GetComponent<ActiveImageDelay>().Delay(on, intervalTime * 4);
             nameFrame[(int)NAME_FRAME.Center].obj.GetComponent<ActiveImageDelay>().Delay(on, intervalTime * 5);
 
+            //文字の表示
             artsNameText.GetComponent<ActiveTextMeshProDelay>().Delay(on, intervalTime * 6);
         }
+    }
 
-        
+    //ポジションの初期化
+    void MoveReset()
+    {
+        foreach (var obj in icon)
+        {
+            obj.obj.GetComponent<EffectIconInstant>().PosReset();
+        }
     }
 
     //画像差し替え

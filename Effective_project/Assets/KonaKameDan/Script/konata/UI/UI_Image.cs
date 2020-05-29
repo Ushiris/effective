@@ -23,9 +23,10 @@ public class UI_Image : MonoBehaviour
     [SerializeField] Sprite[] blueIconFrame = new Sprite[3];
     [SerializeField] Sprite[] blueNameFrame = new Sprite[3];
 
+    [System.Serializable]
     public class ArtsDisplayUI
     {
-        public string name;
+        [HideInInspector]public string name;
         public Sprite effectIcon;
         public List<Sprite> iconFrame = new List<Sprite>();
         public List<Sprite> nameFrame = new List<Sprite>();
