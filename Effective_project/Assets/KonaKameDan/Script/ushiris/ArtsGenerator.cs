@@ -13,7 +13,7 @@ public class ArtsGenerator : MonoBehaviour
         ArtsList.GetLookedForArts(ID).actionNames.ForEach(
             (str) =>
             {
-                functions.Add(ArtsActionElements.Actions[str]);
+                functions.Add(ArtsActionElements.Instance.Actions[str]);
             });
 
         return functions;

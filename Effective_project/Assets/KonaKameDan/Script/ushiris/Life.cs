@@ -9,28 +9,27 @@ public class Life : MonoBehaviour
     public delegate void Dead();
     public delegate int DamageEvent(int true_damage);
 
-    public int MaxHP { get; private set; } = int.MaxValue;
-    public int HP { get; private set; } = int.MaxValue;
-    public uint BeatTime { get; private set; } = 1;
-    public bool isFreeze { get; private set; } = false;
+    public int? MaxHP { get; private set; }
+    public int? HP { get; private set; }
+    public bool IsFreeze { get; private set; }
 
     StopWatch timer;
     List<HeartBeat> beat = new List<HeartBeat>();
     List<Dead> dead = new List<Dead>();
     List<DamageEvent> damageEvent = new List<DamageEvent>();
     List<DamageEvent> healEvent = new List<DamageEvent>();
-
+    
     private void Start()
     {
         timer = gameObject.AddComponent<StopWatch>();
-
+        
         beat.Add(() => { CheckDead(); });
         timer.LapEvent = () => { beat.ForEach((live) => { live(); }); };
     }
 
     private bool CheckDead()
     {
-        if (!(HP <= 0)) return false;
+        if (HP == null || !(HP <= 0)) return false;
 
         timer.Pause(true);
         dead.ForEach((lastword) => { lastword(); });
@@ -58,8 +57,10 @@ public class Life : MonoBehaviour
         healEvent.Insert(0, func);
     }
 
-    public int Damage(int fouce)
+    public int? Damage(int fouce)
     {
+        if (HP == null) return null;
+
         int true_damege = fouce;
         HP -= true_damege;
         damageEvent.ForEach((damage) => { damage(true_damege); });
@@ -68,33 +69,51 @@ public class Life : MonoBehaviour
         return true_damege;
     }
 
-    public int Heal(int fouce)
+    public int? Heal(int fouce)
     {
-        int true_heal = (HP + fouce > MaxHP) ? fouce - (MaxHP - HP) : fouce;
+        if (HP == null) LifeSetup(1,1,1);
+
+        int true_heal = (int)((HP + fouce > MaxHP) ? fouce - (MaxHP - HP) : fouce);
         HP += true_heal;
         healEvent.ForEach((heal) => { heal(true_heal); });
 
         return true_heal;
     }
 
-    //return true is error
-    public bool LifeSetup(int max_hp, int def_hp, uint def_beat)
+    //<summary>
+    //trueが返ってきた場合はエラーです。エラーの内容はコンソールに出力されます。
+    //</summary>
+    public bool LifeSetup(int max_hp, int def_hp, float def_beat)
     {
-        BeatTime = def_beat;
-        MaxHP = max_hp;
+        bool isError = false;
 
+        MaxHP = max_hp;
         if (def_hp > MaxHP)
         {
-            def_hp = MaxHP;
-            return true;
+            def_hp = (int)MaxHP;
+            Debug.Log("warnning:def_hp > max_hp");
+
+            isError = true;
         }
 
-        return false;
+        if (def_beat < 0.01f)
+        {
+            Debug.Log("error:too fast (or minus) beat time.");
+            isError = true;
+        }
+
+        timer.LapTime = def_beat;
+
+
+
+        HP = def_hp;
+
+        return isError;
     }
 
     public void Freeze(bool freeze)
     {
-        isFreeze = freeze;
+        IsFreeze = freeze;
         timer.Pause(freeze);
     }
 }
