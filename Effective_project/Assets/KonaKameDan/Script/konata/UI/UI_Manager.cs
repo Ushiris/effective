@@ -76,7 +76,8 @@ public class UI_Manager : MonoBehaviour
                 textObj.SetActive(true);
 
                 //カメラ操作を切る
-                cameraControlObj.GetComponent<TpsPlayerControl>().enabled = false;
+                if (cameraControlObj != null)
+                    cameraControlObj.GetComponent<TpsPlayerControl>().enabled = false;
 
                 //マウスカーソルを表示
                 Cursor.visible = true;
