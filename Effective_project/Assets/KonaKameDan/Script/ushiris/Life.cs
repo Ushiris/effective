@@ -7,9 +7,9 @@ public class Life : MonoBehaviour
 {
     public delegate void HeartBeat();
     public delegate void Dead();
-    public delegate int DamageEvent(int true_damage);
+    public delegate int DamageEvent(int num);
 
-    public int? MaxHP { get; private set; }
+    public uint? MaxHP { get; private set; }
     public int? HP { get; private set; }
     public bool IsFreeze { get; private set; }
 
@@ -21,8 +21,11 @@ public class Life : MonoBehaviour
     
     private void Start()
     {
-        timer = gameObject.AddComponent<StopWatch>();
-        
+        if (timer == null)
+        {
+            timer = gameObject.AddComponent<StopWatch>();
+        }
+
         beat.Add(() => { CheckDead(); });
         timer.LapEvent = () => { beat.ForEach((live) => { live(); }); };
     }
@@ -31,7 +34,7 @@ public class Life : MonoBehaviour
     {
         if (HP == null || !(HP <= 0)) return false;
 
-        timer.Pause(true);
+        timer.SetActive(false);
         dead.ForEach((lastword) => { lastword(); });
 
         return true;
@@ -57,9 +60,9 @@ public class Life : MonoBehaviour
         healEvent.Insert(0, func);
     }
 
-    public int? Damage(int fouce)
+    public int Damage(int fouce)
     {
-        if (HP == null) return null;
+        if (HP == null) LifeSetup();
 
         int true_damege = fouce;
         HP -= true_damege;
@@ -69,9 +72,9 @@ public class Life : MonoBehaviour
         return true_damege;
     }
 
-    public int? Heal(int fouce)
+    public int Heal(int fouce)
     {
-        if (HP == null) LifeSetup(1,1,1);
+        if (HP == null) LifeSetup();
 
         int true_heal = (int)((HP + fouce > MaxHP) ? fouce - (MaxHP - HP) : fouce);
         HP += true_heal;
@@ -83,37 +86,48 @@ public class Life : MonoBehaviour
     //<summary>
     //trueが返ってきた場合はエラーです。エラーの内容はコンソールに出力されます。
     //</summary>
-    public bool LifeSetup(int max_hp, int def_hp, float def_beat)
+    public bool LifeSetup(uint max_hp, int def_hp, float def_beat)
     {
         bool isError = false;
 
+        if (timer == null)
+        {
+            timer = gameObject.AddComponent<StopWatch>();
+        }
+
+        timer.LapTime = def_beat;
         MaxHP = max_hp;
+        HP = def_hp;
+
         if (def_hp > MaxHP)
         {
             def_hp = (int)MaxHP;
-            Debug.Log("warnning:def_hp > max_hp");
-
+            Debug.Log("warnning:[" + gameObject.name + "] def_hp > max_hp");
             isError = true;
         }
 
         if (def_beat < 0.01f)
         {
-            Debug.Log("error:too fast (or minus) beat time.");
+            timer.LapTime = 0.01f;
+            Debug.Log("error:[" + gameObject.name + "]too fast (or minus) beat time.");
             isError = true;
         }
 
-        timer.LapTime = def_beat;
-
-
-
-        HP = def_hp;
-
         return isError;
+    }
+
+    private bool LifeSetup()
+    {
+        MaxHP = 1;
+        HP = 1;
+        timer.LapTime = 1;
+
+        return false;
     }
 
     public void Freeze(bool freeze)
     {
         IsFreeze = freeze;
-        timer.Pause(freeze);
+        timer.SetActive(!freeze);
     }
 }

@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     Life life;
     Slider slider;
 
-    public int maxHP = 10;
+    public uint maxHP = 10;
     public int defHP = 10;
 
     private void Start()
