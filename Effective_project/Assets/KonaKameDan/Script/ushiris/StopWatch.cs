@@ -2,25 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//<summary>
+//一定時間毎にLapEventに格納されている関数を実行します。
+//</summary>
 public class StopWatch : MonoBehaviour
 {
     public delegate void TimeEvent();
 
-    public float LifeTime { get; private set; }
+    public float ActiveTime { get; private set; }
     float LapTimer = 0f;
 
     bool isActive = true;
+    bool isReactiveFlame;
 
     public TimeEvent LapEvent { get; set; }
 
     public float LapTime { get; set; }
-    
+
+    private void Start()
+    {
+        isReactiveFlame = true;
+    }
+
     void Update()
     {
-        if (!isActive) return;
-
-        float delta = Time.deltaTime;
-        LifeTime += delta;
+        float delta = isReactiveFlame ? 0f : Time.deltaTime;
+        ActiveTime += delta;
         LapTimer += delta;
 
         if (LapTime < LapTimer)
@@ -28,10 +35,20 @@ public class StopWatch : MonoBehaviour
             LapEvent();
             LapTimer -= LapTime;
         }
+
+        if(isReactiveFlame)
+        {
+            //丁度isActiveがtrueになったフレームのみで呼ばれます
+            isReactiveFlame = false;
+        }
     }
 
-    public void Pause(bool pause)
+    public void SetActive(bool active)
     {
-        isActive = pause;
+        if (isActive != active && active == true)
+        {
+            isReactiveFlame = true;
+        }
+        isActive = active;
     }
 }
