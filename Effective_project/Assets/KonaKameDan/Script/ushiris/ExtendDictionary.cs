@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+//Ushiris memo:ほぼネット記事のスクリプトの流用です
+
 namespace Serialize
 {
 

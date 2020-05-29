@@ -14,8 +14,7 @@ public class StopWatch : MonoBehaviour
     public TimeEvent LapEvent { get; set; }
 
     public float LapTime { get; set; }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (!isActive) return;

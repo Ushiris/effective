@@ -16,10 +16,12 @@ public class Enemy : MonoBehaviour
         life = gameObject.AddComponent<Life>();
         slider = GetComponentInChildren<Slider>();
 
+        //sliderの初期化
         slider.minValue = 0;
         slider.maxValue = maxHP;
         slider.value = maxHP;
 
+        //Lifeの初期化
         if (life.LifeSetup(maxHP, defHP, 1)) Debug.Log("Error init HP");
         life.AddLastword(Dead);
         life.AddDamageFunc(Damage);
