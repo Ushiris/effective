@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     Life life;
     Slider slider;
+    [SerializeField] GameObject bullet;
 
     public uint maxHP = 10;
     public int defHP = 10;
@@ -26,6 +27,18 @@ public class Enemy : MonoBehaviour
         life.AddLastword(Dead);
         life.AddDamageFunc(Damage);
         life.AddHealFunc(Heal);
+        life.AddBeat(Attack);
+    }
+
+    void Attack()
+    {
+        GameObject bullet_i = Instantiate(bullet);
+        Transform bullet_tr = bullet_i.transform;
+
+        bullet_tr.parent = transform;
+        bullet_tr.localPosition = Vector3.zero;
+        bullet_tr.LookAt(GameObject.Find("Player").transform);
+        bullet_i.GetComponent<Rigidbody>().AddForce(Vector3.up * 5);
     }
 
     void Dead()
