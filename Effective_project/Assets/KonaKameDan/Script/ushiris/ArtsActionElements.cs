@@ -25,14 +25,31 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     {
         if (isInit) return;
 
-        //init dictionary
+        //例："何もしない"の定義
         Actions.Add("Brank", Brank);
 
         isInit = true;
     }
+    //ここにキーワード動作を書いてけろ
 
     //"何もしない"をするスクリプト
     public void Brank(GameObject arts) { }
 
-    //ここにキーワード動作を書いてけろ
+    //例：prefab(Hoge)に関する操作
+    public void HogeMove(GameObject arts)
+    {
+        //インスペクタ上で登録されているであろう"Hoge"というプレハブをインスタンス化します。
+        GameObject hoge_instance = CreateInstance("Hoge");
+
+        //artsの子として登録します。プレハブのデフォルト座標等の設定に気を付けてください。
+        hoge_instance.transform.parent = arts.transform;
+        hoge_instance.transform.position = Vector3.zero;//artsの座標に移動
+    }
+
+    //インスタンス化はよく使うので関数を用意しておきました。
+    private GameObject CreateInstance(string name)
+    {
+        return Instantiate(prefabs.GetTable()[name]);
+    }
+
 }
