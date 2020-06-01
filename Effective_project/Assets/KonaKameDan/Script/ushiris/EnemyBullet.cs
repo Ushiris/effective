@@ -23,7 +23,12 @@ public class EnemyBullet : MonoBehaviour
     private void FixedUpdate()
     {
         transform.LookAt(player_tr);
-        rb.AddForce(transform.forward * Vector3.Distance(player_tr.position, transform.position)*10);
+        rb.AddForce(transform.forward *10);
+
+        if (rb.velocity.y < -15.0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
