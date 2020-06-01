@@ -19,11 +19,11 @@ public class Enemy : MonoBehaviour
 
         //sliderの初期化
         slider.minValue = 0;
-        slider.maxValue = maxHP;
+        slider.maxValue = life.MaxHP;
         slider.value = maxHP;
 
         //Lifeの初期化
-        if (life.LifeSetup(maxHP, defHP, 1)) Debug.Log("Error init HP");
+        if (life.LifeSetup(1,defHP)) Debug.Log("Error init HP");
         life.AddLastword(Dead);
         life.AddDamageFunc(Damage);
         life.AddHealFunc(Heal);
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         bullet_tr.parent = transform;
         bullet_tr.localPosition = Vector3.zero;
         bullet_tr.LookAt(GameObject.Find("Player").transform);
-        bullet_i.GetComponent<Rigidbody>().AddForce(Vector3.up * 5);
+        bullet_i.GetComponent<Rigidbody>().AddForce(Vector3.up * 500);
     }
 
     void Dead()

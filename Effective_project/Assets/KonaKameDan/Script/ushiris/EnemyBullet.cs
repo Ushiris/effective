@@ -15,7 +15,7 @@ public class EnemyBullet : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         timer = gameObject.AddComponent<StopWatch>();
-        timer.LapTime = 8;
+        timer.LapTime = 5;
         timer.LapEvent = () => { Destroy(gameObject); };
     }
 
@@ -23,7 +23,7 @@ public class EnemyBullet : MonoBehaviour
     private void FixedUpdate()
     {
         transform.LookAt(player_tr);
-        rb.AddForce(transform.forward * 0.01f);
+        rb.AddForce(transform.forward * Vector3.Distance(player_tr.position, transform.position)*10);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,12 +32,14 @@ public class EnemyBullet : MonoBehaviour
         {
             if (other.GetComponent<Life>() == null)
             {
-                Debug.Log("error! player is undead!(add test parameter life to player.)");
+                Debug.Log("error! player is undead!(add life to player.)");
                 Life pl_life = other.gameObject.AddComponent<Life>();
-                pl_life.LifeSetup(10, 10, 1);
+                pl_life.LifeSetup(1);
             }
+
             other.gameObject.GetComponent<Life>().Damage(1);
             Debug.Log("HIT! player's life=" + other.gameObject.GetComponent<Life>().HP);
+            Destroy(gameObject);
         }
     }
 }
