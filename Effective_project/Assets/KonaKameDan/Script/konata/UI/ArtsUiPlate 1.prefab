@@ -155,19 +155,19 @@ MonoBehaviour:
   - name: insideNameFrame
     obj: {fileID: 2365442620195009289}
   iconFrame:
-  - name: rightIconFrame
-    obj: {fileID: 404273867501413850}
-  - name: centerIconFrame
-    obj: {fileID: 2020651363403587017}
   - name: leftIconFrame
     obj: {fileID: 7711503394739073773}
+  - name: centerIconFrame
+    obj: {fileID: 2020651363403587017}
+  - name: rightIconFrame
+    obj: {fileID: 404273867501413850}
   icon:
-  - name: rightIcon
-    obj: {fileID: 4446409348617411075}
-  - name: centerIcon
-    obj: {fileID: 4446409349572745222}
   - name: leftIcon
     obj: {fileID: 2564114131335853064}
+  - name: centerIcon
+    obj: {fileID: 4446409349572745222}
+  - name: rightIcon
+    obj: {fileID: 4446409348617411075}
   artsNameText: {fileID: 1175326351077805788}
 --- !u!1 &2020651363403587017
 GameObject:
