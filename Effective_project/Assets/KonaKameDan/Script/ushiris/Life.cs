@@ -9,8 +9,8 @@ public class Life : MonoBehaviour
     public delegate void Dead();
     public delegate int DamageEvent(int num);
 
-    public uint? MaxHP { get; private set; }
-    public int? HP { get; private set; }
+    public float MaxHP { get { return (uint)GetComponent<Status>().status[Status.Name.HP]; } }
+    public float? HP { get; private set; }
     public bool IsFreeze { get; private set; }
 
     StopWatch timer;
@@ -86,9 +86,13 @@ public class Life : MonoBehaviour
     //<summary>
     //trueが返ってきた場合はエラーです。エラーの内容はコンソールに出力されます。
     //</summary>
-    public bool LifeSetup(uint max_hp, int def_hp, float def_beat)
+    public bool LifeSetup(float def_beat,float def_HP=-1)
     {
         bool isError = false;
+        if (def_HP == -1)
+        {
+            def_HP = MaxHP;
+        }
 
         if (timer == null)
         {
@@ -96,12 +100,11 @@ public class Life : MonoBehaviour
         }
 
         timer.LapTime = def_beat;
-        MaxHP = max_hp;
-        HP = def_hp;
+        HP = def_HP;
 
-        if (def_hp > MaxHP)
+        if (def_HP > MaxHP)
         {
-            def_hp = (int)MaxHP;
+            def_HP = (int)MaxHP;
             Debug.Log("warnning:[" + gameObject.name + "] def_hp > max_hp");
             isError = true;
         }
@@ -118,7 +121,6 @@ public class Life : MonoBehaviour
 
     private bool LifeSetup()
     {
-        MaxHP = 1;
         HP = 1;
         timer.LapTime = 1;
 
