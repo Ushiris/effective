@@ -38,12 +38,15 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     //例：prefab(Hoge)に関する操作
     public void HogeMove(GameObject arts)
     {
-        //インスペクタ上で登録されているであろう"Hoge"というプレハブをインスタンス化します。
+        //インスペクタ上で登録されているであろう"Hoge"というプレハブをインスタンス化します
+        //これは例えば矢をインスタンス化したりする場合に有効です。
         GameObject hoge_instance = CreateInstance("Hoge");
 
-        //artsの子として登録します。プレハブのデフォルト座標等の設定に気を付けてください。
-        hoge_instance.transform.parent = arts.transform;
-        hoge_instance.transform.position = Vector3.zero;//artsの座標に移動
+        //artsの子として登録します
+        SetParent(arts.transform, hoge_instance.transform);
+
+        //前に飛ばす
+        hoge_instance.GetComponent<Rigidbody>().AddForce(hoge_instance.transform.forward);
     }
 
     //インスタンス化はよく使うので関数を用意しておきました。
@@ -52,4 +55,10 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
         return Instantiate(prefabs.GetTable()[name]);
     }
 
+    //アーツを親として登録します。座標がアーツの地点になるので注意。
+    private void SetParent(Transform arts_tr,Transform instance_tr)
+    {
+        instance_tr.parent = arts_tr;
+        instance_tr.localPosition = Vector3.zero;
+    }
 }
