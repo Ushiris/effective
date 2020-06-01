@@ -17,12 +17,18 @@ public class KnataLib : MonoBehaviour
 
     }
 }
+//使用例
+//[NamedArrayAttribute(new string[]
+//{
+//        "射撃","斬撃","防御","設置","拡散","追尾","吸収","爆発","遅延","飛翔"
+//})]
+//public List<Sprite> effectIconList = new List<Sprite>();
 
-    public class NamedArrayAttribute : PropertyAttribute
-    {
-        public readonly string[] names;
-        public NamedArrayAttribute(string[] names) { this.names = names; }
-    }
+public class NamedArrayAttribute : PropertyAttribute
+{
+    public readonly string[] names;
+    public NamedArrayAttribute(string[] names) { this.names = names; }
+}
 
 [CustomPropertyDrawer(typeof(NamedArrayAttribute))]
 public class NamedArrayDrawer : PropertyDrawer

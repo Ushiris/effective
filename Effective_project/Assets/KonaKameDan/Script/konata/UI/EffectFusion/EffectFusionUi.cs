@@ -30,6 +30,11 @@ public class EffectFusionUi : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        ResetList();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -56,6 +61,12 @@ public class EffectFusionUi : MonoBehaviour
             ChoiceList(GetHitPosItem);
             ChoiceList(GetHitPosAng);
         }
+    }
+
+    void ResetList()
+    {
+        if (GetHitPosItem != null) GetHitPosItem.numList.Clear();
+        if (GetHitPosAng != null) GetHitPosAng.numList.Clear();
     }
 
     //角度を決める
