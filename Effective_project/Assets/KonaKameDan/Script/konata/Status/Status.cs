@@ -47,12 +47,13 @@ public class Status : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Dictionary<Name, float> status = new Dictionary<Name, float>();
+        status = new Dictionary<Name, float>();
 
         //名前の設定
         foreach (var def in defaultStatus)
         {
-            status[def.enumName] = def.f;
+            status.Add(def.enumName, def.f);
+            Debug.Log(status.Count);
         }
     }
 
