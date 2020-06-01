@@ -1737,6 +1737,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1763825007565174873, guid: 3163ec49460829e4aa3d33af320b7557,
+        type: 3}
+      propertyPath: redIconFrame.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 758b6302462a70a49b76fba8fc0b8316,
+        type: 3}
+    - target: {fileID: 1763825007565174873, guid: 3163ec49460829e4aa3d33af320b7557,
+        type: 3}
+      propertyPath: redIconFrame.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ee9d4ae55ad32945916cb4bc676d351,
+        type: 3}
+    - target: {fileID: 1763825007565174873, guid: 3163ec49460829e4aa3d33af320b7557,
+        type: 3}
+      propertyPath: blueIconFrame.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 115ffd3c2ab2e6c40bbe9230af425dbc,
+        type: 3}
+    - target: {fileID: 1763825007565174873, guid: 3163ec49460829e4aa3d33af320b7557,
+        type: 3}
+      propertyPath: blueIconFrame.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: eefc057b1c0af6f40a1949cca0e5d4f4,
+        type: 3}
     - target: {fileID: 1763825007565174878, guid: 3163ec49460829e4aa3d33af320b7557,
         type: 3}
       propertyPath: effectFusionUI_Obj

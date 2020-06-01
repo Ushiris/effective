@@ -9,7 +9,7 @@ using TMPro;
 /// </summary>
 public class UI_ArtsMaterialization : MonoBehaviour
 {
-    enum ICON { Right, Center, Left }
+    enum ICON { Left, Center, Right }
     enum NAME_FRAME { Outside, Center, Inside }
 
     [SerializeField] float interval = 0.3f;
@@ -36,17 +36,17 @@ public class UI_ArtsMaterialization : MonoBehaviour
     [SerializeField, Header("アイコンのところの線")]
     List<Obj> iconFrame = new List<Obj>()
     {
-        new Obj{name="rightIconFrame"},
-        new Obj{name="centerIconFrame"},
         new Obj{name="leftIconFrame"},
+        new Obj{name="centerIconFrame"},
+        new Obj{name="rightIconFrame"},    
     };
 
     [SerializeField, Header("アイコン")]
     List<Obj> icon = new List<Obj>()
     {
-        new Obj{name="rightIcon"},
-        new Obj{name="centerIcon"},
         new Obj{name="leftIcon"},
+        new Obj{name="centerIcon"},
+        new Obj{name="rightIcon"},
     };
 
     [SerializeField] TextMeshProUGUI artsNameText;
@@ -56,9 +56,9 @@ public class UI_ArtsMaterialization : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //一括管理用
-        foreach (var obj in icon) displayTurn.Add(obj.obj);
-        foreach (var obj in iconFrame) displayTurn.Add(obj.obj);
+        //一括管理用]
+        for (int i = icon.Count - 1; i >= 0; i--) displayTurn.Add(icon[i].obj);
+        for (int i = iconFrame.Count - 1; i >= 0; i--) displayTurn.Add(iconFrame[i].obj);
         foreach (var obj in nameFrame) displayTurn.Add(obj.obj);
 
         //初期化
@@ -72,6 +72,7 @@ public class UI_ArtsMaterialization : MonoBehaviour
 
         if (displaySwitch)
         {
+
             //画面をリセット
             IntervalDisplay(false, displayTurn.Count);
             MoveReset();
@@ -80,6 +81,7 @@ public class UI_ArtsMaterialization : MonoBehaviour
             for (int i = 0; i < count; i++)
             {
                 int num = UI_Manager.GetEffectFusionUI_ChoiceNum.numList[i];
+                Debug.Log(i + " : " + num);
                 ImageChange(i, num);
             }
 

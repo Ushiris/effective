@@ -25,27 +25,15 @@ public class ActiveTextMeshProDelay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (onTrigger)
+        if (onTrigger && !tMPro.enabled)
         {
             if (interval < timer)
             {
-                if (!on)
-                {
-                    tMPro.enabled = true;
-                    on = true;
-                }
+                tMPro.enabled = true;
             }
             else
             {
                 timer += Time.deltaTime;
-            }
-        }
-        else
-        {
-            if (on)
-            {
-                tMPro.enabled = false;
-                on = false;
             }
         }
     }
@@ -57,9 +45,12 @@ public class ActiveTextMeshProDelay : MonoBehaviour
     /// <param name="interval"></param>
     public void Delay(bool onTrigger, float interval = 0)
     {
+        //初期化
         timer = 0;
+        if (tMPro.enabled) tMPro.enabled = false;
+
         this.onTrigger = onTrigger;
         this.interval = interval;
-        Debug.Log(interval);
+        //Debug.Log(interval);
     }
 }
