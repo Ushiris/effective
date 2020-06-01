@@ -1737,11 +1737,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1763825007565174873, guid: 3163ec49460829e4aa3d33af320b7557,
-        type: 3}
-      propertyPath: effectIcon.Array.data[2].iconFrame.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1763825007565174878, guid: 3163ec49460829e4aa3d33af320b7557,
         type: 3}
       propertyPath: effectFusionUI_Obj

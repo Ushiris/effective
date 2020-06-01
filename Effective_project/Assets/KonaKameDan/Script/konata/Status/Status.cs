@@ -30,8 +30,8 @@ public class Status : MonoBehaviour
        new StatusClass(Name.DEX)
     };
 
-    [Header("変動値")]
-    public Dictionary<Name, float> status = new Dictionary<Name, float>();
+    //[Header("変動値")]
+    public Dictionary<Name, float> status { get; private set; }
 
 
     //[HideInInspector] public float MP;
@@ -47,8 +47,10 @@ public class Status : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Dictionary<Name, float> status = new Dictionary<Name, float>();
+
         //名前の設定
-        foreach(var def in defaultStatus)
+        foreach (var def in defaultStatus)
         {
             status[def.enumName] = def.f;
         }
