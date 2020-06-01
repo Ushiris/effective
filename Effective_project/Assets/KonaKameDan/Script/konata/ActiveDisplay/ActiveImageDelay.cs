@@ -25,27 +25,15 @@ public class ActiveImageDelay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (onTrigger)
+        if (onTrigger && !img.enabled)
         {
             if (interval < timer)
             {
-                if (!on)
-                {
-                    img.enabled = true;
-                    on = true;
-                }
+                img.enabled = true;
             }
             else
             {
                 timer += Time.deltaTime;
-            }
-        }
-        else
-        {
-            if (on)
-            {
-                img.enabled = false;
-                on = false;
             }
         }
     }
@@ -57,7 +45,10 @@ public class ActiveImageDelay : MonoBehaviour
     /// <param name="interval"></param>
     public void Delay(bool onTrigger, float interval = 0)
     {
+        //初期化
         timer = 0;
+        if(img.enabled) img.enabled = false;
+
         this.onTrigger = onTrigger;
         this.interval = interval;
     }

@@ -307,7 +307,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvCurve:
     m_Mode: 1
-    m_CurveMultiplier: 5
+    m_CurveMultiplier: 1
+    m_CurveMin:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1
+        value: 100
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_CurveMax:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 100
+        value: 100
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ConstantMin: 0
+    m_ConstantMax: 0
+  Lv: 2
+  expCurve:
+    m_Mode: 1
+    m_CurveMultiplier: 1
     m_CurveMin:
       serializedVersion: 2
       m_Curve: []
@@ -320,36 +365,6 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0.033614814
-        outSlope: 0.033614814
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.7535512
-      - serializedVersion: 3
-        time: 100
-        value: 100
-        inSlope: 0.06593389
-        outSlope: 0.06593389
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.1456256
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_ConstantMin: 0
-    m_ConstantMax: 0
-  Lv: 1
-  expCurve:
-    m_Mode: 1
-    m_CurveMultiplier: 100
-    m_CurveMin:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -357,37 +372,13 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1
-        value: 1
+        time: 100
+        value: 100
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_CurveMax:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 1.4716983
-        outSlope: 1.4716983
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.062499996
-      - serializedVersion: 3
-        time: 100
-        value: 100
-        inSlope: 0.21292178
-        outSlope: 0.21292178
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.5451542
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -399,18 +390,21 @@ MonoBehaviour:
   levelUpTimeScale: 10
   islevelUpTimeScale: 0
   defaultStatus:
-  - name: HP
+  - name: DROP_EXP
     enumName: 0
+    f: 0
+  - name: HP
+    enumName: 1
     f: 100
   - name: STR
-    enumName: 1
-    f: 10
-  - name: DEF
     enumName: 2
-    f: 10
-  - name: DEX
+    f: 8
+  - name: DEF
     enumName: 3
-    f: 5
+    f: 0
+  - name: DEX
+    enumName: 4
+    f: 0
 --- !u!1 &2048908667
 GameObject:
   m_ObjectHideFlags: 0
