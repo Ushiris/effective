@@ -145,8 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a53557e6e3659409a4a6667a4388b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displaySwitch: 0
   interval: 0.2
+  displaySwitch: 0
   nameFrame:
   - name: outsideNameFrame
     obj: {fileID: 8195981552480532942}
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 5968698964465312553}
   - component: {fileID: 2564114131335853067}
   m_Layer: 0
-  m_Name: IconPvoit
+  m_Name: LeftIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 74972527106870078}
   - component: {fileID: 4446409348617411101}
   m_Layer: 0
-  m_Name: IconPvoit (2)
+  m_Name: RightIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 8744833976877030852}
   - component: {fileID: 4446409349572745216}
   m_Layer: 0
-  m_Name: IconPvoit (1)
+  m_Name: CenterIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
