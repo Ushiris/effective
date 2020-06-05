@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     Life life;
     Slider slider;
     [SerializeField] GameObject bullet;
+    [SerializeField] bool isBoss;
 
     private void Start()
     {
@@ -18,6 +19,11 @@ public class Enemy : MonoBehaviour
         slider.minValue = 0;
         slider.maxValue = life.MaxHP;
         slider.value = life.MaxHP;
+
+        if (isBoss)
+        {
+            slider.transform.localScale *= 1.5f;
+        }
 
         //Lifeの初期化
         if (life.LifeSetup(1)) Debug.Log("Error init HP");

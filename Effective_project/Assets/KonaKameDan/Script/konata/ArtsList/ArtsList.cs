@@ -35,6 +35,7 @@ public class ArtsList : MonoBehaviour
     //渡すよう
     public static ArtsList GetArtsList;
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private void Awake()
     {
         if (GetArtsList == null)
@@ -42,7 +43,6 @@ public class ArtsList : MonoBehaviour
             ArtsListTextInput(true);
             ArtsListSearchSetUp();
             GetArtsList = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
