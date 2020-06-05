@@ -229,8 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8bbe40ca00afe43a3c32fb8af33fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  defHP: 10
+  bullet: {fileID: 1973864273873314559, guid: b222785f8ab06cc49836bea8e1a04ac2, type: 3}
 --- !u!114 &6764249598052150221
 MonoBehaviour:
   m_ObjectHideFlags: 0
