@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     Slider slider;
     [SerializeField] GameObject bullet;
     [SerializeField] bool isBoss;
+    static Vector3 hp_small=new Vector3(1,1,1);
+    static Vector3 big=new Vector3(3,2,1);
 
     private void Start()
     {
@@ -22,7 +24,7 @@ public class Enemy : MonoBehaviour
 
         if (isBoss)
         {
-            slider.transform.localScale *= 1.5f;
+            slider.GetComponentInParent<Canvas>().transform.localScale = big;
         }
 
         //Lifeの初期化
@@ -40,7 +42,7 @@ public class Enemy : MonoBehaviour
 
         bullet_tr.parent = transform;
         bullet_tr.localPosition = Vector3.zero;
-        bullet_tr.LookAt(GameObject.Find("Player").transform);
+        bullet_tr.LookAt(GameObject.Find("Player") == null ? transform : GameObject.Find("Player").transform);
         bullet_i.GetComponent<Rigidbody>().AddForce(Vector3.up * 500);
     }
 
