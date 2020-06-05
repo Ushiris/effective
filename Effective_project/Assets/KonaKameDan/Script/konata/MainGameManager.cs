@@ -7,6 +7,30 @@ using UnityEngine;
 /// </summary>
 public class MainGameManager : MonoBehaviour
 {
+    /// <summary>
+    /// 合計ダメージを取得
+    /// </summary>
+    public static int GetTotalDamage { get; set; }
+
+    /// <summary>
+    /// プレイヤーレベルを取得
+    /// </summary>
+    public static int GetPlayerLevel { get; set; }
+
+    /// <summary>
+    /// プレイタイムを取得
+    /// </summary>
+    public static int GetPlayTime { get; set; }
+
+    /// <summary>
+    /// 到達階層を取得
+    /// </summary>
+    public static int GetArrivalHierarchy { get; set; }
+
+    /// <summary>
+    /// 倒した敵の数を取得
+    /// </summary>
+    public static int GetTotalEnemiesKilled { get; set; }
 
     // Start is called before the first frame update
     void Start()
