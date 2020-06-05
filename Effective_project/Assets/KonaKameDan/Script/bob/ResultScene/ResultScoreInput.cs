@@ -26,8 +26,7 @@ public class ResultScoreInput : MonoBehaviour
         number_PT = MainGameManager.GetPlayTime;
         number_AH = MainGameManager.GetArrivalHierarchy;
         number_TEK = MainGameManager.GetTotalEnemiesKilled;
-
-
+        
         InputDisplay();
     }
 
@@ -37,7 +36,7 @@ public class ResultScoreInput : MonoBehaviour
     }
 
     /// <summary>
-    /// 書き込み部分
+    /// 値の書き込み
     /// </summary>
     private void InputDisplay()
     {
