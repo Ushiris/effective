@@ -9,9 +9,6 @@ public class Enemy : MonoBehaviour
     Slider slider;
     [SerializeField] GameObject bullet;
 
-    public uint maxHP = 10;
-    public int defHP = 10;
-
     private void Start()
     {
         life = gameObject.AddComponent<Life>();
@@ -20,10 +17,10 @@ public class Enemy : MonoBehaviour
         //sliderの初期化
         slider.minValue = 0;
         slider.maxValue = life.MaxHP;
-        slider.value = maxHP;
+        slider.value = life.MaxHP;
 
         //Lifeの初期化
-        if (life.LifeSetup(1,defHP)) Debug.Log("Error init HP");
+        if (life.LifeSetup(1)) Debug.Log("Error init HP");
         life.AddLastword(Dead);
         life.AddDamageFunc(Damage);
         life.AddHealFunc(Heal);
