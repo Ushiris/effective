@@ -21,6 +21,6 @@ public class ArtsGenerator : MonoBehaviour
 
     public ParticleSystem GetParticle(string ID)
     {
-
+        return ArtsParticleDictionary.Instance.particle.GetTable()[ID];
     }
 }
