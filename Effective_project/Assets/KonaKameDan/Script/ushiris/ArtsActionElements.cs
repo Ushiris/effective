@@ -40,7 +40,7 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     {
         //インスペクタ上で登録されているであろう"Hoge"というプレハブをインスタンス化します
         //これは例えば矢をインスタンス化したりする場合に有効です。
-        GameObject hoge_instance = CreateInstance("Hoge");
+        GameObject hoge_instance = Summon("Hoge");
 
         //artsの子として登録します
         SetParent(arts.transform, hoge_instance.transform);
@@ -50,9 +50,19 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     }
 
     //インスタンス化はよく使うので関数を用意しておきました。
-    private GameObject CreateInstance(string name)
+    private GameObject Summon(string name)
     {
         return Instantiate(prefabs.GetTable()[name]);
+    }
+
+    private List<GameObject> Summon(string name,int amount)
+    {
+        var instance = new List<GameObject>();
+        for (uint i = 0; i < amount; i++)
+        {
+            instance.Add( Summon(name));
+        }
+        return instance;
     }
 
     //アーツを親として登録します。座標がアーツの地点になるので注意。
