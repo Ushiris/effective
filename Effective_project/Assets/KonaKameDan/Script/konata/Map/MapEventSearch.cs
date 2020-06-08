@@ -9,18 +9,6 @@ public class MapEventSearch : MonoBehaviour
 {
     public static int Outside { get { return 1000; } }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     /// <summary>
     /// 4方向を見て壁の距離を返す
     /// </summary>

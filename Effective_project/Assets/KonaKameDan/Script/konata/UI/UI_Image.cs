@@ -44,12 +44,12 @@ public class UI_Image : MonoBehaviour
         new ArtsDisplayUI{name="遅延"},
         new ArtsDisplayUI{name="飛翔"}
     };
-    public static Dictionary<string, ArtsDisplayUI> GetEffectIcon { get; private set; }
+    //public static Dictionary<string, ArtsDisplayUI> GetEffectIcon { get; private set; }
     public static UI_Image GetUI_Image { get; private set; }
 
     private void Awake()
     {
-        GetEffectIcon = new Dictionary<string, ArtsDisplayUI>();
+        //GetEffectIcon = new Dictionary<string, ArtsDisplayUI>();
 
         //仮置き
         for (int i = 0; i < effectIcon.Count; i++)

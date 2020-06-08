@@ -8,17 +8,6 @@ using System.Linq;
 /// </summary>
 public class MapRoadInstant : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     /// <summary>
     /// 特定の位置から3方向壁に囲まれている場合、一番近い壁を壊す

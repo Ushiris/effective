@@ -60,10 +60,6 @@ public class ArtsList : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     //組み合わせを生成する
     void ArtsDataInstant()
