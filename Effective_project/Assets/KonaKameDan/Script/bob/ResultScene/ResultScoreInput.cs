@@ -30,11 +30,6 @@ public class ResultScoreInput : MonoBehaviour
         InputDisplay();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     /// <summary>
     /// 値の書き込み
     /// </summary>
