@@ -11,18 +11,6 @@ public class ArtsListSearch : MonoBehaviour
     static List<string> nameList = new List<string>();
     static List<string> idList = new List<string>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     /// <summary>
     ///配列を入れその中に格納されているものから検索してArtsDataListの配列番号を返す
     /// </summary>

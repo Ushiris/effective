@@ -8,17 +8,6 @@ using System.IO;
 /// </summary>
 public class ArtsListOutput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
 
     /// <summary>
     /// テキストに書き出す

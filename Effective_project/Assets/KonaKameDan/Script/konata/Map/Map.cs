@@ -10,7 +10,7 @@ public class Map : MonoBehaviour
     //オブジェクトの種類
     public enum ObjType
     {
-        Nothing, Wall, Goal, Start, ProhibitedArea
+        Nothing, Wall, Goal, Start, Boss, ProhibitedArea
     }
     //マップを二次元配列で作成しているため、わかりやすくするための物
     public enum MapDataArrLength { Width, Depth }
@@ -29,6 +29,9 @@ public class Map : MonoBehaviour
     [Header("ノイズの細かさ")]
     [SerializeField] float chaos = 30f;
 
+    [Header("ボスが生まれる範囲")]
+    [SerializeField] int bossSpawnAreaRange = 5;
+
     [Header("オブジェクト")]
     [SerializeField] GameObject frameObj;
     [SerializeField] GameObject wallObj;
@@ -43,7 +46,8 @@ public class Map : MonoBehaviour
     [Header("イベントオブジェクト"),SerializeField]
     List<EventObj> inspectorExclusive = new List<EventObj>() {
         new EventObj{name=ObjType.Start.ToString(),objType=ObjType.Start },
-        new EventObj{name=ObjType.Goal.ToString(),objType=ObjType.Goal }
+        new EventObj{name=ObjType.Goal.ToString(),objType=ObjType.Goal },
+        new EventObj{name=ObjType.Boss.ToString(),objType=ObjType.Boss }
     };
 
     [Header("シード値")]
@@ -82,6 +86,9 @@ public class Map : MonoBehaviour
         MapRoadInstant.IfWall_MakeRoad(mapData, xStart, zStart, roadLength, roadSpace);
         MapRoadInstant.IfWall_MakeRoad(mapData, xGoal, zGoal, roadLength, roadSpace);
 
+        //ボスの配置
+        MapEvent.NearEventInstant(mapData, xGoal, zGoal, ObjType.Boss, bossSpawnAreaRange);
+
         //マップデータをテキストに出力する
         MapDebug.TextOutput(mapData, "Assets/MapData.txt");
 
@@ -89,12 +96,6 @@ public class Map : MonoBehaviour
         ListToDictionary();
         MapMaterialization.InstantFrame(w, d, frameObj, transform);
         MapMaterialization.ObjSet(mapData, wallObj, eventObj, transform);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     //インスペクタ上に出したものをディクショナリに格納しなおす

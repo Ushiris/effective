@@ -14,18 +14,6 @@ public class MapEvent : MonoBehaviour
     /// </summary>
     public static Dictionary<Map.ObjType, V2> eventPos = new Dictionary<Map.ObjType, V2>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     /// <summary>
     /// イベントのポジションをマップデータ内に記録
     /// </summary>
@@ -44,6 +32,43 @@ public class MapEvent : MonoBehaviour
         //イベントを配置したのでその場所を消す
         Map.RandomPutEventTable.RemoveAt(ran);
 
+    }
+
+    /// <summary>
+    /// 特定の場所の近くにイベントを生成
+    /// </summary>
+    /// <param name="map">マップデータ</param>
+    /// <param name="searchEvent">基準とする場所</param>
+    /// <param name="instantEvent">生成するイベント</param>
+    /// <param name="dis">検索する距離</param>
+    public static void NearEventInstant(Map.ObjType[,] map,int eventX,int eventZ, Map.ObjType instantEvent, int dis)
+    {
+        int w = map.GetLength((int)Map.MapDataArrLength.Width);
+        int d = map.GetLength((int)Map.MapDataArrLength.Depth);
+
+        List<V2> v2 = new List<V2>();
+
+        //エレア外でなく、そこに何もない場合イベントを配置できる範囲を登録する
+        for (int x = eventX - dis; x <= eventX + dis; x++)
+        {
+            if (w - 1 > x && 1 < x)
+            {
+                for (int z = eventZ - dis; z <= eventZ + dis; z++)
+                {
+                    if (d - 1 > z && 1 < z)
+                    {
+                        if (map[x, z] == Map.ObjType.Nothing) v2.Add(new V2(x, z));
+                    }
+                }
+            }
+        }
+
+        //登録された範囲からランダムにイベントを配置する
+        int num = Random.Range(0, v2.Count - 1);
+        map[v2[num].x, v2[num].z] = instantEvent;
+
+        //イベントを配置したのでその場所を消す
+        Map.RandomPutEventTable.Remove(v2[num]);
     }
 
 
