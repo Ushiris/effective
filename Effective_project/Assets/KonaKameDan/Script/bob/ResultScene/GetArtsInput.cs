@@ -16,14 +16,7 @@ public class GetArtsInput : MonoBehaviour
         {
             getArtsName[i] = MyArtsDeck.GetArtsDeck[i].name;
         }
-
         ArtsNameInputDisplay();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     /// <summary>
