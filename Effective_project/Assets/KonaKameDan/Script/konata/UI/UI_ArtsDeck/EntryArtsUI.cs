@@ -7,12 +7,17 @@ using UnityEngine;
 /// </summary>
 public class EntryArtsUI : MonoBehaviour
 {
-    [SerializeField] UI_ArtsMaterialization[] artsUI_Plate = new UI_ArtsMaterialization[3];
+    List<UI_ArtsMaterialization> artsUI_Plate = new List<UI_ArtsMaterialization>();
+    [SerializeField] GameObject artsUI_Obj;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        foreach(Transform childObj in artsUI_Obj.transform)
+        {
+            GameObject obj = childObj.gameObject.transform.GetChild(0).gameObject;
+            artsUI_Plate.Add(obj.GetComponent<UI_ArtsMaterialization>());
+        }
     }
 
     // Update is called once per frame
