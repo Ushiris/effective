@@ -38,7 +38,8 @@ public class MapMaterialization : MonoBehaviour
                     //マップデータとイベントが一致している場合作成
                     if (eventObj.ContainsKey(mapData[x, z]))
                     {
-                        InstantRoom(eventObj[mapData[x, z]], x, z);
+                        eventObj[mapData[x, z]] = InstantRoom(eventObj[mapData[x, z]], x, z);
+
                     }
                 }
 
@@ -64,10 +65,11 @@ public class MapMaterialization : MonoBehaviour
         }
 
         //生成
-        void InstantRoom(GameObject instantObj, float x, float z)
+        GameObject InstantRoom(GameObject instantObj, float x, float z)
         {
             GameObject cube = Instantiate(instantObj, new Vector3(x, 0, z), new Quaternion());
             cube.transform.SetParent(parent);
+            return cube;
         }
     }
 
@@ -99,5 +101,17 @@ public class MapMaterialization : MonoBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// 特定のオブジェクトのところに生成
+    /// </summary>
+    /// <param name="instantObj">生成したいオブジェクト</param>
+    /// <param name="pos">参照場所</param>
+    public static void InstantObj(GameObject instantObj,GameObject obj)
+    {
+        if (instantObj != null)
+        {
+            GameObject instant = Instantiate(instantObj, obj.transform.position, new Quaternion());
+            instant.transform.SetParent(obj.transform.parent);
+        }
+    }
 }
