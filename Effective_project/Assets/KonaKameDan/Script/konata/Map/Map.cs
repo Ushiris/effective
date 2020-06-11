@@ -32,18 +32,21 @@ public class Map : MonoBehaviour
     [Header("ボスが生まれる範囲")]
     [SerializeField] int bossSpawnAreaRange = 5;
 
-    [Header("オブジェクト")]
-    [SerializeField] GameObject frameObj;
-    [SerializeField] GameObject wallObj;
+    [Header("オブジェクト生成ポジション")]
+    [SerializeField] GameObject frameObjPoint;
+    [SerializeField] GameObject wallObjPoint;
+    [SerializeField] GameObject GoalObj;
+    [SerializeField] GameObject plObj;
 
     [System.Serializable]
     public class EventObj   //インスペクター上で操作ができるようにするための物
     {
         [HideInInspector] public string name;
         [HideInInspector] public ObjType objType;
+        [HideInInspector] public Transform trans;
         public GameObject obj;
     }
-    [Header("イベントオブジェクト"),SerializeField]
+    [Header("イベントオブジェクト生成ポジション"),SerializeField]
     List<EventObj> inspectorExclusive = new List<EventObj>() {
         new EventObj{name=ObjType.Start.ToString(),objType=ObjType.Start },
         new EventObj{name=ObjType.Goal.ToString(),objType=ObjType.Goal },
@@ -63,7 +66,7 @@ public class Map : MonoBehaviour
     public static List<V2> RandomPutEventTable = new List<V2>();
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //シード値固定用
         if (seed != 0) Random.seed = seed;
@@ -94,8 +97,15 @@ public class Map : MonoBehaviour
 
         //オブジェクトを生成
         ListToDictionary();
-        MapMaterialization.InstantFrame(w, d, frameObj, transform);
-        MapMaterialization.ObjSet(mapData, wallObj, eventObj, transform);
+        MapMaterialization.InstantFrame(w, d, frameObjPoint, transform);
+        MapMaterialization.ObjSet(mapData, wallObjPoint, eventObj, transform);
+
+        //マップ拡大率
+        transform.localScale = new Vector3(siz, siz, siz);
+
+        //サイズを変更したくないものを生成
+        MapMaterialization.InstantObj(GoalObj, eventObj[ObjType.Goal]);
+        MapMaterialization.InstantObj(plObj, eventObj[ObjType.Start]);
     }
 
     //インスペクタ上に出したものをディクショナリに格納しなおす

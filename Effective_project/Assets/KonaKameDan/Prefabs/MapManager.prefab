@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2024195638251374732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2024195638251374734}
+  - component: {fileID: 2024195638251374733}
+  m_Layer: 0
+  m_Name: MapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2024195638251374734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024195638251374732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2024195638251374733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024195638251374732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75efaa63efdbcaf46912cde4d4ea5b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  w: 200
+  d: 200
+  h: 1.5
+  siz: 1
+  roadSpace: 5
+  roadLength: 30
+  chaos: 30
+  bossSpawnAreaRange: 5
+  GoalObj: {fileID: 348436098106436150, guid: 3ba5b5fa5054f154d8d818362073d1cc, type: 3}
+  frameObjPoint: {fileID: 1927969263196775147, guid: a1bcca1651153f842af2a6f3a4e00da2,
+    type: 3}
+  wallObjPoint: {fileID: 8415978669402411463, guid: 6e3adaa06bfd5554b82e13fe9bdbbc22,
+    type: 3}
+  inspectorExclusive:
+  - name: Start
+    objType: 3
+    trans: {fileID: 0}
+    obj: {fileID: 1778262968954942598, guid: c716a3fee33f12b45a6434a288bb18cb, type: 3}
+  - name: Goal
+    objType: 2
+    trans: {fileID: 0}
+    obj: {fileID: 7382741837085903735, guid: 73e0b7386e0c87e45ace8eee96468f90, type: 3}
+  - name: Boss
+    objType: 4
+    trans: {fileID: 0}
+    obj: {fileID: 4523503785744429535, guid: 4743a9062fd4e0a4ab6a2025b35c6aa4, type: 3}
+  seed: 0
