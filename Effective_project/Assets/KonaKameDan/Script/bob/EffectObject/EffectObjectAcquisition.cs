@@ -13,7 +13,7 @@ public class EffectObjectAcquisition : MonoBehaviour
     }
     private EffectObjectID effectObjectID;
     public static List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
-    public List<string> effectObjectName = new List<string>();// リスト作成
+    public static List<string> effectObjectName = new List<string>();// リスト作成
 
     private void OnTriggerEnter(Collider other)// 何かに当たった瞬間
     {
