@@ -103,7 +103,7 @@ public class Map : MonoBehaviour
         MapEvent.NearEventInstant(mapData, xGoal, zGoal, ObjType.Boss, bossSpawnAreaRange);
 
         //マップデータをテキストに出力する
-        MapDebug.TextOutput(mapData, "Assets/MapData.txt");
+        //MapDebug.TextOutput(mapData, "Assets/MapData.txt");
 
         //オブジェクトを生成
         ListToDictionary();
