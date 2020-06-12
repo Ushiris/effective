@@ -21,6 +21,7 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     PrefabDictionary prefabs;
 
     //一度だけ処理されます。
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public void Init()
     {
         if (isInit) return;
@@ -30,8 +31,8 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
 
         isInit = true;
     }
-    //ここにキーワード動作を書いてけろ
 
+    //ここにキーワード動作を書いてけろ
     //"何もしない"をするスクリプト
     public void Brank(GameObject arts) { }
 
@@ -39,8 +40,9 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     public void HogeMove(GameObject arts)
     {
         //インスペクタ上で登録されているであろう"Hoge"というプレハブをインスタンス化します
-        //これは例えば矢をインスタンス化したりする場合に有効です。
-        GameObject hoge_instance = Summon("Hoge");
+        //これは矢をインスタンス化したりする場合に有効で効率的な手段と言えます。
+        //Summon()はオーバーライドされていて、返り値の型を予め書くのは面倒です。こういった場合はvarで推論しましょう。
+        var hoge_instance = Summon("Hoge");
 
         //artsの子として登録します
         SetParent(arts.transform, hoge_instance.transform);
@@ -55,6 +57,7 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
         return Instantiate(prefabs.GetTable()[name]);
     }
 
+    //一気に何個か作りたいとき用
     private List<GameObject> Summon(string name,int amount)
     {
         var instance = new List<GameObject>();
