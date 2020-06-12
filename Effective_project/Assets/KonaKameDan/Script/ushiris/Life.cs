@@ -9,7 +9,7 @@ public class Life : MonoBehaviour
     public delegate void Dead();
     public delegate int DamageEvent(int num);
 
-    public float MaxHP { get { return (uint)GetComponent<Status>().status[Status.Name.HP]; } }
+    public float MaxHP { get { return GetComponent<Status>().status[Status.Name.HP]; } }
     public float? HP { get; private set; }
     public bool IsFreeze { get; private set; }
 

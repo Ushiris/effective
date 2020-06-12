@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    Life life;
-    Slider slider;
+    public Life life;
+    public Slider slider;
     [SerializeField] GameObject bullet;
     [SerializeField] bool isBoss;
     static Vector3 hp_small=new Vector3(1,1,1);
@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
         if (isBoss)
         {
             slider.GetComponentInParent<Canvas>().transform.localScale = big;
+            GameObject Territory = Instantiate(new GameObject());
+            Territory.transform.parent = gameObject.transform;
+            Territory.AddComponent<TerritorySenses>();
         }
 
         //Lifeの初期化
