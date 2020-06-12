@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,8 +56,6 @@ public class ArtsList : MonoBehaviour
     {
         //ArtsDataInstant();
         //TextOutput();
-
-
     }
 
     // Update is called once per frame
