@@ -11,17 +11,9 @@ public class GatyaGatyaInventory : MonoBehaviour
     public class ItemClass
     {
         public GameObject item;
-        [Header("出現割合"),RangeAttribute(0, 10)] public float probability;
+        [Header("出現割合"), RangeAttribute(0, 10)] public float probability;
     }
     public List<ItemClass> EffectObj = new List<ItemClass>();
-
-    List<int> probabilityTable = new List<int>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     /// <summary>
     /// 出現割合からランダムテーブル作成
@@ -63,11 +55,11 @@ public class GatyaGatyaInventory : MonoBehaviour
     /// <param name="items"></param>
     /// <param name="maxCount"></param>
     /// <returns></returns>
-    public static List<GameObject> RandomObjList(List<int> randomTable, List<ItemClass> items,int maxCount)
+    public static List<GameObject> RandomObjList(List<int> randomTable, List<ItemClass> items, int maxCount)
     {
         List<GameObject> objs = new List<GameObject>();
 
-        for(int i=0;i< maxCount; i++)
+        for (int i = 0; i < maxCount; i++)
         {
             objs.Add(RandomObj(randomTable, items));
         }

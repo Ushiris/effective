@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2024195638251374734}
   - component: {fileID: 2024195638251374733}
+  - component: {fileID: 9188698297048849260}
   m_Layer: 0
   m_Name: MapManager
   m_TagString: Untagged
@@ -51,11 +52,12 @@ MonoBehaviour:
   roadLength: 30
   chaos: 30
   bossSpawnAreaRange: 5
-  GoalObj: {fileID: 348436098106436150, guid: 3ba5b5fa5054f154d8d818362073d1cc, type: 3}
   frameObjPoint: {fileID: 1927969263196775147, guid: a1bcca1651153f842af2a6f3a4e00da2,
     type: 3}
   wallObjPoint: {fileID: 8415978669402411463, guid: 6e3adaa06bfd5554b82e13fe9bdbbc22,
     type: 3}
+  GoalObj: {fileID: 348436098106436150, guid: 3ba5b5fa5054f154d8d818362073d1cc, type: 3}
+  plObj: {fileID: 7505584113060827351, guid: e1e991e09772c5f4e94aa21a22efd2bf, type: 3}
   inspectorExclusive:
   - name: Start
     objType: 3
@@ -70,3 +72,36 @@ MonoBehaviour:
     trans: {fileID: 0}
     obj: {fileID: 4523503785744429535, guid: 4743a9062fd4e0a4ab6a2025b35c6aa4, type: 3}
   seed: 0
+--- !u!114 &9188698297048849260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024195638251374732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56276c7e976d21e4383c139efd74fdcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectObj:
+  - item: {fileID: 4071026826131853580, guid: 25e11a0df7316aa458a58c858c1542f2, type: 3}
+    probability: 2
+  - item: {fileID: 8826846590249665320, guid: fd156d7d7bf1be44584e05d937e0e311, type: 3}
+    probability: 2
+  - item: {fileID: 1847551651988070515, guid: 0538c634621e40b44b501f8a3bd9f3d9, type: 3}
+    probability: 5
+  - item: {fileID: 4117553474593525243, guid: ae7249c38f9650845b21c629c8f37c6e, type: 3}
+    probability: 10
+  - item: {fileID: 651668260010506856, guid: 2f267bfa35255754fa4b2fd201836382, type: 3}
+    probability: 0
+  - item: {fileID: 437334634217711547, guid: 430ccc2816319894eb3b295004ae1456, type: 3}
+    probability: 0
+  - item: {fileID: 7248368754059802856, guid: 1a01c8d265cb290498b7f5eb47f57e7c, type: 3}
+    probability: 0
+  - item: {fileID: 8922917191592098055, guid: 4113cc94eea44154490f3bc8bb3c1985, type: 3}
+    probability: 0
+  - item: {fileID: 7344321289378576254, guid: df62a442c086dae42bd48d6e52054671, type: 3}
+    probability: 0
+  - item: {fileID: 4702145262850176614, guid: a406051ac1425d644980ffa00580c16a, type: 3}
+    probability: 0

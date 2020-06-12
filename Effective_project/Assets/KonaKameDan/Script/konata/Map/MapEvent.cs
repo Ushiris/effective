@@ -19,16 +19,18 @@ public class MapEvent : MonoBehaviour
     /// </summary>
     /// <param name="map">マップデータ</param>
     /// <param name="objType">イベントの種類</param>
-    public static void InstantEvent(Map.ObjType[,] map, Map.ObjType objType)
+    /// <param name="onEventPosEntry">イベント位置を登録するかどうか</param>
+    public static void InstantEvent(Map.ObjType[,] map, Map.ObjType objType, bool onEventPosEntry = true)
     {
         int ran = Random.Range(0, Map.RandomPutEventTable.Count - 1);
 
         //マップデータにマークする
         map[Map.RandomPutEventTable[ran].x, Map.RandomPutEventTable[ran].z] = objType;
-        
+
         //座標を格納
-        eventPos.Add(objType, new V2(Map.RandomPutEventTable[ran].x, Map.RandomPutEventTable[ran].z));
-        
+        if (onEventPosEntry)
+            eventPos.Add(objType, new V2(Map.RandomPutEventTable[ran].x, Map.RandomPutEventTable[ran].z));
+
         //イベントを配置したのでその場所を消す
         Map.RandomPutEventTable.RemoveAt(ran);
 

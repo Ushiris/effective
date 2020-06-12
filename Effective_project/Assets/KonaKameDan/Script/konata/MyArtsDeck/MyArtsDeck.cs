@@ -9,11 +9,10 @@ public class MyArtsDeck : MonoBehaviour
 {
     static List<ArtsList.ArtsData> GetMyArtsDeck = new List<ArtsList.ArtsData>();
 
-    bool selectArtsReset;
-
     // Start is called before the first frame update
     void Start()
     {
+        //初期化
         for (int i = 0; i < transform.childCount; i++)
         {
             GetMyArtsDeck.Add(new ArtsList.ArtsData());
@@ -29,13 +28,44 @@ public class MyArtsDeck : MonoBehaviour
             {
                 int num = UI_Manager.GetChoiceArtsDeckNum;
                 GetMyArtsDeck[num] = ArtsList.GetSelectArts;
+
+                //エフェクト所持数チェック
+                for (int i = 0; i < GetMyArtsDeck[num].effectStockCount.Length; i++)
+                {
+                    try
+                    {
+                        GetMyArtsDeck[num].effectStockCount[i] =
+                            SearchEffectStockCount(GetMyArtsDeck[num].effectList[i]);
+                    }
+                    catch (System.ArgumentException)
+                    {
+                        GetMyArtsDeck[num].effectStockCount[i] = 0;
+                    }
+
+                }
             }
         }
 
     }
+
     bool OnTrigger()
     {
         return UI_Manager.ArtsEntryTrigger() && UI_Manager.GetIsEffectFusionUI_ChoiceActive;
+    }
+
+    //所持しているエフェクトからアーツに気組み込まれたエフェクトごとの所持数を返す
+    int SearchEffectStockCount(int num)
+    {
+        int count=0;
+        foreach(var item in MainGameManager.GetPlEffectList)
+        {
+            if (item.id == num)
+            {
+                count = item.count;
+                break;
+            }
+        }
+        return count;
     }
 
     /// <summary>
