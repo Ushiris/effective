@@ -29,7 +29,7 @@ public class ArtsList : MonoBehaviour
         public string name;
         public string id;
         public List<int> effectList = new List<int>();  //最後にすること(順番)
-        public List<int> effectStockCount = new List<int>();
+        public int[] effectStockCount = new int[3];
         public List<string> actionNames = new List<string>();
     }
     public List<ArtsData> artsDataList = new List<ArtsData>();
