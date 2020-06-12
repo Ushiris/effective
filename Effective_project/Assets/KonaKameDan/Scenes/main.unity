@@ -284,6 +284,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Homing]EffectObject'
       objectReference: {fileID: 0}
+    - target: {fileID: 437334634217711547, guid: 430ccc2816319894eb3b295004ae1456,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 437334634217711551, guid: 430ccc2816319894eb3b295004ae1456,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -661,12 +666,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: plObj
-      value: 
-      objectReference: {fileID: 7505584113060827351, guid: e1e991e09772c5f4e94aa21a22efd2bf,
-        type: 3}
     - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1205,6 +1204,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Barrier]EffectObject'
       objectReference: {fileID: 0}
+    - target: {fileID: 1847551651988070515, guid: 0538c634621e40b44b501f8a3bd9f3d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1847551651988070519, guid: 0538c634621e40b44b501f8a3bd9f3d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1488,6 +1492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: '[Explosion]EffectObject'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922917191592098055, guid: 4113cc94eea44154490f3bc8bb3c1985,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4113cc94eea44154490f3bc8bb3c1985, type: 3}

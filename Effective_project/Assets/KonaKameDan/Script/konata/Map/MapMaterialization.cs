@@ -15,10 +15,11 @@ public class MapMaterialization : MonoBehaviour
     /// <param name="wallObj">壁オブジェクト</param>
     /// <param name="eventObj">イベントオブジェクト</param>
     /// <param name="parent">親に</param>
-    public static void ObjSet(Map.ObjType[,] mapData, GameObject wallObj,Dictionary<Map.ObjType,GameObject> eventObj, Transform parent)
+    public static void ObjSet(Map.ObjType[,] mapData, GameObject wallObj, Dictionary<Map.ObjType, GameObject> eventObj, List<GameObject> effectItems, Transform parent)
     {
         int w = mapData.GetLength((int)Map.MapDataArrLength.Width);
         int d = mapData.GetLength((int)Map.MapDataArrLength.Depth);
+        int effectItemCount = 0;
 
         //オブジェクト設置
         for (int x = 1; x < w - 1; x++)
@@ -40,6 +41,11 @@ public class MapMaterialization : MonoBehaviour
                     {
                         eventObj[mapData[x, z]] = InstantRoom(eventObj[mapData[x, z]], x, z);
 
+                    }
+                    else if(mapData[x, z] == Map.ObjType.EffectItem)
+                    {
+                        InstantRoom(effectItems[effectItemCount], x, z);
+                        effectItemCount++;
                     }
                 }
 

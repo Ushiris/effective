@@ -10,7 +10,7 @@ public class Map : MonoBehaviour
     //オブジェクトの種類
     public enum ObjType
     {
-        Nothing, Wall, Goal, Start, Boss, ProhibitedArea
+        Nothing, Wall, Goal, Start, Boss, EffectItem, ProhibitedArea
     }
     //マップを二次元配列で作成しているため、わかりやすくするための物
     public enum MapDataArrLength { Width, Depth }
@@ -37,6 +37,10 @@ public class Map : MonoBehaviour
     [SerializeField] GameObject wallObjPoint;
     [SerializeField] GameObject GoalObj;
     [SerializeField] GameObject plObj;
+
+    [Header("ばらまくエフェクト")]
+    [SerializeField] int effectInstantCount = 10;
+    [SerializeField] List<GameObject> effectItem = new List<GameObject>();
 
     [System.Serializable]
     public class EventObj   //インスペクター上で操作ができるようにするための物
@@ -75,9 +79,15 @@ public class Map : MonoBehaviour
         mapData = TerrainDataInstant.InstantMapChip(w, d, h, chaos);
         TerrainDataInstant.InstantProhibitedArea(mapData);
 
+        //エフェクトオブジェクトの定義
+        var obj = GetComponent<GatyaGatyaInventory>().EffectObj;
+        List<int> nums = GatyaGatyaInventory.RandomTableInstant(obj);
+        effectItem = GatyaGatyaInventory.RandomObjList(nums, obj, effectInstantCount);
+
         //イベントを登録
         MapEvent.InstantEvent(mapData, ObjType.Start);
         MapEvent.InstantEvent(mapData, ObjType.Goal);
+        for (int i = 0; i < effectInstantCount; i++) MapEvent.InstantEvent(mapData, ObjType.EffectItem, false);
 
         //登録したイベントのデータを取得
         int xStart = MapEvent.eventPos[ObjType.Start].x;
@@ -98,7 +108,7 @@ public class Map : MonoBehaviour
         //オブジェクトを生成
         ListToDictionary();
         MapMaterialization.InstantFrame(w, d, frameObjPoint, transform);
-        MapMaterialization.ObjSet(mapData, wallObjPoint, eventObj, transform);
+        MapMaterialization.ObjSet(mapData, wallObjPoint, eventObj, effectItem, transform);
 
         //マップ拡大率
         transform.localScale = new Vector3(siz, siz, siz);
