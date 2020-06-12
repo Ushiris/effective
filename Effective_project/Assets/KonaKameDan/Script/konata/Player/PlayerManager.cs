@@ -10,9 +10,13 @@ public class PlayerManager : MonoBehaviour
 
     public static PlayerManager GetManager { private set; get; }
 
+    public GameObject GetPlObj;
+
     // Start is called before the first frame update
     void Start()
     {
+        GetPlObj = GameObject.FindGameObjectWithTag("Player");
+
         GetManager = this;
     }
 

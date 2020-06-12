@@ -106,12 +106,12 @@ public class MapMaterialization : MonoBehaviour
     /// </summary>
     /// <param name="instantObj">生成したいオブジェクト</param>
     /// <param name="pos">参照場所</param>
-    public static void InstantObj(GameObject instantObj,GameObject obj)
+    public static void InstantObj(GameObject instantObj, GameObject obj, GameObject parent = null)
     {
         if (instantObj != null)
         {
             GameObject instant = Instantiate(instantObj, obj.transform.position, new Quaternion());
-            instant.transform.SetParent(obj.transform.parent);
+            if (parent != null) instant.transform.SetParent(parent.transform.parent);
         }
     }
 }

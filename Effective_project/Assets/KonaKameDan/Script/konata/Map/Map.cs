@@ -104,7 +104,7 @@ public class Map : MonoBehaviour
         transform.localScale = new Vector3(siz, siz, siz);
 
         //サイズを変更したくないものを生成
-        MapMaterialization.InstantObj(GoalObj, eventObj[ObjType.Goal]);
+        MapMaterialization.InstantObj(GoalObj, eventObj[ObjType.Goal], eventObj[ObjType.Goal]);
         MapMaterialization.InstantObj(plObj, eventObj[ObjType.Start]);
     }
 
