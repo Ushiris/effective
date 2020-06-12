@@ -25,7 +25,7 @@ public class EffectObjectAcquisition : MonoBehaviour
         AddEffect(effectObjectID.effectObjectType);
     }
 
-    void AddEffect(EffectObjectID.EffectObjectType type)
+    void AddEffect(NameDefinition.EffectName type)
     {
         var effectName = EffectObjectID.effectDictionary[type];
         if (effectObjectName.Contains(effectName))
