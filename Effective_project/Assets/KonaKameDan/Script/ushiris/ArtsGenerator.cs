@@ -18,4 +18,9 @@ public class ArtsGenerator : MonoBehaviour
 
         return functions;
     }
+
+    public ParticleSystem GetParticle(string ID)
+    {
+        return ArtsParticleDictionary.Instance.particle.GetTable()[ID];
+    }
 }
