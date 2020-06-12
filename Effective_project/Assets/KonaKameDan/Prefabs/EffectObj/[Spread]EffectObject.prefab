@@ -72,5 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Spread]EffectObject'
       objectReference: {fileID: 0}
+    - target: {fileID: 8557362216852317258, guid: 40a911c0c9be1c8408c6f59949a8b3d5,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u62E1\u6563\n"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40a911c0c9be1c8408c6f59949a8b3d5, type: 3}
