@@ -2,17 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EffectObjectCount : MonoBehaviour
 {
-    public Image[] effectObjectImage;   // エフェクトオブジェクトの入れ物
-    private int[] effectObjectCount;    // エフェクトオブジェクトの個数
+    [SerializeField] private int effectObjectMax = 10;
+    public Image[] effectObjectImage;           // エフェクトオブジェクトの入れ物
+    public TextMeshProUGUI[] effectObjectName;  // エフェクトオブジェクト名の入れ物
 
     void Start()
     {
-        for(int i = 0;i < EffectObjectAcquisition.effectObjectAcquisition.Count; i++)
+        for (int i = 0; i < effectObjectMax; i++)
         {
-            effectObjectCount[i] = EffectObjectAcquisition.effectObjectAcquisition[i].count;// 個数を挿入
+            var effectName = EffectObjectID.effectDictionary[(NameDefinition.EffectName)i];
+
+
+            if (EffectObjectAcquisition.effectObjectName.Contains(effectName))// エフェクトオブジェクトを持っている
+            {
+                effectObjectName[i].text = "×" + EffectObjectAcquisition.effectObjectAcquisition[i].count;// 個数を挿入
+            }
+            else// エフェクトオブジェクトを持っていない
+            {
+                effectObjectName[i].text = "×0";// 個数を挿入
+            }
         }
     }
 }
