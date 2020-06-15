@@ -72,6 +72,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Homing]EffectObject'
       objectReference: {fileID: 0}
+    - target: {fileID: 1090544229439725502, guid: 40a911c0c9be1c8408c6f59949a8b3d5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76d9ce9b9d23aa445b7f44c795e6a73d, type: 2}
     - target: {fileID: 8557362216852317258, guid: 40a911c0c9be1c8408c6f59949a8b3d5,
         type: 3}
       propertyPath: m_Text
