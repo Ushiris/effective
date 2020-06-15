@@ -284,6 +284,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1974777675, guid: e1e991e09772c5f4e94aa21a22efd2bf, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974777675, guid: e1e991e09772c5f4e94aa21a22efd2bf, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974777675, guid: e1e991e09772c5f4e94aa21a22efd2bf, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974777675, guid: e1e991e09772c5f4e94aa21a22efd2bf, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: cc73fd6a5eefe8740bf0e51952f3c49d, type: 3}
     - target: {fileID: 7505584113060827351, guid: e1e991e09772c5f4e94aa21a22efd2bf,
         type: 3}
       propertyPath: m_Name
