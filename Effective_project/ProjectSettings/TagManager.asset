@@ -7,6 +7,7 @@ TagManager:
   - ArtsDeckUI
   - EffectObject
   - Enemy
+  - CameraPivot
   layers:
   - Default
   - TransparentFX
