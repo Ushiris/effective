@@ -7,6 +7,7 @@ public class TerritorySenses : MonoBehaviour
 {
     Canvas bossUI;
     Slider slider;
+    GameObject BossName;
 
     private void Start()
     {
@@ -14,19 +15,15 @@ public class TerritorySenses : MonoBehaviour
         bossUI.gameObject.SetActive(false);
         bossUI.renderMode = RenderMode.ScreenSpaceOverlay;
 
-        Text text = bossUI.gameObject.AddComponent<Text>();
-        text.text = "Boss name";
-        text.alignment = TextAnchor.MiddleCenter;
-        text.resizeTextForBestFit = true;
-        text.fontSize = 25;
-        text.rectTransform.sizeDelta = new Vector2(500, 500);
-        text.font = font;
+        BossName = Instantiate(Resources.Load<GameObject>("UI/BossName"));
+        BossName.transform.parent = bossUI.transform;
+        BossName.transform.localPosition = new Vector3(0, 250);
 
         Enemy enemy = transform.parent.gameObject.GetComponent<Enemy>();
         slider = Instantiate(enemy.slider);
         slider.transform.parent = bossUI.transform;
         slider.transform.localPosition = new Vector3(0, 225, 0);
-        slider.transform.localScale = new Vector3(0.2f, 8, 0.1f);
+        slider.transform.localScale = new Vector3(0.5f, 8, 0.1f);
         enemy.life.AddDamageFunc((num) => { slider.value -= num; return num; });
         enemy.life.AddHealFunc((num) => { slider.value += num; return num; });
 
