@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class ArtsGenerator : MonoBehaviour
+public class ArtsGenerator : SingletonMonoBehaviour<ArtsGenerator>
 {
     //アーツの実動作を取得します。
     public List<ArtsActionElements.ArtsAction> GetActions(string ID)
@@ -22,5 +22,13 @@ public class ArtsGenerator : MonoBehaviour
     public ParticleSystem GetParticle(string ID)
     {
         return ArtsParticleDictionary.Instance.particle.GetTable()[ID];
+    }
+
+    public GameObject GenerateArts(string ID)
+    {
+        var arts = new GameObject();
+        arts.AddComponent<Arts>();
+
+
     }
 }
