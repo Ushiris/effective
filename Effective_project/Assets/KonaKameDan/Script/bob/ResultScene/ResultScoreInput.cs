@@ -11,6 +11,7 @@ public class ResultScoreInput : MonoBehaviour
     public TextMeshProUGUI playTime;            // プレイタイム
     public TextMeshProUGUI arrivalHierarchy;    // 到達階層
     public TextMeshProUGUI totalEnemiesKilled;  // 倒した敵の数
+    public TextMeshProUGUI totalScore;          // 総合スコア
 
     // 数値
     private int number_TD;  // 合計ダメージ
@@ -18,6 +19,7 @@ public class ResultScoreInput : MonoBehaviour
     private int number_PT;  // プレイタイム
     private int number_AH;  // 到達階層
     private int number_TEK; // 倒した敵の数
+    private int number_TS;  // 総合スコア
 
     void Start()
     {
@@ -26,7 +28,9 @@ public class ResultScoreInput : MonoBehaviour
         number_PT = MainGameManager.GetPlayTime;
         number_AH = MainGameManager.GetArrivalHierarchy;
         number_TEK = MainGameManager.GetTotalEnemiesKilled;
-        
+        number_TS = number_TD + number_PL + number_AH + number_TEK;
+
+
         InputDisplay();
     }
 
@@ -40,5 +44,6 @@ public class ResultScoreInput : MonoBehaviour
         playTime.text = number_PT.ToString();
         arrivalHierarchy.text = number_AH.ToString();
         totalEnemiesKilled.text = number_TEK.ToString();
+        totalScore.text = number_TS.ToString();
     }
 }
