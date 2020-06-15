@@ -20,7 +20,7 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     [SerializeField]
     PrefabDictionary prefabs;
 
-    //一度だけ処理されます。
+    //初期化関数。一度だけ処理されます
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public void Init()
     {
@@ -28,20 +28,23 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
 
         //例："何もしない"の定義
         Actions.Add("Brank", Brank);
+        //ここで上記の例を元に関数名と関数の紐づけを行ってください
 
         isInit = true;
     }
 
-    //ここにキーワード動作を書いてけろ
-    //"何もしない"をするスクリプト
+    //例："何もしない"をするスクリプト
     public void Brank(GameObject arts) { }
 
-    //例：prefab(Hoge)に関する操作
+    //ここにキーワード動作を書いてけろ
+
+
+    //例：prefab(Hoge)に関する操作のチュートリアル
     public void HogeMove(GameObject arts)
     {
         //インスペクタ上で登録されているであろう"Hoge"というプレハブをインスタンス化します
-        //これは矢をインスタンス化したりする場合に有効で効率的な手段と言えます。
-        //Summon()はオーバーライドされていて、返り値の型を予め書くのは面倒です。こういった場合はvarで推論しましょう。
+        //これは矢をインスタンス化したりする場合に有効で効率的な手段と言えます
+        //Summon()はオーバーライドされていて、変数の型を明示的に書くのは面倒です。こういった場合はvarで推論しましょう
         var hoge_instance = Summon("Hoge");
 
         //artsの子として登録します
