@@ -3348,6 +3348,7 @@ MonoBehaviour:
   playTime: {fileID: 1170636525}
   arrivalHierarchy: {fileID: 629006602}
   totalEnemiesKilled: {fileID: 1822449397}
+  totalScore: {fileID: 2057328227}
 --- !u!114 &977305471
 MonoBehaviour:
   m_ObjectHideFlags: 0
