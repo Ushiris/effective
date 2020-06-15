@@ -41,7 +41,6 @@ public class UI_Manager : MonoBehaviour
     {
         //所持エフェクト
         if (!onEffectListCauntDebug) EffectListCount = MainGameManager.GetPlEffectList.Count;
-
         GetUI_Manager = this;
     }
 
@@ -49,6 +48,8 @@ public class UI_Manager : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined; //カーソルをウィンドウ内に
+
+        cameraControlObj = GameObject.FindGameObjectWithTag("CameraPivot");
     }
 
     // Update is called once per frame
