@@ -45,7 +45,7 @@ public class Status : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         status = new Dictionary<Name, float>();
 

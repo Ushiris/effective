@@ -9,7 +9,7 @@ public class EnemySpawn : MonoBehaviour
     private Vector3 SpawnPos;
     public float SpawnRange = 5.0f;// enemyスポーン範囲
     public float posY = 0.0f;// enemyスポーン高さ]
-    public GameObject playerPos;// playerのポジション
+    GameObject playerPos;// playerのポジション
 
     private void Start()
     {
@@ -19,6 +19,8 @@ public class EnemySpawn : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            playerPos = PlayerManager.GetManager.GetPlObj;
+
             SpawnPos = new Vector3(Random.Range(-SpawnRange + playerPos.transform.position.x, SpawnRange + playerPos.transform.position.x),
                                    posY + playerPos.transform.position.y, 
                                    Random.Range(-SpawnRange + playerPos.transform.position.z, SpawnRange + playerPos.transform.position.z));
