@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public Life life;
-    public Slider slider;
+    [HideInInspector] public Life life;
+    [HideInInspector] public Slider slider;
     [SerializeField] GameObject bullet;
     [SerializeField] bool isBoss;
     static Vector3 hp_small=new Vector3(1,1,1);
