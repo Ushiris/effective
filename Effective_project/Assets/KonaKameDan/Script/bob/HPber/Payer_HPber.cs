@@ -7,6 +7,7 @@ public class Payer_HPber : MonoBehaviour
 {
     private float maxHP;
     [SerializeField] private Status playerStatus;
+    private int tmpPlayerLv;
     public Slider berHP;
     void Start()
     {
@@ -14,10 +15,16 @@ public class Payer_HPber : MonoBehaviour
         playerStatus = playerStatusObject.GetComponent<Status>();
         StatusUpdate();
     }
+    void Update()
+    {
+        if(tmpPlayerLv != playerStatus.Lv)
+            StatusUpdate();
+    }
     public void StatusUpdate()
     {
         maxHP = playerStatus.status[Status.Name.HP];
         berHP.maxValue = maxHP;// HPバーマックス
         berHP.value = maxHP;// HP回復
+        tmpPlayerLv = playerStatus.Lv;
     }
 }
