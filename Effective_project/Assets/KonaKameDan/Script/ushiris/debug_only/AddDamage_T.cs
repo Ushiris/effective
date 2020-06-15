@@ -9,7 +9,7 @@ public class AddDamage_T : MonoBehaviour
 
     private void Start()
     {
-        target_enemy = GameObject.Find("enemy");
+        if (target_enemy == null) target_enemy = GameObject.Find("enemy");
     }
 
     private void Update()
