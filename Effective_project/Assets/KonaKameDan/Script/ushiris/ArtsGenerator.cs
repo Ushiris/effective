@@ -29,6 +29,6 @@ public class ArtsGenerator : SingletonMonoBehaviour<ArtsGenerator>
         var arts = new GameObject();
         arts.AddComponent<Arts>();
 
-
+        arts.ar
     }
 }
