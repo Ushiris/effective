@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         if (isBoss)
         {
             slider.GetComponentInParent<Canvas>().transform.localScale = big;
-            GameObject Territory = Instantiate(new GameObject());
+            GameObject Territory = new GameObject();
             Territory.transform.parent = gameObject.transform;
             Territory.AddComponent<TerritorySenses>();
         }
