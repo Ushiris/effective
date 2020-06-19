@@ -20,12 +20,10 @@ public class Payer_HPber : MonoBehaviour
     }
     void Update()
     {
-        if(tmpPlayerLv != playerStatus.Lv)
+        if(tmpPlayerLv != playerStatus.Lv)// レベル上がった！
             StatusUpdate();
 
-        if (playerLife.HP != null)
-            if (tmpPlayerHP != playerLife.HP)
-                DamageUpdate();
+        berHP.value = playerLife.getHitPointSafety();// ダメージくらった！
     }
     public void StatusUpdate()
     {
@@ -34,12 +32,5 @@ public class Payer_HPber : MonoBehaviour
         berHP.value = maxHP;// HP回復
         tmpPlayerLv = playerStatus.Lv;
         tmpPlayerHP = maxHP;
-    }
-    public void DamageUpdate()
-    {
-        maxHP = playerStatus.status[Status.Name.HP];
-        berHP.value = (float)playerLife.HP+ maxHP;// ダメージくらってHP減少
-        tmpPlayerHP = (float)playerLife.HP;
-        //getHitpointHp
     }
 }
