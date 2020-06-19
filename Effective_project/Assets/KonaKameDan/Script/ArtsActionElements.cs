@@ -11,6 +11,15 @@ public class Name2Prefab : Serialize.KeyAndValue<string, GameObject>
     public Name2Prefab(string key, GameObject value) : base(key, value){ }
 }
 
+[System.Serializable]
+public class ParticleSystemDictionary : Serialize.TableBase<string, ParticleSystem, Name2ParticleSystem> { }
+
+[System.Serializable]
+public class Name2ParticleSystem : Serialize.KeyAndValue<string, ParticleSystem>
+{
+    public Name2ParticleSystem(string key, ParticleSystem value) : base(key, value) { }
+}
+
 public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
 {
     public delegate void ArtsAction(GameObject arts);
@@ -21,6 +30,10 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     PrefabDictionary prefabs;
     [SerializeField]
     GameObject player;
+
+    [SerializeField]
+    ParticleSystemDictionary particleSystem;
+
 
     //初期化関数。一度だけ処理されます
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -89,5 +102,59 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     {
         instance_tr.parent = arts_tr;
         instance_tr.localPosition = Vector3.zero;
+    }
+
+    /// <summary>
+    /// 一番近い敵の位置を持ってくる
+    /// </summary>
+    /// <returns></returns>
+    public Transform GetEnemyTarget()
+    {
+        Vector3 v3 = player.transform.position;
+        return GetComponent<EnemyFind>().GetNearEnemyPos(v3).transform;
+    }
+
+    /// <summary>
+    /// ホーミング弾の処理
+    /// </summary>
+    /// <param name="name"></param>
+    public void Homing(string name)
+    {
+        ParticleSystem ps = particleSystem.GetTable()[name];
+        ParticleSystem.MainModule psm = ps.main;
+
+        float force = 10.0f;
+
+        //パーティクルの最大値
+        int maxParticles = psm.maxParticles;
+
+        //全てのパーティクルを入れる
+        ParticleSystem.Particle[] particles = new ParticleSystem.Particle[maxParticles];
+
+        //パーティクルを取得
+        ps.GetParticles(particles);
+
+        //速度の計算
+        float forceDeltaTime = force * Time.deltaTime;
+
+        //ターゲットの座標
+        Vector3 targetTransformedPosition = GetEnemyTarget().position;
+
+        //現在出ているパーティクルの数
+        int particleCount = ps.particleCount;
+
+        //パーティクル全ての位置をターゲットに向かわせる
+        for (int i = 0; i < particleCount; i++)
+        {
+            //方向
+            Vector3 directionToTarget = Vector3.Normalize(targetTransformedPosition - particles[i].position);
+            //速度
+            Vector3 seekForce = directionToTarget * forceDeltaTime;
+            //パーティクルに代入
+            particles[i].velocity += seekForce;
+        }
+
+        //パーティクルに反映
+        ps.SetParticles(particles, particleCount);
     }
 }
