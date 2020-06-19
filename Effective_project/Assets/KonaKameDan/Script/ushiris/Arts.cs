@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Arts : MonoBehaviour
 {
+    public GameObject player;
+    public EffectObjectAcquisition backpack;
     public List<ArtsActionElements.ArtsAction> FireActions { get; set; }
+    public List<ParticleSystem> particle;
+
+    private void Start()
+    {
+        backpack = GameObject.Find("Player").GetComponent<EffectObjectAcquisition>();
+    }
 
     public void Fire()
     {

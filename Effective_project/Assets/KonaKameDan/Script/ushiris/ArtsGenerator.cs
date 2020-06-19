@@ -19,16 +19,14 @@ public class ArtsGenerator : SingletonMonoBehaviour<ArtsGenerator>
         return functions;
     }
 
-    public ParticleSystem GetParticle(string ID)
-    {
-        return ArtsParticleDictionary.Instance.particle.GetTable()[ID];
-    }
-
+    //artsを作成します。
     public GameObject GenerateArts(string ID)
     {
-        var arts = new GameObject();
-        arts.AddComponent<Arts>();
+        var obj = new GameObject();
+        var arts = obj.AddComponent<Arts>();
 
-        arts.ar
+        arts.FireActions = GetActions(ID);
+
+        return obj;
     }
 }

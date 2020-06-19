@@ -19,12 +19,15 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
 
     [SerializeField]
     PrefabDictionary prefabs;
+    [SerializeField]
+    GameObject player;
 
     //初期化関数。一度だけ処理されます
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public void Init()
     {
         if (isInit) return;
+        if (player == null) player = GameObject.Find("Player");
 
         //例："何もしない"の定義
         Actions.Add("Brank", Brank);
@@ -36,10 +39,7 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     //例："何もしない"をするスクリプト
     public void Brank(GameObject arts) { }
 
-    //ここにキーワード動作を書いてけろ
-
-
-    //例：prefab(Hoge)に関する操作のチュートリアル
+    //例：prefabに関する操作のチュートリアル
     public void HogeMove(GameObject arts)
     {
         //インスペクタ上で登録されているであろう"Hoge"というプレハブをインスタンス化します
@@ -49,10 +49,23 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
 
         //artsの子として登録します
         SetParent(arts.transform, hoge_instance.transform);
-
+        
         //前に飛ばす
         hoge_instance.GetComponent<Rigidbody>().AddForce(hoge_instance.transform.forward);
     }
+
+    //例：player等の情報を参照する
+    public void KnockBack_ex(GameObject arts)
+    {
+        //反動でノックバックするイメージの関数
+        //プレイヤーは参照する機会が多いと予測されているので、予めメンバ変数にキャッシュされています。
+        player.GetComponent<Rigidbody>().AddForce(-player.transform.forward + new Vector3(0, 100, 0));
+    }
+
+      /************************************/
+     /* ここにキーワード動作を書いてけろ */
+    /************************************/
+
 
     //インスタンス化はよく使うので関数を用意しておきました。
     private GameObject Summon(string name)
@@ -66,7 +79,7 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
         var instance = new List<GameObject>();
         for (uint i = 0; i < amount; i++)
         {
-            instance.Add( Summon(name));
+            instance.Add(Summon(name));
         }
         return instance;
     }
