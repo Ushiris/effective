@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.05663399, g: 0.07967138, b: 0.12591928, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatus: {fileID: 0}
+  playerLife: {fileID: 0}
   berHP: {fileID: 1238951905}
 --- !u!1001 &266977932
 PrefabInstance:
@@ -732,6 +733,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
+    list: []
+  player: {fileID: 0}
+  particleSystem:
     list: []
 --- !u!4 &668321820
 Transform:
@@ -1276,6 +1280,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1496976456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6216928581571088659, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6216928581073991105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1496976461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496976456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d068cc60c71b3f045b9e0879192702ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+    list: []
+  player: {fileID: 0}
+  particleSystem:
+    list: []
+--- !u!114 &1496976462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496976456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d95cff350273c540b238423e6412702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1496976463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496976456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3760b4a551ff63c418a1901f9d4d5965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  backpack: {fileID: 0}
+  particle: []
 --- !u!1 &1769067748
 GameObject:
   m_ObjectHideFlags: 0
