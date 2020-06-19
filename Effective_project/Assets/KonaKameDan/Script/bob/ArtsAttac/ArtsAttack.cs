@@ -16,13 +16,11 @@ public class ArtsAttack : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(1))
         {
-            /*
             artsAttack = artsGenerator.GenerateArts(ArtsList.GetSelectArts.id);// 選択しているアーツのgameObjectを参照
             artsAttack.GetComponent<Arts>().Fire();
-            */
-            Debug.Log("ここをクリックしてscript内のコメントを外さないとartsは出ません");
+            //Debug.Log("ここをクリックしてscript内のコメントを外さないとartsは出ません");
         }
     }
 }
