@@ -45,6 +45,7 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
         //例："何もしない"の定義
         Actions.Add("Brank", Brank);
         //ここで上記の例を元に関数名と関数の紐づけを行ってください
+        Actions.Add("HomingPrefabInstant", HomingPrefabInstant);
 
         isInit = true;
     }
@@ -75,10 +76,25 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
         player.GetComponent<Rigidbody>().AddForce(-player.transform.forward + new Vector3(0, 100, 0));
     }
 
-      /************************************/
-     /* ここにキーワード動作を書いてけろ */
+    /************************************/
+    /* ここにキーワード動作を書いてけろ */
     /************************************/
 
+    /****************/
+    /* 具現化です!! */
+    /****************/
+
+    //ホーミング弾
+    public void HomingPrefabInstant(GameObject arts)
+    {
+        var hoge_instance = Summon("Homing");
+        SetParent(arts.transform, hoge_instance.transform);
+        Homing(hoge_instance);
+    }
+
+    /**********/
+    /* 処理系 */
+    /**********/
 
     //インスタンス化はよく使うので関数を用意しておきました。
     private GameObject Summon(string name)
@@ -118,9 +134,9 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     /// ホーミング弾の処理
     /// </summary>
     /// <param name="name"></param>
-    public void Homing(string name)
+    public void Homing(GameObject particleObj)
     {
-        ParticleSystem ps = particleSystem.GetTable()[name];
+        ParticleSystem ps = particleObj.GetComponent<ParticleSystem>();
         ParticleSystem.MainModule psm = ps.main;
 
         float force = 10.0f;
