@@ -10,7 +10,7 @@ public class Life : MonoBehaviour
     public delegate int DamageEvent(int num);
 
     public float MaxHP { get { return GetComponent<Status>().status[Status.Name.HP]; } }
-    public float? HP { get; private set; }
+    public float? HP { get; set; }
     public bool IsFreeze { get; private set; }
 
     StopWatch timer;
@@ -131,5 +131,12 @@ public class Life : MonoBehaviour
     {
         IsFreeze = freeze;
         timer.SetActive(!freeze);
+    }
+
+    public float getHitPointSafety()
+    {
+        if (HP == null) LifeSetup();
+
+        return (float)HP;
     }
 }

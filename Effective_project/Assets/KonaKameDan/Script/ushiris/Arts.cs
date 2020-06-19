@@ -11,7 +11,7 @@ public class Arts : MonoBehaviour
 
     private void Start()
     {
-        backpack = GameObject.Find("Player").GetComponent<EffectObjectAcquisition>();
+        backpack = GameObject.FindWithTag("Player").GetComponent<EffectObjectAcquisition>();
     }
 
     public void Fire()

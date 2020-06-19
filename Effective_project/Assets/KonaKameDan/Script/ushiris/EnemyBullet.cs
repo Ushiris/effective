@@ -11,13 +11,13 @@ public class EnemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.Find("Player") == null)
+        if (GameObject.FindWithTag("Player") == null)
         {
             player_tr = transform;
         }
         else
         {
-            player_tr = GameObject.Find("Player").transform;
+            player_tr = GameObject.FindWithTag("Player").transform;
         }
         
         rb = GetComponent<Rigidbody>();

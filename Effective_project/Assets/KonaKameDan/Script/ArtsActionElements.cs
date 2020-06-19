@@ -27,7 +27,7 @@ public class ArtsActionElements : SingletonMonoBehaviour<ArtsActionElements>
     public void Init()
     {
         if (isInit) return;
-        if (player == null) player = GameObject.Find("Player");
+        if (player == null) player = GameObject.FindWithTag("Player");
 
         //例："何もしない"の定義
         Actions.Add("Brank", Brank);
