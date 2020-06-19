@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 7505584113060827359}
   - component: {fileID: 7505584113060827358}
   - component: {fileID: 4852804697451384511}
-  - component: {fileID: 114031898937874018}
+  - component: {fileID: 114511514300449464}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -419,7 +419,7 @@ MonoBehaviour:
   - name: DEX
     enumName: 4
     f: 0
---- !u!114 &114031898937874018
+--- !u!114 &114511514300449464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
