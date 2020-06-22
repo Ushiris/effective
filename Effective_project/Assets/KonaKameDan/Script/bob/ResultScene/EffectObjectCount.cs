@@ -19,7 +19,8 @@ public class EffectObjectCount : MonoBehaviour
 
             if (EffectObjectAcquisition.effectObjectName.Contains(effectName))// エフェクトオブジェクトを持っている
             {
-                effectObjectName[i].text = "×" + EffectObjectAcquisition.effectObjectAcquisition[i].count;// 個数を挿入
+                var effectTurn = EffectObjectAcquisition.effectObjectName.FindIndex(s => s == effectName);// 何番目に取得したいエフェクトオブジェクトがあるか
+                effectObjectName[i].text = "×" + EffectObjectAcquisition.effectObjectAcquisition[effectTurn].count;// 個数を挿入
             }
             else// エフェクトオブジェクトを持っていない
             {
