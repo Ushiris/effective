@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06744362, g: 0.0889105, b: 0.13196887, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -637,11 +637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d068cc60c71b3f045b9e0879192702ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-    list: []
-  player: {fileID: 0}
-  particleSystem:
-    list: []
 --- !u!4 &668321820
 Transform:
   m_ObjectHideFlags: 0
@@ -1203,11 +1198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d068cc60c71b3f045b9e0879192702ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-    list: []
-  player: {fileID: 0}
-  particleSystem:
-    list: []
 --- !u!114 &1496976462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,9 +1222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3760b4a551ff63c418a1901f9d4d5965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  backpack: {fileID: 0}
-  particle: []
 --- !u!1 &1769067748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,7 +2198,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 198529869, guid: e037d695fb47f284ebde4b88400bd150, type: 3}
       propertyPath: debugNum
-      value: 
+      value: 045
       objectReference: {fileID: 0}
     - target: {fileID: 198529871, guid: e037d695fb47f284ebde4b88400bd150, type: 3}
       propertyPath: berHP
