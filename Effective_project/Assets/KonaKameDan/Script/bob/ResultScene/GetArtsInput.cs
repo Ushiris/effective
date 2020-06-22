@@ -9,7 +9,7 @@ public class GetArtsInput : MonoBehaviour
     public TextMeshProUGUI[] artsName;  // アーツ名
 
     // 入力するもの
-    private string[] getArtsName;       //　アーツ名
+    private string[] getArtsName = new string[3];       //　アーツ名
     void Start()
     {
         for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)// 最終的に所持していたアーツ名

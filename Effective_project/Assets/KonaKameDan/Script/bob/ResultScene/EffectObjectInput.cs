@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EffectObjectInput : MonoBehaviour
 {
     public Image[] effectObjectImage;   // エフェクトオブジェクトの入れ物
-    private Sprite[] effectObject;      // エフェクトオブジェクトの画像
+    private Sprite[] effectObject = new Sprite[9];      // エフェクトオブジェクトの画像
     private int effectObjectMax = 3;    // エフェクトオブジェクト最大数
     void Start()
     {
