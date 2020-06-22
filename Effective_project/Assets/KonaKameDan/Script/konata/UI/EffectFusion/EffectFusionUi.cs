@@ -8,6 +8,7 @@ using UnityEngine;
 public class EffectFusionUi : MonoBehaviour
 {
     int cutNum = 10;
+    int tmpEffectListCount;
     float ang;
 
     public class NumAndList
@@ -38,6 +39,12 @@ public class EffectFusionUi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tmpEffectListCount != MainGameManager.GetPlEffectList.Count)
+        {
+            ResetList();
+            tmpEffectListCount = MainGameManager.GetPlEffectList.Count;
+        }
+
         cutNum = UI_Manager.GetUI_Manager.EffectListCount;
 
         //切る数を変える
