@@ -2217,7 +2217,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 198529869, guid: e037d695fb47f284ebde4b88400bd150, type: 3}
       propertyPath: debugNum
-      value: 0
+      value: 045
       objectReference: {fileID: 0}
     - target: {fileID: 198529871, guid: e037d695fb47f284ebde4b88400bd150, type: 3}
       propertyPath: berHP

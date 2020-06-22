@@ -14,9 +14,11 @@ public class ParticleHit : MonoBehaviour
         hitCount++;
         if (gameObject.tag == hitObjTag)
         {
-            int damage = (int)hitDamageDefault + (int)plusFormStatus;
-            gameObject.GetComponent<Enemy>().life.Damage(damage);
-            Debug.Log("hitCount: " + hitCount + " Damage: " + (int)hitDamageDefault + (int)plusFormStatus);
+            float damage = hitDamageDefault * plusFormStatus;
+            int damageCast = Mathf.CeilToInt(damage);
+
+            gameObject.GetComponent<Enemy>().life.Damage(damageCast);
+            Debug.Log("hitCount: " + hitCount + " Damage: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
         }
         
         

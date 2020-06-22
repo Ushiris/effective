@@ -46,3 +46,4 @@ MonoBehaviour:
   homingParticle: {fileID: 1955953981792204030, guid: 4591f75cb485ddb4f95735b7f6207f1e,
     type: 3}
   force: 10
+  defaultDamage: 0.1
