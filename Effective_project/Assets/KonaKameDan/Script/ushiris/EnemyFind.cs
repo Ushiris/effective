@@ -37,6 +37,8 @@ public class EnemyFind : MonoBehaviour
 
         enemy.ForEach((tr) =>
         {
+            if (tr == null) return;
+
             var dist_x = Vector3.Distance(pivot, tr.transform.position);
             if (dist_min > dist_x)
             {
