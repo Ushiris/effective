@@ -17,7 +17,7 @@ public class GoalIn : MonoBehaviour
         if (returnResultScene)
             SceneManager.LoadScene("Result");
     }
-    private void OnTriggerEnter(Collider other)// 何かに当たった瞬間
+    private void OnCollisionEnter(Collision other)// 何かに当たった瞬間
     {
         if (other.gameObject.tag == Player_tag)// エフェクトオブジェクトの場合
         {

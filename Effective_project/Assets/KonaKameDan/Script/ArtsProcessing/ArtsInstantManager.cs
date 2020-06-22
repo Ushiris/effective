@@ -37,7 +37,7 @@ public class ArtsInstantManager : MonoBehaviour
     //アーツを放つキー
     bool OnTrigger()
     {
-        return Input.GetMouseButtonDown(0);
+        return Input.GetMouseButtonDown(0) && !UI_Manager.GetIsEffectFusionUI_ChoiceActive;
     }
 
     //デバッグと切り替える処理

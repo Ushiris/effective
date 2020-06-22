@@ -7,11 +7,13 @@ using UnityEngine;
 /// </summary>
 public class MyArtsDeck : MonoBehaviour
 {
-    static List<ArtsList.ArtsData> GetMyArtsDeck = new List<ArtsList.ArtsData>();
+    static List<ArtsList.ArtsData> GetMyArtsDeck;
 
     // Start is called before the first frame update
     void Start()
     {
+        GetMyArtsDeck = new List<ArtsList.ArtsData>();
+
         //初期化
         for (int i = 0; i < transform.childCount; i++)
         {
