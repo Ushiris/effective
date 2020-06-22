@@ -24,12 +24,47 @@ public class Arts_Process : MonoBehaviour
         obj.AddComponent<ParticleHit>();
     }
 
-    
-    public static void Damage(ParticleHit hit, float hitDefaultDamage,bool status, string hitObjTag = "Enemy")
+    /// <summary>
+    /// ダメージ代入
+    /// </summary>
+    /// <param name="hit">パーティクル</param>
+    /// <param name="hitDefaultDamage">固定ダメージ</param>
+    /// <param name="status">ステータス</param>
+    /// <param name="hitObjTag">当たる相手</param>
+    public static void Damage(ParticleHit hit, float hitDefaultDamage, bool status, string hitObjTag = "Enemy")
     {
         hit.hitDamageDefault = hitDefaultDamage;
         if (status) hit.plusFormStatus = PlayerManager.GetManager.GetPlObj.GetComponent<Status>().status[Status.Name.STR];
         hit.hitObjTag = hitObjTag;
+    }
+
+    /// <summary>
+    /// サーチシェーダーの基準位置を決める
+    /// </summary>
+    /// <param name="material"></param>
+    /// <param name="pos"></param>
+    public static void SearchPosSet(Material material, Vector3 pos)
+    {
+        material.SetVector("Vector3_CB8F0829", pos);
+    }
+
+    /// <summary>
+    /// サーチシェーダーの広がる範囲を決める
+    /// </summary>
+    /// <param name="material"></param>
+    /// <param name="dis"></param>
+    public static void SearchShaderStart(Material material,float dis)
+    {
+        material.SetFloat("Vector1_FCA7DA60", dis);
+    }
+
+    /// <summary>
+    /// サーチシェーダーの位置をリセットする
+    /// </summary>
+    /// <param name="material"></param>
+    public static void SearchShaderReset(Material material)
+    {
+        material.SetFloat("Vector1_FCA7DA60", 0);
     }
 
     /// <summary>
