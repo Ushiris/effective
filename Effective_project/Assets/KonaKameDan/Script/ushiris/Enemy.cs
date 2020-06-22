@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public int Damage(int true_damage)
+    int Damage(int true_damage)
     {
         slider.value -= true_damage;
         return true_damage;

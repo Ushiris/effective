@@ -21,10 +21,10 @@ public class ArtsInstantManager : MonoBehaviour
 
         if (OnTrigger())
         {
-            Transform artsPivot =
-                PlayerManager.GetManager.GetPlObj.transform.GetChild(3);
+            //アーツが出る場所
+            Transform artsPivot = PlayerManager.GetManager.GetPlObj.transform.GetChild(3);
 
-            switch (debugNum)
+            switch (SelectArts())
             {
                 case "045":Instantiate(prefabs.GetTable()["045"], artsPivot); break;
                 case "04": Instantiate(prefabs.GetTable()["04"], artsPivot); break;
@@ -34,9 +34,20 @@ public class ArtsInstantManager : MonoBehaviour
         }
     }
 
+    //アーツを放つキー
     bool OnTrigger()
     {
         return Input.GetMouseButtonDown(0);
+    }
+
+    //デバッグと切り替える処理
+    string SelectArts()
+    {
+        if (debugNum == null)
+        {
+            return ArtsList.GetSelectArts.id;
+        }
+        else return debugNum;
     }
 
 
