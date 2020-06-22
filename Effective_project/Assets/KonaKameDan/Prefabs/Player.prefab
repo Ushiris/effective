@@ -493,7 +493,7 @@ MonoBehaviour:
     f: 100
   - name: STR
     enumName: 2
-    f: 8
+    f: 10
   - name: DEF
     enumName: 3
     f: 0
