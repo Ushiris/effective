@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 2020/06/22 deleted 
+/* 
 public class ArtsAttack : MonoBehaviour
 {
     [SerializeField] private Arts arts;
@@ -24,3 +26,4 @@ public class ArtsAttack : MonoBehaviour
         }
     }
 }
+*/
