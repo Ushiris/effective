@@ -17,6 +17,8 @@ public class CirclByPizza : MonoBehaviour
     int cutNum;
     bool isStart = true;
 
+    int tmpEffectListCount;
+
     List<GameObject> pizzaList = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -46,7 +48,7 @@ public class CirclByPizza : MonoBehaviour
                     minAng += ang;
                 }
 
-                isStart = false; 
+                isStart = false;
             }
 
             //選択した場合色を変えるフラグ発行
@@ -62,7 +64,8 @@ public class CirclByPizza : MonoBehaviour
                 }
             }
         }
-        else
+
+        if (tmpEffectListCount != MainGameManager.GetPlEffectList.Count || !UI_Manager.GetIsEffectFusionUI_ChoiceActive)
         {
             //監視オブジェクトが非表示になった場合、UIを消す
             if (pizzaList.Count != 0)
@@ -70,11 +73,13 @@ public class CirclByPizza : MonoBehaviour
                 for (int i = 0; i < pizzaList.Count; i++)
                 {
                     Destroy(pizzaList[i].gameObject);
-                    pizzaList.RemoveAt(i);
                 }
+                pizzaList.Clear();
             }
 
             isStart = true;
+
+            tmpEffectListCount = MainGameManager.GetPlEffectList.Count;
         }
     }
 

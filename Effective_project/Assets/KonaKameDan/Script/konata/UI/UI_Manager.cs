@@ -36,6 +36,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] bool onEffectListCauntDebug;
 
     public static UI_Manager GetUI_Manager;
+    int tmpEffectListCount = 0;
 
     void Awake()
     {
@@ -48,6 +49,7 @@ public class UI_Manager : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined; //カーソルをウィンドウ内に
+        Cursor.visible = false;
 
         cameraControlObj = GameObject.FindGameObjectWithTag("CameraPivot");
     }
@@ -63,6 +65,7 @@ public class UI_Manager : MonoBehaviour
         }
 
         EffectFusionUI();
+        //PizzaReset();
     }
 
     void EffectFusionUI()
@@ -94,6 +97,19 @@ public class UI_Manager : MonoBehaviour
 
                 //マウスカーソルを非表示
                 Cursor.visible = false;
+            }
+        }
+    }
+
+    //ピザのリセット
+    void PizzaReset()
+    {
+        if (GetUI_Manager.effectFusionUI_Obj.activeSelf)
+        {
+            if (tmpEffectListCount != EffectListCount)
+            {
+                effectFusionUI_Obj.SetActive(false);
+                tmpEffectListCount = EffectListCount;
             }
         }
     }
