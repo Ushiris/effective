@@ -72,6 +72,9 @@ public class Map : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        ResetMap();
+
+
         //シード値固定用
         if (seed != 0) Random.seed = seed;
 
@@ -125,6 +128,11 @@ public class Map : MonoBehaviour
         {
             eventObj.Add(obj.objType, obj.obj);
         }
+    }
+
+    void ResetMap()
+    {
+        MapEvent.eventPos.Clear();
     }
 }
 

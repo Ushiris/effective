@@ -47,7 +47,8 @@ public class ActiveImageDelay : MonoBehaviour
     {
         //初期化
         timer = 0;
-        if(img.enabled) img.enabled = false;
+        img = GetComponent<Image>();
+        if (img.enabled) img.enabled = false;
 
         this.onTrigger = onTrigger;
         this.interval = interval;
