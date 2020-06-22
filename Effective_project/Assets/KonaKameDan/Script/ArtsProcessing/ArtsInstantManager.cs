@@ -43,9 +43,10 @@ public class ArtsInstantManager : MonoBehaviour
     //デバッグと切り替える処理
     string SelectArts()
     {
-        if (debugNum == null)
+        if (debugNum == "0" && MyArtsDeck.GetSelectArtsDeck != null)
         {
-            return ArtsList.GetSelectArts.id;
+            Debug.Log(MyArtsDeck.GetSelectArtsDeck.id);
+            return MyArtsDeck.GetSelectArtsDeck.id;
         }
         else return debugNum;
     }

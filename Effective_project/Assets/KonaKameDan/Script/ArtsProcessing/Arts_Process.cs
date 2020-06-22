@@ -24,17 +24,11 @@ public class Arts_Process : MonoBehaviour
         obj.AddComponent<ParticleHit>();
     }
 
-    /// <summary>
-    /// ダメージ数を入れる
-    /// </summary>
-    /// <param name="hit">パーティクル名</param>
-    /// <param name="hitDefaultDamage">固定ダメージ</param>
-    /// <param name="plusFormStatus">ステータスから参照されるダメージ</param>
-    /// <param name="hitObjTag">当たる相手</param>
-    public static void Damage(ParticleHit hit, float hitDefaultDamage, float plusFormStatus, string hitObjTag = "Enemy")
+    
+    public static void Damage(ParticleHit hit, float hitDefaultDamage,bool status, string hitObjTag = "Enemy")
     {
         hit.hitDamageDefault = hitDefaultDamage;
-        hit.plusFormStatus = plusFormStatus;
+        if (status) hit.plusFormStatus = PlayerManager.GetManager.GetPlObj.GetComponent<Status>().status[Status.Name.STR];
         hit.hitObjTag = hitObjTag;
     }
 
