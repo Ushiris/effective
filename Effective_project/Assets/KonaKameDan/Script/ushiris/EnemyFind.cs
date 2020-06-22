@@ -32,7 +32,10 @@ public class EnemyFind : MonoBehaviour
     {
         if (enemy.Count == 0) return null; //敵が見当たらない場合にnullを返します。
 
-        GameObject result = enemy[0];
+        GameObject result=null;
+        enemy.ForEach((e) => { if (e != null) result = e; });
+        if (result == null) return null;
+
         float dist_min = Vector3.Distance(pivot, result.transform.position);
 
         enemy.ForEach((tr) =>
