@@ -16,6 +16,8 @@ public class Id045_Hounds : MonoBehaviour
     {
         homingParticleObj = Instantiate(homingParticle, transform);
         particleSystem = homingParticleObj.GetComponent<ParticleSystem>();
+
+        Arts_Process.SetParticleDamageProcess(homingParticleObj);
     }
 
     // Update is called once per frame

@@ -16,6 +16,29 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// ダメージ処理をアタッチする
+    /// </summary>
+    /// <param name="obj"></param>
+    public static void SetParticleDamageProcess(GameObject obj)
+    {
+        obj.AddComponent<ParticleHit>();
+    }
+
+    /// <summary>
+    /// ダメージ数を入れる
+    /// </summary>
+    /// <param name="hit"></param>
+    /// <param name="hitDefaultDamage"></param>
+    /// <param name="plusFormStatus"></param>
+    /// <param name="hitObjTag"></param>
+    public static void Damage(ParticleHit hit, float hitDefaultDamage, float plusFormStatus, string hitObjTag = "Enemy")
+    {
+        hit.hitDamageDefault = hitDefaultDamage;
+        hit.plusFormStatus = plusFormStatus;
+        hit.hitObjTag = hitObjTag;
+    }
+
+    /// <summary>
     /// ホーミングの処理
     /// </summary>
     /// <param name="particleSystem"></param>
