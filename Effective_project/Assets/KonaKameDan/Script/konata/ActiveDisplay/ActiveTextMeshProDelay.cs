@@ -47,6 +47,7 @@ public class ActiveTextMeshProDelay : MonoBehaviour
     {
         //初期化
         timer = 0;
+        tMPro = GetComponent<TextMeshProUGUI>();
         if (tMPro.enabled) tMPro.enabled = false;
 
         this.onTrigger = onTrigger;
