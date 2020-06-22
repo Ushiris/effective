@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8169682640996049645}
   - component: {fileID: 8169682640996049644}
+  - component: {fileID: 198529871}
+  - component: {fileID: 198529869}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -44,3 +46,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 3
+  GetPlObj: {fileID: 0}
+--- !u!114 &198529871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169682640996049635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04968da61dd9803438b1bac10c8ef86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatus: {fileID: 0}
+  playerLife: {fileID: 0}
+  berHP: {fileID: 0}
+--- !u!114 &198529869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169682640996049635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe85e3650a6604e8f1cd5786bb26f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+    list:
+    - Key: 045
+      Value: {fileID: 6803105965938668464, guid: c63ea30f17a56dd4fa4be26875f50ed9,
+        type: 3}
+    - Key: 04
+      Value: {fileID: 6803105965938668464, guid: b84ac0c0bd75e8a4db53153132ce1715,
+        type: 3}
+    - Key: 05
+      Value: {fileID: 6803105965938668464, guid: 1191bde194a869a4eb9e2f896d52315f,
+        type: 3}
+  debugNum: 045

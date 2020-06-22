@@ -18,7 +18,7 @@ public class Arts_Process : MonoBehaviour
     /// <summary>
     /// ダメージ処理をアタッチする
     /// </summary>
-    /// <param name="obj"></param>
+    /// <param name="obj">ダメージ処理を付けたい相手</param>
     public static void SetParticleDamageProcess(GameObject obj)
     {
         obj.AddComponent<ParticleHit>();
@@ -27,10 +27,10 @@ public class Arts_Process : MonoBehaviour
     /// <summary>
     /// ダメージ数を入れる
     /// </summary>
-    /// <param name="hit"></param>
-    /// <param name="hitDefaultDamage"></param>
-    /// <param name="plusFormStatus"></param>
-    /// <param name="hitObjTag"></param>
+    /// <param name="hit">パーティクル名</param>
+    /// <param name="hitDefaultDamage">固定ダメージ</param>
+    /// <param name="plusFormStatus">ステータスから参照されるダメージ</param>
+    /// <param name="hitObjTag">当たる相手</param>
     public static void Damage(ParticleHit hit, float hitDefaultDamage, float plusFormStatus, string hitObjTag = "Enemy")
     {
         hit.hitDamageDefault = hitDefaultDamage;

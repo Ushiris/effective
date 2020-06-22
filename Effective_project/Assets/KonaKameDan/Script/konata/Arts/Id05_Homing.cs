@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Id045_Hounds : MonoBehaviour
+public class Id05_Homing : MonoBehaviour
 {
     [SerializeField] GameObject homingParticle;
     [SerializeField] float force = 10f;
@@ -16,14 +16,12 @@ public class Id045_Hounds : MonoBehaviour
     {
         homingParticleObj = Instantiate(homingParticle, transform);
         particleSystem = homingParticleObj.GetComponent<ParticleSystem>();
-
-        Arts_Process.SetParticleDamageProcess(homingParticleObj);
+        target = Arts_Process.GetEnemyTarget();
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        target = Arts_Process.GetEnemyTarget();
         if (target != null && homingParticleObj != null)
         {
             Arts_Process.HomingParticle(particleSystem, target, force);

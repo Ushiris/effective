@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 6026534213039811329}
   - component: {fileID: 3237466865170921664}
   - component: {fileID: 649050808730670407}
-  - component: {fileID: 7620888891992644358}
-  - component: {fileID: 5139839650076899808}
-  - component: {fileID: 9107727486648604606}
   m_Layer: 0
   m_Name: OneShotHoming
   m_TagString: Untagged
@@ -4710,42 +4707,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &7620888891992644358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4494904201653772929}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea5ce47448cb3245914e229fd8c9d80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  force: 5
---- !u!114 &5139839650076899808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4494904201653772929}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94d6b362938fa047868aed3c3cf6ba1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &9107727486648604606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4494904201653772929}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38eb245cc9e0bf14cb6468bf35bb5758, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitCount: 0
