@@ -101,8 +101,8 @@ NavMeshSettings:
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
-    ledgeDropHeight: 0
-    maxJumpAcrossDistance: 0
+    ledgeDropHeight: 2
+    maxJumpAcrossDistance: 2
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.16666667
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0708e3b0529da2e459bbfb84af194331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  artsReset: 1
 --- !u!4 &182829619
 Transform:
   m_ObjectHideFlags: 0
