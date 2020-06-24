@@ -6,10 +6,10 @@ using UnityEditor;
 
 public class UI_Image : MonoBehaviour
 {
-    [NamedArrayAttribute(new string[]
+    /*[NamedArrayAttribute(new string[]
     {
         "射撃","斬撃","防御","設置","拡散","追尾","吸収","爆発","遅延","飛翔"
-    })]
+    })]*/
     public List<Sprite> effectIconList = new List<Sprite>();
 
     public enum EffectName
