@@ -8,6 +8,11 @@ using UnityEngine;
 public class MainGameManager : MonoBehaviour
 {
     /// <summary>
+    /// 所持しているアーツをリセットするかどうか
+    /// </summary>
+    public static bool GetArtsReset { get; set; }
+
+    /// <summary>
     /// 合計ダメージを取得
     /// </summary>
     public static int GetTotalDamage { get; set; }

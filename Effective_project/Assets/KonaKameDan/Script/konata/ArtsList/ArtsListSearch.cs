@@ -68,7 +68,11 @@ public class ArtsListSearch : MonoBehaviour
     /// <param name="datas"></param>
     public static void SearchSetting(List<ArtsList.ArtsData> datas)
     {
-        foreach(var data in datas)
+        //初期化
+        nameList.Clear();
+        idList.Clear();
+
+        foreach (var data in datas)
         {
             nameList.Add(data.name);
 

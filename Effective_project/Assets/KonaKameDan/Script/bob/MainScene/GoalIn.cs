@@ -15,7 +15,10 @@ public class GoalIn : MonoBehaviour
     private void Update()
     {
         if (returnResultScene)
+        {
+            if (MainGameManager.GetArtsReset) MainGameManager.GetArtsReset = false;
             SceneManager.LoadScene("Result");
+        }
     }
     private void OnCollisionEnter(Collision other)// 何かに当たった瞬間
     {
