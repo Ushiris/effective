@@ -30,7 +30,7 @@ public class TerritorySenses : MonoBehaviour
         SphereCollider collider= gameObject.AddComponent<SphereCollider>();
         collider.transform.parent = gameObject.transform;
         collider.transform.localPosition = Vector3.zero;
-        collider.radius = 6;
+        collider.radius = 50;
         collider.isTrigger = true;
     }
 
