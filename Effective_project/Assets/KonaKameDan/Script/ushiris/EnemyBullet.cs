@@ -30,10 +30,7 @@ public class EnemyBullet : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        transform.LookAt(player_tr);
-        rb.AddForce(transform.forward *10);
-
-        if (rb.velocity.y < -15.0f)
+        if (transform.position.y<0)
         {
             Destroy(gameObject);
         }
@@ -55,4 +52,5 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
