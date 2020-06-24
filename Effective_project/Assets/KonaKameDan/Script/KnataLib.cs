@@ -24,27 +24,3 @@ public class KnataLib : MonoBehaviour
 //        "射撃","斬撃","防御","設置","拡散","追尾","吸収","爆発","遅延","飛翔"
 //})]
 //public List<Sprite> effectIconList = new List<Sprite>();
-
-public class NamedArrayAttribute : PropertyAttribute
-{
-    public readonly string[] names;
-    public NamedArrayAttribute(string[] names) { this.names = names; }
-}
-
-[CustomPropertyDrawer(typeof(NamedArrayAttribute))]
-public class NamedArrayDrawer : PropertyDrawer
-{
-    public override void OnGUI(Rect rect, SerializedProperty property, GUIContent label)
-    {
-        try
-        {
-            int pos = int.Parse(property.propertyPath.Split('[', ']')[1]);
-            EditorGUI.PropertyField(rect, property, new GUIContent(((NamedArrayAttribute)attribute).names[pos]));
-
-        }
-        catch
-        {
-            EditorGUI.PropertyField(rect, property, label);
-        }
-    }
-}

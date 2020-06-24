@@ -13,8 +13,13 @@ public class ExitButon : MonoBehaviour
     private void Update()
     {
         if (exitButton)
+        {
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-
+#elif UNITY_STANDALONE
+      UnityEngine.Application.Quit();
+#endif
+        }
     }
     public void OnClick()
     {
