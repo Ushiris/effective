@@ -25,6 +25,6 @@ public class Id45_Search : MonoBehaviour
         dis += speed * Time.deltaTime;
         Arts_Process.SearchShaderStart(material, dis);
 
-        if (Input.GetMouseButtonDown(0)) Destroy(gameObject);
+        if (dis > 200f) Destroy(gameObject);
     }
 }
