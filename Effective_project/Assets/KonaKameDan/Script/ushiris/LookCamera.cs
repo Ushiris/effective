@@ -7,7 +7,7 @@ public class LookCamera : MonoBehaviour
     Transform cameraPos;
 
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         cameraPos = GameObject.Find("Main Camera").transform;
     }
