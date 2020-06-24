@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// マップを管理
@@ -119,6 +120,7 @@ public class Map : MonoBehaviour
         //サイズを変更したくないものを生成
         MapMaterialization.InstantObj(GoalObj, eventObj[ObjType.Goal], eventObj[ObjType.Goal]);
         MapMaterialization.InstantObj(plObj, eventObj[ObjType.Start]);
+
     }
 
     //インスペクタ上に出したものをディクショナリに格納しなおす
