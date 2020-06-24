@@ -20,6 +20,7 @@ public class PauseButton : MonoBehaviour
     {
         if (titleButton)
         {
+            Time.timeScale = 1.0f;
             SceneManager.LoadScene("Start");
         }
 
