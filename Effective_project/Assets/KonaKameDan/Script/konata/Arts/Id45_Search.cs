@@ -14,6 +14,9 @@ public class Id45_Search : MonoBehaviour
         Vector3 pos = PlayerManager.GetManager.GetPlObj.transform.position;
         Arts_Process.SearchPosSet(material, pos);
         Arts_Process.SearchShaderReset(material);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Shot);
     }
 
     // Update is called once per frame

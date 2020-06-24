@@ -19,6 +19,10 @@ public class ParticleHit : MonoBehaviour
 
             gameObject.GetComponent<Enemy>().life.Damage(damageCast);
             Debug.Log("hitCount: " + hitCount + " Damage: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
+
+
+            //SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);
         }
         
         

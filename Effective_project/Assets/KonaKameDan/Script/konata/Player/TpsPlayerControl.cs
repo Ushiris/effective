@@ -19,7 +19,7 @@ public class TpsPlayerControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float X_Rotation = Input.GetAxis("Mouse X") * PlayerManager.GetManager.mouseSensitivity;
         float Y_Rotation = Input.GetAxis("Mouse Y") * PlayerManager.GetManager.mouseSensitivity;

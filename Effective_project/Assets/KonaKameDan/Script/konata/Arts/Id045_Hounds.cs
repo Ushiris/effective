@@ -26,6 +26,9 @@ public class Id045_Hounds : MonoBehaviour
 
         //敵のポジションを持ってくる
         target = Arts_Process.GetEnemyTarget();
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Shot);
     }
 
     // Update is called once per frame

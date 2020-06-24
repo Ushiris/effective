@@ -19,6 +19,9 @@ public class Id04_ShotGun : MonoBehaviour
         //ダメージ
         Arts_Process.SetParticleDamageProcess(shotGunParticleObj);
         homingDamage = shotGunParticleObj.GetComponent<ParticleHit>();
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Shot);
     }
 
     void LateUpdate()

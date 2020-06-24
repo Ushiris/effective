@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //プレイヤーが回転した時、動きもそれに合わせるための式
         float angleDir = transform.eulerAngles.y * (Mathf.PI / 180.0f);
