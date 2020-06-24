@@ -12,12 +12,15 @@ public class MyArtsDeck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetMyArtsDeck = new List<ArtsList.ArtsData>();
-
-        //初期化
-        for (int i = 0; i < transform.childCount; i++)
+        if (GetMyArtsDeck == null)
         {
-            GetMyArtsDeck.Add(new ArtsList.ArtsData());
+            GetMyArtsDeck = new List<ArtsList.ArtsData>();
+
+            //初期化
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                GetMyArtsDeck.Add(new ArtsList.ArtsData());
+            }
         }
     }
 
