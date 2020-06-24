@@ -13,7 +13,7 @@ public class MyArtsDeck : MonoBehaviour
     void Awake()
     {
         //初期化
-        if (MainGameManager.GetArtsReset)
+        if (MainGameManager.GetArtsReset || GetMyArtsDeck == null)
         {
             GetMyArtsDeck = new List<ArtsList.ArtsData>();
 
