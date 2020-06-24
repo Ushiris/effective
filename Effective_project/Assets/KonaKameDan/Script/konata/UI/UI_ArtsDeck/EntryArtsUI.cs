@@ -7,13 +7,15 @@ using UnityEngine;
 /// </summary>
 public class EntryArtsUI : MonoBehaviour
 {
-    List<UI_ArtsMaterialization> artsUI_Plate = new List<UI_ArtsMaterialization>();
+    List<UI_ArtsMaterialization> artsUI_Plate;
     [SerializeField] GameObject artsUI_Obj;
+    bool isStart;
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach(Transform childObj in artsUI_Obj.transform)
+        artsUI_Plate = new List<UI_ArtsMaterialization>();
+        foreach (Transform childObj in artsUI_Obj.transform)
         {
             GameObject obj = childObj.gameObject.transform.GetChild(0).gameObject;
             artsUI_Plate.Add(obj.GetComponent<UI_ArtsMaterialization>());

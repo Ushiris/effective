@@ -13,7 +13,7 @@ public class UI_ArtsMaterialization : MonoBehaviour
     enum NAME_FRAME { Outside, Center, Inside }
 
     [SerializeField] float interval = 0.3f;
-    public bool displaySwitch;
+    public bool displaySwitch = true;
     bool isReset = true;
     int count;
 
@@ -81,7 +81,7 @@ public class UI_ArtsMaterialization : MonoBehaviour
             for (int i = 0; i < count; i++)
             {
                 int num = UI_Manager.GetEffectFusionUI_ChoiceNum.numList[i];
-                Debug.Log(i + " : " + num);
+                Debug.Log(i + " アーツ: " + num);
                 ImageChange(i, num);
             }
 

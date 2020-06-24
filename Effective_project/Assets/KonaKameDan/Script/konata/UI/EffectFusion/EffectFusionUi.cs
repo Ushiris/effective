@@ -11,6 +11,9 @@ public class EffectFusionUi : MonoBehaviour
     int tmpEffectListCount;
     float ang;
 
+
+    //static bool isReset = false;
+
     public class NumAndList
     {
         public int num;
@@ -22,13 +25,20 @@ public class EffectFusionUi : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //初期化
-        GetHitPosItem = new NumAndList();
-        GetHitPosItem.numList = new List<int>();
-        GetHitPosAng = new NumAndList();
-        GetHitPosAng.numList = new List<int>();
-
+        if (GetHitPosItem == null)
+        {
+            HitPosReset();
+        }
         gameObject.SetActive(false);
+
+        //初期化
+        void HitPosReset()
+        {
+            GetHitPosItem = new NumAndList();
+            GetHitPosItem.numList = new List<int>();
+            GetHitPosAng = new NumAndList();
+            GetHitPosAng.numList = new List<int>();
+        }
     }
 
     private void OnEnable()
