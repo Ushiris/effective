@@ -15,6 +15,16 @@ public class EffectObjectAcquisition : MonoBehaviour
     public static List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
     public static List<string> effectObjectName = new List<string>();// リスト作成
 
+    private void Awake()
+    {
+        //初期化
+        if (MainGameManager.GetArtsReset)
+        {
+            if (effectObjectAcquisition != null) effectObjectAcquisition.Clear();
+            if (effectObjectName != null) effectObjectName.Clear();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)// 何かに当たった瞬間
     {
         if (other.gameObject.GetComponent<EffectObjectID>() == null) return;

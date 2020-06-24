@@ -14,6 +14,8 @@ public class UI_ArtsMaterialization : MonoBehaviour
 
     [SerializeField] float interval = 0.3f;
     public bool displaySwitch = true;
+    public int deckNum;
+
     bool isReset = true;
     int count;
 
@@ -66,11 +68,18 @@ public class UI_ArtsMaterialization : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        count = UI_Manager.GetEffectFusionUI_ChoiceNum.numList.Count;
+        Process(displaySwitch);
+        if (displaySwitch) displaySwitch = false;
+    }
 
-        if (displaySwitch)
+    void Process(bool on)
+    {
+        //count = UI_Manager.GetEffectFusionUI_ChoiceNum.numList.Count;
+        count = MyArtsDeck.GetArtsDeck[deckNum].effectList.Count;
+
+        if (on)
         {
 
             //画面をリセット
@@ -80,18 +89,19 @@ public class UI_ArtsMaterialization : MonoBehaviour
             //画像を切り替える
             for (int i = 0; i < count; i++)
             {
-                int num = UI_Manager.GetEffectFusionUI_ChoiceNum.numList[i];
+                //int num = UI_Manager.GetEffectFusionUI_ChoiceNum.numList[i];
+                int num = MyArtsDeck.GetArtsDeck[deckNum].effectList[i];
                 Debug.Log(i + " アーツ: " + num);
                 ImageChange(i, num);
             }
 
             //名称を切り替える
-            artsNameText.text = ArtsList.GetSelectArts.name;
+            //artsNameText.text = ArtsList.GetSelectArts.name;
+            artsNameText.text = MyArtsDeck.GetArtsDeck[deckNum].name;
 
             //画像を表示する
             IntervalDisplay(true, count, interval);
         }
-
     }
 
     //表示＆表示にかかる時間設定

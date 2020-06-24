@@ -20,6 +20,22 @@ public class EntryArtsUI : MonoBehaviour
             GameObject obj = childObj.gameObject.transform.GetChild(0).gameObject;
             artsUI_Plate.Add(obj.GetComponent<UI_ArtsMaterialization>());
         }
+
+        //アーツUI、シーンまたいだ時の保持用
+        if (!MainGameManager.GetArtsReset)
+        {
+            if (MyArtsDeck.GetArtsDeck != null)
+            {
+                for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)
+                {
+                    if (MyArtsDeck.GetArtsDeck[i] != null)
+                    {
+                        artsUI_Plate[i].displaySwitch = true;
+                        artsUI_Plate[i].deckNum = i;
+                    }
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -31,6 +47,7 @@ public class EntryArtsUI : MonoBehaviour
             {
                 int num = UI_Manager.GetChoiceArtsDeckNum;
                 artsUI_Plate[num].displaySwitch = OnTrigger();
+                artsUI_Plate[num].deckNum = num;
             }
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
+    [SerializeField] bool artsReset = true;
     private bool startButton;
 
     private void Start()
@@ -13,8 +14,11 @@ public class StartButton : MonoBehaviour
     }
     private void Update()
     {
-        if(startButton)
+        if (startButton)
+        {
+            MainGameManager.GetArtsReset = artsReset;
             SceneManager.LoadScene("main");
+        }
 
     }
     public void OnClick()

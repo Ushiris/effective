@@ -10,9 +10,10 @@ public class MyArtsDeck : MonoBehaviour
     static List<ArtsList.ArtsData> GetMyArtsDeck;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        if (GetMyArtsDeck == null)
+        //初期化
+        if (MainGameManager.GetArtsReset)
         {
             GetMyArtsDeck = new List<ArtsList.ArtsData>();
 
