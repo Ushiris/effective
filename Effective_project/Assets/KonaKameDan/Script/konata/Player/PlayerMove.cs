@@ -13,12 +13,16 @@ public class PlayerMove : MonoBehaviour
     Vector3 dirVertical;
     Vector3 dirHorizontal;
 
-    [SerializeField] float speed = 3;
+    [SerializeField] float speed;
+    [SerializeField] float slowSpeed = 10f;
+    [SerializeField] float dashSpeed = 20f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        speed = slowSpeed;
     }
 
     // Update is called once per frame
@@ -31,6 +35,16 @@ public class PlayerMove : MonoBehaviour
 
         //入力したときにカメラの向きを基準とした動き
         Vector3 move = dirVertical + -dirHorizontal;
+
+        //速度の変更
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = dashSpeed;
+        }
+        else 
+        {
+            speed = slowSpeed;
+        }
 
 
 
