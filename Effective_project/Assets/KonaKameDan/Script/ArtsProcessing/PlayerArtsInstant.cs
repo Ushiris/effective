@@ -8,12 +8,13 @@ using UnityEngine;
 public class PlayerArtsInstant : MonoBehaviour
 {
     [SerializeField] string debugNum = "045";
+    [SerializeField] GameObject artsObj;
     MyEffectCount myEffectCount;
 
     // Start is called before the first frame update
     void Start()
     {
-        myEffectCount = GetComponent<MyEffectCount>();
+        myEffectCount = artsObj.GetComponent<MyEffectCount>();
     }
 
     // Update is called once per frame
@@ -21,14 +22,11 @@ public class PlayerArtsInstant : MonoBehaviour
     {
         if (OnTrigger())
         {
-            //アーツが出る場所
-            Transform artsPivot = PlayerManager.GetManager.GetPlObj.transform.GetChild(3);
-
             GetEffectCount();
 
             //アーツを出す処理
             string artsId = ArtsInstantManager.SelectArts(MyArtsDeck.GetSelectArtsDeck.id, debugNum);
-            ArtsInstantManager.InstantArts(artsPivot, artsId);
+            ArtsInstantManager.InstantArts(artsObj.transform, artsId);
         }
     }
 

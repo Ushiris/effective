@@ -8,6 +8,13 @@ public class Id05_Homing : MonoBehaviour
     [SerializeField] float force = 10f;
     [SerializeField] float defaultDamage = 1f;
 
+    [Header("射撃のスタック数に応じてたされる数")]
+    [SerializeField] float plusDamage = 0.05f;
+
+    //エフェクトの所持数用
+    int shotCount = 0;
+    float damage;
+
     GameObject target;
     GameObject homingParticleObj;
 
@@ -20,9 +27,18 @@ public class Id05_Homing : MonoBehaviour
         homingParticleObj = Instantiate(homingParticle, transform);
         particleSystem = homingParticleObj.GetComponent<ParticleSystem>();
 
+
+        //エフェクトの所持数を代入
+        var ec = GetComponentInParent<MyEffectCount>();
+        shotCount = ec.effectCount[NameDefinition.EffectName.Shot] - 1;
+
+
         //ダメージ
         Arts_Process.SetParticleDamageProcess(homingParticleObj);
         homingDamage = homingParticleObj.GetComponent<ParticleHit>();
+
+        //ダメージの計算
+        damage = defaultDamage + (plusDamage * (float)shotCount);
 
         //敵のポジションを持ってくる
         target = Arts_Process.GetEnemyTarget();
@@ -41,7 +57,7 @@ public class Id05_Homing : MonoBehaviour
         }
 
         //ダメージ処理
-        Arts_Process.Damage(homingDamage, defaultDamage, true);
+        Arts_Process.Damage(homingDamage, damage, true);
 
         //オブジェクトを消す
         if (transform.childCount == 0) Destroy(gameObject);

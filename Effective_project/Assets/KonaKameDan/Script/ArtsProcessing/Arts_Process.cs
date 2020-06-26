@@ -39,6 +39,19 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// パーティクルの出る数を変更する
+    /// </summary>
+    /// <param name="pse"></param>
+    /// <param name="defaultBullet">固定数</param>
+    /// <param name="addBullet">増える数</param>
+    /// <param name="spreadCount">変動カウント</param>
+    public static void SetBulletCount(ParticleSystem.EmissionModule pse, int defaultBullet, int addBullet, int spreadCount)
+    {
+        int bulletCount = defaultBullet + (addBullet * spreadCount);
+        pse.rateOverTime = new ParticleSystem.MinMaxCurve(bulletCount);
+    }
+
+    /// <summary>
     /// サーチシェーダーの基準位置を決める
     /// </summary>
     /// <param name="material"></param>
