@@ -14,6 +14,7 @@ public class Id04_ShotGun : MonoBehaviour
     [Header("拡散のスタック数に応じてたされる数")]
     [SerializeField] int addBullet = 1;
 
+    //エフェクトの所持数用
     int shotCount = 0;
     int spreadCount = 0;
     float damage;
@@ -26,10 +27,12 @@ public class Id04_ShotGun : MonoBehaviour
     {
         shotGunParticleObj = Instantiate(shotGunParticle, transform);
 
+
         //エフェクトの所持数を代入
         var ec = GetComponentInParent<MyEffectCount>();
         shotCount = ec.effectCount[NameDefinition.EffectName.Shot] - 1;
         spreadCount = ec.effectCount[NameDefinition.EffectName.Spread] - 1;
+
 
         //ダメージ
         Arts_Process.SetParticleDamageProcess(shotGunParticleObj);
@@ -41,8 +44,7 @@ public class Id04_ShotGun : MonoBehaviour
         //弾数を増やす
         var ps = shotGunParticleObj.GetComponent<ParticleSystem>();
         var pse = ps.emission;
-        int bulletCount = defaultBullet + (addBullet * spreadCount);
-        pse.rateOverTime = new ParticleSystem.MinMaxCurve(bulletCount);
+        Arts_Process.SetBulletCount(pse, defaultBullet, addBullet, spreadCount);
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Shot);
