@@ -62,7 +62,7 @@ public class MyArtsDeck : MonoBehaviour
     //所持しているエフェクトからアーツに気組み込まれたエフェクトごとの所持数を返す
     int SearchEffectStockCount(int num)
     {
-        int count=0;
+        int count = 0;
         foreach(var item in MainGameManager.GetPlEffectList)
         {
             if (item.id == num)

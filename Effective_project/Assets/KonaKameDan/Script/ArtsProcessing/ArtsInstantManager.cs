@@ -5,49 +5,36 @@ using UnityEngine;
 public class ArtsInstantManager : MonoBehaviour
 {
 
-    [SerializeField] PrefabDictionary prefabs;
-    [SerializeField] string debugNum = "045";
+    public PrefabDictionary prefabs;
+
+    static ArtsInstantManager GetArtsInstantManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetArtsInstantManager = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    //アーツを生成
+    public static void InstantArts(Transform artsPivot,string artsId)
     {
-        
-
-        if (OnTrigger())
+        var prefabs = GetArtsInstantManager.prefabs;
+        switch (artsId)
         {
-            //アーツが出る場所
-            Transform artsPivot = PlayerManager.GetManager.GetPlObj.transform.GetChild(3);
-
-            switch (SelectArts())
-            {
-                case "045":Instantiate(prefabs.GetTable()["045"], artsPivot); break;
-                case "04": Instantiate(prefabs.GetTable()["04"], artsPivot); break;
-                case "05": Instantiate(prefabs.GetTable()["05"], artsPivot); break;
-                case "45": Instantiate(prefabs.GetTable()["45"], artsPivot); break;
-                default: break;
-            }
+            case "045": Instantiate(prefabs.GetTable()["045"], artsPivot); break;
+            case "04": Instantiate(prefabs.GetTable()["04"], artsPivot); break;
+            case "05": Instantiate(prefabs.GetTable()["05"], artsPivot); break;
+            case "45": Instantiate(prefabs.GetTable()["45"], artsPivot); break;
+            default: break;
         }
     }
 
-    //アーツを放つキー
-    bool OnTrigger()
-    {
-        return Input.GetMouseButtonDown(0) && !UI_Manager.GetIsEffectFusionUI_ChoiceActive;
-    }
-
     //デバッグと切り替える処理
-    string SelectArts()
+    public static string SelectArts(string artsId, string debugNum = "0")
     {
-        if (debugNum == "0" && MyArtsDeck.GetSelectArtsDeck != null)
+        if (debugNum == "0" && artsId != null)
         {
-            Debug.Log(MyArtsDeck.GetSelectArtsDeck.id);
-            return MyArtsDeck.GetSelectArtsDeck.id;
+            return artsId;
         }
         else return debugNum;
     }
