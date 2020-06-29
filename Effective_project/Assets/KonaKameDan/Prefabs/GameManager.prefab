@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2800181292246757316}
   - component: {fileID: 2043093127}
   - component: {fileID: 517661563978576942}
+  - component: {fileID: 262906321}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -75,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchShader: {fileID: 2100000, guid: 94d6587bad1b59d418b5f127128d6cbf, type: 2}
+  effectObjShader: {fileID: 2100000, guid: 3b3e5493dd06d1a488ecf51ea0fdfffb, type: 2}
 --- !u!114 &2043093127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +117,20 @@ MonoBehaviour:
     - Key: 05
       Value: {fileID: 6803105965938668464, guid: 1191bde194a869a4eb9e2f896d52315f,
         type: 3}
+    - Key: 45
+      Value: {fileID: 6803105965938668464, guid: bf75dbae0603efc4d95f295bbd433031,
+        type: 3}
+--- !u!114 &262906321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216928581571088659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6493d6b6e56d2c4f9b3073d7057884c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseUI: {fileID: 5607555803093831959, guid: f3ee049700d9e29429ab42ca24697268, type: 3}
+  pauseUIInstansce: {fileID: 0}

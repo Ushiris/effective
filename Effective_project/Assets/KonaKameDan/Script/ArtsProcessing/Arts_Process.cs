@@ -81,6 +81,23 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 特定のオブジェクトの場所をマークするUIを生成する
+    /// </summary>
+    /// <param name="target">マークするオブジェクト</param>
+    /// <param name="ui">生成するUI</param>
+    /// <param name="parent">グループ</param>
+    /// <param name="deleteTime">消す時間</param>
+    public static void SearchMarkUiInstant(GameObject[] target,GameObject ui,Transform parent,float deleteTime)
+    {
+        foreach(var obj in target)
+        {
+            GameObject uiInstant = Instantiate(ui, parent);
+            uiInstant.GetComponent<ItemSearch>().obj = obj;
+            uiInstant.GetComponent<ItemSearch>().deleteTime = deleteTime;
+        }
+    }
+
+    /// <summary>
     /// ホーミングの処理
     /// </summary>
     /// <param name="particleSystem"></param>

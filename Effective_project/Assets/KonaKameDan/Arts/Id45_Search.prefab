@@ -45,3 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 94d6587bad1b59d418b5f127128d6cbf, type: 2}
   speed: 30
+  effectObjShader: {fileID: 2100000, guid: 3b3e5493dd06d1a488ecf51ea0fdfffb, type: 2}
+  markerUI: {fileID: 6118512186303263111, guid: d76c5dddddfc67847aa49fca6e85cfa5,
+    type: 3}
+  uiDeleteTime: 50

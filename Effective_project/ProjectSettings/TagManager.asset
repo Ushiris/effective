@@ -8,6 +8,7 @@ TagManager:
   - EffectObject
   - Enemy
   - CameraPivot
+  - UiCanvas
   layers:
   - Default
   - TransparentFX

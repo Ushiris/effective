@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class ItemSearch : MonoBehaviour
 {
     [SerializeField] float fixPos;
+
     public GameObject obj;
+    public float deleteTime;
+
     RectTransform rt;
     Image img;
     Vector3 pos;
@@ -25,6 +28,8 @@ public class ItemSearch : MonoBehaviour
         minX = 0 + fixPos;
         maxY = Screen.height - fixPos;
         minY = 0 + fixPos;
+
+        Destroy(gameObject, deleteTime);
     }
 
     // Update is called once per frame
