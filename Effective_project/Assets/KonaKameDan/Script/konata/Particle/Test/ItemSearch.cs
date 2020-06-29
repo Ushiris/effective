@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class ItemSearch : MonoBehaviour
 {
-    [SerializeField] Vector3 fixPos;
-    public GameObject obj;
-    RectTransform rt;
-    public Vector3 pos;
+    [SerializeField] float fixPos;
 
+    public GameObject obj;
+    public float deleteTime;
+
+    RectTransform rt;
+    Image img;
+    Vector3 pos;
+
+    Vector3 rot;
     float maxX, minX;
     float maxY, minY;
 
@@ -17,11 +22,14 @@ public class ItemSearch : MonoBehaviour
     void Start()
     {
         rt = GetComponent<RectTransform>();
+        img = GetComponent<Image>();
 
-        maxX = Screen.width;
-        minX = 0;
-        maxY = Screen.height;
-        minY = 0;
+        maxX = Screen.width - fixPos;
+        minX = 0 + fixPos;
+        maxY = Screen.height - fixPos;
+        minY = 0 + fixPos;
+
+        Destroy(gameObject, deleteTime);
     }
 
     // Update is called once per frame
@@ -33,12 +41,33 @@ public class ItemSearch : MonoBehaviour
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
-        if (pos.x == 0)
+        if (pos.x == minX)
         {
-            rt.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
+            rot = new Vector3(0, 0, -90);
+        }
+        else if (pos.x == maxX)
+        {
+            rot = new Vector3(0, 0, 90);
+        }
+        else if (pos.y == minY)
+        {
+            rot = new Vector3(0, 0, 0);
+        }
+        else if (pos.y == maxY)
+        {
+            rot = new Vector3(0, 0, 180);
         }
 
-
-        rt.position = pos;
+        if (pos.x == minX || pos.x == maxX ||
+            pos.y == minY || pos.y == maxY)
+        {
+            img.enabled = true;
+            rt.rotation = Quaternion.Euler(rot);
+            rt.position = pos;
+        }
+        else
+        {
+            img.enabled = false;
+        }
     }
 }
