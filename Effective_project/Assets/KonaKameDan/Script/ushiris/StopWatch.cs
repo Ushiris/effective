@@ -19,6 +19,15 @@ public class StopWatch : MonoBehaviour
 
     public float LapTime { get; set; }
 
+    static StopWatch Create(float lapTime, TimeEvent act)
+    {
+        return new StopWatch
+        {
+            LapEvent = act,
+            LapTime = lapTime
+        };
+    }
+
     private void Start()
     {
         isReactiveFlame = true;
