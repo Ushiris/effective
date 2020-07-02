@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WorldSearchMaterial
-  m_Shader: {fileID: 4800000, guid: 011b1a37bd9682d4bb34bee758894328, type: 3}
+  m_Shader: {fileID: 4800000, guid: dcf80850ceca1004aba17fe0705e619e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -236,10 +236,10 @@ Material:
     - Color_20A78DA6: {r: 0.117646985, g: 0.47058803, b: 0.42352927, a: 0.5254902}
     - Color_CD479C79: {r: 0.21960777, g: 0.8117647, b: 0.7960784, a: 0}
     - Vector2_FC9942BD: {r: 40.029205, g: 30, b: 42.281025, a: 0}
-    - Vector3_CB8F0829: {r: 173.29836, g: -0.000000005473879, b: 170.56316, a: 0}
+    - Vector3_CB8F0829: {r: 61.037235, g: 0, b: 52.10872, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Color: {r: 0, g: 0.14640594, b: 1, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
