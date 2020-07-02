@@ -81,6 +81,23 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 複数のマテリアルが適応されているオブジェクトのマテリアルを変更する
+    /// </summary>
+    /// <param name="objects">オブジェクト</param>
+    /// <param name="material">変更後のマテリアル</param>
+    /// <param name="materialNum">マテリアルナンバー</param>
+    public static void MaterialsChange(GameObject[] objects, Material material,int materialNum)
+    {
+        foreach(var obj in objects)
+        {
+            MeshRenderer meshRenderer = obj.GetComponent<MeshRenderer>();
+            Material[] mats = meshRenderer.materials;
+            mats[materialNum] = material;
+            meshRenderer.materials = mats;
+        }
+    }
+
+    /// <summary>
     /// 特定のオブジェクトの場所をマークするUIを生成する
     /// </summary>
     /// <param name="target">マークするオブジェクト</param>

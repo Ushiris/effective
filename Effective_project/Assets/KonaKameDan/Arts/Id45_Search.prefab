@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b15c52f93d94d149a78d6acda8803ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 94d6587bad1b59d418b5f127128d6cbf, type: 2}
+  worldSearchShader: {fileID: 2100000, guid: 94d6587bad1b59d418b5f127128d6cbf, type: 2}
   speed: 30
-  effectObjShader: {fileID: 2100000, guid: 3b3e5493dd06d1a488ecf51ea0fdfffb, type: 2}
-  markerUI: {fileID: 6118512186303263111, guid: d76c5dddddfc67847aa49fca6e85cfa5,
-    type: 3}
-  uiDeleteTime: 50
+  effectObjectMaterialChange: {fileID: 2100000, guid: f4d41d28fa189ec478971a983acabe70,
+    type: 2}
+  effectObjectMaterialDefault: {fileID: 2100000, guid: f206474d6fea82c4b9fa6e040a61473d,
+    type: 2}

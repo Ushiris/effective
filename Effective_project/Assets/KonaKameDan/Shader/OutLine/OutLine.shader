@@ -1,19 +1,16 @@
-﻿Shader "Unlit/Clairvoyance"
+﻿Shader "Unlit/OutLine"
 {
 	Properties
 	{
-		_MainTex("Texture", 2D) = "white" {}
 		_Threshold("Threshold",Range(0,10)) = 1.0
 		_Color("Color", Color) = (1,1,1,1)
 	}
-	SubShader
+		SubShader
 	{
-		Tags{ "RenderType" = "Opaque" "Queue" = "Geometry+10" }
-		LOD 200
+		Tags { "RenderType" = "Opaque" }
+		LOD 100
 
-		CULL Back
-		ZWrite Off
-		ZTest Greater
+		Cull Front
 
 		Pass
 		{
@@ -22,24 +19,19 @@
 			#pragma fragment frag
 			// make fog work
 			#pragma multi_compile_fog
-		
+
 			#include "UnityCG.cginc"
 
 			struct appdata
 			{
 				float4 vertex : POSITION;
-				float2 uv : TEXCOORD0;
 			};
 
 			struct v2f
 			{
-				float2 uv : TEXCOORD0;
 				float4 vertex : SV_POSITION;
-				UNITY_FOG_COORDS(1)
 			};
 
-			sampler2D _MainTex;
-			float4 _MainTex_ST;
 			float _Threshold;
 			float4 _Color;
 
@@ -47,18 +39,12 @@
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex*_Threshold);
-				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				UNITY_TRANSFER_FOG(o, o.vertex);
 				return o;
 			}
 
 			fixed4 frag(v2f i) : SV_Target
 			{
-				// sample the texture
-				fixed4 col = tex2D(_MainTex, i.uv)*_Color;
-				// apply fog
-				UNITY_APPLY_FOG(i.fogCoord, col);
-				return col;
+				return _Color;
 			}
 			ENDCG
 		}
