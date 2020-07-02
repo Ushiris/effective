@@ -35,12 +35,33 @@ public class ItemSearch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        try
+        {
+            if (obj == null) Destroy(gameObject);
+            else
+            {
+                Definition();
+                Roll();
+                Embodiment();
+            }
+        }
+        catch (System.ArgumentException)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Definition()
+    {
         Vector3 objPos = obj.transform.position;
         pos = RectTransformUtility.WorldToScreenPoint(Camera.main, new Vector3(objPos.x, objPos.z, objPos.y));
 
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
+    }
 
+    void Roll()
+    {
         if (pos.x == minX)
         {
             rot = new Vector3(0, 0, -90);
@@ -57,9 +78,12 @@ public class ItemSearch : MonoBehaviour
         {
             rot = new Vector3(0, 0, 180);
         }
+    }
 
+    void Embodiment()
+    {
         if (pos.x == minX || pos.x == maxX ||
-            pos.y == minY || pos.y == maxY)
+           pos.y == minY || pos.y == maxY)
         {
             img.enabled = true;
             rt.rotation = Quaternion.Euler(rot);
