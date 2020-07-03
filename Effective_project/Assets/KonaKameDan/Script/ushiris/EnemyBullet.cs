@@ -38,7 +38,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PlayerBody")
+        if (other.tag == "Player")
         {
             if (other.GetComponent<Life>() == null)
             {
