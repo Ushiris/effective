@@ -47,7 +47,8 @@ MonoBehaviour:
   effectFusionUI_ActiveKey: 101
   effectFusionUI_Obj: {fileID: 0}
   textObj: {fileID: 0}
-  cameraControlObj: {fileID: 0}
+  cameraControlObj: {fileID: 7505584113060827351, guid: e1e991e09772c5f4e94aa21a22efd2bf,
+    type: 3}
   artsEntryKey: 113
   effectFusionUI_ChoiceKey: 323
   artsSetTimingTnterval: 0.1
@@ -69,17 +70,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectIconList: []
   redIconFrame:
-  - {fileID: 21300000, guid: 7ee9d4ae55ad32945916cb4bc676d351, type: 3}
-  - {fileID: 21300000, guid: 4d168e26458dca845acaa91eace1627b, type: 3}
   - {fileID: 21300000, guid: 758b6302462a70a49b76fba8fc0b8316, type: 3}
+  - {fileID: 21300000, guid: 4d168e26458dca845acaa91eace1627b, type: 3}
+  - {fileID: 21300000, guid: 7ee9d4ae55ad32945916cb4bc676d351, type: 3}
   redNameFrame:
   - {fileID: 21300000, guid: f37b1a23aaa28114b8f07305e388bee0, type: 3}
   - {fileID: 21300000, guid: f4786b2b8119d2e4abebbeb141c5c87a, type: 3}
   - {fileID: 21300000, guid: 263a9a2359dd15948a1d47d2a3a894ff, type: 3}
   blueIconFrame:
-  - {fileID: 21300000, guid: eefc057b1c0af6f40a1949cca0e5d4f4, type: 3}
-  - {fileID: 21300000, guid: 4fc6cc803c6e2de429940ac05b700944, type: 3}
   - {fileID: 21300000, guid: 115ffd3c2ab2e6c40bbe9230af425dbc, type: 3}
+  - {fileID: 21300000, guid: 4fc6cc803c6e2de429940ac05b700944, type: 3}
+  - {fileID: 21300000, guid: eefc057b1c0af6f40a1949cca0e5d4f4, type: 3}
   blueNameFrame:
   - {fileID: 21300000, guid: f88d211a30c09614a875ac78c5bfbf2b, type: 3}
   - {fileID: 21300000, guid: 670b663a3c18a3f47906ee90783dfa56, type: 3}

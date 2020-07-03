@@ -4,21 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// カーソルのある位置のアイテム名を出す(ピザ)
+/// エフェクトアイコンの表示
 /// </summary>
-public class UIText : MonoBehaviour
+public class EffectIconDisplay : MonoBehaviour
 {
-    Text txt;
+    public int num;
+    Image image;
+
     // Start is called before the first frame update
     void Start()
     {
-        txt = GetComponent<Text>();
+        image = GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        int num = UI_Manager.GetEffectFusionUI_ChoiceAng.num;
-        txt.text = "x " + MainGameManager.GetPlEffectList[num].count;
+        image.sprite = UI_Image.GetUI_Image.effectIcon[num].effectIcon;
     }
 }
