@@ -13,6 +13,20 @@ public class FadeOut : MonoBehaviour
     public Color endColor = Color.black;
 
     float time;
+
+    static FadeOut Create(float duration,float wait,Color endColor)
+    {
+        return new FadeOut {
+            fadeTime = duration,
+            fadeStartTime = wait,
+            endColor = endColor
+        };
+    }
+
+    static GameObject Summon()
+    {
+        return Instantiate(Resources.Load("UI/FadeSystem") as GameObject);
+    }
     
     private void Start()
     {
