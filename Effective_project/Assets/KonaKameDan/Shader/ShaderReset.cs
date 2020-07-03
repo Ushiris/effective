@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// シェーダーの初期化
+/// </summary>
 public class ShaderReset : MonoBehaviour
 {
     [SerializeField] Material searchShader;
@@ -10,11 +13,5 @@ public class ShaderReset : MonoBehaviour
     void Start()
     {
         Arts_Process.SearchShaderReset(searchShader);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

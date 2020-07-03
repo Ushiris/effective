@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// アーツの生成を管理
+/// </summary>
 public class ArtsInstantManager : MonoBehaviour
 {
 
