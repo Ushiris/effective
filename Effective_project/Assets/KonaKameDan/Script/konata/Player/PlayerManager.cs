@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         GetPlObj = GameObject.FindGameObjectWithTag("Player");
+        GetPlObj.GetComponent<Life>().AddLastword(() => { FadeOut.Summon(); });
 
         GetManager = this;
     }
