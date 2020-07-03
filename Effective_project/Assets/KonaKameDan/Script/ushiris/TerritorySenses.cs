@@ -11,7 +11,7 @@ public class TerritorySenses : MonoBehaviour
 
     private void Start()
     {
-        bossUI = Instantiate(new GameObject()).AddComponent<Canvas>();
+        bossUI = new GameObject().AddComponent<Canvas>();
         bossUI.gameObject.SetActive(false);
         bossUI.renderMode = RenderMode.ScreenSpaceOverlay;
 
