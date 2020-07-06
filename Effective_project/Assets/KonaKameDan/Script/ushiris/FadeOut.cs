@@ -8,7 +8,7 @@ public class FadeOut : MonoBehaviour
 {
     Image Fade;
 
-    public float fadeTime = 2.0f;
+    public float fadeTime = 4.0f;
     public float fadeStartTime = 0f;
     public Color endColor = Color.black;
 
@@ -38,6 +38,8 @@ public class FadeOut : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
-        Fade.color = new Color(Fade.color.r, Fade.color.g, Fade.color.b, time / fadeTime);
+        if (time <= fadeStartTime) return;
+
+        Fade.color = new Color(Fade.color.r, Fade.color.g, Fade.color.b, time / fadeTime-fadeStartTime);
     }
 }
