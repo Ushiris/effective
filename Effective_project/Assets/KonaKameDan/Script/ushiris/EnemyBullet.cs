@@ -11,13 +11,13 @@ public class EnemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.FindWithTag("PlayerBody") == null)
+        if (GameObject.FindWithTag("Player") == null)
         {
             player_tr = transform;
         }
         else
         {
-            player_tr = GameObject.FindWithTag("PlayerBody").transform;
+            player_tr = GameObject.FindWithTag("Player").transform;
         }
         
         rb = GetComponent<Rigidbody>();
@@ -47,7 +47,7 @@ public class EnemyBullet : MonoBehaviour
                 pl_life.LifeSetup(1);
             }
 
-            other.gameObject.GetComponent<Life>().Damage((int)gameObject.GetComponentInParent<Status>().status[Status.Name.STR]);
+            other.gameObject.GetComponent<Life>().Damage((int)other.gameObject.GetComponentInParent<Status>().status[Status.Name.STR]);
             Debug.Log("HIT! player's life=" + other.gameObject.GetComponent<Life>().HP);
             Destroy(gameObject);
         }

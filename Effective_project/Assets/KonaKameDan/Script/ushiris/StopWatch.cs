@@ -10,27 +10,27 @@ public class StopWatch : MonoBehaviour
     public delegate void TimeEvent();
 
     public float ActiveTime { get; private set; }
-    float LapTimer = 0f;
-
-    bool isActive = true;
     bool isReactiveFlame;
 
     public TimeEvent LapEvent { get; set; }
 
     public float LapTime { get; set; }
+    public bool IsActive { get; set; }
+    public float LapTimer { get; set; }
 
-    static StopWatch Create(float lapTime, TimeEvent act)
+    public static StopWatch Summon(float lapTime, TimeEvent act,GameObject parent)
     {
-        return new StopWatch
-        {
-            LapEvent = act,
-            LapTime = lapTime
-        };
+        StopWatch instance = parent.AddComponent<StopWatch>();
+        instance.LapTime = lapTime;
+        instance.LapEvent = act;
+
+        return instance;
     }
 
     private void Start()
     {
         isReactiveFlame = true;
+        LapTimer = 0f;
     }
 
     void Update()
@@ -45,7 +45,7 @@ public class StopWatch : MonoBehaviour
             LapTimer -= LapTime;
         }
 
-        if(isReactiveFlame)
+        if (isReactiveFlame)
         {
             //丁度isActiveがtrueになったフレームのみで呼ばれます
             isReactiveFlame = false;
@@ -54,10 +54,10 @@ public class StopWatch : MonoBehaviour
 
     public void SetActive(bool active)
     {
-        if (isActive != active && active == true)
+        if (IsActive != active && active == true)
         {
             isReactiveFlame = true;
         }
-        isActive = active;
+        IsActive = active;
     }
 }
