@@ -30,7 +30,7 @@ public class EnemyBullet : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (transform.position.y<0)
+        if (transform.position.y<-1f)
         {
             Destroy(gameObject);
         }
@@ -47,7 +47,7 @@ public class EnemyBullet : MonoBehaviour
                 pl_life.LifeSetup(1);
             }
 
-            other.gameObject.GetComponent<Life>().Damage(1);
+            other.gameObject.GetComponent<Life>().Damage((int)gameObject.GetComponentInParent<Status>().status[Status.Name.STR]);
             Debug.Log("HIT! player's life=" + other.gameObject.GetComponent<Life>().HP);
             Destroy(gameObject);
         }
