@@ -80,12 +80,22 @@ PrefabInstance:
     - target: {fileID: 2459166526397551225, guid: 421e2d382beb5e149811baa494bdc14c,
         type: 3}
       propertyPath: m_Name
-      value: enemyOrange
+      value: enemyOrange(old)
       objectReference: {fileID: 0}
     - target: {fileID: 2459166526397551227, guid: 421e2d382beb5e149811baa494bdc14c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 09767ab56413bb744805dbb92c930ad8, type: 2}
+    - target: {fileID: 6764249598052150221, guid: 421e2d382beb5e149811baa494bdc14c,
+        type: 3}
+      propertyPath: defaultStatus.Array.data[1].f
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6764249598052150221, guid: 421e2d382beb5e149811baa494bdc14c,
+        type: 3}
+      propertyPath: defaultStatus.Array.data[2].f
+      value: 800
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 421e2d382beb5e149811baa494bdc14c, type: 3}

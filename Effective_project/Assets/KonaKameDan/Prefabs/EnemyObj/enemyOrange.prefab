@@ -75,7 +75,17 @@ PrefabInstance:
     - target: {fileID: 212912623975855615, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
       propertyPath: m_Name
-      value: enemyBase
+      value: enemyOrange
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225329085623931612, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: defaultStatus.Array.data[1].f
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225329085623931612, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: defaultStatus.Array.data[2].f
+      value: 800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7fe2c416a1c1d449b1aaf6921ea3300, type: 3}
