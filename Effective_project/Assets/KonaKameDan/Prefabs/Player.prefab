@@ -576,10 +576,10 @@ MonoBehaviour:
     f: 0
   - name: HP
     enumName: 1
-    f: 100
+    f: 10000
   - name: STR
     enumName: 2
-    f: 10
+    f: 1000
   - name: DEF
     enumName: 3
     f: 0
