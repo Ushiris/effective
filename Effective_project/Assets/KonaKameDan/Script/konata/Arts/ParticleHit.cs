@@ -18,7 +18,7 @@ public class ParticleHit : MonoBehaviour
             int damageCast = Mathf.CeilToInt(damage);
 
             gameObject.GetComponent<Enemy>().life.Damage(damageCast);
-            Debug.Log("hitCount: " + hitCount + " Damage: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
+            Debug.Log("hitCount: " + hitCount + "damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
 
             //SE
