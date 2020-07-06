@@ -17,10 +17,13 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         GetPlObj = GameObject.FindGameObjectWithTag("Player");
+
         GetPlObj.GetComponent<Life>().AddLastword(() =>
         {
-            GameObject fade = FadeOut.Summon();
-            var timer = StopWatch.Summon(fade.GetComponentInChildren<FadeOut>().fadeTime + 1, () => { SceneManager.LoadScene("GameOver"); },GetPlObj);
+            float timeScale= Time.timeScale;
+            Time.timeScale = 0.3f;
+            var fade = FadeOut.Summon();
+            var timer = StopWatch.Summon(fade.GetComponentInChildren<FadeOut>().fadeTime-1, () => { SceneManager.LoadScene("GameOver"); Time.timeScale = timeScale; },GetPlObj);
         }
         );
 
