@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - CameraPivot
   - UiCanvas
+  - PlayerBody
   layers:
   - Default
   - TransparentFX

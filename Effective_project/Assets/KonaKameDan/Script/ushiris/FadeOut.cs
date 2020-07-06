@@ -14,7 +14,7 @@ public class FadeOut : MonoBehaviour
 
     float time;
 
-    static FadeOut Create(float duration,float wait,Color endColor)
+    static public FadeOut Create(float duration,float wait,Color endColor)
     {
         return new FadeOut {
             fadeTime = duration,
@@ -23,7 +23,7 @@ public class FadeOut : MonoBehaviour
         };
     }
 
-    static GameObject Summon()
+    static public GameObject Summon()
     {
         return Instantiate(Resources.Load("UI/FadeSystem") as GameObject);
     }

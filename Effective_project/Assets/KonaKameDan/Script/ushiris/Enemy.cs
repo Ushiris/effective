@@ -9,8 +9,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Slider slider;
     [SerializeField] GameObject bullet;
     public bool isBoss;
-    static Vector3 hp_small=new Vector3(1,1,1);
-    static Vector3 big=new Vector3(3,2,1);
+    static Vector3 hp_small = new Vector3(1, 1, 1);
+    static Vector3 big = new Vector3(3, 2, 1);
 
     private void Start()
     {
@@ -75,6 +75,7 @@ public class Enemy : MonoBehaviour
         bullet_i.GetComponent<Rigidbody>().velocity = Vector3.zero;
         
         bullet_i.GetComponent<Rigidbody>().AddForce(velocity * bullet_i.GetComponent<Rigidbody>().mass, ForceMode.Impulse);
+        Debug.Log("enemy attack is failed.");
     }
 
     void Dead()
