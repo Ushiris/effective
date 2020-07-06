@@ -30,6 +30,7 @@ public class Arrow : MonoBehaviour
 
         chargeParticle = Instantiate(chargeParticleObj);
         psem = chargeParticle.GetComponent<ParticleSystem>().emission;
+        psem.rateOverTime = new ParticleSystem.MinMaxCurve(0);
     }
 
     // Update is called once per frame
