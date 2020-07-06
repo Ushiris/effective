@@ -115,6 +115,33 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// パーティクルを生成し、生成するパーティクルの生成数を決めることができる
+    /// 返り値はParticleSystem.EmissionModule
+    /// </summary>
+    /// <param name="lightGathersParticleObj">生成するパーティクル</param>
+    /// <param name="parent">親を設定</param>
+    /// <param name="startParticleCount">パーティクル数の初期値</param>
+    /// <returns></returns>
+    public static ParticleSystem.EmissionModule LightGathersParticleInstant(GameObject lightGathersParticleObj,float startParticleCount)
+    {
+        ParticleSystem.EmissionModule psem = 
+            lightGathersParticleObj.GetComponent<ParticleSystem>().emission;
+        psem.rateOverTime = new ParticleSystem.MinMaxCurve(startParticleCount);
+        return psem;
+    }
+
+    /// <summary>
+    /// GameObjectからParticleSystem.MainModuleに変える
+    /// </summary>
+    /// <param name="obj">パーティクルのオブジェクト</param>
+    /// <returns></returns>
+    public static ParticleSystem.MainModule ObjCastPS_MainModule(GameObject obj)
+    {
+        ParticleSystem ps = obj.GetComponent<ParticleSystem>();
+        return ps.main;
+    }
+
+    /// <summary>
     /// ホーミングの処理
     /// </summary>
     /// <param name="particleSystem"></param>
