@@ -20,7 +20,6 @@ public class EffectCountTMPro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(num);
         textMeshPro.text = "x" + MainGameManager.GetPlEffectList[num].count;
     }
 }
