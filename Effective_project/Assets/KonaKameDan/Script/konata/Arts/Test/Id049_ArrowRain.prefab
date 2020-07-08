@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6929485253059204035}
-  - component: {fileID: 114722322842843382}
+  - component: {fileID: 114068891148151614}
   m_Layer: 0
-  m_Name: Id04_ShotGun
+  m_Name: Id049_ArrowRain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114722322842843382
+--- !u!114 &114068891148151614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,12 +40,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6803105965938668464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b25ec287c26a2846b1615e1926391b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7eb3c9e279c42e74a990b30c428c4984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotGunParticle: {fileID: 8642150866949357858, guid: 6041334a2f0be2a4da8997382c79371e,
+  pointPosObj: {fileID: 4677742786143473792, guid: bce6ab19718266f46b52aeb74b6b811a,
     type: 3}
-  defaultDamage: 0.2
-  defaultBullet: 10
-  plusDamage: 0.05
-  addBullet: 1
+  magicCircleObj: {fileID: 4976810010877162446, guid: b7918955ba36c064581002843395fdec,
+    type: 3}
+  magicCircleSizUpSpeed: 1
+  magicCircleMaxSiz: {x: 1, y: 1, z: 1}
+  arrowRainParticle: {fileID: 7481011833392780257, guid: 637b5c1e39996c742b7f21b3393e08c5,
+    type: 3}
+  instantHigh: 20
