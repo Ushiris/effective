@@ -10,6 +10,7 @@ TagManager:
   - CameraPivot
   - UiCanvas
   - PlayerBody
+  - Ground
   layers:
   - Default
   - TransparentFX
