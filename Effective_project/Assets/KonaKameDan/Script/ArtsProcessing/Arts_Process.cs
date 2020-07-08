@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Arts_Process : MonoBehaviour
 {
@@ -25,6 +26,17 @@ public class Arts_Process : MonoBehaviour
     {
         var aim = target.position - my.position;
         return Quaternion.LookRotation(aim, Vector3.forward);
+    }
+
+    /// <summary>
+    /// NavMeshAgentをアタッチ及び取得
+    /// </summary>
+    /// <param name="obj">対象</param>
+    /// <returns></returns>
+    public static NavMeshAgent SetNavMeshAgent(GameObject obj)
+    {
+        var agent = obj.AddComponent<NavMeshAgent>();
+        return agent;
     }
 
     /// <summary>
