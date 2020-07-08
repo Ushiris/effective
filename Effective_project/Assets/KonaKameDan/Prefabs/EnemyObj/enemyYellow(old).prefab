@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1569667915959616207}
   - component: {fileID: 156724260851513300}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5406284780235418794}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 114221910511304198}
   - component: {fileID: 6764249598052150221}
   - component: {fileID: 54910844226909174}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: enemyYellow(old)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 8179367420698778866}
   - component: {fileID: 2816189295937681804}
   - component: {fileID: 783968356530469491}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 5649102701826046261}
   - component: {fileID: 8746320030333234042}
   - component: {fileID: 2361106148619600756}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 876314089086753558}
   - component: {fileID: 420323848654834538}
   - component: {fileID: 9188854219613474295}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,13 +595,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: model
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 06ab8f269f7d74e4e8bff29a1d3d952a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 06ab8f269f7d74e4e8bff29a1d3d952a, type: 3}
       propertyPath: m_Name
       value: eye
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 06ab8f269f7d74e4e8bff29a1d3d952a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 06ab8f269f7d74e4e8bff29a1d3d952a, type: 3}
       propertyPath: m_Name
       value: body
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 06ab8f269f7d74e4e8bff29a1d3d952a, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 06ab8f269f7d74e4e8bff29a1d3d952a, type: 3}
       propertyPath: m_LocalPosition.x

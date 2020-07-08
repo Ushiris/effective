@@ -725,7 +725,7 @@ PrefabInstance:
     - target: {fileID: 9188698297048849260, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: EffectObj.Array.data[0].probability
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9188698297048849260, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}

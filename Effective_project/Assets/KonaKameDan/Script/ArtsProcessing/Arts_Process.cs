@@ -40,6 +40,38 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 周りの物を吹きとばす
+    /// </summary>
+    /// <param name="pos">中心</param>
+    /// <param name="radius">範囲</param>
+    /// <param name="layer">吹きとばすもののレイヤー</param>
+    /// <param name="explosionForce">吹きとばす力</param>
+    /// <param name="uppersModifier">持ち上げる力</param>
+    public static void Impact(Vector3 pos, float radius, string layer = "Nothing",
+                              float explosionForce = 10f, float uppersModifier = 8f)
+    {
+        Collider[] enemies;
+        int layerMask;
+
+        if (layer == "Nothing") enemies = Physics.OverlapSphere(pos, radius);
+        else
+        {
+            layerMask = LayerMask.GetMask(layer);
+            enemies = Physics.OverlapSphere(pos, radius, layerMask);
+        }
+
+        foreach (Collider hit in enemies)
+        {
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                rb.AddExplosionForce(explosionForce, pos, radius, uppersModifier, ForceMode.Impulse);
+            }
+        }
+    }
+
+    /// <summary>
     /// ダメージ処理をアタッチする
     /// </summary>
     /// <param name="obj">ダメージ処理を付けたい相手</param>
