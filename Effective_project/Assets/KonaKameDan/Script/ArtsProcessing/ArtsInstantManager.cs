@@ -33,6 +33,7 @@ public class ArtsInstantManager : MonoBehaviour
             case "59": Instantiate(prefabs.GetTable()["59"], artsPivot); break;
             case "059": Instantiate(prefabs.GetTable()["059"], artsPivot); break;
             case "459": Instantiate(prefabs.GetTable()["459"], artsPivot); break;
+            case "49": Instantiate(prefabs.GetTable()["49"], artsPivot); break;
             default: break;
         }
     }

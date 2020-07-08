@@ -117,6 +117,9 @@ MonoBehaviour:
     - Key: 459
       Value: {fileID: 6803105965938668464, guid: 55eda4615fc5ea54da2fa0cd5152534e,
         type: 3}
+    - Key: 49
+      Value: {fileID: 6803105965938668464, guid: e512606b0c387054d8b89a3e72483229,
+        type: 3}
 --- !u!114 &262906321
 MonoBehaviour:
   m_ObjectHideFlags: 0
