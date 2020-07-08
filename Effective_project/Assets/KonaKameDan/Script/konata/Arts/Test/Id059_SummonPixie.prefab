@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6929485253059204035}
-  - component: {fileID: 114722322842843382}
+  - component: {fileID: 114238129154627190}
   m_Layer: 0
-  m_Name: Id04_ShotGun
+  m_Name: Id059_SummonPixie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114722322842843382
+--- !u!114 &114238129154627190
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,12 +40,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6803105965938668464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b25ec287c26a2846b1615e1926391b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e11803dd3a777149a4e83225efbe109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotGunParticle: {fileID: 8642150866949357858, guid: 6041334a2f0be2a4da8997382c79371e,
+  fairyParticleObj: {fileID: 1239068644542736023, guid: 2e05f469c9253114493d92fae2c4cfc1,
     type: 3}
-  defaultDamage: 0.2
-  defaultBullet: 10
-  plusDamage: 0.05
-  addBullet: 1
+  hollyShotParticleObj: {fileID: 8408418366058687730, guid: 67765c6eee6e1b547bf588d105d06dc3,
+    type: 3}
+  instantPos: {x: 2, y: 2, z: 0}
+  lostTime: 10
+  speed: 5
+  distance: 3

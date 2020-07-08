@@ -16,6 +16,18 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// myから見たtargetの方向を返す
+    /// </summary>
+    /// <param name="my"></param>
+    /// <param name="target"></param>
+    /// <returns></returns>
+    public static Quaternion GetLookRotation(Transform my,Transform target)
+    {
+        var aim = target.position - my.position;
+        return Quaternion.LookRotation(aim);
+    }
+
+    /// <summary>
     /// ダメージ処理をアタッチする
     /// </summary>
     /// <param name="obj">ダメージ処理を付けたい相手</param>
@@ -36,6 +48,30 @@ public class Arts_Process : MonoBehaviour
         hit.hitDamageDefault = hitDefaultDamage;
         if (status) hit.plusFormStatus = PlayerManager.GetManager.GetPlObj.GetComponent<Status>().status[Status.Name.STR];
         hit.hitObjTag = hitObjTag;
+    }
+
+    /// <summary>
+    /// マウスから出たレイがヒットしたものが〇〇タグだった場合オブジェクトを移動
+    /// </summary>
+    /// <param name="hitTag">タグ名</param>
+    /// <param name="defaultPos">ヒットしなかった場合こっれを返す</param>
+    /// <returns></returns>
+    public static Vector3 GetMouseRayHitPos(Vector3 defaultPos, string hitTag = "Untagged")
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.x = Mathf.Clamp(mousePos.x, 0f, Screen.width);
+        mousePos.y = Mathf.Clamp(mousePos.y, 0f, Screen.height);
+
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.tag == hitTag)
+            {
+                return hit.point;
+            }
+        }
+        return defaultPos;
     }
 
     /// <summary>
@@ -81,6 +117,55 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// オブジェクトのサイズの初期化
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="siz"></param>
+    public static void SetObjSiz(GameObject obj,Vector3 siz)
+    {
+        obj.transform.localScale = siz;
+    }
+
+    /// <summary>
+    /// 指定しているサイズにオブジェクトのサイズが近しい場合真を返す
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="siz"></param>
+    /// <returns></returns>
+    public static bool ObjSizFlag(GameObject obj,Vector3 siz)
+    {
+        Vector3 v3 = obj.transform.localScale;
+        float dis = Vector3.Distance(v3, siz);
+        if (dis > 0.01f) return true;
+        else return false;
+    }
+
+    /// <summary>
+    /// オブジェクトのサイズを変更する動きをするスクリプトのアタッチ
+    /// </summary>
+    /// <param name="obj">アタッチするもの</param>
+    /// <param name="defaultSiz">デフォルトのサイズ</param>
+    /// <param name="maxSiz"></param>
+    /// <param name="changeSizPos">変更する成分</param>
+    /// <param name="sizChangeSpeed">変更速度</param>
+    public static ObjSizChange SetAddObjSizChange
+        (
+        GameObject obj,
+        Vector3 defaultSiz, Vector3 maxSiz, Vector3 changeSizPos,
+        float sizChangeSpeed,
+        ObjSizChange.SizChangeMode sizChangeMode
+        )
+    {
+        var s = obj.AddComponent<ObjSizChange>();
+        s.defaultSiz = defaultSiz;
+        s.maxSiz = maxSiz;
+        s.changeSizPos = changeSizPos;
+        s.sizChangeSpeed = sizChangeSpeed;
+        s.SetSizChangeMode = sizChangeMode;
+        return s;
+    }
+
+    /// <summary>
     /// 複数のマテリアルが適応されているオブジェクトのマテリアルを変更する
     /// </summary>
     /// <param name="objects">オブジェクト</param>
@@ -115,11 +200,10 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
-    /// パーティクルを生成し、生成するパーティクルの生成数を決めることができる
+    /// 生成するパーティクルの生成数を決めることができる
     /// 返り値はParticleSystem.EmissionModule
     /// </summary>
     /// <param name="lightGathersParticleObj">生成するパーティクル</param>
-    /// <param name="parent">親を設定</param>
     /// <param name="startParticleCount">パーティクル数の初期値</param>
     /// <returns></returns>
     public static ParticleSystem.EmissionModule LightGathersParticleInstant(GameObject lightGathersParticleObj,float startParticleCount)

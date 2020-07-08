@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Id09_Arrow : MonoBehaviour
 {
+    [Header("矢のステータス")]
     [SerializeField] float force = 5f;
     [SerializeField] float maxForce = 30f;
     [SerializeField] GameObject arrowParticleObj;
 
+    [Header("チャージのエフェクト")]
     [SerializeField] GameObject chargeParticleObj;
-    [SerializeField] float count = 10;
+    [SerializeField] float chargeSpeed = 10;
     float particleCount;
 
     GameObject tmpChargeParticleObj;
@@ -46,7 +48,7 @@ public class Id09_Arrow : MonoBehaviour
                     power += force * Time.deltaTime;
 
                     //チャージの数の変化
-                    particleCount += count * Time.deltaTime;
+                    particleCount += chargeSpeed * Time.deltaTime;
                     chargeParticle.rateOverTime = new ParticleSystem.MinMaxCurve(particleCount);
                 }
                 isStart = true;
