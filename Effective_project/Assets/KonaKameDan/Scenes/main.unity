@@ -725,7 +725,7 @@ PrefabInstance:
     - target: {fileID: 9188698297048849260, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: EffectObj.Array.data[0].probability
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9188698297048849260, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
@@ -745,7 +745,7 @@ PrefabInstance:
     - target: {fileID: 9188698297048849260, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: EffectObj.Array.data[4].probability
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9188698297048849260, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
@@ -2423,7 +2423,7 @@ PrefabInstance:
     - target: {fileID: 8252111633383182911, guid: db1e3b837f84a604d886992fadd2362f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db1e3b837f84a604d886992fadd2362f, type: 3}

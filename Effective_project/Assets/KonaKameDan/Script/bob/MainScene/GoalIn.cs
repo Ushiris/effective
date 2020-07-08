@@ -7,9 +7,11 @@ public class GoalIn : MonoBehaviour
 {
     private bool returnResultScene;
     public string Player_tag = "Player";
+    public static Vector3 GetGoalPos { get; private set; }
 
     private void Start()
     {
+        GetGoalPos = transform.position;
         returnResultScene = false;
     }
     private void Update()
