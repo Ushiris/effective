@@ -47,5 +47,5 @@ MonoBehaviour:
     type: 3}
   hollyShotParticleObj: {fileID: 8408418366058687730, guid: 67765c6eee6e1b547bf588d105d06dc3,
     type: 3}
-  instantPos: {x: 2, y: 2, z: 0}
+  instantPos: {x: 1, y: 1, z: 0}
   lostTime: 10

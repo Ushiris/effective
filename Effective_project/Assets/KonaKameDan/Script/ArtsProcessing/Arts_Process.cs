@@ -24,7 +24,7 @@ public class Arts_Process : MonoBehaviour
     public static Quaternion GetLookRotation(Transform my,Transform target)
     {
         var aim = target.position - my.position;
-        return Quaternion.LookRotation(aim);
+        return Quaternion.LookRotation(aim, Vector3.forward);
     }
 
     /// <summary>
@@ -55,23 +55,53 @@ public class Arts_Process : MonoBehaviour
     /// </summary>
     /// <param name="hitTag">タグ名</param>
     /// <param name="defaultPos">ヒットしなかった場合こっれを返す</param>
+    /// <param name="hitLayer">レイヤー</param>
     /// <returns></returns>
-    public static Vector3 GetMouseRayHitPos(Vector3 defaultPos, string hitTag = "Untagged")
+    public static Vector3 GetMouseRayHitPos(Vector3 defaultPos, string hitTag = "Untagged", string hitLayer="Nothing")
     {
+        int layerMask = 0;
+        if (hitLayer != "Nothing") layerMask = LayerMask.GetMask(hitLayer);
         Vector3 mousePos = Input.mousePosition;
         mousePos.x = Mathf.Clamp(mousePos.x, 0f, Screen.width);
         mousePos.y = Mathf.Clamp(mousePos.y, 0f, Screen.height);
 
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
         RaycastHit hit = new RaycastHit();
-        if (Physics.Raycast(ray, out hit))
+        if (hitLayer != "Nothing")
         {
-            if (hit.transform.tag == hitTag)
-            {
-                return hit.point;
-            }
+            if (Layer()) return hit.point;
+        }
+        else
+        {
+            if (NotLayer()) return hit.point;
         }
         return defaultPos;
+
+        //ヒットしたレイヤーに指定がある場合
+        bool Layer()
+        {
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+            {
+                if (hit.collider.tag == hitTag)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //レイヤー指定なし
+        bool NotLayer()
+        {
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.tag == hitTag)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     /// <summary>

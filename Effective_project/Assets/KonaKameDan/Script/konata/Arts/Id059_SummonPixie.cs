@@ -2,26 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Id59_Funnel : MonoBehaviour
+public class Id059_SummonPixie : MonoBehaviour
 {
     [SerializeField] GameObject fairyParticleObj;
     GameObject fairyParticle;
 
     [SerializeField] GameObject hollyShotParticleObj;
-
     [SerializeField] Vector3 instantPos = new Vector3(2, 2, 0);
     [SerializeField] float lostTime = 10f;
+    [SerializeField] float speed = 5f;
+    [SerializeField] float distance = 3f;
 
     StopWatch timer;
-
-    static bool isExistence;
+    GameObject enemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        //すでに存在している場合消去
-        if (isExistence && !MainGameManager.GetArtsReset) Destroy(gameObject);
-        isExistence = true;
+        transform.parent = null;
+
+        //ターゲットが存在していない場合消す
+        enemy = Arts_Process.GetEnemyTarget();
+        if (enemy == null) Destroy(gameObject);
 
         //妖精とビームパーティクルの生成
         fairyParticle = Instantiate(fairyParticleObj, transform);
@@ -29,25 +31,32 @@ public class Id59_Funnel : MonoBehaviour
         fairyParticle.transform.localPosition = instantPos;
 
         //〇〇秒後オブジェクトを破壊する
+        timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = lostTime;
-        timer.LapEvent = () => { TimeOver(); };
+        timer.LapEvent = () => { Destroy(gameObject); };
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject enemy = Arts_Process.GetEnemyTarget();
         if (enemy != null)
         {
+            //妖精をエネミーの近くまで移動
+            Vector3 pos = fairyParticle.transform.position;
+            float dis = Vector3.Distance(pos, enemy.transform.position);
+            if (distance < dis)
+            {
+                pos = Vector3.Lerp(pos, enemy.transform.position, Time.deltaTime * speed);
+                fairyParticle.transform.position = pos;
+            }
+
             //敵の方向を見る
-            fairyParticle.transform.localRotation =
+            fairyParticle.transform.rotation =
                 Arts_Process.GetLookRotation(fairyParticle.transform, enemy.transform);
         }
-    }
-
-    void TimeOver()
-    {
-        isExistence = false;
-        Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -27,8 +27,10 @@ public class Id049_ArrowRain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.parent = null;
+
         //生成位置決める用の目印オブジェクト生成
-        instantPointPos = Instantiate(pointPosObj, transform);
+        instantPointPos = Instantiate(pointPosObj,Vector3.zero,new Quaternion());
     }
 
     // Update is called once per frame
@@ -40,7 +42,7 @@ public class Id049_ArrowRain : MonoBehaviour
             {
                 //生成するポジションを決めるときの目印を動かす
                 instantPointPos.transform.position =
-                    Arts_Process.GetMouseRayHitPos(instantPointPos.transform.position);
+                    Arts_Process.GetMouseRayHitPos(instantPointPos.transform.position, "Ground", "Map");
 
                 isStart = true;
             }
