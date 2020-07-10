@@ -27,6 +27,11 @@ public class FadeOut : MonoBehaviour
     {
         return Instantiate(Resources.Load("UI/FadeSystem") as GameObject);
     }
+
+    static public GameObject Summon(Sprite img,bool isFadeIn)
+    {
+        return new GameObject();
+    }
     
     private void Start()
     {
