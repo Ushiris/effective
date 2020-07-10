@@ -17,6 +17,19 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// StopWatchをまとめたやつ
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="lostTime"></param>
+    /// <returns></returns>
+    public static StopWatch TimeAction(GameObject obj, float lostTime)
+    {
+        var timer = obj.AddComponent<StopWatch>();
+        timer.LapTime = lostTime;
+        return timer;
+    }
+
+    /// <summary>
     /// myから見たtargetの方向を返す
     /// </summary>
     /// <param name="my"></param>
@@ -203,6 +216,33 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 円周上のポジションを取る(円状に何かを並べるときに使う)
+    /// </summary>
+    /// <param name="count">取得する数</param>
+    /// <param name="radius">半径</param>
+    /// <param name="angle">角度</param>
+    /// <returns></returns>
+    public static List<Vector3> GetCirclePutPos(int count,float radius,float angle)
+    {
+        List<Vector3> pos = new List<Vector3>();
+        for (int i = 0; i < count; i++)
+        {
+
+            float r = (angle / count) * i;
+            r *= Mathf.Deg2Rad;
+            pos.Add(new Vector3(radius * Mathf.Cos(r), 0f, radius * Mathf.Sin(r)));
+            //Debug.Log(pos[pos.Count - 1]);
+        }
+        return new List<Vector3>(pos);
+    }
+
+    public static void ObjRoll(GameObject obj, float speed = 90f)
+    {
+        var move = new Vector3(0, 1, 0) * speed * Time.deltaTime;
+        obj.transform.Rotate(move, Space.World);
+    }
+
+    /// <summary>
     /// オブジェクトのサイズの初期化
     /// </summary>
     /// <param name="obj"></param>
@@ -236,8 +276,7 @@ public class Arts_Process : MonoBehaviour
     /// <param name="sizChangeSpeed">変更速度</param>
     public static ObjSizChange SetAddObjSizChange
         (
-        GameObject obj,
-        Vector3 defaultSiz, Vector3 maxSiz, Vector3 changeSizPos,
+        GameObject obj,Vector3 defaultSiz, Vector3 maxSiz,
         float sizChangeSpeed,
         ObjSizChange.SizChangeMode sizChangeMode
         )
@@ -245,7 +284,6 @@ public class Arts_Process : MonoBehaviour
         var s = obj.AddComponent<ObjSizChange>();
         s.defaultSiz = defaultSiz;
         s.maxSiz = maxSiz;
-        s.changeSizPos = changeSizPos;
         s.sizChangeSpeed = sizChangeSpeed;
         s.SetSizChangeMode = sizChangeMode;
         return s;

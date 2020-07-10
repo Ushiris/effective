@@ -19,22 +19,27 @@ public class ArtsInstantManager : MonoBehaviour
     }
 
     //アーツを生成
-    public static void InstantArts(Transform artsPivot,string artsId)
+    public static void InstantArts(Transform artsPivot, string artsId)
     {
         var prefabs = GetArtsInstantManager.prefabs;
         switch (artsId)
         {
-            case "045": Instantiate(prefabs.GetTable()["045"], artsPivot); break;
-            case "04": Instantiate(prefabs.GetTable()["04"], artsPivot); break;
-            case "05": Instantiate(prefabs.GetTable()["05"], artsPivot); break;
-            case "45": Instantiate(prefabs.GetTable()["45"], artsPivot); break;
-            case "09": Instantiate(prefabs.GetTable()["09"], artsPivot); break;
-            case "049": Instantiate(prefabs.GetTable()["049"], artsPivot); break;
-            case "59": Instantiate(prefabs.GetTable()["59"], artsPivot); break;
-            case "059": Instantiate(prefabs.GetTable()["059"], artsPivot); break;
-            case "459": Instantiate(prefabs.GetTable()["459"], artsPivot); break;
-            case "49": Instantiate(prefabs.GetTable()["49"], artsPivot); break;
+            case "045": InstantArts(); break;
+            case "04": InstantArts(); break;
+            case "05": InstantArts(); break;
+            case "45": InstantArts(); break;
+            case "09": InstantArts(); break;
+            case "049": InstantArts(); break;
+            case "59": InstantArts(); break;
+            case "059": InstantArts(); break;
+            case "459": InstantArts(); break;
+            case "49": InstantArts(); break;
             default: break;
+        }
+
+        void InstantArts()
+        {
+            Instantiate(prefabs.GetTable()[artsId], artsPivot);
         }
     }
 
