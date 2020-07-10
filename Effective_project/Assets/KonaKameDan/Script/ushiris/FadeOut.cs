@@ -13,26 +13,22 @@ public class FadeOut : MonoBehaviour
     public Color endColor = Color.black;
 
     float time;
+    bool isFadeIn = false;
 
-    static public FadeOut Create(float duration,float wait,Color endColor)
+    static public FadeOut Summon(bool isFadeIn = false)
     {
-        return new FadeOut {
-            fadeTime = duration,
-            fadeStartTime = wait,
-            endColor = endColor
-        };
+        return Instantiate(Resources.Load("UI/FadeSystem") as GameObject).GetComponentInChildren<FadeOut>();
     }
 
-    static public GameObject Summon()
+    static public FadeOut Summon(Sprite img, float fadeTime = 4.0f, float waitTime = 0f, bool isFadeIn = false)
     {
-        return Instantiate(Resources.Load("UI/FadeSystem") as GameObject);
+        var instance = Instantiate(Resources.Load("UI/FadeSystem") as GameObject);
+        instance.GetComponentInChildren<Image>().sprite = img;
+        instance.GetComponentInChildren<FadeOut>().isFadeIn = isFadeIn;
+
+        return instance.GetComponentInChildren<FadeOut>();
     }
 
-    static public GameObject Summon(Sprite img,bool isFadeIn)
-    {
-        return new GameObject();
-    }
-    
     private void Start()
     {
         Fade = GetComponent<Image>();
@@ -45,6 +41,8 @@ public class FadeOut : MonoBehaviour
         time += Time.deltaTime;
         if (time <= fadeStartTime) return;
 
-        Fade.color = new Color(Fade.color.r, Fade.color.g, Fade.color.b, time / fadeTime-fadeStartTime);
+        float alpha = isFadeIn ? fadeTime - fadeStartTime / time : time / fadeTime - fadeStartTime;
+
+        Fade.color = new Color(Fade.color.r, Fade.color.g, Fade.color.b, alpha);
     }
 }
