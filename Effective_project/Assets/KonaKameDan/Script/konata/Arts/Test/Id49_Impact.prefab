@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
-  explosionForce: 100
-  uppersModifier: 3
+  explosionForce: 300
+  uppersModifier: 10
   impactObj: {fileID: 8870094908841191474, guid: 4f745744d2dbda94ea10af5a9e14694d,
     type: 3}
-  impactMaxSiz: {x: 5, y: 5, z: 5}
-  impactSizUpSpeed: 50
+  material: {fileID: 2100000, guid: 644f01e4b2293af4397b2f0bcf59cdb6, type: 2}
+  impactMaxSiz: {x: 20, y: 20, z: 20}
+  impactSizUpSpeed: 3
+  fadeSpeed: 10

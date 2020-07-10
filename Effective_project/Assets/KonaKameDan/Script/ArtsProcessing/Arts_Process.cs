@@ -162,6 +162,18 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// インパクトシェーダーの透明度の取得とセット
+    /// </summary>
+    /// <param name="material"></param>
+    /// <param name="defaultNum"></param>
+    /// <returns></returns>
+    public static float GetImpactShaderMaterialFade(Material material,float defaultNum)
+    {
+        material.SetFloat("Vector1_488B2355", defaultNum);
+        return material.GetFloat("Vector1_488B2355");
+    }
+
+    /// <summary>
     /// サーチシェーダーの基準位置を決める
     /// </summary>
     /// <param name="material"></param>

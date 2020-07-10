@@ -14,14 +14,10 @@ public class ObjSizChange : MonoBehaviour
     public SizChangeMode SetSizChangeMode;
     public bool GetSizFlag;
 
-    Vector3 siz;
-
     // Start is called before the first frame update
     void Start()
     {
         transform.localScale = defaultSiz;
-        siz = transform.localScale;
-        maxSiz *= 100;
     }
 
     // Update is called once per frame
@@ -44,12 +40,15 @@ public class ObjSizChange : MonoBehaviour
         }
     }
 
-    bool isTrigger(Vector3 sizLimit,Vector3 changeVector)
+    bool isTrigger(Vector3 sizLimit, Vector3 changeVector)
     {
-        siz += changeVector * (sizChangeSpeed * Time.deltaTime);
-        transform.localScale = siz;
-        float dis = Vector3.Distance(siz * 100, sizLimit);
-        if (dis / 100 < 0.1f)
+        transform.localScale =
+            Vector3.Lerp(transform.localScale, sizLimit, sizChangeSpeed * Time.deltaTime);
+
+        float dis = Vector3.Distance(transform.localScale, sizLimit);
+
+        Debug.Log("距離: " + dis);
+        if (dis < 0.1f)
         {
             return true;
         }
