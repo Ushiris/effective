@@ -51,4 +51,4 @@ MonoBehaviour:
   magicCircleMaxSiz: {x: 1, y: 1, z: 1}
   arrowRainParticle: {fileID: 7481011833392780257, guid: 637b5c1e39996c742b7f21b3393e08c5,
     type: 3}
-  instantHigh: 20
+  instantHigh: 10
