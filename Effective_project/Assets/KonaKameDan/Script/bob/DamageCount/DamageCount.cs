@@ -15,14 +15,9 @@ public class DamageCount : MonoBehaviour
 		damageUI = (GameObject)Resources.Load("DamageUI");// 動的にprefab（DamageUI）をアタッチ
 	}
 
-	public void Damage(GameObject col)
+	public static void Damage(GameObject col)
 	{
 		//　DamageUIをインスタンス化。登場位置は接触したコライダの中心からカメラの方向に少し寄せた位置
 		var obj = Instantiate<GameObject>(damageUI, col.transform.position - Camera.main.transform.forward * 1.0f, Quaternion.identity);
 	}
-	//public void test(Collider col)
-	//{
-	//	//　DamageUIをインスタンス化。登場位置は接触したコライダの中心からカメラの方向に少し寄せた位置
-	//	var obj = Instantiate<GameObject>(damageUI, col.bounds.center - Camera.main.transform.forward * 1.0f, Quaternion.identity);
-	//}
 }
