@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.067397416, g: 0.08884703, b: 0.1318765, a: 1}
+  m_IndirectSpecularColor: {r: 0.06744362, g: 0.0889105, b: 0.13196887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -661,6 +661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: effectInstantCount
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
+        type: 3}
+      propertyPath: roadLength
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
