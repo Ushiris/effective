@@ -15,6 +15,7 @@ public class DamageUI : MonoBehaviour
 	void Start()
 	{
 		damageText = GetComponentInChildren<Text>();
+		damageText.text = DamageCount.damageInput.ToString();// ダメージ数入力
 	}
 
 	void LateUpdate()
