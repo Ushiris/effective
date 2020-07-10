@@ -8,9 +8,9 @@ public class DamageCount : MonoBehaviour
 	[SerializeField]
 	private GameObject damageUI;
 
-	public void Damage(Collider col)
+	public void Damage(GameObject col)
 	{
 		//　DamageUIをインスタンス化。登場位置は接触したコライダの中心からカメラの方向に少し寄せた位置
-		var obj = Instantiate<GameObject>(damageUI, col.bounds.center - Camera.main.transform.forward * 0.6f, Quaternion.identity);
+		var obj = Instantiate<GameObject>(damageUI, col.transform.position - Camera.main.transform.forward * 1.0f, Quaternion.identity);
 	}
 }

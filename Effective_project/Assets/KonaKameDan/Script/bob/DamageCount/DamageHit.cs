@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageHit : MonoBehaviour
-{
-	void OnTriggerEnter(Collider col)
+{	void OnParticleCollision(GameObject col)
 	{
 		if (col.tag == "Enemy")
 		{
