@@ -57,8 +57,7 @@ public class Id049_ArrowRain : MonoBehaviour
                 magicCircle = Instantiate(magicCircleObj, instantPos, new Quaternion());
                 magicCircle.transform.parent = transform;
                 isMagicCircleSiz = Arts_Process.SetAddObjSizChange(
-                    magicCircle,
-                    Vector3.zero, magicCircleMaxSiz, Vector3.one,
+                    magicCircle,Vector3.zero, magicCircleMaxSiz,
                     magicCircleSizUpSpeed,
                     ObjSizChange.SizChangeMode.ScaleUp);
             }

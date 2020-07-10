@@ -27,8 +27,7 @@ public class Id49_Impact : MonoBehaviour
         //インパクトオブジェクトのサイズ変更
         impact = Instantiate(impactObj, transform);
         impactObjSiz = Arts_Process.SetAddObjSizChange(
-                    impact,
-                    Vector3.zero, impactMaxSiz, Vector3.one,
+                    impact,Vector3.zero, impactMaxSiz,
                     impactSizUpSpeed,
                     ObjSizChange.SizChangeMode.ScaleUp);
 

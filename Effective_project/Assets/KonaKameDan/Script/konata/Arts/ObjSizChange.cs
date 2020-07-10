@@ -8,7 +8,6 @@ public class ObjSizChange : MonoBehaviour
 
     public Vector3 defaultSiz = Vector3.zero;
     public Vector3 maxSiz;
-    public Vector3 changeSizPos = Vector3.one;
 
     public float sizChangeSpeed = 0.1f;
     public SizChangeMode SetSizChangeMode;
@@ -28,11 +27,11 @@ public class ObjSizChange : MonoBehaviour
             switch (SetSizChangeMode)
             {
                 case SizChangeMode.ScaleUp:
-                    GetSizFlag = isTrigger(maxSiz, changeSizPos);
+                    GetSizFlag = isTrigger(maxSiz);
                     break;
 
                 case SizChangeMode.ScaleDown:
-                    GetSizFlag = isTrigger(defaultSiz, changeSizPos * -1);
+                    GetSizFlag = isTrigger(defaultSiz);
                     break;
 
                 default: break;
@@ -40,7 +39,7 @@ public class ObjSizChange : MonoBehaviour
         }
     }
 
-    bool isTrigger(Vector3 sizLimit, Vector3 changeVector)
+    bool isTrigger(Vector3 sizLimit)
     {
         transform.localScale =
             Vector3.Lerp(transform.localScale, sizLimit, sizChangeSpeed * Time.deltaTime);
