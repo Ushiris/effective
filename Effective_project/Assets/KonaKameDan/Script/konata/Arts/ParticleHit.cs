@@ -12,6 +12,7 @@ public class ParticleHit : MonoBehaviour
     private void OnParticleCollision(GameObject gameObject)
     {
         hitCount++;
+        
         if (gameObject.tag == hitObjTag)
         {
             float damage = hitDamageDefault * plusFormStatus;
