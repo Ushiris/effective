@@ -24,10 +24,12 @@ public class Id49_Impact : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var artsStatus = GetComponent<ArtsStatus>();
+
         //インパクトオブジェクトのサイズ変更
         impact = Instantiate(impactObj, transform);
         impactObjSiz = Arts_Process.SetAddObjSizChange(
-                    impact,Vector3.zero, impactMaxSiz,
+                    impact, Vector3.zero, impactMaxSiz,
                     impactSizUpSpeed,
                     ObjSizChange.SizChangeMode.ScaleUp);
 
@@ -35,7 +37,8 @@ public class Id49_Impact : MonoBehaviour
         fade = Arts_Process.GetImpactShaderMaterialFade(material, 5);
 
         //敵を吹き飛ばす
-        Arts_Process.Impact(transform.position, radius, "Enemy", explosionForce, uppersModifier);
+        int layerMask = Arts_Process.GetVsLayerMask(artsStatus);
+        Arts_Process.Impact(transform.position, radius, layerMask, explosionForce, uppersModifier);
     }
 
     // Update is called once per frame

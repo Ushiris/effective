@@ -13,12 +13,15 @@ public class Id59_Funnel : MonoBehaviour
     [SerializeField] float lostTime = 10f;
 
     StopWatch timer;
+    ArtsStatus artsStatus;
 
     static bool isExistence;
 
     // Start is called before the first frame update
     void Start()
     {
+        artsStatus = GetComponent<ArtsStatus>();
+
         //すでに存在している場合消去
         if (isExistence && !MainGameManager.GetArtsReset) Destroy(gameObject);
         isExistence = true;
@@ -37,7 +40,7 @@ public class Id59_Funnel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject enemy = Arts_Process.GetEnemyTarget();
+        GameObject enemy = Arts_Process.GetNearTarget(artsStatus);
         if (enemy != null)
         {
             //敵の方向を見る

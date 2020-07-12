@@ -6,14 +6,36 @@ using UnityEngine.AI;
 public class Arts_Process : MonoBehaviour
 {
     /// <summary>
-    /// 一番近い敵の位置を返す
+    /// その者にとっての敵レイヤー取得
     /// </summary>
+    /// <param name="artsStatus">誰の放ったアーツか記録されているもの</param>
     /// <returns></returns>
-    public static GameObject GetEnemyTarget()
+    public static int GetVsLayerMask(ArtsStatus artsStatus)
     {
+        var type = artsStatus.type;
+
+        if (type == ArtsStatus.ParticleType.Player)
+        {
+            return LayerMask.GetMask("Enemy");
+        }else return LayerMask.GetMask("Player");
+    }
+
+    /// <summary>
+    /// その者にとっての一番近い敵の位置を返す
+    /// </summary>
+    /// <param name="artsStatus">誰の放ったアーツか記録されているもの</param>
+    /// <returns></returns>
+    public static GameObject GetNearTarget(ArtsStatus artsStatus)
+    {
+        var type = artsStatus.type;
         GameObject pl = PlayerManager.GetManager.GetPlObj;
-        Vector3 v3 = pl.transform.position;
-        return pl.GetComponentInChildren<EnemyFind>().GetNearEnemyPos(v3);
+
+        if (type == ArtsStatus.ParticleType.Player)
+        {
+            Vector3 v3 = pl.transform.position;
+            return pl.GetComponentInChildren<EnemyFind>().GetNearEnemyPos(v3);
+        }
+        else return pl;
     }
 
     /// <summary>
@@ -27,6 +49,18 @@ public class Arts_Process : MonoBehaviour
         var timer = obj.AddComponent<StopWatch>();
         timer.LapTime = lostTime;
         return timer;
+    }
+
+    /// <summary>
+    /// 自分が所持しているエフェクトの数を出す
+    /// </summary>
+    /// <param name="artsStatus">誰の放ったアーツか記録されているもの</param>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public static int GetEffectCount(ArtsStatus artsStatus, NameDefinition.EffectName name)
+    {
+        var ec = artsStatus.myEffectCount;
+        return ec.effectCount[name] - 1;
     }
 
     /// <summary>
@@ -60,18 +94,13 @@ public class Arts_Process : MonoBehaviour
     /// <param name="layer">吹きとばすもののレイヤー</param>
     /// <param name="explosionForce">吹きとばす力</param>
     /// <param name="uppersModifier">持ち上げる力</param>
-    public static void Impact(Vector3 pos, float radius, string layer = "Nothing",
+    public static void Impact(Vector3 pos, float radius, int layerMask,
                               float explosionForce = 10f, float uppersModifier = 8f)
     {
         Collider[] enemies;
-        int layerMask;
 
-        if (layer == "Nothing") enemies = Physics.OverlapSphere(pos, radius);
-        else
-        {
-            layerMask = LayerMask.GetMask(layer);
-            enemies = Physics.OverlapSphere(pos, radius, layerMask);
-        }
+        if (layerMask == 0) enemies = Physics.OverlapSphere(pos, radius);
+        else enemies = Physics.OverlapSphere(pos, radius, layerMask);
 
         foreach (Collider hit in enemies)
         {
@@ -88,23 +117,24 @@ public class Arts_Process : MonoBehaviour
     /// ダメージ処理をアタッチする
     /// </summary>
     /// <param name="obj">ダメージ処理を付けたい相手</param>
-    public static void SetParticleDamageProcess(GameObject obj)
+    public static ParticleHit SetParticleDamageProcess(GameObject obj)
     {
-        obj.AddComponent<ParticleHit>();
+        return obj.AddComponent<ParticleHit>();
     }
 
     /// <summary>
     /// ダメージ代入
     /// </summary>
     /// <param name="hit">パーティクル</param>
+    /// <param name="artsStatus">誰の放ったアーツか記録されているもの</param>
     /// <param name="hitDefaultDamage">固定ダメージ</param>
     /// <param name="status">ステータス</param>
     /// <param name="hitObjTag">当たる相手</param>
-    public static void Damage(ParticleHit hit, float hitDefaultDamage, bool status, string hitObjTag = "Enemy")
+    public static void Damage(ParticleHit hit, ArtsStatus artsStatus, float hitDefaultDamage, bool status)
     {
         hit.hitDamageDefault = hitDefaultDamage;
-        if (status) hit.plusFormStatus = PlayerManager.GetManager.GetPlObj.GetComponent<Status>().status[Status.Name.STR];
-        hit.hitObjTag = hitObjTag;
+        hit.type = artsStatus.type;
+        if (status) hit.plusFormStatus = artsStatus.myStatus.status[Status.Name.STR];
     }
 
     /// <summary>
@@ -231,11 +261,15 @@ public class Arts_Process : MonoBehaviour
             float r = (angle / count) * i;
             r *= Mathf.Deg2Rad;
             pos.Add(new Vector3(radius * Mathf.Cos(r), 0f, radius * Mathf.Sin(r)));
-            //Debug.Log(pos[pos.Count - 1]);
         }
         return new List<Vector3>(pos);
     }
 
+    /// <summary>
+    /// オブジェクトをぐるぐる回転させる
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="speed"></param>
     public static void ObjRoll(GameObject obj, float speed = 90f)
     {
         var move = new Vector3(0, 1, 0) * speed * Time.deltaTime;

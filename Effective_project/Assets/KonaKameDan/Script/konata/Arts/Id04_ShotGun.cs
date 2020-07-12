@@ -21,22 +21,23 @@ public class Id04_ShotGun : MonoBehaviour
 
     GameObject shotGunParticleObj;
     ParticleHit homingDamage;
+    ArtsStatus artsStatus;
 
     // Start is called before the first frame update
     void Start()
     {
+        artsStatus = GetComponent<ArtsStatus>();
+
+        //パーティクル生成
         shotGunParticleObj = Instantiate(shotGunParticle, transform);
 
-
         //エフェクトの所持数を代入
-        var ec = GetComponentInParent<MyEffectCount>();
-        shotCount = ec.effectCount[NameDefinition.EffectName.Shot] - 1;
-        spreadCount = ec.effectCount[NameDefinition.EffectName.Spread] - 1;
+        shotCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Shot);
+        spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
 
 
         //ダメージ
-        Arts_Process.SetParticleDamageProcess(shotGunParticleObj);
-        homingDamage = shotGunParticleObj.GetComponent<ParticleHit>();
+        homingDamage = Arts_Process.SetParticleDamageProcess(shotGunParticleObj);
 
         //ダメージの計算
         damage = defaultDamage + (plusDamage * (float)shotCount);
@@ -53,7 +54,7 @@ public class Id04_ShotGun : MonoBehaviour
     void LateUpdate()
     {
         //ダメージ処理
-        Arts_Process.Damage(homingDamage, damage, true);
+        Arts_Process.Damage(homingDamage,artsStatus, damage, true);
 
         //オブジェクトを消す
         if (transform.childCount == 0) Destroy(gameObject);

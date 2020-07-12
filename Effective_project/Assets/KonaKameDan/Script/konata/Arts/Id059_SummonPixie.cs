@@ -19,10 +19,11 @@ public class Id059_SummonPixie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var artsStatus = GetComponent<ArtsStatus>();
         transform.parent = null;
 
         //ターゲットが存在していない場合消す
-        enemy = Arts_Process.GetEnemyTarget();
+        enemy = Arts_Process.GetNearTarget(artsStatus);
         if (enemy == null) Destroy(gameObject);
 
         //妖精とビームパーティクルの生成
