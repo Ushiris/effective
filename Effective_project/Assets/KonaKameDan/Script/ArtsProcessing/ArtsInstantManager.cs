@@ -16,10 +16,15 @@ public class ArtsInstantManager : MonoBehaviour
     void Start()
     {
         GetArtsInstantManager = this;
+
+        foreach(var id in prefabs.GetTable().Keys)
+        {
+            prefabs.GetTable()[id].AddComponent<ArtsStatus>();
+        }
     }
 
     //アーツを生成
-    public static void InstantArts(Transform artsPivot, string artsId)
+    public static void InstantArts(GameObject artsPivot, string artsId)
     {
         var prefabs = GetArtsInstantManager.prefabs;
         switch (artsId)
@@ -39,7 +44,22 @@ public class ArtsInstantManager : MonoBehaviour
 
         void InstantArts()
         {
-            Instantiate(prefabs.GetTable()[artsId], artsPivot);
+            //生成
+            var obj = Instantiate(prefabs.GetTable()[artsId], artsPivot.transform);
+            var artsStatus = obj.GetComponent<ArtsStatus>();
+
+            //代入
+            artsStatus.myEffectCount = artsPivot.GetComponentInParent<MyEffectCount>();
+            artsStatus.myStatus = artsPivot.GetComponentInParent<Status>();
+
+            if (artsPivot.transform.parent.gameObject.tag == "Player")
+            {
+                artsStatus.type = ArtsStatus.ParticleType.Player;
+            }
+            else if (artsPivot.transform.parent.gameObject.tag == "Enemy")
+            {
+                artsStatus.type = ArtsStatus.ParticleType.Enemy;
+            }
         }
     }
 

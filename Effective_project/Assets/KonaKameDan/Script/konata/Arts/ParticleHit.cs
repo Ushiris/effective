@@ -6,8 +6,31 @@ public class ParticleHit : MonoBehaviour
 {
     public float hitDamageDefault = 3f;
     public float plusFormStatus;
-    public string hitObjTag = "Enemy";
+    public ArtsStatus.ParticleType type;
+
+    string hitObjTag = "Enemy";
     int hitCount = 0;
+
+    private void Start()
+    {
+        var p = GetComponent<ParticleSystem>();
+        var c = p.collision;
+
+        switch (type)
+        {
+            case ArtsStatus.ParticleType.Player:
+                c.collidesWith = Layer("Enemy");
+                hitObjTag = "Enemy";
+                break;
+
+            case ArtsStatus.ParticleType.Enemy:
+                c.collidesWith = Layer("Player");
+                hitObjTag = "Player";
+                break;
+
+            default:break;
+        }
+    }
 
     private void OnParticleCollision(GameObject gameObject)
     {
@@ -27,5 +50,11 @@ public class ParticleHit : MonoBehaviour
         }
         
         
+    }
+
+    //当たり判定を出すレイヤー
+    LayerMask Layer(string layerName)
+    {
+        return LayerMask.GetMask("Default", "PostProcessing", "Map", layerName);
     }
 }

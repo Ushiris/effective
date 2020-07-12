@@ -10,6 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6929485253059204035}
   - component: {fileID: 4430580887095275835}
+  - component: {fileID: 114369355660810088}
+  - component: {fileID: 114043592121769650}
+  - component: {fileID: 114599437528611112}
+  - component: {fileID: 114517481546777116}
+  - component: {fileID: 114697572176947958}
+  - component: {fileID: 114831360068940176}
   m_Layer: 0
   m_Name: Id045_Hounds
   m_TagString: Untagged
@@ -50,3 +56,93 @@ MonoBehaviour:
   defaultBullet: 15
   plusDamage: 0.05
   addBullet: 1
+--- !u!114 &114369355660810088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114043592121769650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114599437528611112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114517481546777116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114697572176947958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114831360068940176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}

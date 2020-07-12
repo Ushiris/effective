@@ -10,6 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6929485253059204035}
   - component: {fileID: 114068891148151614}
+  - component: {fileID: 114224221212620736}
+  - component: {fileID: 114975817813927488}
+  - component: {fileID: 114028679925357662}
+  - component: {fileID: 114193763582023382}
+  - component: {fileID: 114585956584106596}
+  - component: {fileID: 114206841116382096}
   m_Layer: 0
   m_Name: Id049_ArrowRain
   m_TagString: Untagged
@@ -52,3 +58,93 @@ MonoBehaviour:
   arrowRainParticle: {fileID: 7481011833392780257, guid: 637b5c1e39996c742b7f21b3393e08c5,
     type: 3}
   instantHigh: 10
+--- !u!114 &114224221212620736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114975817813927488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114028679925357662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114193763582023382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114585956584106596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114206841116382096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}

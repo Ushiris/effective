@@ -26,7 +26,7 @@ public class PlayerArtsInstant : MonoBehaviour
 
             //アーツを出す処理
             string artsId = ArtsInstantManager.SelectArts(MyArtsDeck.GetSelectArtsDeck.id, debugNum);
-            ArtsInstantManager.InstantArts(artsObj.transform, artsId);
+            ArtsInstantManager.InstantArts(artsObj, artsId);
         }
     }
 
