@@ -9,7 +9,7 @@ public class EffectObjectAcquisition : MonoBehaviour
     {
         [HideInInspector] public string name;
         public int count;
-        public int id;
+        [HideInInspector] public int id;
     }
     private EffectObjectID effectObjectID;
     public static List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成

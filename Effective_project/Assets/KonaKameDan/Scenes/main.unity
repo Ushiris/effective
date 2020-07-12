@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05663399, g: 0.07967138, b: 0.12591928, a: 1}
+  m_IndirectSpecularColor: {r: 0.06744362, g: 0.0889105, b: 0.13196887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1526,6 +1526,92 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1875039544}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1881900228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881900230}
+  - component: {fileID: 1881900229}
+  m_Layer: 0
+  m_Name: DebugManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1881900229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881900228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4dcb57c3703934b85b4eafd5f57cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectCount:
+  - name: "\u5C04\u6483"
+    count: 1
+    id: 0
+  - name: "\u65AC\u6483"
+    count: 1
+    id: 1
+  - name: "\u9632\u5FA1"
+    count: 1
+    id: 2
+  - name: "\u8A2D\u7F6E"
+    count: 1
+    id: 3
+  - name: "\u62E1\u6563"
+    count: 1
+    id: 4
+  - name: "\u8FFD\u5C3E"
+    count: 1
+    id: 5
+  - name: "\u5438\u53CE"
+    count: 1
+    id: 6
+  - name: "\u7206\u767A"
+    count: 1
+    id: 7
+  - name: "\u9045\u5EF6"
+    count: 1
+    id: 8
+  - name: "\u98DB\u7FD4"
+    count: 1
+    id: 9
+  isEffectCount: 1
+  effectObjectName:
+  - "\u5C04\u6483"
+  - "\u65AC\u6483"
+  - "\u9632\u5FA1"
+  - "\u8A2D\u7F6E"
+  - "\u62E1\u6563"
+  - "\u8FFD\u5C3E"
+  - "\u5438\u53CE"
+  - "\u7206\u767A"
+  - "\u9045\u5EF6"
+  - "\u98DB\u7FD4"
+--- !u!4 &1881900230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881900228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1935653390
 GameObject:
   m_ObjectHideFlags: 0
