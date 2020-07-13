@@ -38,11 +38,11 @@ public class ParticleHit : MonoBehaviour
     //パーティクルが当たった時
     private void OnParticleCollision(GameObject gameObject)
     {
-        hitCount++;    
+        hitCount++;
         if (gameObject.tag == hitObjTag)
         {
             Damage();
-        }   
+        }
     }
 
     //オブジェクトが貫通した時
@@ -70,6 +70,6 @@ public class ParticleHit : MonoBehaviour
     //当たり判定を出すレイヤー
     LayerMask Layer(string layerName)
     {
-        return LayerMask.GetMask("Default", "PostProcessing", "Map", layerName);
+        return LayerMask.GetMask("Default", "PostProcessing", "Map", layerName + "Shield", layerName);
     }
 }

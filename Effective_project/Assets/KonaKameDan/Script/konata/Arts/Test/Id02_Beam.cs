@@ -14,11 +14,12 @@ public class Id02_Beam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.parent = null;
         GameObject beam = Instantiate(beamParticleObj, transform);
         Arts_Process.SetParticleDamageProcess(beam);
         Arts_Process.RbMomentMove(beam, force);
 
-        timer = Arts_Process.TimeAction(gameObject, 10);
+        timer = Arts_Process.TimeAction(gameObject, lostTime);
         timer.LapEvent = () => { Destroy(gameObject); };
     }
 

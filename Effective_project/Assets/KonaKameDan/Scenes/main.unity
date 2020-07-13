@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06744362, g: 0.0889105, b: 0.13196887, a: 1}
+  m_IndirectSpecularColor: {r: 0.067397416, g: 0.08884703, b: 0.1318765, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -721,6 +721,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149352679719585892, guid: ab74a35ed11982e4289b44df23cde429,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9188698297048849260, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
@@ -2223,6 +2228,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[10].Value
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: 766ed21bb05303a4d87ac418c9481f1d,
+        type: 3}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[11].Value
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: 7179907b3f45dd64b8cbc11b023fcbda,
+        type: 3}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[12].Value
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: 287b6b14d4042e2448f2bdbac2ad4b5f,
+        type: 3}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[13].Value
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: fe5f92e3abc8fc4449c8b9f3d4d74fac,
+        type: 3}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[14].Value
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: cd776e952fdeba94c806e35e525a7bfe,
+        type: 3}
     - target: {fileID: 6216928581571088659, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
         type: 3}
       propertyPath: m_Name
@@ -2514,7 +2549,7 @@ PrefabInstance:
     - target: {fileID: 8252111633383182911, guid: db1e3b837f84a604d886992fadd2362f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db1e3b837f84a604d886992fadd2362f, type: 3}

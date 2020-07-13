@@ -265,6 +265,19 @@ public class Arts_Process : MonoBehaviour
         return new List<Vector3>(pos);
     }
 
+    public static void SetShieldLayer(ArtsStatus artsStatus,GameObject shieldObj)
+    {
+        var type = artsStatus.type;
+        if (type == ArtsStatus.ParticleType.Player)
+        {
+            shieldObj.layer = LayerMask.NameToLayer("PlayerShield");
+        }
+        else
+        {
+            shieldObj.layer = LayerMask.NameToLayer("EnemyShield");
+        }
+    }
+
     /// <summary>
     /// オブジェクトをぐるぐる回転させる
     /// </summary>
@@ -273,7 +286,7 @@ public class Arts_Process : MonoBehaviour
     public static void ObjRoll(GameObject obj, float speed = 90f)
     {
         var move = new Vector3(0, 1, 0) * speed * Time.deltaTime;
-        obj.transform.Rotate(move, Space.World);
+        obj.transform.Rotate(move, Space.Self);
     }
 
     /// <summary>
