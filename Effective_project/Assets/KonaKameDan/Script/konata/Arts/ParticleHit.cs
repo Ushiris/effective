@@ -16,40 +16,55 @@ public class ParticleHit : MonoBehaviour
         var p = GetComponent<ParticleSystem>();
         var c = p.collision;
 
-        switch (type)
+        if (p != null)
         {
-            case ArtsStatus.ParticleType.Player:
-                c.collidesWith = Layer("Enemy");
-                hitObjTag = "Enemy";
-                break;
+            switch (type)
+            {
+                case ArtsStatus.ParticleType.Player:
+                    c.collidesWith = Layer("Enemy");
+                    hitObjTag = "Enemy";
+                    break;
 
-            case ArtsStatus.ParticleType.Enemy:
-                c.collidesWith = Layer("Player");
-                hitObjTag = "Player";
-                break;
+                case ArtsStatus.ParticleType.Enemy:
+                    c.collidesWith = Layer("Player");
+                    hitObjTag = "Player";
+                    break;
 
-            default:break;
+                default: break;
+            }
         }
     }
 
+    //パーティクルが当たった時
     private void OnParticleCollision(GameObject gameObject)
     {
-        hitCount++;
-        
+        hitCount++;    
         if (gameObject.tag == hitObjTag)
         {
-            float damage = hitDamageDefault * plusFormStatus;
-            int damageCast = Mathf.CeilToInt(damage);
+            Damage();
+        }   
+    }
 
-            gameObject.GetComponent<Enemy>().life.Damage(damageCast);
-            Debug.Log("hitCount: " + hitCount + "damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
-
-
-            //SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);
+    //オブジェクトが貫通した時
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == hitObjTag)
+        {
+            Damage();
         }
-        
-        
+    }
+
+    //ダメージの処理
+    void Damage()
+    {
+        float damage = hitDamageDefault * plusFormStatus;
+        int damageCast = Mathf.CeilToInt(damage);
+
+        gameObject.GetComponent<Enemy>().life.Damage(damageCast);
+        Debug.Log("hitCount: " + hitCount + "damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);
     }
 
     //当たり判定を出すレイヤー

@@ -324,6 +324,17 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// リキッドボディーを持っているオブジェクトに対して力を加え尾久化します
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="force"></param>
+    public static void RbMomentMove(GameObject obj,float force)
+    {
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        rb.AddForce(obj.transform.forward * force, ForceMode.Impulse);
+    }
+
+    /// <summary>
     /// 複数のマテリアルが適応されているオブジェクトのマテリアルを変更する
     /// </summary>
     /// <param name="objects">オブジェクト</param>
