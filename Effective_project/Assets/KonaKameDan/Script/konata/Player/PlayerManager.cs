@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-
     [Header("マウス感度")]
     public float mouseSensitivity = 1f;
 
@@ -22,7 +21,7 @@ public class PlayerManager : MonoBehaviour
         {
             float timeScale= Time.timeScale;
             Time.timeScale = 0.3f;
-            var fade = FadeOut.Summon().GetComponentInChildren<FadeOut>();
+            var fade = FadeOut.Summon();
             fade.fadeStartTime = 0.20f;
 
             var timer = StopWatch.Summon(fade.fadeTime + fade.fadeStartTime - 1, () => { SceneManager.LoadScene("GameOver"); Time.timeScale = timeScale; }, GetPlObj);
@@ -30,11 +29,5 @@ public class PlayerManager : MonoBehaviour
         );
 
         GetManager = this;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
