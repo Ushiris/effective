@@ -75,7 +75,6 @@ public class Enemy : MonoBehaviour
         bullet_i.GetComponent<Rigidbody>().velocity = Vector3.zero;
         
         bullet_i.GetComponent<Rigidbody>().AddForce(velocity * bullet_i.GetComponent<Rigidbody>().mass, ForceMode.Impulse);
-        Debug.Log("enemy attack is failed.");
     }
 
     void Dead()
