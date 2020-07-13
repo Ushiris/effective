@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114228552146534116}
   - component: {fileID: 114052265849039440}
   - component: {fileID: 114261401311476948}
+  - component: {fileID: 114162264591531132}
   m_Layer: 0
   m_Name: Id059_SummonPixie
   m_TagString: Untagged
@@ -293,6 +294,21 @@ MonoBehaviour:
   myStatus: {fileID: 0}
   myEffectCount: {fileID: 0}
 --- !u!114 &114261401311476948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  myStatus: {fileID: 0}
+  myEffectCount: {fileID: 0}
+--- !u!114 &114162264591531132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
