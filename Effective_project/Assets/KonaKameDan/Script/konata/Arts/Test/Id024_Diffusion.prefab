@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6929485253059204035}
-  - component: {fileID: 114068891148151614}
-  - component: {fileID: 114782030401215588}
+  - component: {fileID: 114359089976850698}
+  - component: {fileID: 114668168811967358}
   m_Layer: 0
-  m_Name: Id049_ArrowRain
+  m_Name: Id024_Diffusion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114068891148151614
+--- !u!114 &114359089976850698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,19 +41,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6803105965938668464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb3c9e279c42e74a990b30c428c4984, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bd2681b80df6ab4c861a732097457f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPosObj: {fileID: 4677742786143473792, guid: bce6ab19718266f46b52aeb74b6b811a,
+  beamParticleObj: {fileID: 2303640618854446028, guid: 1104d2591f4089747b889990bb0a1cdf,
     type: 3}
-  magicCircleObj: {fileID: 4976810010877162446, guid: b7918955ba36c064581002843395fdec,
-    type: 3}
-  magicCircleSizUpSpeed: 1
-  magicCircleMaxSiz: {x: 1, y: 1, z: 1}
-  arrowRainParticle: {fileID: 7481011833392780257, guid: 637b5c1e39996c742b7f21b3393e08c5,
-    type: 3}
-  instantHigh: 10
---- !u!114 &114782030401215588
+  force: 200
+  radius: 1.2
+  lostTime: 3
+--- !u!114 &114668168811967358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

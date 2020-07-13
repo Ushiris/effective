@@ -19,7 +19,10 @@ public class ArtsInstantManager : MonoBehaviour
 
         foreach(var id in prefabs.GetTable().Keys)
         {
-            prefabs.GetTable()[id].AddComponent<ArtsStatus>();
+            if (prefabs.GetTable()[id].GetComponent<ArtsStatus>() == null)
+            {
+                prefabs.GetTable()[id].AddComponent<ArtsStatus>();
+            }
         }
     }
 
@@ -39,6 +42,11 @@ public class ArtsInstantManager : MonoBehaviour
             case "059": InstantArts(); break;
             case "459": InstantArts(); break;
             case "49": InstantArts(); break;
+            case "02": InstantArts(); break;
+            case "024": InstantArts(); break;
+            case "025": InstantArts(); break;
+            case "25": InstantArts(); break;
+            case "29": InstantArts(); break;
             default: break;
         }
 
