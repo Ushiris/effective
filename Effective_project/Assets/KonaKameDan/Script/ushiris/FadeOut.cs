@@ -20,13 +20,19 @@ public class FadeOut : MonoBehaviour
         return Instantiate(Resources.Load("UI/FadeSystem") as GameObject).GetComponentInChildren<FadeOut>();
     }
 
-    static public FadeOut Summon(Sprite img, float fadeTime = 4.0f, float waitTime = 0f, bool isFadeIn = false)
+    static public GameObject Summon(Sprite img, float duration, float wait, bool isFadeIn = false)
     {
         var instance = Instantiate(Resources.Load("UI/FadeSystem") as GameObject);
         instance.GetComponentInChildren<Image>().sprite = img;
-        instance.GetComponentInChildren<FadeOut>().isFadeIn = isFadeIn;
+        instance.GetComponentInChildren<FadeOut>().fadeTime = duration;
+        instance.GetComponentInChildren<FadeOut>().fadeStartTime = wait;
 
-        return instance.GetComponentInChildren<FadeOut>();
+        return new GameObject();
+    }
+
+    static public GameObject Summon()
+    {
+        return Instantiate(Resources.Load("UI/FadeSystem") as GameObject);
     }
 
     private void Start()
