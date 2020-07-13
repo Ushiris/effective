@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-
     [Header("マウス感度")]
     public float mouseSensitivity = 1f;
 
@@ -30,11 +29,5 @@ public class PlayerManager : MonoBehaviour
         );
 
         GetManager = this;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

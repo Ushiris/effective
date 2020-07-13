@@ -17,22 +17,26 @@ public class FadeOut : MonoBehaviour
 
     static public FadeOut Summon(bool isFadeIn = false)
     {
-        return Instantiate(Resources.Load("UI/FadeSystem") as GameObject).GetComponentInChildren<FadeOut>();
+        var instance = Instantiate(Resources.Load("UI/FadeSystem") as GameObject).GetComponentInChildren<FadeOut>();
+        instance.isFadeIn = isFadeIn;
+
+        return instance;
     }
 
-    static public GameObject Summon(Sprite img, float duration, float wait, bool isFadeIn = false)
+    static public GameObject Summon(float duration, float wait, Color color, Sprite img = null, bool isFadeIn = false)
     {
         var instance = Instantiate(Resources.Load("UI/FadeSystem") as GameObject);
         instance.GetComponentInChildren<Image>().sprite = img;
         instance.GetComponentInChildren<FadeOut>().fadeTime = duration;
         instance.GetComponentInChildren<FadeOut>().fadeStartTime = wait;
+        instance.GetComponentInChildren<FadeOut>().isFadeIn = isFadeIn;
 
-        return new GameObject();
+        return instance;
     }
 
-    static public GameObject Summon()
+    static public FadeOut Summon()
     {
-        return Instantiate(Resources.Load("UI/FadeSystem") as GameObject);
+        return Instantiate(Resources.Load("UI/FadeSystem") as GameObject).GetComponentInChildren<FadeOut>();
     }
 
     private void Start()
@@ -47,7 +51,7 @@ public class FadeOut : MonoBehaviour
         time += Time.deltaTime;
         if (time <= fadeStartTime) return;
 
-        float alpha = isFadeIn ? fadeTime - fadeStartTime / time : time / fadeTime - fadeStartTime;
+        float alpha = isFadeIn ? fadeTime - fadeStartTime / ((time <= 0) ? 0.001f : time) : time / ((fadeTime - fadeStartTime <= 0) ? 0.001f : fadeTime - fadeStartTime);
 
         Fade.color = new Color(Fade.color.r, Fade.color.g, Fade.color.b, alpha);
     }
