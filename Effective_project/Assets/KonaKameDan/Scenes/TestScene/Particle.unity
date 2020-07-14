@@ -170,14 +170,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 747152743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecff997f553bbb14abe42ae5c6c97905, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e877aad49fa2d7488ce2b49b3a063bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldObj: {fileID: 606073160352393122, guid: 8beb19a1768f45445a7700f424a6e562,
-    type: 3}
-  siz: 3
-  force: 8
-  lostTime: 4
+  defaultType: 0
+  plusType:
+  - effectName: "\u5C04\u6483"
+    effectEnum: 0
+    check: 1
+  - effectName: "\u65AC\u6483"
+    effectEnum: 1
+    check: 0
+  - effectName: "\u9632\u5FA1"
+    effectEnum: 2
+    check: 1
+  - effectName: "\u8A2D\u7F6E"
+    effectEnum: 3
+    check: 0
+  - effectName: "\u62E1\u6563"
+    effectEnum: 4
+    check: 1
+  - effectName: "\u8FFD\u5C3E"
+    effectEnum: 5
+    check: 0
+  - effectName: "\u5438\u53CE"
+    effectEnum: 6
+    check: 1
+  - effectName: "\u7206\u767A"
+    effectEnum: 7
+    check: 0
+  - effectName: "\u9045\u5EF6"
+    effectEnum: 8
+    check: 0
+  - effectName: "\u98DB\u7FD4"
+    effectEnum: 9
+    check: 0
+  - effectName: "\u306A\u3057"
+    effectEnum: 10
+    check: 1
 --- !u!1 &1502015332
 GameObject:
   m_ObjectHideFlags: 0
