@@ -9,6 +9,24 @@ public class NameDefinition : MonoBehaviour
     /// </summary>
     public enum EffectName
     {
-        Shot, Slash, Barrier, Trap, Spread, Homing, Drain, Explosion, Slow, Fly
+        Shot, Slash, Barrier, Trap, Spread, Homing, Drain, Explosion, Slow, Fly, Nothing
     }
+
+    /// <summary>
+    /// EffectNameをkeyに日本語の名前を引っ張ってくる
+    /// </summary>
+    public static Dictionary<EffectName, string> GetEffectJapanName { get; } = new Dictionary<EffectName, string>()
+    {
+        {EffectName.Shot,       "射撃" },
+        {EffectName.Slash,      "斬撃" },
+        {EffectName.Barrier,    "防御" },
+        {EffectName.Trap,       "設置" },
+        {EffectName.Spread,     "拡散" },
+        {EffectName.Homing,     "追尾" },
+        {EffectName.Drain,      "吸収" },
+        {EffectName.Explosion,  "爆発" },
+        {EffectName.Slow,       "遅延" },
+        {EffectName.Fly,        "飛翔" },
+        {EffectName.Nothing,    "なし" }
+    };
 }
