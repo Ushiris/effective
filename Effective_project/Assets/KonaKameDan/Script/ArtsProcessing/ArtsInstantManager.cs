@@ -23,6 +23,11 @@ public class ArtsInstantManager : MonoBehaviour
             {
                 prefabs.GetTable()[id].AddComponent<ArtsStatus>();
             }
+            if(prefabs.GetTable()[id].GetComponent<SphereCollider>() == null)
+            {
+                var c=prefabs.GetTable()[id].AddComponent<SphereCollider>();
+                c.isTrigger = true;
+            }
         }
     }
 
@@ -40,17 +45,19 @@ public class ArtsInstantManager : MonoBehaviour
             case "049": InstantArts(); break;
             case "59": InstantArts(); break;
             case "059": InstantArts(); break;
-            case "459": InstantArts(); break;
+            case "459": InstantArts(ArtsStatus.ArtsType.Support); break;
             case "49": InstantArts(); break;
             case "02": InstantArts(); break;
             case "024": InstantArts(); break;
             case "025": InstantArts(); break;
-            case "25": InstantArts(); break;
-            case "29": InstantArts(); break;
+            case "25": InstantArts(ArtsStatus.ArtsType.Support); break;
+            case "29": InstantArts(ArtsStatus.ArtsType.Support); break;
+            case "24": InstantArts(ArtsStatus.ArtsType.Support); break;
+            case "259": InstantArts(ArtsStatus.ArtsType.Support); break;
             default: break;
         }
 
-        void InstantArts()
+        void InstantArts(ArtsStatus.ArtsType artsType = ArtsStatus.ArtsType.Shot)
         {
             //生成
             var obj = Instantiate(prefabs.GetTable()[artsId], artsPivot.transform);
@@ -59,6 +66,8 @@ public class ArtsInstantManager : MonoBehaviour
             //代入
             artsStatus.myEffectCount = artsPivot.GetComponentInParent<MyEffectCount>();
             artsStatus.myStatus = artsPivot.GetComponentInParent<Status>();
+            artsStatus.artsType = artsType;
+            artsStatus.myObj = artsPivot.transform.root.gameObject;
 
             if (artsPivot.transform.parent.gameObject.tag == "Player")
             {

@@ -30,7 +30,7 @@ public class Id459_Direction : MonoBehaviour
         fairyParticle.transform.localScale = siz;
 
         //妖精から出る粉を生成
-        GameObject fairyTraceParticle = 
+        GameObject fairyTraceParticle =
             Instantiate(fairyTraceParticleObj, fairyParticle.transform);
 
         //親子関係解除
@@ -40,11 +40,5 @@ public class Id459_Direction : MonoBehaviour
         navMeshAgent = Arts_Process.SetNavMeshAgent(gameObject);
         navMeshAgent.speed = speed;
         navMeshAgent.destination = GoalIn.GetGoalPos;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

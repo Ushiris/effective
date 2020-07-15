@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6929485253059204035}
-  - component: {fileID: 114595087867664796}
-  - component: {fileID: 114517001292487300}
+  - component: {fileID: 114975918276199654}
+  - component: {fileID: 114101397220471554}
+  - component: {fileID: 135960218190491400}
   m_Layer: 0
-  m_Name: Id25_UnbreakableShield
+  m_Name: Id24_EMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114595087867664796
+--- !u!114 &114975918276199654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,15 +42,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6803105965938668464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a0385fd96586e64c9041cdbbe8db290, type: 3}
+  m_Script: {fileID: 11500000, guid: e25dc6a7f0dc092469581592fde54639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldObj: {fileID: 606073160352393122, guid: 8beb19a1768f45445a7700f424a6e562,
+  rippleParticleObj: {fileID: 5305327272912706130, guid: a17a3bcfc906c98459456a9391b1b7a1,
     type: 3}
-  timeOver: 30
-  radius: 1
-  speed: 90
---- !u!114 &114517001292487300
+  range: 10
+  lostTime: 3
+--- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,3 +64,18 @@ MonoBehaviour:
   type: 0
   myStatus: {fileID: 0}
   myEffectCount: {fileID: 0}
+  artsType: 1
+  myObj: {fileID: 0}
+--- !u!135 &135960218190491400
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

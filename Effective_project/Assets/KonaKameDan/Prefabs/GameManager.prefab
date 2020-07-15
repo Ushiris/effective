@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2800181292246757316}
   - component: {fileID: 517661563978576942}
   - component: {fileID: 262906321}
+  - component: {fileID: 3826367547149665066}
   - component: {fileID: 2043093127}
   m_Layer: 0
   m_Name: GameManager
@@ -121,19 +122,25 @@ MonoBehaviour:
       Value: {fileID: 6803105965938668464, guid: e512606b0c387054d8b89a3e72483229,
         type: 3}
     - Key: 02
-      Value: {fileID: 6803105965938668464, guid: e512606b0c387054d8b89a3e72483229,
+      Value: {fileID: 6803105965938668464, guid: 766ed21bb05303a4d87ac418c9481f1d,
         type: 3}
     - Key: 024
-      Value: {fileID: 6803105965938668464, guid: e512606b0c387054d8b89a3e72483229,
+      Value: {fileID: 6803105965938668464, guid: 7179907b3f45dd64b8cbc11b023fcbda,
         type: 3}
     - Key: 025
-      Value: {fileID: 6803105965938668464, guid: e512606b0c387054d8b89a3e72483229,
+      Value: {fileID: 6803105965938668464, guid: 287b6b14d4042e2448f2bdbac2ad4b5f,
         type: 3}
     - Key: 25
-      Value: {fileID: 6803105965938668464, guid: e512606b0c387054d8b89a3e72483229,
+      Value: {fileID: 6803105965938668464, guid: fe5f92e3abc8fc4449c8b9f3d4d74fac,
         type: 3}
     - Key: 29
-      Value: {fileID: 6803105965938668464, guid: e512606b0c387054d8b89a3e72483229,
+      Value: {fileID: 6803105965938668464, guid: cd776e952fdeba94c806e35e525a7bfe,
+        type: 3}
+    - Key: 24
+      Value: {fileID: 6803105965938668464, guid: 9d39121bf4165f04e967af791771d663,
+        type: 3}
+    - Key: 259
+      Value: {fileID: 6803105965938668464, guid: e13a12774b9904c4dabb572c3fb6c2c2,
         type: 3}
 --- !u!114 &262906321
 MonoBehaviour:
@@ -149,6 +156,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 5607555803093831959, guid: f3ee049700d9e29429ab42ca24697268, type: 3}
   pauseUIInstansce: {fileID: 0}
+--- !u!114 &3826367547149665066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216928581571088659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c8451a8a4aed54cbf27dfece36abd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2043093127
 MonoBehaviour:
   m_ObjectHideFlags: 0

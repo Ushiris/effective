@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6929485253059204035}
-  - component: {fileID: 114359089976850698}
-  - component: {fileID: 114668168811967358}
+  - component: {fileID: 114113947654033504}
+  - component: {fileID: 114378054479745966}
+  - component: {fileID: 135920516636163424}
   m_Layer: 0
-  m_Name: Id024_Diffusion
+  m_Name: Id025_PrimitiveShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114359089976850698
+--- !u!114 &114113947654033504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,15 +42,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6803105965938668464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bd2681b80df6ab4c861a732097457f8, type: 3}
+  m_Script: {fileID: 11500000, guid: ecff997f553bbb14abe42ae5c6c97905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beamParticleObj: {fileID: 2303640618854446028, guid: 1104d2591f4089747b889990bb0a1cdf,
+  shieldObj: {fileID: 606073160352393122, guid: 8beb19a1768f45445a7700f424a6e562,
     type: 3}
-  force: 200
-  radius: 1.2
-  lostTime: 3
---- !u!114 &114668168811967358
+  siz: 3
+  force: 8000
+  lostTime: 4
+--- !u!114 &114378054479745966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,3 +65,18 @@ MonoBehaviour:
   type: 0
   myStatus: {fileID: 0}
   myEffectCount: {fileID: 0}
+  artsType: 1
+  myObj: {fileID: 0}
+--- !u!135 &135920516636163424
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

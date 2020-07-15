@@ -5,19 +5,30 @@ using UnityEngine;
 public class ArtsStatus : MonoBehaviour
 {
     public enum ParticleType { Player,Enemy}
+    public enum ArtsType { Slash, Shot, Support }
 
     /// <summary>
     /// 放った人が誰であるか
     /// </summary>
-    public ParticleType type;
+    [HideInInspector] public ParticleType type;
 
     /// <summary>
     /// 放った人のステータス
     /// </summary>
-    public Status myStatus;
+    [HideInInspector] public Status myStatus;
 
     /// <summary>
     /// 放った人のエフェクト所持数
     /// </summary>
-    public MyEffectCount myEffectCount;
+    [HideInInspector] public MyEffectCount myEffectCount;
+
+    /// <summary>
+    /// アーツが長距離か接近かサポートかのタイプ決め
+    /// </summary>
+    [HideInInspector] public ArtsType artsType = ArtsType.Shot;
+
+    /// <summary>
+    /// 親情報の格納
+    /// </summary>
+    [HideInInspector] public GameObject myObj;
 }
