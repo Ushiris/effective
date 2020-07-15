@@ -725,7 +725,7 @@ PrefabInstance:
     - target: {fileID: 6149352679719585892, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9188698297048849260, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
@@ -1591,7 +1591,7 @@ MonoBehaviour:
   - name: "\u98DB\u7FD4"
     count: 1
     id: 9
-  isEffectCount: 1
+  isEffectCount: 0
   effectObjectName:
   - "\u5C04\u6483"
   - "\u65AC\u6483"
