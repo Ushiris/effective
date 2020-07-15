@@ -12,15 +12,17 @@ public class Id025_PrimitiveShield : MonoBehaviour
     StopWatch timer;
     ArtsStatus artsStatus;
 
-    static bool onObj;
-
     // Start is called before the first frame update
     void Start()
     {
-        if (!onObj) onObj = true;
-        else Destroy(gameObject);
-
         artsStatus = GetComponent<ArtsStatus>();
+
+        var objs = ArtsActiveObj.Id025_PrimitiveShield;
+        if (Arts_Process.GetMyActiveArts(objs, artsStatus.myObj))
+        {
+            Destroy(gameObject);
+        }
+
         transform.parent = null;
 
         //オブジェクトの生成
@@ -55,7 +57,7 @@ public class Id025_PrimitiveShield : MonoBehaviour
 
     void Lost()
     {
-        onObj = false;
+        ArtsActiveObj.Id025_PrimitiveShield.Remove(artsStatus.myObj);
         Destroy(gameObject);
     }
 }

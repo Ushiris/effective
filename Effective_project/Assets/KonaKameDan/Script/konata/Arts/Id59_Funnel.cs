@@ -15,16 +15,17 @@ public class Id59_Funnel : MonoBehaviour
     StopWatch timer;
     ArtsStatus artsStatus;
 
-    static bool isExistence;
-
     // Start is called before the first frame update
     void Start()
     {
         artsStatus = GetComponent<ArtsStatus>();
 
-        //すでに存在している場合消去
-        if (isExistence && !MainGameManager.GetArtsReset) Destroy(gameObject);
-        isExistence = true;
+        //オブジェクトが登録されている場合このオブジェクトを消す
+        var objs = ArtsActiveObj.Id59_Funnel;
+        if (Arts_Process.GetMyActiveArts(objs, artsStatus.myObj))
+        {
+            Destroy(gameObject);
+        }
 
         //妖精とビームパーティクルの生成
         fairyParticle = Instantiate(fairyParticleObj, transform);
@@ -34,7 +35,7 @@ public class Id59_Funnel : MonoBehaviour
         //〇〇秒後オブジェクトを破壊する
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = lostTime;
-        timer.LapEvent = () => { TimeOver(); };
+        timer.LapEvent = () => { Lost(); };
     }
 
     // Update is called once per frame
@@ -49,9 +50,9 @@ public class Id59_Funnel : MonoBehaviour
         }
     }
 
-    void TimeOver()
+    void Lost()
     {
-        isExistence = false;
+        ArtsActiveObj.Id59_Funnel.Remove(artsStatus.myObj);
         Destroy(gameObject);
     }
 }

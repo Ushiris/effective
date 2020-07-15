@@ -14,15 +14,17 @@ public class Id25_UnbreakableShield : MonoBehaviour
 
     const int count = 3;
 
-    static bool onObj;
-
     // Start is called before the first frame update
     void Start()
     {
-        if (!onObj) onObj = true;
-        else Destroy(gameObject);
-
         artsStatus = GetComponent<ArtsStatus>();
+
+        //オブジェクトが登録されている場合このオブジェクトを消す
+        var objs = ArtsActiveObj.Id25_UnbreakableShield;
+        if (Arts_Process.GetMyActiveArts(objs, artsStatus.myObj))
+        {
+            Destroy(gameObject);
+        }
 
         //円状の座標取得
         var pos = Arts_Process.GetCirclePutPos(count, radius, 360);
@@ -55,7 +57,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
 
     void Lost()
     {
-        onObj = false;
+        ArtsActiveObj.Id25_UnbreakableShield.Remove(artsStatus.myObj);
         Destroy(gameObject);
     }
 }

@@ -21,6 +21,27 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// Artsを放った人が同じであればtrueを返す
+    /// 違う場合listに格納する
+    /// </summary>
+    /// <param name="objs">ArtsActiveObjクラスに登録されているもの</param>
+    /// <param name="obj">確認する対象</param>
+    /// <returns></returns>
+    public static bool GetMyActiveArts(List<GameObject> objs, GameObject obj)
+    {
+        if (objs.Count != 0)
+        {
+            if (objs.Contains(obj))
+            {
+                return true;
+            }
+        }
+
+        objs.Add(obj);
+        return false;
+    }
+
+    /// <summary>
     /// その者にとっての一番近い敵の位置を返す
     /// </summary>
     /// <param name="artsStatus">誰の放ったアーツか記録されているもの</param>
@@ -84,6 +105,18 @@ public class Arts_Process : MonoBehaviour
     {
         var agent = obj.AddComponent<NavMeshAgent>();
         return agent;
+    }
+
+    /// <summary>
+    /// 特定の種類のArtsを消す  
+    /// </summary>
+    /// <param name="obj">アタッチする対象</param>
+    /// <param name="artsType">Artsの種類</param>
+    public static void SetDestroyArtsZone(GameObject obj, List<ArtsStatus.ArtsType> artsTypes, List<ArtsStatus.ParticleType> particleTypes)
+    {
+        var daz = obj.AddComponent<DestroyArtsZone>();
+        daz.artsTypes = new List<ArtsStatus.ArtsType>(artsTypes);
+        daz.particleTypes = new List<ArtsStatus.ParticleType>(particleTypes);
     }
 
     /// <summary>
