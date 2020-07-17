@@ -24,6 +24,7 @@ public class TerritorySenses : MonoBehaviour
         slider.transform.parent = bossUI.transform;
         slider.transform.localPosition = new Vector3(0, 225, 0);
         slider.transform.localScale = new Vector3(0.5f, 8, 0.1f);
+        slider.direction = Slider.Direction.RightToLeft;
         enemy.life.AddDamageFunc((num) => { slider.value -= num; return num; });
         enemy.life.AddHealFunc((num) => { slider.value += num; return num; });
 
