@@ -25,8 +25,8 @@ public class PlayerManager : MonoBehaviour
             fade.fadeStartTime = 0.20f;
 
             var timer = StopWatch.Summon(fade.fadeTime + fade.fadeStartTime - 1, () => {
-                SceneManager.LoadScene("GameOver");
                 Time.timeScale = timeScale;
+                SceneManager.LoadScene("GameOver");
             }, GetPlObj);
         });
 
