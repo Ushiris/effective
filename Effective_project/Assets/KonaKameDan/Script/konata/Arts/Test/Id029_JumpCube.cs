@@ -12,12 +12,13 @@ public class Id029_JumpCube : MonoBehaviour
     [SerializeField] float miracleSpace = 0.1f;
 
     Vector3 rot;
-    CollisionHitPos collisionHitPos;
     GameObject jumpCube;
     GameObject parent;
     List<GameObject> miracles = new List<GameObject>();
 
-    bool isStart;
+    LayerMask layerMask;
+
+    bool isStart = true;
 
     // Start is called before the first frame update
     void Start()
@@ -36,16 +37,15 @@ public class Id029_JumpCube : MonoBehaviour
         //軌跡を生成
         miracles =
             Arts_Process.Miracle(miracles, miracleSpace, v0);
+
+        transform.localPosition = new Vector3(0, 1f, 0);
+        layerMask = LayerMask.GetMask("Map");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            isStart = true;
-        }
-        else if (Input.GetMouseButtonUp(0) && isStart)
+        if (Input.GetMouseButtonUp(0) && isStart)
         {
             transform.parent = null;
 
@@ -54,24 +54,23 @@ public class Id029_JumpCube : MonoBehaviour
 
             //jumpCubeを投げる
             Rigidbody jumpCubeRb = jumpCube.GetComponent<Rigidbody>();
-            jumpCubeRb.AddForce(v0, ForceMode.VelocityChange);
+            jumpCubeRb.AddRelativeFor​​ce(v0, ForceMode.VelocityChange);
 
-            //CollisionHitPosの取得
-            collisionHitPos = jumpCube.GetComponent<CollisionHitPos>();
+            isStart = false;
         }
 
         if (jumpCube != null)
         {
-            //empCubeの回転
+            //jumpCubeの回転
             var move = rot * cubeRotationSpeed * Time.deltaTime;
             jumpCube.transform.Rotate(move, Space.World);
 
-            //親を移動させる
-            if (collisionHitPos != null)
+            //マップにjumpCubeが当たった場合親を移動させる
+            Collider[] enemies;
+            enemies = Physics.OverlapSphere(jumpCube.transform.position, 0.3f, layerMask);
+            foreach (Collider hit in enemies)
             {
-                var pos = collisionHitPos.hitPos.Value;
-                parent.transform.position = pos;
-
+                parent.transform.position = jumpCube.transform.position;
                 Destroy(gameObject);
             }
         }
