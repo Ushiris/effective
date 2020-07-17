@@ -41,7 +41,7 @@ public class ParticleHit : MonoBehaviour
         hitCount++;
         if (gameObject.tag == hitObjTag)
         {
-            Damage();
+            Damage(gameObject);
         }
     }
 
@@ -50,17 +50,17 @@ public class ParticleHit : MonoBehaviour
     {
         if (other.gameObject.tag == hitObjTag)
         {
-            Damage();
+            Damage(other.gameObject);
         }
     }
 
     //ダメージの処理
-    void Damage()
+    void Damage(GameObject enemy)
     {
         float damage = hitDamageDefault * plusFormStatus;
         int damageCast = Mathf.CeilToInt(damage);
 
-        gameObject.GetComponent<Enemy>().life.Damage(damageCast);
+        enemy.GetComponent<Life>().Damage(damageCast);
         Debug.Log("hitCount: " + hitCount + "damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //SE
