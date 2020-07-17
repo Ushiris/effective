@@ -446,6 +446,30 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 奇跡を表示する
+    /// </summary>
+    /// <param name="objs">置くもの</param>
+    /// <param name="space">幅</param>
+    /// <param name="v0">力の向き</param>
+    /// <returns></returns>
+    public static List<GameObject> Miracle(List<GameObject> objs, float space, Vector3 v0)
+    {
+        int count = 0;
+        foreach(var obj in objs)
+        {
+            var t = count * space;
+            var x = t * v0.x;
+            var z = t * v0.z;
+            var y = (v0.y * t) - 0.5f * (-Physics.gravity.y) * Mathf.Pow(t, 2.0f);
+            obj.transform.localPosition = new Vector3(x, y, z);
+
+            count++;
+        }
+
+        return new List<GameObject>(objs);
+    }
+
+    /// <summary>
     /// ホーミングの処理
     /// </summary>
     /// <param name="particleSystem"></param>
