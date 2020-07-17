@@ -29,6 +29,7 @@ public class Id45_Search : MonoBehaviour
         //エフェクトオブジェクトのマテリアル変更
         effectObj = GameObject.FindGameObjectsWithTag("EffectObject");
         Arts_Process.MaterialsChange(effectObj, effectObjectMaterialChange, 1);
+
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = materialChangeTime;
         timer.LapEvent = () => { EffectMaterialDefault(); };
