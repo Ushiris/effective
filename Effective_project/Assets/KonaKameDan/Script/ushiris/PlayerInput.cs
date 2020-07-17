@@ -37,14 +37,11 @@ public class PlayerInput : MonoBehaviour
 
     public delegate bool PlayerAction();
 
-    public List<bool> inputs = new List<bool>();
+    public List<bool> inputs = new List<bool> {
+        
+    };
 
     bool isPause { get { return Time.timeScale < 0.1; } }
 
 
-
-    private void Update()
-    {
-        
-    }
 }
