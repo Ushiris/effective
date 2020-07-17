@@ -298,6 +298,11 @@ public class Arts_Process : MonoBehaviour
         return new List<Vector3>(pos);
     }
 
+    /// <summary>
+    /// 盾のレイヤーを決めるやつ(EnemyかPlayerか)
+    /// </summary>
+    /// <param name="artsStatus"></param>
+    /// <param name="shieldObj"></param>
     public static void SetShieldLayer(ArtsStatus artsStatus,GameObject shieldObj)
     {
         var type = artsStatus.type;
@@ -481,5 +486,25 @@ public class Arts_Process : MonoBehaviour
 
         //パーティクルに反映
         particleSystem.SetParticles(particles, particleCount);
+    }
+
+    /// <summary>
+    /// 当たり判定作成
+    /// </summary>
+    /// <param name="parent"></param>
+    /// <param name="range"></param>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public static GameObject SphereColliderObjInstant(Transform parent, float range=10f,string name="HitArea")
+    {
+        GameObject area = Instantiate(new GameObject("HitArea"), parent);
+        var c = area.AddComponent<SphereCollider>();
+        c.isTrigger = true;
+        var rb = area.AddComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.isKinematic = true;
+        area.transform.localScale = Vector3.one * range;
+
+        return area;
     }
 }
