@@ -11,6 +11,9 @@ public class PlayerArtsInstant : MonoBehaviour
     [SerializeField] GameObject artsObj;
     MyEffectCount myEffectCount;
 
+    Dictionary<string, float> coolTimes = new Dictionary<string, float>();
+    List<string> removeKey = new List<string>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +27,43 @@ public class PlayerArtsInstant : MonoBehaviour
         {
             GetEffectCount();
 
-            //アーツを出す処理
+            //ArtsID検出
             string artsId = ArtsInstantManager.SelectArts(MyArtsDeck.GetSelectArtsDeck.id, debugNum);
+
             ArtsInstantManager.InstantArts(artsObj, artsId);
         }
+    }
+
+    //クールタイム用
+    void CoolTime(string artsId)
+    {
+        //ここにそれぞれのクールタイムを入れる
+        float timer = 3f;
+
+        //生成
+        if (!coolTimes.ContainsKey(artsId))
+        {
+            ArtsInstantManager.InstantArts(artsObj, artsId);
+            coolTimes.Add(artsId, timer);
+        }
+
+        //タイマーの処理
+        foreach(var key in coolTimes.Keys)
+        {
+            coolTimes[key] -= Time.deltaTime;
+            if (coolTimes[key] < 0) removeKey.Add(key);
+        }
+
+        //タイマーを消す
+        if (removeKey.Count != 0)
+        {
+            foreach (var key in removeKey)
+            {
+                coolTimes.Remove(key);
+            }
+            removeKey.Clear();
+        }
+
     }
 
     //所持しているエフェクトのスタック数を入れる
