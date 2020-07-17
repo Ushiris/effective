@@ -28,6 +28,7 @@ public class ArtsInstantManager : MonoBehaviour
                 var c=prefabs.GetTable()[id].AddComponent<SphereCollider>();
                 c.isTrigger = true;
             }
+            prefabs.GetTable()[id].tag = "Arts";
         }
     }
 
@@ -54,6 +55,9 @@ public class ArtsInstantManager : MonoBehaviour
             case "29": InstantArts(ArtsStatus.ArtsType.Support); break;
             case "24": InstantArts(ArtsStatus.ArtsType.Support); break;
             case "259": InstantArts(ArtsStatus.ArtsType.Support); break;
+            case "029": InstantArts(ArtsStatus.ArtsType.Support); break;
+            case "245": InstantArts(ArtsStatus.ArtsType.Support); break;
+            case "249": InstantArts(ArtsStatus.ArtsType.Support); break;
             default: break;
         }
 

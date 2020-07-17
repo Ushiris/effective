@@ -12,6 +12,8 @@ TagManager:
   - PlayerBody
   - Ground
   - EnemyBullet
+  - Arts
+  - NearEnemyPos
   layers:
   - Default
   - TransparentFX

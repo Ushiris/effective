@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 6288284637048354341}
   m_Layer: 10
   m_Name: enemyFinder
-  m_TagString: Untagged
+  m_TagString: NearEnemyPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

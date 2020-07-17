@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 135170016128919686}
   m_Layer: 0
   m_Name: Id25_UnbreakableShield
-  m_TagString: Untagged
+  m_TagString: Arts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

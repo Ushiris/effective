@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 135871368400513658}
   m_Layer: 0
   m_Name: Id245_EMPCube
-  m_TagString: Untagged
+  m_TagString: Arts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,6 +52,7 @@ MonoBehaviour:
   timeSpace: 30
   maxCount: 3
   cubeRotationSpeed: 10
+  instantPos: {x: -1, y: 1, z: 0}
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
