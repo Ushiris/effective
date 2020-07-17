@@ -39,13 +39,7 @@ public class Id24_EMP : MonoBehaviour
         Instantiate(rippleParticleObj, transform);
 
         //当たり判定の作成
-        area = Instantiate(new GameObject("HitArea"), transform);
-        var c = area.AddComponent<SphereCollider>();
-        c.isTrigger = true;
-        var rb = area.AddComponent<Rigidbody>();
-        rb.useGravity = false;
-        rb.isKinematic = true;
-        area.transform.localScale = Vector3.one * range;
+        area = Arts_Process.SphereColliderObjInstant(transform, range);
 
         //エリアに入った敵の攻撃を打ち消す
         Arts_Process.SetDestroyArtsZone(area, artsTypes, particleTypes);
