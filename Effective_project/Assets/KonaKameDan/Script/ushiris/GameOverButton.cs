@@ -8,6 +8,7 @@ public class GameOverButton : MonoBehaviour
     private void Start()
     {
         Cursor.visible = true;
+        Time.timeScale = 1;
     }
 
     public void ToResult()
