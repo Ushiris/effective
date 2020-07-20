@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Id24_EMP : MonoBehaviour
 {
-    [SerializeField] GameObject rippleParticleObj;
+    [Header("波紋の演出用")]
+    [SerializeField] GameObject rippleObj;
+    [SerializeField] Material rippleMaterial;
+    [SerializeField] float rippleSpeed = 10f;
+
+    [Header("効果範囲用")]
+    [SerializeField] GameObject zoneObj;
     [SerializeField] float range = 10f;
     [SerializeField] float lostTime = 3f;
 
-    GameObject area;
+    float time;
+    GameObject zone;
 
     StopWatch timer;
     ArtsStatus artsStatus;
@@ -35,14 +42,25 @@ public class Id24_EMP : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //波紋の作成
-        Instantiate(rippleParticleObj, transform);
+        transform.parent = null;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        //波紋の生成
+        Instantiate(rippleObj, transform);
+        Arts_Process.RippleShaderReset(rippleMaterial);
 
         //当たり判定の作成
-        area = Arts_Process.SphereColliderObjInstant(transform, range);
+        //area = Arts_Process.SphereColliderObjInstant(transform, range);
+        zone = Instantiate(zoneObj, transform);
 
         //エリアに入った敵の攻撃を打ち消す
-        Arts_Process.SetDestroyArtsZone(area, artsTypes, particleTypes);
+        Arts_Process.SetDestroyArtsZone(zone, artsTypes, particleTypes);
+
+        //ゾーンのサイズ変更
+        Arts_Process.SetAddObjSizChange(
+                    zone, Vector3.zero, Vector3.one * range,
+                    rippleSpeed,
+                    ObjSizChange.SizChangeMode.ScaleUp);
 
         //特定の時間が来たらObjectを消す
         timer = Arts_Process.TimeAction(gameObject, lostTime);
@@ -52,7 +70,9 @@ public class Id24_EMP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //シェーダーを動かす
+        time += rippleSpeed * Time.deltaTime;
+        Arts_Process.RippleShaderStart(rippleMaterial, time);
     }
 
     void Lost()

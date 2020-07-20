@@ -250,6 +250,25 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// Rippleシェーダーの初期化
+    /// </summary>
+    /// <param name="material"></param>
+    public static void RippleShaderReset(Material material)
+    {
+        material.SetFloat("Vector1_62243949", 0);
+    }
+
+    /// <summary>
+    /// Rippleシェーダーの広がる範囲を決める
+    /// </summary>
+    /// <param name="material"></param>
+    /// <param name="dis"></param>
+    public static void RippleShaderStart(Material material, float dis)
+    {
+        material.SetFloat("Vector1_62243949", dis);
+    }
+
+    /// <summary>
     /// サーチシェーダーの基準位置を決める
     /// </summary>
     /// <param name="material"></param>
