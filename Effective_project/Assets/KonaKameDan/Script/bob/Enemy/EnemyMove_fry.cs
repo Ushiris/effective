@@ -4,41 +4,26 @@ using UnityEngine;
 
 public class EnemyMove_fry : MonoBehaviour
 {
-    private Transform player;
-    private Rigidbody rb;
-    private float speed = 2;
-    private float fryPosUp = 5;
-    private float fryPosDown = 3;
+    private float enemyStartPos_y;// エネミーの初期位置
+    private float enemyNowPos_y;// エネミーの期待現在位置
+    [SerializeField] private float sin;
+    public float shaking = 0.5f;// 揺れ幅
+    public float vibration = 10.0f;// 振動回数
+    private float f;// 振動数
+    public float fryPosUp = 5;
+    public float fryPosDown = 3;
 
     void Start()
     {
-        Debug.Log("メインシーン実装時にはここをクリックしてコメントをとっておいて！");
-        //player = PlayerManager.GetManager.GetPlObj.transform;
-        rb = GetComponent<Rigidbody>();
+        f = 1.0f / vibration;// 振動数
         transform.position = new Vector3(transform.position.x, Random.Range(fryPosDown, fryPosUp), transform.position.z);
+        enemyStartPos_y = this.transform.position.y;
     }
 
     void Update()
     {
-        Debug.Log("メインシーン実装時にはここをクリックしてコメントをとっておいて！");
-        //transform.LookAt(player);
-
-        //if (Vector3.Distance(player.position, transform.position) < 3)// プレイヤーが範囲内にいるとき
-        //{
-        //    rb.velocity = Vector3.zero;
-        //}
-        //else// プレイヤーが範囲内にいないとき
-        //{
-        //    rb.velocity = transform.forward * speed;
-        //}
-
-        if (this.transform.position.y > fryPosUp)
-        {
-            rb.velocity = transform.up * -speed;
-        }
-        if (this.transform.position.y < fryPosDown)
-        {
-            rb.velocity = transform.up * speed;
-        }
+        sin = Mathf.Sin(2 * Mathf.PI * f * Time.time) * shaking;
+        enemyNowPos_y = transform.parent.gameObject.transform.position.y + enemyStartPos_y + sin;// 揺れ加減
+        this.transform.position = new Vector3(transform.position.x, enemyNowPos_y, transform.position.z);
     }
 }
