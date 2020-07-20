@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchShader: {fileID: 2100000, guid: 94d6587bad1b59d418b5f127128d6cbf, type: 2}
+  rippleShader: {fileID: 2100000, guid: 8c40b047a47732c4888bbf5f17037cd3, type: 2}
 --- !u!114 &517661563978576942
 MonoBehaviour:
   m_ObjectHideFlags: 0
