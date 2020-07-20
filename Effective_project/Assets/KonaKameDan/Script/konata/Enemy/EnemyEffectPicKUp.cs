@@ -9,7 +9,12 @@ public class EnemyEffectPicKUp : MonoBehaviour
     /// </summary>
     public string GetArtsId { get; private set; }
 
-    [SerializeField] NameDefinition.EffectName defaultType;
+    /// <summary>
+    /// メインエフェクトの取得
+    /// </summary>
+    public NameDefinition.EffectName GetMainEffect { get; private set; }
+
+    [SerializeField] NameDefinition.EffectName mainType;
     [SerializeField] EffectCheck[] plusType = new EffectCheck[(int)NameDefinition.EffectName.Nothing + 1];
 
     List<NameDefinition.EffectName> effectTable = new List<NameDefinition.EffectName>();
@@ -39,6 +44,8 @@ public class EnemyEffectPicKUp : MonoBehaviour
                     effectTable.Add(item.effectEnum);
                 }
             }
+
+            GetMainEffect = mainType;
         }
     }
 
@@ -57,7 +64,7 @@ public class EnemyEffectPicKUp : MonoBehaviour
             }
             effectTable.RemoveAt(num);
         }
-        id += (int)defaultType;
+        id += (int)mainType;
 
         //IDに変化（Sort）
         GetArtsId = MySort.strSort(id);
