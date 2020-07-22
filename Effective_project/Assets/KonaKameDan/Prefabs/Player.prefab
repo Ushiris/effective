@@ -346,6 +346,7 @@ GameObject:
   - component: {fileID: 114511514300449464}
   - component: {fileID: 8636135625816359887}
   - component: {fileID: 8302569552313217994}
+  - component: {fileID: 2379057899321639959}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -622,6 +623,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectObject_tag: EffectObject
+--- !u!114 &2379057899321639959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505584113060827351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9dd614444e48494ab244e1e4c7afdd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 1965409661}
+  collider: {fileID: 4915972329298203850}
 --- !u!1 &7505584114165781117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,6 +1279,10 @@ PrefabInstance:
     - target: {fileID: 100182, guid: cc73fd6a5eefe8740bf0e51952f3c49d, type: 3}
       propertyPath: m_TagString
       value: PlayerBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 100182, guid: cc73fd6a5eefe8740bf0e51952f3c49d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100184, guid: cc73fd6a5eefe8740bf0e51952f3c49d, type: 3}
       propertyPath: m_Layer

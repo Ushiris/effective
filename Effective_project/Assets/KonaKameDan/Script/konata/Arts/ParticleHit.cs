@@ -7,6 +7,7 @@ public class ParticleHit : MonoBehaviour
     public float hitDamageDefault = 3f;
     public float plusFormStatus;
     public ArtsStatus.ParticleType type;
+    public bool isMapLayer;
 
     string hitObjTag = "Enemy";
     int hitCount = 0;
@@ -70,6 +71,11 @@ public class ParticleHit : MonoBehaviour
     //当たり判定を出すレイヤー
     LayerMask Layer(string layerName)
     {
-        return LayerMask.GetMask("Default", "PostProcessing", "Map", layerName + "Shield", layerName);
+        if (isMapLayer)
+        {
+            return LayerMask.GetMask("Default", "PostProcessing", "Map", layerName + "Shield", layerName);
+        }
+
+        return LayerMask.GetMask("Default", "PostProcessing", layerName + "Shield", layerName);
     }
 }

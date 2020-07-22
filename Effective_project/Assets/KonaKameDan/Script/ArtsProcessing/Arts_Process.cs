@@ -85,6 +85,21 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 無敵状態にするかどうか
+    /// </summary>
+    /// <param name="artsStatus"></param>
+    /// <param name="isActive"></param>
+    public static void Invisible(ArtsStatus artsStatus, bool isActive)
+    {
+        var s = artsStatus.myObj.GetComponent<InvisibleModel>();
+
+        if (s != null)
+        {
+            s.Invisible(isActive);
+        }
+    }
+
+    /// <summary>
     /// myから見たtargetの方向を返す
     /// </summary>
     /// <param name="my"></param>
@@ -163,11 +178,13 @@ public class Arts_Process : MonoBehaviour
     /// <param name="hitDefaultDamage">固定ダメージ</param>
     /// <param name="status">ステータス</param>
     /// <param name="hitObjTag">当たる相手</param>
-    public static void Damage(ParticleHit hit, ArtsStatus artsStatus, float hitDefaultDamage, bool status)
+    public static void Damage(ParticleHit hit, ArtsStatus artsStatus, float hitDefaultDamage, bool status, bool isMapLayer = true)
     {
         hit.hitDamageDefault = hitDefaultDamage;
         hit.type = artsStatus.type;
+        hit.isMapLayer = isMapLayer;
         if (status) hit.plusFormStatus = artsStatus.myStatus.status[Status.Name.STR];
+        
     }
 
     /// <summary>

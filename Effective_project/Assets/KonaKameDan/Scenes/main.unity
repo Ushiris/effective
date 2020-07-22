@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06744362, g: 0.0889105, b: 0.13196887, a: 1}
+  m_IndirectSpecularColor: {r: 0.067397416, g: 0.08884703, b: 0.1318765, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -726,7 +726,7 @@ PrefabInstance:
     - target: {fileID: 6149352679719585892, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9188698297048849260, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
@@ -2301,6 +2301,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.size
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[20].Key
+      value: 01
+      objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[20].Value
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: 78bf2c7299c2cf247b12bc3dc2dbc28a,
+        type: 3}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[21].Key
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[21].Value
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: a9c7d171c9409d74eb7c2d93315aa012,
+        type: 3}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[22].Key
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[22].Value
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: fdf971b2f7eb88546af073ae8aebdac9,
+        type: 3}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[23].Key
+      value: 145
+      objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[23].Value
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: b209fa9a5a69bf7449e7908ca077ba17,
+        type: 3}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[24].Key
+      value: 159
+      objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[24].Value
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: f5f00c2d8325cfb4cb0dc72afd85e1d0,
+        type: 3}
     - target: {fileID: 6216928581571088659, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
         type: 3}
       propertyPath: m_Name
