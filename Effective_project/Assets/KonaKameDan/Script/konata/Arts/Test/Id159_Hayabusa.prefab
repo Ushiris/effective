@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slashParticleObj: {fileID: 1669894235980907658, guid: 545a84c7a2116c5479fb303ec9b8d14f,
     type: 3}
+  zoneAreaObj: {fileID: 2361730835385886420, guid: 6fd2db5800886a546b581682e3f27449,
+    type: 3}
   radius: 10
 --- !u!114 &114809336146001686
 MonoBehaviour:
