@@ -61,7 +61,8 @@ public class ParticleHit : MonoBehaviour
         float damage = hitDamageDefault * plusFormStatus;
         int damageCast = Mathf.CeilToInt(damage);
 
-        enemy.GetComponent<Life>().Damage(damageCast);
+        var life = enemy.GetComponent<Life>();
+        if (life != null) life.Damage(damageCast);
         Debug.Log("hitCount: " + hitCount + "damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //SE

@@ -60,12 +60,15 @@ public class SE_Manager : MonoBehaviour
     {
         //被って流せる音は最大10つまで
         //再生中でないオーディオを探す
-        foreach (AudioSource se in SE_Manager_.seArr)
+        if (SE_Manager_ != null)
         {
-            if (!se.isPlaying)
+            foreach (AudioSource se in SE_Manager_.seArr)
             {
-                se.PlayOneShot(SE_Manager_.seData.GetTable()[seType]);
-                break;
+                if (!se.isPlaying)
+                {
+                    se.PlayOneShot(SE_Manager_.seData.GetTable()[seType]);
+                    break;
+                }
             }
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Id159_Hayabusa : MonoBehaviour
 {
     [SerializeField] GameObject slashParticleObj;
+    [SerializeField] GameObject zoneAreaObj;
     [SerializeField] float radius = 10f;
 
     int layerMask;
@@ -22,6 +23,11 @@ public class Id159_Hayabusa : MonoBehaviour
 
         //敵のLayerを取得
         layerMask = Arts_Process.GetVsLayerMask(artsStatus);
+
+        //ゾーン展開
+        var zoneArea = Instantiate(zoneAreaObj, transform);
+        zoneArea.transform.localScale = Vector3.one * radius * 2;
+
 
         Vector3 pos = transform.position;
         Collider[] enemies = Physics.OverlapSphere(pos, radius, layerMask);
@@ -46,7 +52,7 @@ public class Id159_Hayabusa : MonoBehaviour
     void Update()
     {    
         //オブジェクトを消す
-        if (transform.childCount == 0)
+        if (transform.childCount == 1)
         {
             Destroy(gameObject);
         }
@@ -60,7 +66,8 @@ public class Id159_Hayabusa : MonoBehaviour
 
     Quaternion Look(GameObject a, GameObject b)
     {
-        var aim = b.transform.position - a.transform.position;
-        return Quaternion.LookRotation(aim, new Vector3(0, 0, -1));
+        var aim = a.transform.position - b.transform.position;
+        var look = Quaternion.LookRotation(aim);
+        return look * Quaternion.AngleAxis(90, Vector3.down);
     }
 }
