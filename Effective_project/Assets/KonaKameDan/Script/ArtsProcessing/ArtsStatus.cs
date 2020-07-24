@@ -8,6 +8,19 @@ public class ArtsStatus : MonoBehaviour
     public enum ArtsType { Slash, Shot, Support }
 
     /// <summary>
+    /// artsStatusを直接入れる
+    /// </summary>
+    /// <param name="artsStatus"></param>
+    public void newArtsStatus(ArtsStatus artsStatus)
+    {
+        type = artsStatus.type;
+        myStatus = artsStatus.myStatus;
+        myEffectCount = artsStatus.myEffectCount;
+        artsType = artsStatus.artsType;
+        myObj = artsStatus.myObj;
+    }
+
+    /// <summary>
     /// 放った人が誰であるか
     /// </summary>
     [HideInInspector] public ParticleType type;
