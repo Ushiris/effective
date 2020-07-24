@@ -12,10 +12,14 @@ public class Enemy : MonoBehaviour
     static Vector3 hp_small = new Vector3(1, 1, 1);
     static Vector3 big = new Vector3(3, 2, 1);
 
+    MyEffectCount bag;
+
     private void Start()
     {
         life = gameObject.AddComponent<Life>();
         slider = GetComponentInChildren<Slider>();
+        if (GetComponent<MyEffectCount>() == null) bag = gameObject.AddComponent<MyEffectCount>();
+        else bag = gameObject.GetComponent<MyEffectCount>();
 
         //sliderの初期化
         slider.minValue = 0;
@@ -32,6 +36,7 @@ public class Enemy : MonoBehaviour
 
         //Lifeの初期化
         if (life.LifeSetup(1)) Debug.Log("Error init HP");
+        life.AddLastword(DropEffect);
         life.AddLastword(Dead);
         life.AddDamageFunc(Damage);
         life.AddHealFunc(Heal);
@@ -77,21 +82,33 @@ public class Enemy : MonoBehaviour
         bullet_i.GetComponent<Rigidbody>().AddForce(velocity * bullet_i.GetComponent<Rigidbody>().mass, ForceMode.Impulse);
     }
 
+    void DropEffect()
+    {
+        var EffectList = new List<NameDefinition.EffectName>();
+        foreach (var item in bag.effectCount)
+        {
+            for (int i = 0; i < item.Value; i++) EffectList.Add(item.Key);
+        }
+        var rand = Random.Range(0, EffectList.Count);
+        var name = EffectList[rand];
+
+        var effect = Instantiate(Resources.Load("EffectObj/[" + name.ToString() + "]EffectObject")) as GameObject;
+        effect.transform.position = gameObject.transform.position;
+    }
+
     void Dead()
     {
         Debug.Log("dead:" + name);
         Destroy(gameObject);
     }
 
-    int Damage(int true_damage)
+    void Damage(int true_damage)
     {
         slider.value -= true_damage;
-        return true_damage;
     }
 
-    int Heal(int true_heal)
+    void Heal(int true_heal)
     {
         slider.value += true_heal;
-        return true_heal;
     }
 }

@@ -192,9 +192,11 @@ GameObject:
   - component: {fileID: 3701564274393747139}
   - component: {fileID: 655275487261260188}
   - component: {fileID: 6225329085623931612}
+  - component: {fileID: 5074336605127119590}
+  - component: {fileID: 114969958561679762}
   m_Layer: 0
   m_Name: enemyBase
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,6 +231,7 @@ MonoBehaviour:
   life: {fileID: 0}
   slider: {fileID: 0}
   bullet: {fileID: 1973864273873314559, guid: b222785f8ab06cc49836bea8e1a04ac2, type: 3}
+  Effect: {fileID: 0}
   isBoss: 0
 --- !u!114 &655275487261260188
 MonoBehaviour:
@@ -354,6 +357,69 @@ MonoBehaviour:
   - name: DEX
     enumName: 4
     f: 0
+--- !u!114 &5074336605127119590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212912623975855615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e877aad49fa2d7488ce2b49b3a063bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainType: 0
+  plusType:
+  - effectName: "\u5C04\u6483"
+    effectEnum: 0
+    check: 0
+  - effectName: "\u65AC\u6483"
+    effectEnum: 1
+    check: 0
+  - effectName: "\u9632\u5FA1"
+    effectEnum: 2
+    check: 0
+  - effectName: "\u8A2D\u7F6E"
+    effectEnum: 3
+    check: 0
+  - effectName: "\u62E1\u6563"
+    effectEnum: 4
+    check: 0
+  - effectName: "\u8FFD\u5C3E"
+    effectEnum: 5
+    check: 0
+  - effectName: "\u5438\u53CE"
+    effectEnum: 6
+    check: 0
+  - effectName: "\u7206\u767A"
+    effectEnum: 7
+    check: 0
+  - effectName: "\u9045\u5EF6"
+    effectEnum: 8
+    check: 0
+  - effectName: "\u98DB\u7FD4"
+    effectEnum: 9
+    check: 0
+  - effectName: "\u306A\u3057"
+    effectEnum: 10
+    check: 0
+--- !u!114 &114969958561679762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212912623975855615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034fb9b5528c11c429476c7ed548700d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolTime: 3
+  artsObj: {fileID: 0}
+  mainEffectCount: 3
+  defaultEffectCount: 1
 --- !u!1 &212912624084845006
 GameObject:
   m_ObjectHideFlags: 0

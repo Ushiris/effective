@@ -15,8 +15,8 @@ public class TerritorySenses : MonoBehaviour
         bossUI.gameObject.SetActive(false);
         bossUI.renderMode = RenderMode.ScreenSpaceOverlay;
 
-        BossName = Instantiate(Resources.Load<GameObject>("UI/BossName"));
-        BossName.transform.parent = bossUI.transform;
+        BossName = Instantiate(Resources.Load("UI/BossName"))as GameObject;
+        BossName.GetComponent<RectTransform>().parent = bossUI.GetComponent<RectTransform>();
         BossName.transform.localPosition = new Vector3(0, 250);
 
         Enemy enemy = transform.parent.gameObject.GetComponent<Enemy>();
@@ -25,8 +25,8 @@ public class TerritorySenses : MonoBehaviour
         slider.transform.localPosition = new Vector3(0, 225, 0);
         slider.transform.localScale = new Vector3(0.5f, 8, 0.1f);
         slider.direction = Slider.Direction.RightToLeft;
-        enemy.life.AddDamageFunc((num) => { slider.value -= num; return num; });
-        enemy.life.AddHealFunc((num) => { slider.value += num; return num; });
+        enemy.life.AddDamageFunc((num) => { slider.value -= num; });
+        enemy.life.AddHealFunc((num) => { slider.value += num; });
 
         SphereCollider collider= gameObject.AddComponent<SphereCollider>();
         collider.transform.parent = gameObject.transform;

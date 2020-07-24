@@ -7,18 +7,22 @@ public class Life : MonoBehaviour
 {
     public delegate void HeartBeat();
     public delegate void Dead();
-    public delegate int DamageEvent(int num);
+    public delegate void DamageEvent(int num);
 
     public float MaxHP { get { return GetComponent<Status>().status[Status.Name.HP]; } }
     public float? HP { get; set; }
     public bool IsFreeze { get; private set; }
     public bool damageGuard { private get; set; }
 
+    class BeatAction { public bool active; public HeartBeat act; public void Run() { if (active) act(); } };
+    class DeadAction { public bool active; public Dead act; public void Run() { if (active) act(); } };
+    class LifeAction { public bool active; public DamageEvent act; public void Run(int num) { if (active) act(num); } };
+
     StopWatch timer;
-    List<HeartBeat> beat = new List<HeartBeat>();
-    List<Dead> dead = new List<Dead>();
-    List<DamageEvent> damageEvent = new List<DamageEvent>();
-    List<DamageEvent> healEvent = new List<DamageEvent>();
+    List<BeatAction> beat = new List<BeatAction>();
+    List<DeadAction> dead = new List<DeadAction>();
+    List<LifeAction> damageEvent = new List<LifeAction>();
+    List<LifeAction> healEvent = new List<LifeAction>();
     
     private void Start()
     {
@@ -26,11 +30,10 @@ public class Life : MonoBehaviour
         {
             timer = gameObject.AddComponent<StopWatch>();
         }
-
         HP = MaxHP;
 
-        beat.Add(() => { CheckDead(); });
-        timer.LapEvent = () => { beat.ForEach((live) => { live(); }); };
+        beat.Add(new BeatAction { active = true, act = () => { CheckDead(); } });
+        timer.LapEvent = () => { beat.ForEach((live) => { live.Run(); }); };
     }
 
     private bool CheckDead()
@@ -38,29 +41,59 @@ public class Life : MonoBehaviour
         if (HP == null || !(HP <= 0)) return false;
 
         timer.SetActive(false);
-        dead.ForEach((lastword) => { lastword(); });
+        dead.ForEach((lastword) => { lastword.Run(); });
 
         return true;
     }
 
-    public void AddLastword(Dead func)
+    public int AddLastword(Dead func, bool isDestroy = false)
     {
-        dead.Insert(0, func);
+        dead.Add(new DeadAction { active = true, act = isDestroy ? () => { dead.Add(new DeadAction { active = true, act = func }); } : func });
+        return dead.Count - 1;
     }
 
-    public void AddBeat(HeartBeat func)
+    public int AddBeat(HeartBeat func)
     {
-        beat.Insert(0, func);
+        beat.Add(new BeatAction { active = true, act = func });
+        return beat.Count - 1;
     }
 
-    public void AddDamageFunc(DamageEvent func)
+    public int AddDamageFunc(DamageEvent func)
     {
-        damageEvent.Insert(0, func);
+        damageEvent.Add(new LifeAction { active = true, act = func });
+        return damageEvent.Count - 1;
     }
 
-    public void AddHealFunc(DamageEvent func)
+    public int AddHealFunc(DamageEvent func)
     {
-        healEvent.Insert(0, func);
+        healEvent.Insert(0, new LifeAction { active = true, act = func });
+        return healEvent.Count - 1;
+    }
+
+    public enum Timing
+    {
+        beat,dead,damage,heal
+    }
+
+    public void ActiveEvent(Timing timing, int id, bool active = true)
+    {
+        switch (timing)
+        {
+            case Timing.beat:
+                beat[id].active = active;
+                break;
+            case Timing.dead:
+                dead[id].active = active;
+                break;
+            case Timing.damage:
+                damageEvent[id].active = active;
+                break;
+            case Timing.heal:
+                healEvent[id].active = active;
+                break;
+            default:
+                break;
+        }
     }
 
     public int Damage(int fouce)
@@ -68,16 +101,8 @@ public class Life : MonoBehaviour
         if (HP == null) LifeSetup();
 
         int true_damege = fouce;
-        if(damageGuard)// デバッグ（無敵化）
-        {
-            HP = HP;// ノーダメ
-            Debug.Log("お前の攻撃なんて痛くも痒くもねぇ！");
-        }
-        else
-        {
-            HP -= true_damege;
-        }
-        damageEvent.ForEach((damage) => { damage(true_damege); });
+        HP -= true_damege;
+        damageEvent.ForEach((damage) => { damage.Run(true_damege); });
         CheckDead();
 
         return true_damege;
@@ -87,9 +112,9 @@ public class Life : MonoBehaviour
     {
         if (HP == null) LifeSetup();
 
-        int true_heal = (int)((HP + fouce > MaxHP) ? fouce - (MaxHP - HP) : fouce);
+        int true_heal = (int)((HP + fouce > MaxHP) ? MaxHP - HP : fouce);
         HP += true_heal;
-        healEvent.ForEach((heal) => { heal(true_heal); });
+        healEvent.ForEach((heal) => { heal.Run(true_heal); });
 
         return true_heal;
     }
