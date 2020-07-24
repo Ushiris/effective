@@ -12,6 +12,7 @@ public class Life : MonoBehaviour
     public float MaxHP { get { return GetComponent<Status>().status[Status.Name.HP]; } }
     public float? HP { get; set; }
     public bool IsFreeze { get; private set; }
+    public bool damageGuard { private get; set; }
 
     StopWatch timer;
     List<HeartBeat> beat = new List<HeartBeat>();
@@ -67,7 +68,15 @@ public class Life : MonoBehaviour
         if (HP == null) LifeSetup();
 
         int true_damege = fouce;
-        HP -= true_damege;
+        if(damageGuard)// デバッグ（無敵化）
+        {
+            HP = HP;// ノーダメ
+            Debug.Log("お前の攻撃なんて痛くも痒くもねぇ！");
+        }
+        else
+        {
+            HP -= true_damege;
+        }
         damageEvent.ForEach((damage) => { damage(true_damege); });
         CheckDead();
 
