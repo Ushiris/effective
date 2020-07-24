@@ -47,15 +47,17 @@ public class EnemyArtsInstant : MonoBehaviour
     //エフェクトの所持数の定義
     void SetEffectCount()
     {
+        int count = 0;
         foreach(var key in myEffectCount.effectCount.Keys)
         {
             if (key == effectPicKUp.GetMainEffect)
             {
                 myEffectCount.effectCount[key] = mainEffectCount;
             }
-            else
+            else if(key == effectPicKUp.GetSubEffect[count])
             {
                 myEffectCount.effectCount[key] = defaultEffectCount;
+                count++;
             }
         }
     }

@@ -668,6 +668,12 @@ PrefabInstance:
       propertyPath: roadLength
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
+        type: 3}
+      propertyPath: bossObj
+      value: 
+      objectReference: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad,
+        type: 3}
     - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: m_LocalPosition.x
