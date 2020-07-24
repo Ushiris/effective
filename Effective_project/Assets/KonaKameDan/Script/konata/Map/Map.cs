@@ -38,6 +38,7 @@ public class Map : MonoBehaviour
     [SerializeField] GameObject wallObjPoint;
     [SerializeField] GameObject GoalObj;
     [SerializeField] GameObject plObj;
+    [SerializeField] GameObject bossObj;
 
     [Header("ばらまくエフェクト")]
     [SerializeField] int effectInstantCount = 10;
@@ -119,6 +120,7 @@ public class Map : MonoBehaviour
 
         //サイズを変更したくないものを生成
         MapMaterialization.InstantObj(GoalObj, eventObj[ObjType.Goal], eventObj[ObjType.Goal]);
+        MapMaterialization.InstantObj(bossObj, eventObj[ObjType.Goal]);
         MapMaterialization.InstantObj(plObj, eventObj[ObjType.Start]);
 
     }
