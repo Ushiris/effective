@@ -38,7 +38,7 @@ public class PlayerArtsInstant : MonoBehaviour
     void CoolTime(string artsId)
     {
         //ここにそれぞれのクールタイムを入れる
-        float timer = 3f;
+        float timer = ArtsCoolTime.GetCoolTime(artsId, myEffectCount);
 
         //生成
         if (!coolTimes.ContainsKey(artsId))
