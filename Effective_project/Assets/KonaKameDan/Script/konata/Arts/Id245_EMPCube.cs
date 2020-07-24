@@ -39,7 +39,7 @@ public class Id245_EMPCube : MonoBehaviour
         rot = new Vector3(Random.Range(0, 2f), Random.Range(0, 2f), Random.Range(0, 2f));
 
         //初めの一回
-        Instantiate(id24_EMP_Obj, transform);
+        InstantEMP();
 
         //定期的に呼び出す
         timer = Arts_Process.TimeAction(gameObject, timeSpace);
@@ -56,9 +56,12 @@ public class Id245_EMPCube : MonoBehaviour
     //定期的にEMPを撃つ
     void InstantEMP()
     {
-        Instantiate(id24_EMP_Obj, transform);
+        var emp = Instantiate(id24_EMP_Obj, transform);
+        var empAs = emp.GetComponent<ArtsStatus>();
+        empAs.newArtsStatus(artsStatus);
+        Debug.Log("タイプ "+count);
 
-        if (count == maxCount)
+        if (count > maxCount)
         {
             ArtsActiveObj.Id245_EMPCube.Remove(artsStatus.myObj);
             Destroy(gameObject);
