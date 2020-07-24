@@ -15,7 +15,7 @@ public class ParticleHit : MonoBehaviour
     private void Start()
     {
         //ダメージUIを出すやつ
-        //gameObject.AddComponent<DamageHit>();
+        gameObject.AddComponent<DamageHit>();
 
         var p = GetComponent<ParticleSystem>();
         var c = p.collision;
@@ -69,7 +69,7 @@ public class ParticleHit : MonoBehaviour
         Debug.Log("hitCount: " + hitCount + "damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //UI
-        //DamageCount.damageInput = damageCast;
+        DamageCount.damageInput = damageCast;
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);
