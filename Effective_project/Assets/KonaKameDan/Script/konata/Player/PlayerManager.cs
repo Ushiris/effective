@@ -17,7 +17,16 @@ public class PlayerManager : MonoBehaviour
     {
         GetPlObj = GameObject.FindGameObjectWithTag("Player");
 
-        GetPlObj.GetComponent<Life>().AddLastword(() =>
+        var life = GetPlObj.GetComponent<Life>();
+        life.LifeSetup(0.3f);
+        var regene_id = life.AddBeat(() => { life.Heal((int)life.MaxHP / 100); });
+        var regene_timer = StopWatch.Summon(3, () => { life.ActiveEvent(Life.Timing.beat, regene_id); }, gameObject);
+        life.AddDamageFunc((x) => {
+            life.ActiveEvent(Life.Timing.beat, regene_id, false);
+            regene_timer.ResetTimer();
+        });
+
+        life.AddLastword(() =>
         {
             float timeScale= Time.timeScale;
             Time.timeScale = 0.3f;

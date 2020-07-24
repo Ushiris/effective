@@ -102,15 +102,13 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    int Damage(int true_damage)
+    void Damage(int true_damage)
     {
         slider.value -= true_damage;
-        return true_damage;
     }
 
-    int Heal(int true_heal)
+    void Heal(int true_heal)
     {
         slider.value += true_heal;
-        return true_heal;
     }
 }
