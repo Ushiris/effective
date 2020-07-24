@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 2459166526397551206}
   - component: {fileID: 114221910511304198}
   - component: {fileID: 6764249598052150221}
+  - component: {fileID: 4567659292971136546}
   - component: {fileID: 54910844226909174}
   - component: {fileID: 114269065326562766}
   - component: {fileID: 114027708724640188}
@@ -314,6 +315,19 @@ MonoBehaviour:
   - name: DEX
     enumName: 4
     f: 0
+--- !u!114 &4567659292971136546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459166526397551225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6990bc6b5a8fd2e47b917f40fc11728e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
 --- !u!54 &54910844226909174
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06744362, g: 0.0889105, b: 0.13196887, a: 1}
+  m_IndirectSpecularColor: {r: 0.05663399, g: 0.07967138, b: 0.12591928, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -668,6 +668,12 @@ PrefabInstance:
       propertyPath: roadLength
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
+        type: 3}
+      propertyPath: bossObj
+      value: 
+      objectReference: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad,
+        type: 3}
     - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1614,6 +1620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1881900230}
   - component: {fileID: 1881900229}
+  - component: {fileID: 1881900231}
   m_Layer: 0
   m_Name: DebugManager
   m_TagString: Untagged
@@ -1690,6 +1697,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1881900231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881900228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198b45f579aa144429c6fd70049acee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: {fileID: 0}
+  damageGuard: 0
 --- !u!1 &1935653390
 GameObject:
   m_ObjectHideFlags: 0
