@@ -408,7 +408,8 @@ MonoBehaviour:
     check: 0
   - effectName: "\u306A\u3057"
     effectEnum: 10
-    check: 0
+    check: 1
+  effectTable: 040000000a00000000000000
 --- !u!195 &195047275701136378
 NavMeshAgent:
   m_ObjectHideFlags: 0
