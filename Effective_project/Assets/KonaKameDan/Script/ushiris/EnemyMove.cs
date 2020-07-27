@@ -1,32 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMove : MonoBehaviour
 {
-    Transform player;
-    Rigidbody rb;
-    float speed = 2;
+    GameObject target;
+    NavMeshAgent navMesh;
 
-    // Start is called before the first frame update
     void Start()
     {
-        player = PlayerManager.GetManager.GetPlObj.transform;
-        rb = GetComponent<Rigidbody>();
+        target = GameObject.FindWithTag("Player");
+        navMesh = GetComponent<NavMeshAgent>();
+        navMesh.SetDestination(target.transform.position);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
-        transform.LookAt(player);
-
-        if (Vector3.Distance(player.position, transform.position) < 3)
-        {
-            rb.velocity = Vector3.zero;
-        }
-        else
-        {
-            rb.velocity = transform.forward * speed;
-        }
+        navMesh.SetDestination(target.transform.position);
     }
 }
