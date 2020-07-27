@@ -7,6 +7,14 @@ using UnityEngine;
 /// </summary>
 public class ArtsInstantManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class ArtsStatusData
+    {
+        public GameObject prefab;
+        public float coolTime;
+        public float coolTimeDown;
+        public List<NameDefinition.EffectName> effect;
+    }
 
     public PrefabDictionary prefabs;
 
@@ -19,16 +27,19 @@ public class ArtsInstantManager : MonoBehaviour
 
         foreach(var id in prefabs.GetTable().Keys)
         {
-            if (prefabs.GetTable()[id].GetComponent<ArtsStatus>() == null)
+            if (prefabs.GetTable()[id].prefab.GetComponent<ArtsStatus>() == null)
             {
-                prefabs.GetTable()[id].AddComponent<ArtsStatus>();
+                prefabs.GetTable()[id].prefab.AddComponent<ArtsStatus>();
             }
-            if(prefabs.GetTable()[id].GetComponent<SphereCollider>() == null)
+            if(prefabs.GetTable()[id].prefab.GetComponent<SphereCollider>() == null)
             {
-                var c=prefabs.GetTable()[id].AddComponent<SphereCollider>();
+                var c=prefabs.GetTable()[id].prefab.AddComponent<SphereCollider>();
                 c.isTrigger = true;
             }
-            prefabs.GetTable()[id].tag = "Arts";
+            prefabs.GetTable()[id].prefab.tag = "Arts";
+
+            //idからエフェクトを取得
+            prefabs.GetTable()[id].effect = CastCharToEffectName(id);
         }
     }
 
@@ -69,7 +80,7 @@ public class ArtsInstantManager : MonoBehaviour
         void InstantArts(ArtsStatus.ArtsType artsType = ArtsStatus.ArtsType.Shot)
         {
             //生成
-            var obj = Instantiate(prefabs.GetTable()[artsId], artsPivot.transform);
+            var obj = Instantiate(prefabs.GetTable()[artsId].prefab, artsPivot.transform);
             var artsStatus = obj.GetComponent<ArtsStatus>();
 
             //代入
@@ -89,6 +100,20 @@ public class ArtsInstantManager : MonoBehaviour
         }
     }
 
+    //stringをエフェクト名に変換
+    List<NameDefinition.EffectName> CastCharToEffectName(string str)
+    {
+        List<NameDefinition.EffectName> effectNames = new List<NameDefinition.EffectName>();
+        char[] cArr = str.ToCharArray();
+        foreach (var c in cArr)
+        {
+            int i = int.Parse(string.Join(null, c));
+            effectNames.Add((NameDefinition.EffectName)i);
+            Debug.Log(c);
+        }
+        return new List<NameDefinition.EffectName>(effectNames);
+    }
+
     //デバッグと切り替える処理
     public static string SelectArts(string artsId, string debugNum = "0")
     {
@@ -101,11 +126,11 @@ public class ArtsInstantManager : MonoBehaviour
 
 
     [System.Serializable]
-    public class PrefabDictionary : Serialize.TableBase<string, GameObject, Name2Prefab> { }
+    public class PrefabDictionary : Serialize.TableBase<string, ArtsStatusData, Name2Prefab> { }
 
     [System.Serializable]
-    public class Name2Prefab : Serialize.KeyAndValue<string, GameObject>
+    public class Name2Prefab : Serialize.KeyAndValue<string, ArtsStatusData>
     {
-        public Name2Prefab(string key, GameObject value) : base(key, value) { }
+        public Name2Prefab(string key, ArtsStatusData value) : base(key, value) { }
     }
 }

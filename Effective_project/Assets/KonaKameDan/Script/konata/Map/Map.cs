@@ -40,6 +40,12 @@ public class Map : MonoBehaviour
     [SerializeField] GameObject plObj;
     [SerializeField] GameObject bossObj;
 
+    [Header("草オブジェ")]
+    [SerializeField] GameObject[] grassObjArr;
+    [SerializeField] float grassSpaceH = 20;
+    [SerializeField] int grassSpace = 10;
+    [SerializeField] float grassFixH = 10;
+
     [Header("ばらまくエフェクト")]
     [SerializeField] int effectInstantCount = 10;
     [SerializeField] List<GameObject> effectItem = new List<GameObject>();
@@ -109,6 +115,11 @@ public class Map : MonoBehaviour
 
         //マップデータをテキストに出力する
         //MapDebug.TextOutput(mapData, "Assets/MapData.txt");
+
+        //草の座標データ作成
+        float[,] grassData = TerrainDataInstant.InstantGrassMapChip(w, d, grassSpaceH, chaos, true);
+        //草の具現化
+        MapMaterialization.GrassSet(grassData, grassObjArr, transform, grassFixH, grassSpace);
 
         //オブジェクトを生成
         ListToDictionary();
