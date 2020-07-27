@@ -22,7 +22,7 @@ public class EnemyEffectPicKUp : MonoBehaviour
     [SerializeField] NameDefinition.EffectName mainType;
     [SerializeField] EffectCheck[] plusType = new EffectCheck[(int)NameDefinition.EffectName.Nothing + 1];
 
-    //[SerializeField]
+    [SerializeField]
     List<NameDefinition.EffectName> effectTable = new List<NameDefinition.EffectName>();
 
     const int maxLengthId = 2;
@@ -45,8 +45,7 @@ public class EnemyEffectPicKUp : MonoBehaviour
         InstantRandomTable();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         string id = "";
         GetSubEffect = new NameDefinition.EffectName[maxLengthId];

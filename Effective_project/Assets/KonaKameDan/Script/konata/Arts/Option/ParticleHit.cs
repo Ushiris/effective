@@ -9,7 +9,7 @@ public class ParticleHit : MonoBehaviour
     public ArtsStatus.ParticleType type;
     public bool isMapLayer;
 
-    string hitObjTag = "Enemy";
+    string hitObjTag;
     int hitCount = 0;
 
     private void Start()
@@ -43,6 +43,7 @@ public class ParticleHit : MonoBehaviour
     private void OnParticleCollision(GameObject gameObject)
     {
         hitCount++;
+        Debug.Log(gameObject.name);
         if (gameObject.tag == hitObjTag)
         {
             Damage(gameObject);
