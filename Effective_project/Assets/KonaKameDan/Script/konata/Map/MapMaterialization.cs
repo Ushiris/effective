@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// マップデータをもとにオブジェクトを設置する
 /// </summary>
 public class MapMaterialization : MonoBehaviour
 {
+    public static UnityEvent OnMapGenerated = new UnityEvent();
 
     /// <summary>
     /// マップの具現化
@@ -77,6 +79,8 @@ public class MapMaterialization : MonoBehaviour
             cube.transform.SetParent(parent);
             return cube;
         }
+
+        OnMapGenerated.Invoke();
     }
 
     /// <summary>
