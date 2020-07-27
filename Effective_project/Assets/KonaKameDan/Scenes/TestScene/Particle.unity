@@ -122,6 +122,9 @@ GameObject:
   m_Component:
   - component: {fileID: 747152745}
   - component: {fileID: 747152744}
+  - component: {fileID: 747152748}
+  - component: {fileID: 747152747}
+  - component: {fileID: 747152746}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -158,8 +161,84 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &747152746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747152743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034fb9b5528c11c429476c7ed548700d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolTime: 10
+  artsObj: {fileID: 747152743}
+  mainEffectCount: 3
+  defaultEffectCount: 1
+--- !u!114 &747152747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747152743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e877aad49fa2d7488ce2b49b3a063bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainType: 0
+  plusType:
+  - effectName: "\u5C04\u6483"
+    effectEnum: 0
+    check: 0
+  - effectName: "\u65AC\u6483"
+    effectEnum: 1
+    check: 0
+  - effectName: "\u9632\u5FA1"
+    effectEnum: 2
+    check: 0
+  - effectName: "\u8A2D\u7F6E"
+    effectEnum: 3
+    check: 0
+  - effectName: "\u62E1\u6563"
+    effectEnum: 4
+    check: 1
+  - effectName: "\u8FFD\u5C3E"
+    effectEnum: 5
+    check: 1
+  - effectName: "\u5438\u53CE"
+    effectEnum: 6
+    check: 0
+  - effectName: "\u7206\u767A"
+    effectEnum: 7
+    check: 0
+  - effectName: "\u9045\u5EF6"
+    effectEnum: 8
+    check: 0
+  - effectName: "\u98DB\u7FD4"
+    effectEnum: 9
+    check: 0
+  - effectName: "\u306A\u3057"
+    effectEnum: 10
+    check: 0
+  effectTable: 040000000500000000000000
+--- !u!114 &747152748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747152743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c41f4a7e8889b418049c0c0bbc47fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1502015332
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,92 +679,3 @@ MonoBehaviour:
   blockerSampleCount: 24
   filterSampleCount: 16
   minFilterSize: 0.00001
---- !u!1001 &2111612303
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2024195638251374732, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_Name
-      value: MapManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: grassObjArr.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: grassObjArr.Array.data[0]
-      value: 
-      objectReference: {fileID: 100000, guid: adc3039f95931fc4b9482d07abccb337, type: 3}
-    - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: grassObjArr.Array.data[1]
-      value: 
-      objectReference: {fileID: 100000, guid: 9bff7c8db77080c4bb494cb79b75e137, type: 3}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6149352679719585892, guid: ab74a35ed11982e4289b44df23cde429,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ab74a35ed11982e4289b44df23cde429, type: 3}

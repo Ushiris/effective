@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 一定の秒数ごとにArtsを放つ
 /// </summary>
+[RequireComponent(typeof(MyEffectCount))]
 public class EnemyArtsInstant : MonoBehaviour
 {
     [Header("アーツを放つためのステータス")]
@@ -23,10 +24,10 @@ public class EnemyArtsInstant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        effectPicKUp = gameObject.GetComponent<EnemyEffectPicKUp>();
-        myEffectCount = gameObject.GetComponent<MyEffectCount>();
+        effectPicKUp = GetComponent<EnemyEffectPicKUp>();
+        myEffectCount = GetComponent<MyEffectCount>();
 
-        SetEffectCount();
+        if(myEffectCount!=null) SetEffectCount();
 
         //一定の秒数ごとにArtsを放つ
         timer = gameObject.AddComponent<StopWatch>();
@@ -47,18 +48,13 @@ public class EnemyArtsInstant : MonoBehaviour
     //エフェクトの所持数の定義
     void SetEffectCount()
     {
-        int count = 0;
-        foreach(var key in myEffectCount.effectCount.Keys)
+        //メインエフェクト
+        myEffectCount.effectCount[effectPicKUp.GetMainEffect] = mainEffectCount;
+
+        //サブエフェクト
+        foreach (var item in effectPicKUp.GetSubEffect)
         {
-            if (key == effectPicKUp.GetMainEffect)
-            {
-                myEffectCount.effectCount[key] = mainEffectCount;
-            }
-            else if(key == effectPicKUp.GetSubEffect[count])
-            {
-                myEffectCount.effectCount[key] = defaultEffectCount;
-                count++;
-            }
+            myEffectCount.effectCount[item] = defaultEffectCount;
         }
     }
 }

@@ -192,8 +192,9 @@ GameObject:
   - component: {fileID: 3701564274393747139}
   - component: {fileID: 655275487261260188}
   - component: {fileID: 6225329085623931612}
-  - component: {fileID: 5074336605127119590}
   - component: {fileID: 114969958561679762}
+  - component: {fileID: 5074336605127119590}
+  - component: {fileID: 1255140516740092030}
   m_Layer: 0
   m_Name: enemyBase
   m_TagString: Enemy
@@ -213,6 +214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 212912624150374271}
+  - {fileID: 7426519282851801227}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,7 +233,6 @@ MonoBehaviour:
   life: {fileID: 0}
   slider: {fileID: 0}
   bullet: {fileID: 1973864273873314559, guid: b222785f8ab06cc49836bea8e1a04ac2, type: 3}
-  Effect: {fileID: 0}
   isBoss: 0
 --- !u!114 &655275487261260188
 MonoBehaviour:
@@ -357,6 +358,22 @@ MonoBehaviour:
   - name: DEX
     enumName: 4
     f: 0
+--- !u!114 &114969958561679762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212912623975855615}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034fb9b5528c11c429476c7ed548700d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolTime: 3
+  artsObj: {fileID: 6579676720879186573}
+  mainEffectCount: 3
+  defaultEffectCount: 1
 --- !u!114 &5074336605127119590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,7 +402,7 @@ MonoBehaviour:
     check: 0
   - effectName: "\u62E1\u6563"
     effectEnum: 4
-    check: 0
+    check: 1
   - effectName: "\u8FFD\u5C3E"
     effectEnum: 5
     check: 0
@@ -403,8 +420,9 @@ MonoBehaviour:
     check: 0
   - effectName: "\u306A\u3057"
     effectEnum: 10
-    check: 0
---- !u!114 &114969958561679762
+    check: 1
+  effectTable: 040000000a00000000000000
+--- !u!114 &1255140516740092030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -413,13 +431,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 212912623975855615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034fb9b5528c11c429476c7ed548700d, type: 3}
+  m_Script: {fileID: 11500000, guid: 24c41f4a7e8889b418049c0c0bbc47fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolTime: 3
-  artsObj: {fileID: 0}
-  mainEffectCount: 3
-  defaultEffectCount: 1
 --- !u!1 &212912624084845006
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,3 +631,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa28b257be66fd4b8103dd9a4e74448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6579676720879186573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7426519282851801227}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7426519282851801227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579676720879186573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 212912623975855608}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
