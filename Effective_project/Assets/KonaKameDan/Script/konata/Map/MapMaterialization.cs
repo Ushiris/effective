@@ -78,13 +78,6 @@ public class MapMaterialization : MonoBehaviour
             }
             return b;
         }
-        //生成
-        GameObject InstantRoom(GameObject instantObj, float x, float z)
-        {
-            GameObject cube = Instantiate(instantObj, new Vector3(x, 0, z), new Quaternion());
-            cube.transform.SetParent(parent);
-            return cube;
-        }
 
         OnMapGenerated.Invoke();
     }
