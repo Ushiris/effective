@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// マップデータをもとにオブジェクトを設置する
 /// </summary>
 public class MapMaterialization : MonoBehaviour
 {
+    public static UnityEvent OnMapGenerated = new UnityEvent();
     //生成
     static GameObject InstantRoom(GameObject instantObj, float x, float z, Transform parent, float y = 0)
     {
@@ -76,6 +78,15 @@ public class MapMaterialization : MonoBehaviour
             }
             return b;
         }
+        //生成
+        GameObject InstantRoom(GameObject instantObj, float x, float z)
+        {
+            GameObject cube = Instantiate(instantObj, new Vector3(x, 0, z), new Quaternion());
+            cube.transform.SetParent(parent);
+            return cube;
+        }
+
+        OnMapGenerated.Invoke();
     }
 
     /// <summary>

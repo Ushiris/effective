@@ -13,10 +13,16 @@ public class InstantNavMesh : MonoBehaviour
     void Awake()
     {
         navMeshSurface = GetComponent<NavMeshSurface>();
+        MapMaterialization.OnMapGenerated.AddListener(Build);
     }
 
     void Start()
     {
         navMeshSurface.BuildNavMesh();
+    }
+
+    void Build()
+    {
+        GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 }

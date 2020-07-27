@@ -12,7 +12,7 @@ public class Life : MonoBehaviour
     public float MaxHP { get { return GetComponent<Status>().status[Status.Name.HP]; } }
     public float? HP { get; set; }
     public bool IsFreeze { get; private set; }
-    public bool damageGuard { private get; set; }
+    public bool damageGuard = false;// 無敵化するか否か
 
     class BeatAction { public bool active; public HeartBeat act; public void Run() { if (active) act(); } };
     class DeadAction { public bool active; public Dead act; public void Run() { if (active) act(); } };
