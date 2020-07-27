@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06744362, g: 0.0889105, b: 0.13196887, a: 1}
+  m_IndirectSpecularColor: {r: 0.05663399, g: 0.07967138, b: 0.12591928, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -147,8 +147,20 @@ PrefabInstance:
     - target: {fileID: 1175326351077805788, guid: 6231dac0c7378304296d4a4f746d7f19,
         type: 3}
       propertyPath: m_textInfo.materialCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1175326351077805788, guid: 6231dac0c7378304296d4a4f746d7f19,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e3966c1a21dd0d7419beaa85d9c16f88,
+        type: 2}
+    - target: {fileID: 1175326351077805788, guid: 6231dac0c7378304296d4a4f746d7f19,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21096832001037230, guid: e3966c1a21dd0d7419beaa85d9c16f88,
+        type: 2}
     - target: {fileID: 5027648250580504297, guid: 6231dac0c7378304296d4a4f746d7f19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1325,7 +1337,24 @@ PrefabInstance:
     - target: {fileID: 1175326351077805788, guid: 6231dac0c7378304296d4a4f746d7f19,
         type: 3}
       propertyPath: m_textInfo.materialCount
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175326351077805788, guid: 6231dac0c7378304296d4a4f746d7f19,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e3966c1a21dd0d7419beaa85d9c16f88,
+        type: 2}
+    - target: {fileID: 1175326351077805788, guid: 6231dac0c7378304296d4a4f746d7f19,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21096832001037230, guid: e3966c1a21dd0d7419beaa85d9c16f88,
+        type: 2}
+    - target: {fileID: 1175326351077805788, guid: 6231dac0c7378304296d4a4f746d7f19,
+        type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5027648250580504297, guid: 6231dac0c7378304296d4a4f746d7f19,
         type: 3}
@@ -1485,8 +1514,20 @@ PrefabInstance:
     - target: {fileID: 1175326351077805788, guid: 6231dac0c7378304296d4a4f746d7f19,
         type: 3}
       propertyPath: m_textInfo.materialCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1175326351077805788, guid: 6231dac0c7378304296d4a4f746d7f19,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e3966c1a21dd0d7419beaa85d9c16f88,
+        type: 2}
+    - target: {fileID: 1175326351077805788, guid: 6231dac0c7378304296d4a4f746d7f19,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21096832001037230, guid: e3966c1a21dd0d7419beaa85d9c16f88,
+        type: 2}
     - target: {fileID: 5027648250580504297, guid: 6231dac0c7378304296d4a4f746d7f19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1710,7 +1751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: {fileID: 0}
-  damageGuard: 0
+  damageGuard: 1
 --- !u!114 &1935582587 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,

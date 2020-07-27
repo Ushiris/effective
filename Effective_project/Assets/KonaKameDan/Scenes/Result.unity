@@ -6164,8 +6164,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ArtsName
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f19f5d6a746be1419047fbf001ed740, type: 2}
-  m_sharedMaterial: {fileID: 21609016164918708, guid: 6f19f5d6a746be1419047fbf001ed740,
+  m_fontAsset: {fileID: 11400000, guid: e3966c1a21dd0d7419beaa85d9c16f88, type: 2}
+  m_sharedMaterial: {fileID: 21096832001037230, guid: e3966c1a21dd0d7419beaa85d9c16f88,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6239,7 +6239,7 @@ MonoBehaviour:
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -6693,8 +6693,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ArtsName
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f19f5d6a746be1419047fbf001ed740, type: 2}
-  m_sharedMaterial: {fileID: 21609016164918708, guid: 6f19f5d6a746be1419047fbf001ed740,
+  m_fontAsset: {fileID: 11400000, guid: e3966c1a21dd0d7419beaa85d9c16f88, type: 2}
+  m_sharedMaterial: {fileID: 21096832001037230, guid: e3966c1a21dd0d7419beaa85d9c16f88,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6768,7 +6768,7 @@ MonoBehaviour:
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -7160,8 +7160,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ArtsName
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f19f5d6a746be1419047fbf001ed740, type: 2}
-  m_sharedMaterial: {fileID: 21609016164918708, guid: 6f19f5d6a746be1419047fbf001ed740,
+  m_fontAsset: {fileID: 11400000, guid: e3966c1a21dd0d7419beaa85d9c16f88, type: 2}
+  m_sharedMaterial: {fileID: 21096832001037230, guid: e3966c1a21dd0d7419beaa85d9c16f88,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7235,7 +7235,7 @@ MonoBehaviour:
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
