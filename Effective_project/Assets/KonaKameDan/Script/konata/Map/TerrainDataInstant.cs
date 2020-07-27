@@ -93,4 +93,39 @@ public class TerrainDataInstant : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// パーリンノイズをもとに草の位置を作成
+    /// </summary>
+    /// <param name="w">幅</param>
+    /// <param name="d">奥行き</param>
+    /// <param name="h">ノイズの高さ</param>
+    /// <param name="chaos">ノイズの細かさ</param>
+    /// <param name="isSmoothness">滑らかに変化しない場合はyを四捨五入</param>
+    /// <returns></returns>
+    public static float[,] InstantGrassMapChip(int w,int d, float h, float chaos,bool isSmoothness)
+    {
+        float[,] grassData = new float[w, d];
+
+        //パーリンノイズからマップ作成
+        for (int x = 0; x < w; x++)
+        {
+            for (int z = 0; z < d; z++)
+            {
+                //ノイズ発生
+                float xSample = (x + seedX) / chaos;
+                float zSample = (z + seedZ) / chaos;
+                float noise = Mathf.PerlinNoise(xSample, zSample);
+                float y = h * noise;
+
+                //四捨五入
+                if (!isSmoothness) y = Mathf.Round(y);
+
+                //マップの高さを格納
+                grassData[x, z] = y;
+            }
+        }
+
+        return grassData;
+    }
 }
