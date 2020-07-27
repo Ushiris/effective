@@ -7,6 +7,13 @@ using UnityEngine;
 /// </summary>
 public class MapMaterialization : MonoBehaviour
 {
+    //生成
+    static GameObject InstantRoom(GameObject instantObj, float x, float z, Transform parent, float y = 0)
+    {
+        GameObject cube = Instantiate(instantObj, new Vector3(x, y, z), new Quaternion());
+        cube.transform.SetParent(parent);
+        return cube;
+    }
 
     /// <summary>
     /// マップの具現化
@@ -31,7 +38,7 @@ public class MapMaterialization : MonoBehaviour
                     //周りをキューブで囲むように設置
                     if (isEventCheck(x, z))
                     {
-                        InstantRoom(wallObj, x, z);
+                        InstantRoom(wallObj, x, z, parent);
                     }
                 }
                 else
@@ -39,12 +46,12 @@ public class MapMaterialization : MonoBehaviour
                     //マップデータとイベントが一致している場合作成
                     if (eventObj.ContainsKey(mapData[x, z]))
                     {
-                        eventObj[mapData[x, z]] = InstantRoom(eventObj[mapData[x, z]], x, z);
+                        eventObj[mapData[x, z]] = InstantRoom(eventObj[mapData[x, z]], x, z, parent);
 
                     }
-                    else if(mapData[x, z] == Map.ObjType.EffectItem)
+                    else if (mapData[x, z] == Map.ObjType.EffectItem)
                     {
-                        InstantRoom(effectItems[effectItemCount], x, z);
+                        InstantRoom(effectItems[effectItemCount], x, z, parent);
                         effectItemCount++;
                     }
                 }
@@ -69,14 +76,6 @@ public class MapMaterialization : MonoBehaviour
             }
             return b;
         }
-
-        //生成
-        GameObject InstantRoom(GameObject instantObj, float x, float z)
-        {
-            GameObject cube = Instantiate(instantObj, new Vector3(x, 0, z), new Quaternion());
-            cube.transform.SetParent(parent);
-            return cube;
-        }
     }
 
     /// <summary>
@@ -86,7 +85,7 @@ public class MapMaterialization : MonoBehaviour
     /// <param name="d">マップの奥行</param>
     /// <param name="frameObj">設置するオブジェクト</param>
     /// <param name="parent">親に</param>
-    public static void InstantFrame(int w,int d,GameObject frameObj, Transform parent)
+    public static void InstantFrame(int w, int d, GameObject frameObj, Transform parent)
     {
         //地面の生成
         ObjInstant(new Vector3(w / 2, -1, d / 2), new Vector3(w, 1, d));
@@ -118,6 +117,36 @@ public class MapMaterialization : MonoBehaviour
         {
             GameObject instant = Instantiate(instantObj, obj.transform.position, new Quaternion());
             if (parent != null) instant.transform.SetParent(parent.transform.parent);
+        }
+    }
+
+    /// <summary>
+    /// 草の位置データを具現化
+    /// </summary>
+    /// <param name="grassData">草のデータ</param>
+    /// <param name="grassObj">草オブジェクト</param>
+    /// <param name="parent">親</param>
+    /// <param name="fixY">高さの調整</param>
+    /// <param name="space">草同士の幅</param>
+    public static void GrassSet(float[,] grassData, GameObject[] grassObj, Transform parent, float fixY, int space)
+    {
+        int w = grassData.GetLength((int)Map.MapDataArrLength.Width);
+        int d = grassData.GetLength((int)Map.MapDataArrLength.Depth);
+
+        //オブジェクト設置
+        for (int x = 1; x < w - 1; x += space)
+        {
+            for (int z = 1; z < d - 1; z += space)
+            {
+                //オブジェクトの生成
+                GameObject obj = grassObj[Random.Range(0, grassObj.Length - 1)];
+                float y = grassData[x, z] + fixY;
+                GameObject instant = InstantRoom(obj, x, z, parent, y);
+
+                //ランダムに向きを変える
+                float rotY = Random.Range(0, 360);
+                instant.transform.eulerAngles = new Vector3(0, rotY, 0);
+            }
         }
     }
 }
