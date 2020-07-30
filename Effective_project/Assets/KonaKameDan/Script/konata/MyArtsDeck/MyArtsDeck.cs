@@ -59,7 +59,7 @@ public class MyArtsDeck : MonoBehaviour
         return UI_Manager.ArtsEntryTrigger() && UI_Manager.GetIsEffectFusionUI_ChoiceActive;
     }
 
-    //所持しているエフェクトからアーツに気組み込まれたエフェクトごとの所持数を返す
+    //所持しているエフェクトからアーツに組み込まれたエフェクトごとの所持数を返す
     int SearchEffectStockCount(int num)
     {
         int count = 0;

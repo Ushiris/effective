@@ -43,7 +43,6 @@ public class ParticleHit : MonoBehaviour
     private void OnParticleCollision(GameObject gameObject)
     {
         hitCount++;
-        Debug.Log(gameObject.name);
         if (gameObject.tag == hitObjTag)
         {
             Damage(gameObject);
