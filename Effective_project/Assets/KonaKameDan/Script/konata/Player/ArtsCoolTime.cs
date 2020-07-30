@@ -9,18 +9,20 @@ public class ArtsCoolTime : MonoBehaviour
 {
     //[SerializeField] ArtsInstantManager artsInstantManager;
     public ArtsInstantManager artsInstantManager;
-    static ArtsInstantManager artsStatusData;
+
+    public UI_CoolTime[] uI_CoolTime;
+    static ArtsCoolTime GetMy;
 
     private void Start()
     {
-        artsStatusData = artsInstantManager;
+        GetMy = this;
     }
 
     //エフェクト所持数ごとにクールタイムを減らすやつ
     static float CoolTimeDown(string id, MyEffectCount myEffectCount)
     {
         float f = 0, average = 0;
-        var aim = artsStatusData.prefabs.GetTable()[id];
+        var aim = GetMy.artsInstantManager.prefabs.GetTable()[id];
 
         foreach (var effect in aim.effect)
         {
@@ -39,6 +41,21 @@ public class ArtsCoolTime : MonoBehaviour
     /// <returns></returns>
     public static float GetCoolTime(string id, MyEffectCount myEffectCount)
     {
-        return CoolTimeDown(id, myEffectCount) + artsStatusData.prefabs.GetTable()[id].coolTime;
+        return CoolTimeDown(id, myEffectCount) + GetMy.artsInstantManager.prefabs.GetTable()[id].coolTime;
+    }
+
+    /// <summary>
+    /// UIの設定
+    /// </summary>
+    /// <param name="time"></param>
+    public static void CoolTimeUI(float time,string id)
+    {
+        for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)
+        {
+            if (MyArtsDeck.GetArtsDeck[i].id == id)
+            {
+                GetMy.uI_CoolTime[i].SetMaxTime(time);
+            }
+        }
     }
 }

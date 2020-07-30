@@ -8,10 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 public class UI_CoolTime : MonoBehaviour
 {
-    [SerializeField] int deckNum;
-    string tmpId;
-    string id;
-    bool isStart = true;
+    bool isStart;
     Slider slider;
 
     // Start is called before the first frame update
@@ -23,34 +20,22 @@ public class UI_CoolTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        id = MyArtsDeck.GetArtsDeck[deckNum].id;
-
-        if (tmpId != id)
+        if (isStart)
         {
-            tmpId = id;
-            isStart = false;
+            //float time = Time.deltaTime * 100;
+            slider.value -= Time.deltaTime;
+            if (slider.value < 0) isStart = false;
         }
+    }
 
-        //クールターム表示の初期
-        if (!isStart)
-        {
-            if (PlayerArtsInstant.coolTimes.ContainsKey(tmpId))
-            {
-                isStart = true;
-                slider.maxValue = PlayerArtsInstant.coolTimes[tmpId];
-                slider.value = PlayerArtsInstant.coolTimes[tmpId];
-            }
-            else slider.value = 0;
-        }
-
-        //クールターム表示
-        if (slider.value != 0)
-        {
-            if (PlayerArtsInstant.coolTimes.ContainsKey(tmpId))
-            {
-                slider.value = PlayerArtsInstant.coolTimes[tmpId];
-            }
-            else slider.value = 0;
-        }
+    /// <summary>
+    /// クールタイムセット
+    /// </summary>
+    /// <param name="max"></param>
+    public void SetMaxTime(float max)
+    {
+        slider.maxValue = max;
+        slider.value = max;
+        isStart = true;
     }
 }

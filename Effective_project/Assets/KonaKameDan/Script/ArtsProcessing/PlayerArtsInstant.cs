@@ -10,14 +10,15 @@ public class PlayerArtsInstant : MonoBehaviour
     [SerializeField] string debugNum = "045";
     [SerializeField] GameObject artsObj;
     MyEffectCount myEffectCount;
+    string artsId;
 
-    public static Dictionary<string, float> coolTimes = new Dictionary<string, float>();
+    Dictionary<string, float> coolTimes = new Dictionary<string, float>();
     List<string> collectionKey = new List<string>();
 
     // Start is called before the first frame update
     void Start()
     {
-        coolTimes.Clear();
+        //coolTimes.Clear();
         myEffectCount = artsObj.GetComponent<MyEffectCount>();
     }
 
@@ -29,15 +30,23 @@ public class PlayerArtsInstant : MonoBehaviour
             GetEffectCount();
 
             //ArtsID検出
-            string artsId = ArtsInstantManager.SelectArts(MyArtsDeck.GetSelectArtsDeck.id, debugNum);
+            artsId = ArtsInstantManager.SelectArts(MyArtsDeck.GetSelectArtsDeck.id, debugNum);
 
             //ArtsInstantManager.InstantArts(artsObj, artsId);
-            CoolTime(artsId);
+            StartCoolTime(artsId);
+        }
+        else
+        {
+            if (artsId != "")
+            {
+                CoolTime();
+                if (UI_Manager.ArtsEntryTrigger()) CoolTimeUI();
+            }
         }
     }
 
-    //クールタイム用
-    void CoolTime(string artsId)
+    //クールタイム生成
+    void StartCoolTime(string artsId)
     {
         if (!coolTimes.ContainsKey(artsId))
         {
@@ -47,8 +56,15 @@ public class PlayerArtsInstant : MonoBehaviour
             //生成
             ArtsInstantManager.InstantArts(artsObj, artsId);
             coolTimes.Add(artsId, timer);
-        }
 
+            //UI
+            CoolTimeUI();
+        }
+    }
+
+    //クールタイムの処理
+    void CoolTime()
+    {
         //所持しているid
         collectionKey = new List<string>(coolTimes.Keys);
 
@@ -56,9 +72,26 @@ public class PlayerArtsInstant : MonoBehaviour
         foreach (var key in collectionKey)
         {
             coolTimes[key] -= Time.deltaTime;
-            if (coolTimes[key] > 0) coolTimes.Remove(key);
+            Debug.Log(coolTimes[key]);
+            if (coolTimes[key] < 0) coolTimes.Remove(key);
         }
+    }
 
+    //UI
+    void CoolTimeUI()
+    {
+        string key = MyArtsDeck.GetSelectArtsDeck.id;
+        try
+        {
+            if (coolTimes.ContainsKey(key))
+            {
+                ArtsCoolTime.CoolTimeUI(coolTimes[key], key);
+            }
+        }
+        catch (System.ArgumentException)
+        {
+            ArtsCoolTime.CoolTimeUI(0, key);
+        }
     }
 
     //所持しているエフェクトのスタック数を入れる

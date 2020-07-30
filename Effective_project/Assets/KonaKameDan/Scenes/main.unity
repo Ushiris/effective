@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.06744362, g: 0.0889105, b: 0.13196887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1249,6 +1249,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1561241421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1998347952295408722, guid: 6231dac0c7378304296d4a4f746d7f19,
+    type: 3}
+  m_PrefabInstance: {fileID: 66824373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffddda1696166847beb7c06b761de7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1701111864 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1998347952295408722, guid: 6231dac0c7378304296d4a4f746d7f19,
+    type: 3}
+  m_PrefabInstance: {fileID: 1875039544}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffddda1696166847beb7c06b761de7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1743027304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2508,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff89caf8b5b1bfb4db26a5ee6c6e88e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2105395833 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1998347952295408722, guid: 6231dac0c7378304296d4a4f746d7f19,
+    type: 3}
+  m_PrefabInstance: {fileID: 1775565912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffddda1696166847beb7c06b761de7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2119136250 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8169682640996049635, guid: e037d695fb47f284ebde4b88400bd150,
@@ -2503,6 +2539,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artsInstantManager: {fileID: 1935582587}
+  uI_CoolTime:
+  - {fileID: 2105395833}
+  - {fileID: 1701111864}
+  - {fileID: 1561241421}
 --- !u!1001 &1763825007782605898
 PrefabInstance:
   m_ObjectHideFlags: 0
