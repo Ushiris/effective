@@ -41,7 +41,7 @@ public class Id159_Hayabusa : MonoBehaviour
             {
                 var obj = Instantiate(slashParticleObj, transform);
                 obj.transform.position = hit.transform.position;
-                obj.transform.localRotation = Look(obj, gameObject);
+                obj.transform.rotation = Look(obj, gameObject);
 
                 Damage(obj);
             }
