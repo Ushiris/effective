@@ -68,6 +68,9 @@ public class Map : MonoBehaviour
     [Header("シード値")]
     [SerializeField] int seed;
 
+    [Header("軽量化")]
+    [SerializeField] bool isLightweight;
+
 
     ObjType[,] mapData;
     Dictionary<ObjType, GameObject> eventObj = new Dictionary<ObjType, GameObject>();
@@ -119,7 +122,8 @@ public class Map : MonoBehaviour
         //草の座標データ作成
         float[,] grassData = TerrainDataInstant.InstantGrassMapChip(w, d, grassSpaceH, chaos, true);
         //草の具現化
-        MapMaterialization.GrassSet(grassData, grassObjArr, transform, grassFixH, grassSpace);
+        if (!isLightweight)
+            MapMaterialization.GrassSet(grassData, grassObjArr, transform, grassFixH, grassSpace);
 
         //オブジェクトを生成
         ListToDictionary();

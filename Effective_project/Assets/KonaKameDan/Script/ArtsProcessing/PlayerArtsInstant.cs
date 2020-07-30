@@ -11,12 +11,13 @@ public class PlayerArtsInstant : MonoBehaviour
     [SerializeField] GameObject artsObj;
     MyEffectCount myEffectCount;
 
-    Dictionary<string, float> coolTimes = new Dictionary<string, float>();
-    List<string> removeKey = new List<string>();
+    public static Dictionary<string, float> coolTimes = new Dictionary<string, float>();
+    List<string> collectionKey = new List<string>();
 
     // Start is called before the first frame update
     void Start()
     {
+        coolTimes.Clear();
         myEffectCount = artsObj.GetComponent<MyEffectCount>();
     }
 
@@ -30,38 +31,32 @@ public class PlayerArtsInstant : MonoBehaviour
             //ArtsID検出
             string artsId = ArtsInstantManager.SelectArts(MyArtsDeck.GetSelectArtsDeck.id, debugNum);
 
-            ArtsInstantManager.InstantArts(artsObj, artsId);
+            //ArtsInstantManager.InstantArts(artsObj, artsId);
+            CoolTime(artsId);
         }
     }
 
     //クールタイム用
     void CoolTime(string artsId)
     {
-        //ここにそれぞれのクールタイムを入れる
-        float timer = ArtsCoolTime.GetCoolTime(artsId, myEffectCount);
-
-        //生成
         if (!coolTimes.ContainsKey(artsId))
         {
+            //ここにそれぞれのクールタイムを入れる
+            float timer = ArtsCoolTime.GetCoolTime(artsId, myEffectCount);
+
+            //生成
             ArtsInstantManager.InstantArts(artsObj, artsId);
             coolTimes.Add(artsId, timer);
         }
 
+        //所持しているid
+        collectionKey = new List<string>(coolTimes.Keys);
+
         //タイマーの処理
-        foreach(var key in coolTimes.Keys)
+        foreach (var key in collectionKey)
         {
             coolTimes[key] -= Time.deltaTime;
-            if (coolTimes[key] < 0) removeKey.Add(key);
-        }
-
-        //タイマーを消す
-        if (removeKey.Count != 0)
-        {
-            foreach (var key in removeKey)
-            {
-                coolTimes.Remove(key);
-            }
-            removeKey.Clear();
+            if (coolTimes[key] > 0) coolTimes.Remove(key);
         }
 
     }
