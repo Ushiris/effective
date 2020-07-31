@@ -18,6 +18,9 @@ public class EnemyMove : MonoBehaviour
 
     private void LateUpdate()
     {
-        navMesh.SetDestination(target.transform.position);
+        if (Vector3.Distance(target.transform.position, transform.position) <= 45)
+        {
+            navMesh.SetDestination(target.transform.position);
+        }
     }
 }

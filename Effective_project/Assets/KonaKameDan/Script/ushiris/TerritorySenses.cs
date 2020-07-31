@@ -16,12 +16,12 @@ public class TerritorySenses : MonoBehaviour
         bossUI.renderMode = RenderMode.ScreenSpaceOverlay;
 
         BossName = Instantiate(Resources.Load("UI/BossName"))as GameObject;
-        BossName.GetComponent<RectTransform>().parent = bossUI.GetComponent<RectTransform>();
+        BossName.GetComponent<RectTransform>().SetParent(bossUI.GetComponent<RectTransform>());
         BossName.transform.localPosition = new Vector3(0, 250);
 
         Enemy enemy = transform.parent.gameObject.GetComponent<Enemy>();
         slider = Instantiate(enemy.slider);
-        slider.transform.parent = bossUI.transform;
+        slider.transform.SetParent(bossUI.transform);
         slider.transform.localPosition = new Vector3(0, 225, 0);
         slider.transform.localScale = new Vector3(0.5f, 8, 0.1f);
         slider.direction = Slider.Direction.RightToLeft;
