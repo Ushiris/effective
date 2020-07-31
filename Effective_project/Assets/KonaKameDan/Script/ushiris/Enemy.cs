@@ -37,48 +37,10 @@ public class Enemy : MonoBehaviour
         //Lifeの初期化
         if (life.LifeSetup(1)) Debug.Log("Error init HP");
         life.AddLastword(DropEffect);
+        life.AddLastword(() => { EnemySpawn.EnemyCount--; });
         life.AddLastword(Dead);
         life.AddDamageFunc(Damage);
         life.AddHealFunc(Heal);
-    }
-
-    void Attack()
-    {
-        Vector3 pointB = GameObject.FindGameObjectWithTag("Player").transform.position;
-        float angle = 45;
-        Vector3 velocity;
-
-        // 射出角をラジアンに変換
-        float rad = angle * Mathf.PI / 180;
-
-        // 水平方向の距離x
-        float x = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(pointB.x, pointB.z));
-
-        // 垂直方向の距離y
-        float y = transform.position.y - pointB.y;
-
-        // 斜方投射の公式を初速度について解く
-        float speed = Mathf.Sqrt(-Physics.gravity.y * Mathf.Pow(x, 2) / (2 * Mathf.Pow(Mathf.Cos(rad), 2) * (x * Mathf.Tan(rad) + y)));
-
-        if (float.IsNaN(speed))
-        {
-            // 条件を満たす初速を算出できなければVector3.zeroを返す
-            velocity= Vector3.zero;
-        }
-        else
-        {
-            velocity= (new Vector3(pointB.x - transform.position.x, x * Mathf.Tan(rad), pointB.z - transform.position.z).normalized * speed);
-        }
-
-        if (velocity == Vector3.zero) return;
-
-        GameObject bullet_i = Instantiate(bullet);
-        Transform bullet_tr = bullet_i.transform;
-        bullet_tr.position = transform.position;
-
-        bullet_i.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        
-        bullet_i.GetComponent<Rigidbody>().AddForce(velocity * bullet_i.GetComponent<Rigidbody>().mass, ForceMode.Impulse);
     }
 
     void DropEffect()
