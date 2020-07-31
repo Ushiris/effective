@@ -171,6 +171,18 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// ダメージの計算
+    /// </summary>
+    /// <param name="defaultDamage"></param>
+    /// <param name="plusDamage"></param>
+    /// <param name="effectCount"></param>
+    /// <returns></returns>
+    public static float GetDamage(float defaultDamage, float plusDamage ,int effectCount)
+    {
+        return defaultDamage + (plusDamage * (float)effectCount);
+    }
+
+    /// <summary>
     /// ダメージ代入
     /// </summary>
     /// <param name="hit">パーティクル</param>

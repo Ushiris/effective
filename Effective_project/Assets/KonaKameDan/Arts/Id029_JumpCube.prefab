@@ -53,6 +53,7 @@ MonoBehaviour:
   cubeRotationSpeed: 100
   miracleCount: 10
   miracleSpace: 0.1
+  flyingDistance: 0.5
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

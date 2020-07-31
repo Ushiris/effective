@@ -9,10 +9,19 @@ public class Id259_FlyCurse : MonoBehaviour
     [SerializeField] float sizUpSpeed = 5f;
     [SerializeField] float lostTime = 60f;
 
+    [Header("防御のスタック数に応じてたされる数")]
+    [SerializeField] float plusRange = 0.5f;
+
+    [Header("追尾のスタック数に応じてたされる数")]
+    [SerializeField] float plusTime = 0.5f;
+
     GameObject zone;
 
     StopWatch timer;
     ArtsStatus artsStatus;
+
+    int barrierCount;
+    int homingCount;
 
     List<ArtsStatus.ArtsType> artsTypes = new List<ArtsStatus.ArtsType>()
     {
@@ -35,6 +44,16 @@ public class Id259_FlyCurse : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //エフェクトの所持数を代入
+        barrierCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Barrier);
+        homingCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Homing);
+
+        //効果範囲変更
+        siz += (Vector3.one * (plusRange * (float)barrierCount)) * 2;
+
+        //持続時間変更
+        lostTime += plusTime * (float)plusTime;
 
         //生成
         zone = Instantiate(zoneObj, transform);

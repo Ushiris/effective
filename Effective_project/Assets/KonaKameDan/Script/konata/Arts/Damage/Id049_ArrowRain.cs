@@ -20,14 +20,38 @@ public class Id049_ArrowRain : MonoBehaviour
 
     [Header("アローレインの生成高さ")]
     [SerializeField] float instantHigh = 20f;
-   
+
+    [Header("ダメージ")]
+    [SerializeField] float defaultDamage = 0.8f;
+
+    [Header("射撃のスタック数に応じてたされる数")]
+    [SerializeField] float plusDamage = 0.01f;
+
+    [Header("飛翔のスタック数に応じてたされる数")]
+    [SerializeField] float plusTime = 0.2f;
+
     bool isStart;
     bool isArrowRain;
+
+    ArtsStatus artsStatus;
+
+    int shotCount;
+    int flyCount;
+    float damage;
 
     // Start is called before the first frame update
     void Start()
     {
+        artsStatus = GetComponent<ArtsStatus>();
+
         transform.parent = null;
+
+        //エフェクトの所持数を代入
+        shotCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Shot);
+        flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);
+
+        //ダメージの計算
+        damage = Arts_Process.GetDamage(defaultDamage, plusDamage, shotCount);
 
         //生成位置決める用の目印オブジェクト生成
         instantPointPos = Instantiate(pointPosObj,Vector3.zero,new Quaternion());
@@ -71,6 +95,16 @@ public class Id049_ArrowRain : MonoBehaviour
                 {
                     GameObject arrowRainObj = Instantiate(arrowRainParticle, magicCircle.transform);
                     isArrowRain = true;
+
+                    //持続時間変更
+                    var p = arrowRainObj.GetComponent<ParticleSystem>();
+                    var main = p.main;
+                    main.duration += plusTime * (float)flyCount;
+
+                    //ダメージ
+                    var hit = Arts_Process.SetParticleDamageProcess(arrowRainObj);
+                    //ダメージ処理
+                    Arts_Process.Damage(hit, artsStatus, damage, true);
                 }
                 if (magicCircle.transform.childCount == 0)
                 {

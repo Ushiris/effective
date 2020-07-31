@@ -49,6 +49,8 @@ MonoBehaviour:
   siz: {x: 30, y: 30, z: 30}
   sizUpSpeed: 5
   lostTime: 30
+  plusRange: 0.5
+  plusTime: 0.5
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

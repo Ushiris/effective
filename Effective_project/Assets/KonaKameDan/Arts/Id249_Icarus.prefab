@@ -50,6 +50,8 @@ MonoBehaviour:
   range: 50
   force: 10
   lostTime: 30
+  plusTime: 0.5
+  plusRange: 0.3
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -52,6 +52,7 @@ MonoBehaviour:
   effectObjectMaterialDefault: {fileID: 2100000, guid: f206474d6fea82c4b9fa6e040a61473d,
     type: 2}
   materialChangeTime: 50
+  plusTime: 0.05
 --- !u!114 &114623453531396258
 MonoBehaviour:
   m_ObjectHideFlags: 0

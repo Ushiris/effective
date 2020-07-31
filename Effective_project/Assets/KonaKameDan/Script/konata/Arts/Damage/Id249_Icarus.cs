@@ -9,11 +9,20 @@ public class Id249_Icarus : MonoBehaviour
     [SerializeField] float force = 10f;
     [SerializeField] float lostTime = 30f;
 
+    [Header("防御のスタック数に応じてたされる数")]
+    [SerializeField] float plusTime = 0.5f;
+
+    [Header("飛翔のスタック数に応じてたされる数")]
+    [SerializeField] float plusRange = 0.3f;
+
     int layerMask;
     GameObject area;
 
     StopWatch timer;
     ArtsStatus artsStatus;
+
+    int barrierCount;
+    int spreadCount;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +35,16 @@ public class Id249_Icarus : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //エフェクトの所持数を代入
+        barrierCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Barrier);
+        spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
+
+        //持続時間変更
+        lostTime += plusTime * (float)barrierCount;
+
+        //範囲変更
+        range += plusRange * (float)spreadCount;
 
         //パーティクルの生成
         Instantiate(icarusParticleObj, transform);

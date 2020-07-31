@@ -9,8 +9,13 @@ public class Id25_UnbreakableShield : MonoBehaviour
     [SerializeField] float radius = 2f;
     [SerializeField] float speed = 100f;
 
+    [Header("追尾のスタック数に応じてたされる数")]
+    [SerializeField] float plusTime = 0.5f;
+
     StopWatch timer;
     ArtsStatus artsStatus;
+
+    int homingCount;
 
     const int count = 3;
 
@@ -25,6 +30,12 @@ public class Id25_UnbreakableShield : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //エフェクトの所持数を代入
+        homingCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Homing);
+
+        //持続時間変更
+        timeOver += plusTime * (float)homingCount;
 
         //円状の座標取得
         var pos = Arts_Process.GetCirclePutPos(count, radius, 360);

@@ -16,15 +16,28 @@ public class Id49_Impact : MonoBehaviour
     [SerializeField] float impactSizUpSpeed = 3f;
     [SerializeField] float fadeSpeed = 10f;
 
+    [Header("拡散のスタック数に応じてたされる数")]
+    [SerializeField] float radiusUp = 0.02f;
+
     GameObject impact;
     ObjSizChange impactObjSiz;
 
     float fade;
 
+    ArtsStatus artsStatus;
+
+    int spreadCount;
+
     // Start is called before the first frame update
     void Start()
     {
-        var artsStatus = GetComponent<ArtsStatus>();
+        artsStatus = GetComponent<ArtsStatus>();
+
+        //エフェクトの所持数を代入
+        spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
+
+        //効果範囲変更
+        impactMaxSiz += (Vector3.one * (float)spreadCount) * 2;
 
         //インパクトオブジェクトのサイズ変更
         impact = Instantiate(impactObj, transform);

@@ -53,6 +53,8 @@ MonoBehaviour:
   maxCount: 3
   cubeRotationSpeed: 10
   instantPos: {x: -1, y: 1, z: 0}
+  frequency: 0.01
+  maxCountPlus: 0.5
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

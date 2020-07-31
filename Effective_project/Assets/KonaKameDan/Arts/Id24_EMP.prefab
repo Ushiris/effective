@@ -52,6 +52,7 @@ MonoBehaviour:
   zoneObj: {fileID: 6226077346398271668, guid: 3e4e3a5994e5efe4bb844be21ba2f4c1, type: 3}
   range: 10
   lostTime: 3
+  rangeDown: 0.5
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

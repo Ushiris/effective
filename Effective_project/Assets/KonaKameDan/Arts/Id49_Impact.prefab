@@ -54,6 +54,7 @@ MonoBehaviour:
   impactMaxSiz: {x: 20, y: 20, z: 20}
   impactSizUpSpeed: 3
   fadeSpeed: 10
+  radiusUp: 0.02
 --- !u!114 &114018094247310602
 MonoBehaviour:
   m_ObjectHideFlags: 0

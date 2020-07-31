@@ -9,8 +9,13 @@ public class Id025_PrimitiveShield : MonoBehaviour
     [SerializeField] float force = 8f;
     [SerializeField] float lostTime = 4f;
 
+    [Header("追尾のスタック数に応じてたされる数")]
+    [SerializeField] float plusTime = 0.2f;
+
     StopWatch timer;
     ArtsStatus artsStatus;
+
+    int homingCount;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +29,12 @@ public class Id025_PrimitiveShield : MonoBehaviour
         }
 
         transform.parent = null;
+
+        //エフェクトの所持数を代入
+        homingCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Homing);
+
+        //持続時間変更
+        lostTime += plusTime * (float)homingCount;
 
         //オブジェクトの生成
         GameObject shield = Instantiate(shieldObj, transform);
