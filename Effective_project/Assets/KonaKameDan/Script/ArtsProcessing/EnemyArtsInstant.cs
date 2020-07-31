@@ -20,10 +20,12 @@ public class EnemyArtsInstant : MonoBehaviour
     StopWatch timer;
     MyEffectCount myEffectCount;
     EnemyEffectPicKUp effectPicKUp;
+    EnemyMove move;
 
     // Start is called before the first frame update
     void Start()
     {
+        move = GetComponent<EnemyMove>();
         effectPicKUp = GetComponent<EnemyEffectPicKUp>();
         myEffectCount = GetComponent<MyEffectCount>();
 
@@ -32,12 +34,14 @@ public class EnemyArtsInstant : MonoBehaviour
         //一定の秒数ごとにArtsを放つ
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = coolTime;
-        timer.LapEvent = () => { Action(); };
+        timer.LapEvent = Action;
     }
 
     //エフェクトを出す処理
     void Action()
     {
+        if (move.state == EnemyMove.MoveState.Stay) return;
+
         //ArtsID検出
         string id = effectPicKUp.GetArtsId;
 

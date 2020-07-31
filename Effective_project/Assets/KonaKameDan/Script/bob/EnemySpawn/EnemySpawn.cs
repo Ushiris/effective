@@ -11,6 +11,8 @@ public class EnemySpawn : MonoBehaviour
     public float posY = 0.0f;// enemyスポーン高さ]
     GameObject playerPos;// playerのポジション
     StopWatch timer;
+    public static int EnemyCount = 0;
+    public static int EnemyLimit = 5;
 
     private void Start()
     {
@@ -22,6 +24,8 @@ public class EnemySpawn : MonoBehaviour
 
     void Spawn()
     {
+        if (EnemyCount >= EnemyLimit) return;
+
         playerPos = PlayerManager.GetManager.GetPlObj;
 
         SpawnPos = new Vector3(Random.Range(-SpawnRange + playerPos.transform.position.x, SpawnRange + playerPos.transform.position.x),
@@ -29,5 +33,6 @@ public class EnemySpawn : MonoBehaviour
                                Random.Range(-SpawnRange + playerPos.transform.position.z, SpawnRange + playerPos.transform.position.z));
 
         enemyOccurrence.EnemyGenerate(SpawnPos);
+        EnemyCount++;
     }
 }
