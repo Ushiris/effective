@@ -11,12 +11,21 @@ public class Id245_EMPCube : MonoBehaviour
     [SerializeField] float cubeRotationSpeed;
     [SerializeField] Vector3 instantPos = new Vector3(-1, 1, 0);
 
+    [Header("防御のスタック数に応じてたされる数")]
+    [SerializeField] float frequency = 0.01f;
+
+    [Header("追尾のスタック数に応じてたされる数")]
+    [SerializeField] float maxCountPlus = 0.5f;
+
     int count;
     Vector3 rot;
     GameObject empCube;
 
     StopWatch timer;
     ArtsStatus artsStatus;
+
+    int barrierCount;
+    int homingCount;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +38,17 @@ public class Id245_EMPCube : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //エフェクトの所持数を代入
+        barrierCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Barrier);
+        homingCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Homing);
+
+        //頻度変更
+        timeSpace -= frequency * (float)barrierCount;
+
+        //回数上限変更
+        maxCount += (int)Mathf.Floor(maxCountPlus * (float)homingCount);
+
 
         //生成位置の調整
         transform.localPosition = instantPos;

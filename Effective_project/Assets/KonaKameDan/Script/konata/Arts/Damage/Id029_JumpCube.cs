@@ -11,6 +11,10 @@ public class Id029_JumpCube : MonoBehaviour
     [SerializeField] float miracleCount = 10;
     [SerializeField] float miracleSpace = 0.1f;
 
+    [Header("飛翔のスタック数に応じてたされる数")]
+    [SerializeField]
+    float flyingDistance = 0.5f;
+
     Vector3 rot;
     GameObject jumpCube;
     GameObject parent;
@@ -20,13 +24,26 @@ public class Id029_JumpCube : MonoBehaviour
 
     bool isStart = true;
 
+    ArtsStatus artsStatus;
+
+    int flyCount;
+
     // Start is called before the first frame update
     void Start()
     {
+        artsStatus = GetComponent<ArtsStatus>();
+
         for (int i = 0; i < miracleCount; i++)
         {
             miracles.Add(Instantiate(miracleObj, transform));
         }
+
+        //エフェクトの所持数を代入
+        flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);
+
+        //飛距離変更
+        v0.z += flyingDistance * (float)flyCount;
+
 
         //ランダムに回転の速さを変える
         rot = new Vector3(Random.Range(0, 2f), Random.Range(0, 2f), Random.Range(0, 2f));

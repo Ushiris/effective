@@ -50,6 +50,7 @@ MonoBehaviour:
   siz: 3
   force: 8000
   lostTime: 4
+  plusTime: 0.2
 --- !u!114 &114378054479745966
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,10 +15,11 @@ public class PlayerArtsInstant : MonoBehaviour
     Dictionary<string, float> coolTimes = new Dictionary<string, float>();
     List<string> collectionKey = new List<string>();
 
+
     // Start is called before the first frame update
     void Start()
     {
-        //coolTimes.Clear();
+        
         myEffectCount = artsObj.GetComponent<MyEffectCount>();
     }
 
@@ -72,7 +73,7 @@ public class PlayerArtsInstant : MonoBehaviour
         foreach (var key in collectionKey)
         {
             coolTimes[key] -= Time.deltaTime;
-            Debug.Log("ID: "+key+" クールタイム: " + coolTimes[key]);
+            //Debug.Log("ID: "+key+" クールタイム: " + coolTimes[key]);
             if (coolTimes[key] < 0) coolTimes.Remove(key);
         }
     }

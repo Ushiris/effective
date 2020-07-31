@@ -49,6 +49,8 @@ MonoBehaviour:
     type: 3}
   force: 200
   lostTime: 3
+  defaultDamage: 0.8
+  plusDamage: 0.08
 --- !u!114 &114809336146001686
 MonoBehaviour:
   m_ObjectHideFlags: 0

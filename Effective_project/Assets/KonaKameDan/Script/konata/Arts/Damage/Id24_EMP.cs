@@ -14,11 +14,16 @@ public class Id24_EMP : MonoBehaviour
     [SerializeField] float range = 10f;
     [SerializeField] float lostTime = 3f;
 
+    [Header("拡散のスタック数に応じてたされる数")]
+    [SerializeField] float rangeDown = 0.5f;
+
     float time;
     GameObject zone;
 
     StopWatch timer;
     ArtsStatus artsStatus;
+
+    int spreadCount;
 
     List<ArtsStatus.ArtsType> artsTypes = new List<ArtsStatus.ArtsType>()
     {
@@ -44,6 +49,12 @@ public class Id24_EMP : MonoBehaviour
 
         transform.parent = null;
         transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        //エフェクトの所持数を代入
+        spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
+
+        //サイズの変更
+        range += rangeDown * (float)spreadCount;
 
         //波紋の生成
         Instantiate(rippleObj, transform);

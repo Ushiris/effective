@@ -53,6 +53,11 @@ MonoBehaviour:
   lostTime: 10
   speed: 5
   distance: 3
+  defaultDamage: 0.4
+  plusDamage: 0.01
+  plusTime: 0.5
+  defaultAttackFrequency: 1
+  attackFrequency: 0.01
 --- !u!114 &114315077771506830
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,22 +20,19 @@ public class ParticleHit : MonoBehaviour
         var p = GetComponent<ParticleSystem>();
         var c = p.collision;
 
-        if (p != null)
+        switch (type)
         {
-            switch (type)
-            {
-                case ArtsStatus.ParticleType.Player:
-                    c.collidesWith = Layer("Enemy");
-                    hitObjTag = "Enemy";
-                    break;
+            case ArtsStatus.ParticleType.Player:
+                if (p != null) c.collidesWith = Layer("Enemy");
+                hitObjTag = "Enemy";
+                break;
 
-                case ArtsStatus.ParticleType.Enemy:
-                    c.collidesWith = Layer("Player");
-                    hitObjTag = "Player";
-                    break;
+            case ArtsStatus.ParticleType.Enemy:
+                if (p != null) c.collidesWith = Layer("Player");
+                hitObjTag = "Player";
+                break;
 
-                default: break;
-            }
+            default: break;
         }
     }
 
@@ -52,7 +49,7 @@ public class ParticleHit : MonoBehaviour
     //オブジェクトが貫通した時
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == hitObjTag)
+        if (other.CompareTag(hitObjTag))
         {
             Damage(other.gameObject);
         }
