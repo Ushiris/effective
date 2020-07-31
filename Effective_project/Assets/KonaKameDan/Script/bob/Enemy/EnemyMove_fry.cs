@@ -12,12 +12,14 @@ public class EnemyMove_fry : MonoBehaviour
     private float f;// 振動数
     public float fryPosUp = 5;
     public float fryPosDown = 3;
+    //private Vector3 forceSin;
 
     void Start()
     {
         f = 1.0f / vibration;// 振動数
         transform.position = new Vector3(transform.position.x, Random.Range(fryPosDown, fryPosUp), transform.position.z);
         enemyStartPos_y = this.transform.position.y;
+
     }
 
     void Update()
@@ -25,5 +27,8 @@ public class EnemyMove_fry : MonoBehaviour
         sin = Mathf.Sin(2 * Mathf.PI * f * Time.time) * shaking;
         enemyNowPos_y = transform.parent.gameObject.transform.position.y + enemyStartPos_y + sin;// 揺れ加減
         this.transform.position = new Vector3(transform.position.x, enemyNowPos_y, transform.position.z);
+        //Rigidbody rd = this.GetComponent<Rigidbody>();
+        //forceSin = new Vector3(rd.position.x, rd.position.y + sin, rd.position.z);
+        //rd.position = forceSin;
     }
 }
