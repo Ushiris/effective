@@ -40,7 +40,6 @@ public class Enemy : MonoBehaviour
         life.AddLastword(Dead);
         life.AddDamageFunc(Damage);
         life.AddHealFunc(Heal);
-        life.AddBeat(Attack);
     }
 
     void Attack()
