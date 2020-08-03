@@ -55,6 +55,7 @@ public class Id049_ArrowRain : MonoBehaviour
 
         //生成位置決める用の目印オブジェクト生成
         instantPointPos = Instantiate(pointPosObj,Vector3.zero,new Quaternion());
+        instantPointPos.transform.localScale = new Vector3(5, 0.1f, 5);
     }
 
     // Update is called once per frame
@@ -93,13 +94,13 @@ public class Id049_ArrowRain : MonoBehaviour
                 //アローレインパーティクルの生成
                 if (!isArrowRain)
                 {
-                    GameObject arrowRainObj = Instantiate(arrowRainParticle, magicCircle.transform);
-                    isArrowRain = true;
-
                     //持続時間変更
-                    var p = arrowRainObj.GetComponent<ParticleSystem>();
+                    var p = arrowRainParticle.GetComponent<ParticleSystem>();
                     var main = p.main;
                     main.duration += plusTime * (float)flyCount;
+
+                    GameObject arrowRainObj = Instantiate(arrowRainParticle, magicCircle.transform);
+                    isArrowRain = true;
 
                     //ダメージ
                     var hit = Arts_Process.SetParticleDamageProcess(arrowRainObj);
