@@ -36,6 +36,9 @@ public class Id249_Icarus : MonoBehaviour
             Destroy(gameObject);
         }
 
+        transform.parent = null;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
         //エフェクトの所持数を代入
         barrierCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Barrier);
         spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
@@ -61,8 +64,9 @@ public class Id249_Icarus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collider[] enemies;
+        transform.position = artsStatus.myObj.transform.position;
 
+        Collider[] enemies;
         Vector3 pos = transform.position;
         enemies = Physics.OverlapSphere(pos, range, layerMask);
 
