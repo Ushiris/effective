@@ -58,4 +58,26 @@ public class ArtsCoolTime : MonoBehaviour
             }
         }
     }
+
+    public static void CoolTimeUIMax(string id, float maxTime)
+    {
+        for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)
+        {
+            if (MyArtsDeck.GetArtsDeck[i].id == id)
+            {
+                GetMy.uI_CoolTime[i].SetTimeMax(maxTime);
+            }
+        }
+    }
+
+    public static void CoolTimeUITime(string id, float time)
+    {
+        for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)
+        {
+            if (MyArtsDeck.GetArtsDeck[i].id == id)
+            {
+                GetMy.uI_CoolTime[i].SetTimeMax(time);
+            }
+        }
+    }
 }

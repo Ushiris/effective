@@ -41,7 +41,10 @@ public class PlayerArtsInstant : MonoBehaviour
             if (artsId != "0")
             {
                 CoolTime();
-                if (UI_Manager.ArtsEntryTrigger()) CoolTimeUI();
+                if (UI_Manager.ArtsEntryTrigger() && UI_Manager.GetIsEffectFusionUI_ChoiceActive)
+                {
+                    CoolTimeUI();
+                }
             }
         }
     }

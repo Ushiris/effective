@@ -20,12 +20,12 @@ public class UI_CoolTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isStart)
-        {
-            //float time = Time.deltaTime * 100;
-            slider.value -= Time.deltaTime;
-            if (slider.value < 0) isStart = false;
-        }
+        //if (isStart)
+        //{
+        //    //float time = Time.deltaTime * 100;
+        //    slider.value -= Time.deltaTime;
+        //    if (slider.value < 0) isStart = false;
+        //}
     }
 
     /// <summary>
@@ -37,5 +37,15 @@ public class UI_CoolTime : MonoBehaviour
         slider.maxValue = max;
         slider.value = max;
         isStart = true;
+    }
+
+    public void SetTimeMax(float max)
+    {
+        slider.maxValue = max;
+    }
+
+    public void SetTime(float time)
+    {
+        slider.value = time;
     }
 }
