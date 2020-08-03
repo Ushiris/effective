@@ -34,11 +34,11 @@ public class PlayerArtsInstant : MonoBehaviour
             artsId = ArtsInstantManager.SelectArts(MyArtsDeck.GetSelectArtsDeck.id, debugNum);
 
             //ArtsInstantManager.InstantArts(artsObj, artsId);
-            StartCoolTime(artsId);
+            if (artsId != "0") StartCoolTime(artsId);
         }
         else
         {
-            if (artsId != "")
+            if (artsId != "0")
             {
                 CoolTime();
                 if (UI_Manager.ArtsEntryTrigger()) CoolTimeUI();
@@ -49,18 +49,18 @@ public class PlayerArtsInstant : MonoBehaviour
     //クールタイム生成
     void StartCoolTime(string artsId)
     {
-        if (!coolTimes.ContainsKey(artsId))
-        {
-            //ここにそれぞれのクールタイムを入れる
-            float timer = ArtsCoolTime.GetCoolTime(artsId, myEffectCount);
+            if (!coolTimes.ContainsKey(artsId))
+            {
+                //ここにそれぞれのクールタイムを入れる
+                float timer = ArtsCoolTime.GetCoolTime(artsId, myEffectCount);
 
-            //生成
-            ArtsInstantManager.InstantArts(artsObj, artsId);
-            coolTimes.Add(artsId, timer);
+                //生成
+                ArtsInstantManager.InstantArts(artsObj, artsId);
+                coolTimes.Add(artsId, timer);
 
-            //UI
-            CoolTimeUI();
-        }
+                //UI
+                CoolTimeUI();
+            }
     }
 
     //クールタイムの処理
