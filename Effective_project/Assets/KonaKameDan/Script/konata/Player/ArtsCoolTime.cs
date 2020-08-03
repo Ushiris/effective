@@ -47,36 +47,16 @@ public class ArtsCoolTime : MonoBehaviour
     /// <summary>
     /// UIの設定
     /// </summary>
-    /// <param name="time"></param>
-    public static void CoolTimeUI(float time,string id)
+    /// <param name="time">クールタイムの経過時間</param>
+    /// <param name="maxTime">クールタイムmax値</param>
+    /// <param name="id">ArtsID</param>
+    public static void SetCoolTimeUI(float time, float maxTime, string id)
     {
         for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)
         {
             if (MyArtsDeck.GetArtsDeck[i].id == id)
             {
-                GetMy.uI_CoolTime[i].SetMaxTime(time);
-            }
-        }
-    }
-
-    public static void CoolTimeUIMax(string id, float maxTime)
-    {
-        for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)
-        {
-            if (MyArtsDeck.GetArtsDeck[i].id == id)
-            {
-                GetMy.uI_CoolTime[i].SetTimeMax(maxTime);
-            }
-        }
-    }
-
-    public static void CoolTimeUITime(string id, float time)
-    {
-        for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)
-        {
-            if (MyArtsDeck.GetArtsDeck[i].id == id)
-            {
-                GetMy.uI_CoolTime[i].SetTimeMax(time);
+                GetMy.uI_CoolTime[i].SetCoolTime(time, maxTime);
             }
         }
     }
