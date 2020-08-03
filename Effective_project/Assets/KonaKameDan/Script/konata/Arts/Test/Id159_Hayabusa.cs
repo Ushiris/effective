@@ -20,6 +20,7 @@ public class Id159_Hayabusa : MonoBehaviour
 
         //親子解除
         transform.parent = null;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
 
         //敵のLayerを取得
         layerMask = Arts_Process.GetVsLayerMask(artsStatus);
