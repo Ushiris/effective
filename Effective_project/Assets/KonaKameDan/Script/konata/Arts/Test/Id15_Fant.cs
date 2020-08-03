@@ -8,6 +8,7 @@ public class Id15_Fant : MonoBehaviour
     [SerializeField] float speed = 10f;
 
     bool isStop;
+    bool isSlash;
     GameObject target;
 
     ArtsStatus artsStatus;
@@ -38,13 +39,17 @@ public class Id15_Fant : MonoBehaviour
             float dis = Vector3.Distance(artsStatus.myObj.transform.position, targetPos);
             Debug.Log(dis);
 
-            if (dis < 2.5f && !isStop)
+            if (dis < 7f && !isSlash)
             {
                 //切るパーティクル生成
                 var obj = Instantiate(slashParticleObj, transform);
 
                 Damage(obj);
 
+                isSlash = true;
+            }
+            if(dis < 3.5f)
+            {
                 isStop = true;
             }
             else if (!isStop)

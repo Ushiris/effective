@@ -50,6 +50,7 @@ MonoBehaviour:
   timeOver: 30
   radius: 1
   speed: 90
+  plusTime: 0.5
 --- !u!114 &114517001292487300
 MonoBehaviour:
   m_ObjectHideFlags: 0

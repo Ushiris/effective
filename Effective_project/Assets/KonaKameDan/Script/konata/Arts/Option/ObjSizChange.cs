@@ -27,11 +27,11 @@ public class ObjSizChange : MonoBehaviour
             switch (SetSizChangeMode)
             {
                 case SizChangeMode.ScaleUp:
-                    GetSizFlag = isTrigger(maxSiz);
+                    GetSizFlag = IsTrigger(maxSiz);
                     break;
 
                 case SizChangeMode.ScaleDown:
-                    GetSizFlag = isTrigger(defaultSiz);
+                    GetSizFlag = IsTrigger(defaultSiz);
                     break;
 
                 default: break;
@@ -39,14 +39,14 @@ public class ObjSizChange : MonoBehaviour
         }
     }
 
-    bool isTrigger(Vector3 sizLimit)
+    bool IsTrigger(Vector3 sizLimit)
     {
         transform.localScale =
             Vector3.Lerp(transform.localScale, sizLimit, sizChangeSpeed * Time.deltaTime);
 
         float dis = Vector3.Distance(transform.localScale, sizLimit);
 
-        Debug.Log("距離: " + dis);
+        //Debug.Log("距離: " + dis);
         if (dis < 0.1f)
         {
             return true;

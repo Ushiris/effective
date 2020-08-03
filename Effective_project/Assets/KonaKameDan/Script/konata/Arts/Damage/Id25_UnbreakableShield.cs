@@ -31,6 +31,9 @@ public class Id25_UnbreakableShield : MonoBehaviour
             Destroy(gameObject);
         }
 
+        transform.parent = null;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
         //エフェクトの所持数を代入
         homingCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Homing);
 
@@ -63,6 +66,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
     void Update()
     {
         //回転
+        transform.position = artsStatus.myObj.transform.position;
         Arts_Process.ObjRoll(gameObject, speed);
     }
 
