@@ -10,57 +10,70 @@ public class PlayerArtsInstant : MonoBehaviour
     [SerializeField] string debugNum = "045";
     [SerializeField] GameObject artsObj;
     MyEffectCount myEffectCount;
+    string tmpArtsId;
     string artsId;
 
     Dictionary<string, float> coolTimes = new Dictionary<string, float>();
     List<string> collectionKey = new List<string>();
 
+    bool isEntryTrigger;
+    bool isCoolTimeUI;
+
 
     // Start is called before the first frame update
     void Start()
-    {
-        
+    { 
         myEffectCount = artsObj.GetComponent<MyEffectCount>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        ArtsInstant();
+    }
+
+    void ArtsInstant()
+    {
+        //ArtsIDの取得
+        artsId = ArtsInstantManager.SelectArts(MyArtsDeck.GetSelectArtsDeck.id, debugNum);
+
+        //新しくArtsをセットし、それが前のArtsと違う場合のフラグ
+        if (UI_Manager.ArtsEntryTrigger() && UI_Manager.GetIsEffectFusionUI_ChoiceActive) isEntryTrigger = true;
+        if (isEntryTrigger&& tmpArtsId!=artsId)
+        {
+            tmpArtsId = artsId;
+            isEntryTrigger = false;
+            isCoolTimeUI = true;
+        }
+
+        //Artsを放つ
         if (OnTrigger())
         {
-            GetEffectCount();
-
-            //ArtsID検出
-            artsId = ArtsInstantManager.SelectArts(MyArtsDeck.GetSelectArtsDeck.id, debugNum);
-
-            //ArtsInstantManager.InstantArts(artsObj, artsId);
-            if (artsId != "0") StartCoolTime(artsId);
+            GetEffectCount();                           //所持しているエフェクトを取得            
+            if (artsId != "0") StartCoolTime(artsId);   //クールタイムが0の時Artsを放つ
+            isCoolTimeUI = true;                        //UIを変更するフラグ
         }
-        else
+        else CoolTime();                                //クールタイムの処理
+
+        //クールタイムUIの処理フラグが立った場合UIをリセットする
+        if (isCoolTimeUI)
         {
-            if (artsId != "0")
-            {
-                CoolTime();
-                if (UI_Manager.ArtsEntryTrigger()) CoolTimeUI();
-            }
+            isCoolTimeUI = SetCoolTimeUI();
         }
     }
 
     //クールタイム生成
     void StartCoolTime(string artsId)
     {
-            if (!coolTimes.ContainsKey(artsId))
-            {
-                //ここにそれぞれのクールタイムを入れる
-                float timer = ArtsCoolTime.GetCoolTime(artsId, myEffectCount);
+        if (!coolTimes.ContainsKey(artsId))
+        {
+            //ここにそれぞれのクールタイムを入れる
+            float timer = ArtsCoolTime.GetCoolTime(artsId, myEffectCount);
 
-                //生成
-                ArtsInstantManager.InstantArts(artsObj, artsId);
-                coolTimes.Add(artsId, timer);
-
-                //UI
-                CoolTimeUI();
-            }
+            //生成
+            ArtsInstantManager.InstantArts(artsObj, artsId);
+            coolTimes.Add(artsId, timer);
+        }
     }
 
     //クールタイムの処理
@@ -79,20 +92,30 @@ public class PlayerArtsInstant : MonoBehaviour
     }
 
     //UI
-    void CoolTimeUI()
+    bool SetCoolTimeUI()
     {
-        string key = MyArtsDeck.GetSelectArtsDeck.id;
+        bool isTrigger = true;
+        string key = MyArtsDeck.GetSelectArtsDeck.id;   //ArtsIDの取得
         try
         {
+            //ArtsのクールタイムのMax値を取得
+            float maxTime = ArtsCoolTime.GetCoolTime(key, myEffectCount);
+
+            //クールタイムが発生している場合
             if (coolTimes.ContainsKey(key))
             {
-                ArtsCoolTime.CoolTimeUI(coolTimes[key], key);
+                //クールタイムの現在の時間とmax値をUIを処理するところに渡す
+                ArtsCoolTime.SetCoolTimeUI(coolTimes[key], maxTime, key);
+                isTrigger = false;
             }
+            else ArtsCoolTime.SetCoolTimeUI(0, 1, key);
         }
         catch (System.ArgumentException)
         {
-            ArtsCoolTime.CoolTimeUI(0, key);
+            ArtsCoolTime.SetCoolTimeUI(0, 1, key);
         }
+
+        return isTrigger;
     }
 
     //所持しているエフェクトのスタック数を入れる

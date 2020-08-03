@@ -29,13 +29,14 @@ public class UI_CoolTime : MonoBehaviour
     }
 
     /// <summary>
-    /// クールタイムセット
+    /// クールタイムの初期値代入
     /// </summary>
-    /// <param name="max"></param>
-    public void SetMaxTime(float max)
+    /// <param name="time">クールタイムの経過時間</param>
+    /// <param name="max">クールタイムのmax値</param>
+    public void SetCoolTime(float time,float max)
     {
         slider.maxValue = max;
-        slider.value = max;
+        slider.value = time;
         isStart = true;
     }
 }
