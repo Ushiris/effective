@@ -41,7 +41,7 @@ public class ArtsCoolTime : MonoBehaviour
     /// <returns></returns>
     public static float GetCoolTime(string id, MyEffectCount myEffectCount)
     {
-        return CoolTimeDown(id, myEffectCount) + GetMy.artsInstantManager.prefabs.GetTable()[id].coolTime;
+        return GetMy.artsInstantManager.prefabs.GetTable()[id].coolTime - CoolTimeDown(id, myEffectCount);
     }
 
     /// <summary>

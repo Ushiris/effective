@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fairyParticleObj: {fileID: 1239068644542736023, guid: 2e05f469c9253114493d92fae2c4cfc1,
     type: 3}
+  DestParticleObj: {fileID: 7216495754751292926, guid: bbef0b152777de145b4af7a458be2ec4,
+    type: 3}
   hollyShotParticleObj: {fileID: 8408418366058687730, guid: 67765c6eee6e1b547bf588d105d06dc3,
     type: 3}
   instantPos: {x: 1, y: 1, z: 0}

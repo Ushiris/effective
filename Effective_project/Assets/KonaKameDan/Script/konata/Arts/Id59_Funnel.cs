@@ -7,6 +7,8 @@ public class Id59_Funnel : MonoBehaviour
     [SerializeField] GameObject fairyParticleObj;
     GameObject fairyParticle;
 
+    [SerializeField] GameObject DestParticleObj;
+
     [SerializeField] GameObject hollyShotParticleObj;
 
     [SerializeField] Vector3 instantPos = new Vector3(2, 2, 0);
@@ -53,6 +55,7 @@ public class Id59_Funnel : MonoBehaviour
     void Lost()
     {
         ArtsActiveObj.Id59_Funnel.Remove(artsStatus.myObj);
+        Instantiate(DestParticleObj, transform.position, new Quaternion());
         Destroy(gameObject);
     }
 }
