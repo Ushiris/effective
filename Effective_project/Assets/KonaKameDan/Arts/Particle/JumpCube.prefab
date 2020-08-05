@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 5424357859549152557}
   - component: {fileID: 5424357859549152558}
   - component: {fileID: 135866438965900018}
-  - component: {fileID: 8578343397621432058}
   m_Layer: 0
   m_Name: JumpCube
   m_TagString: Untagged
@@ -140,15 +139,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8578343397621432058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5424357859549152559}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc5accaf1cd3b424bae535740f120a1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
