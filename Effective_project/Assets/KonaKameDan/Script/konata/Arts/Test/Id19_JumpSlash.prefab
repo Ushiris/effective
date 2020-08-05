@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6929485253059204035}
-  - component: {fileID: 114064919792399374}
-  - component: {fileID: 114772874928170044}
+  - component: {fileID: 114718420306694076}
+  - component: {fileID: 114809336146001686}
   m_Layer: 0
-  m_Name: Id59_Funnel
+  m_Name: Id19_JumpSlash
   m_TagString: Arts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114064919792399374
+--- !u!114 &114718420306694076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,21 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6803105965938668464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f3479028da10db43bea3f52cb71e478, type: 3}
+  m_Script: {fileID: 11500000, guid: 77652204fcf803a47a380d32e2ce9284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fairyParticleObj: {fileID: 1239068644542736023, guid: 2e05f469c9253114493d92fae2c4cfc1,
+  swordParticleObj: {fileID: 1669894235980907658, guid: 545a84c7a2116c5479fb303ec9b8d14f,
     type: 3}
-  DestParticleObj: {fileID: 7216495754751292926, guid: bbef0b152777de145b4af7a458be2ec4,
-    type: 3}
-  hollyShotParticleObj: {fileID: 8408418366058687730, guid: 67765c6eee6e1b547bf588d105d06dc3,
-    type: 3}
-  instantPos: {x: 1, y: 1, z: 0}
-  lostTime: 10
-  defaultDamage: 0.3
-  plusDamage: 0.01
-  plusTime: 0.2
---- !u!114 &114772874928170044
+  v0: {x: 0, y: 5, z: 10}
+--- !u!114 &114809336146001686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

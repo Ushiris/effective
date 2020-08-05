@@ -36,7 +36,6 @@ public class Id02_Beam : MonoBehaviour
 
         //生成
         GameObject beam = Instantiate(beamParticleObj, transform);
-        Arts_Process.SetParticleDamageProcess(beam);
         Arts_Process.RbMomentMove(beam, force);
 
         //ダメージ

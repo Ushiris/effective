@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.056233324, g: 0.079379186, b: 0.12584744, a: 1}
+  m_IndirectSpecularColor: {r: 0.06744362, g: 0.0889105, b: 0.13196887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -950,7 +950,7 @@ PrefabInstance:
     - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: isLightweight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2024195638251374734, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
@@ -2820,7 +2820,7 @@ PrefabInstance:
     - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
         type: 3}
       propertyPath: prefabs.list.Array.size
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
         type: 3}
@@ -3187,6 +3187,17 @@ PrefabInstance:
       propertyPath: prefabs.list.Array.data[19].Value.coolTimeDown
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[25].Key
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[25].Value.prefab
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: a70b537d9efa48947b32ddddea825151,
+        type: 3}
     - target: {fileID: 6216928581571088659, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
         type: 3}
       propertyPath: m_Name
