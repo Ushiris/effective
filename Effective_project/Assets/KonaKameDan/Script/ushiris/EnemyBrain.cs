@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using MoveState = EnemyState.MoveState;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyMove : MonoBehaviour
+public class EnemyBrain : MonoBehaviour
 {
-    public enum MoveState
-    {
-        Chase,
-        Stay
-    }
-
     GameObject target;
     NavMeshAgent navMesh;
     public MoveState state;
@@ -24,7 +19,7 @@ public class EnemyMove : MonoBehaviour
         navMesh.SetDestination(target.transform.position);
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = 0.5f;
-        timer.LapEvent = EnemyBrain();
+        timer.LapEvent = Think();
 
     }
 
@@ -40,7 +35,7 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    StopWatch.TimeEvent EnemyBrain()
+    StopWatch.TimeEvent Think()
     {
         switch (state)
         {
