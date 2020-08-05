@@ -12,7 +12,8 @@ public class DestroyArtsZone : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        var s = other.gameObject.GetComponent<ArtsStatus>();
+        Debug.Log(other);
+        var s = other.GetComponent<ArtsStatus>();
         if (s != null)
         {
             if (artsTypes.Contains(s.artsType) && particleTypes.Contains(s.type))

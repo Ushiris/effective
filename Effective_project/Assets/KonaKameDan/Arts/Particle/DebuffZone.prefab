@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6996853212724239532}
   - component: {fileID: 8949395004061392189}
   - component: {fileID: 3750715774522088910}
-  - component: {fileID: 1735839383283061618}
-  - component: {fileID: 54110596363658992}
-  m_Layer: 0
+  - component: {fileID: 3582609396250991144}
+  - component: {fileID: 54192764181342028}
+  m_Layer: 19
   m_Name: DebuffZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1735839383283061618
+--- !u!135 &3582609396250991144
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +87,12 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6226077346398271668}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &54110596363658992
+--- !u!54 &54192764181342028
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

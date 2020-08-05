@@ -59,7 +59,8 @@ public class Id259_FlyCurse : MonoBehaviour
         zone = Instantiate(zoneObj, transform);
 
         //ゾーンに入った遠距離攻撃Artsを消す
-        Arts_Process.SetDestroyArtsZone(zone, artsTypes, particleTypes);
+        Arts_Process.SetDestroyArtsZoneStatus(zone, artsTypes, particleTypes);
+        zone.layer = LayerMask.NameToLayer("FlyCurse");
 
         //ゾーンのサイズ変更
         Arts_Process.SetAddObjSizChange(

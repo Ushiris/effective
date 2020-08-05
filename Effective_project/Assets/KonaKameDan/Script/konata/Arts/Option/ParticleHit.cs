@@ -6,11 +6,16 @@ public class ParticleHit : MonoBehaviour
 {
     public float hitDamageDefault = 3f;
     public float plusFormStatus;
-    public ArtsStatus.ParticleType type;
+    public ArtsStatus artsStatus;
     public bool isMapLayer;
 
     string hitObjTag;
     int hitCount = 0;
+
+    List<string> layerNameList = new List<string>()
+    {
+        "Default", "PostProcessing", "Map"
+    };
 
     private void Start()
     {
@@ -20,38 +25,48 @@ public class ParticleHit : MonoBehaviour
         var p = GetComponent<ParticleSystem>();
         var c = p.collision;
 
-        switch (type)
+        switch (artsStatus.type)
         {
             case ArtsStatus.ParticleType.Player:
                 if (p != null) c.collidesWith = Layer("Enemy");
+                gameObject.layer = LayerMask.NameToLayer("PlayerArts");
                 hitObjTag = "Enemy";
                 break;
 
             case ArtsStatus.ParticleType.Enemy:
                 if (p != null) c.collidesWith = Layer("Player");
+                gameObject.layer = LayerMask.NameToLayer("EnemyArts");
                 hitObjTag = "Player";
                 break;
 
             default: break;
         }
+
+        
     }
 
     //パーティクルが当たった時
-    private void OnParticleCollision(GameObject gameObject)
+    private void OnParticleCollision(GameObject obj)
     {
-        hitCount++;
-        if (gameObject.tag == hitObjTag)
+        if (obj.tag == hitObjTag)
         {
-            Damage(gameObject);
+            Damage(obj);
         }
     }
 
     //オブジェクトが貫通した時
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(hitObjTag))
+        if (!OnDestroyArtsZone(other.gameObject))
         {
-            Damage(other.gameObject);
+            if (other.CompareTag(hitObjTag))
+            {
+                Damage(other.gameObject);
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -72,14 +87,37 @@ public class ParticleHit : MonoBehaviour
         SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);
     }
 
+    //攻撃有効エリアかどうか
+    bool OnDestroyArtsZone(GameObject obj)
+    {
+        var s = obj.GetComponent<DestroyArtsZoneStatus>();
+        Debug.Log(obj.name);
+        if (s != null)
+        {
+            if (s.artsTypes.Contains(artsStatus.artsType) && s.particleTypes.Contains(artsStatus.type))
+            {
+                return true;
+            }
+            else return false;
+        }
+        else return false;
+    }
+
     //当たり判定を出すレイヤー
     LayerMask Layer(string layerName)
     {
-        if (isMapLayer)
-        {
-            return LayerMask.GetMask("Default", "PostProcessing", "Map", layerName + "Shield", layerName);
-        }
+        if (artsStatus.artsType == ArtsStatus.ArtsType.Shot) layerNameList.Add("FlyCurse");
+        if (isMapLayer) layerNameList.Add("Map");
+        layerNameList.Add(layerName + "Shield");
+        layerNameList.Add(layerName + "EMP");
+        layerNameList.Add(layerName);
+        return LayerMask.GetMask(layerNameList.ToArray());
 
-        return LayerMask.GetMask("Default", "PostProcessing", layerName + "Shield", layerName);
+        //if (isMapLayer)
+        //{
+        //    return LayerMask.GetMask("Default", "PostProcessing", "Map", layerName + "Shield", layerName);
+        //}
+
+        //return LayerMask.GetMask("Default", "PostProcessing", layerName + "Shield", layerName);
     }
 }
