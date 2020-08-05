@@ -14,8 +14,22 @@ public class Id59_Funnel : MonoBehaviour
     [SerializeField] Vector3 instantPos = new Vector3(2, 2, 0);
     [SerializeField] float lostTime = 10f;
 
+    [Header("ダメージ")]
+    [SerializeField] float defaultDamage = 0.3f;
+
+    [Header("飛翔のスタック数に応じてたされる数")]
+    [SerializeField] float plusDamage = 0.01f;
+
+    [Header("追尾のスタック数に応じてたされる数")]
+    [SerializeField] float plusTime = 0.2f;
+
     StopWatch timer;
     ArtsStatus artsStatus;
+    ParticleHit hit;
+
+    int flyCount;
+    int homingCount;
+    float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +43,25 @@ public class Id59_Funnel : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //エフェクトの所持数を代入
+        flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);
+        homingCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Homing);
+
+        //消失時間の変更
+        lostTime += plusTime * (float)homingCount;
+
+        //ダメージの計算
+        damage = Arts_Process.GetDamage(defaultDamage, plusDamage, flyCount);
+
         //妖精とビームパーティクルの生成
         fairyParticle = Instantiate(fairyParticleObj, transform);
         GameObject hollyShotParticle = Instantiate(hollyShotParticleObj, fairyParticle.transform);
         fairyParticle.transform.localPosition = instantPos;
+
+        //ダメージ
+        hit = Arts_Process.SetParticleDamageProcess(hollyShotParticle);
+        //ダメージ処理
+        Arts_Process.Damage(hit, artsStatus, damage, true);
 
         //〇〇秒後オブジェクトを破壊する
         timer = gameObject.AddComponent<StopWatch>();
