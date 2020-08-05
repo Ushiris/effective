@@ -21,6 +21,22 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// EMPのレイヤーを引っ張ってくる
+    /// </summary>
+    /// <param name="artsStatus"></param>
+    /// <returns></returns>
+    public static int GetEMPLayerMask(ArtsStatus artsStatus)
+    {
+        var type = artsStatus.type;
+
+        if (type == ArtsStatus.ParticleType.Enemy)
+        {
+            return LayerMask.NameToLayer("EnemyEMP");
+        }
+        else return LayerMask.NameToLayer("PlayerEMP");
+    }
+
+    /// <summary>
     /// Artsを放った人が同じであればtrueを返す
     /// 違う場合listに格納する
     /// </summary>
@@ -135,6 +151,19 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 特定の種類のアーツを消すやつのステータス設定
+    /// </summary>
+    /// <param name="obj">アタッチする対象</param>
+    /// <param name="artsType"></param>
+    /// <param name="particleTypes"></param>
+    public static void SetDestroyArtsZoneStatus(GameObject obj, List<ArtsStatus.ArtsType> artsType, List<ArtsStatus.ParticleType> particleTypes)
+    {
+        var dazs=obj.AddComponent<DestroyArtsZoneStatus>();
+        dazs.artsTypes = new List<ArtsStatus.ArtsType>(artsType);
+        dazs.particleTypes = new List<ArtsStatus.ParticleType>(particleTypes);
+    }
+
+    /// <summary>
     /// 周りの物を吹きとばす
     /// </summary>
     /// <param name="pos">中心</param>
@@ -193,7 +222,7 @@ public class Arts_Process : MonoBehaviour
     public static void Damage(ParticleHit hit, ArtsStatus artsStatus, float hitDefaultDamage, bool status, bool isMapLayer = true)
     {
         hit.hitDamageDefault = hitDefaultDamage;
-        hit.type = artsStatus.type;
+        hit.artsStatus = artsStatus;
         hit.isMapLayer = isMapLayer;
         if (status) hit.plusFormStatus = artsStatus.myStatus.status[Status.Name.STR];
         

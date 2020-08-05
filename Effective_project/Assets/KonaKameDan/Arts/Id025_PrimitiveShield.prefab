@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6929485253059204035}
   - component: {fileID: 114113947654033504}
   - component: {fileID: 114378054479745966}
-  - component: {fileID: 135920516636163424}
   m_Layer: 0
   m_Name: Id025_PrimitiveShield
   m_TagString: Arts
@@ -68,16 +67,3 @@ MonoBehaviour:
   myEffectCount: {fileID: 0}
   artsType: 1
   myObj: {fileID: 0}
---- !u!135 &135920516636163424
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6803105965938668464}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

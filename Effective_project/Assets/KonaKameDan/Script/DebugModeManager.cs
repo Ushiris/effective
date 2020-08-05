@@ -12,6 +12,10 @@ public class DebugModeManager : MonoBehaviour
     [SerializeField] bool isEffectCount;
     [SerializeField] List<string> effectObjectName = new List<string>();
 
+    [Header("クールタイムを変更する")]
+    [SerializeField] bool isCoolTimeChange;
+    [SerializeField] float coolTimeChange;
+
     // Start is called before the first frame update
     void Reset()
     {
@@ -34,5 +38,12 @@ public class DebugModeManager : MonoBehaviour
             EffectObjectAcquisition.effectObjectAcquisition = new List<EffectObjectAcquisition.EffectObjectClass>(effectCount);
             EffectObjectAcquisition.effectObjectName = new List<string>(effectObjectName);
         }
+
+        if (isCoolTimeChange)
+        {
+            PlayerArtsInstant.isDebugCoolTime = true;
+            PlayerArtsInstant.debugCoolTime = coolTimeChange;
+        }
+        else PlayerArtsInstant.isDebugCoolTime = false;
     }
 }

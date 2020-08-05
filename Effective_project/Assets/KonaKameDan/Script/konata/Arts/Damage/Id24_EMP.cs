@@ -65,7 +65,8 @@ public class Id24_EMP : MonoBehaviour
         zone = Instantiate(zoneObj, transform);
 
         //エリアに入った敵の攻撃を打ち消す
-        Arts_Process.SetDestroyArtsZone(zone, artsTypes, particleTypes);
+        Arts_Process.SetDestroyArtsZoneStatus(zone, artsTypes, particleTypes);
+        zone.layer = Arts_Process.GetEMPLayerMask(artsStatus);
 
         //ゾーンのサイズ変更
         Arts_Process.SetAddObjSizChange(

@@ -31,11 +31,11 @@ public class ArtsInstantManager : MonoBehaviour
             {
                 prefabs.GetTable()[id].prefab.AddComponent<ArtsStatus>();
             }
-            if(prefabs.GetTable()[id].prefab.GetComponent<SphereCollider>() == null)
-            {
-                var c=prefabs.GetTable()[id].prefab.AddComponent<SphereCollider>();
-                c.isTrigger = true;
-            }
+            //if(prefabs.GetTable()[id].prefab.GetComponent<SphereCollider>() == null)
+            //{
+            //    var c=prefabs.GetTable()[id].prefab.AddComponent<SphereCollider>();
+            //    c.isTrigger = true;
+            //}
             prefabs.GetTable()[id].prefab.tag = "Arts";
 
             //idからエフェクトを取得

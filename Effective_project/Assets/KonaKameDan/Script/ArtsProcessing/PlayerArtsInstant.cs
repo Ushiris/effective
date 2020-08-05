@@ -19,6 +19,9 @@ public class PlayerArtsInstant : MonoBehaviour
     bool isEntryTrigger;
     bool isCoolTimeUI;
 
+    //デバッグ用
+    public static bool isDebugCoolTime;
+    public static float debugCoolTime;
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +71,9 @@ public class PlayerArtsInstant : MonoBehaviour
         if (!coolTimes.ContainsKey(artsId))
         {
             //ここにそれぞれのクールタイムを入れる
-            float timer = ArtsCoolTime.GetCoolTime(artsId, myEffectCount);
+            float timer;
+            if (!isDebugCoolTime) timer = ArtsCoolTime.GetCoolTime(artsId, myEffectCount);
+            else timer = debugCoolTime;
 
             //生成
             ArtsInstantManager.InstantArts(artsObj, artsId);
