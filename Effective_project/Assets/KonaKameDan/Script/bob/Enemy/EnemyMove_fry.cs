@@ -25,8 +25,8 @@ public class EnemyMove_fry : MonoBehaviour
     void Update()
     {
         sin = Mathf.Sin(2 * Mathf.PI * f * Time.time) * shaking;
-        enemyNowPos_y = transform.parent.gameObject.transform.position.y + enemyStartPos_y + sin;// 揺れ加減
-        this.transform.position = new Vector3(transform.position.x, enemyNowPos_y, transform.position.z);
+        enemyNowPos_y = transform.position.y + enemyStartPos_y + sin;// 揺れ加減
+        transform.position = new Vector3(transform.position.x, enemyNowPos_y, transform.position.z);
         //Rigidbody rd = this.GetComponent<Rigidbody>();
         //forceSin = new Vector3(rd.position.x, rd.position.y + sin, rd.position.z);
         //rd.position = forceSin;
