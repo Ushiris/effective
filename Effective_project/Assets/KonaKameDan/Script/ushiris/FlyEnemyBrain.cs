@@ -5,8 +5,7 @@ using UnityEngine.AI;
 using MoveState = EnemyState.MoveState;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(EnemyState))]
-public class EnemyBrain : MonoBehaviour, EnemyBrainBase
+public class FlyEnemyBrain : MonoBehaviour, EnemyBrainBase
 {
     GameObject target;
     NavMeshAgent navMesh;
@@ -16,17 +15,18 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
     void Start()
     {
         state = GetComponent<EnemyState>();
-        timer = gameObject.AddComponent<StopWatch>();
-        navMesh = GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag("Player");
+        navMesh = GetComponent<NavMeshAgent>();
         navMesh.SetDestination(target.transform.position);
+        timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = 0.5f;
         timer.LapEvent = Think;
+        transform.position = new Vector3(transform.position.x, Random.Range(7, 13), transform.position.z);
     }
 
     private void LateUpdate()
     {
-        if (Vector3.Distance(target.transform.position, transform.position) <= 30)
+        if (Vector3.Distance(target.transform.position, transform.position) <= 40)
         {
             state.move = MoveState.Chase;
         }
@@ -41,7 +41,8 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
         switch (state.move)
         {
             case MoveState.Chase:
-                navMesh.SetDestination(target.transform.position);
+                var pos = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+                navMesh.SetDestination(pos);
                 break;
 
             case MoveState.Stay:

@@ -20,12 +20,12 @@ public class EnemyArtsInstant : MonoBehaviour
     StopWatch timer;
     MyEffectCount myEffectCount;
     EnemyEffectPicKUp effectPicKUp;
-    EnemyMove move;
+    EnemyState move;
 
     // Start is called before the first frame update
     void Start()
     {
-        move = GetComponent<EnemyMove>();
+        move = GetComponent<EnemyState>();
         effectPicKUp = GetComponent<EnemyEffectPicKUp>();
         myEffectCount = GetComponent<MyEffectCount>();
 
@@ -40,7 +40,7 @@ public class EnemyArtsInstant : MonoBehaviour
     //エフェクトを出す処理
     void Action()
     {
-        if (move.state == EnemyMove.MoveState.Stay) return;
+        if (move.move == EnemyState.MoveState.Stay) return;
 
         //ArtsID検出
         string id = effectPicKUp.GetArtsId;

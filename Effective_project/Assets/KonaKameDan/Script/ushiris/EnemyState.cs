@@ -9,4 +9,5 @@ public class EnemyState : MonoBehaviour
         Chase,
         Stay
     }
+    public MoveState move = MoveState.Stay;
 }
