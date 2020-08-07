@@ -11,6 +11,7 @@ public class ParticleHit : MonoBehaviour
 
     string hitObjTag;
     int hitCount = 0;
+    bool isTrigger;
 
     List<string> layerNameList = new List<string>()
     {
@@ -51,6 +52,7 @@ public class ParticleHit : MonoBehaviour
         if (obj.tag == hitObjTag)
         {
             Damage(obj);
+            isTrigger = true;
         }
     }
 
@@ -62,6 +64,7 @@ public class ParticleHit : MonoBehaviour
             if (other.CompareTag(hitObjTag))
             {
                 Damage(other.gameObject);
+                isTrigger = true;
             }
         }
         else
@@ -119,5 +122,18 @@ public class ParticleHit : MonoBehaviour
         //}
 
         //return LayerMask.GetMask("Default", "PostProcessing", layerName + "Shield", layerName);
+    }
+
+    /// <summary>
+    /// ヒットトリガーの取得
+    /// </summary>
+    public bool IsTriggerEnter
+    {
+        get
+        {
+            bool on = isTrigger;
+            isTrigger = false;
+            return on;
+        }
     }
 }

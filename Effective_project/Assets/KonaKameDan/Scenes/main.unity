@@ -2088,7 +2088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectCount:
   - name: "\u5C04\u6483"
-    count: 100
+    count: 50
     id: 0
   - name: "\u65AC\u6483"
     count: 1
@@ -2117,7 +2117,7 @@ MonoBehaviour:
   - name: "\u98DB\u7FD4"
     count: 1
     id: 9
-  isEffectCount: 0
+  isEffectCount: 1
   effectObjectName:
   - "\u5C04\u6483"
   - "\u65AC\u6483"
@@ -8821,6 +8821,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8252111633383182909, guid: db1e3b837f84a604d886992fadd2362f,
+        type: 3}
+      propertyPath: enemys.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252111633383182909, guid: db1e3b837f84a604d886992fadd2362f,
+        type: 3}
+      propertyPath: enemys.Array.data[1]
+      value: 
+      objectReference: {fileID: 722707631653457096, guid: 35198665acd1a5b40aeea37bad35b6c0,
+        type: 3}
+    - target: {fileID: 8252111633383182909, guid: db1e3b837f84a604d886992fadd2362f,
+        type: 3}
+      propertyPath: enemys.Array.data[0]
+      value: 
+      objectReference: {fileID: 2453905131629712177, guid: 593006f8a44476e4d995e473214499d4,
+        type: 3}
     - target: {fileID: 8252111633383182911, guid: db1e3b837f84a604d886992fadd2362f,
         type: 3}
       propertyPath: m_Name
