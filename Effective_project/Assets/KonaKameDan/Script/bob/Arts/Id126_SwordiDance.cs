@@ -33,7 +33,7 @@ public class Id126_SwordiDance : MonoBehaviour
             swords[i].transform.LookAt(transform);
 
             //Layerのセット
-            Arts_Process.GetArtsLayerMask(artsStatus, swords[i]);
+            Arts_Process.SetArtsLayerMask(artsStatus, swords[i]);
         }
 
         //オブジェクトの破壊

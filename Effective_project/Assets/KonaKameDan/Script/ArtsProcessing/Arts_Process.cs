@@ -398,16 +398,16 @@ public class Arts_Process : MonoBehaviour
     /// </summary>
     /// <param name="artsStatus"></param>
     /// <returns></returns>
-    public static int GetArtsLayerMask(ArtsStatus artsStatus,GameObject swordObj)
+    public static void SetArtsLayerMask(ArtsStatus artsStatus,GameObject obj)
     {
         var type = artsStatus.type;
         if (type == ArtsStatus.ParticleType.Player)
         {
-            swordObj.layer = LayerMask.NameToLayer("PlayerArts");
+            obj.layer = LayerMask.NameToLayer("PlayerArts");
         }
         else
         {
-            swordObj.layer = LayerMask.NameToLayer("EnemyArts");
+            obj.layer = LayerMask.NameToLayer("EnemyArts");
         }
     }
 
