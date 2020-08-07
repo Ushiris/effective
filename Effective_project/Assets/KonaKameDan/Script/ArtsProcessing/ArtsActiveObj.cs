@@ -18,7 +18,6 @@ public class ArtsActiveObj : MonoBehaviour
     public static List<GameObject> Id14_RollSlash = new List<GameObject>();
     public static List<GameObject> Id145_Murasame = new List<GameObject>();
 
-
     // Start is called before the first frame update
     void Start()
     {

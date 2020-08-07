@@ -394,6 +394,24 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 剣のレイヤーを決めるやつ(EnemyかPlayerか)
+    /// </summary>
+    /// <param name="artsStatus"></param>
+    /// <returns></returns>
+    public static int GetArtsLayerMask(ArtsStatus artsStatus,GameObject swordObj)
+    {
+        var type = artsStatus.type;
+        if (type == ArtsStatus.ParticleType.Player)
+        {
+            swordObj.layer = LayerMask.NameToLayer("PlayerArts");
+        }
+        else
+        {
+            swordObj.layer = LayerMask.NameToLayer("EnemyArts");
+        }
+    }
+
+    /// <summary>
     /// オブジェクトをぐるぐる回転させる
     /// </summary>
     /// <param name="obj"></param>
