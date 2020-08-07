@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d71b7cabf5362498098431a043f714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomerangObj: {fileID: 3827138894441363699, guid: d472e1bb92c97c24bb78a1cfe80c3432,
+  boomerangObj: {fileID: 5595761354987396419, guid: c6ead677884c2fd4eb2f725d561ccb3f,
     type: 3}
   force: 30
 --- !u!114 &114809336146001686
