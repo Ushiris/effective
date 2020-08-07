@@ -7,6 +7,9 @@ public class Id019_Kamaitati : MonoBehaviour
     [SerializeField] GameObject boomerangObj;
     [SerializeField] float force = 30f;
 
+    GameObject target;
+
+    new ParticleSystem particleSystem;
     ArtsStatus artsStatus;
 
     // Start is called before the first frame update
@@ -14,19 +17,21 @@ public class Id019_Kamaitati : MonoBehaviour
     {
         artsStatus = GetComponent<ArtsStatus>();
 
-        transform.parent = null;
-
         //ブーメラン生成
         var boomerang = Instantiate(boomerangObj, transform);
+        particleSystem = boomerang.GetComponent<ParticleSystem>();
+    }
+ 
+    private void Update()
+    {
+        //戻ってくる
+        target = artsStatus.myObj;
+        if (particleSystem != null && boomerangObj != null)
+        {
+            Arts_Process.HomingParticle(particleSystem, target, force);
+        }
 
-        //スプリングジョイントの登録
-        var sjBoomerang = boomerang.GetComponent<SpringJoint>();
-        sjBoomerang.connectedBody = artsStatus.myObj.GetComponent<Rigidbody>();
-
-        //移動
-        Arts_Process.RbMomentMove(boomerang, force);
-
-        //仮
-        Destroy(gameObject, 10f);
+        //オブジェクトを消す
+        if (transform.childCount == 0) Destroy(gameObject);
     }
 }
