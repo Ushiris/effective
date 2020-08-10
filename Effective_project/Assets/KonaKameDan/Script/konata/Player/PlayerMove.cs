@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
 
     Vector3 dirVertical;
     Vector3 dirHorizontal;
+    Vector3 move;
 
     [SerializeField] float speed;
     [SerializeField] float slowSpeed = 10f;
@@ -34,7 +35,7 @@ public class PlayerMove : MonoBehaviour
         dirHorizontal = new Vector3(-Mathf.Cos(angleDir), 0, Mathf.Sin(angleDir)) * Input.GetAxis("Horizontal")  * speed;
 
         //入力したときにカメラの向きを基準とした動き
-        Vector3 move = dirVertical + -dirHorizontal;
+        move = dirVertical + -dirHorizontal;
 
         //速度の変更
         if (Input.GetKey(KeyCode.LeftShift))
@@ -48,6 +49,11 @@ public class PlayerMove : MonoBehaviour
 
 
 
+        
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
         //移動
         rb.AddForce(speed * (move - rb.velocity));
     }

@@ -8,6 +8,7 @@ public class Id19_JumpSlash : MonoBehaviour
     [SerializeField] Vector3 v0 = new Vector3(0, 5, 10);
 
     bool isDestroy;
+    Rigidbody rb;
 
     StopWatch timer;
     ArtsStatus artsStatus;
@@ -17,29 +18,25 @@ public class Id19_JumpSlash : MonoBehaviour
     {
         artsStatus = GetComponent<ArtsStatus>();
 
-        var rb = artsStatus.myObj.GetComponent<Rigidbody>();
+        rb = artsStatus.myObj.GetComponent<Rigidbody>();
         rb.AddRelativeForce(v0, ForceMode.VelocityChange);
 
+        Slash();
 
-        var timer = Arts_Process.TimeAction(gameObject, 0.1f * 9);
-        timer.LapEvent = () => {  };
+        //var timer = Arts_Process.TimeAction(gameObject, 0.1f * 1);
+        //timer.LapEvent = () => { Slash(); };
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isDestroy)
-        {
-            if (transform.childCount == 0)
-            {
-                Destroy(gameObject);
-            }
-        }
+        if (transform.childCount == 0) Destroy(gameObject);
+        rb.AddForce(new Vector3(0, -1, 0) * 30);
     }
 
     void Slash()
     {
-        Instantiate(swordParticleObj, transform);
-        isDestroy = true;
+        var obj = Instantiate(swordParticleObj, transform);
+        obj.transform.localPosition = new Vector3(0, 0, 1f);
     }
 }

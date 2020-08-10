@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77652204fcf803a47a380d32e2ce9284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordParticleObj: {fileID: 1669894235980907658, guid: 545a84c7a2116c5479fb303ec9b8d14f,
+  swordParticleObj: {fileID: 3858412714023260286, guid: d8621b6428a903b40a77a313deca1ddb,
     type: 3}
-  v0: {x: 0, y: 5, z: 10}
+  v0: {x: 0, y: 30, z: 1}
 --- !u!114 &114809336146001686
 MonoBehaviour:
   m_ObjectHideFlags: 0
