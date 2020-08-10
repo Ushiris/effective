@@ -31,6 +31,7 @@ public class Id126_SwordiDance : MonoBehaviour
             swords[i] = Instantiate(swordObj, transform);
             swords[i].transform.localPosition = pos[i];
             swords[i].transform.LookAt(transform);
+            swords[i].transform.rotation = Look(swords[i], gameObject);
 
             //Layerのセット
             Arts_Process.SetArtsLayerMask(artsStatus, swords[i]);
@@ -52,5 +53,11 @@ public class Id126_SwordiDance : MonoBehaviour
     {
         ArtsActiveObj.Id25_UnbreakableShield.Remove(artsStatus.myObj);
         Destroy(gameObject);
+    }
+    Quaternion Look(GameObject a, GameObject b)
+    {
+        var aim = a.transform.position - b.transform.position;
+        var look = Quaternion.LookRotation(aim);
+        return look * Quaternion.AngleAxis(90, Vector3.right);
     }
 }
