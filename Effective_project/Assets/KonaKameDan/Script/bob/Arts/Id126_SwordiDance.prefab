@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 114548016434896696}
   m_Layer: 0
   m_Name: Id126_SwordiDance
-  m_TagString: Untagged
+  m_TagString: Arts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d14d4956284bb44b80ca42c918639b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordObj: {fileID: 606073160352393122, guid: 1f0a20e1b9dcba548805f7e3c46b9d21, type: 3}
+  timeOver: 30
+  radius: 2
+  speed: 100
 --- !u!114 &114548016434896696
 MonoBehaviour:
   m_ObjectHideFlags: 0
