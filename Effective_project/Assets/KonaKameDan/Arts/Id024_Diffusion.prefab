@@ -49,8 +49,8 @@ MonoBehaviour:
   force: 100
   radius: 1.2
   lostTime: 3
-  defaultDamage: 0.8
-  plusDamage: 0.01
+  defaultDamage: 10
+  plusDamage: 0.1
   defaultBullet: 4
   addBullet: 2
 --- !u!114 &114668168811967358

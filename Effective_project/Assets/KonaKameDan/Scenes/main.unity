@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05663399, g: 0.07967138, b: 0.12591928, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -924,7 +924,7 @@ PrefabInstance:
     - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: effectInstantCount
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
@@ -2088,7 +2088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectCount:
   - name: "\u5C04\u6483"
-    count: 50
+    count: 1
     id: 0
   - name: "\u65AC\u6483"
     count: 1
@@ -8868,7 +8868,7 @@ PrefabInstance:
     - target: {fileID: 8252111633383182911, guid: db1e3b837f84a604d886992fadd2362f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db1e3b837f84a604d886992fadd2362f, type: 3}
