@@ -73,6 +73,23 @@ public class ParticleHit : MonoBehaviour
         }
     }
 
+    //当たり判定のあるオブジェクト
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!OnDestroyArtsZone(collision.gameObject))
+        {
+            if (collision.gameObject.CompareTag(hitObjTag))
+            {
+                Damage(collision.gameObject);
+                isTrigger = true;
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     //ダメージの処理
     void Damage(GameObject enemy)
     {

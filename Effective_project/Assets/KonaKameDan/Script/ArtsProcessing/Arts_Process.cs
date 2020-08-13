@@ -58,6 +58,24 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// すでに存在しているArtsを消す
+    /// </summary>
+    /// <param name="objs">ArtsActiveObjクラスに登録されているもの</param>
+    /// <param name="obj">確認する対象</param>
+    public static void OldArtsDestroy(List<GameObject> objs, GameObject obj)
+    {
+        if (objs.Count != 0)
+        {
+            if (objs.Contains(obj))
+            {
+                int num = objs.IndexOf(obj);
+                Destroy(objs[num]);
+                objs.RemoveAt(num);
+            }
+        }
+    }
+
+    /// <summary>
     /// その者にとっての一番近い敵の位置を返す
     /// </summary>
     /// <param name="artsStatus">誰の放ったアーツか記録されているもの</param>
@@ -538,6 +556,19 @@ public class Arts_Process : MonoBehaviour
     {
         ParticleSystem ps = obj.GetComponent<ParticleSystem>();
         return ps.main;
+    }
+
+    /// <summary>
+    /// 加速の計算
+    /// </summary>
+    /// <param name="startNum">開始</param>
+    /// <param name="endNum">終了</param>
+    /// <param name="time">現在の時間</param>
+    /// <param name="maxTime">達成時間</param>
+    /// <returns></returns>
+    public static float Acceleration(float startNum,float endNum,float time,float maxTime)
+    {
+        return startNum + (endNum - startNum) * ((time + 1.0f) * time / 2.0f) / ((maxTime + 1.0f) * maxTime / 2.0f);
     }
 
     /// <summary>
