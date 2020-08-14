@@ -30,7 +30,6 @@ public class Id126_SwordiDance : MonoBehaviour
             //円状に配置する
             swords[i] = Instantiate(swordObj, transform);
             swords[i].transform.localPosition = pos[i];
-            swords[i].transform.LookAt(transform);
             swords[i].transform.rotation = Look(swords[i], gameObject);
 
             //Layerのセット
