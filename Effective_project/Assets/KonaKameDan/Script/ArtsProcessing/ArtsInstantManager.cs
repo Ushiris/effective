@@ -79,6 +79,12 @@ public class ArtsInstantManager : MonoBehaviour
                 case "19": InstantArts(ArtsStatus.ArtsType.Slash); break;
                 case "019": InstantArts(ArtsStatus.ArtsType.Slash); break;
                 case "126": InstantArts(ArtsStatus.ArtsType.Slash); break;
+                case "012": InstantArts(ArtsStatus.ArtsType.Support); break;
+                case "12": InstantArts(ArtsStatus.ArtsType.Slash); break;
+                case "014": InstantArts(ArtsStatus.ArtsType.Slash); break;
+                case "015": InstantArts(ArtsStatus.ArtsType.Slash); break;
+                case "129": InstantArts(ArtsStatus.ArtsType.Slash); break;
+                case "149": InstantArts(ArtsStatus.ArtsType.Slash); break;
                 default: break;
             }
 

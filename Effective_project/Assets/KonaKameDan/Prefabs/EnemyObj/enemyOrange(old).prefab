@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 54910844226909174, guid: 421e2d382beb5e149811baa494bdc14c,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 96311051398836443, guid: 421e2d382beb5e149811baa494bdc14c,
         type: 3}
       propertyPath: m_Layer
@@ -15,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 114027708724640188, guid: 421e2d382beb5e149811baa494bdc14c,
         type: 3}
       propertyPath: effectTable.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114027708724640188, guid: 421e2d382beb5e149811baa494bdc14c,
         type: 3}
@@ -30,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 114027708724640188, guid: 421e2d382beb5e149811baa494bdc14c,
         type: 3}
       propertyPath: effectTable.Array.data[1]
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114269065326562766, guid: 421e2d382beb5e149811baa494bdc14c,
         type: 3}

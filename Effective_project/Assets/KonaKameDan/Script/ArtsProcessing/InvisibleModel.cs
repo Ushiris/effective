@@ -18,8 +18,8 @@ public class InvisibleModel : MonoBehaviour
 
     public void Invisible(bool isActive)
     {
-        model.SetActive(isActive);
-        if (isActive) life.damageGuard = false;
-        else life.damageGuard = true;
+        if (isActive) model.SetActive(false);
+        else model.SetActive(false);
+        life.damageGuard = isActive;
     }
 }

@@ -32,6 +32,9 @@ public class Id015_Valkyrie : MonoBehaviour
         //妖精と斬撃の生成
         fairyParticle = Instantiate(fairyParticleObj, transform);
         GameObject flySlashParticle = Instantiate(flySlashParticleObj, fairyParticle.transform);
+        var ps = flySlashParticle.GetComponent<ParticleSystem>();
+        var main= ps.main;
+        main.loop = true;
         fairyParticle.transform.localPosition = instantPos;
 
         //〇〇秒後オブジェクトを破壊する

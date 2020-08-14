@@ -62,3 +62,5 @@ public class Id129_Tubame : MonoBehaviour
         }
     }
 }
+
+//コリジョンを降らす
