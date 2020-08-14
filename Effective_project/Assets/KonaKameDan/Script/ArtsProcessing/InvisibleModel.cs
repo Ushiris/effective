@@ -8,17 +8,18 @@ using UnityEngine;
 public class InvisibleModel : MonoBehaviour
 {
     [SerializeField] GameObject model;
-    [SerializeField] Collider collider;
+    [SerializeField] Life life;
 
     private void Awake()
     {
         model.SetActive(true);
-        collider.enabled = true;
+        life.damageGuard = false;
     }
 
     public void Invisible(bool isActive)
     {
         model.SetActive(isActive);
-        collider.enabled = isActive;
+        if (isActive) life.damageGuard = false;
+        else life.damageGuard = true;
     }
 }

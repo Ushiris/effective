@@ -17,6 +17,7 @@ public class ArtsActiveObj : MonoBehaviour
     public static List<GameObject> Id15_Fant = new List<GameObject>();
     public static List<GameObject> Id14_RollSlash = new List<GameObject>();
     public static List<GameObject> Id145_Murasame = new List<GameObject>();
+    public static List<GameObject> Id012_Invisible = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +32,6 @@ public class ArtsActiveObj : MonoBehaviour
         Id15_Fant.Clear();
         Id14_RollSlash.Clear();
         Id145_Murasame.Clear();
+        Id012_Invisible.Clear();
     }
 }
