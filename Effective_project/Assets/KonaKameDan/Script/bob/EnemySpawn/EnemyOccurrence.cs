@@ -16,7 +16,11 @@ public class EnemyOccurrence : MonoBehaviour
     {
         int randomValue = Random.Range(0, enemys.Length);//　出現させるenemyをランダムに選ぶ
 
-        GameObject.Instantiate(enemys[randomValue], pos, Quaternion.Euler(0.0f, 0.0f, 0.0f));// enemyの生成
+        var enemyObj= Instantiate(enemys[randomValue], pos, Quaternion.Euler(0.0f, 0.0f, 0.0f));// enemyの生成
+
+        //世界のレベルをエネミーのステータスに入れる
+        var status = enemyObj.GetComponent<Status>();
+        status.Lv = WorldLevel.GetWorldLevel;
 
         numberOfEnemys++;
     }
