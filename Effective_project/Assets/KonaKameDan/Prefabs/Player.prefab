@@ -567,7 +567,7 @@ MonoBehaviour:
     m_ConstantMin: 0
     m_ConstantMax: 0
   EXP: 0
-  isLevelUpEXP: 1
+  isLevelUpEXP: 0
   levelUpTimeScale: 10
   islevelUpTimeScale: 0
   defaultStatus:
