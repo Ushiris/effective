@@ -23,10 +23,7 @@ public class Id025_PrimitiveShield : MonoBehaviour
         artsStatus = GetComponent<ArtsStatus>();
 
         var objs = ArtsActiveObj.Id025_PrimitiveShield;
-        if (Arts_Process.GetMyActiveArts(objs, artsStatus.myObj))
-        {
-            Destroy(gameObject);
-        }
+        Arts_Process.OldArtsDestroy(objs, artsStatus.myObj);
 
         transform.parent = null;
 

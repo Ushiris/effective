@@ -38,10 +38,7 @@ public class Id59_Funnel : MonoBehaviour
 
         //オブジェクトが登録されている場合このオブジェクトを消す
         var objs = ArtsActiveObj.Id59_Funnel;
-        if (Arts_Process.GetMyActiveArts(objs, artsStatus.myObj))
-        {
-            Destroy(gameObject);
-        }
+        Arts_Process.OldArtsDestroy(objs, artsStatus.myObj);
 
         //エフェクトの所持数を代入
         flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);

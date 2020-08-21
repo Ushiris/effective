@@ -62,7 +62,7 @@ public class Arts_Process : MonoBehaviour
     /// </summary>
     /// <param name="objs">ArtsActiveObjクラスに登録されているもの</param>
     /// <param name="obj">確認する対象</param>
-    public static void OldArtsDestroy(List<GameObject> objs, GameObject obj)
+    public static bool OldArtsDestroy(List<GameObject> objs, GameObject obj)
     {
         if (objs.Count != 0)
         {
@@ -71,8 +71,10 @@ public class Arts_Process : MonoBehaviour
                 int num = objs.IndexOf(obj);
                 Destroy(objs[num]);
                 objs.RemoveAt(num);
+                return true;
             }
         }
+        return false;
     }
 
     /// <summary>
