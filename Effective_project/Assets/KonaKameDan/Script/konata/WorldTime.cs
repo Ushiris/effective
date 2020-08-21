@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//add
+
 /// <summary>
 /// 世界の経過時間
 /// </summary>
