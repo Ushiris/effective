@@ -567,7 +567,7 @@ MonoBehaviour:
     m_ConstantMin: 0
     m_ConstantMax: 0
   EXP: 0
-  isLevelUpEXP: 1
+  isLevelUpEXP: 0
   levelUpTimeScale: 10
   islevelUpTimeScale: 0
   defaultStatus:
@@ -651,6 +651,7 @@ GameObject:
   - component: {fileID: 7505584114165781118}
   - component: {fileID: 6702323745604068339}
   - component: {fileID: 3233633485512352334}
+  - component: {fileID: 7278285176418571923}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -845,12 +846,24 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &7278285176418571923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505584114165781117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398c032dac5957c4388bd435f76221c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7505584114575738297
 GameObject:
   m_ObjectHideFlags: 0

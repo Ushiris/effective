@@ -21,10 +21,7 @@ public class Id15_Fant : MonoBehaviour
 
         //オブジェクトが登録されている場合このオブジェクトを消す
         var objs = ArtsActiveObj.Id15_Fant;
-        if (Arts_Process.GetMyActiveArts(objs, artsStatus.myObj))
-        {
-            Destroy(gameObject);
-        }
+        Arts_Process.OldArtsDestroy(objs, artsStatus.myObj);
 
         //敵のポジションを持ってくる
         target = Arts_Process.GetNearTarget(artsStatus);
