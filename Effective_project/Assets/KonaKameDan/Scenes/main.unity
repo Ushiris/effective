@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.056233324, g: 0.079379186, b: 0.12584744, a: 1}
+  m_IndirectSpecularColor: {r: 0.05663399, g: 0.07967138, b: 0.12591928, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2743,6 +2743,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1763825007565174873, guid: 3163ec49460829e4aa3d33af320b7557,
+        type: 3}
+      propertyPath: effectIcon.Array.data[2].effectIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: d95ac84cb0233ad4d9d35872f1a400b0,
+        type: 3}
+    - target: {fileID: 1763825007565174873, guid: 3163ec49460829e4aa3d33af320b7557,
+        type: 3}
+      propertyPath: effectIcon.Array.data[9].effectIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 55fcbc3e2b57ba441a40acd6f43bb251,
+        type: 3}
     - target: {fileID: 1763825007565174878, guid: 3163ec49460829e4aa3d33af320b7557,
         type: 3}
       propertyPath: effectFusionUI_Obj
