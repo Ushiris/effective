@@ -99,6 +99,7 @@ public class Life : MonoBehaviour
     public int Damage(int fouce)
     {
         if (HP == null) LifeSetup();
+        if (damageGuard) return 0;
 
         int true_damege = fouce;
         HP -= true_damege;
@@ -169,7 +170,7 @@ public class Life : MonoBehaviour
         timer.SetActive(!freeze);
     }
 
-    public float getHitPointSafety()
+    public float GetHitPointSafety()
     {
         if (HP == null) LifeSetup();
 
