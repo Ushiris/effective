@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6216928581571088661}
-  - component: {fileID: 7087463730212838489}
-  - component: {fileID: 4738961703543959385}
   - component: {fileID: 6216928581571088658}
   - component: {fileID: 6769588382135442683}
   - component: {fileID: 2800181292246757316}
@@ -39,31 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7087463730212838489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6216928581571088659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520f7b17b53c7b74da584ed992f9441e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4738961703543959385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6216928581571088659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47a4151cca090f04eb06c5681e2cb66d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelUpTimeScale: 60
 --- !u!114 &6216928581571088658
 MonoBehaviour:
   m_ObjectHideFlags: 0
