@@ -567,7 +567,7 @@ MonoBehaviour:
     m_ConstantMin: 0
     m_ConstantMax: 0
   EXP: 0
-  isLevelUpEXP: 0
+  isLevelUpEXP: 1
   levelUpTimeScale: 10
   islevelUpTimeScale: 0
   defaultStatus:
@@ -864,6 +864,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398c032dac5957c4388bd435f76221c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &7505584114575738297
 GameObject:
   m_ObjectHideFlags: 0
