@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//add
-
 /// <summary>
 /// 世界のレベル
 /// </summary>
