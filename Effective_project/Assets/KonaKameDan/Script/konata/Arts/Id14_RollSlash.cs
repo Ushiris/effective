@@ -16,10 +16,7 @@ public class Id14_RollSlash : MonoBehaviour
 
         //オブジェクトが登録されている場合このオブジェクトを消す
         var objs = ArtsActiveObj.Id14_RollSlash;
-        if (Arts_Process.GetMyActiveArts(objs, artsStatus.myObj))
-        {
-            Destroy(gameObject);
-        }
+        Arts_Process.OldArtsDestroy(objs, artsStatus.myObj);
 
         //回転切りパーティクル生成
         var obj = Instantiate(rollSlashParticleObj, transform);

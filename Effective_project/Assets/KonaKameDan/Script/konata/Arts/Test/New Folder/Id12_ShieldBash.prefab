@@ -46,10 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldObj: {fileID: 606073160352393122, guid: 8beb19a1768f45445a7700f424a6e562,
     type: 3}
-  shieldPos: {x: 1.5, y: 0, z: 0}
-  endRot: -120
-  startSpeed: 20
-  acc: 100
+  force: 3
+  moveTime: 0.5
   lostTime: 1
 --- !u!114 &114809336146001686
 MonoBehaviour:
