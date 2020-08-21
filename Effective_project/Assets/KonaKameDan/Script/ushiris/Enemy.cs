@@ -43,19 +43,6 @@ public class Enemy : MonoBehaviour
         life.AddHealFunc(Heal);
     }
 
-    //オブジェクトが破棄された時
-    private void OnDestroy()
-    {
-        var playerStatus= PlayerManager.GetManager.GetPlObj.GetComponent<Status>();
-        var enemyStatus = GetComponent<Status>();
-
-        //プレイヤーに経験知を渡す
-        if (playerStatus != null && enemyStatus != null)
-        {
-            playerStatus.EXP += enemyStatus.status[Status.Name.DROP_EXP];
-        }
-    }
-
     void DropEffect()
     {
         var EffectList = new List<NameDefinition.EffectName>();
@@ -85,6 +72,4 @@ public class Enemy : MonoBehaviour
     {
         slider.value += true_heal;
     }
-
-
 }
