@@ -23,7 +23,7 @@ public class Payer_HPber : MonoBehaviour
         if(tmpPlayerLv != playerStatus.Lv)// レベル上がった！
             StatusUpdate();
 
-        berHP.value = playerLife.getHitPointSafety();// ダメージくらった！
+        berHP.value = playerLife.GetHitPointSafety();// ダメージくらった！
     }
     public void StatusUpdate()
     {
