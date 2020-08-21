@@ -34,10 +34,7 @@ public class Id245_EMPCube : MonoBehaviour
 
         //オブジェクトが登録されている場合このオブジェクトを消す
         var objs = ArtsActiveObj.Id245_EMPCube;
-        if (Arts_Process.GetMyActiveArts(objs, artsStatus.myObj))
-        {
-            Destroy(gameObject);
-        }
+        Arts_Process.OldArtsDestroy(objs, artsStatus.myObj);
 
         //エフェクトの所持数を代入
         barrierCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Barrier);

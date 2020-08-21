@@ -42,10 +42,7 @@ public class Id24_EMP : MonoBehaviour
 
         //オブジェクトが登録されている場合このオブジェクトを消す
         var objs = ArtsActiveObj.Id24_EMP;
-        if (Arts_Process.GetMyActiveArts(objs, artsStatus.myObj))
-        {
-            Destroy(gameObject);
-        }
+        Arts_Process.OldArtsDestroy(objs, artsStatus.myObj);
 
         transform.parent = null;
         transform.rotation = Quaternion.Euler(0, 0, 0);
