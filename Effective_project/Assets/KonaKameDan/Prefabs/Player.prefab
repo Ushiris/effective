@@ -651,7 +651,6 @@ GameObject:
   - component: {fileID: 7505584114165781118}
   - component: {fileID: 6702323745604068339}
   - component: {fileID: 3233633485512352334}
-  - component: {fileID: 7278285176418571923}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -852,21 +851,6 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &7278285176418571923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7505584114165781117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 398c032dac5957c4388bd435f76221c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallLayers:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &7505584114575738297
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +898,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraPivot: {fileID: 7505584114575738297}
   pl: {fileID: 7505584113060827351}
+  cameraObj: {fileID: 0}
+  wallLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  distance: 1.5
 --- !u!1001 &1965310507
 PrefabInstance:
   m_ObjectHideFlags: 0
