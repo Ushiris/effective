@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Id126_SwordiDance : MonoBehaviour
+public class Id125_SwordiDance : MonoBehaviour
 {
     [SerializeField] GameObject swordObj;
     [SerializeField] float timeOver = 30f;
