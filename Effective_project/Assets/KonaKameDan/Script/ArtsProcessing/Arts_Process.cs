@@ -73,6 +73,11 @@ public class Arts_Process : MonoBehaviour
                 objs.RemoveAt(num);
                 return true;
             }
+            else
+            {
+                objs.Add(obj);
+                return false;
+            }
         }
         return false;
     }
@@ -246,6 +251,13 @@ public class Arts_Process : MonoBehaviour
         hit.isMapLayer = isMapLayer;
         if (status) hit.plusFormStatus = artsStatus.myStatus.status[Status.Name.STR];
         
+    }
+
+    public static ParticleHitSetCollision SetParticleHitSetCollision(GameObject obj)
+    {
+        var s = obj.AddComponent<ParticleHitSetCollision>();
+        s.layerNameList = new List<string>() { "Default", "PostProcessing", "Map" };
+        return s;
     }
 
     /// <summary>
