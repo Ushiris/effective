@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 114002539109405174}
   - component: {fileID: 114548016434896696}
   m_Layer: 0
-  m_Name: Id126_SwordiDance
+  m_Name: Id125_SwordiDance
   m_TagString: Arts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
