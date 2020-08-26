@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fire
-  m_Shader: {fileID: 4800000, guid: 8d0b1d04a5eaf7848b0e84db0d5f7f93, type: 3}
+  m_Name: BeamMateriaParticle
+  m_Shader: {fileID: 4800000, guid: b68525c7929003249a99a0c44236c818, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -21,8 +21,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_14AB8FD2:
-        m_Texture: {fileID: 0}
+    - Texture2D_12AF8BF6:
+        m_Texture: {fileID: 2800000, guid: 128178ff8aac927448456487f2eeea71, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -110,13 +110,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_1188A6F5: 1.87
-    - Vector1_1832C8DB: 0
-    - Vector1_663E4A9E: 1.58
-    - Vector1_757BDD20: -5
-    - Vector1_A34E7AE2: -0.3
-    - Vector1_C77C7196: -0.3
-    - Vector1_D77BF341: 2
+    - Vector1_2D132024: 5
+    - Vector1_7DEA73B9: 5
+    - Vector1_8CEC6DF0: 10
+    - Vector1_9AE5761E: 3
+    - Vector1_CA249110: 5
+    - Vector1_DD482430: 20
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -229,8 +228,8 @@ Material:
     - _ZTestModeDistortion: 8
     - _ZWrite: 1
     m_Colors:
-    - Color_494CC6A7: {r: 0.4811321, g: 0.099929206, b: 0, a: 0}
-    - Color_8CE7AA8C: {r: 1, g: 0.027940366, b: 0, a: 1}
+    - Color_2C1C137F: {r: 0.8705883, g: 1, b: 0, a: 0}
+    - Color_CD718C9A: {r: 0.8679245, g: 0.41204393, b: 0.05322181, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
