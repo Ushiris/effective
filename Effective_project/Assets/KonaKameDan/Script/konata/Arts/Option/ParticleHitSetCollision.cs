@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// パーティクルがヒットした場所に当たり判定を生成する
+/// </summary>
 public class ParticleHitSetCollision : MonoBehaviour
 {
     public List<string> layerNameList = new List<string>();

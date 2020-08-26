@@ -249,15 +249,42 @@ public class Arts_Process : MonoBehaviour
         hit.hitDamageDefault = hitDefaultDamage;
         hit.artsStatus = artsStatus;
         hit.isMapLayer = isMapLayer;
-        if (status) hit.plusFormStatus = artsStatus.myStatus.status[Status.Name.STR];
-        
+        if (status) hit.plusFormStatus = artsStatus.myStatus.status[Status.Name.STR];   
     }
 
+    /// <summary>
+    /// パーティクルがヒットした場所に当たり判定を生成する
+    /// </summary>
+    /// <param name="obj">対象</param>
+    /// <returns></returns>
     public static ParticleHitSetCollision SetParticleHitSetCollision(GameObject obj)
     {
         var s = obj.AddComponent<ParticleHitSetCollision>();
         s.layerNameList = new List<string>() { "Default", "PostProcessing", "Map" };
         return s;
+    }
+
+    /// <summary>
+    /// パーティクル生成位置に当たり判定を生成する
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
+    public static ParticleSetCollision SetParticleSetCollision(GameObject obj)
+    {
+        var s = obj.AddComponent<ParticleSetCollision>();
+        return s;
+    }
+
+    /// <summary>
+    /// 親子を解除してY軸以外の回転をリセット
+    /// </summary>
+    /// <param name="obj"></param>
+    public static void RollReset(GameObject obj)
+    {
+        obj.transform.parent = null;
+        var rot = obj.transform.rotation;
+        var rotV3 = new Vector3(0, 1, 0) * rot.eulerAngles.y;
+        obj.transform.rotation = Quaternion.Euler(rotV3);
     }
 
     /// <summary>
