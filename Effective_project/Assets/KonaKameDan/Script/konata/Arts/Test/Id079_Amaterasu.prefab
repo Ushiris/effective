@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6929485253059204035}
-  - component: {fileID: 114734418675945046}
+  - component: {fileID: 114033481280751586}
   - component: {fileID: 114101397220471554}
   m_Layer: 0
-  m_Name: Id027_AnnihilationRay
+  m_Name: Id079_Amaterasu
   m_TagString: Arts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114734418675945046
+--- !u!114 &114033481280751586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,13 +41,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6803105965938668464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ae6887a948af0e45adc7ef6c7675431, type: 3}
+  m_Script: {fileID: 11500000, guid: ac15f7735d8fb7746840d67141d8d508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  annihilationRayParticleObj: {fileID: 3210972267389208780, guid: d06f27ebadaccec42b20bed322348e79,
+  satelliteCannonParticleObj: {fileID: 7223862817441182802, guid: f9da2740b43800145b9d775cf28faa31,
     type: 3}
-  speed: 100
-  defaultRot: {x: 35, y: -60, z: 0}
+  satelliteCannonStartParticleObj: {fileID: 2076378573244312861, guid: b694f06bb5255b64ab325541c324265b,
+    type: 3}
+  instantPos: {x: 0, y: 0, z: 10}
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
