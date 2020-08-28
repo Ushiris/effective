@@ -9,6 +9,7 @@ public class ParticleHitSetCollision : MonoBehaviour
 {
     public List<string> layerNameList = new List<string>();
     public List<Vector3> GetHitPos { get; private set; }
+    public float radius = 0.5f;
 
     ParticleSystem particle;
     List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
@@ -36,7 +37,7 @@ public class ParticleHitSetCollision : MonoBehaviour
                 var collider = gameObject.AddComponent<SphereCollider>();
                 collider.isTrigger = true;
                 collider.center = gameObject.transform.InverseTransformPoint(pos);
-                collider.radius = 0.5f;
+                collider.radius = radius;
 
                 //座標を格納
                 GetHitPos.Add(pos);

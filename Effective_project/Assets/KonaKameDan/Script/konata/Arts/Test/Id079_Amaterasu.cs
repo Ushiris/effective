@@ -35,8 +35,9 @@ public class Id079_Amaterasu : MonoBehaviour
             isSatelliteCannonInstant = true;
 
             //サテライトキャノンの生成
-            var obj= Instantiate(satelliteCannonParticleObj, transform);
+            var obj= Instantiate(satelliteCannonParticleObj, transform);       
             obj.transform.localPosition = new Vector3(0, 10, 0);
+            InstantCollider(obj);
         }
 
         //オブジェクトを消す
@@ -44,5 +45,15 @@ public class Id079_Amaterasu : MonoBehaviour
         {
             if (transform.childCount == 0) Destroy(gameObject);
         }
+    }
+
+    void InstantCollider(GameObject obj)
+    {
+        var collider = obj.AddComponent<CapsuleCollider>();
+        collider.isTrigger = true;
+        collider.center = new Vector3(0, 0, 2);
+        collider.radius = 5;
+        collider.height = 22;
+        collider.direction = 2;
     }
 }
