@@ -276,6 +276,19 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// オブジェクトを前進させる
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="speed"></param>
+    /// <returns></returns>
+    public static ForwardMove SetForwardMove(GameObject obj, float speed)
+    {
+        var s = obj.AddComponent<ForwardMove>();
+        s.speed = speed;
+        return s;
+    }
+
+    /// <summary>
     /// 親子を解除してY軸以外の回転をリセット
     /// </summary>
     /// <param name="obj"></param>
@@ -610,6 +623,30 @@ public class Arts_Process : MonoBehaviour
     public static float Acceleration(float startNum,float endNum,float time,float maxTime)
     {
         return startNum + (endNum - startNum) * ((time + 1.0f) * time / 2.0f) / ((maxTime + 1.0f) * maxTime / 2.0f);
+    }
+
+    /// <summary>
+    /// 立方体状に座標をsiz分並べる
+    /// </summary>
+    /// <param name="siz">並べる個数</param>
+    /// <param name="space">幅</param>
+    /// <returns></returns>
+    public static List<Vector3> SetBoxInstantPos(Vector3 siz, float space)
+    {
+        List<Vector3> posList = new List<Vector3>();
+
+        for (int x = 0; x < siz.x; x++)
+        {
+            for (int y = 0; y < siz.y; y++)
+            {
+                for (int z = 0; z < siz.z; z++)
+                {
+                    var v3 = new Vector3(x, y, z) * space;
+                    posList.Add(v3);
+                }
+            }
+        }
+        return new List<Vector3>(posList);
     }
 
     /// <summary>
