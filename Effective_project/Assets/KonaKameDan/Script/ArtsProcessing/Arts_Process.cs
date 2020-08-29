@@ -650,13 +650,13 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
-    /// 奇跡を表示する
+    /// 軌跡を表示する
     /// </summary>
     /// <param name="objs">置くもの</param>
     /// <param name="space">幅</param>
     /// <param name="v0">力の向き</param>
     /// <returns></returns>
-    public static List<GameObject> Miracle(List<GameObject> objs, float space, Vector3 v0)
+    public static List<GameObject> Trajectory(List<GameObject> objs, float space, Vector3 v0)
     {
         int count = 0;
         foreach(var obj in objs)
