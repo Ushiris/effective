@@ -12,7 +12,7 @@ public class Id127_Inferno : MonoBehaviour
     {
         //位置の初期設定
         Arts_Process.RollReset(gameObject);
-        transform.localPosition += new Vector3(0, 0.25f, 0);
+        transform.localPosition += new Vector3(0, -0.45f, 0);
 
         //パーティクル生成
         infernoParticle = Instantiate(infernoParticleObj, transform);
