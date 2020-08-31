@@ -20,8 +20,8 @@ public class Id079_Amaterasu : MonoBehaviour
         //artsStatus = GetComponent<ArtsStatus>();
 
         //位置の初期設定
+        transform.localPosition = instantPos;
         Arts_Process.RollReset(gameObject);
-        transform.localPosition += instantPos;
 
         //初手の演出生成
         satelliteCannonStart = Instantiate(satelliteCannonStartParticleObj, transform);

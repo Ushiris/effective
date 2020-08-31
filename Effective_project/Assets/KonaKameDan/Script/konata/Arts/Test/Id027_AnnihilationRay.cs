@@ -11,6 +11,8 @@ public class Id027_AnnihilationRay : MonoBehaviour
 
     [SerializeField] Vector3 defaultRot = new Vector3(30, -60, 0);
 
+    ParticleSystem ps;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class Id027_AnnihilationRay : MonoBehaviour
             Instantiate(annihilationRayParticleObj, transform);
         annihilationRayParticle.transform.localRotation = Quaternion.Euler(defaultRot);
         annihilationRayParticle.transform.localPosition = new Vector3(0, 5, 0);
+        ps = annihilationRayParticle.GetComponent<ParticleSystem>();
 
         //Rigidbodyのセット
         var rb = annihilationRayParticle.AddComponent<Rigidbody>();
@@ -38,11 +41,13 @@ public class Id027_AnnihilationRay : MonoBehaviour
             Quaternion.RotateTowards(transform.localRotation, Quaternion.Euler(0, 100, 0), step);
 
         //削除
-        if (transform.localRotation.eulerAngles.y > 99f)
+        var pse = ps.emission;
+        if (annihilationRayParticle != null && pse.enabled)
         {
-            var ps = annihilationRayParticle.GetComponent<ParticleSystem>();
-            var pse = ps.emission;
-            pse.enabled = false;
+            if (transform.localRotation.eulerAngles.y > 99f)
+            {
+                pse.enabled = false;
+            }
         }
 
         //本体を消す

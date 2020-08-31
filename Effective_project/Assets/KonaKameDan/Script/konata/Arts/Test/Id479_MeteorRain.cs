@@ -32,7 +32,7 @@ public class Id479_MeteorRain : MonoBehaviour
     {
         Arts_Process.RollReset(gameObject);
 
-        groupObj = new GameObject("GroupObj");
+        groupObj = Instantiate(new GameObject("GroupObj"), transform);
 
         boxPos = Arts_Process.SetBoxInstantPos(instantSiz, instantSpace);
 
@@ -48,11 +48,13 @@ public class Id479_MeteorRain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (boxPos.Count == 0) Destroy(gameObject);
+        if (groupObj.transform.childCount == 0 && boxPos.Count == 0) Destroy(gameObject);
     }
 
     void Instant()
     {
+        if (boxPos.Count == 0) return;
+
         var ran = Random.Range(0, boxPos.Count);
 
         //隕石の生成
