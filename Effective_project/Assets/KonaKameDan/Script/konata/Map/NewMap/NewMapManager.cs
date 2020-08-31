@@ -19,12 +19,25 @@ public class NewMapManager : MonoBehaviour
         public List<GameObject> effectItem = new List<GameObject>();
     }
 
-    [SerializeField] Status status = new Status();
+    [SerializeField] List<Status> statusList = new List<Status>();
+    [SerializeField] GameObject playerObj;
+    [SerializeField] GameObject bossObj;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //変数セット
+        int statusListNum = Random.Range(0, statusList.Count);
+        Status status = statusList[statusListNum];
+        GameObject map = Instantiate(status.map);
+
+        //準備
+        RandomSpawn(status);
+        PointDelete(map);
+
+        //プレイヤーとボス配置
+        Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
+        Instantiate(bossObj, status.bossSpawnPoint, new Quaternion());
     }
 
     // Update is called once per frame
@@ -34,7 +47,7 @@ public class NewMapManager : MonoBehaviour
     }
 
     //プレイヤーとボスの生成位置を出す
-    void RandomSpawn()
+    void RandomSpawn(Status status)
     {
         List<Vector3> pPos = new List<Vector3>();
         List<Vector3> bPos = new List<Vector3>();
@@ -59,11 +72,15 @@ public class NewMapManager : MonoBehaviour
         status.bossSpawnPoint = bPos[bNum];
     }
 
+    //余計なものを消す
     void PointDelete(GameObject mapObj)
     {
         foreach (Transform childTransform in mapObj.transform)
         {
-            Destroy(childTransform.gameObject);
+            if (childTransform.tag == "EnemtPoint" || childTransform.tag == "PlayerPoint")
+            {
+                Destroy(childTransform.gameObject);
+            }
         }
     }
 }
