@@ -43,7 +43,7 @@ public class BGM_Manager : MonoBehaviour
 
         for (int i = 0; i < audioInstantMaxCount; i++)
         {
-            bgmArr[i].volume = 0.5f;
+            bgmArr[i].volume = 0.8f;
             if(i != 0)// 前奏以外をループに
                 bgmArr[i].loop = true;
         }
