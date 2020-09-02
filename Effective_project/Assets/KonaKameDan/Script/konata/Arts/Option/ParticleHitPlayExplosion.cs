@@ -2,17 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// パーティクルが当たった場合、オブジェクトをスポーンさせる
+/// </summary>
 public class ParticleHitPlayExplosion : MonoBehaviour
 {
     public GameObject playParticle;
+    public Transform parent;
+    public float particleLostTime = 3f;
+    public ArtsStatus artsStatus;
+
+    public bool isTrigger { get; private set; }
+
+    string hitObjTag;
+
+    private void Start()
+    {
+        if (artsStatus == null) return;
+        switch (artsStatus.type)
+        {
+            case ArtsStatus.ParticleType.Player:
+                hitObjTag = "Enemy";
+                break;
+            case ArtsStatus.ParticleType.Enemy:
+                hitObjTag = "Player";
+                break;
+        }
+    }
 
     private void OnParticleCollision(GameObject other)
     {
-        InstantParticle();
+        if (other.tag == hitObjTag)
+        {
+            InstantParticle(other);
+            isTrigger = true;
+        }
     }
 
-    void InstantParticle()
+    private void OnTriggerEnter(Collider other)
     {
-        var obj = Instantiate(playParticle, transform);
+        if (other.gameObject.tag == hitObjTag)
+        {
+            InstantParticle(other.gameObject);
+            isTrigger = true;
+        }
+    }
+
+    void InstantParticle(GameObject target)
+    {
+        var obj = Instantiate(playParticle, parent);
+        obj.transform.position = target.transform.position;
+        Destroy(obj, particleLostTime);
     }
 }
