@@ -189,6 +189,25 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// パーティクルが当たった場合、オブジェクトをスポーンさせるスクリプトのアタッチ
+    /// </summary>
+    /// <param name="obj">対象</param>
+    /// <param name="particle">生成するもの</param>
+    /// <param name="parent">生成する場所</param>
+    /// <param name="artsStatus"></param>
+    /// <param name="lostTime">スポーンさせたオブジェクトを消すタイミング</param>
+    /// <returns></returns>
+    public static ParticleHitPlayExplosion SetParticleHitPlay(GameObject obj, GameObject particle, Transform parent, ArtsStatus artsStatus, float lostTime = 3f)
+    {
+        var s = obj.AddComponent<ParticleHitPlayExplosion>();
+        s.playParticle = particle;
+        s.parent = parent;
+        s.particleLostTime = lostTime;
+        s.artsStatus = artsStatus;
+        return s;
+    }
+
+    /// <summary>
     /// 周りの物を吹きとばす
     /// </summary>
     /// <param name="pos">中心</param>
