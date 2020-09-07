@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -112,18 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &77087753 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1965409419, guid: e1e991e09772c5f4e94aa21a22efd2bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 961174023}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &837240420 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7505584114165781117, guid: e1e991e09772c5f4e94aa21a22efd2bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 961174023}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &882131480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -435,31 +423,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7505584114575738299, guid: e1e991e09772c5f4e94aa21a22efd2bf,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7505584114575738299, guid: e1e991e09772c5f4e94aa21a22efd2bf,
-        type: 3}
-      propertyPath: cameraObj
-      value: 
-      objectReference: {fileID: 837240420}
-    - target: {fileID: 7505584114575738299, guid: e1e991e09772c5f4e94aa21a22efd2bf,
-        type: 3}
-      propertyPath: distance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7505584114575738299, guid: e1e991e09772c5f4e94aa21a22efd2bf,
-        type: 3}
-      propertyPath: wallLayers.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7505584114575738299, guid: e1e991e09772c5f4e94aa21a22efd2bf,
-        type: 3}
-      propertyPath: head
-      value: 
-      objectReference: {fileID: 77087753}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e991e09772c5f4e94aa21a22efd2bf, type: 3}
 --- !u!1001 &1106527982
