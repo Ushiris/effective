@@ -53,7 +53,7 @@ public class Id029_JumpCube : MonoBehaviour
 
         //軌跡を生成
         miracles =
-            Arts_Process.Miracle(miracles, miracleSpace, v0);
+            Arts_Process.Trajectory(miracles, miracleSpace, v0);
 
         transform.localPosition = new Vector3(0, 1f, 0);
         layerMask = LayerMask.GetMask("Map");
