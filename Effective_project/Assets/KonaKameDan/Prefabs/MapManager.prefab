@@ -61,8 +61,13 @@ MonoBehaviour:
   GoalObj: {fileID: 348436098106436150, guid: 3ba5b5fa5054f154d8d818362073d1cc, type: 3}
   plObj: {fileID: 7505584113060827351, guid: e1e991e09772c5f4e94aa21a22efd2bf, type: 3}
   bossObj: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad, type: 3}
-  grassObjArr: []
-  effectInstantCount: 30
+  grassObjArr:
+  - {fileID: 100000, guid: adc3039f95931fc4b9482d07abccb337, type: 3}
+  - {fileID: 100000, guid: 9bff7c8db77080c4bb494cb79b75e137, type: 3}
+  grassSpaceH: 20
+  grassSpace: 10
+  grassFixH: 10
+  effectInstantCount: 50
   effectItem: []
   inspectorExclusive:
   - name: Start
@@ -78,6 +83,7 @@ MonoBehaviour:
     trans: {fileID: 0}
     obj: {fileID: 4523503785744429535, guid: 4743a9062fd4e0a4ab6a2025b35c6aa4, type: 3}
   seed: 0
+  isLightweight: 0
 --- !u!114 &9188698297048849260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +102,7 @@ MonoBehaviour:
   - item: {fileID: 8826846590249665320, guid: fd156d7d7bf1be44584e05d937e0e311, type: 3}
     probability: 0
   - item: {fileID: 1847551651988070515, guid: 0538c634621e40b44b501f8a3bd9f3d9, type: 3}
-    probability: 0
+    probability: 5
   - item: {fileID: 4117553474593525243, guid: ae7249c38f9650845b21c629c8f37c6e, type: 3}
     probability: 0
   - item: {fileID: 651668260010506856, guid: 2f267bfa35255754fa4b2fd201836382, type: 3}
@@ -137,7 +143,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.6666667
+  m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
 --- !u!114 &1670942215837073262
