@@ -73,6 +73,11 @@ public class Arts_Process : MonoBehaviour
                 objs.RemoveAt(num);
                 return true;
             }
+            else
+            {
+                objs.Add(obj);
+                return false;
+            }
         }
         return false;
     }
@@ -184,6 +189,25 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// パーティクルが当たった場合、オブジェクトをスポーンさせるスクリプトのアタッチ
+    /// </summary>
+    /// <param name="obj">対象</param>
+    /// <param name="particle">生成するもの</param>
+    /// <param name="parent">生成する場所</param>
+    /// <param name="artsStatus"></param>
+    /// <param name="lostTime">スポーンさせたオブジェクトを消すタイミング</param>
+    /// <returns></returns>
+    public static ParticleHitPlayExplosion SetParticleHitPlay(GameObject obj, GameObject particle, Transform parent, ArtsStatus artsStatus, float lostTime = 3f)
+    {
+        var s = obj.AddComponent<ParticleHitPlayExplosion>();
+        s.playParticle = particle;
+        s.parent = parent;
+        s.particleLostTime = lostTime;
+        s.artsStatus = artsStatus;
+        return s;
+    }
+
+    /// <summary>
     /// 周りの物を吹きとばす
     /// </summary>
     /// <param name="pos">中心</param>
@@ -244,8 +268,55 @@ public class Arts_Process : MonoBehaviour
         hit.hitDamageDefault = hitDefaultDamage;
         hit.artsStatus = artsStatus;
         hit.isMapLayer = isMapLayer;
-        if (status) hit.plusFormStatus = artsStatus.myStatus.status[Status.Name.STR];
-        
+        if (status) hit.plusFormStatus = artsStatus.myStatus.status[Status.Name.STR];   
+    }
+
+    /// <summary>
+    /// パーティクルがヒットした場所に当たり判定を生成する
+    /// </summary>
+    /// <param name="obj">対象</param>
+    /// <returns></returns>
+    public static ParticleHitSetCollision SetParticleHitSetCollision(GameObject obj)
+    {
+        var s = obj.AddComponent<ParticleHitSetCollision>();
+        s.layerNameList = new List<string>() { "Default", "PostProcessing", "Map" };
+        return s;
+    }
+
+    /// <summary>
+    /// パーティクル生成位置に当たり判定を生成する
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
+    public static ParticleSetCollision SetParticleSetCollision(GameObject obj)
+    {
+        var s = obj.AddComponent<ParticleSetCollision>();
+        return s;
+    }
+
+    /// <summary>
+    /// オブジェクトを前進させる
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="speed"></param>
+    /// <returns></returns>
+    public static ForwardMove SetForwardMove(GameObject obj, float speed)
+    {
+        var s = obj.AddComponent<ForwardMove>();
+        s.speed = speed;
+        return s;
+    }
+
+    /// <summary>
+    /// 親子を解除してY軸以外の回転をリセット
+    /// </summary>
+    /// <param name="obj"></param>
+    public static void RollReset(GameObject obj)
+    {
+        obj.transform.parent = null;
+        var rot = obj.transform.rotation;
+        var rotV3 = new Vector3(0, 1, 0) * rot.eulerAngles.y;
+        obj.transform.rotation = Quaternion.Euler(rotV3);
     }
 
     /// <summary>
@@ -574,13 +645,37 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
-    /// 奇跡を表示する
+    /// 立方体状に座標をsiz分並べる
+    /// </summary>
+    /// <param name="siz">並べる個数</param>
+    /// <param name="space">幅</param>
+    /// <returns></returns>
+    public static List<Vector3> SetBoxInstantPos(Vector3 siz, float space)
+    {
+        List<Vector3> posList = new List<Vector3>();
+
+        for (int x = 0; x < siz.x; x++)
+        {
+            for (int y = 0; y < siz.y; y++)
+            {
+                for (int z = 0; z < siz.z; z++)
+                {
+                    var v3 = new Vector3(x, y, z) * space;
+                    posList.Add(v3);
+                }
+            }
+        }
+        return new List<Vector3>(posList);
+    }
+
+    /// <summary>
+    /// 軌跡を表示する
     /// </summary>
     /// <param name="objs">置くもの</param>
     /// <param name="space">幅</param>
     /// <param name="v0">力の向き</param>
     /// <returns></returns>
-    public static List<GameObject> Miracle(List<GameObject> objs, float space, Vector3 v0)
+    public static List<GameObject> Trajectory(List<GameObject> objs, float space, Vector3 v0)
     {
         int count = 0;
         foreach(var obj in objs)

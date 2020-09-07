@@ -8,6 +8,7 @@ public class ParticleHit : MonoBehaviour
     public float plusFormStatus;
     public ArtsStatus artsStatus;
     public bool isMapLayer;
+    public bool isParticleCollision = true;
 
     string hitObjTag;
     int hitCount = 0;
@@ -25,6 +26,8 @@ public class ParticleHit : MonoBehaviour
 
         var p = GetComponent<ParticleSystem>();
         var c = p.collision;
+
+        if (!isParticleCollision) p = null;
 
         switch (artsStatus.type)
         {
@@ -49,6 +52,7 @@ public class ParticleHit : MonoBehaviour
     //パーティクルが当たった時
     private void OnParticleCollision(GameObject obj)
     {
+        if (!isParticleCollision) return;
         if (obj.tag == hitObjTag)
         {
             Damage(obj);

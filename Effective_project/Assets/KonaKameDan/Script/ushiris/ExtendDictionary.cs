@@ -66,7 +66,5 @@ namespace Serialize
             Key = pair.Key;
             Value = pair.Value;
         }
-
-
     }
 }

@@ -9,6 +9,7 @@ public class Id145_Murasame : MonoBehaviour
 
     bool isStop;
     GameObject target;
+    GameObject mostSlashParticle;
 
     ArtsStatus artsStatus;
     ParticleHit slashDamage;
@@ -42,10 +43,10 @@ public class Id145_Murasame : MonoBehaviour
             if (dis < 2.5f && !isStop)
             {
                 //切るパーティクル生成
-                var obj = Instantiate(mostSlashParticleObj, transform);
-                obj.transform.position = targetPos;
+                mostSlashParticle = Instantiate(mostSlashParticleObj, transform);
+                mostSlashParticle.transform.position = targetPos;
 
-                Damage(obj);
+                Damage(mostSlashParticle);
 
                 isStop = true;
             }
@@ -55,6 +56,12 @@ public class Id145_Murasame : MonoBehaviour
                 float step = speed * Time.deltaTime;
                 artsStatus.myObj.transform.position =
                     Vector3.MoveTowards(artsStatus.myObj.transform.position, targetPos, step);
+            }
+
+            //敵に追尾
+            if (mostSlashParticle != null)
+            {
+                transform.position = targetPos;
             }
         }
 
