@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Id257_Haiyoru : MonoBehaviour
 {
-    [SerializeField] GameObject haiyoruParticleObj;
+    [SerializeField] GameObject bomberObj;
+    [SerializeField] GameObject explosionParticleObj;
     [SerializeField] float speed = 5f;
     [SerializeField] float rollSpeed = 5f;
 
     bool isEnemy;
-    GameObject haiyoruParticle;
     GameObject target;
+    GameObject bomb;
 
-    ParticleSystem ps;
-    ParticleSystem.MainModule main;
 
     ArtsStatus artsStatus;
+    ParticleHitPlayExplosion playExplosion;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +27,12 @@ public class Id257_Haiyoru : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
         //生成
-        haiyoruParticle = Instantiate(haiyoruParticleObj, transform);
-        haiyoruParticle.transform.localPosition = new Vector3(1f, 0.5f, 0);
-        ps = haiyoruParticle.GetComponent<ParticleSystem>();
-        main = ps.main;
-        main.loop = true;
+        bomb = Instantiate(bomberObj, transform);
+        bomb.transform.localPosition = new Vector3(1f, 0.5f, 0);
+
+        //触れたものを爆発させる
+        playExplosion =
+            Arts_Process.SetParticleHitPlay(bomb, explosionParticleObj, transform, artsStatus);
     }
 
     // Update is called once per frame
@@ -44,7 +45,6 @@ public class Id257_Haiyoru : MonoBehaviour
             if (target != null)
             {
                 isEnemy = true;
-                main.loop = false;
             }
         }
 
@@ -54,12 +54,18 @@ public class Id257_Haiyoru : MonoBehaviour
             transform.position = artsStatus.myObj.transform.position;
             Arts_Process.ObjRoll(gameObject, rollSpeed);
         }
-        else
+        else if(bomb!=null)
         {
             //敵に向かう
-            var pos = haiyoruParticle.transform.position;
-            pos = Vector3.Lerp(pos, target.transform.position, Time.deltaTime * speed);
-            haiyoruParticle.transform.position = pos;
+            var pos = bomb.transform.position;
+            pos = Vector3.MoveTowards(pos, target.transform.position, Time.deltaTime * speed);
+            bomb.transform.position = pos;
+        }
+
+        //爆弾を破壊
+        if (playExplosion.isTrigger == true)
+        {
+            Destroy(bomb);
         }
 
         //消す
