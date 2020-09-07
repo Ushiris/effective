@@ -24,6 +24,7 @@ public class Id57_Bomber : MonoBehaviour
 
         //生成
         bomber = Instantiate(bomberObj, transform);
+        bomber.transform.localPosition=new Vector3(1.5f,0,0);
 
         //触れたものを爆発させる
         playExplosion =

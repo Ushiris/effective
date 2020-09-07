@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a819aa12fac0764fbc4040b40bb7112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haiyoruParticleObj: {fileID: 3246364677006661748, guid: daf7cc66ed25a004ca99d62d6d6c9b35,
+  bomberObj: {fileID: 7924578328920080316, guid: 7b7fd9510a616cf4fac3ce74c9bde450,
     type: 3}
-  speed: 15
+  explosionParticleObj: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
+    type: 3}
+  speed: 10
   rollSpeed: 100
 --- !u!114 &114101397220471554
 MonoBehaviour:
