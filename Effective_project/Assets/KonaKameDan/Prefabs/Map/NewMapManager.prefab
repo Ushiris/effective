@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8326887859582480762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8326887859582480760}
+  - component: {fileID: 8326887859582480763}
+  m_Layer: 11
+  m_Name: NewMapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &8326887859582480760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326887859582480762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8326887859582480763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326887859582480762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9789d464116cbcc4c8ae832a66acd881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusList:
+  - map: {fileID: 6355601468761241609, guid: 7680c7db3e8593c4d90a22640c9a7158, type: 3}
+    mapType: 0
+    playerSpawnPoint: {x: 0, y: 0, z: 0}
+    bossSpawnPoint: {x: 0, y: 0, z: 0}
+    effectItemMaxCount: 30
+    effectItem:
+    - item: {fileID: 4071026826131853580, guid: 25e11a0df7316aa458a58c858c1542f2,
+        type: 3}
+      probability: 1
+    - item: {fileID: 4702145262850176614, guid: a406051ac1425d644980ffa00580c16a,
+        type: 3}
+      probability: 1
+    - item: {fileID: 651668260010506856, guid: 2f267bfa35255754fa4b2fd201836382, type: 3}
+      probability: 1
+    - item: {fileID: 8922917191592098055, guid: 4113cc94eea44154490f3bc8bb3c1985,
+        type: 3}
+      probability: 1
+  playerObj: {fileID: 7505584113060827351, guid: e1e991e09772c5f4e94aa21a22efd2bf,
+    type: 3}
+  bossObj: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad, type: 3}
+  portalObj: {fileID: 348436098106436150, guid: 3ba5b5fa5054f154d8d818362073d1cc,
+    type: 3}
