@@ -14,6 +14,8 @@ TagManager:
   - EnemyBullet
   - Arts
   - NearEnemyPos
+  - PlayerPoint
+  - BossPoint
   layers:
   - Default
   - TransparentFX
