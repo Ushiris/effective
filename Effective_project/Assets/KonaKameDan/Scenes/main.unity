@@ -336,6 +336,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937381385895885692, guid: 6231dac0c7378304296d4a4f746d7f19,
+        type: 3}
+      propertyPath: m_Name
+      value: TMP SubMeshUI [MEIRYO SDF Sample Material + LiberationSans SDF Atlas]
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6231dac0c7378304296d4a4f746d7f19, type: 3}
 --- !u!224 &66824374 stripped
@@ -446,7 +451,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 958985195}
   m_Father: {fileID: 403604136}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -546,7 +552,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: 2
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -573,18 +579,18 @@ MonoBehaviour:
     characterCount: 21
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 7
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 1
+    materialCount: 2
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 958985196}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1007,6 +1013,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2024195638251374732, guid: ab74a35ed11982e4289b44df23cde429,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2024195638251374733, guid: ab74a35ed11982e4289b44df23cde429,
         type: 3}
       propertyPath: isLightweight
@@ -1114,7 +1125,7 @@ PrefabInstance:
     - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
@@ -1222,6 +1233,78 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &958985194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 958985195}
+  - component: {fileID: 958985197}
+  - component: {fileID: 958985196}
+  m_Layer: 5
+  m_Name: TMP SubMeshUI [MEIRYO SDF Sample Material + LiberationSans SDF Atlas]
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &958985195
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958985194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 284966662}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &958985196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958985194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_spriteAsset: {fileID: 0}
+  m_material: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
+  m_isDefaultMaterial: 0
+  m_padding: 1.25
+  m_canvasRenderer: {fileID: 958985197}
+  m_TextComponent: {fileID: 284966665}
+  m_materialReferenceIndex: 1
+--- !u!222 &958985197
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958985194}
+  m_CullTransparentMesh: 0
 --- !u!1 &1063452785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1708,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1561241421 stripped
 MonoBehaviour:
@@ -2008,6 +2091,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937381385895885692, guid: 6231dac0c7378304296d4a4f746d7f19,
+        type: 3}
+      propertyPath: m_Name
+      value: TMP SubMeshUI [MEIRYO SDF Sample Material + LiberationSans SDF Atlas]
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6231dac0c7378304296d4a4f746d7f19, type: 3}
 --- !u!224 &1775565913 stripped
@@ -2240,6 +2328,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937381385895885692, guid: 6231dac0c7378304296d4a4f746d7f19,
+        type: 3}
+      propertyPath: m_Name
+      value: TMP SubMeshUI [MEIRYO SDF Sample Material + LiberationSans SDF Atlas]
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6231dac0c7378304296d4a4f746d7f19, type: 3}
 --- !u!224 &1875039545 stripped
@@ -2335,7 +2428,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1881900231
 MonoBehaviour:
@@ -2695,6 +2788,75 @@ MonoBehaviour:
   - {fileID: 2105395833}
   - {fileID: 1701111864}
   - {fileID: 1561241421}
+--- !u!1001 &2121454680
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480760, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480762, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: m_Name
+      value: NewMapManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
 --- !u!1001 &1763825007782605898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8830,7 +8992,7 @@ PrefabInstance:
     - target: {fileID: 8012069796867782621, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8012069796867782621, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
         type: 3}
@@ -8989,7 +9151,7 @@ PrefabInstance:
     - target: {fileID: 8252111633383182898, guid: db1e3b837f84a604d886992fadd2362f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8252111633383182898, guid: db1e3b837f84a604d886992fadd2362f,
         type: 3}
