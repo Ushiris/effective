@@ -19,6 +19,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     private void Start()
     {
         if (artsStatus == null) return;
+        isTrigger = false;
         switch (artsStatus.type)
         {
             case ArtsStatus.ParticleType.Player:
@@ -44,6 +45,15 @@ public class ParticleHitPlayExplosion : MonoBehaviour
         if (other.gameObject.tag == hitObjTag)
         {
             InstantParticle(other.gameObject);
+            isTrigger = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == hitObjTag)
+        {
+            InstantParticle(collision.gameObject);
             isTrigger = true;
         }
     }

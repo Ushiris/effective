@@ -46,7 +46,10 @@ public class Enemy : MonoBehaviour
     //オブジェクトが破棄された時 
     private void OnDestroy()
     {
-        var playerStatus = PlayerManager.GetManager.GetPlObj.GetComponent<Status>();
+        var obj = PlayerManager.GetManager.GetPlObj;
+        if (obj != null) return;
+        
+        var playerStatus = obj.GetComponent<Status>();
         var enemyStatus = GetComponent<Status>();
 
         //プレイヤーに経験知を渡す 

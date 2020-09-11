@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6929485253059204035}
-  - component: {fileID: 114080500752796186}
-  - component: {fileID: 114809336146001686}
+  - component: {fileID: 114140336740361862}
+  - component: {fileID: 114101397220471554}
   m_Layer: 0
-  m_Name: Id01_Slash
+  m_Name: Id047_PingPong
   m_TagString: Arts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114080500752796186
+--- !u!114 &114140336740361862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +41,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6803105965938668464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83622887c180554db8b05d0dcdd78f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 77948b7801bb37b40b87487098467034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySlashParticleObj: {fileID: 5701774197049906714, guid: 37a1114110a5f954096dee787997f309,
+  explosionParticleObj: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
     type: 3}
---- !u!114 &114809336146001686
+  bulletObj: {fileID: 7341266824481953958, guid: 235a64747f5a73441a9f98801b823297,
+    type: 3}
+  force: 30
+  lostTime: 3
+  v0: {x: 0, y: 10, z: 10}
+--- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
