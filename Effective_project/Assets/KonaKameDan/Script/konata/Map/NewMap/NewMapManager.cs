@@ -42,8 +42,8 @@ public class NewMapManager : MonoBehaviour
         SetNavMesh(map);
 
         //プレイヤーとボス配置
-        //Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
-        //Instantiate(bossObj, status.bossSpawnPoint, new Quaternion());
+        Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
+        Instantiate(bossObj, status.bossSpawnPoint, new Quaternion());
 
         //ポータル設置
         var randPortalPos = new Vector3(Random.Range(-5, 5), -4f, Random.Range(-5, 5));
@@ -57,8 +57,8 @@ public class NewMapManager : MonoBehaviour
         var nums = GatyaGatyaInventory.RandomTableInstant(eObj);
         for(int i = 0; i < status.effectItemMaxCount; i++)
         {
-            //var obj = GatyaGatyaInventory.RandomObj(nums, eObj);
-            //SetEvent(obj);
+            var obj = GatyaGatyaInventory.RandomObj(nums, eObj);
+            SetEvent(obj);
         }
 
 
