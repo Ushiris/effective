@@ -39,7 +39,7 @@ public class TpsPlayerControl : MonoBehaviour
         
         pl.transform.Rotate(0, mouseDelta.x, 0);
         var angle_x = cameraPivot.transform.localRotation.eulerAngles.x - mouseDelta.y;
-        Debug.Log(angle_x);
+        //Debug.Log(angle_x);
         if (angle_x >= 40 && angle_x <= 130)
         {
             mouseDelta.y = 0;
