@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusList:
-  - map: {fileID: 6355601468761241609, guid: 7680c7db3e8593c4d90a22640c9a7158, type: 3}
+  - map: {fileID: 105879995790286574, guid: 49e62644984a4e4418522306cb3e9a6b, type: 3}
     mapType: 0
+    mapSizX: 310
+    mapSizY: 350
     playerSpawnPoint: {x: 0, y: 0, z: 0}
     bossSpawnPoint: {x: 0, y: 0, z: 0}
     effectItemMaxCount: 30

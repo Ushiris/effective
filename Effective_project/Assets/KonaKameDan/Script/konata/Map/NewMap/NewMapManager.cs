@@ -15,6 +15,7 @@ public class NewMapManager : MonoBehaviour
     {
         public GameObject map;
         public MapType mapType;
+        public int mapSizX, mapSizY;
         [HideInInspector] public Vector3 playerSpawnPoint;
         [HideInInspector] public Vector3 bossSpawnPoint;
         public int effectItemMaxCount;
@@ -50,7 +51,7 @@ public class NewMapManager : MonoBehaviour
         Instantiate(portalObj, status.bossSpawnPoint + randPortalPos, new Quaternion());
 
         //イベント配置
-        MapEventPosArr(500, 300, 10, 0, map);
+        MapEventPosArr(status.mapSizX, status.mapSizY, 10, 0, map);
 
         //エフェクトオブジェクト設置
         var eObj = status.effectItem;
@@ -65,12 +66,11 @@ public class NewMapManager : MonoBehaviour
     }
 
     //イベント設置位置作成
-    const int fixPos=200;
     void MapEventPosArr(int xRange, int yRange, float maxH, float minH, GameObject mapObj)
     {
         var terrain = mapObj.GetComponent<Terrain>().terrainData;
 
-        for (int x = fixPos; x < xRange; x += 10)
+        for (int x = 0; x < xRange; x += 10)
         {
             for (int y = 0; y < yRange; y += 10)
             {
