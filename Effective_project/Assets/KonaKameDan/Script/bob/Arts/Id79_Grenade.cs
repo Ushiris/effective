@@ -11,6 +11,7 @@ public class Id79_Grenade : MonoBehaviour
     [SerializeField] float trajectoryCount = 10;
     [SerializeField] float trajectorySpace = 0.1f;
     [SerializeField] float lostTime = 1;
+    [SerializeField] float slidingThroughLostTime = 5;
 
     Vector3 pos;
     GameObject grenade;
@@ -24,6 +25,8 @@ public class Id79_Grenade : MonoBehaviour
 
     void Start()
     {
+        artsStatus = GetComponent<ArtsStatus>();
+
         for (int i = 0; i < trajectoryCount; i++)
         {
             miracles.Add(Instantiate(trajectoryObj, transform));
@@ -31,6 +34,7 @@ public class Id79_Grenade : MonoBehaviour
 
         //軌跡を生成
         miracles = Arts_Process.Trajectory(miracles, trajectorySpace, v0);
+        
     }
 
     // Update is called once per frame
@@ -52,12 +56,35 @@ public class Id79_Grenade : MonoBehaviour
                 Arts_Process.SetParticleHitPlay(grenade, grenadeObj, transform, artsStatus, lostTime, ParticleHitPlayExplosion.Mode.My, true);
 
             isStart = false;
+
+            for (int i = 0; i < trajectoryCount; i++)
+            {
+                Destroy(miracles[i]);
+            }
+
+            var timer = Arts_Process.TimeAction(gameObject, slidingThroughLostTime);
+            timer.LapEvent = () => { Lost(grenade); };
         }
 
-        //爆弾を破壊
-        if (particleHitPlay.isTrigger == true)
+        if(particleHitPlay != null)
         {
-            Destroy(grenade);
+            //爆弾を破壊
+            if (particleHitPlay.isTrigger == true)
+            {
+                Destroy(grenade);
+                Destroy(gameObject, 3);
+            }
+        }
+    }
+    //一定時間たったら爆発する
+    void Lost(GameObject obj)
+    {
+        if (obj != null)
+        {
+            pos = obj.transform.position;
+            Destroy(obj);
+            var explosion = Instantiate(grenadeObj, pos, Quaternion.identity);
+            Destroy(gameObject, 2);
         }
     }
 }

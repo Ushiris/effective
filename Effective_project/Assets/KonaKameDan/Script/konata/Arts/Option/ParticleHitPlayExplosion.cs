@@ -85,10 +85,11 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     //Tagの判定
     bool IsCheckTag(string tag)
     {
-        if (tag != notHitObjTag)
+        if (tag != notHitObjTag && tag != "NearEnemyPos")
         {
             if (tag == hitObjTag || isAllHit)
             {
+                Debug.Log("tag:" + tag);
                 return true;
             }
         }
