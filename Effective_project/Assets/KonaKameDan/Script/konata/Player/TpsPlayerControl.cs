@@ -44,7 +44,7 @@ public class TpsPlayerControl : MonoBehaviour
         {
             mouseDelta.y = 0;
         }
-        if (angle_x <= 280 && angle_x >= 130)
+        if (angle_x <= 315 && angle_x >= 130)
         {
             mouseDelta.y = 0;
         }
@@ -54,7 +54,14 @@ public class TpsPlayerControl : MonoBehaviour
 
         if (WallCheck())
         {
-            cameraObj.transform.position = wallHitPosition;
+            if (pl.transform.position.y > cameraDesirePos.transform.position.y)
+            {
+                cameraPivot.transform.Rotate(mouseDelta.y, 0, 0);
+            }
+            else
+            {
+                cameraObj.transform.position = wallHitPosition;
+            }
         }
         else
         {
@@ -70,7 +77,6 @@ public class TpsPlayerControl : MonoBehaviour
         if (Physics.Raycast(targetPosition, desiredPosition - targetPosition, out wallHit, Vector3.Distance(targetPosition, desiredPosition), wallLayers, QueryTriggerInteraction.Ignore))
         {
             wallHitPosition = wallHit.point;
-            Debug.Log(wallHitPosition);
             return true;
         }
         else
