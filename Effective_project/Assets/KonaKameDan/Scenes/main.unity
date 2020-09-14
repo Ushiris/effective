@@ -552,7 +552,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 2
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -579,11 +579,11 @@ MonoBehaviour:
     characterCount: 21
     spriteCount: 0
     spaceCount: 0
-    wordCount: 7
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -2958,7 +2958,7 @@ PrefabInstance:
     - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
         type: 3}
       propertyPath: prefabs.list.Array.size
-      value: 46
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
         type: 3}
@@ -3555,6 +3555,17 @@ PrefabInstance:
       propertyPath: prefabs.list.Array.data[45].Value.prefab
       value: 
       objectReference: {fileID: 6803105965938668464, guid: b35a1277931f6dd41b6fa4bdffb356f4,
+        type: 3}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[46].Key
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[46].Value.prefab
+      value: 
+      objectReference: {fileID: 1206908859274040434, guid: 66c2c5d634b82c3478ca4910f03b84a5,
         type: 3}
     - target: {fileID: 6216928581571088659, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
         type: 3}

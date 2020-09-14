@@ -10,6 +10,7 @@ public class Id79_Grenade : MonoBehaviour
     [SerializeField] Vector3 v0 = new Vector3(0, 5, 7);
     [SerializeField] float trajectoryCount = 10;
     [SerializeField] float trajectorySpace = 0.1f;
+    [SerializeField] float lostTime = 1;
 
     Vector3 pos;
     GameObject grenade;
@@ -48,9 +49,15 @@ public class Id79_Grenade : MonoBehaviour
 
             //爆発するエフェクトのセット
             particleHitPlay =
-                Arts_Process.SetParticleHitPlay(grenade, grenadeObj, transform, artsStatus);
+                Arts_Process.SetParticleHitPlay(grenade, grenadeObj, transform, artsStatus, lostTime, ParticleHitPlayExplosion.Mode.My, true);
 
             isStart = false;
+        }
+
+        //爆弾を破壊
+        if (particleHitPlay.isTrigger == true)
+        {
+            Destroy(grenade);
         }
     }
 }
