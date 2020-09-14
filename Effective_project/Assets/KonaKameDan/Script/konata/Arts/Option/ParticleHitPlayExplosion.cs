@@ -20,6 +20,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     public bool isTrigger { get; private set; }
 
     string hitObjTag;
+    string notHitObjTag;
 
     private void Start()
     {
@@ -29,16 +30,19 @@ public class ParticleHitPlayExplosion : MonoBehaviour
         {
             case ArtsStatus.ParticleType.Player:
                 hitObjTag = "Enemy";
+                notHitObjTag = "Player";
                 break;
             case ArtsStatus.ParticleType.Enemy:
                 hitObjTag = "Player";
+                notHitObjTag = "Enemy";
                 break;
         }
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.tag == hitObjTag || isAllHit)
+        var tag = other.tag;
+        if (IsCheckTag(tag))
         {
             InstantParticle(other);
             isTrigger = true;
@@ -47,7 +51,8 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == hitObjTag || isAllHit)
+        var tag = other.gameObject.tag;
+        if (IsCheckTag(tag))
         {
             InstantParticle(other.gameObject);
             isTrigger = true;
@@ -56,13 +61,15 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == hitObjTag || isAllHit)
+        var tag = collision.gameObject.tag;
+        if (IsCheckTag(tag))
         {
             InstantParticle(collision.gameObject);
             isTrigger = true;
         }
     }
 
+    //エフェクト生成処理
     void InstantParticle(GameObject target)
     {
         var obj = Instantiate(playParticle, parent);
@@ -73,5 +80,18 @@ public class ParticleHitPlayExplosion : MonoBehaviour
             default: break;
         }
         Destroy(obj, particleLostTime);
+    }
+
+    //Tagの判定
+    bool IsCheckTag(string tag)
+    {
+        if (tag != notHitObjTag)
+        {
+            if (tag == hitObjTag || isAllHit)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

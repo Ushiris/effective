@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 105879995790286569}
   - component: {fileID: 105879995790286568}
   - component: {fileID: 105879995790286575}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Map1.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,6 +164,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4942843605181678198, guid: 089af31e89f3008498399325bf651bee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089af31e89f3008498399325bf651bee, type: 3}
 --- !u!4 &723147136074954810 stripped
@@ -238,6 +243,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942843605181678198, guid: 089af31e89f3008498399325bf651bee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089af31e89f3008498399325bf651bee, type: 3}
@@ -314,6 +324,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4942843605181678198, guid: 089af31e89f3008498399325bf651bee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089af31e89f3008498399325bf651bee, type: 3}
 --- !u!4 &723147136361197033 stripped
@@ -389,6 +404,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4942843605181678198, guid: 089af31e89f3008498399325bf651bee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089af31e89f3008498399325bf651bee, type: 3}
 --- !u!4 &723147136242205502 stripped
@@ -408,6 +428,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206665226263689738, guid: a022cdec89a04724aa4654fae43d9b62,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7154204080878276345, guid: a022cdec89a04724aa4654fae43d9b62,
         type: 3}
@@ -539,6 +564,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoint (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4942843605181678198, guid: 089af31e89f3008498399325bf651bee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089af31e89f3008498399325bf651bee, type: 3}
 --- !u!4 &723147135578040968 stripped
@@ -558,6 +588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206665226263689738, guid: a022cdec89a04724aa4654fae43d9b62,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7154204080878276345, guid: a022cdec89a04724aa4654fae43d9b62,
         type: 3}
@@ -633,6 +668,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossPoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206665226263689738, guid: a022cdec89a04724aa4654fae43d9b62,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7154204080878276345, guid: a022cdec89a04724aa4654fae43d9b62,
         type: 3}
@@ -764,6 +804,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4942843605181678198, guid: 089af31e89f3008498399325bf651bee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089af31e89f3008498399325bf651bee, type: 3}
 --- !u!4 &723147135731157736 stripped
@@ -783,6 +828,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossPoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206665226263689738, guid: a022cdec89a04724aa4654fae43d9b62,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7154204080878276345, guid: a022cdec89a04724aa4654fae43d9b62,
         type: 3}
@@ -858,6 +908,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossPoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206665226263689738, guid: a022cdec89a04724aa4654fae43d9b62,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7154204080878276345, guid: a022cdec89a04724aa4654fae43d9b62,
         type: 3}
@@ -988,6 +1043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerPoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942843605181678198, guid: 089af31e89f3008498399325bf651bee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089af31e89f3008498399325bf651bee, type: 3}
