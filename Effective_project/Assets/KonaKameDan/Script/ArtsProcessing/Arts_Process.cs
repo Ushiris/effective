@@ -196,12 +196,19 @@ public class Arts_Process : MonoBehaviour
     /// <param name="parent">生成する場所</param>
     /// <param name="artsStatus"></param>
     /// <param name="lostTime">スポーンさせたオブジェクトを消すタイミング</param>
+    /// <param name="mode">発生させる対象(自分か相手か)</param>
+    /// <param name="isAllHit">当たったもの全てに反応するかどうか</param>
     /// <returns></returns>
-    public static ParticleHitPlayExplosion SetParticleHitPlay(GameObject obj, GameObject particle, Transform parent, ArtsStatus artsStatus, float lostTime = 3f)
+    public static ParticleHitPlayExplosion SetParticleHitPlay(
+        GameObject obj, GameObject particle, Transform parent, ArtsStatus artsStatus,
+        float lostTime = 3f, ParticleHitPlayExplosion.Mode mode = ParticleHitPlayExplosion.Mode.You, bool isAllHit = false
+        )
     {
         var s = obj.AddComponent<ParticleHitPlayExplosion>();
         s.playParticle = particle;
         s.parent = parent;
+        s.mode = mode;
+        s.isAllHit = isAllHit;
         s.particleLostTime = lostTime;
         s.artsStatus = artsStatus;
         return s;
