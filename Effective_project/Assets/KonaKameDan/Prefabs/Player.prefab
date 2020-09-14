@@ -839,7 +839,7 @@ MonoBehaviour:
   head: {fileID: 1965409419}
   wallLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2049
   distance: 4
 --- !u!1 &7869543067248516332
 GameObject:
