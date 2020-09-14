@@ -7,10 +7,13 @@ using UnityEngine;
 /// </summary>
 public class ParticleHitPlayExplosion : MonoBehaviour
 {
+    public enum Mode { My, You }
+
     public GameObject playParticle;
     public Transform parent;
     public float particleLostTime = 3f;
     public ArtsStatus artsStatus;
+    public Mode mode = Mode.You;
 
     public bool isTrigger { get; private set; }
 
@@ -61,7 +64,12 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     void InstantParticle(GameObject target)
     {
         var obj = Instantiate(playParticle, parent);
-        obj.transform.position = target.transform.position;
+        switch (mode)
+        {
+            case Mode.My: obj.transform.position = transform.position; break;
+            case Mode.You: obj.transform.position = target.transform.position; break;
+            default: break;
+        }
         Destroy(obj, particleLostTime);
     }
 }
