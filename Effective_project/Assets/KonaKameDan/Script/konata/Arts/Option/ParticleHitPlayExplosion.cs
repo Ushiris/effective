@@ -13,7 +13,9 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     public Transform parent;
     public float particleLostTime = 3f;
     public ArtsStatus artsStatus;
+
     public Mode mode = Mode.You;
+    public bool isAllHit = false;
 
     public bool isTrigger { get; private set; }
 
@@ -36,7 +38,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.tag == hitObjTag)
+        if (other.tag == hitObjTag || isAllHit)
         {
             InstantParticle(other);
             isTrigger = true;
@@ -45,7 +47,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == hitObjTag)
+        if (other.gameObject.tag == hitObjTag || isAllHit)
         {
             InstantParticle(other.gameObject);
             isTrigger = true;
@@ -54,7 +56,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == hitObjTag)
+        if (collision.gameObject.tag == hitObjTag || isAllHit)
         {
             InstantParticle(collision.gameObject);
             isTrigger = true;
