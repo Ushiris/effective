@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 114447205265392830}
   m_Layer: 0
   m_Name: Id79_Grenade
-  m_TagString: Untagged
+  m_TagString: Arts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trajectoryObj: {fileID: 6522947457880402839, guid: 29002b54d285c2f47b508a18af278fb7,
     type: 3}
-  grenadeObj: {fileID: 0}
+  grenadeObj: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
+    type: 3}
+  bulletObj: {fileID: 7341266824481953958, guid: 235a64747f5a73441a9f98801b823297,
+    type: 3}
   v0: {x: 0, y: 5, z: 7}
   trajectoryCount: 10
   trajectorySpace: 0.1
