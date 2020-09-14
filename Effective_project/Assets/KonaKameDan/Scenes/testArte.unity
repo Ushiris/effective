@@ -130,6 +130,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Id79_Grenade
       objectReference: {fileID: 0}
+    - target: {fileID: 1206908859274040434, guid: 66c2c5d634b82c3478ca4910f03b84a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7490128671625446308, guid: 66c2c5d634b82c3478ca4910f03b84a5,
         type: 3}
       propertyPath: m_LocalPosition.x
