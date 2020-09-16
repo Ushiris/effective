@@ -5,6 +5,7 @@ using UnityEngine;
 public class Id05_Homing : MonoBehaviour
 {
     [SerializeField] GameObject homingParticle;
+    [SerializeField] GameObject[] startWaveParticle;
     [SerializeField] float force = 10f;
     [SerializeField] float defaultDamage = 1f;
 
@@ -26,6 +27,12 @@ public class Id05_Homing : MonoBehaviour
     void Start()
     {
         artsStatus = GetComponent<ArtsStatus>();
+
+        //初手のエフェクト
+        for (int i = 0; i < startWaveParticle.Length; i++)
+        {
+            Instantiate(startWaveParticle[i], transform);
+        }
 
         //パーティクル生成
         homingParticleObj = Instantiate(homingParticle, transform);
