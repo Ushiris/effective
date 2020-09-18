@@ -7,7 +7,8 @@ public class EnemyState : MonoBehaviour
     public enum MoveState
     {
         Chase,
-        Stay
+        Stay,
+        Stan
     }
     public MoveState move = MoveState.Stay;
 }

@@ -26,6 +26,11 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
 
     private void LateUpdate()
     {
+        if (state.move == MoveState.Stan)
+        {
+            return;
+        }
+
         if (Vector3.Distance(target.transform.position, transform.position) <= 30)
         {
             state.move = MoveState.Chase;
@@ -52,9 +57,18 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
                         ));
                 break;
 
+            case MoveState.Stan:
+                navMesh.SetDestination(transform.position);
+                break;
+
             default:
                 Debug.Log(gameObject.name + "「こういう時(" + state.ToString() + ")にどうすればいいのかわからん」");
                 break;
         }
+    }
+
+    public void Stan(float time)
+    {
+        StopWatch.Summon(time, () => { state.move = MoveState.Stay; }, gameObject, true);
     }
 }

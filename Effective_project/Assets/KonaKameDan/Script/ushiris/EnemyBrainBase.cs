@@ -5,4 +5,6 @@ using UnityEngine;
 public interface EnemyBrainBase
 {
     void Think();
+
+    void Stan(float time);
 }
