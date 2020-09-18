@@ -6,7 +6,8 @@ public class Id079_Amaterasu : MonoBehaviour
 {
     [SerializeField] GameObject satelliteCannonParticleObj;
     [SerializeField] GameObject satelliteCannonStartParticleObj;
-    [SerializeField] Vector3 instantPos = new Vector3(0, 0, 5);
+    [SerializeField] GameObject satelliteCannonParticleHitObj;
+    [SerializeField] Vector3 instantPos = new Vector3(0, 1, 5);
 
     bool isSatelliteCannonInstant;
     GameObject satelliteCannonStart;
@@ -22,6 +23,9 @@ public class Id079_Amaterasu : MonoBehaviour
         //位置の初期設定
         transform.localPosition = instantPos;
         Arts_Process.RollReset(gameObject);
+        var pos = transform.position;
+        pos.y = 0;
+        transform.position = pos;
 
         //初手の演出生成
         satelliteCannonStart = Instantiate(satelliteCannonStartParticleObj, transform);
@@ -30,14 +34,17 @@ public class Id079_Amaterasu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //初手の演出が終わったら実行
         if (satelliteCannonStart == null && !isSatelliteCannonInstant)
         {
             isSatelliteCannonInstant = true;
 
             //サテライトキャノンの生成
             var obj= Instantiate(satelliteCannonParticleObj, transform);       
-            obj.transform.localPosition = new Vector3(0, 10, 0);
+            obj.transform.localPosition = new Vector3(0, 2, 0);
             InstantCollider(obj);
+            obj = Instantiate(satelliteCannonParticleHitObj, transform);
+            //obj.transform.localPosition = new Vector3(0, 0, 0);
         }
 
         //オブジェクトを消す
@@ -51,9 +58,11 @@ public class Id079_Amaterasu : MonoBehaviour
     {
         var collider = obj.AddComponent<CapsuleCollider>();
         collider.isTrigger = true;
-        collider.center = new Vector3(0, 0, 2);
-        collider.radius = 5;
-        collider.height = 22;
-        collider.direction = 2;
+        collider.center = new Vector3(0, 2, 0);
+        collider.radius = 2.5f;
+        collider.height = 10;
+        collider.direction = 1;
     }
+
+    //これでダメだったらParticleSystemをやめる
 }
