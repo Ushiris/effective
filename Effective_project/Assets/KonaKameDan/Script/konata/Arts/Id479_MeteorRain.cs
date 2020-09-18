@@ -17,6 +17,8 @@ public class Id479_MeteorRain : MonoBehaviour
     [Header("生成タイミング")]
     [SerializeField] float interval = 0.1f;
 
+    [SerializeField] GameObject markObj;
+
     GameObject groupObj;
 
     List<ForwardMove> forwardMoves = new List<ForwardMove>();
@@ -39,6 +41,10 @@ public class Id479_MeteorRain : MonoBehaviour
         groupObj.transform.localRotation = Quaternion.Euler(0, 0, r);
         Vector3 pos = new Vector3(fixX, h, 8);
         groupObj.transform.localPosition = pos;
+
+        var mark = Instantiate(markObj, transform);
+        mark.transform.localScale = new Vector3(10, 10, 10);
+        mark.transform.localPosition = new Vector3(4, 0, 12);
 
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = interval;
