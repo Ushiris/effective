@@ -5,6 +5,7 @@ using UnityEngine;
 public class Id045_Hounds : MonoBehaviour
 {
     [SerializeField] GameObject homingParticle;
+    [SerializeField] GameObject[] startWaveParticle;
     [SerializeField] float force = 10f;
     [SerializeField] float defaultDamage = 0.1f;
     [SerializeField] int defaultBullet = 10;
@@ -31,6 +32,12 @@ public class Id045_Hounds : MonoBehaviour
     void Start()
     {
         artsStatus = GetComponent<ArtsStatus>();
+
+        //初手のエフェクト
+        for (int i = 0; i < startWaveParticle.Length; i++)
+        {
+            Instantiate(startWaveParticle[i], transform);
+        }
 
         //パーティクル生成
         homingParticleObj = Instantiate(homingParticle, transform);

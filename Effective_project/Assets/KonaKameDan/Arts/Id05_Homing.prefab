@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   homingParticle: {fileID: 4494904201653772929, guid: 5d8f38cd7b35d5c4c921e94474410012,
     type: 3}
+  startWaveParticle:
+  - {fileID: 6616846964649882562, guid: 3a036c5b2a459fe4e9eb28e8d0458609, type: 3}
+  - {fileID: 407207552927570517, guid: 3126b27d80e91d345939fb4b61f6fa63, type: 3}
   force: 10
   defaultDamage: 1.5
   plusDamage: 0.02

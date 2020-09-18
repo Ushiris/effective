@@ -286,7 +286,7 @@ public class Arts_Process : MonoBehaviour
     public static ParticleHitSetCollision SetParticleHitSetCollision(GameObject obj)
     {
         var s = obj.AddComponent<ParticleHitSetCollision>();
-        s.layerNameList = new List<string>() { "Default", "PostProcessing", "Map" };
+        s.layerNameList = new List<string>() { "PostProcessing", "Map" };
         return s;
     }
 
