@@ -8,10 +8,16 @@ public class Id079_Amaterasu : MonoBehaviour
     [SerializeField] GameObject satelliteCannonStartParticleObj;
     [SerializeField] GameObject satelliteCannonParticleHitObj;
     [SerializeField] Vector3 instantPos = new Vector3(0, 1, 5);
+    [SerializeField] float sizUpSpeed = 3;
 
+    GameObject satelliteCannonParticle;
+
+    int frame = 0;
     bool isSatelliteCannonInstant;
+    Vector3? hitParticlePos;
     GameObject satelliteCannonStart;
 
+    HitCollision hitCollision;
     ArtsStatus artsStatus;
 
     // Start is called before the first frame update
@@ -40,29 +46,46 @@ public class Id079_Amaterasu : MonoBehaviour
             isSatelliteCannonInstant = true;
 
             //サテライトキャノンの生成
-            var obj= Instantiate(satelliteCannonParticleObj, transform);       
-            obj.transform.localPosition = new Vector3(0, 2, 0);
-            InstantCollider(obj);
-            obj = Instantiate(satelliteCannonParticleHitObj, transform);
-            //obj.transform.localPosition = new Vector3(0, 0, 0);
+            satelliteCannonParticle = Instantiate(satelliteCannonParticleObj, transform);
+            satelliteCannonParticle.transform.localPosition = new Vector3(0, 30, 0);
+            satelliteCannonParticle.transform.localScale = new Vector3(10, 0, 10);
+            hitCollision = Arts_Process.SetHitCollision(satelliteCannonParticle);
+            hitCollision.tags.Add("Ground");
         }
 
-        //オブジェクトを消す
-        if (isSatelliteCannonInstant)
+        if (hitCollision != null)
         {
-            if (transform.childCount == 0) Destroy(gameObject);
+            //地面に当たるまでオブジェクトを伸ばす
+            if (!hitCollision.GetOnTrigger)
+            {
+                var siz = satelliteCannonParticle.transform.localScale;
+                siz.y += Time.deltaTime * sizUpSpeed;
+                satelliteCannonParticle.transform.localScale = siz;
+            }
+            else
+            {
+                //20フレームごとにHitParticleを生成
+                if (frame % 20 == 0)
+                {
+                    if (hitParticlePos == null) hitParticlePos = HitParticlePos();
+                    else
+                    {
+                        var obj = Instantiate(satelliteCannonParticleHitObj, transform);
+                        obj.transform.localPosition = (Vector3)hitParticlePos;
+                    }
+                }
+                frame++;
+            }
         }
+
+        //削除
+        if (transform.childCount == 0) Destroy(gameObject);
     }
 
-    void InstantCollider(GameObject obj)
+    Vector3 HitParticlePos()
     {
-        var collider = obj.AddComponent<CapsuleCollider>();
-        collider.isTrigger = true;
-        collider.center = new Vector3(0, 2, 0);
-        collider.radius = 2.5f;
-        collider.height = 10;
-        collider.direction = 1;
+        var pos = satelliteCannonParticle.transform.localPosition;
+        var siz = satelliteCannonParticle.transform.localScale;
+        return new Vector3(pos.x, (pos.y - (siz.y * 2)) + 1f, pos.z);
     }
-
-    //これでダメだったらParticleSystemをやめる
 }

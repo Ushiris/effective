@@ -44,13 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac15f7735d8fb7746840d67141d8d508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  satelliteCannonParticleObj: {fileID: 5866421724869564806, guid: 956609e7502d250488c509491904b525,
+  satelliteCannonParticleObj: {fileID: 7373014510127844250, guid: 56d34b58d79a34643af4ff773d1f22d6,
     type: 3}
   satelliteCannonStartParticleObj: {fileID: 2076378573244312861, guid: b694f06bb5255b64ab325541c324265b,
     type: 3}
   satelliteCannonParticleHitObj: {fileID: 1074015846649655331, guid: a0bd2024c49a74d4981c88e848e02c59,
     type: 3}
   instantPos: {x: 0, y: 0, z: 10}
+  sizUpSpeed: 3
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

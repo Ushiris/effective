@@ -215,6 +215,16 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 当たり判定のフラグを取得するスクリプトをアタッチする
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
+    public static HitCollision SetHitCollision(GameObject obj)
+    {
+        return obj.AddComponent<HitCollision>();
+    }
+
+    /// <summary>
     /// 周りの物を吹きとばす
     /// </summary>
     /// <param name="pos">中心</param>
@@ -324,6 +334,18 @@ public class Arts_Process : MonoBehaviour
         var rot = obj.transform.rotation;
         var rotV3 = new Vector3(0, 1, 0) * rot.eulerAngles.y;
         obj.transform.rotation = Quaternion.Euler(rotV3);
+    }
+
+    /// <summary>
+    /// 地面の高さにする
+    /// </summary>
+    /// <param name="obj"></param>
+    public static void GroundPosMatch(GameObject obj)
+    {
+        var pos = obj.transform.position;
+        var t = NewMapTerrainData.GetTerrain;
+        pos.y = t.terrainData.GetHeight((int)pos.x, (int)pos.z);
+        obj.transform.position = pos;
     }
 
     /// <summary>

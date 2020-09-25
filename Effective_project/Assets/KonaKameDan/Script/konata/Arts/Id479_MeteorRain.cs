@@ -33,6 +33,7 @@ public class Id479_MeteorRain : MonoBehaviour
     void Start()
     {
         Arts_Process.RollReset(gameObject);
+        Arts_Process.GroundPosMatch(gameObject);
 
         groupObj = Instantiate(new GameObject("GroupObj"), transform);
 
