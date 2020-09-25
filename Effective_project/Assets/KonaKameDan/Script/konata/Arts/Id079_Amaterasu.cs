@@ -6,11 +6,18 @@ public class Id079_Amaterasu : MonoBehaviour
 {
     [SerializeField] GameObject satelliteCannonParticleObj;
     [SerializeField] GameObject satelliteCannonStartParticleObj;
-    [SerializeField] Vector3 instantPos = new Vector3(0, 0, 5);
+    [SerializeField] GameObject satelliteCannonParticleHitObj;
+    [SerializeField] Vector3 instantPos = new Vector3(0, 1, 5);
+    [SerializeField] float sizUpSpeed = 3;
 
+    GameObject satelliteCannonParticle;
+
+    int frame = 0;
     bool isSatelliteCannonInstant;
+    Vector3? hitParticlePos;
     GameObject satelliteCannonStart;
 
+    HitCollision hitCollision;
     ArtsStatus artsStatus;
 
     // Start is called before the first frame update
@@ -22,6 +29,9 @@ public class Id079_Amaterasu : MonoBehaviour
         //位置の初期設定
         transform.localPosition = instantPos;
         Arts_Process.RollReset(gameObject);
+        var pos = transform.position;
+        pos.y = 0;
+        transform.position = pos;
 
         //初手の演出生成
         satelliteCannonStart = Instantiate(satelliteCannonStartParticleObj, transform);
@@ -30,30 +40,53 @@ public class Id079_Amaterasu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //初手の演出が終わったら実行
         if (satelliteCannonStart == null && !isSatelliteCannonInstant)
         {
             isSatelliteCannonInstant = true;
 
             //サテライトキャノンの生成
-            var obj= Instantiate(satelliteCannonParticleObj, transform);       
-            obj.transform.localPosition = new Vector3(0, 10, 0);
-            InstantCollider(obj);
+            satelliteCannonParticle = Instantiate(satelliteCannonParticleObj, transform);
+            satelliteCannonParticle.transform.localPosition = new Vector3(0, 30, 0);
+            satelliteCannonParticle.transform.localScale = new Vector3(10, 0, 10);
+            hitCollision = Arts_Process.SetHitCollision(satelliteCannonParticle);
+            hitCollision.tags.Add("Ground");
         }
 
-        //オブジェクトを消す
-        if (isSatelliteCannonInstant)
+        if (hitCollision != null)
         {
-            if (transform.childCount == 0) Destroy(gameObject);
+            //地面に当たるまでオブジェクトを伸ばす
+            if (!hitCollision.GetOnTrigger)
+            {
+                var siz = satelliteCannonParticle.transform.localScale;
+                siz.y += Time.deltaTime * sizUpSpeed;
+                satelliteCannonParticle.transform.localScale = siz;
+            }
+            else
+            {
+                //20フレームごとにHitParticleを生成
+                if (frame % 20 == 0)
+                {
+                    if (hitParticlePos == null) hitParticlePos = HitParticlePos();
+                    else
+                    {
+                        var obj = Instantiate(satelliteCannonParticleHitObj, transform);
+                        obj.transform.localPosition = (Vector3)hitParticlePos;
+                    }
+                }
+                frame++;
+            }
         }
+
+        //削除
+        if (transform.childCount == 0) Destroy(gameObject);
     }
 
-    void InstantCollider(GameObject obj)
+    Vector3 HitParticlePos()
     {
-        var collider = obj.AddComponent<CapsuleCollider>();
-        collider.isTrigger = true;
-        collider.center = new Vector3(0, 0, 2);
-        collider.radius = 5;
-        collider.height = 22;
-        collider.direction = 2;
+        var pos = satelliteCannonParticle.transform.localPosition;
+        var t = NewMapTerrainData.GetTerrain;
+        pos.y = t.terrainData.GetHeight((int)pos.x, (int)pos.z);
+        return pos;
     }
 }

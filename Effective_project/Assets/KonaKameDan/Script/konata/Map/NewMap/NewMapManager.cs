@@ -36,6 +36,7 @@ public class NewMapManager : MonoBehaviour
         int statusListNum = Random.Range(0, statusList.Count);
         Status status = statusList[statusListNum];
         GameObject map = Instantiate(status.map, transform);
+        NewMapTerrainData.SetTerrainData(map);
 
         //準備
         RandomSpawn(status);
@@ -61,8 +62,6 @@ public class NewMapManager : MonoBehaviour
             var obj = GatyaGatyaInventory.RandomObj(nums, eObj);
             SetEvent(obj);
         }
-
-
     }
 
     //イベント設置位置作成
