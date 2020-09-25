@@ -85,7 +85,8 @@ public class Id079_Amaterasu : MonoBehaviour
     Vector3 HitParticlePos()
     {
         var pos = satelliteCannonParticle.transform.localPosition;
-        var siz = satelliteCannonParticle.transform.localScale;
-        return new Vector3(pos.x, (pos.y - (siz.y * 2)) + 1f, pos.z);
+        var t = NewMapTerrainData.GetTerrain;
+        pos.y = t.terrainData.GetHeight((int)pos.x, (int)pos.z);
+        return pos;
     }
 }
