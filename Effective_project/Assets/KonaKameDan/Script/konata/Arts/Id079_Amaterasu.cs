@@ -71,7 +71,7 @@ public class Id079_Amaterasu : MonoBehaviour
                     else
                     {
                         var obj = Instantiate(satelliteCannonParticleHitObj, transform);
-                        obj.transform.localPosition = (Vector3)hitParticlePos;
+                        obj.transform.position = (Vector3)hitParticlePos;
                     }
                 }
                 frame++;
@@ -84,7 +84,7 @@ public class Id079_Amaterasu : MonoBehaviour
 
     Vector3 HitParticlePos()
     {
-        var pos = satelliteCannonParticle.transform.localPosition;
+        var pos = satelliteCannonParticle.transform.position;
         var t = NewMapTerrainData.GetTerrain;
         pos.y = t.terrainData.GetHeight((int)pos.x, (int)pos.z);
         return pos;
