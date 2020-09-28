@@ -120,7 +120,7 @@ public class UI_Manager : MonoBehaviour
     /// <returns></returns>
     bool EffectFusionUI_ActiveTrigger()
     {
-        return Input.GetKeyDown(GetUI_Manager.effectFusionUI_ActiveKey);
+        return Time.timeScale > 0.1f && Input.GetKeyDown(GetUI_Manager.effectFusionUI_ActiveKey);
     }
 
     /// <summary>
@@ -129,7 +129,7 @@ public class UI_Manager : MonoBehaviour
     /// <returns></returns>
     public static bool ArtsEntryTrigger()
     {
-        return Input.GetKeyDown(GetUI_Manager.artsEntryKey);
+        return Time.timeScale > 0.1f && Input.GetKeyDown(GetUI_Manager.artsEntryKey);
     }
 
     /// <summary>

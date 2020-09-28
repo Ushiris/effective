@@ -12,6 +12,8 @@ public class Id025_PrimitiveShield : MonoBehaviour
     [Header("追尾のスタック数に応じてたされる数")]
     [SerializeField] float plusTime = 0.2f;
 
+    Rigidbody rb;
+
     StopWatch timer;
     ArtsStatus artsStatus;
 
@@ -46,11 +48,12 @@ public class Id025_PrimitiveShield : MonoBehaviour
         shield.transform.localPosition = pos;
 
         //移動
-        var rb = shield.AddComponent<Rigidbody>();
+        rb = shield.AddComponent<Rigidbody>();
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
-        rb.mass = 1000f;
-        Arts_Process.RbMomentMove(shield, force);
+        rb.mass = 5000f;
+        rb.drag = 40f;
+        //Arts_Process.RbMomentMove(shield, force);
 
         //消す
         timer = Arts_Process.TimeAction(gameObject, lostTime);
@@ -60,7 +63,7 @@ public class Id025_PrimitiveShield : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        rb.AddForce(force * (force * rb.transform.forward - rb.velocity),ForceMode.Impulse);
     }
 
     void Lost()
