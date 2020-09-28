@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 54910844226909174, guid: 421e2d382beb5e149811baa494bdc14c,
+        type: 3}
+      propertyPath: m_Drag
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 96311051398836443, guid: 421e2d382beb5e149811baa494bdc14c,
         type: 3}
       propertyPath: m_Layer

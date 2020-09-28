@@ -25,7 +25,7 @@ public class PlayerArtsInstant : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
         myEffectCount = artsObj.GetComponent<MyEffectCount>();
     }
 
@@ -42,7 +42,7 @@ public class PlayerArtsInstant : MonoBehaviour
 
         //新しくArtsをセットし、それが前のArtsと違う場合のフラグ
         if (UI_Manager.ArtsEntryTrigger() && UI_Manager.GetIsEffectFusionUI_ChoiceActive) isEntryTrigger = true;
-        if (isEntryTrigger&& tmpArtsId!=artsId)
+        if (isEntryTrigger && tmpArtsId != artsId)
         {
             tmpArtsId = artsId;
             isEntryTrigger = false;
@@ -126,7 +126,7 @@ public class PlayerArtsInstant : MonoBehaviour
     //所持しているエフェクトのスタック数を入れる
     void GetEffectCount()
     {
-        foreach(var item in MainGameManager.GetPlEffectList)
+        foreach (var item in MainGameManager.GetPlEffectList)
         {
             myEffectCount.effectCount[(NameDefinition.EffectName)item.id] = item.count;
         }
@@ -135,6 +135,6 @@ public class PlayerArtsInstant : MonoBehaviour
     //アーツを放つキー
     bool OnTrigger()
     {
-        return Input.GetMouseButtonDown(0) && !UI_Manager.GetIsEffectFusionUI_ChoiceActive;
+        return Time.timeScale > 0.1f && Input.GetMouseButtonDown(0) && !UI_Manager.GetIsEffectFusionUI_ChoiceActive;
     }
 }
