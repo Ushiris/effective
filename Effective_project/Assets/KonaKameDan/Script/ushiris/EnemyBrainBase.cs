@@ -7,4 +7,8 @@ public interface EnemyBrainBase
     void Think();
 
     void Stan(float time);
+
+    void Blind(float time);
+
+    void Default();
 }

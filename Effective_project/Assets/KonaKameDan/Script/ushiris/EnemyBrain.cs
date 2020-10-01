@@ -50,11 +50,7 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
                 break;
 
             case MoveState.Stay:
-                navMesh.SetDestination(new Vector3(
-                        Random.Range(transform.position.x - 10, transform.position.x + 10),
-                        transform.position.y,
-                        Random.Range(transform.position.z - 10, transform.position.z + 10)
-                        ));
+                Default();
                 break;
 
             case MoveState.Stan:
@@ -70,5 +66,22 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
     public void Stan(float time)
     {
         StopWatch.Summon(time, () => { state.move = MoveState.Stay; }, gameObject, true);
+    }
+
+    public void Blind(float time)
+    {
+        
+    }
+
+    public void Default()
+    {
+        if (navMesh.isStopped)
+        {
+            navMesh.SetDestination(new Vector3(
+                            Random.Range(transform.position.x - 10, transform.position.x + 10),
+                            transform.position.y,
+                            Random.Range(transform.position.z - 10, transform.position.z + 10)
+                            ));
+        }
     }
 }

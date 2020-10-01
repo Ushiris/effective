@@ -40,7 +40,7 @@ public class EnemyArtsInstant : MonoBehaviour
     //エフェクトを出す処理
     void Action()
     {
-        if (move.move == EnemyState.MoveState.Stay) return;
+        if (!EnemyState.IsAttackable(move.move)) return;
 
         //ArtsID検出
         string id = effectPicKUp.GetArtsId;

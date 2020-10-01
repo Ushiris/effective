@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Life life;
     [HideInInspector] public Slider slider;
     [SerializeField] GameObject bullet;
+    
     public bool isBoss;
     static Vector3 hp_small = new Vector3(1, 1, 1);
     static Vector3 big = new Vector3(3, 2, 1);
