@@ -261,6 +261,16 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 継続ダメージ処理をアタッチする
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
+    public static ParticleHitZoneDamage SetParticleZoneDamageProcess(GameObject obj)
+    {
+        return obj.AddComponent<ParticleHitZoneDamage>();
+    }
+
+    /// <summary>
     /// ダメージの計算
     /// </summary>
     /// <param name="defaultDamage"></param>
@@ -286,6 +296,22 @@ public class Arts_Process : MonoBehaviour
         hit.artsStatus = artsStatus;
         hit.isMapLayer = isMapLayer;
         if (status) hit.plusFormStatus = artsStatus.myStatus.status[Status.Name.STR];   
+    }
+
+    /// <summary>
+    /// ダメージの代入
+    /// </summary>
+    /// <param name="hit">パーティクル</param>
+    /// <param name="artsStatus">誰の放ったアーツか記録されているもの</param>
+    /// <param name="hitDefaultDamage">固定ダメージ</param>
+    /// <param name="status">ステータス</param>
+    /// <param name="isMapLayer">当たる相手</param>
+    public static void ZoneDamage(ParticleHitZoneDamage hit, ArtsStatus artsStatus, float hitDefaultDamage, bool status, bool isMapLayer = true)
+    {
+        hit.hitDamageDefault = hitDefaultDamage;
+        hit.artsStatus = artsStatus;
+        hit.isMapLayer = isMapLayer;
+        if (status) hit.plusFormStatus = artsStatus.myStatus.status[Status.Name.STR];
     }
 
     /// <summary>
