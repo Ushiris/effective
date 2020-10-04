@@ -19,13 +19,17 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
         timer = gameObject.AddComponent<StopWatch>();
         navMesh = GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag("Player");
-        navMesh.SetDestination(target.transform.position);
+        if (navMesh.pathStatus != NavMeshPathStatus.PathInvalid)
+        {
+            navMesh.SetDestination(target.transform.position);
+        }
         timer.LapTime = 0.5f;
         timer.LapEvent = Think;
     }
 
     private void LateUpdate()
     {
+
         if (Vector3.Distance(target.transform.position, transform.position) <= 30)
         {
             state.move = MoveState.Chase;

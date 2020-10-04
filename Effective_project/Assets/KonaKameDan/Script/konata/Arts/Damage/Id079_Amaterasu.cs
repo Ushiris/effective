@@ -9,8 +9,24 @@ public class Id079_Amaterasu : MonoBehaviour
     [SerializeField] GameObject satelliteCannonParticleHitObj;
     [SerializeField] Vector3 instantPos = new Vector3(0, 1, 5);
     [SerializeField] float sizUpSpeed = 3;
+    [SerializeField] float defaultDamage = 0.1f;
+    [SerializeField] float duration = 5f;
 
     GameObject satelliteCannonParticle;
+
+    [Header("射撃のスタック数に応じてたされる数")]
+    [SerializeField] float plusDamageShot = 0.01f;
+
+    [Header("爆発のスタック数に応じてたされる数")]
+    [SerializeField] float plusDamageExplosion = 0.01f;
+
+    [Header("飛翔のスタック数に応じてたされる数")]
+    [SerializeField] float plusTime = 0.2f;
+
+    int shotCount;
+    int explosionCount;
+    int flyCount;
+    float damage;
 
     int frame = 0;
     bool isSatelliteCannonInstant;
@@ -23,8 +39,15 @@ public class Id079_Amaterasu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        artsStatus = GetComponent<ArtsStatus>();
 
-        //artsStatus = GetComponent<ArtsStatus>();
+        //エフェクトの所持数を代入
+        shotCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Shot);
+        explosionCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
+        flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);
+
+        //持続時間の計算
+        duration += flyCount * plusTime;
 
         //位置の初期設定
         transform.localPosition = instantPos;
@@ -51,6 +74,11 @@ public class Id079_Amaterasu : MonoBehaviour
             satelliteCannonParticle.transform.localScale = new Vector3(10, 0, 10);
             hitCollision = Arts_Process.SetHitCollision(satelliteCannonParticle);
             hitCollision.tags.Add("Ground");
+
+            var satelliteBeamMaterial = satelliteCannonParticle.GetComponent<SatelliteBeamMaterial>();
+            satelliteBeamMaterial.coolTime = duration;
+
+            Damage(satelliteCannonParticle);
         }
 
         if (hitCollision != null)
@@ -88,5 +116,19 @@ public class Id079_Amaterasu : MonoBehaviour
         var t = NewMapTerrainData.GetTerrain;
         pos.y = t.terrainData.GetHeight((int)pos.x, (int)pos.z);
         return pos;
+    }
+
+    void Damage(GameObject obj)
+    {
+        //ダメージ
+        var satelliteCannonDamage = Arts_Process.SetParticleZoneDamageProcess(obj);
+
+        //ダメージの計算
+        var d1 = defaultDamage + (plusDamageShot * (float)shotCount);
+        var d2 = defaultDamage + (plusDamageExplosion * (float)explosionCount);
+        damage = d1 + d2;
+
+        //ダメージ処理
+        Arts_Process.ZoneDamage(satelliteCannonDamage, artsStatus, damage, true);
     }
 }

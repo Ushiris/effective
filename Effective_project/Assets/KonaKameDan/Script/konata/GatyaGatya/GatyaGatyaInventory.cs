@@ -11,7 +11,7 @@ public class GatyaGatyaInventory : MonoBehaviour
     public class ItemClass
     {
         public GameObject item;
-        [Header("出現割合"), RangeAttribute(0, 10)] public float probability;
+        [Header("出現割合"), RangeAttribute(0, 10)] public int probability;
     }
     public List<ItemClass> EffectObj = new List<ItemClass>();
 
@@ -43,7 +43,7 @@ public class GatyaGatyaInventory : MonoBehaviour
     /// <returns></returns>
     public static GameObject RandomObj(List<int> randomTable, List<ItemClass> items)
     {
-        int ran = Random.Range(0, randomTable.Count - 1);
+        int ran = Random.Range(0, randomTable.Count);
         int num = randomTable[ran];
         return items[num].item;
     }

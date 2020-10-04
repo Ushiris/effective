@@ -55,6 +55,9 @@ public class Id045_Hounds : MonoBehaviour
         //ダメージの計算
         damage = defaultDamage + (plusDamage * (float)shotCount);
 
+        //ダメージ処理
+        Arts_Process.Damage(homingDamage, artsStatus, damage, true);
+
         //弾数を増やす
         var pse = particleSystem.emission;
         Arts_Process.SetBulletCount(pse, defaultBullet, addBullet, spreadCount);
@@ -75,9 +78,6 @@ public class Id045_Hounds : MonoBehaviour
         {
             Arts_Process.HomingParticle(particleSystem, target, force);
         }
-
-        //ダメージ処理
-        Arts_Process.Damage(homingDamage, artsStatus, damage, true);
 
         //オブジェクトを消す
         if (transform.childCount == 0) Destroy(gameObject);

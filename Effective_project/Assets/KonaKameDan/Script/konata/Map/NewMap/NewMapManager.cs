@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class NewMapManager : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class NewMapManager : MonoBehaviour
 
     List<Vector3> eventPos = new List<Vector3>();
 
+    //ナビゲーションメッシュ用
+    public static UnityEvent OnMapGenerated = new UnityEvent();
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,7 +45,7 @@ public class NewMapManager : MonoBehaviour
         //準備
         RandomSpawn(status);
         PointDelete(map);
-        SetNavMesh(map);
+        OnMapGenerated.Invoke();
 
         //プレイヤーとボス配置
         Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
@@ -128,11 +132,5 @@ public class NewMapManager : MonoBehaviour
                 Destroy(childTransform.gameObject);
             }
         }
-    }
-
-    void SetNavMesh(GameObject obj)
-    {
-        obj.AddComponent<NavMeshSurface>();
-        obj.AddComponent<InstantNavMesh>();
     }
 }
