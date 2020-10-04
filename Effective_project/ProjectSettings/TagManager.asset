@@ -16,6 +16,7 @@ TagManager:
   - NearEnemyPos
   - PlayerPoint
   - BossPoint
+  - BossZone
   layers:
   - Default
   - TransparentFX
