@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class SatelliteBeamMaterial : MonoBehaviour
 {
-    public float coolTime = 3f;
+    public float coolTime = 5f;
     public bool isTimeStart; 
 
     [SerializeField] GameObject shaderObj;

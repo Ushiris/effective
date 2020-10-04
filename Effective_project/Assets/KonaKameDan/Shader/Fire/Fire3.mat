@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: Fire3
   m_Shader: {fileID: 4800000, guid: 6d2bdd4ce6a205f459851fed45d91bb3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -51,7 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_5A6739AB: 10
-    - Vector1_7C049B48: 10
+    - Vector1_7C049B48: 2
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1

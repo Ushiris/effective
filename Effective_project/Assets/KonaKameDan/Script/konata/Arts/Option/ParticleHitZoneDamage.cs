@@ -56,10 +56,10 @@ public class ParticleHitZoneDamage : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        timer += Time.deltaTime;
+        timer += Time.deltaTime * 10;
         if (!OnDestroyArtsZone(other.gameObject))
         {
-            if (other.CompareTag(hitObjTag) && (int)timer % 20 == 0)
+            if (other.CompareTag(hitObjTag) && (int)timer % 5 == 0)
             {
                 Damage(other.gameObject);
                 isTrigger = true;
@@ -92,7 +92,6 @@ public class ParticleHitZoneDamage : MonoBehaviour
     bool OnDestroyArtsZone(GameObject obj)
     {
         var s = obj.GetComponent<DestroyArtsZoneStatus>();
-        Debug.Log(obj.name);
         if (s != null)
         {
             if (s.artsTypes.Contains(artsStatus.artsType) && s.particleTypes.Contains(artsStatus.type))

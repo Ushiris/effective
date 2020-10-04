@@ -10,6 +10,7 @@ public class Id079_Amaterasu : MonoBehaviour
     [SerializeField] Vector3 instantPos = new Vector3(0, 1, 5);
     [SerializeField] float sizUpSpeed = 3;
     [SerializeField] float defaultDamage = 0.1f;
+    [SerializeField] float duration = 5f;
 
     GameObject satelliteCannonParticle;
 
@@ -45,6 +46,9 @@ public class Id079_Amaterasu : MonoBehaviour
         explosionCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
         flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);
 
+        //持続時間の計算
+        duration += flyCount * plusTime;
+
         //位置の初期設定
         transform.localPosition = instantPos;
         Arts_Process.RollReset(gameObject);
@@ -70,6 +74,9 @@ public class Id079_Amaterasu : MonoBehaviour
             satelliteCannonParticle.transform.localScale = new Vector3(10, 0, 10);
             hitCollision = Arts_Process.SetHitCollision(satelliteCannonParticle);
             hitCollision.tags.Add("Ground");
+
+            var satelliteBeamMaterial = satelliteCannonParticle.GetComponent<SatelliteBeamMaterial>();
+            satelliteBeamMaterial.coolTime = duration;
 
             Damage(satelliteCannonParticle);
         }

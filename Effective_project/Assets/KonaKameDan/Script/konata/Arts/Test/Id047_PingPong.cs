@@ -43,29 +43,35 @@ public class Id047_PingPong : MonoBehaviour
         spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
 
         //弾数を増やす計算
-        var bulletCount = addBullet * spreadCount;
+        float bulletCount = addBullet * (float)spreadCount + 1f;
+        bulletCount = Mathf.Floor(bulletCount);
+        float bulletDir = (bulletCount / 2 + 0.5f) - bulletCount;
+        Debug.Log("弾数" + bulletDir);
+
+        //ダメージの計算
+        damage = defaultDamage + (plusDamage * (float)shotCount);
 
         //弾の生成
         for (int i = 0; i < (int)bulletCount; i++)
         {
             bullet = Instantiate(bulletObj, transform);
             var rb = bullet.GetComponent<Rigidbody>();
-            v0.x = -(bulletCount / 2) + i;
+            v0.x = bulletDir + i;
+            bullet.transform.localPosition = new Vector3(v0.x * 0.2f, 0, 0);
+            v0.x *= 2;
             rb.AddRelativeFor​​ce(v0, ForceMode.VelocityChange);
+
+
+            //ダメージ
+            bulletDamage = Arts_Process.SetParticleDamageProcess(bullet);
+
+            //ダメージ処理
+            Arts_Process.Damage(bulletDamage, artsStatus, damage, true);
         }
 
         //爆発するエフェクトのセット
         particleHitPlay =
             Arts_Process.SetParticleHitPlay(bullet, explosionParticleObj, transform, artsStatus);
-
-        //ダメージ
-        bulletDamage = Arts_Process.SetParticleDamageProcess(bullet);
-
-        //ダメージの計算
-        damage = defaultDamage + (plusDamage * (float)shotCount);
-
-        //ダメージ処理
-        Arts_Process.Damage(bulletDamage, artsStatus, damage, true);
 
         var timer = Arts_Process.TimeAction(gameObject, lostTime);
         timer.LapEvent = () => { Lost(bullet); };

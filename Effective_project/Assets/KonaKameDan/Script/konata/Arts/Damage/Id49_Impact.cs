@@ -47,6 +47,7 @@ public class Id49_Impact : MonoBehaviour
                     ObjSizChange.SizChangeMode.ScaleUp);
 
         //インパクトシェーダーの初期化
+        material = new Material(material);
         fade = Arts_Process.GetImpactShaderMaterialFade(material, 5);
 
         //敵を吹き飛ばす

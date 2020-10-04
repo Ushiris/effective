@@ -47,8 +47,8 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         var obj = PlayerManager.GetManager.GetPlObj;
-        if (obj != null) return;
-        
+        if (obj == null) return;
+
         var playerStatus = obj.GetComponent<Status>();
         var enemyStatus = GetComponent<Status>();
 
