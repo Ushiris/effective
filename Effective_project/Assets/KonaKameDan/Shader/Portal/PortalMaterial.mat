@@ -130,7 +130,7 @@ Material:
     - Vector1_C04CC15E: 0.01
     - Vector1_C0EC670A: 0.13
     - Vector1_EB9AC6AE: 0.003
-    - Vector1_FABC1965: 0
+    - Vector1_FABC1965: -0.00000019178017
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
