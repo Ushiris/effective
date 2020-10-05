@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Life life;
     [HideInInspector] public Slider slider;
     [SerializeField] GameObject bullet;
+    public IEnemyBrainBase brain;
     
     public bool isBoss;
     static Vector3 hp_small = new Vector3(1, 1, 1);
@@ -42,6 +44,8 @@ public class Enemy : MonoBehaviour
         life.AddLastword(Dead);
         life.AddDamageFunc(Damage);
         life.AddHealFunc(Heal);
+
+        brain = GetComponent<IEnemyBrainBase>();
     }
 
     //オブジェクトが破棄された時 

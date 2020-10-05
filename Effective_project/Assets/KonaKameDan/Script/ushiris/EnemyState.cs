@@ -8,19 +8,24 @@ public class EnemyState : MonoBehaviour
     {
         Chase,
         Stay,
-        Stan,
-        Blind,
-        Confuse
+        Confuse,
+
+        STATE_AMOUNT
     }
-    public enum Enchants
+    public enum Enchants:int
     {
         Stan,
         Blind,
+
+        ENCHANT_AMOUNT
     }
 
     public MoveState move = MoveState.Stay;
     public List<bool> enchants = new List<bool>(10);
-    
+
+    public delegate void EnchantMove();
+    public Dictionary<Enchants, EnchantMove> moves;
+
     public bool IsFine()
     {
         bool result = true;
@@ -36,10 +41,6 @@ public class EnemyState : MonoBehaviour
                 return true;
             case MoveState.Stay:
                 return false;
-            case MoveState.Stan:
-                return true;
-            case MoveState.Blind:
-                return true;
             case MoveState.Confuse:
                 return true;
             default:

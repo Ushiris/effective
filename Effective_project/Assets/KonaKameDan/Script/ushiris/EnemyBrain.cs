@@ -3,15 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using MoveState = EnemyState.MoveState;
+using Enchants = EnemyState.Enchants;
+using System.Security.Cryptography;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(EnemyState))]
-public class EnemyBrain : MonoBehaviour, EnemyBrainBase
+public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
 {
     GameObject target;
     NavMeshAgent navMesh;
     public EnemyState state;
     StopWatch timer;
+    List<StopWatch> EnchantTimer = new List<StopWatch>((int)Enchants.ENCHANT_AMOUNT);
+    StopWatch ConfuseTimer;
+
+
+    private void Awake()
+    {
+        state.moves = new Dictionary<Enchants, EnemyState.EnchantMove> {
+            {
+                Enchants.Stan,
+                ()=>
+                {
+                    navMesh.SetDestination(target.transform.position);
+                }
+            },
+            {
+                Enchants.Blind,
+                () =>
+                {
+
+                }
+            },
+        };
+    }
 
     void Start()
     {
@@ -19,6 +44,8 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
         timer = gameObject.AddComponent<StopWatch>();
         navMesh = GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag("Player");
+        EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
+        ConfuseTimer = gameObject.AddComponent<StopWatch>();
         navMesh.SetDestination(target.transform.position);
         timer.LapTime = 0.5f;
         timer.LapEvent = Think;
@@ -26,7 +53,7 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
 
     private void LateUpdate()
     {
-        if (state.move == MoveState.Stan)
+        if (state.move == MoveState.Confuse)
         {
             return;
         }
@@ -53,24 +80,28 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
                 Default();
                 break;
 
-            case MoveState.Stan:
-                navMesh.SetDestination(transform.position);
-                break;
-
             default:
                 Debug.Log(gameObject.name + "「こういう時(" + state.ToString() + ")にどうすればいいのかわからん」");
                 break;
         }
     }
 
+    public void AddEnchant(Enchants enchant,float time)
+    {
+        state.enchants[(int)enchant] = true;
+        EnchantTimer[(int)enchant].ResetTimer();
+        EnchantTimer[(int)enchant].LapEvent = () => { state.enchants[(int)enchant] = false; EnchantTimer[(int)enchant].SetActive(false); };
+        EnchantTimer[(int)enchant].LapTime = time;
+    }
+
     public void Stan(float time)
     {
-        StopWatch.Summon(time, () => { state.move = MoveState.Stay; }, gameObject, true);
+        AddEnchant(Enchants.Stan,time);
     }
 
     public void Blind(float time)
     {
-        
+        AddEnchant(Enchants.Blind, time);
     }
 
     public void Default()
@@ -83,5 +114,16 @@ public class EnemyBrain : MonoBehaviour, EnemyBrainBase
                             Random.Range(transform.position.z - 10, transform.position.z + 10)
                             ));
         }
+    }
+
+    public bool IsAttackable()
+    {
+        return state.move switch
+        {
+            MoveState.Chase => true,
+            MoveState.Stay => false,
+            MoveState.Confuse => true,
+            _ => false,
+        };
     }
 }

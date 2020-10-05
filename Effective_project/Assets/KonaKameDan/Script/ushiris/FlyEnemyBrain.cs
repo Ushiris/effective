@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using MoveState = EnemyState.MoveState;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class FlyEnemyBrain : MonoBehaviour, EnemyBrainBase
+public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
 {
     GameObject target;
     NavMeshAgent navMesh;
@@ -26,7 +26,7 @@ public class FlyEnemyBrain : MonoBehaviour, EnemyBrainBase
 
     private void LateUpdate()
     {
-        if (state.move == MoveState.Stan)
+        if (state.move == MoveState.Confuse)
         {
             return;
         }
@@ -52,18 +52,6 @@ public class FlyEnemyBrain : MonoBehaviour, EnemyBrainBase
 
             case MoveState.Stay:
                 Default();
-                break;
-
-            case MoveState.Stan:
-                navMesh.SetDestination(transform.position);
-                break;
-
-            case MoveState.Blind:
-                navMesh.SetDestination(new Vector3(
-                            Random.Range(transform.position.x - 10, transform.position.x + 10),
-                            transform.position.y,
-                            Random.Range(transform.position.z - 10, transform.position.z + 10)
-                            ));
                 break;
 
             default:
@@ -93,5 +81,16 @@ public class FlyEnemyBrain : MonoBehaviour, EnemyBrainBase
                             Random.Range(transform.position.z - 10, transform.position.z + 10)
                             ));
         }
+    }
+
+    public bool IsAttackable(MoveState move)
+    {
+        return move switch
+        {
+            MoveState.Chase => true,
+            MoveState.Stay => false,
+            MoveState.Confuse => true,
+            _ => false,
+        };
     }
 }

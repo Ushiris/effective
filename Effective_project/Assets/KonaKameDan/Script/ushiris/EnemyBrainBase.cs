@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface EnemyBrainBase
+public interface IEnemyBrainBase
 {
     void Think();
 
@@ -11,4 +11,8 @@ public interface EnemyBrainBase
     void Blind(float time);
 
     void Default();
+
+    void AddEnchant(EnemyState.Enchants enchant, float time);
+
+    bool IsAttackable();
 }
