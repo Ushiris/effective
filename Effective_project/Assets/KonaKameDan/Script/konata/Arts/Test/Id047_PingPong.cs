@@ -46,7 +46,6 @@ public class Id047_PingPong : MonoBehaviour
         float bulletCount = addBullet * (float)spreadCount + 1f;
         bulletCount = Mathf.Floor(bulletCount);
         float bulletDir = (bulletCount / 2 + 0.5f) - bulletCount;
-        Debug.Log("弾数" + bulletDir);
 
         //ダメージの計算
         damage = defaultDamage + (plusDamage * (float)shotCount);
@@ -58,9 +57,11 @@ public class Id047_PingPong : MonoBehaviour
             var rb = bullet.GetComponent<Rigidbody>();
             v0.x = bulletDir + i;
             bullet.transform.localPosition = new Vector3(v0.x * 0.2f, 0, 0);
-            v0.x *= 2;
             rb.AddRelativeFor​​ce(v0, ForceMode.VelocityChange);
 
+            //爆発するエフェクトのセット
+            particleHitPlay =
+                Arts_Process.SetParticleHitPlay(bullet, explosionParticleObj, transform, artsStatus);
 
             //ダメージ
             bulletDamage = Arts_Process.SetParticleDamageProcess(bullet);
@@ -68,10 +69,6 @@ public class Id047_PingPong : MonoBehaviour
             //ダメージ処理
             Arts_Process.Damage(bulletDamage, artsStatus, damage, true);
         }
-
-        //爆発するエフェクトのセット
-        particleHitPlay =
-            Arts_Process.SetParticleHitPlay(bullet, explosionParticleObj, transform, artsStatus);
 
         var timer = Arts_Process.TimeAction(gameObject, lostTime);
         timer.LapEvent = () => { Lost(bullet); };

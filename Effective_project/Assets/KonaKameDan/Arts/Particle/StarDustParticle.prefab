@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1508658583335114192}
   - component: {fileID: 1508658583335114193}
   - component: {fileID: 1508658583335114190}
+  - component: {fileID: 1665034893978747725}
   m_Layer: 0
   m_Name: StarDustParticle
   m_TagString: Untagged
@@ -286,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3966,13 +3967,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.18143791
-          inSlope: 0.56801337
-          outSlope: 0.56801337
+          value: 0
+          inSlope: 5.8269525
+          outSlope: 5.8269525
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.18280411
+          outWeight: 0.46089295
+        - serializedVersion: 3
+          time: 0.108184546
+          value: 0.38076794
+          inSlope: 1.2739903
+          outSlope: 1.2739903
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.9487897
+          outWeight: 0.23370782
         - serializedVersion: 3
           time: 1
           value: 0
@@ -4657,7 +4667,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c79e5dfe3f341ee4e94e76cae3537c2f, type: 2}
-  - {fileID: 2100000, guid: fb83827749d297d4dbec8b2efd8cd2bb, type: 2}
+  - {fileID: 2100000, guid: 4a2d115a46d88ce49b9ed6208b6cb4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4700,6 +4710,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &1665034893978747725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508658583335114191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b719d6ad32a4160439daaf6fa1233ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyObj: {fileID: 1508658583418785047}
 --- !u!1 &1508658583418785047
 GameObject:
   m_ObjectHideFlags: 0

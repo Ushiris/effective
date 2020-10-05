@@ -95,11 +95,10 @@ public class Id049_ArrowRain : MonoBehaviour
                 if (!isArrowRain)
                 {
                     //持続時間変更
-                    var p = arrowRainParticle.GetComponent<ParticleSystem>();
+                    GameObject arrowRainObj = Instantiate(arrowRainParticle, magicCircle.transform);
+                    var p = arrowRainObj.GetComponent<ParticleSystem>();
                     var main = p.main;
                     main.duration += plusTime * (float)flyCount;
-
-                    GameObject arrowRainObj = Instantiate(arrowRainParticle, magicCircle.transform);
                     isArrowRain = true;
 
                     //ダメージ

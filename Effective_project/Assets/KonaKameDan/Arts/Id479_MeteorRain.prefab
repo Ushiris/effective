@@ -52,7 +52,9 @@ MonoBehaviour:
   h: 30
   speed: 35
   interval: 0.1
+  plusStarDustSpread: 0.1
   plusDamage: 0.05
+  plusStarDustFly: 0.1
   markObj: {fileID: 2361730835385886420, guid: 6fd2db5800886a546b581682e3f27449, type: 3}
 --- !u!114 &114101397220471554
 MonoBehaviour:
