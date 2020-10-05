@@ -18,11 +18,14 @@ public class Id479_MeteorRain : MonoBehaviour
     [Header("生成タイミング")]
     [SerializeField] float interval = 0.1f;
 
-    //[Header("拡散のスタック数に応じてたされる数")]
-    //[SerializeField] float 
+    [Header("拡散のスタック数に応じてたされる数")]
+    [SerializeField] float plusStarDustSpread = 0.1f;
 
     [Header("爆発のスタック数に応じてたされる数")]
     [SerializeField] float plusDamage = 0.05f;
+
+    [Header("飛翔のスタック数に応じてたされる数")]
+    [SerializeField] float plusStarDustFly = 0.1f;
 
     //エフェクトの所持数用
     int spreadCount;
@@ -46,11 +49,18 @@ public class Id479_MeteorRain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        artsStatus = GetComponent<ArtsStatus>();
         Arts_Process.RollReset(gameObject);
         Arts_Process.GroundPosMatch(gameObject);
 
         //エフェクトの所持数を代入
+        spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
         explosionCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
+        flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);
+
+        //隕石を増やす式
+        float plusStarDust = ((spreadCount * plusStarDustFly) + (flyCount * plusStarDustFly)) / 2;
+        instantSiz += new Vector3(1, 0, 1) * Mathf.Floor(plusStarDust);
 
         //ダメージの計算
         damage = defaultDamage + (plusDamage * (float)explosionCount);

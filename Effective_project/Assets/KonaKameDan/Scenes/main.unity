@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.053176753, g: 0.07026796, b: 0.09454451, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2510,7 +2510,7 @@ MonoBehaviour:
     count: 1
     id: 8
   - name: "\u98DB\u7FD4"
-    count: 1
+    count: 50
     id: 9
   isEffectCount: 1
   effectObjectName:
