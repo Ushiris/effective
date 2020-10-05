@@ -389,8 +389,8 @@ MonoBehaviour:
       Value:
         prefab: {fileID: 6803105965938668464, guid: 846b9dcb42721674ca9918780a2fe588,
           type: 3}
-        coolTime: 0
-        coolTimeDown: 0
+        coolTime: 50
+        coolTimeDown: 0.1
         effect: 
     - Key: 07
       Value:

@@ -33,6 +33,8 @@ public class NewMapManager : MonoBehaviour
     //ナビゲーションメッシュ用
     public static UnityEvent OnMapGenerated = new UnityEvent();
 
+    public static Vector3 GetPlayerRespawnPos { get; private set; }
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,6 +43,7 @@ public class NewMapManager : MonoBehaviour
         Status status = statusList[statusListNum];
         GameObject map = Instantiate(status.map, transform);
         NewMapTerrainData.SetTerrainData(map);
+        GetPlayerRespawnPos = status.playerSpawnPoint;
 
         //準備
         RandomSpawn(status);
