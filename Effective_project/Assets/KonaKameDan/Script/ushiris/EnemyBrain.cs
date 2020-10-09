@@ -17,6 +17,9 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
 
     private void Awake()
     {
+        timer = gameObject.AddComponent<StopWatch>();
+        navMesh = GetComponent<NavMeshAgent>();
+        target = GameObject.FindWithTag("Player");
         state = GetComponent<EnemyState>();
         state.moves = new Dictionary<Enchants, EnemyState.EnchantMove> {
             {
@@ -34,9 +37,6 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
 
     void Start()
     {
-        timer = gameObject.AddComponent<StopWatch>();
-        navMesh = GetComponent<NavMeshAgent>();
-        target = GameObject.FindWithTag("Player");
         EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
         navMesh.SetDestination(target.transform.position);
         timer.LapTime = 0.5f;
