@@ -10,7 +10,7 @@ public class EnemySpawnPoint : MonoBehaviour
     bool isEnemyActive;
     List<GameObject> enemyList = new List<GameObject>();
 
-    static readonly int kMaxCount = 10;
+    static readonly int kMaxCount = 3;
 
     // Start is called before the first frame update
     void Start()

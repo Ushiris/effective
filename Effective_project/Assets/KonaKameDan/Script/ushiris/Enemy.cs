@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Life life;
     [HideInInspector] public Slider slider;
     [SerializeField] GameObject bullet;
+    [SerializeField] Status status;
     Rigidbody rb;
     IEnemyBrainBase brain;
     
@@ -48,6 +49,10 @@ public class Enemy : MonoBehaviour
         life.AddHealFunc(Heal);
 
         brain = GetComponent<IEnemyBrainBase>();
+
+        //レベルのセット
+        status = GetComponent<Status>();
+        status.Lv = WorldLevel.GetWorldLevel;
     }
 
     public void KnockBack()
@@ -75,7 +80,7 @@ public class Enemy : MonoBehaviour
         var playerStatus = obj.GetComponent<Status>();
         var enemyStatus = GetComponent<Status>();
 
-        //プレイヤーに経験知を渡す 
+        //プレイヤーに経験値を渡す 
         if (playerStatus != null && enemyStatus != null)
         {
             playerStatus.EXP += enemyStatus.status[Status.Name.DROP_EXP];
@@ -100,7 +105,10 @@ public class Enemy : MonoBehaviour
     void Dead()
     {
         Debug.Log("dead:" + name);
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
+        status.Lv = WorldLevel.GetWorldLevel;
+        life.HP = life.MaxHP;
     }
 
     void Damage(int true_damage)

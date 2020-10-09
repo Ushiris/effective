@@ -234,6 +234,7 @@ MonoBehaviour:
   life: {fileID: 0}
   slider: {fileID: 0}
   bullet: {fileID: 1973864273873314559, guid: b222785f8ab06cc49836bea8e1a04ac2, type: 3}
+  status: {fileID: 6225329085623931612}
   isBoss: 0
 --- !u!114 &6225329085623931612
 MonoBehaviour:
