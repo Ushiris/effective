@@ -91,9 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ecdafba2d1b6d44f92c059f4d6b95dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyArr:
-  - {fileID: 2453905131629712177, guid: 593006f8a44476e4d995e473214499d4, type: 3}
-  - {fileID: 722707631653457096, guid: 35198665acd1a5b40aeea37bad35b6c0, type: 3}
+  mesh: {fileID: 3358099190623313421}
 --- !u!135 &2296076579343249376
 SphereCollider:
   m_ObjectHideFlags: 0

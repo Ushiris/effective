@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class EnemySpawnPoint : MonoBehaviour
 {
-
     float siz;
     bool isEnemyActive;
     Enemy[] enemyArr = new Enemy[kMaxCount];
 
     static readonly int kMaxCount = 5;
 
+    public static bool isAreaEnabled = false;
+    public static bool isSpawnEnabled = true;
+
     // Start is called before the first frame update
     void Start()
     {
         siz = transform.localScale.x / 2;
+
+        GetComponent<MeshRenderer>().enabled = isAreaEnabled;
+        GetComponent<Collider>().enabled = isSpawnEnabled;
     }
 
     private void OnTriggerEnter(Collider other)

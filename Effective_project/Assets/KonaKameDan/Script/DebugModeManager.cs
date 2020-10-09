@@ -16,6 +16,10 @@ public class DebugModeManager : MonoBehaviour
     [SerializeField] bool isCoolTimeChange;
     [SerializeField] float coolTimeChange;
 
+    [Header("敵のスポーンエリア")]
+    [SerializeField] bool isEnemySpawnArea;
+    [SerializeField] bool isEnemySpawnEnabled = true;
+
     // Start is called before the first frame update
     void Reset()
     {
@@ -45,5 +49,8 @@ public class DebugModeManager : MonoBehaviour
             PlayerArtsInstant.debugCoolTime = coolTimeChange;
         }
         else PlayerArtsInstant.isDebugCoolTime = false;
+
+        EnemySpawnPoint.isAreaEnabled = isEnemySpawnArea;
+        EnemySpawnPoint.isSpawnEnabled = isEnemySpawnEnabled;
     }
 }
