@@ -233,5 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolTime: 3
   isTimeStart: 1
+  shaderObj: {fileID: 2612120366200920216}
+  coreMaterialObj: {fileID: 2386052631206497755}
   shader: {fileID: 2100000, guid: a6c9238ef15070f4e9121be1f9ab2bd4, type: 2}
   coreMaterial: {fileID: 2100000, guid: c7c9b96b2951bf6459a080ad5791b959, type: 2}

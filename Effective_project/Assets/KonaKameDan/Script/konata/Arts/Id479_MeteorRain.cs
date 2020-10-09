@@ -5,6 +5,7 @@ using UnityEngine;
 public class Id479_MeteorRain : MonoBehaviour
 {
     [SerializeField] GameObject starDustParticleObj;
+    [SerializeField] float defaultDamage = 0.4f;
 
     [Header("隕石の生成位置関係")]
     [SerializeField] Vector3 instantSiz = new Vector3(6, 1, 6);
@@ -17,6 +18,21 @@ public class Id479_MeteorRain : MonoBehaviour
     [Header("生成タイミング")]
     [SerializeField] float interval = 0.1f;
 
+    [Header("拡散のスタック数に応じてたされる数")]
+    [SerializeField] float plusStarDustSpread = 0.1f;
+
+    [Header("爆発のスタック数に応じてたされる数")]
+    [SerializeField] float plusDamage = 0.05f;
+
+    [Header("飛翔のスタック数に応じてたされる数")]
+    [SerializeField] float plusStarDustFly = 0.1f;
+
+    //エフェクトの所持数用
+    int spreadCount;
+    int explosionCount;
+    int flyCount;
+    float damage;
+
     [SerializeField] GameObject markObj;
 
     GameObject groupObj;
@@ -25,6 +41,7 @@ public class Id479_MeteorRain : MonoBehaviour
     List<Vector3> boxPos = new List<Vector3>();
 
     StopWatch timer;
+    ArtsStatus artsStatus;
 
     const float r = 45;
     const float fixX = -30;
@@ -32,21 +49,39 @@ public class Id479_MeteorRain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        artsStatus = GetComponent<ArtsStatus>();
         Arts_Process.RollReset(gameObject);
         Arts_Process.GroundPosMatch(gameObject);
 
+        //エフェクトの所持数を代入
+        spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
+        explosionCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
+        flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);
+
+        //隕石を増やす式
+        float plusStarDust = ((spreadCount * plusStarDustFly) + (flyCount * plusStarDustFly)) / 2;
+        instantSiz += new Vector3(1, 0, 1) * Mathf.Floor(plusStarDust);
+
+        //ダメージの計算
+        damage = defaultDamage + (plusDamage * (float)explosionCount);
+
+        //入れ物の生成
         groupObj = Instantiate(new GameObject("GroupObj"), transform);
 
+        //立方体状に座標をsiz分並べる
         boxPos = Arts_Process.SetBoxInstantPos(instantSiz, instantSpace);
 
+        //隕石の生成位置調整
         groupObj.transform.localRotation = Quaternion.Euler(0, 0, r);
         Vector3 pos = new Vector3(fixX, h, 8);
         groupObj.transform.localPosition = pos;
 
+        //隕石が降るところにマークを置く
         var mark = Instantiate(markObj, transform);
-        mark.transform.localScale = new Vector3(10, 10, 10);
+        mark.transform.localScale = instantSiz * instantSpace;
         mark.transform.localPosition = new Vector3(4, 0, 12);
 
+        //一定時間ごとに隕石を生成
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = interval;
         timer.LapEvent = () => { Instant(); };
@@ -68,6 +103,12 @@ public class Id479_MeteorRain : MonoBehaviour
         var starDustParticle = Instantiate(starDustParticleObj, groupObj.transform);
         starDustParticle.transform.localPosition = boxPos[ran];
         boxPos.RemoveAt(ran);
+
+        //ダメージ
+        var starDustDamage = Arts_Process.SetParticleDamageProcess(starDustParticle);
+
+        //ダメージ処理
+        Arts_Process.Damage(starDustDamage, artsStatus, damage, true);
 
         //隕石を動かす
         var forwardMove = Arts_Process.SetForwardMove(starDustParticle, -speed);

@@ -51,7 +51,12 @@ MonoBehaviour:
   satelliteCannonParticleHitObj: {fileID: 1074015846649655331, guid: a0bd2024c49a74d4981c88e848e02c59,
     type: 3}
   instantPos: {x: 0, y: 0, z: 10}
-  sizUpSpeed: 3
+  sizUpSpeed: 30
+  defaultDamage: 0.1
+  duration: 5
+  plusDamageShot: 0.01
+  plusDamageExplosion: 0.01
+  plusTime: 0.2
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ Rigidbody:
   m_GameObject: {fileID: 2453905131629712177}
   serializedVersion: 2
   m_Mass: 50
-  m_Drag: 0
+  m_Drag: 100
   m_AngularDrag: 100
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -158,6 +158,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 212912623975855615, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212912624084845006, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}

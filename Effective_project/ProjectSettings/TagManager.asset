@@ -16,6 +16,8 @@ TagManager:
   - NearEnemyPos
   - PlayerPoint
   - BossPoint
+  - BossZone
+  - EnemySpawnZone
   layers:
   - Default
   - TransparentFX
@@ -40,7 +42,7 @@ TagManager:
   - EnemyEMP
   - FlyCurse
   - 
-  - 
+  - UI3dObj
   - 
   - 
   - 

@@ -75,7 +75,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 7104560695729408660}
   m_FillRect: {fileID: 3888014284571155394}
   m_HandleRect: {fileID: 6455964030530834769}
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffddda1696166847beb7c06b761de7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 1835640484}
 --- !u!1 &404273867501413850
 GameObject:
   m_ObjectHideFlags: 0

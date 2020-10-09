@@ -7,8 +7,11 @@ using UnityEngine;
 /// </summary>
 public class SatelliteBeamMaterial : MonoBehaviour
 {
-    public float coolTime = 3f;
-    public bool isTimeStart;
+    public float coolTime = 5f;
+    public bool isTimeStart; 
+
+    [SerializeField] GameObject shaderObj;
+    [SerializeField] GameObject coreMaterialObj;
 
     [SerializeField] Material shader;
     [SerializeField] Material coreMaterial;
@@ -22,6 +25,11 @@ public class SatelliteBeamMaterial : MonoBehaviour
 
     private void Start()
     {
+        //マテリアルの複製
+        shader = shaderObj.GetComponent<Renderer>().material = new Material(shader);
+        coreMaterial = coreMaterialObj.GetComponent<Renderer>().material= new Material(coreMaterial);
+
+        //初期化
         shader.SetFloat("Vector1_5D2414AE", 0);
         var color = coreMaterial.color;
         color.a = coreMaterialTimer;

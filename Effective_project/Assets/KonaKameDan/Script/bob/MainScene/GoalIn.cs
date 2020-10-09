@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GoalIn : MonoBehaviour
 {
-    private bool returnResultScene;
-    public string Player_tag = "Player";
+    bool returnResultScene;
+    static readonly string Player_tag = "Player";
+
+    public bool isLock = true;
     public static Vector3 GetGoalPos { get; private set; }
 
     private void Start()
@@ -24,7 +26,7 @@ public class GoalIn : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)// 何かに当たった瞬間
     {
-        if (other.gameObject.tag == Player_tag)// エフェクトオブジェクトの場合
+        if (other.gameObject.tag == Player_tag && !isLock)// エフェクトオブジェクトの場合
         {
             returnResultScene = true;
         }

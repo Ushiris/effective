@@ -134,7 +134,6 @@ public class ArtsInstantManager : MonoBehaviour
         {
             int i = int.Parse(string.Join(null, c));
             effectNames.Add((NameDefinition.EffectName)i);
-            Debug.Log(c);
         }
         return new List<NameDefinition.EffectName>(effectNames);
     }
