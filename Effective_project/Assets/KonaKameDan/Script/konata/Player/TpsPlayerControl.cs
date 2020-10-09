@@ -20,6 +20,9 @@ public class TpsPlayerControl : MonoBehaviour
     Vector3 targetPosition, desiredPosition, wallHitPosition = Vector3.zero;
     RaycastHit wallHit;
 
+
+    Terrain t = NewMapTerrainData.GetTerrain;
+
     private void Start()
     {
         var pl_look = new Vector3(0, pl.transform.position.y,0);
@@ -39,35 +42,20 @@ public class TpsPlayerControl : MonoBehaviour
         
         pl.transform.Rotate(0, mouseDelta.x, 0);
         var angle_x = cameraPivot.transform.localRotation.eulerAngles.x - mouseDelta.y;
-        //Debug.Log(angle_x);
         if (angle_x >= 40 && angle_x <= 130)
-        {
-            mouseDelta.y = 0;
-        }
-        if (angle_x <= 315 && angle_x >= 130)
         {
             mouseDelta.y = 0;
         }
         cameraPivot.transform.Rotate(-mouseDelta.y, 0, 0);
 
         desiredPosition = cameraDesirePos.transform.position;
-
-        if (WallCheck())
+        float height = t.terrainData.GetHeight((int)desiredPosition.x, (int)desiredPosition.z);
+        if (desiredPosition.y < height && height < distance + 0.2)
         {
-            if (pl.transform.position.y > cameraDesirePos.transform.position.y)
-            {
-                cameraPivot.transform.Rotate(mouseDelta.y, 0, 0);
-            }
-            else
-            {
-                cameraObj.transform.position = wallHitPosition;
-            }
-        }
-        else
-        {
-            cameraObj.transform.position = desiredPosition;
+            desiredPosition.y = height + 0.02f;
         }
 
+        cameraObj.transform.position = WallCheck() ? wallHitPosition : desiredPosition;
         cameraObj.transform.LookAt(head.transform);
     }
 

@@ -56,6 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: 1
+  enchants: 
 --- !u!1001 &2376334142964688590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ PrefabInstance:
     - target: {fileID: 212912623975855615, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
       propertyPath: m_Name
-      value: enemyYellow
+      value: enemyShot
       objectReference: {fileID: 0}
     - target: {fileID: 212912623975855615, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}

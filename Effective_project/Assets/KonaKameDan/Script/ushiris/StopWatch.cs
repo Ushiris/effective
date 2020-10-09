@@ -37,6 +37,8 @@ public class StopWatch : MonoBehaviour
 
     void Update()
     {
+        if (!IsActive) return;
+
         float delta = isReactiveFlame ? 0f : Time.deltaTime;
         ActiveTime += delta;
         LapTimer += delta;
