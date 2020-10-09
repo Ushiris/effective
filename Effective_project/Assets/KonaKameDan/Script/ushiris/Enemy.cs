@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     IEnemyBrainBase brain;
     
     public bool isBoss;
+    public bool isInjured { get; private set; }
     static Vector3 hp_small = new Vector3(1, 1, 1);
     static Vector3 big = new Vector3(3, 2, 1);
 
@@ -107,12 +108,16 @@ public class Enemy : MonoBehaviour
         Debug.Log("dead:" + name);
         //Destroy(gameObject);
         gameObject.SetActive(false);
+        isInjured = false;
         status.Lv = WorldLevel.GetWorldLevel;
         life.HP = life.MaxHP;
+        slider.maxValue = life.MaxHP;
+        slider.value = life.MaxHP;
     }
 
     void Damage(int true_damage)
     {
+        isInjured = true;
         slider.value -= true_damage;
     }
 
