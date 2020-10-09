@@ -21,7 +21,7 @@ public class EnemyState : MonoBehaviour
     }
 
     public MoveState move = MoveState.Stay;
-    public List<bool> enchants = new List<bool>(10);
+    public List<bool> enchants = new List<bool>((int)Enchants.ENCHANT_AMOUNT);
 
     public delegate void EnchantMove();
     public Dictionary<Enchants, EnchantMove> moves;

@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using MoveState = EnemyState.MoveState;
+using Enchants = EnemyState.Enchants;
+using System;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
@@ -11,17 +12,34 @@ public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
     NavMeshAgent navMesh;
     public EnemyState state;
     StopWatch timer;
+    List<StopWatch> EnchantTimer = new List<StopWatch>((int)Enchants.ENCHANT_AMOUNT);
+
+    private void Awake()
+    {
+        state.moves = new Dictionary<Enchants, EnemyState.EnchantMove> {
+            {
+                Enchants.Stan,
+                ()=>
+                {
+                    navMesh.SetDestination(target.transform.position);
+                }
+            },
+            {
+                Enchants.Blind,Default
+            },
+        };
+    }
 
     void Start()
     {
         state = GetComponent<EnemyState>();
-        target = GameObject.FindWithTag("Player");
-        navMesh = GetComponent<NavMeshAgent>();
-        navMesh.SetDestination(target.transform.position);
         timer = gameObject.AddComponent<StopWatch>();
+        navMesh = GetComponent<NavMeshAgent>();
+        target = GameObject.FindWithTag("Player");
+        EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
+        navMesh.SetDestination(target.transform.position);
         timer.LapTime = 0.5f;
         timer.LapEvent = Think;
-        transform.position = new Vector3(transform.position.x, Random.Range(7, 13), transform.position.z);
     }
 
     private void LateUpdate()
@@ -31,9 +49,10 @@ public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
             return;
         }
 
-        if (Vector3.Distance(target.transform.position, transform.position) <= 40)
+        if (Vector3.Distance(target.transform.position, transform.position) <= 30)
         {
             state.move = MoveState.Chase;
+            Think();
         }
         else
         {
@@ -54,21 +73,42 @@ public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
                 Default();
                 break;
 
+            case MoveState.Confuse:
+                Default();
+                break;
+
             default:
                 Debug.Log(gameObject.name + "「こういう時(" + state.ToString() + ")にどうすればいいのかわからん」");
                 break;
         }
+
+        for (int i = 0; i < state.enchants.Count; i++)
+        {
+            if (state.enchants[i])
+            {
+                state.moves[(Enchants)i]();
+            }
+        }
+    }
+
+    public void AddEnchant(Enchants enchant, float time)
+    {
+        state.enchants[(int)enchant] = true;
+        EnchantTimer[(int)enchant].ResetTimer();
+        EnchantTimer[(int)enchant].LapEvent = () => { state.enchants[(int)enchant] = false; EnchantTimer[(int)enchant].SetActive(false); };
+        EnchantTimer[(int)enchant].LapTime = time;
     }
 
     public void Stan(float time)
     {
-        StopWatch.Summon(time, () => { state.move = MoveState.Stay; }, gameObject, true);
+        AddEnchant(Enchants.Stan, time);
+        Think();
     }
-
 
     public void Blind(float time)
     {
-        StopWatch.Summon(time, () => { state.move = MoveState.Stay; }, gameObject, true);
+        AddEnchant(Enchants.Blind, time);
+        Think();
     }
 
     public void Default()
@@ -76,21 +116,27 @@ public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
         if (navMesh.isStopped)
         {
             navMesh.SetDestination(new Vector3(
-                            Random.Range(transform.position.x - 10, transform.position.x + 10),
+                            UnityEngine.Random.Range(transform.position.x - 10, transform.position.x + 10),
                             transform.position.y,
-                            Random.Range(transform.position.z - 10, transform.position.z + 10)
+                            UnityEngine.Random.Range(transform.position.z - 10, transform.position.z + 10)
                             ));
         }
     }
 
-    public bool IsAttackable(MoveState move)
+    public bool IsAttackable()
     {
-        return move switch
+        switch (state.move)
         {
-            MoveState.Chase => true,
-            MoveState.Stay => false,
-            MoveState.Confuse => true,
-            _ => false,
-        };
+            case MoveState.Chase:
+                return true;
+            case MoveState.Stay:
+                return false;
+            case MoveState.Confuse:
+                return true;
+            case MoveState.STATE_AMOUNT:
+                throw new NotImplementedException();
+            default:
+                throw new NotImplementedException();
+        }
     }
 }

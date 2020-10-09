@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using MoveState = EnemyState.MoveState;
 using Enchants = EnemyState.Enchants;
-using System.Security.Cryptography;
+using System;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(EnemyState))]
@@ -15,8 +14,6 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
     public EnemyState state;
     StopWatch timer;
     List<StopWatch> EnchantTimer = new List<StopWatch>((int)Enchants.ENCHANT_AMOUNT);
-    StopWatch ConfuseTimer;
-
 
     private void Awake()
     {
@@ -29,11 +26,7 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
                 }
             },
             {
-                Enchants.Blind,
-                () =>
-                {
-
-                }
+                Enchants.Blind,Default
             },
         };
     }
@@ -45,7 +38,6 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
         navMesh = GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag("Player");
         EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
-        ConfuseTimer = gameObject.AddComponent<StopWatch>();
         navMesh.SetDestination(target.transform.position);
         timer.LapTime = 0.5f;
         timer.LapEvent = Think;
@@ -61,6 +53,7 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
         if (Vector3.Distance(target.transform.position, transform.position) <= 30)
         {
             state.move = MoveState.Chase;
+            Think();
         }
         else
         {
@@ -80,9 +73,21 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
                 Default();
                 break;
 
+            case MoveState.Confuse:
+                Default();
+                break;
+
             default:
                 Debug.Log(gameObject.name + "「こういう時(" + state.ToString() + ")にどうすればいいのかわからん」");
                 break;
+        }
+
+        for(int i = 0; i < state.enchants.Count; i++)
+        {
+            if (state.enchants[i])
+            {
+                state.moves[(Enchants)i]();
+            }
         }
     }
 
@@ -97,11 +102,13 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
     public void Stan(float time)
     {
         AddEnchant(Enchants.Stan,time);
+        Think();
     }
 
     public void Blind(float time)
     {
         AddEnchant(Enchants.Blind, time);
+        Think();
     }
 
     public void Default()
@@ -109,21 +116,27 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
         if (navMesh.isStopped)
         {
             navMesh.SetDestination(new Vector3(
-                            Random.Range(transform.position.x - 10, transform.position.x + 10),
+                            UnityEngine.Random.Range(transform.position.x - 10, transform.position.x + 10),
                             transform.position.y,
-                            Random.Range(transform.position.z - 10, transform.position.z + 10)
+                            UnityEngine.Random.Range(transform.position.z - 10, transform.position.z + 10)
                             ));
         }
     }
 
     public bool IsAttackable()
     {
-        return state.move switch
+        switch (state.move)
         {
-            MoveState.Chase => true,
-            MoveState.Stay => false,
-            MoveState.Confuse => true,
-            _ => false,
-        };
+            case MoveState.Chase:
+                return true;
+            case MoveState.Stay:
+                return false;
+            case MoveState.Confuse:
+                return true;
+            case MoveState.STATE_AMOUNT:
+                throw new NotImplementedException();
+            default:
+                throw new NotImplementedException();
+        }
     }
 }

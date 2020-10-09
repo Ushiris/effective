@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Life life;
     [HideInInspector] public Slider slider;
     [SerializeField] GameObject bullet;
-    public IEnemyBrainBase brain;
+    Rigidbody rb;
+    IEnemyBrainBase brain;
     
     public bool isBoss;
     static Vector3 hp_small = new Vector3(1, 1, 1);
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         slider = GetComponentInChildren<Slider>();
         if (GetComponent<MyEffectCount>() == null) bag = gameObject.AddComponent<MyEffectCount>();
         else bag = gameObject.GetComponent<MyEffectCount>();
+        rb = GetComponent<Rigidbody>();
 
         //sliderの初期化
         slider.minValue = 0;
@@ -46,6 +48,22 @@ public class Enemy : MonoBehaviour
         life.AddHealFunc(Heal);
 
         brain = GetComponent<IEnemyBrainBase>();
+    }
+
+    public void KnockBack()
+    {
+        brain.Stan(0.2f);
+        rb.AddForce(-transform.forward * 10);
+    }
+
+    public void Stan(float time)
+    {
+        brain.Stan(time);
+    }
+
+    public void Blind(float time)
+    {
+        brain.Blind(time);
     }
 
     //オブジェクトが破棄された時 
