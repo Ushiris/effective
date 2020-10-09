@@ -4,31 +4,17 @@ using UnityEngine;
 
 public class EnemySpawnPoint : MonoBehaviour
 {
-    [SerializeField] GameObject[] enemyArr;
 
     float siz;
     bool isEnemyActive;
-    List<GameObject> enemyList = new List<GameObject>();
+    Enemy[] enemyArr = new Enemy[kMaxCount];
 
-    static readonly int kMaxCount = 3;
+    static readonly int kMaxCount = 5;
 
     // Start is called before the first frame update
     void Start()
     {
         siz = transform.localScale.x / 2;
-        for(int i=0;i< kMaxCount; i++)
-        {
-            var ranNum = Random.Range(0, enemyArr.Length);
-            enemyArr[ranNum].SetActive(false);
-            var obj = Instantiate(enemyArr[ranNum], SpawnPos(transform.position), Quaternion.identity);
-
-            //世界のレベルをエネミーのステータスに入れる 
-            var status = obj.GetComponent<Status>();
-            status.Lv = WorldLevel.GetWorldLevel;
-
-            enemyList.Add(obj);
-        }
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,7 +32,7 @@ public class EnemySpawnPoint : MonoBehaviour
             OnEnemyActive(false);
         }
     }
-
+    //ポジションをランダムに出す
     Vector3 SpawnPos(Vector3 pos)
     {
         int x = (int)Random.Range(-siz + pos.x, siz + pos.x);
@@ -57,9 +43,36 @@ public class EnemySpawnPoint : MonoBehaviour
 
     void OnEnemyActive(bool isActive)
     {
+        var pos = transform.position;
         for (int i = 0; i < kMaxCount; i++)
         {
-            enemyList[i].SetActive(isActive);
+            if (isActive)
+            {
+                //エネミーを表示する
+                if (enemyArr[i] == null)
+                {
+                    var enemy = EnemySpawnManager.GetEnemy();
+                    enemy.gameObject.transform.position = SpawnPos(pos);
+                    enemyArr[i] = enemy;
+                }
+                else
+                {
+                    enemyArr[i].gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                //エネミーの表示を消す
+                if (!enemyArr[i].isInjured)
+                {
+                    EnemySpawnManager.SetEnemy(enemyArr[i]);
+                    enemyArr[i] = null;
+                }
+                else
+                {
+                    enemyArr[i].gameObject.SetActive(false);
+                }
+            }
         }
     }
 }
