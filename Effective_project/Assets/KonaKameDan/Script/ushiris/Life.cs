@@ -176,4 +176,21 @@ public class Life : MonoBehaviour
 
         return (float)HP;
     }
+
+    public bool IsActiveEvent(Timing timing,int ID)
+    {
+        switch (timing)
+        {
+            case Timing.beat:
+                return beat[ID].active;
+            case Timing.dead:
+                return dead[ID].active;
+            case Timing.damage:
+                return damageEvent[ID].active;
+            case Timing.heal:
+                return healEvent[ID].active;
+            default:
+                return false;
+        }
+    }
 }

@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject GetPlObj;
 
+    public int RegeneEventID;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +21,10 @@ public class PlayerManager : MonoBehaviour
 
         var life = GetPlObj.GetComponent<Life>();
         life.LifeSetup(0.3f);
-        var regene_id = life.AddBeat(() => { life.Heal((int)life.MaxHP / 100); });
-        var regene_timer = StopWatch.Summon(3, () => { life.ActiveEvent(Life.Timing.beat, regene_id); }, gameObject);
+        RegeneEventID = life.AddBeat(() => { life.Heal((int)life.MaxHP / 100); });
+        var regene_timer = StopWatch.Summon(3, () => { life.ActiveEvent(Life.Timing.beat, RegeneEventID); }, gameObject);
         life.AddDamageFunc((x) => {
-            life.ActiveEvent(Life.Timing.beat, regene_id, false);
+            life.ActiveEvent(Life.Timing.beat, RegeneEventID, false);
             regene_timer.ResetTimer();
         });
 
@@ -40,5 +42,10 @@ public class PlayerManager : MonoBehaviour
         });
 
         GetManager = this;
+    }
+
+    public bool IsRegene()
+    {
+        return GetPlObj.GetComponent<Life>().IsActiveEvent(Life.Timing.beat, RegeneEventID);
     }
 }
