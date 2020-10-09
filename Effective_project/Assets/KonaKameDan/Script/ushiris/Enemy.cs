@@ -54,6 +54,8 @@ public class Enemy : MonoBehaviour
         //レベルのセット
         status = GetComponent<Status>();
         status.Lv = WorldLevel.GetWorldLevel;
+
+        gameObject.SetActive(false);
     }
 
     public void KnockBack()

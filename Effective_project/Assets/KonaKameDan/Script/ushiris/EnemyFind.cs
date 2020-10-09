@@ -6,9 +6,11 @@ public class EnemyFind : MonoBehaviour
 {
     List<GameObject> enemy = new List<GameObject>();
 
+    static readonly string enemyTag = "Enemy";
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Enemy>() != null)
+        if (other.tag == enemyTag)
         {
             enemy.Add(other.gameObject);
         }
@@ -16,8 +18,9 @@ public class EnemyFind : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Enemy>() != null)
+        if (other.tag == enemyTag)
         {
+            Debug.Log("aaa");
             enemy.Remove(other.gameObject);
         }
     }
