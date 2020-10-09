@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.055667218, g: 0.07859674, b: 0.12481316, a: 1}
+  m_IndirectSpecularColor: {r: 0.06744362, g: 0.0889105, b: 0.13196887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2547,6 +2547,8 @@ MonoBehaviour:
   - "\u98DB\u7FD4"
   isCoolTimeChange: 0
   coolTimeChange: 1
+  isEnemySpawnArea: 0
+  isEnemySpawnEnabled: 1
 --- !u!4 &1881900230
 Transform:
   m_ObjectHideFlags: 0
