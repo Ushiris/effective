@@ -17,6 +17,7 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
 
     private void Awake()
     {
+        state = GetComponent<EnemyState>();
         state.moves = new Dictionary<Enchants, EnemyState.EnchantMove> {
             {
                 Enchants.Stan,
@@ -33,7 +34,6 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
 
     void Start()
     {
-        state = GetComponent<EnemyState>();
         timer = gameObject.AddComponent<StopWatch>();
         navMesh = GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag("Player");
