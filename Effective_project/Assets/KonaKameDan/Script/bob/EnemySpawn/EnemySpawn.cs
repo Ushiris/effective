@@ -12,13 +12,13 @@ public class EnemySpawn : MonoBehaviour
     GameObject playerPos;// playerのポジション
     StopWatch timer;
     public static int EnemyCount = 0;
-    public static int EnemyLimit = 5;
+    public static int EnemyLimit = 100;
 
     private void Start()
     {
         enemyOccurrence = GetComponent<EnemyOccurrence>();
         timer = gameObject.AddComponent<StopWatch>();
-        timer.LapTime = 5;
+        timer.LapTime = 1f;
         timer.LapEvent = Spawn;
     }
 

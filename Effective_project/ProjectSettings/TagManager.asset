@@ -17,6 +17,7 @@ TagManager:
   - PlayerPoint
   - BossPoint
   - BossZone
+  - EnemySpawnZone
   layers:
   - Default
   - TransparentFX
