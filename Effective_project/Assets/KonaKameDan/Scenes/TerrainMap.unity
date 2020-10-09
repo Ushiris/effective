@@ -429,6 +429,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 105879995790286568, guid: 49e62644984a4e4418522306cb3e9a6b,
+        type: 3}
+      propertyPath: m_DrawHeightmap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 105879995790286569, guid: 49e62644984a4e4418522306cb3e9a6b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -37,6 +37,26 @@ public class EnemyArtsInstant : MonoBehaviour
         timer.LapEvent = Action;
     }
 
+    /// <summary>
+    /// 自分で出すArtsを決めることができるArtsを出す処理
+    /// </summary>
+    /// <param name="idName"></param>
+    public void OnSelfIdSetAction(string idName)
+    {
+        ArtsInstantManager.InstantArts(artsObj, idName);
+    }
+
+    /// <summary>
+    /// ピックアップされたArtsIDを返す
+    /// </summary>
+    public string GetPicKUpArtsId
+    {
+        get
+        {
+            return effectPicKUp.GetArtsId;
+        }
+    }
+
     //エフェクトを出す処理
     void Action()
     {
