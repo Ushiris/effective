@@ -14,12 +14,18 @@ public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
     StopWatch timer;
     List<StopWatch> EnchantTimer = new List<StopWatch>((int)Enchants.ENCHANT_AMOUNT);
 
-    private void Awake()
+    void Start()
     {
         state = GetComponent<EnemyState>();
         timer = gameObject.AddComponent<StopWatch>();
         navMesh = GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag("Player");
+
+        EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
+        navMesh.SetDestination(target.transform.position);
+        timer.LapTime = 0.5f;
+        timer.LapEvent = Think;
+
         state.moves = new Dictionary<Enchants, EnemyState.EnchantMove> {
             {
                 Enchants.Stan,
@@ -32,14 +38,6 @@ public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
                 Enchants.Blind,Default
             },
         };
-    }
-
-    void Start()
-    {
-        EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
-        navMesh.SetDestination(target.transform.position);
-        timer.LapTime = 0.5f;
-        timer.LapEvent = Think;
     }
 
     private void LateUpdate()
