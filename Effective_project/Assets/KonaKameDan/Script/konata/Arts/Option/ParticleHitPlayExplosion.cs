@@ -22,6 +22,11 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     string hitObjTag;
     string notHitObjTag;
 
+    static readonly List<string> kExceptionTags = new List<string>()
+    {
+        "NearEnemyPos","BossZone","EnemySpawnZone"
+    };
+
     private void Start()
     {
         if (artsStatus == null) return;
@@ -85,7 +90,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     //Tagの判定
     bool IsCheckTag(string tag)
     {
-        if (tag != notHitObjTag && tag != "NearEnemyPos" && tag != "BossZone")
+        if (tag != notHitObjTag && kExceptionTags.Contains(tag))
         {
             if (tag == hitObjTag || isAllHit)
             {

@@ -18,7 +18,6 @@ public class EnemySpawnManager : MonoBehaviour
         int count;
         for (count = 0; count < enemyArr.Length; count++)
         {
-            enemyArr[count].gameObject.SetActive(false);
             var enemy = Instantiate(enemyArr[count].gameObject, transform);
             enemyList.Add(enemy.GetComponent<Enemy>());
             
