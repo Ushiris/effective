@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
 
     MyEffectCount bag;
 
+    Status playerStatus;
+
     private void Start()
     {
         life = gameObject.AddComponent<Life>();
@@ -55,7 +57,10 @@ public class Enemy : MonoBehaviour
         status = GetComponent<Status>();
         status.Lv = WorldLevel.GetWorldLevel;
 
-        gameObject.SetActive(false);
+        //プレイヤーのステータスを取得
+        playerStatus = PlayerManager.GetManager.GetPlObj.GetComponent<Status>();
+
+        if(!isBoss) gameObject.SetActive(false);
     }
 
     public void KnockBack()
@@ -74,22 +79,11 @@ public class Enemy : MonoBehaviour
         brain.Blind(time);
     }
 
-    //オブジェクトが破棄された時 
-    private void OnDestroy()
+    //オブジェクトが非表示になった時
+    private void OnDisable()
     {
-        var obj = PlayerManager.GetManager.GetPlObj;
-        if (obj == null) return;
-
-        var playerStatus = obj.GetComponent<Status>();
-        var enemyStatus = GetComponent<Status>();
-
-        //プレイヤーに経験値を渡す 
-        if (playerStatus != null && enemyStatus != null)
-        {
-            playerStatus.EXP += enemyStatus.status[Status.Name.DROP_EXP];
-        }
+        EnemyFind.OnEnemyExit(gameObject);
     }
-
 
     void DropEffect()
     {
@@ -109,12 +103,17 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("dead:" + name);
         //Destroy(gameObject);
+
         gameObject.SetActive(false);
         isInjured = false;
         status.Lv = WorldLevel.GetWorldLevel;
         life.HP = life.MaxHP;
         slider.maxValue = life.MaxHP;
         slider.value = life.MaxHP;
+
+        //プレイヤーに経験値を渡す
+        if (playerStatus == null) return;
+        playerStatus.EXP += status.status[Status.Name.DROP_EXP];
     }
 
     void Damage(int true_damage)

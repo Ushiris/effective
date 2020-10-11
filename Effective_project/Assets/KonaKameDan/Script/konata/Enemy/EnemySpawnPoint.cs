@@ -60,10 +60,6 @@ public class EnemySpawnPoint : MonoBehaviour
                     enemy.gameObject.transform.position = SpawnPos(pos);
                     enemyArr[i] = enemy;
                 }
-                else
-                {
-                    enemyArr[i].gameObject.SetActive(true);
-                }
             }
             else
             {
@@ -72,10 +68,6 @@ public class EnemySpawnPoint : MonoBehaviour
                 {
                     EnemySpawnManager.SetEnemy(enemyArr[i]);
                     enemyArr[i] = null;
-                }
-                else
-                {
-                    enemyArr[i].gameObject.SetActive(false);
                 }
             }
         }

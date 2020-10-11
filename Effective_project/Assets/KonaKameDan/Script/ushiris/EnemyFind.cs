@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class EnemyFind : MonoBehaviour
 {
-    List<GameObject> enemy = new List<GameObject>();
+    static List<GameObject> enemy = new List<GameObject>();
 
     static readonly string enemyTag = "Enemy";
+
+    private void Start()
+    {
+        enemy.Clear();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,7 +25,6 @@ public class EnemyFind : MonoBehaviour
     {
         if (other.tag == enemyTag)
         {
-            Debug.Log("aaa");
             enemy.Remove(other.gameObject);
         }
     }
@@ -28,6 +32,17 @@ public class EnemyFind : MonoBehaviour
     public List<GameObject> GetEnemyTransform()
     {
         return enemy;
+    }
+
+    /// <summary>
+    /// 射撃等のターゲットにすべき敵から外す
+    /// </summary>
+    /// <param name="obj">外す対象</param>
+    static public void OnEnemyExit(GameObject obj)
+    {
+        if (!enemy.Contains(obj)) return;
+        Debug.Log("aaa");
+        enemy.Remove(obj);
     }
 
     //射撃等のターゲットにすべき敵を取得します。
@@ -55,5 +70,4 @@ public class EnemyFind : MonoBehaviour
 
         return result;
     }
-
 }
