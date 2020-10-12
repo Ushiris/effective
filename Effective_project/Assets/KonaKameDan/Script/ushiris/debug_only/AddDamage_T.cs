@@ -17,7 +17,7 @@ public class AddDamage_T : MonoBehaviour
         if (Input.GetKeyDown(debug_key))
         {
             target_enemy.GetComponent<Life>().Damage(1);
-            Debug.Log("add 1 damage!");
+            DebugLogger.Log("add 1 damage!");
         }
     }
 }

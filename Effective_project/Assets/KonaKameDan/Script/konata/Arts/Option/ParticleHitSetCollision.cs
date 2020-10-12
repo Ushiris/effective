@@ -47,7 +47,7 @@ public class ParticleHitSetCollision : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.name);
+        DebugLogger.Log(other.name);
     }
 
 }

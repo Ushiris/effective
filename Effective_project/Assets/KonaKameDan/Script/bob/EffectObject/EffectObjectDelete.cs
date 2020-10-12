@@ -11,7 +11,7 @@ public class EffectObjectDelete : MonoBehaviour
         {
             Destroy(other.gameObject);
 
-            //Debug.Log("取得！");
+            //DebugLogger.Log("取得！");
         }
     }
 }

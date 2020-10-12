@@ -94,7 +94,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
         {
             if (tag == hitObjTag || isAllHit)
             {
-                Debug.Log("tag:" + tag);
+                DebugLogger.Log("tag:" + tag);
                 return true;
             }
         }

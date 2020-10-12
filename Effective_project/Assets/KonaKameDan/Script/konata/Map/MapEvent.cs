@@ -103,7 +103,7 @@ public class MapEvent : MonoBehaviour
                 case Dir.Left: roadPos.x -= 1; break;
                 default: break;
             }
-            //Debug.Log(roadPos.x + "  " + roadPos.z);
+            //DebugLogger.Log(roadPos.x + "  " + roadPos.z);
 
             //配列外の場合ループから抜け出す
             if (roadPos.z == d - 1 || roadPos.z == 1) break;
@@ -131,7 +131,7 @@ public class MapEvent : MonoBehaviour
             {
                 break;
             }
-            //Debug.Log(loopCount);
+            //DebugLogger.Log(loopCount);
             loopCount++;
         }
 

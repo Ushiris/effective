@@ -34,7 +34,7 @@ public class Id15_Fant : MonoBehaviour
         {
             Vector3 targetPos = target.transform.position;
             float dis = Vector3.Distance(artsStatus.myObj.transform.position, targetPos);
-            Debug.Log(dis);
+            DebugLogger.Log(dis);
 
             if (dis < 7f && !isSlash)
             {

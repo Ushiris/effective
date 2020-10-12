@@ -91,7 +91,7 @@ public class UI_ArtsMaterialization : MonoBehaviour
             {
                 //int num = UI_Manager.GetEffectFusionUI_ChoiceNum.numList[i];
                 int num = MyArtsDeck.GetArtsDeck[deckNum].effectList[i];
-                Debug.Log(i + " アーツ: " + num);
+                DebugLogger.Log(i + " アーツ: " + num);
                 ImageChange(i, num);
             }
 

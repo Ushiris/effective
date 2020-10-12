@@ -42,13 +42,13 @@ public class EnemyBullet : MonoBehaviour
         {
             if (other.GetComponent<Life>() == null)
             {
-                Debug.Log("error! player is undead!(add life to player.)");
+                DebugLogger.Log("error! player is undead!(add life to player.)");
                 Life pl_life = other.gameObject.AddComponent<Life>();
                 pl_life.LifeSetup(1);
             }
 
             other.gameObject.GetComponent<Life>().Damage((int)other.gameObject.GetComponentInParent<Status>().status[Status.Name.STR]);
-            Debug.Log("HIT! player's life=" + other.gameObject.GetComponent<Life>().HP);
+            DebugLogger.Log("HIT! player's life=" + other.gameObject.GetComponent<Life>().HP);
             Destroy(gameObject);
         }
     }

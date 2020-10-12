@@ -76,7 +76,7 @@ public class Id245_EMPCube : MonoBehaviour
         var emp = Instantiate(id24_EMP_Obj, transform);
         var empAs = emp.GetComponent<ArtsStatus>();
         empAs.newArtsStatus(artsStatus);
-        Debug.Log("タイプ "+count);
+        DebugLogger.Log("タイプ "+count);
 
         if (count > maxCount)
         {

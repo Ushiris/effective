@@ -73,7 +73,7 @@ public class MapEventSearch : MonoBehaviour
                 loopCount++;
             }
 
-            //Debug.Log("X" + loopCount);
+            //DebugLogger.Log("X" + loopCount);
 
             if (check) return loopCount;
             else return dis;
@@ -97,7 +97,7 @@ public class MapEventSearch : MonoBehaviour
                 loopCount++;
             }
 
-            //Debug.Log("Z" + loopCount);
+            //DebugLogger.Log("Z" + loopCount);
 
             if (check) return loopCount;
             else return dis;

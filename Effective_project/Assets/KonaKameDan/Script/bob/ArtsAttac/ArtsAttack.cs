@@ -22,7 +22,7 @@ public class ArtsAttack : MonoBehaviour
         {
             artsAttack = artsGenerator.GenerateArts(ArtsList.GetSelectArts.id);// 選択しているアーツのgameObjectを参照
             artsAttack.GetComponent<Arts>().Fire();
-            //Debug.Log("ここをクリックしてscript内のコメントを外さないとartsは出ません");
+            //DebugLogger.Log("ここをクリックしてscript内のコメントを外さないとartsは出ません");
         }
     }
 }

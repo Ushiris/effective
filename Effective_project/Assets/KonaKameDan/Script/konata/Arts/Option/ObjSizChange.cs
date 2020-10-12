@@ -46,7 +46,7 @@ public class ObjSizChange : MonoBehaviour
 
         float dis = Vector3.Distance(transform.localScale, sizLimit);
 
-        //Debug.Log("距離: " + dis);
+        //DebugLogger.Log("距離: " + dis);
         if (dis < 0.1f)
         {
             return true;

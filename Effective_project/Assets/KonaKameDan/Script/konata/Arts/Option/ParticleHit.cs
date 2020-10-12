@@ -102,7 +102,7 @@ public class ParticleHit : MonoBehaviour
 
         var life = enemy.GetComponent<Life>();
         if (life != null) life.Damage(damageCast);
-        Debug.Log("hitCount: " + hitCount + "damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
+        DebugLogger.Log("hitCount: " + hitCount + "damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //UI
         DamageCount.damageInput = damageCast;
@@ -115,7 +115,7 @@ public class ParticleHit : MonoBehaviour
     bool OnDestroyArtsZone(GameObject obj)
     {
         var s = obj.GetComponent<DestroyArtsZoneStatus>();
-        Debug.Log(obj.name);
+        DebugLogger.Log(obj.name);
         if (s != null)
         {
             if (s.artsTypes.Contains(artsStatus.artsType) && s.particleTypes.Contains(artsStatus.type))

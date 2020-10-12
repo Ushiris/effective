@@ -12,7 +12,7 @@ public class DestroyArtsZone : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other);
+        DebugLogger.Log(other);
         var s = other.GetComponent<ArtsStatus>();
         if (s != null)
         {

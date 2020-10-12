@@ -76,7 +76,7 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
                 break;
 
             default:
-                Debug.Log(gameObject.name + "「こういう時(" + state.ToString() + ")にどうすればいいのかわからん」");
+                DebugLogger.Log(gameObject.name + "「こういう時(" + state.ToString() + ")にどうすればいいのかわからん」");
                 break;
         }
 
