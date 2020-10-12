@@ -11,8 +11,6 @@ public class StartUpParticle : MonoBehaviour
 
     private void Start()
     {
-        
-
         group = new GameObject("ParticleList");
     }
 

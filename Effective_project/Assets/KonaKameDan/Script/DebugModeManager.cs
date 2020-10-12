@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 /// <summary>
 /// デバッグ用
@@ -10,7 +11,7 @@ public class DebugModeManager : MonoBehaviour
     [Header("エフェクト所持数を自由に変更可能")]
     [SerializeField] List<EffectObjectAcquisition.EffectObjectClass> effectCount = new List<EffectObjectAcquisition.EffectObjectClass>();
     [SerializeField] bool isEffectCount;
-    [SerializeField] List<string> effectObjectName = new List<string>();
+    List<string> effectObjectName = new List<string>();
 
     [Header("クールタイムを変更する")]
     [SerializeField] bool isCoolTimeChange;
@@ -52,5 +53,13 @@ public class DebugModeManager : MonoBehaviour
 
         EnemySpawnPoint.isAreaEnabled = isEnemySpawnArea;
         EnemySpawnPoint.isSpawnEnabled = isEnemySpawnEnabled;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            EditorApplication.isPaused = true;
+        }
     }
 }
