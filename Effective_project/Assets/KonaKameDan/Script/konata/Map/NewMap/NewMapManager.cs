@@ -30,10 +30,17 @@ public class NewMapManager : MonoBehaviour
 
     List<Vector3> eventPos = new List<Vector3>();
 
+
+
     //ナビゲーションメッシュ用
     public static UnityEvent OnMapGenerated = new UnityEvent();
 
     public static Vector3 GetPlayerRespawnPos { get; private set; }
+
+    /// <summary>
+    /// イベントを配置できる場所はtrue
+    /// </summary>
+    public static bool[,] GetEventPos { get; private set; }
 
     // Start is called before the first frame update
     void Awake()
@@ -76,16 +83,22 @@ public class NewMapManager : MonoBehaviour
     void MapEventPosArr(int xRange, int yRange, float maxH, float minH, GameObject mapObj)
     {
         var terrain = mapObj.GetComponent<Terrain>().terrainData;
+        GetEventPos = new bool[xRange, yRange];
 
-        for (int x = 0; x < xRange; x += 10)
+        for (int x = 0; x < xRange; x++)
         {
-            for (int y = 0; y < yRange; y += 10)
+            for (int y = 0; y < yRange; y++)
             {
                 var h = terrain.GetHeight(x, y);
                 if (h >= minH && h < maxH)
                 {
-                    eventPos.Add(new Vector3(x, h + 0.5f, y));
+                    if (x % 10 == 0 && y % 10 == 0)
+                    {
+                        eventPos.Add(new Vector3(x, h + 0.5f, y));
+                    }
+                    GetEventPos[x, y] = true;
                 }
+                else GetEventPos[x, y] = false;
             }
         }
     }

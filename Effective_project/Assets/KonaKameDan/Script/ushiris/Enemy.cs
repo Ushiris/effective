@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     IEnemyBrainBase brain;
     
     public bool isBoss;
-    public bool IsInjured { get; private set; }
+    public bool isDeath { get; private set; }
     static Vector3 big = new Vector3(3, 2, 1);
 
     MyEffectCount bag;
@@ -83,6 +83,12 @@ public class Enemy : MonoBehaviour
         brain.Blind(time);
     }
 
+    //オブジェクトがアクティブになった時
+    private void OnEnable()
+    {
+        isDeath = false;
+    }
+
     //オブジェクトが非表示になった時
     private void OnDisable()
     {
@@ -108,8 +114,8 @@ public class Enemy : MonoBehaviour
         DebugLogger.Log("dead:" + name);
         //Destroy(gameObject);
 
+        isDeath = true;
         gameObject.SetActive(false);
-        IsInjured = false;
         status.Lv = WorldLevel.GetWorldLevel;
         life.HP = life.MaxHP;
         slider.maxValue = life.MaxHP;
@@ -122,7 +128,6 @@ public class Enemy : MonoBehaviour
 
     void Damage(int true_damage)
     {
-        IsInjured = true;
         slider.value -= true_damage;
     }
 

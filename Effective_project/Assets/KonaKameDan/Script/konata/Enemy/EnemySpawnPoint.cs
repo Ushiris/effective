@@ -7,8 +7,10 @@ public class EnemySpawnPoint : MonoBehaviour
     float siz;
     bool isEnemyActive;
     Enemy[] enemyArr = new Enemy[kMaxCount];
+    List<Vector3> spawnPos = new List<Vector3>();
 
-    static readonly int kMaxCount = 5;
+    static readonly int kMaxCount = 10;
+    static readonly int kEventCheckLoopCount = 20;
 
     public static bool isAreaEnabled = false;
     public static bool isSpawnEnabled = true;
@@ -20,6 +22,27 @@ public class EnemySpawnPoint : MonoBehaviour
 
         GetComponent<MeshRenderer>().enabled = isAreaEnabled;
         GetComponent<Collider>().enabled = isSpawnEnabled;
+
+        //敵が出現するエリアを決める
+        var pos = transform.position;
+        var continueCount = 0;
+        for (int i = 0; i < kEventCheckLoopCount; i++)
+        {
+            int x = (int)Random.Range(-siz + pos.x, siz + pos.x);
+            int z = (int)Random.Range(-siz + pos.z, siz + pos.z);
+            x = Mathf.Clamp(x, 0, NewMapManager.GetEventPos.GetLength(0) - 1);
+            z = Mathf.Clamp(z, 0, NewMapManager.GetEventPos.GetLength(1) - 1);
+
+            if (!NewMapManager.GetEventPos[x, z])
+            {
+                if (continueCount == kEventCheckLoopCount) break;
+                continueCount++;
+                continue;
+            }
+
+            var y = NewMapTerrainData.GetTerrain.terrainData.GetHeight(x, z);
+            spawnPos.Add(new Vector3(x, y, z));
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,6 +60,7 @@ public class EnemySpawnPoint : MonoBehaviour
             OnEnemyActive(false);
         }
     }
+
     //ポジションをランダムに出す
     Vector3 SpawnPos(Vector3 pos)
     {
@@ -57,14 +81,15 @@ public class EnemySpawnPoint : MonoBehaviour
                 if (enemyArr[i] == null)
                 {
                     var enemy = EnemySpawnManager.GetEnemy();
-                    enemy.gameObject.transform.position = SpawnPos(pos);
+                    var ranNum = Random.Range(0, spawnPos.Count);
+                    enemy.gameObject.transform.position = spawnPos[ranNum];
                     enemyArr[i] = enemy;
                 }
             }
             else
             {
                 //エネミーの表示を消す
-                if (!enemyArr[i].IsInjured)
+                if (enemyArr[i].isDeath)
                 {
                     EnemySpawnManager.SetEnemy(enemyArr[i]);
                     enemyArr[i] = null;
