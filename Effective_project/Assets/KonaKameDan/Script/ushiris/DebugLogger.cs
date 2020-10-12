@@ -8,12 +8,12 @@ public class DebugLogger : MonoBehaviour
     [Conditional("UNITY_EDITOR")]
     public static void Log(object message)
     {
-        UnityEngine.DebugLogger.Log(message);
+        UnityEngine.Debug.Log(message);
     }
 
     [Conditional("UNITY_EDITOR")]
     public static void Log(object message, Object context)
     {
-        UnityEngine.DebugLogger.Log(message, context);
+        UnityEngine.Debug.Log(message, context);
     }
 }
