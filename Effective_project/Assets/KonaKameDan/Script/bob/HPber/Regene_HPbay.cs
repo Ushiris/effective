@@ -14,11 +14,11 @@ public class Regene_HPbay : MonoBehaviour
     {
         if (PlayerManager.GetManager.IsRegene())
         {
-            image.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            image.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
         else
         {
-            image.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            image.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
     }
 }
