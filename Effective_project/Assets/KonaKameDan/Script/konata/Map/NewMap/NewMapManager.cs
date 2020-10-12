@@ -43,7 +43,6 @@ public class NewMapManager : MonoBehaviour
         Status status = statusList[statusListNum];
         GameObject map = Instantiate(status.map, transform);
         NewMapTerrainData.SetTerrainData(map);
-        GetPlayerRespawnPos = status.playerSpawnPoint;
 
         //準備
         RandomSpawn(status);
@@ -53,6 +52,8 @@ public class NewMapManager : MonoBehaviour
         //プレイヤーとボス配置
         Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
         Instantiate(bossObj, status.bossSpawnPoint, new Quaternion());
+
+        GetPlayerRespawnPos = status.playerSpawnPoint;
 
         //ポータル設置
         var randPortalPos = new Vector3(Random.Range(-5, 5), -4f, Random.Range(-5, 5));
