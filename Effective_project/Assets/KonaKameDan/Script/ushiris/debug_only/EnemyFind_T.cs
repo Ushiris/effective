@@ -28,11 +28,11 @@ public class EnemyFind_T : MonoBehaviour
         GameObject enemy = test_target.GetComponent<EnemyFind>().GetNearEnemyPos(player.transform.position);
         if (enemy == null)
         {
-            Debug.Log("Enemy not found");
+            DebugLogger.Log("Enemy not found");
             return;
         }
 
-        Debug.Log("Near enemy is:" + enemy.name);
-        Debug.Log("Enemy list count:" + test_target.GetComponent<EnemyFind>().GetEnemyTransform().Count);
+        DebugLogger.Log("Near enemy is:" + enemy.name);
+        DebugLogger.Log("Enemy list count:" + test_target.GetComponent<EnemyFind>().GetEnemyTransform().Count);
     }
 }

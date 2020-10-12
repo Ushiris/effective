@@ -52,6 +52,6 @@ public class ActiveTextMeshProDelay : MonoBehaviour
 
         this.onTrigger = onTrigger;
         this.interval = interval;
-        //Debug.Log(interval);
+        //DebugLogger.Log(interval);
     }
 }

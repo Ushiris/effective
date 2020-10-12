@@ -142,14 +142,14 @@ public class Life : MonoBehaviour
         if (def_HP > MaxHP)
         {
             def_HP = (int)MaxHP;
-            Debug.Log("warnning:[" + gameObject.name + "] def_hp > max_hp");
+            DebugLogger.Log("warnning:[" + gameObject.name + "] def_hp > max_hp");
             isError = true;
         }
 
         if (def_beat < 0.01f)
         {
             timer.LapTime = 0.01f;
-            Debug.Log("error:[" + gameObject.name + "]too fast (or minus) beat time.");
+            DebugLogger.Log("error:[" + gameObject.name + "]too fast (or minus) beat time.");
             isError = true;
         }
 

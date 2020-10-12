@@ -91,7 +91,7 @@ public class PlayerArtsInstant : MonoBehaviour
         foreach (var key in collectionKey)
         {
             coolTimes[key] -= Time.deltaTime;
-            //Debug.Log("ID: "+key+" クールタイム: " + coolTimes[key]);
+            //DebugLogger.Log("ID: "+key+" クールタイム: " + coolTimes[key]);
             if (coolTimes[key] < 0) coolTimes.Remove(key);
         }
     }

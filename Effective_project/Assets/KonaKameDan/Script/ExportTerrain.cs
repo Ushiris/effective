@@ -196,7 +196,7 @@ class ExportTerrain : EditorWindow
         }
         catch (Exception err)
         {
-            Debug.Log("Error saving file: " + err.Message);
+            DebugLogger.Log("Error saving file: " + err.Message);
         }
         sw.Close();
 

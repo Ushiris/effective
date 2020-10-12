@@ -32,7 +32,7 @@ public class MapRoadInstant : MonoBehaviour
         //壁に阻まれた方向の数を数える
         foreach (var str in wallCheckDis)
         {
-            //Debug.Log("key " + str.Key+" value "+str.Value);
+            //DebugLogger.Log("key " + str.Key+" value "+str.Value);
             if (str.Value < dis) wallCount++;
             if (str.Value == MapEventSearch.Outside) wallCount++;
         }

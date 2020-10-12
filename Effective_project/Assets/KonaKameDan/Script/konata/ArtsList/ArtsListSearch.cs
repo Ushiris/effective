@@ -38,7 +38,7 @@ public class ArtsListSearch : MonoBehaviour
         {
             //IDでの検索
             num = idList.IndexOf(MySort.strSort(item));
-            if (num == -1) Debug.LogError("サーチ先がありません");
+            if (num == -1) DebugLogger.LogError("サーチ先がありません");
         }
 
         return num;

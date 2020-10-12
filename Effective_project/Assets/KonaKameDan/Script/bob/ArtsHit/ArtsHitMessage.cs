@@ -6,6 +6,6 @@ public class ArtsHitMessage : MonoBehaviour
 {
     public void HitMessage()// エネミーに攻撃が当たった時に呼ばれる
     {
-        Debug.Log("エネミー「痛い…やめろぉ！」");
+        DebugLogger.Log("エネミー「痛い…やめろぉ！」");
     }
 }

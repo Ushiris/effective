@@ -1,21 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+[RequireComponent(typeof(Life))]
+[RequireComponent(typeof(MyEffectCount))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Status))]
 public class Enemy : MonoBehaviour
 {
     [HideInInspector] public Life life;
     [HideInInspector] public Slider slider;
-    [SerializeField] GameObject bullet;
     [SerializeField] Status status;
     Rigidbody rb;
     IEnemyBrainBase brain;
     
     public bool isBoss;
-    public bool isInjured { get; private set; }
-    static Vector3 hp_small = new Vector3(1, 1, 1);
+    public bool IsInjured { get; private set; }
     static Vector3 big = new Vector3(3, 2, 1);
 
     MyEffectCount bag;
@@ -44,7 +48,7 @@ public class Enemy : MonoBehaviour
         }
 
         //Lifeの初期化
-        if (life.LifeSetup(1)) Debug.Log("Error init HP");
+        if (life.LifeSetup(1)) DebugLogger.Log("Error init HP");
         life.AddLastword(DropEffect);
         life.AddLastword(() => { EnemySpawn.EnemyCount--; });
         life.AddLastword(Dead);
@@ -101,11 +105,11 @@ public class Enemy : MonoBehaviour
 
     void Dead()
     {
-        Debug.Log("dead:" + name);
+        DebugLogger.Log("dead:" + name);
         //Destroy(gameObject);
 
         gameObject.SetActive(false);
-        isInjured = false;
+        IsInjured = false;
         status.Lv = WorldLevel.GetWorldLevel;
         life.HP = life.MaxHP;
         slider.maxValue = life.MaxHP;
@@ -118,7 +122,7 @@ public class Enemy : MonoBehaviour
 
     void Damage(int true_damage)
     {
-        isInjured = true;
+        IsInjured = true;
         slider.value -= true_damage;
     }
 
