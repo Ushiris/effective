@@ -133,11 +133,11 @@ public class ArtsInstantManager : MonoBehaviour
                 artsStatus.artsType = artsType;
                 artsStatus.myObj = artsPivot.transform.root.gameObject;
 
-                if (artsPivot.transform.root.gameObject.tag == "Player")
+                if (artsPivot.transform.parent.gameObject.tag == "Player")
                 {
                     artsStatus.type = ArtsStatus.ParticleType.Player;
                 }
-                else if (artsPivot.transform.root.gameObject.tag == "Enemy")
+                else if (artsPivot.transform.parent.gameObject.tag == "Enemy")
                 {
                     artsStatus.type = ArtsStatus.ParticleType.Enemy;
                 }
