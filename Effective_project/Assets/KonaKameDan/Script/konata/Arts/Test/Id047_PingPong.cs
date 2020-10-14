@@ -23,7 +23,7 @@ public class Id047_PingPong : MonoBehaviour
     float damage;
 
     Vector3 pos;
-    GameObject bullet;
+    List<GameObject> bullet = new List<GameObject>();
 
     ParticleHit bulletDamage;
     StopWatch timer;
@@ -53,18 +53,18 @@ public class Id047_PingPong : MonoBehaviour
         //弾の生成
         for (int i = 0; i < (int)bulletCount; i++)
         {
-            bullet = Instantiate(bulletObj, transform);
-            var rb = bullet.GetComponent<Rigidbody>();
+            bullet.Add(Instantiate(bulletObj, transform));
+            var rb = bullet[i].GetComponent<Rigidbody>();
             v0.x = bulletDir + i;
-            bullet.transform.localPosition = new Vector3(v0.x * 0.2f, 0, 0);
+            bullet[i].transform.localPosition = new Vector3(v0.x * 0.2f, 0, 0);
             rb.AddRelativeFor​​ce(v0, ForceMode.VelocityChange);
 
             //爆発するエフェクトのセット
             particleHitPlay =
-                Arts_Process.SetParticleHitPlay(bullet, explosionParticleObj, transform, artsStatus);
+                Arts_Process.SetParticleHitPlay(bullet[i], explosionParticleObj, transform, artsStatus);
 
             //ダメージ
-            bulletDamage = Arts_Process.SetParticleDamageProcess(bullet);
+            bulletDamage = Arts_Process.SetParticleDamageProcess(bullet[i]);
 
             //ダメージ処理
             Arts_Process.Damage(bulletDamage, artsStatus, damage, true);
@@ -80,14 +80,17 @@ public class Id047_PingPong : MonoBehaviour
     }
 
     //一定時間たったら爆発する
-    void Lost(GameObject obj)
+    void Lost(List<GameObject> obj)
     {
         if (obj != null)
         {
-            pos = obj.transform.position;
-            Destroy(obj);
-            var explosion = Instantiate(explosionParticleObj, pos, Quaternion.identity);
-            Destroy(gameObject, 2);
+            for (int i = 0; i < obj.Count; i++)
+            {
+                pos = obj[i].transform.position;
+                Destroy(obj[i]);
+                var explosion = Instantiate(explosionParticleObj, pos, Quaternion.identity);
+                Destroy(gameObject, 2);
+            }
         }
     }
 }
