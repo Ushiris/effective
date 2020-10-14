@@ -2990,7 +2990,7 @@ MonoBehaviour:
   - "\u98DB\u7FD4"
   isCoolTimeChange: 0
   coolTimeChange: 0
-  isEnemySpawnArea: 0
+  isEnemySpawnArea: 1
   isEnemySpawnEnabled: 1
 --- !u!4 &1881900230
 Transform:

@@ -10,7 +10,7 @@ public class EnemySpawnPoint : MonoBehaviour
     List<Vector3> spawnPos = new List<Vector3>();
 
     static readonly int kMaxCount = 10;
-    static readonly int kEventCheckLoopCount = 20;
+    static readonly int kEventCheckLoopCount = 30;
 
     public static bool isAreaEnabled = false;
     public static bool isSpawnEnabled = true;
@@ -21,7 +21,8 @@ public class EnemySpawnPoint : MonoBehaviour
         siz = transform.localScale.x / 2;
 
         GetComponent<MeshRenderer>().enabled = isAreaEnabled;
-        GetComponent<Collider>().enabled = isSpawnEnabled;
+        var c = GetComponent<Collider>();
+        c.enabled = isSpawnEnabled;
 
         //敵が出現するエリアを決める
         var pos = transform.position;
@@ -33,7 +34,10 @@ public class EnemySpawnPoint : MonoBehaviour
             x = Mathf.Clamp(x, 0, NewMapManager.GetEventPos.GetLength(0) - 1);
             z = Mathf.Clamp(z, 0, NewMapManager.GetEventPos.GetLength(1) - 1);
 
-            if (!NewMapManager.GetEventPos[x, z])
+            //コリジョンの中に入れる
+            var v3 = c.ClosestPoint(new Vector3(x, 0, z));
+
+            if (!NewMapManager.GetEventPos[(int)v3.x, (int)v3.z])
             {
                 if (continueCount == kEventCheckLoopCount) break;
                 continueCount++;
