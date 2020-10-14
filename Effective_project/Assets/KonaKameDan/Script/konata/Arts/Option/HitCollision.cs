@@ -8,7 +8,15 @@ using UnityEngine;
 public class HitCollision : MonoBehaviour
 {
     public bool GetOnTrigger { get; private set; }
-    public List<string> tags = new List<string>();
+    List<string> tags = new List<string>()
+    {
+        "Ground"
+    };
+
+    private void OnEnable()
+    {
+        GetOnTrigger = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,5 +28,14 @@ public class HitCollision : MonoBehaviour
                 GetOnTrigger = true;
             }
         }
+    }
+
+    /// <summary>
+    /// 反応するTagを新しく追加
+    /// </summary>
+    /// <param name="tag"></param>
+    public void SetTags(string tag)
+    {
+        if (!tags.Contains(tag)) tags.Add(tag);
     }
 }

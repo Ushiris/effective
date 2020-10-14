@@ -87,7 +87,7 @@ public class ArtsInstantManager : MonoBehaviour
                 case "149": InstantArts(ArtsStatus.ArtsType.Slash); break;
                 case "027": InstantArts(); break;
                 case "057": InstantArts(); break;
-                case "079": InstantArts(); break;
+                case "079": GetArts(); break;   //アマテラス
                 case "127": InstantArts(); break;
                 case "479": InstantArts(); break;
                 case "07": InstantArts(); break;
@@ -101,23 +101,43 @@ public class ArtsInstantManager : MonoBehaviour
                 default: break;
             }
 
+            //生成処理の方
             void InstantArts(ArtsStatus.ArtsType artsType = ArtsStatus.ArtsType.Shot)
             {
                 //生成
                 var obj = Instantiate(prefabs.GetTable()[artsId].prefab, artsPivot.transform);
                 var artsStatus = obj.GetComponent<ArtsStatus>();
 
+                SetArtsStatus(artsStatus, artsType);
+            }
+
+            //プールから取得の方
+            void GetArts(ArtsStatus.ArtsType artsType = ArtsStatus.ArtsType.Shot)
+            {
+                //プールから取得
+                var name = prefabs.GetTable()[artsId].prefab.name;
+                var artsStatus = StartUpParticle.GetArts(name);
+                artsStatus.gameObject.transform.parent = artsPivot.transform;
+
+                SetArtsStatus(artsStatus, artsType);
+
+                artsStatus.gameObject.SetActive(true);
+            }
+
+            //打ち手の情報をArtsに格納する
+            void SetArtsStatus(ArtsStatus artsStatus, ArtsStatus.ArtsType artsType)
+            {
                 //代入
                 artsStatus.myEffectCount = artsPivot.GetComponentInParent<MyEffectCount>();
                 artsStatus.myStatus = artsPivot.GetComponentInParent<Status>();
                 artsStatus.artsType = artsType;
                 artsStatus.myObj = artsPivot.transform.root.gameObject;
 
-                if (artsPivot.transform.parent.gameObject.tag == "Player")
+                if (artsPivot.transform.root.gameObject.tag == "Player")
                 {
                     artsStatus.type = ArtsStatus.ParticleType.Player;
                 }
-                else if (artsPivot.transform.parent.gameObject.tag == "Enemy")
+                else if (artsPivot.transform.root.gameObject.tag == "Enemy")
                 {
                     artsStatus.type = ArtsStatus.ParticleType.Enemy;
                 }

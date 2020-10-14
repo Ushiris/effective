@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 継続ダメージ処理　
 /// </summary>
+[RequireComponent(typeof(DamageHit))]
 public class ParticleHitZoneDamage : MonoBehaviour
 {
     public float hitDamageDefault = 3f;
@@ -28,9 +29,6 @@ public class ParticleHitZoneDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ダメージUIを出すやつ
-        gameObject.AddComponent<DamageHit>();
-
         var p = GetComponent<ParticleSystem>();
         var c = p.collision;
 
