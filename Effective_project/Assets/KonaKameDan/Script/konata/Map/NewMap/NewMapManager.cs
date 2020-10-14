@@ -75,7 +75,8 @@ public class NewMapManager : MonoBehaviour
         for(int i = 0; i < status.effectItemMaxCount; i++)
         {
             var obj = GatyaGatyaInventory.RandomObj(nums, eObj);
-            SetEvent(obj);
+            obj = SetEvent(obj);
+            obj.transform.parent = transform;
         }
     }
 

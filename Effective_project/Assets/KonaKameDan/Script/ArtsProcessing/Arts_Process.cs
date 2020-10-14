@@ -221,6 +221,8 @@ public class Arts_Process : MonoBehaviour
     /// <returns></returns>
     public static HitCollision SetHitCollision(GameObject obj)
     {
+        var s = obj.GetComponent<HitCollision>();
+        if (s != null) return s;
         return obj.AddComponent<HitCollision>();
     }
 
@@ -267,6 +269,8 @@ public class Arts_Process : MonoBehaviour
     /// <returns></returns>
     public static ParticleHitZoneDamage SetParticleZoneDamageProcess(GameObject obj)
     {
+        var s = obj.GetComponent<ParticleHitZoneDamage>();
+        if (s != null) return s;
         return obj.AddComponent<ParticleHitZoneDamage>();
     }
 

@@ -11,7 +11,7 @@ public class DebugModeManager : MonoBehaviour
     [Header("エフェクト所持数を自由に変更可能")]
     [SerializeField] List<EffectObjectAcquisition.EffectObjectClass> effectCount = new List<EffectObjectAcquisition.EffectObjectClass>();
     [SerializeField] bool isEffectCount;
-    List<string> effectObjectName = new List<string>();
+    [SerializeField] List<string> effectObjectName = new List<string>();
 
     [Header("クールタイムを変更する")]
     [SerializeField] bool isCoolTimeChange;

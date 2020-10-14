@@ -52,7 +52,7 @@ public class SatelliteBeamMaterial : MonoBehaviour
 
                 if (shaderTimer > 1 && coreMaterialTimer < 0)
                 {
-                    Destroy(gameObject);
+                    isTimeStart = false;
                 }
             }
         }
@@ -67,8 +67,9 @@ public class SatelliteBeamMaterial : MonoBehaviour
     void CoreMaterial(float speed)
     {
         coreMaterialTimer -= speed * Time.deltaTime;
-        var color = coreMaterial.color;
+        var color = coreMaterial.GetColor("_BaseColor");
         color.a = coreMaterialTimer;
-        coreMaterial.color = color;
+        color.a = Mathf.Clamp(color.a, 0, 100);
+        coreMaterial.SetColor("_BaseColor", color);
     }
 }

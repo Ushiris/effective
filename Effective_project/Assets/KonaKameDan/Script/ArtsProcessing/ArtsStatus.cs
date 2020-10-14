@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArtsStatus : MonoBehaviour
 {
-    public enum ParticleType { Player,Enemy}
+    public enum ParticleType { Player,Enemy, Unknown }
     public enum ArtsType { Slash, Shot, Support }
 
     /// <summary>
@@ -23,7 +23,7 @@ public class ArtsStatus : MonoBehaviour
     /// <summary>
     /// 放った人が誰であるか
     /// </summary>
-    [HideInInspector] public ParticleType type;
+    [HideInInspector] public ParticleType type = ParticleType.Unknown;
 
     /// <summary>
     /// 放った人のステータス
