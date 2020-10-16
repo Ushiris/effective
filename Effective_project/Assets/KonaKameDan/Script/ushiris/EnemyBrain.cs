@@ -23,7 +23,6 @@ public class EnemyBrain : MonoBehaviour, IEnemyBrainBase
         state = GetComponent<EnemyState>();
 
         EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
-        navMesh.SetDestination(target.transform.position);
         timer.LapTime = 0.5f;
         timer.LapEvent = Think;
 
