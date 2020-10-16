@@ -4,6 +4,7 @@ using System.Data;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 
 [RequireComponent(typeof(Life))]
@@ -23,8 +24,8 @@ public class Enemy : MonoBehaviour
     static Vector3 big = new Vector3(3, 2, 1);
 
     MyEffectCount bag;
-
     Status playerStatus;
+    NavMeshAgent navMesh;
 
     private void Start()
     {
@@ -64,7 +65,9 @@ public class Enemy : MonoBehaviour
         //プレイヤーのステータスを取得
         playerStatus = PlayerManager.GetManager.GetPlObj.GetComponent<Status>();
 
-        if(!isBoss) gameObject.SetActive(false);
+        navMesh = GetComponent<NavMeshAgent>();
+
+        if (!isBoss) gameObject.SetActive(false);
     }
 
     public void KnockBack()
@@ -87,12 +90,14 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         isDeath = false;
+        if (navMesh != null) navMesh.updatePosition = true;
     }
 
     //オブジェクトが非表示になった時
     private void OnDisable()
     {
         EnemyFind.OnEnemyExit(gameObject);
+        if (navMesh != null) navMesh.updatePosition = false;
     }
 
     void DropEffect()

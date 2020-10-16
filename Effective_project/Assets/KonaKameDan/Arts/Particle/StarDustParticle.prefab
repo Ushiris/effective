@@ -49,7 +49,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 1.4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3960,29 +3960,20 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 5.8269525
-          outSlope: 5.8269525
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.46089295
-        - serializedVersion: 3
-          time: 0.108184546
-          value: 0.38076794
-          inSlope: 1.2739903
-          outSlope: 1.2739903
+          value: 0.84023297
+          inSlope: 0.6705396
+          outSlope: 0.6705396
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.9487897
-          outWeight: 0.23370782
+          outWeight: 0.12742382
         - serializedVersion: 3
           time: 1
           value: 0
@@ -4666,7 +4657,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c79e5dfe3f341ee4e94e76cae3537c2f, type: 2}
+  - {fileID: 2100000, guid: a6c9238ef15070f4e9121be1f9ab2bd4, type: 2}
   - {fileID: 2100000, guid: 4a2d115a46d88ce49b9ed6208b6cb4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4687,7 +4678,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 5
+  m_RenderMode: 4
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -4705,7 +4696,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -4749,7 +4740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508658583418785047}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1508658583335114192}
@@ -4769,7 +4760,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -5469,7 +5460,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.7
+      value: 1.04
       mode: 0
       spread: 0
       speed:
