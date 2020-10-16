@@ -28,9 +28,9 @@ public class EnemySpawnPoint : MonoBehaviour
         var pos = transform.position;
 
         //敵を設置できるところ追加
-        for (int x = (int)(-siz + pos.x); x < (int)siz + pos.x; x++)
+        for (int x = FixPosX(-siz + pos.x); x < FixPosX(siz + pos.x); x++)
         {
-            for (int z = (int)(-siz + pos.z); z < (int)siz + pos.z; z++)
+            for (int z = FixPosZ(-siz + pos.z); z < FixPosZ(siz + pos.z); z++)
             {
                 Vector3 v3 = new Vector3(x, 0, z);
                 if (c.ClosestPoint(v3) == v3 && NewMapManager.GetEventPos[x, z])
@@ -93,5 +93,15 @@ public class EnemySpawnPoint : MonoBehaviour
                 }
             }
         }
+    }
+
+    int FixPosX(float x)
+    {
+        return  Mathf.Clamp((int)x, 0, NewMapManager.GetEventPos.GetLength(0) - 1);
+    }
+
+    int FixPosZ(float z)
+    {
+        return Mathf.Clamp((int)z, 0, NewMapManager.GetEventPos.GetLength(1) - 1);
     }
 }
