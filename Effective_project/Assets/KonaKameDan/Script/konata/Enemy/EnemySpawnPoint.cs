@@ -26,26 +26,19 @@ public class EnemySpawnPoint : MonoBehaviour
 
         //敵が出現するエリアを決める
         var pos = transform.position;
-        var continueCount = 0;
-        for (int i = 0; i < kEventCheckLoopCount; i++)
+
+        //敵を設置できるところ追加
+        for (int x = (int)(-siz + pos.x); x < (int)siz + pos.x; x++)
         {
-            int x = (int)Random.Range(-siz + pos.x, siz + pos.x);
-            int z = (int)Random.Range(-siz + pos.z, siz + pos.z);
-            x = Mathf.Clamp(x, 0, NewMapManager.GetEventPos.GetLength(0) - 1);
-            z = Mathf.Clamp(z, 0, NewMapManager.GetEventPos.GetLength(1) - 1);
-
-            //コリジョンの中に入れる
-            var v3 = c.ClosestPoint(new Vector3(x, 0, z));
-
-            if (!NewMapManager.GetEventPos[(int)v3.x, (int)v3.z])
+            for (int z = (int)(-siz + pos.z); z < (int)siz + pos.z; z++)
             {
-                if (continueCount == kEventCheckLoopCount) break;
-                continueCount++;
-                continue;
+                Vector3 v3 = new Vector3(x, 0, z);
+                if (c.ClosestPoint(v3) == v3 && NewMapManager.GetEventPos[x, z])
+                {
+                    v3.y = NewMapTerrainData.GetTerrain.terrainData.GetHeight(x, z);
+                    spawnPos.Add(v3);
+                }
             }
-
-            var y = NewMapTerrainData.GetTerrain.terrainData.GetHeight(x, z);
-            spawnPos.Add(new Vector3(x, y, z));
         }
     }
 
