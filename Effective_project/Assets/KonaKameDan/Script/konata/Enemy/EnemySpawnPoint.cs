@@ -7,7 +7,7 @@ public class EnemySpawnPoint : MonoBehaviour
     float siz;
     bool isEnemyActive;
     Enemy[] enemyArr = new Enemy[kMaxCount];
-    List<Vector3> spawnPos = new List<Vector3>();
+    [SerializeField] List<Vector3> spawnPos = new List<Vector3>();
 
     static readonly int kMaxCount = 10;
     static readonly int kEventCheckLoopCount = 30;
@@ -28,14 +28,14 @@ public class EnemySpawnPoint : MonoBehaviour
         var pos = transform.position;
 
         //敵を設置できるところ追加
-        for (int x = FixPosX(-siz + pos.x); x < FixPosX(siz + pos.x); x++)
+        for (int x = FixPosX(-siz + pos.x); x < FixPosX(siz + pos.x); x += 10)
         {
-            for (int z = FixPosZ(-siz + pos.z); z < FixPosZ(siz + pos.z); z++)
+            for (int z = FixPosZ(-siz + pos.z); z < FixPosZ(siz + pos.z); z += 10)
             {
                 Vector3 v3 = new Vector3(x, 0, z);
                 if (c.ClosestPoint(v3) == v3 && NewMapManager.GetEventPos[x, z])
                 {
-                    v3.y = NewMapTerrainData.GetTerrain.terrainData.GetHeight(x, z);
+                    v3.y = NewMapTerrainData.GetTerrain.terrainData.GetHeight(x, z) + 5;
                     spawnPos.Add(v3);
                 }
             }
@@ -45,7 +45,7 @@ public class EnemySpawnPoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-        { 
+        {
             OnEnemyActive(true);
         }
     }
@@ -58,18 +58,8 @@ public class EnemySpawnPoint : MonoBehaviour
         }
     }
 
-    //ポジションをランダムに出す
-    Vector3 SpawnPos(Vector3 pos)
-    {
-        int x = (int)Random.Range(-siz + pos.x, siz + pos.x);
-        int z = (int)Random.Range(-siz + pos.z, siz + pos.z);
-        var y = NewMapTerrainData.GetTerrain.terrainData.GetHeight(x, z);
-        return new Vector3(x, y, z);
-    }
-
     void OnEnemyActive(bool isActive)
     {
-        var pos = transform.position;
         for (int i = 0; i < kMaxCount; i++)
         {
             if (isActive)
@@ -81,6 +71,7 @@ public class EnemySpawnPoint : MonoBehaviour
                     var ranNum = Random.Range(0, spawnPos.Count);
                     enemy.gameObject.transform.position = spawnPos[ranNum];
                     enemyArr[i] = enemy;
+                    enemy.gameObject.SetActive(true);
                 }
             }
             else
