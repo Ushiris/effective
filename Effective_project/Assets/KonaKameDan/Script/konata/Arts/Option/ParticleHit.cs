@@ -9,9 +9,9 @@ public class ParticleHit : MonoBehaviour
     public ArtsStatus artsStatus;
     public bool isMapLayer;
     public bool isParticleCollision = true;
+    public bool isEnemyKnockBack = true;
 
     string hitObjTag;
-    int hitCount = 0;
     bool isTrigger;
 
     List<string> layerNameList = new List<string>()
@@ -44,9 +44,7 @@ public class ParticleHit : MonoBehaviour
                 break;
 
             default: break;
-        }
-
-        
+        }     
     }
 
     //パーティクルが当たった時
@@ -102,7 +100,13 @@ public class ParticleHit : MonoBehaviour
 
         var life = enemy.GetComponent<Life>();
         if (life != null) life.Damage(damageCast);
-        DebugLogger.Log("hitCount: " + hitCount + "damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
+        DebugLogger.Log("damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
+
+        //ノックバック判定
+        if (enemy.tag == "Enemy" && isEnemyKnockBack)
+        {
+            enemy.GetComponent<Enemy>().KnockBack();
+        }
 
         //UI
         DamageCount.damageInput = damageCast;

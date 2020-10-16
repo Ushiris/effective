@@ -16,7 +16,6 @@ public class ParticleHitZoneDamage : MonoBehaviour
     public bool isParticleCollision = true;
 
     string hitObjTag;
-    int hitCount = 0;
     bool isTrigger;
 
     List<string> layerNameList = new List<string>()
@@ -50,6 +49,8 @@ public class ParticleHitZoneDamage : MonoBehaviour
 
             default: break;
         }
+
+        timer = 0;
     }
 
     private void OnTriggerStay(Collider other)
@@ -77,7 +78,7 @@ public class ParticleHitZoneDamage : MonoBehaviour
 
         var life = enemy.GetComponent<Life>();
         if (life != null) life.Damage(damageCast);
-        DebugLogger.Log("hitCount: " + hitCount + "damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
+        DebugLogger.Log("damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //UI
         DamageCount.damageInput = damageCast;
