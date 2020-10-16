@@ -98,6 +98,17 @@ public class ArtsList : MonoBehaviour
     }
 
     /// <summary>
+    /// 名前またはIDから条件に合ったアーツデータを返す
+    /// </summary>
+    /// <param name="itme"></param>
+    /// <returns></returns>
+    public static ArtsData GetLookedForArts(string itme)
+    {
+        int num = ArtsListSearch.GetArtsNum(itme);
+        return GetArtsList.artsDataList[num];
+    }
+
+    /// <summary>
     /// 選択したものからアーツデータを持ってくる
     /// </summary>
     public static ArtsData GetSelectArts

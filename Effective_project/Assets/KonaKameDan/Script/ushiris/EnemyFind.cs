@@ -41,7 +41,6 @@ public class EnemyFind : MonoBehaviour
     static public void OnEnemyExit(GameObject obj)
     {
         if (!enemy.Contains(obj)) return;
-        DebugLogger.Log("aaa");
         enemy.Remove(obj);
     }
 

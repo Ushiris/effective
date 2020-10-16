@@ -6,6 +6,7 @@ using UnityEngine;
 /// 一定の秒数ごとにArtsを放つ
 /// </summary>
 [RequireComponent(typeof(MyEffectCount))]
+[RequireComponent(typeof(EnemyArtsPickUp))]
 public class EnemyArtsInstant : MonoBehaviour
 {
     [Header("アーツを放つためのステータス")]
@@ -19,17 +20,20 @@ public class EnemyArtsInstant : MonoBehaviour
 
     StopWatch timer;
     MyEffectCount myEffectCount;
-    EnemyEffectPicKUp effectPicKUp;
+    EnemyArtsPickUp effectPicKUp;
     EnemyState move;
+
+    private void Awake()
+    {
+        move = GetComponent<EnemyState>();
+        effectPicKUp = GetComponent<EnemyArtsPickUp>();
+        myEffectCount = GetComponent<MyEffectCount>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        move = GetComponent<EnemyState>();
-        effectPicKUp = GetComponent<EnemyEffectPicKUp>();
-        myEffectCount = GetComponent<MyEffectCount>();
-
-        if(myEffectCount!=null) SetEffectCount();
+        if (myEffectCount != null) SetEffectCount();
 
         //一定の秒数ごとにArtsを放つ
         timer = gameObject.AddComponent<StopWatch>();

@@ -194,8 +194,8 @@ GameObject:
   - component: {fileID: 114969958561679762}
   - component: {fileID: 8642206097694198832}
   - component: {fileID: 1255140516740092030}
-  - component: {fileID: 5074336605127119590}
   - component: {fileID: 114617894656542318}
+  - component: {fileID: 6050711937883674759}
   m_Layer: 0
   m_Name: enemyBase
   m_TagString: Enemy
@@ -233,7 +233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: {fileID: 0}
   slider: {fileID: 0}
-  bullet: {fileID: 1973864273873314559, guid: b222785f8ab06cc49836bea8e1a04ac2, type: 3}
   status: {fileID: 6225329085623931612}
   isBoss: 0
 --- !u!114 &6225329085623931612
@@ -398,54 +397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c41f4a7e8889b418049c0c0bbc47fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5074336605127119590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212912623975855615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e877aad49fa2d7488ce2b49b3a063bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainType: 0
-  plusType:
-  - effectName: "\u5C04\u6483"
-    effectEnum: 0
-    check: 0
-  - effectName: "\u65AC\u6483"
-    effectEnum: 1
-    check: 0
-  - effectName: "\u9632\u5FA1"
-    effectEnum: 2
-    check: 0
-  - effectName: "\u8A2D\u7F6E"
-    effectEnum: 3
-    check: 0
-  - effectName: "\u62E1\u6563"
-    effectEnum: 4
-    check: 1
-  - effectName: "\u8FFD\u5C3E"
-    effectEnum: 5
-    check: 0
-  - effectName: "\u5438\u53CE"
-    effectEnum: 6
-    check: 0
-  - effectName: "\u7206\u767A"
-    effectEnum: 7
-    check: 0
-  - effectName: "\u9045\u5EF6"
-    effectEnum: 8
-    check: 0
-  - effectName: "\u98DB\u7FD4"
-    effectEnum: 9
-    check: 0
-  - effectName: "\u306A\u3057"
-    effectEnum: 10
-    check: 1
-  effectTable: 040000000a00000000000000
 --- !u!114 &114617894656542318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +410,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
+--- !u!114 &6050711937883674759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212912623975855615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ee29dc70382cc4b9f14b056fe29398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainType: 0
+  artsTable:
+  - 045
+  - 04
+  - 05
 --- !u!1 &212912624084845006
 GameObject:
   m_ObjectHideFlags: 0
