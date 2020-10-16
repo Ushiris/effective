@@ -425,6 +425,8 @@ MonoBehaviour:
   mainType: 0
   artsTable:
   - 045
+  - 04
+  - 05
 --- !u!1 &212912624084845006
 GameObject:
   m_ObjectHideFlags: 0

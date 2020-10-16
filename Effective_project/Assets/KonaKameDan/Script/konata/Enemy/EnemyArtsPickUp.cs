@@ -15,12 +15,12 @@ public class EnemyArtsPickUp : MonoBehaviour
     /// <summary>
     /// メインエフェクトの取得
     /// </summary>
-    public NameDefinition.EffectName GetMainEffect { get; private set; }
+    public NameDefinition.EffectName GetMainEffect; //{ get; private set; }
 
     /// <summary>
     /// サブエフェクトの取得
     /// </summary>
-    public NameDefinition.EffectName[] GetSubEffect { get; private set; }
+    public NameDefinition.EffectName[] GetSubEffect;// { get; private set; }
 
     [SerializeField] NameDefinition.EffectName mainType;
     [SerializeField] List<string> artsTable = new List<string>()
@@ -33,17 +33,16 @@ public class EnemyArtsPickUp : MonoBehaviour
         List<NameDefinition.EffectName> effects = new List<NameDefinition.EffectName>();
         var artsId = GetArtsIdPick();
 
-        //サブエフェクトをセットする
-        foreach(var effect in artsId)
+        //Arts検索
+        var artsData = ArtsList.GetLookedForArts(artsId);
+
+        GetSubEffect = new NameDefinition.EffectName[artsData.effectList.Count];
+        for(int i=0;i< GetSubEffect.Length; i++)
         {
-            var effectNum = (NameDefinition.EffectName)effect;
-            if (GetMainEffect!= effectNum)
-            {
-                effects.Add(effectNum);
-            }
+            GetSubEffect[i] = (NameDefinition.EffectName)artsData.effectList[i];
         }
 
-        GetSubEffect = effects.ToArray();
+        GetMainEffect = mainType;
         GetArtsId = artsId;
     }
 
