@@ -53,7 +53,7 @@ MonoBehaviour:
   arrowRainParticle: {fileID: 7481011833392780257, guid: 637b5c1e39996c742b7f21b3393e08c5,
     type: 3}
   instantHigh: 10
-  defaultDamage: 0.4
+  defaultDamage: 0.8
   plusDamage: 0.03
   plusTime: 0.2
 --- !u!114 &114782030401215588
