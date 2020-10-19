@@ -8,11 +8,11 @@ public class PauseGame : MonoBehaviour
     [SerializeField] private GameObject pauseUIInstansce;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(pauseUIInstansce == null)
+            if (pauseUIInstansce == null)
             {
-                Pause();
+                if(Time.timeScale != 0) Pause();
             }
             else
             {

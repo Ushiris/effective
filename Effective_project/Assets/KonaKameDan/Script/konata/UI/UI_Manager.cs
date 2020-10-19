@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class UI_Manager : MonoBehaviour
 {
+    public GameObject uICanvas;
+
     [Header("アーツを作るUI表示")]
     public KeyCode effectFusionUI_ActiveKey = KeyCode.E;
     public GameObject effectFusionUI_Obj;
@@ -163,5 +165,13 @@ public class UI_Manager : MonoBehaviour
     public static int GetChoiceArtsDeckNum
     {
         get { return ArtsDeckChangeControll.GetNum; }
+    }
+
+    /// <summary>
+    /// メインUIのCanvasを持ってくる
+    /// </summary>
+    public static Canvas GetMainUiCanvas
+    {
+        get{ return GetUI_Manager.uICanvas.GetComponent<Canvas>(); }
     }
 }
