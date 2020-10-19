@@ -1345,12 +1345,12 @@ PrefabInstance:
         type: 3}
       propertyPath: bgmDataList.Array.data[0].startBGM
       value: 
-      objectReference: {fileID: 8300000, guid: 557530a7471297a4da7e9669b5f1751c, type: 3}
+      objectReference: {fileID: 8300000, guid: 11c0516fbe9d2c14d8d7eaca78b51243, type: 3}
     - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
       propertyPath: bgmDataList.Array.data[0].loopBGM
       value: 
-      objectReference: {fileID: 8300000, guid: 695ff6db9b5f52a4b8561bafe949d6a1, type: 3}
+      objectReference: {fileID: 8300000, guid: ea07c92b564371d4aad14e7957c28571, type: 3}
     - target: {fileID: 5876063705799890565, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
       propertyPath: m_Name

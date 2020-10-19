@@ -7,7 +7,7 @@ public class EnemySpawnPoint : MonoBehaviour
     float siz;
     bool isEnemyActive;
     Enemy[] enemyArr = new Enemy[kMaxCount];
-    List<Vector3> spawnPos = new List<Vector3>();
+    [SerializeField] List<Vector3> spawnPos = new List<Vector3>();
 
     static readonly int kMaxCount = 10;
     static readonly int kEventCheckLoopCount = 30;
@@ -26,33 +26,26 @@ public class EnemySpawnPoint : MonoBehaviour
 
         //敵が出現するエリアを決める
         var pos = transform.position;
-        var continueCount = 0;
-        for (int i = 0; i < kEventCheckLoopCount; i++)
+
+        //敵を設置できるところ追加
+        for (int x = FixPosX(-siz + pos.x); x < FixPosX(siz + pos.x); x += 10)
         {
-            int x = (int)Random.Range(-siz + pos.x, siz + pos.x);
-            int z = (int)Random.Range(-siz + pos.z, siz + pos.z);
-            x = Mathf.Clamp(x, 0, NewMapManager.GetEventPos.GetLength(0) - 1);
-            z = Mathf.Clamp(z, 0, NewMapManager.GetEventPos.GetLength(1) - 1);
-
-            //コリジョンの中に入れる
-            var v3 = c.ClosestPoint(new Vector3(x, 0, z));
-
-            if (!NewMapManager.GetEventPos[(int)v3.x, (int)v3.z])
+            for (int z = FixPosZ(-siz + pos.z); z < FixPosZ(siz + pos.z); z += 10)
             {
-                if (continueCount == kEventCheckLoopCount) break;
-                continueCount++;
-                continue;
+                Vector3 v3 = new Vector3(x, 0, z);
+                if (c.ClosestPoint(v3) == v3 && NewMapManager.GetEventPos[x, z])
+                {
+                    v3.y = NewMapTerrainData.GetTerrain.terrainData.GetHeight(x, z) + 5;
+                    spawnPos.Add(v3);
+                }
             }
-
-            var y = NewMapTerrainData.GetTerrain.terrainData.GetHeight(x, z);
-            spawnPos.Add(new Vector3(x, y, z));
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-        { 
+        {
             OnEnemyActive(true);
         }
     }
@@ -65,18 +58,8 @@ public class EnemySpawnPoint : MonoBehaviour
         }
     }
 
-    //ポジションをランダムに出す
-    Vector3 SpawnPos(Vector3 pos)
-    {
-        int x = (int)Random.Range(-siz + pos.x, siz + pos.x);
-        int z = (int)Random.Range(-siz + pos.z, siz + pos.z);
-        var y = NewMapTerrainData.GetTerrain.terrainData.GetHeight(x, z);
-        return new Vector3(x, y, z);
-    }
-
     void OnEnemyActive(bool isActive)
     {
-        var pos = transform.position;
         for (int i = 0; i < kMaxCount; i++)
         {
             if (isActive)
@@ -88,17 +71,31 @@ public class EnemySpawnPoint : MonoBehaviour
                     var ranNum = Random.Range(0, spawnPos.Count);
                     enemy.gameObject.transform.position = spawnPos[ranNum];
                     enemyArr[i] = enemy;
+                    enemy.gameObject.SetActive(true);
                 }
             }
             else
             {
                 //エネミーの表示を消す
-                if (enemyArr[i].isDeath)
+                if (enemyArr[i] != null)
                 {
-                    EnemySpawnManager.SetEnemy(enemyArr[i]);
-                    enemyArr[i] = null;
+                    if (enemyArr[i].isDeath)
+                    {
+                        EnemySpawnManager.SetEnemy(enemyArr[i]);
+                        enemyArr[i] = null;
+                    }
                 }
             }
         }
+    }
+
+    int FixPosX(float x)
+    {
+        return  Mathf.Clamp((int)x, 0, NewMapManager.GetEventPos.GetLength(0) - 1);
+    }
+
+    int FixPosZ(float z)
+    {
+        return Mathf.Clamp((int)z, 0, NewMapManager.GetEventPos.GetLength(1) - 1);
     }
 }

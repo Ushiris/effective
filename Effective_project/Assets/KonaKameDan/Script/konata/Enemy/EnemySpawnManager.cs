@@ -39,7 +39,6 @@ public class EnemySpawnManager : MonoBehaviour
     {
         var ran = Random.Range(0, enemyList.Count);
         var enemy = enemyList[ran];
-        enemy.gameObject.SetActive(true);
         enemyList.RemoveAt(ran);
         return enemy;
     }

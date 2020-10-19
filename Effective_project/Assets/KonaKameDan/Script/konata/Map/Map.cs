@@ -166,3 +166,17 @@ public class V2
         this.z = z;
     }
 }
+
+public class V3
+{
+    public int x;
+    public int y;
+    public int z;
+
+    public V3(int x = 0, int y = 0, int z = 0)
+    {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+}
