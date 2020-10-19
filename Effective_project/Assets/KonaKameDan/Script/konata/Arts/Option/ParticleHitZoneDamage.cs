@@ -78,10 +78,10 @@ public class ParticleHitZoneDamage : MonoBehaviour
 
         var life = enemy.GetComponent<Life>();
         if (life != null) life.Damage(damageCast);
-        DebugLogger.Log("damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
+        DebugLogger.Log("name: " + artsStatus.myObj.name + " damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //UI
-        DamageCount.damageInput = damageCast;
+        if(enemy.tag=="Player") DamageCount.damageInput = damageCast;
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);

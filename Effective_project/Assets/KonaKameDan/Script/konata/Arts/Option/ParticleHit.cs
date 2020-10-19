@@ -100,7 +100,7 @@ public class ParticleHit : MonoBehaviour
 
         var life = enemy.GetComponent<Life>();
         if (life != null) life.Damage(damageCast);
-        DebugLogger.Log("damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
+        DebugLogger.Log("name: " + artsStatus.myObj.name + " damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //ノックバック判定
         if (enemy.tag == "Enemy" && isEnemyKnockBack)
@@ -109,7 +109,7 @@ public class ParticleHit : MonoBehaviour
         }
 
         //UI
-        DamageCount.damageInput = damageCast;
+        if (enemy.tag == "Player") DamageCount.damageInput = damageCast;
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);

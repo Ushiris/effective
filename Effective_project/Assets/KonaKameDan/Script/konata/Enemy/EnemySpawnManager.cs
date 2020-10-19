@@ -8,7 +8,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     static List<Enemy> enemyList = new List<Enemy>();
 
-    static readonly int maxCount = 50;
+    static readonly int maxCount = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +37,7 @@ public class EnemySpawnManager : MonoBehaviour
     /// <returns></returns>
     public static Enemy GetEnemy()
     {
+        if (enemyList.Count == 0) return null;
         var ran = Random.Range(0, enemyList.Count);
         var enemy = enemyList[ran];
         enemyList.RemoveAt(ran);

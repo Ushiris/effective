@@ -117,6 +117,10 @@ public class ArtsInstantManager : MonoBehaviour
                 //プールから取得
                 var name = prefabs.GetTable()[artsId].prefab.name;
                 var artsStatus = StartUpParticle.GetArts(name);
+                if (artsStatus == null)
+                {
+                    Debug.LogError("Artsのプールが足りません"); return;
+                }
                 artsStatus.gameObject.transform.parent = artsPivot.transform;
 
                 SetArtsStatus(artsStatus, artsType);
