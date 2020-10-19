@@ -90,7 +90,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     //Tagの判定
     bool IsCheckTag(string tag)
     {
-        if (tag != notHitObjTag && kExceptionTags.Contains(tag))
+        if (tag != notHitObjTag && !kExceptionTags.Contains(tag))
         {
             if (tag == hitObjTag || isAllHit)
             {
