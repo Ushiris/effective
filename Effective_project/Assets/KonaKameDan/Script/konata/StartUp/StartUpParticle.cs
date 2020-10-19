@@ -26,6 +26,11 @@ public class StartUpParticle : MonoBehaviour
         artsPrefab.Clear();
     }
 
+    private void OnDestroy()
+    {
+        artsPool.Clear();
+    }
+
     //辞書にArtsをセットする
     List<ArtsStatus> SetArtsStatus(GameObject prefab)
     {

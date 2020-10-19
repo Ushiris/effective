@@ -38,11 +38,10 @@ public class StageSelectUI : MonoBehaviour
     {
         if (gage > kMinGame)
         {
-            gage -= Time.deltaTime * speed;
+            gage -= Time.unscaledDeltaTime * speed;
             gage = Mathf.Clamp(gage, kMinGame, kMaxGage);
             material.SetFloat("Vector1_714F6F72", gage);
             image.material = material;
-            Debug.Log(gage);
         }
         else if(!image.raycastTarget)
         {
@@ -50,27 +49,42 @@ public class StageSelectUI : MonoBehaviour
         }
     }
 
+    //表示時
     private void OnEnable()
     {
         image.raycastTarget = false;
         gage = kMaxGage;
+        Time.timeScale = 0;
+        Cursor.visible = true;
     }
 
+    //非表示時
     private void OnDisable()
     {
         material.SetFloat("Vector1_714F6F72", kMaxGage);
+        Time.timeScale = 1;
+        Cursor.visible = false;
     }
 
+    /// <summary>
+    /// ポインターが触れた時
+    /// </summary>
     public void OnPointerEnter()
     {
         rectTransform.sizeDelta *= siz;
     }
 
+    /// <summary>
+    /// ポインターが離れたとき
+    /// </summary>
     public void OnPointerExit()
     {
         rectTransform.sizeDelta = defaultSiz;
     }
 
+    /// <summary>
+    /// クリックした時
+    /// </summary>
     public void OnPointerClick()
     {
         if (SetSceneNameToChangeScene == NameDefinition.SceneName_Result)
