@@ -6,25 +6,15 @@ using Enchants = EnemyState.Enchants;
 using System;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
+[RequireComponent(typeof(EnemyState))]
+public class FlyEnemyBrain :EnemyBrainBase
 {
-    GameObject target;
-    NavMeshAgent navMesh;
-    public EnemyState state;
-    StopWatch timer;
-    List<StopWatch> EnchantTimer = new List<StopWatch>((int)Enchants.ENCHANT_AMOUNT);
-
     void Start()
     {
-        state = GetComponent<EnemyState>();
-        timer = gameObject.AddComponent<StopWatch>();
-        navMesh = GetComponent<NavMeshAgent>();
-        target = GameObject.FindWithTag("Player");
+        base.Start();
 
-        EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
-        navMesh.SetDestination(target.transform.position);
-        timer.LapTime = 0.5f;
-        timer.LapEvent = Think;
+        Default = Default__;
+        FindAction = FindAction__;
 
         state.moves = new Dictionary<Enchants, EnemyState.EnchantMove> {
             {
@@ -35,7 +25,7 @@ public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
                 }
             },
             {
-                Enchants.Blind,Default
+                Enchants.Blind,()=>Default()
             },
         };
     }
@@ -58,58 +48,7 @@ public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
         }
     }
 
-    public void Think()
-    {
-        switch (state.move)
-        {
-            case MoveState.Chase:
-                var pos = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
-                navMesh.SetDestination(pos);
-                break;
-
-            case MoveState.Stay:
-                Default();
-                break;
-
-            case MoveState.Confuse:
-                Default();
-                break;
-
-            default:
-                DebugLogger.Log(gameObject.name + "「こういう時(" + state.ToString() + ")にどうすればいいのかわからん」");
-                break;
-        }
-
-        for (int i = 0; i < state.enchants.Count; i++)
-        {
-            if (state.enchants[i])
-            {
-                state.moves[(Enchants)i]();
-            }
-        }
-    }
-
-    public void AddEnchant(Enchants enchant, float time)
-    {
-        state.enchants[(int)enchant] = true;
-        EnchantTimer[(int)enchant].ResetTimer();
-        EnchantTimer[(int)enchant].LapEvent = () => { state.enchants[(int)enchant] = false; EnchantTimer[(int)enchant].SetActive(false); };
-        EnchantTimer[(int)enchant].LapTime = time;
-    }
-
-    public void Stan(float time)
-    {
-        AddEnchant(Enchants.Stan, time);
-        Think();
-    }
-
-    public void Blind(float time)
-    {
-        AddEnchant(Enchants.Blind, time);
-        Think();
-    }
-
-    public void Default()
+    public void Default__()
     {
         if (navMesh.isStopped)
         {
@@ -121,20 +60,9 @@ public class FlyEnemyBrain : MonoBehaviour, IEnemyBrainBase
         }
     }
 
-    public bool IsAttackable()
+    public void FindAction__()
     {
-        switch (state.move)
-        {
-            case MoveState.Chase:
-                return true;
-            case MoveState.Stay:
-                return false;
-            case MoveState.Confuse:
-                return true;
-            case MoveState.STATE_AMOUNT:
-                throw new NotImplementedException();
-            default:
-                throw new NotImplementedException();
-        }
+        var pos = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+        navMesh.SetDestination(pos);
     }
 }
