@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GoalIn : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GoalIn : MonoBehaviour
     {
         if (other.gameObject.tag == Player_tag && !isLock)// エフェクトオブジェクトの場合
         {
+            UI_Manager.GetMainUiCanvas.enabled = false;
             stageSelectCanvas.SetActive(true);
         }
     }
