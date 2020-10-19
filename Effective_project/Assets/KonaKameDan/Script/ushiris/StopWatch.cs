@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//<summary>
-//一定時間毎にLapEventに格納されている関数を実行します。
-//</summary>
+///<summary>
+///一定時間毎にLapEventに格納されている関数を実行します。
+///</summary>
 public class StopWatch : MonoBehaviour
 {
     public delegate void TimeEvent();
@@ -25,6 +25,7 @@ public class StopWatch : MonoBehaviour
         instance.LapTime = lapTime;
         instance.LapEvent = act;
         instance.isOneShot = isOneShot;
+        instance.IsActive = true;
 
         return instance;
     }
@@ -52,7 +53,6 @@ public class StopWatch : MonoBehaviour
 
         if (isReactiveFlame)
         {
-            //丁度isActiveがtrueになったフレームのみで呼ばれます
             isReactiveFlame = false;
         }
     }

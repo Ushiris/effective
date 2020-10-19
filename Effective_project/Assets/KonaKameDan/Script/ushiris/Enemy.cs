@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Slider slider;
     [SerializeField] Status status;
     Rigidbody rb;
-    IEnemyBrainBase brain;
+    EnemyBrainBase brain;
     
     public bool isBoss;
     public bool isDeath { get; private set; }
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
         life.AddDamageFunc(Damage);
         life.AddHealFunc(Heal);
 
-        brain = GetComponent<IEnemyBrainBase>();
+        brain = GetComponent<EnemyBrainBase>();
 
         //レベルのセット
         status = GetComponent<Status>();
