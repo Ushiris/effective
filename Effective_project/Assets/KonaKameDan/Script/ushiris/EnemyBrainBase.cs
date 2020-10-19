@@ -7,12 +7,103 @@ using System;
 
 public class EnemyBrainBase : MonoBehaviour
 {
+    public class Formation
+    {
+        public enum Formation_:int
+        {
+            forward,
+            forward_right,
+            right,
+            behind_right,
+            behind,
+            behind_left,
+            left,
+            forward_left,
+            FORMATION_COUNT
+        }
+        public Formation_ value;
+
+        public static Formation operator ++(Formation value)
+        {
+            switch (value.value)
+            {
+                case Formation_.forward:
+                    value.value = Formation_.forward_right;
+                    break;
+                case Formation_.forward_right:
+                    value.value = Formation_.right;
+                    break;
+                case Formation_.right:
+                    value.value = Formation_.behind_right;
+                    break;
+                case Formation_.behind_right:
+                    value.value = Formation_.behind;
+                    break;
+                case Formation_.behind:
+                    value.value = Formation_.behind_left;
+                    break;
+                case Formation_.behind_left:
+                    value.value = Formation_.left;
+                    break;
+                case Formation_.left:
+                    value.value = Formation_.forward_left;
+                    break;
+                case Formation_.forward_left:
+                    value.value = Formation_.forward;
+                    break;
+                default:
+                    DebugLogger.Log("Enum error!");
+                    break;
+            }
+
+            return value;
+        }
+
+        public static Formation operator --(Formation value)
+        {
+            switch (value.value)
+            {
+                case Formation_.forward:
+                    value.value = Formation_.forward_left;
+                    break;
+                case Formation_.forward_right:
+                    value.value = Formation_.forward;
+                    break;
+                case Formation_.right:
+                    value.value = Formation_.forward_right;
+                    break;
+                case Formation_.behind_right:
+                    value.value = Formation_.right;
+                    break;
+                case Formation_.behind:
+                    value.value = Formation_.behind_right;
+                    break;
+                case Formation_.behind_left:
+                    value.value = Formation_.behind;
+                    break;
+                case Formation_.left:
+                    value.value = Formation_.behind_left;
+                    break;
+                case Formation_.forward_left:
+                    value.value = Formation_.left;
+                    break;
+                default:
+                    DebugLogger.Log("Enum error!");
+                    break;
+            }
+
+            return value;
+        }
+    }
     public EnemyState state;
 
     protected GameObject target;
     protected NavMeshAgent navMesh;
     protected StopWatch timer;
     protected List<StopWatch> EnchantTimer = new List<StopWatch>((int)Enchants.ENCHANT_AMOUNT);
+    protected Vector3 DefaultPos;
+    protected Formation formation = new Formation();
+    protected float distance = 5;
 
     private void Awake()
     {
@@ -24,12 +115,14 @@ public class EnemyBrainBase : MonoBehaviour
     protected void Start()
     {
         target = GameObject.FindWithTag("Player");
-
+        DefaultPos = transform.position;
         EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
         timer.LapTime = 0.5f;
         InitDefaultAction();
-        timer.LapEvent = Think;
 
+        StopWatch.Summon(3, () => { _ = UnityEngine.Random.Range(0, 1) == 0 ? formation++ : formation--; }, gameObject);
+
+        formation.value = (Formation.Formation_)UnityEngine.Random.Range(0, (int)Formation.Formation_.FORMATION_COUNT);
 
         state.moves = new Dictionary<Enchants, EnemyState.EnchantMove>
         {
@@ -54,7 +147,7 @@ public class EnemyBrainBase : MonoBehaviour
         Default = Default_;
         IsAttackable = IsAttackable_;
         FindFlag = FindFlag_;
-        FindAction = FindAction_;
+        FindAction = FindAction_Circle;
         EnchantAction = EnchantAction_;
     }
 
@@ -74,7 +167,7 @@ public class EnemyBrainBase : MonoBehaviour
     public delegate bool EnemyBrainFlag();
     public delegate void EnemyStateChange(float time);
 
-    public StopWatch.TimeEvent Think { get; protected set; }
+    public StopWatch.TimeEvent Think { get => timer.LapEvent; protected set => timer.LapEvent = value; }
     public EnemyStateChange Stan { get; protected set; }
     public EnemyStateChange Blind { get; protected set; }
     public EnemyBrainAction Default { get; protected set; }
@@ -115,19 +208,12 @@ public class EnemyBrainBase : MonoBehaviour
         EnchantAction();
     }
 
-    public void Default_()
+    private void Default_()
     {
-        if (navMesh.isStopped)
-        {
-            navMesh.SetDestination(new Vector3(
-                            UnityEngine.Random.Range(transform.position.x - 10, transform.position.x + 10),
-                            transform.position.y,
-                            UnityEngine.Random.Range(transform.position.z - 10, transform.position.z + 10)
-                            ));
-        }
+        navMesh.SetDestination(DefaultPos);
     }
 
-    public bool IsAttackable_()
+    private bool IsAttackable_()
     {
         switch (state.move)
         {
@@ -144,24 +230,57 @@ public class EnemyBrainBase : MonoBehaviour
         }
     }
 
-    public void Stan_(float time)
+    private void Stan_(float time)
     {
         AddEnchant(Enchants.Stan, time);
         Think();
     }
 
-    public void Blind_(float time)
+    private void Blind_(float time)
     {
         AddEnchant(Enchants.Blind, time);
         Think();
     }
 
-    public void FindAction_()
+    private void FindAction_Circle()
     {
-        navMesh.SetDestination(target.transform.position);
+        Vector3 add = Vector3.zero;
+
+        switch (formation.value)
+        {
+            case Formation.Formation_.forward:
+                add += Vector3.forward * distance;
+                break;
+            case Formation.Formation_.forward_right:
+                add += (Vector3.forward + Vector3.right) * (distance * 0.7f);
+                break;
+            case Formation.Formation_.right:
+                add += Vector3.right * distance;
+                break;
+            case Formation.Formation_.behind_right:
+                add += (Vector3.back + Vector3.right) * (distance * 0.7f);
+                break;
+            case Formation.Formation_.behind:
+                add += Vector3.back*distance;
+                break;
+            case Formation.Formation_.behind_left:
+                add += (Vector3.back + Vector3.left) * (distance * 0.7f);
+                break;
+            case Formation.Formation_.left:
+                add += Vector3.left*distance;
+                break;
+            case Formation.Formation_.forward_left:
+                add += (Vector3.forward + Vector3.right) * (distance * 0.7f);
+                break;
+            default:
+                break;
+        }
+
+        navMesh.SetDestination(target.transform.position + add);
+        gameObject.transform.LookAt(target.transform);
     }
 
-    public void EnchantAction_()
+    private void EnchantAction_()
     {
         for (int i = 0; i < state.enchants.Count; i++)
         {
@@ -172,5 +291,8 @@ public class EnemyBrainBase : MonoBehaviour
         }
     }
 
-    public bool FindFlag_() { return false; }
+    private bool FindFlag_() 
+    { 
+        return Vector3.Distance(target.transform.position, transform.position) <= 30;
+    }
 }

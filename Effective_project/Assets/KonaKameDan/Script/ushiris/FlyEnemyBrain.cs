@@ -37,7 +37,7 @@ public class FlyEnemyBrain :EnemyBrainBase
             return;
         }
 
-        if (Vector3.Distance(target.transform.position, transform.position) <= 30)
+        if (FindFlag())
         {
             state.move = MoveState.Chase;
             Think();

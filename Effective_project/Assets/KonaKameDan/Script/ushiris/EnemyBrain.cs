@@ -2,8 +2,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 using MoveState = EnemyState.MoveState;
-using Enchants = EnemyState.Enchants;
-using System;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(EnemyState))]
