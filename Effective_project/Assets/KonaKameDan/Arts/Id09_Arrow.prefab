@@ -51,7 +51,7 @@ MonoBehaviour:
   chargeParticleObj: {fileID: 3184271230954090179, guid: efcd3d3f07dca49418329cabe872f848,
     type: 3}
   chargeSpeed: 10
-  defaultDamage: 2
+  defaultDamage: 5
   plusDamage: 0.1
   chargeTimeDown: 0.1
 --- !u!114 &114937705012739040
