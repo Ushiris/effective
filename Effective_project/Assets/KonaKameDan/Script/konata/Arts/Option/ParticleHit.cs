@@ -109,7 +109,7 @@ public class ParticleHit : MonoBehaviour
         }
 
         //UI
-        if (enemy.tag == "Player") DamageCount.damageInput = damageCast;
+        if (enemy.tag == "Enemy") DamageCount.damageInput = damageCast;
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);
