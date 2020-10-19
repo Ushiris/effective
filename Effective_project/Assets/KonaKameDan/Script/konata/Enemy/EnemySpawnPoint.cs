@@ -68,6 +68,7 @@ public class EnemySpawnPoint : MonoBehaviour
                 if (enemyArr[i] == null)
                 {
                     var enemy = EnemySpawnManager.GetEnemy();
+                    if (enemy == null) break;
                     var ranNum = Random.Range(0, spawnPos.Count);
                     enemy.gameObject.transform.position = spawnPos[ranNum];
                     enemyArr[i] = enemy;
