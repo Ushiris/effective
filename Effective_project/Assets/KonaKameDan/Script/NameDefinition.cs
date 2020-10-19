@@ -5,6 +5,16 @@ using UnityEngine;
 public class NameDefinition : MonoBehaviour
 {
     /// <summary>
+    /// リザルトシーンのシーン名
+    /// </summary>
+    public static readonly string SceneName_Result= "Result";
+
+    /// <summary>
+    /// メインシーンのシーン名
+    /// </summary>
+    public static readonly string SceneName_Main = "main";
+
+    /// <summary>
     /// Shot=射撃,Slash=斬撃,Barrier=防御,Trap=設置,Spread=拡散,Homing=追尾,Drain=吸収,Explosion=爆発,Slow=遅延,Fly=飛翔
     /// </summary>
     public enum EffectName
