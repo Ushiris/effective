@@ -21,11 +21,11 @@ public class EnemyArtsInstant : MonoBehaviour
     StopWatch timer;
     MyEffectCount myEffectCount;
     EnemyArtsPickUp effectPicKUp;
-    EnemyState move;
+    EnemyBrainBase move;
 
     private void Awake()
     {
-        move = GetComponent<EnemyState>();
+        move = GetComponent<EnemyBrainBase>();
         effectPicKUp = GetComponent<EnemyArtsPickUp>();
         myEffectCount = GetComponent<MyEffectCount>();
     }
@@ -64,7 +64,7 @@ public class EnemyArtsInstant : MonoBehaviour
     //エフェクトを出す処理
     void Action()
     {
-        if (!EnemyState.IsAttackable(move.move)) return;
+        if (!move.IsAttackable()) return;
 
         //ArtsID検出
         string id = effectPicKUp.GetArtsId;

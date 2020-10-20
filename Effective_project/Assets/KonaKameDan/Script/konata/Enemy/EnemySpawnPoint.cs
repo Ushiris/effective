@@ -79,7 +79,7 @@ public class EnemySpawnPoint : MonoBehaviour
                 //エネミーの表示を消す
                 if (enemyArr[i] != null)
                 {
-                    if (enemyArr[i].isDeath)
+                    if (enemyArr[i].IsDeath)
                     {
                         EnemySpawnManager.SetEnemy(enemyArr[i]);
                         enemyArr[i] = null;

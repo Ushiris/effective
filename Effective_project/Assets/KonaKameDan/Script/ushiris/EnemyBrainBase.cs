@@ -7,109 +7,21 @@ using System;
 
 public class EnemyBrainBase : MonoBehaviour
 {
-    public class Formation
-    {
-        public enum Formation_:int
-        {
-            forward,
-            forward_right,
-            right,
-            behind_right,
-            behind,
-            behind_left,
-            left,
-            forward_left,
-            FORMATION_COUNT
-        }
-        public Formation_ value;
-
-        public static Formation operator ++(Formation value)
-        {
-            switch (value.value)
-            {
-                case Formation_.forward:
-                    value.value = Formation_.forward_right;
-                    break;
-                case Formation_.forward_right:
-                    value.value = Formation_.right;
-                    break;
-                case Formation_.right:
-                    value.value = Formation_.behind_right;
-                    break;
-                case Formation_.behind_right:
-                    value.value = Formation_.behind;
-                    break;
-                case Formation_.behind:
-                    value.value = Formation_.behind_left;
-                    break;
-                case Formation_.behind_left:
-                    value.value = Formation_.left;
-                    break;
-                case Formation_.left:
-                    value.value = Formation_.forward_left;
-                    break;
-                case Formation_.forward_left:
-                    value.value = Formation_.forward;
-                    break;
-                default:
-                    DebugLogger.Log("Enum error!");
-                    break;
-            }
-
-            return value;
-        }
-
-        public static Formation operator --(Formation value)
-        {
-            switch (value.value)
-            {
-                case Formation_.forward:
-                    value.value = Formation_.forward_left;
-                    break;
-                case Formation_.forward_right:
-                    value.value = Formation_.forward;
-                    break;
-                case Formation_.right:
-                    value.value = Formation_.forward_right;
-                    break;
-                case Formation_.behind_right:
-                    value.value = Formation_.right;
-                    break;
-                case Formation_.behind:
-                    value.value = Formation_.behind_right;
-                    break;
-                case Formation_.behind_left:
-                    value.value = Formation_.behind;
-                    break;
-                case Formation_.left:
-                    value.value = Formation_.behind_left;
-                    break;
-                case Formation_.forward_left:
-                    value.value = Formation_.left;
-                    break;
-                default:
-                    DebugLogger.Log("Enum error!");
-                    break;
-            }
-
-            return value;
-        }
-    }
     public EnemyState state;
 
-    protected GameObject target;
+    protected static GameObject target;
     protected NavMeshAgent navMesh;
     protected StopWatch timer;
     protected List<StopWatch> EnchantTimer = new List<StopWatch>((int)Enchants.ENCHANT_AMOUNT);
     protected Vector3 DefaultPos;
     protected Formation formation = new Formation();
-    protected float distance = 5;
+    protected static float distance = 5;
 
     private void Awake()
     {
         timer = gameObject.AddComponent<StopWatch>();
         navMesh = GetComponent<NavMeshAgent>();
-        state = GetComponent<EnemyState>();
+        state = new EnemyState();
     }
 
     protected void Start()
@@ -294,5 +206,10 @@ public class EnemyBrainBase : MonoBehaviour
     private bool FindFlag_() 
     { 
         return Vector3.Distance(target.transform.position, transform.position) <= 30;
+    }
+
+    public void SetDistance(float dist)
+    {
+        distance = dist;
     }
 }

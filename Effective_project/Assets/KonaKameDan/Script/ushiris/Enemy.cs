@@ -11,7 +11,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(MyEffectCount))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Status))]
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IEnemySetting
 {
     [HideInInspector] public Life life;
     [HideInInspector] public Slider slider;
@@ -20,12 +20,11 @@ public class Enemy : MonoBehaviour
     EnemyBrainBase brain;
     
     public bool isBoss;
-    public bool isDeath { get; private set; }
+    public bool IsDeath { get; private set; }
     static Vector3 big = new Vector3(3, 2, 1);
 
     MyEffectCount bag;
     Status playerStatus;
-    NavMeshAgent navMesh;
 
     private void Start()
     {
@@ -65,8 +64,6 @@ public class Enemy : MonoBehaviour
         //プレイヤーのステータスを取得
         playerStatus = PlayerManager.GetManager.GetPlObj.GetComponent<Status>();
 
-        navMesh = GetComponent<NavMeshAgent>();
-
         if (!isBoss) gameObject.SetActive(false);
     }
 
@@ -89,15 +86,13 @@ public class Enemy : MonoBehaviour
     //オブジェクトがアクティブになった時
     private void OnEnable()
     {
-        isDeath = false;
-        if (navMesh != null) navMesh.updatePosition = true;
+        IsDeath = false;
     }
 
     //オブジェクトが非表示になった時
     private void OnDisable()
     {
         EnemyFind.OnEnemyExit(gameObject);
-        if (navMesh != null) navMesh.updatePosition = false;
     }
 
     void DropEffect()
@@ -119,7 +114,7 @@ public class Enemy : MonoBehaviour
         DebugLogger.Log("dead:" + name);
         //Destroy(gameObject);
 
-        isDeath = true;
+        IsDeath = true;
         gameObject.SetActive(false);
         status.Lv = WorldLevel.GetWorldLevel;
         life.HP = life.MaxHP;
@@ -139,5 +134,10 @@ public class Enemy : MonoBehaviour
     void Heal(int true_heal)
     {
         slider.value += true_heal;
+    }
+
+    public void SetDistance(float dist)
+    {
+        
     }
 }

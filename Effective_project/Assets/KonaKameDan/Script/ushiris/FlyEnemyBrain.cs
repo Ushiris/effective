@@ -6,8 +6,7 @@ using Enchants = EnemyState.Enchants;
 using System;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(EnemyState))]
-public class FlyEnemyBrain :EnemyBrainBase
+public class FlyEnemyBrain : EnemyBrainBase
 {
     void Start()
     {

@@ -4,7 +4,6 @@ using UnityEngine.AI;
 using MoveState = EnemyState.MoveState;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(EnemyState))]
 public class EnemyBrain :EnemyBrainBase
 {
     void Start()
