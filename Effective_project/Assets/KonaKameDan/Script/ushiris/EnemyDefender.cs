@@ -17,6 +17,35 @@ public class EnemyDefender : EnemyBrainBase
         navMesh.stoppingDistance = EnemyProperty.ExtraAuraDistance;
         Default = ExMove;
         FindAction = ExMove;
+
+        var rand = Random.Range(1, 10);
+        if (rand >= 8)
+        {
+            AIset(FindAItype.Commander);
+        }
+        if (rand > 5)
+        {
+            AIset(FindAItype.Soldier);
+        }
+    }
+
+
+    private void LateUpdate()
+    {
+        if (state.move == EnemyState.MoveState.Confuse)
+        {
+            return;
+        }
+
+        if (FindFlag())
+        {
+            state.move = EnemyState.MoveState.Chase;
+            Think();
+        }
+        else
+        {
+            state.move = EnemyState.MoveState.Stay;
+        }
     }
 
     void ExMove()

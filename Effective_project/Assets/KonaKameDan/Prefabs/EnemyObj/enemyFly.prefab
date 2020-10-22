@@ -196,6 +196,16 @@ PrefabInstance:
       propertyPath: mainType
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: artsTable.Array.data[2]
+      value: 05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: artsTable.Array.data[0]
+      value: 079
+      objectReference: {fileID: 0}
     - target: {fileID: 6225329085623931612, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
       propertyPath: defaultStatus.Array.data[1].f

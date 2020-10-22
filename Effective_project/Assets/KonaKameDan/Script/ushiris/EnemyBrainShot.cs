@@ -9,4 +9,22 @@ public class EnemyBrainShot : EnemyBrainBase
         base.Start();
         navMesh.isStopped = true;
     }
+
+    private void LateUpdate()
+    {
+        if (state.move == EnemyState.MoveState.Confuse)
+        {
+            return;
+        }
+
+        if (FindFlag())
+        {
+            state.move = EnemyState.MoveState.Chase;
+            Think();
+        }
+        else
+        {
+            state.move = EnemyState.MoveState.Stay;
+        }
+    }
 }

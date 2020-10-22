@@ -106,6 +106,7 @@ public class EnemyBrainBase : MonoBehaviour
         switch (state.move)
         {
             case MoveState.Chase:
+                transform.LookAt(player.transform);
                 FindAction();
                 break;
 
