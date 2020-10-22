@@ -11,7 +11,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(MyEffectCount))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Status))]
-public class Enemy : MonoBehaviour, IEnemySetting
+public class Enemy : MonoBehaviour
 {
     [HideInInspector] public Life life;
     [HideInInspector] public Slider slider;
@@ -134,10 +134,5 @@ public class Enemy : MonoBehaviour, IEnemySetting
     void Heal(int true_heal)
     {
         slider.value += true_heal;
-    }
-
-    public void SetDistance(float dist)
-    {
-        
     }
 }

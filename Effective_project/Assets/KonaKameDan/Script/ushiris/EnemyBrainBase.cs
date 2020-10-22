@@ -7,29 +7,29 @@ using System;
 
 public class EnemyBrainBase : MonoBehaviour
 {
-    public EnemyState state;
+    public EnemyState state = new EnemyState();
 
-    protected static GameObject target;
+    protected static GameObject player;
     protected NavMeshAgent navMesh;
-    protected StopWatch timer;
+    protected StopWatch thinkTimer;
     protected List<StopWatch> EnchantTimer = new List<StopWatch>((int)Enchants.ENCHANT_AMOUNT);
     protected Vector3 DefaultPos;
     protected Formation formation = new Formation();
-    protected static float distance = 5;
+    protected Transform HidePos;
 
-    private void Awake()
+    public void Awake()
     {
-        timer = gameObject.AddComponent<StopWatch>();
+        thinkTimer = gameObject.AddComponent<StopWatch>();
         navMesh = GetComponent<NavMeshAgent>();
-        state = new EnemyState();
     }
 
     protected void Start()
     {
-        target = GameObject.FindWithTag("Player");
+        if (player == null) player = GameObject.FindWithTag("Player");
+
         DefaultPos = transform.position;
         EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
-        timer.LapTime = 0.5f;
+        thinkTimer.LapTime = 0.5f;
         InitDefaultAction();
 
         StopWatch.Summon(3, () => { _ = UnityEngine.Random.Range(0, 1) == 0 ? formation++ : formation--; }, gameObject);
@@ -42,13 +42,15 @@ public class EnemyBrainBase : MonoBehaviour
                 Enchants.Stan,
                 ()=>
                 {
-                    navMesh.SetDestination(target.transform.position);
+                    navMesh.SetDestination(player.transform.position);
                 }
             },
             {
                 Enchants.Blind,()=>Default()
             },
         };
+
+        Hide();
     }
 
     void InitDefaultAction()
@@ -79,7 +81,7 @@ public class EnemyBrainBase : MonoBehaviour
     public delegate bool EnemyBrainFlag();
     public delegate void EnemyStateChange(float time);
 
-    public StopWatch.TimeEvent Think { get => timer.LapEvent; protected set => timer.LapEvent = value; }
+    public StopWatch.TimeEvent Think { get => thinkTimer.LapEvent; protected set => thinkTimer.LapEvent = value; }
     public EnemyStateChange Stan { get; protected set; }
     public EnemyStateChange Blind { get; protected set; }
     public EnemyBrainAction Default { get; protected set; }
@@ -154,42 +156,42 @@ public class EnemyBrainBase : MonoBehaviour
         Think();
     }
 
-    private void FindAction_Circle()
+    public void FindAction_Circle()
     {
         Vector3 add = Vector3.zero;
 
         switch (formation.value)
         {
             case Formation.Formation_.forward:
-                add += Vector3.forward * distance;
+                add += Vector3.forward * EnemyProperty.BestAttackDistance_Melee;
                 break;
             case Formation.Formation_.forward_right:
-                add += (Vector3.forward + Vector3.right) * (distance * 0.7f);
+                add += (Vector3.forward + Vector3.right) * (EnemyProperty.BestAttackDistance_Melee * 0.7f);
                 break;
             case Formation.Formation_.right:
-                add += Vector3.right * distance;
+                add += Vector3.right * EnemyProperty.BestAttackDistance_Melee;
                 break;
             case Formation.Formation_.behind_right:
-                add += (Vector3.back + Vector3.right) * (distance * 0.7f);
+                add += (Vector3.back + Vector3.right) * (EnemyProperty.BestAttackDistance_Melee * 0.7f);
                 break;
             case Formation.Formation_.behind:
-                add += Vector3.back*distance;
+                add += Vector3.back*EnemyProperty.BestAttackDistance_Melee;
                 break;
             case Formation.Formation_.behind_left:
-                add += (Vector3.back + Vector3.left) * (distance * 0.7f);
+                add += (Vector3.back + Vector3.left) * (EnemyProperty.BestAttackDistance_Melee * 0.7f);
                 break;
             case Formation.Formation_.left:
-                add += Vector3.left*distance;
+                add += Vector3.left*EnemyProperty.BestAttackDistance_Melee;
                 break;
             case Formation.Formation_.forward_left:
-                add += (Vector3.forward + Vector3.right) * (distance * 0.7f);
+                add += (Vector3.forward + Vector3.right) * (EnemyProperty.BestAttackDistance_Melee * 0.7f);
                 break;
             default:
                 break;
         }
 
-        navMesh.SetDestination(target.transform.position + add);
-        gameObject.transform.LookAt(target.transform);
+        navMesh.SetDestination(player.transform.position + add);
+        gameObject.transform.LookAt(player.transform);
     }
 
     private void EnchantAction_()
@@ -204,12 +206,99 @@ public class EnemyBrainBase : MonoBehaviour
     }
 
     private bool FindFlag_() 
-    { 
-        return Vector3.Distance(target.transform.position, transform.position) <= 30;
+    {
+        return Vector3.Distance(player.transform.position, transform.position) <= EnemyProperty.PlayerFindDistance;
     }
 
-    public void SetDistance(float dist)
+
+    public void Hide()
     {
-        distance = dist;
+        List<GameObject> effects = new List<GameObject>(GameObject.FindGameObjectsWithTag("EffectObject"));
+        List<Transform> e_trans = new List<Transform>();
+        effects.ForEach(item => e_trans.Add(item.transform));
+        HidePos = e_trans[0];
+
+        var k_dist = Vector3.Distance(transform.position, HidePos.position);
+        e_trans.ForEach(item =>
+        {
+            if (k_dist > Vector3.Distance(item.position, HidePos.position))
+            {
+                HidePos = item;
+                k_dist = Vector3.Distance(transform.position, HidePos.position);
+            }
+        });
+    }
+
+    public void Follow(Transform boss)
+    {
+        FindAction = () => navMesh.SetDestination(boss.position);
+        Default = () => navMesh.SetDestination(boss.position);
+    }
+
+    public void AIset(StayAItype type)
+    {
+        switch (type)
+        {
+            case StayAItype.Ambush:
+                Default = () =>
+                {
+                    navMesh.SetDestination(player.transform.position + (UnityEngine.Random.Range(0, 1) == 0 ? player.transform.right * 30 : -player.transform.right * 30));
+                };
+                break;
+            case StayAItype.Ninja:
+                FindAction = () => { };
+                Default = () => navMesh.SetDestination(HidePos.position);
+                break;
+            case StayAItype.Return:
+                Default = Default_;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void AIset(FindAItype type)
+    {
+        switch (type)
+        {
+            case FindAItype.Soldier:
+                Default = Default_;
+                FindAction = FindAction_Circle;
+                break;
+            case FindAItype.Commander:
+                var enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+                var tr = new List<Transform>();
+                enemies.ForEach(item => tr.Add(item.transform));
+                List<float> dist = new List<float>
+                {
+                    Vector3.Distance(transform.position,tr[0].position)
+                };
+                List<int> idx = new List<int>()
+                {
+                    0
+                };
+
+                for (int j = 0; j < tr.Count; j++)
+                {
+                    for (int i = 0; i < dist.Count; i++)
+                    {
+                        var dist_x = Vector3.Distance(transform.position, tr[j].position);
+                        if (dist[i] > dist_x || i == dist.Count - 1)
+                        {
+                            dist.Insert(i, dist_x);
+                            idx.Insert(i, j);
+                            break;
+                        }
+                    }
+                }
+
+                for(int i = 0; i < 4; i++)
+                {
+                    enemies[idx[i]].GetComponent<EnemyBrainBase>().Follow(transform);
+                }
+                break;
+            default:
+                break;
+        }
     }
 }

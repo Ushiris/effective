@@ -37,8 +37,13 @@ public class EnemyArtsInstant : MonoBehaviour
 
         //一定の秒数ごとにArtsを放つ
         timer = gameObject.AddComponent<StopWatch>();
-        timer.LapTime = coolTime;
+        timer.LapTime = coolTime + Random.Range(0f, 0.5f);
         timer.LapEvent = Action;
+    }
+
+    public void ChangeAction(StopWatch.TimeEvent act)
+    {
+        timer.LapEvent = act;
     }
 
     /// <summary>

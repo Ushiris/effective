@@ -6,9 +6,32 @@ using MoveState = EnemyState.MoveState;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBrain :EnemyBrainBase
 {
-    void Start()
+    new void Start()
     {
         base.Start();
+
+        var rand = Random.Range(1, 10);
+        if (rand == 10)
+        {
+            AIset(FindAItype.Commander);
+        }
+        else
+        {
+            AIset(FindAItype.Soldier);
+
+            if (rand < 4)
+            {
+                AIset(StayAItype.Ambush);
+            }
+            else if (rand > 8)
+            {
+                AIset(StayAItype.Ninja);
+            }
+            else
+            {
+                AIset(StayAItype.Return);
+            }
+        }
     }
 
     private void LateUpdate()

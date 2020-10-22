@@ -10,7 +10,7 @@ using UnityEditor;
 public class UshirisSystem : MonoBehaviour
 {
     public List<GameObject> Enemy = new List<GameObject>();
-    public List<Enemy> enemies = new List<Enemy>();
+    [HideInInspector] public List<Enemy> enemies = new List<Enemy>();
     [HideInInspector] public List<GameObject> gameObjects = new List<GameObject>();
 
     private void Awake()
@@ -38,6 +38,8 @@ public class UshirisSystemEditor : Editor
         base.OnInspectorGUI();
 
         system = target as UshirisSystem;
+
+
 
         system.Enemy.ForEach(item =>
         {
