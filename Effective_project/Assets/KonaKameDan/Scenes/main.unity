@@ -3559,6 +3559,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
         type: 3}
+      propertyPath: prefabs.list.Array.size
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
       propertyPath: prefabs.list.Array.data[36].Value.coolTime
       value: 30
       objectReference: {fileID: 0}
@@ -3582,6 +3587,17 @@ PrefabInstance:
       propertyPath: prefabs.list.Array.data[38].Value.coolTime
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[47].Key
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 517661563978576942, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
+        type: 3}
+      propertyPath: prefabs.list.Array.data[47].Value.prefab
+      value: 
+      objectReference: {fileID: 6803105965938668464, guid: d3ead5cec0c29ba41af6175616c420a1,
+        type: 3}
     - target: {fileID: 6216928581571088659, guid: 1eec82075549d2d45aa1c0cc86b50aa3,
         type: 3}
       propertyPath: m_Name
