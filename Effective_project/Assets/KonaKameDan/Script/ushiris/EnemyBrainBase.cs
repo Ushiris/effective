@@ -16,11 +16,13 @@ public class EnemyBrainBase : MonoBehaviour
     protected Vector3 DefaultPos;
     protected Formation formation = new Formation();
     protected Transform HidePos;
+    Rigidbody rb;
 
     public void Awake()
     {
         thinkTimer = gameObject.AddComponent<StopWatch>();
         navMesh = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
     }
 
     protected void Start()
@@ -51,6 +53,7 @@ public class EnemyBrainBase : MonoBehaviour
         };
 
         Hide();
+        rb.velocity = Vector3.zero;
     }
 
     void InitDefaultAction()
@@ -66,7 +69,7 @@ public class EnemyBrainBase : MonoBehaviour
     }
 
     //オブジェクトがアクティブになった時 
-    void OnEnable()
+    protected void OnEnable()
     {
         if (navMesh != null) navMesh.updatePosition = true;
     }
@@ -247,7 +250,8 @@ public class EnemyBrainBase : MonoBehaviour
                 break;
             case StayAItype.Ninja:
                 FindAction = () => { };
-                Default = () => navMesh.SetDestination(HidePos.position);
+                Hide();
+                Default = () => { Hide(); navMesh.SetDestination(HidePos.position); };
                 break;
             case StayAItype.Return:
                 Default = Default_;
