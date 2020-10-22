@@ -46,15 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starDustParticleObj: {fileID: 1508658583335114191, guid: 3028e48583a2d404fae5e0866d1fcf97,
     type: 3}
-  defaultDamage: 0.4
+  defaultDamage: 2
   instantSiz: {x: 6, y: 1, z: 6}
   instantSpace: 1.2
   h: 30
   speed: 35
   interval: 0.1
-  plusStarDustSpread: 0.1
+  plusStarDustSpread: 0.2
   plusDamage: 0.05
-  plusStarDustFly: 0.1
+  plusStarDustFly: 0.2
   markObj: {fileID: 2361730835385886420, guid: 6fd2db5800886a546b581682e3f27449, type: 3}
 --- !u!114 &114101397220471554
 MonoBehaviour:

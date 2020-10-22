@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5a003feb8ceb646b86b38bdad6f9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uICanvas: {fileID: 0}
   effectFusionUI_ActiveKey: 101
   effectFusionUI_Obj: {fileID: 0}
   textObj: {fileID: 0}

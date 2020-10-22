@@ -24,10 +24,11 @@ public class StartUpParticle : MonoBehaviour
             artsPool.Add(prefab.name, SetArtsStatus(prefab));
         }
         artsPrefab.Clear();
+    }
 
-        //メモリ開放
-        System.GC.Collect();
-        Resources.UnloadUnusedAssets();
+    private void OnDestroy()
+    {
+        artsPool.Clear();
     }
 
     //辞書にArtsをセットする
@@ -50,6 +51,7 @@ public class StartUpParticle : MonoBehaviour
     /// <returns></returns>
     public static ArtsStatus GetArts(string artsPrefabName)
     {
+        if (artsPool[artsPrefabName].Count == 0) return null;
         var artsStatus = artsPool[artsPrefabName][0];
         artsPool[artsPrefabName].RemoveAt(0);
         return artsStatus;

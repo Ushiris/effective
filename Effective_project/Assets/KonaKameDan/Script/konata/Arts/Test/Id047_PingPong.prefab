@@ -53,7 +53,7 @@ MonoBehaviour:
   v0: {x: 0, y: 10, z: 10}
   defaultDamage: 1
   plusDamage: 0.05
-  addBullet: 0.05
+  addBullet: 0.07
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
