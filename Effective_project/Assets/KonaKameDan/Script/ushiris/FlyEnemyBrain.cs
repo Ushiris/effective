@@ -3,31 +3,61 @@ using UnityEngine;
 using UnityEngine.AI;
 using MoveState = EnemyState.MoveState;
 using Enchants = EnemyState.Enchants;
-using System;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(EnemyState))]
-public class FlyEnemyBrain :EnemyBrainBase
+public class FlyEnemyBrain : EnemyBrainBase
 {
-    void Start()
+    EnemyArtsInstant bag;
+    private new void Awake()
+    {
+        base.Awake();
+        bag = gameObject.GetComponent<EnemyArtsInstant>();
+    }
+
+    new void Start()
     {
         base.Start();
-
+        
         Default = Default__;
-        FindAction = FindAction__;
+        var rand = Random.Range(1, 10);
+        if (rand == 10)
+        {
+            AIset(FindAItype.Commander);
+        }
+        else
+        {
+            AIset(FindAItype.Soldier);
+
+            if (rand < 4)
+            {
+                AIset(StayAItype.Ambush);
+            }
+            else if (rand > 8)
+            {
+                AIset(StayAItype.Ninja);
+            }
+            else
+            {
+                AIset(StayAItype.Return);
+            }
+        }
+
+        FindAction = FindAction_Sniper;
 
         state.moves = new Dictionary<Enchants, EnemyState.EnchantMove> {
             {
                 Enchants.Stan,
                 ()=>
                 {
-                    navMesh.SetDestination(target.transform.position);
+                    navMesh.SetDestination(player.transform.position);
                 }
             },
             {
                 Enchants.Blind,()=>Default()
             },
         };
+
+        bag.ChangeAction(() => bag.OnSelfIdSetAction(Random.Range(0, 2) == 0 ? "04" : "045"));
     }
 
     private void LateUpdate()
@@ -53,16 +83,25 @@ public class FlyEnemyBrain :EnemyBrainBase
         if (navMesh.isStopped)
         {
             navMesh.SetDestination(new Vector3(
-                            UnityEngine.Random.Range(transform.position.x - 10, transform.position.x + 10),
+                            Random.Range(transform.position.x - 10, transform.position.x + 10),
                             transform.position.y,
-                            UnityEngine.Random.Range(transform.position.z - 10, transform.position.z + 10)
+                            Random.Range(transform.position.z - 10, transform.position.z + 10)
                             ));
         }
     }
 
-    public void FindAction__()
+    private void FindAction_Sniper()
     {
-        var pos = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
-        navMesh.SetDestination(pos);
+        var pos = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+        var dist = Vector3.Distance(transform.position, player.transform.position);
+        if (dist < EnemyProperty.BestAttackDistance_Range)
+        {
+            transform.LookAt(pos);
+            navMesh.SetDestination(transform.position - (transform.forward * 5));
+        }
+        else
+        {
+            navMesh.SetDestination(pos);
+        }
     }
 }

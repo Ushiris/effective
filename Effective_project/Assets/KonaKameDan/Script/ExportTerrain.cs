@@ -2,11 +2,12 @@
 // C # manual conversion work by Yun Kyu Choi
 
 using UnityEngine;
-using UnityEditor;
 using System;
-using System.Collections;
 using System.IO;
 using System.Text;
+
+#if UNITY_EDITOR
+using UnityEditor;
 
 enum SaveFormat { Triangles, Quads }
 enum SaveResolution { Full = 0, Half, Quarter, Eighth, Sixteenth }
@@ -215,3 +216,4 @@ class ExportTerrain : EditorWindow
         }
     }
 }
+#endif
