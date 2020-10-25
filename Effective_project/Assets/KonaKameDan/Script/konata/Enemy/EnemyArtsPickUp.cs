@@ -17,7 +17,8 @@ public class EnemyArtsPickUp : MonoBehaviour
     [SerializeField] NameDefinition.EffectName mainType;
     [SerializeField] LvArtsTable[] lvLearnArtsTable;
 
-    int lv;
+    int lv = 0;
+    int lvLearnArtsTableCount;
     List<string> artsTable = new List<string>();
 
     [System.Serializable]
@@ -25,6 +26,7 @@ public class EnemyArtsPickUp : MonoBehaviour
     {
         public int lv;
         public string[] artsArr;
+        //public bool isLongDistanceAttack; 離れて攻撃することができるかどうかに使う
     }
 
     private void Start()
@@ -32,12 +34,13 @@ public class EnemyArtsPickUp : MonoBehaviour
         //レベルアップしたらArtsを新しく覚える
         if (lv != WorldLevel.GetWorldLevel)
         {
-            for (; lv < WorldLevel.GetWorldLevel; lv++)
+            for (; lvLearnArtsTable[lv].lv <= WorldLevel.GetWorldLevel; lv++)
             {
                 for (int artsCount = 0; artsCount < lvLearnArtsTable[lv].artsArr.Length; artsCount++)
                 {
                     artsTable.Add(lvLearnArtsTable[lv].artsArr[artsCount]);
                 }
+                if (lvLearnArtsTable.Length - 1 == lv) break;
             }
         }
 
