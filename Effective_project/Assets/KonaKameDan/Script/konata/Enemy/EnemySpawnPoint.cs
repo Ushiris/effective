@@ -6,10 +6,10 @@ public class EnemySpawnPoint : MonoBehaviour
 {
     float siz;
     bool isEnemyActive;
-    Enemy[] enemyArr = new Enemy[kMaxCount];
+    List<Enemy> enemyList = new List<Enemy>();
     [SerializeField] List<Vector3> spawnPos = new List<Vector3>();
 
-    static readonly int kMaxCount = 10;
+    static readonly int kDefaultCount = 9;
     static readonly int kEventCheckLoopCount = 30;
 
     public static bool isAreaEnabled = false;
@@ -46,7 +46,16 @@ public class EnemySpawnPoint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            OnEnemyActive(true);
+            var maxCount = kDefaultCount + WorldLevel.GetWorldLevel;
+            for (int i = enemyList.Count; i < maxCount; i++)
+            {
+                var enemy = EnemySpawnManager.GetEnemy();
+                if (enemy == null) break;
+                var ranNum = Random.Range(0, spawnPos.Count);
+                enemy.gameObject.transform.position = spawnPos[ranNum];
+                enemyList.Add(enemy);
+                enemy.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -54,36 +63,51 @@ public class EnemySpawnPoint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            OnEnemyActive(false);
+            for (int i = 0; i < enemyList.Count; i++)
+            {
+                if (enemyList[i].IsDeath)
+                {
+                    EnemySpawnManager.SetEnemy(enemyList[i]);
+                    enemyList[i] = null;
+                }
+            }
+
+            if (enemyList.Count != 0)
+            {
+                if (enemyList.Contains(null))
+                {
+                    enemyList.RemoveAll(null);
+                }
+            }
         }
     }
 
     void OnEnemyActive(bool isActive)
     {
-        for (int i = 0; i < kMaxCount; i++)
+        for (int i = 0; i < kDefaultCount; i++)
         {
             if (isActive)
             {
                 //エネミーを表示する
-                if (enemyArr[i] == null)
+                if (enemyList[i] == null)
                 {
                     var enemy = EnemySpawnManager.GetEnemy();
                     if (enemy == null) break;
                     var ranNum = Random.Range(0, spawnPos.Count);
                     enemy.gameObject.transform.position = spawnPos[ranNum];
-                    enemyArr[i] = enemy;
+                    enemyList[i] = enemy;
                     enemy.gameObject.SetActive(true);
                 }
             }
             else
             {
                 //エネミーの表示を消す
-                if (enemyArr[i] != null)
+                if (enemyList[i] != null)
                 {
-                    if (enemyArr[i].IsDeath)
+                    if (enemyList[i].IsDeath)
                     {
-                        EnemySpawnManager.SetEnemy(enemyArr[i]);
-                        enemyArr[i] = null;
+                        EnemySpawnManager.SetEnemy(enemyList[i]);
+                        enemyList[i] = null;
                     }
                 }
             }
