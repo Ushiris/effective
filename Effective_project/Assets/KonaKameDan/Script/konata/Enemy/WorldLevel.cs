@@ -14,7 +14,7 @@ public class WorldLevel : MonoBehaviour
     /// <summary> 
     /// 世界のレベルを返す 
     /// </summary> 
-    public static int GetWorldLevel { get; private set; }
+    public static int GetWorldLevel { get; private set; } = 1;
 
     // Start is called before the first frame update 
     void Start()
