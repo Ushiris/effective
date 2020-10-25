@@ -12,45 +12,45 @@ public class EnemyArtsPickUp : MonoBehaviour
     /// </summary>
     public string GetArtsId { get; private set; }
 
-    /// <summary>
-    /// メインエフェクトの取得
-    /// </summary>
-    public NameDefinition.EffectName GetMainEffect { get; private set; }
-
-    /// <summary>
-    /// サブエフェクトの取得
-    /// </summary>
-    public NameDefinition.EffectName[] GetSubEffect { get; private set; }
+    public List<NameDefinition.EffectName> GetEffect { get; private set; } = new List<NameDefinition.EffectName>();
 
     [SerializeField] NameDefinition.EffectName mainType;
-    [SerializeField]
-    List<string> artsTable = new List<string>()
+    [SerializeField] LvArtsTable[] lvLearnArtsTable;
+
+    int lv;
+    List<string> artsTable = new List<string>();
+
+    [System.Serializable]
+    class LvArtsTable
     {
-        "045"
-    };
-
-    private void Awake()
-    {
-        List<NameDefinition.EffectName> effects = new List<NameDefinition.EffectName>();
-        var artsId = GetArtsIdPick();
-
-        //Arts検索
-        var artsData = ArtsList.GetLookedForArts(artsId);
-
-        GetSubEffect = new NameDefinition.EffectName[artsData.effectList.Count];
-        for (int i = 0; i < GetSubEffect.Length; i++)
-        {
-            GetSubEffect[i] = (NameDefinition.EffectName)artsData.effectList[i];
-        }
-
-        GetMainEffect = mainType;
-        GetArtsId = artsId;
+        public int lv;
+        public string[] artsArr;
     }
 
-    //セットされているアーツからランダムピック
-    string GetArtsIdPick()
+    private void Start()
     {
-        var ranNum = Random.Range(0, artsTable.Count);
-        return artsTable[ranNum];
+        //レベルアップしたらArtsを新しく覚える
+        if (lv != WorldLevel.GetWorldLevel)
+        {
+            for (; lv < WorldLevel.GetWorldLevel; lv++)
+            {
+                for (int artsCount = 0; artsCount < lvLearnArtsTable[lv].artsArr.Length; artsCount++)
+                {
+                    artsTable.Add(lvLearnArtsTable[lv].artsArr[artsCount]);
+                }
+            }
+        }
+
+        //アーツをランダムにピック
+        GetArtsId = artsTable[Random.Range(0, artsTable.Count)];
+
+        //アーツIDからEffect情報に変換
+        GetEffect.Clear();
+        for (int i = 0; i < GetArtsId.Length; i++)
+        {
+            var num = int.Parse(GetArtsId[i].ToString());
+            GetEffect.Add((NameDefinition.EffectName)num);
+        }
+        GetEffect.Add(mainType);
     }
 }

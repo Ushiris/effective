@@ -74,10 +74,7 @@ public class EnemySpawnPoint : MonoBehaviour
 
             if (enemyList.Count != 0)
             {
-                if (enemyList.Contains(null))
-                {
-                    enemyList.RemoveAll(null);
-                }
+                enemyList.RemoveAll(item => item == null);
             }
         }
     }
