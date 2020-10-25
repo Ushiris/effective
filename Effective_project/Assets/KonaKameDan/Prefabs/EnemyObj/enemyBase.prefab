@@ -423,10 +423,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainType: 0
-  artsTable:
-  - 045
-  - 04
-  - 05
+  lvLearnArtsTable:
+  - lv: 1
+    artsArr:
+    - 04
+  - lv: 2
+    artsArr:
+    - 05
 --- !u!1 &212912624084845006
 GameObject:
   m_ObjectHideFlags: 0
