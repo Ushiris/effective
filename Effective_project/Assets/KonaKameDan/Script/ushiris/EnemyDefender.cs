@@ -14,7 +14,7 @@ public class EnemyDefender : EnemyBrainBase
 
         FindJob();
 
-        navMesh.stoppingDistance = EnemyProperty.ExtraAuraDistance;
+        navMesh.stoppingDistance = EnemyProperty.KnightDistance;
         Default = ExMove;
         FindAction = ExMove;
 

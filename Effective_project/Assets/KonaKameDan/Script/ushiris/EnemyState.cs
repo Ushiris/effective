@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyState
@@ -21,7 +22,7 @@ public class EnemyState
     }
 
     public MoveState move = MoveState.Stay;
-    public List<bool> enchants = new List<bool>((int)Enchants.ENCHANT_AMOUNT);
+    public List<bool> enchants = new bool[(int)Enchants.ENCHANT_AMOUNT].ToList();
 
     public delegate void EnchantMove();
     public Dictionary<Enchants, EnchantMove> moves;

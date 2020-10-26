@@ -9,7 +9,7 @@ public class EnemyProperty : IEnemySetting
     public static float BestAttackDistance_Melee { get; private set; } = 5;
     public static float BestAttackDistance_Range { get; private set; } = 22;
     public static float FriendFindDistance { get; private set; } = 30;
-    public static float ExtraAuraDistance { get; private set; } = 5;
+    public static float KnightDistance { get; private set; } = 5;
 
     public void SetPlayerFindDistance(float dist)
     {
@@ -23,7 +23,7 @@ public class EnemyProperty : IEnemySetting
 
     public void SetExtraAuraDistance(float dist)
     {
-        ExtraAuraDistance = dist;
+        KnightDistance = dist;
     }
 
     public void SetAI(ExAItype type)
