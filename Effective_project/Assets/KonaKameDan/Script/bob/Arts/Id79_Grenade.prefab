@@ -55,6 +55,9 @@ MonoBehaviour:
   trajectorySpace: 0.1
   lostTime: 1
   slidingThroughLostTime: 5
+  defaultDamage: 1.2
+  plusDamage: 0.02
+  addForth: 0.5
 --- !u!114 &114447205265392830
 MonoBehaviour:
   m_ObjectHideFlags: 0
