@@ -43,8 +43,7 @@ public class Id049_ArrowRain : MonoBehaviour
     void Start()
     {
         artsStatus = GetComponent<ArtsStatus>();
-
-        transform.parent = null;
+        Arts_Process.RollReset(gameObject);
 
         //エフェクトの所持数を代入
         shotCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Shot);
@@ -53,73 +52,50 @@ public class Id049_ArrowRain : MonoBehaviour
         //ダメージの計算
         damage = Arts_Process.GetDamage(defaultDamage, plusDamage, shotCount);
 
-        //生成位置決める用の目印オブジェクト生成
-        instantPointPos = Instantiate(pointPosObj,Vector3.zero,new Quaternion());
-        instantPointPos.transform.localScale = new Vector3(5, 0.1f, 5);
+        //魔法陣の生成
+        Vector3 instantPos = new Vector3(0, 10, 12);
+        magicCircle = Instantiate(magicCircleObj,transform);
+        magicCircle.transform.localPosition = instantPos;
+        isMagicCircleSiz = Arts_Process.SetAddObjSizChange(
+            magicCircle, Vector3.zero, magicCircleMaxSiz,
+            magicCircleSizUpSpeed,
+            ObjSizChange.SizChangeMode.ScaleUp);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (instantPointPos != null)
+        if (isMagicCircleSiz.GetSizFlag)
         {
-            if (Input.GetMouseButton(0))
+            //アローレインパーティクルの生成
+            if (!isArrowRain)
             {
-                //生成するポジションを決めるときの目印を動かす
-                instantPointPos.transform.position =
-                    Arts_Process.GetMouseRayHitPos(instantPointPos.transform.position, "Ground", "Map");
+                //持続時間変更
+                GameObject arrowRainObj = Instantiate(arrowRainParticle, magicCircle.transform);
+                var p = arrowRainObj.GetComponent<ParticleSystem>();
+                p.Stop();
+                var main = p.main;
+                main.duration += plusTime * (float)flyCount;
+                p.Play();
+                isArrowRain = true;
 
-                isStart = true;
+                //ダメージ
+                var hit = Arts_Process.SetParticleDamageProcess(arrowRainObj);
+                //ダメージ処理
+                Arts_Process.Damage(hit, artsStatus, damage, true);
             }
-            else if (Input.GetMouseButtonUp(0) && isStart)
+            if (magicCircle.transform.childCount == 0)
             {
-                //生成するポジションを決める
-                Vector3 instantPos = instantPointPos.transform.position;
-                instantPos.y += instantHigh;
-                Destroy(instantPointPos);
+                //オブジェクトを消す
+                if (isMagicCircleSiz.SetSizChangeMode == ObjSizChange.SizChangeMode.ScaleDown)
+                {
+                    Destroy(gameObject);
+                }
 
-                //魔法陣の生成
-                magicCircle = Instantiate(magicCircleObj, instantPos, new Quaternion());
-                magicCircle.transform.parent = transform;
-                isMagicCircleSiz = Arts_Process.SetAddObjSizChange(
-                    magicCircle,Vector3.zero, magicCircleMaxSiz,
-                    magicCircleSizUpSpeed,
-                    ObjSizChange.SizChangeMode.ScaleUp);
+                //魔法陣を小さくするモードに変更
+                isMagicCircleSiz.SetSizChangeMode = ObjSizChange.SizChangeMode.ScaleDown;
+                isMagicCircleSiz.GetSizFlag = false;
             }
         }
-        else
-        {
-            if (isMagicCircleSiz.GetSizFlag)
-            {
-                //アローレインパーティクルの生成
-                if (!isArrowRain)
-                {
-                    //持続時間変更
-                    GameObject arrowRainObj = Instantiate(arrowRainParticle, magicCircle.transform);
-                    var p = arrowRainObj.GetComponent<ParticleSystem>();
-                    var main = p.main;
-                    main.duration += plusTime * (float)flyCount;
-                    isArrowRain = true;
-
-                    //ダメージ
-                    var hit = Arts_Process.SetParticleDamageProcess(arrowRainObj);
-                    //ダメージ処理
-                    Arts_Process.Damage(hit, artsStatus, damage, true);
-                }
-                if (magicCircle.transform.childCount == 0)
-                {
-                    //オブジェクトを消す
-                    if (isMagicCircleSiz.SetSizChangeMode == ObjSizChange.SizChangeMode.ScaleDown)
-                    {
-                        Destroy(gameObject);
-                    }
-
-                    //魔法陣を小さくするモードに変更
-                    isMagicCircleSiz.SetSizChangeMode = ObjSizChange.SizChangeMode.ScaleDown;
-                    isMagicCircleSiz.GetSizFlag = false;
-                }
-            }
-        }
-
     }
 }
