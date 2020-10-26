@@ -34,6 +34,8 @@ public class Id09_Arrow : MonoBehaviour
     int shotCount;
     int flyCount;
     float damage;
+    float timer;
+    float enemyChargeTime;
 
     ArtsStatus artsStatus;
 
@@ -61,6 +63,10 @@ public class Id09_Arrow : MonoBehaviour
         tmpChargeParticleObj = Instantiate(chargeParticleObj, transform);
         chargeParticle =
             Arts_Process.LightGathersParticleInstant(tmpChargeParticleObj, 0f);
+
+        //敵のチャージタイム決める
+        const float kMinTime = 1f, kMaxTime = 5f;
+        enemyChargeTime = Random.Range(kMinTime, kMaxTime);
     }
 
     // Update is called once per frame
@@ -68,7 +74,7 @@ public class Id09_Arrow : MonoBehaviour
     {
         if (tmpChargeParticleObj != null)
         {
-            if (Input.GetMouseButton(0))
+            if (OnTrigger())
             {
                 if (maxForce > power)
                 {
@@ -81,7 +87,7 @@ public class Id09_Arrow : MonoBehaviour
                 }
                 isStart = true;
             }
-            else if (Input.GetMouseButtonUp(0) && isStart)
+            else if (!OnTrigger() && isStart)
             {
                 //矢を放つ
                 arrowParticle.startSpeed = power;
@@ -99,5 +105,21 @@ public class Id09_Arrow : MonoBehaviour
 
         //オブジェクトを消す
         if (transform.childCount == 0) Destroy(gameObject);
+    }
+
+    bool OnTrigger()
+    {
+        if (artsStatus.type == ArtsStatus.ParticleType.Player)
+        {
+            return Input.GetMouseButton(0);
+        }
+
+        if (artsStatus.type == ArtsStatus.ParticleType.Enemy)
+        {
+            timer += Time.deltaTime;
+            return timer < enemyChargeTime;
+        }
+
+        return true;
     }
 }
