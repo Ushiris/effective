@@ -274,6 +274,7 @@ public class EnemyBrainBase : MonoBehaviour
                 var enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
                 var tr = new List<Transform>();
                 enemies.ForEach(item => tr.Add(item.transform));
+
                 List<float> dist = new List<float>
                 {
                     Vector3.Distance(transform.position,tr[0].position)

@@ -50,7 +50,7 @@ public class EnemyDefender : EnemyBrainBase
 
     void ExMove()
     {
-        if (king == null) FindJob();
+        if (!king.gameObject.activeSelf) FindJob();
         navMesh.SetDestination(king.position);
     }
 
