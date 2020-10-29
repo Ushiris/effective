@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Life))]
-[RequireComponent(typeof(MyEffectCount))]
+[RequireComponent(typeof(EnemyArtsPickUp))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Status))]
 public class Enemy : MonoBehaviour
@@ -19,15 +19,14 @@ public class Enemy : MonoBehaviour
     public bool IsDeath { get; private set; }
     static Vector3 big = new Vector3(3, 2, 1);
 
-    MyEffectCount bag;
+    EnemyArtsPickUp artsPickUp;
     Status playerStatus;
 
     private void Start()
     {
         life = gameObject.AddComponent<Life>();
         slider = GetComponentInChildren<Slider>();
-        if (GetComponent<MyEffectCount>() == null) bag = gameObject.AddComponent<MyEffectCount>();
-        else bag = gameObject.GetComponent<MyEffectCount>();
+        artsPickUp=GetComponent<EnemyArtsPickUp>();
         rb = GetComponent<Rigidbody>();
 
         //sliderの初期化
@@ -93,13 +92,7 @@ public class Enemy : MonoBehaviour
 
     void DropEffect()
     {
-        var EffectList = new List<NameDefinition.EffectName>();
-        foreach (var item in bag.effectCount)
-        {
-            for (int i = 0; i < item.Value; i++) EffectList.Add(item.Key);
-        }
-        var rand = Random.Range(0, EffectList.Count);
-        var name = EffectList[rand];
+        var name = artsPickUp.GetEffect[Random.Range(0, artsPickUp.GetEffect.Count)];
 
         var effect = Instantiate(Resources.Load("EffectObj/[" + name.ToString() + "]EffectObject")) as GameObject;
         effect.transform.position = gameObject.transform.position;

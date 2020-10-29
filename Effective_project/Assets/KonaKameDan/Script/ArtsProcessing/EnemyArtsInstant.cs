@@ -5,7 +5,6 @@ using UnityEngine;
 /// <summary>
 /// 一定の秒数ごとにArtsを放つ
 /// </summary>
-[RequireComponent(typeof(MyEffectCount))]
 [RequireComponent(typeof(EnemyArtsPickUp))]
 public class EnemyArtsInstant : MonoBehaviour
 {
@@ -19,7 +18,7 @@ public class EnemyArtsInstant : MonoBehaviour
 
 
     StopWatch timer;
-    MyEffectCount myEffectCount;
+    //MyEffectCount myEffectCount;
     EnemyArtsPickUp effectPicKUp;
     EnemyBrainBase move;
 
@@ -27,13 +26,11 @@ public class EnemyArtsInstant : MonoBehaviour
     {
         move = GetComponent<EnemyBrainBase>();
         effectPicKUp = GetComponent<EnemyArtsPickUp>();
-        myEffectCount = GetComponent<MyEffectCount>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (myEffectCount != null) SetEffectCount();
 
         //一定の秒数ごとにArtsを放つ
         timer = gameObject.AddComponent<StopWatch>();
@@ -76,18 +73,5 @@ public class EnemyArtsInstant : MonoBehaviour
 
         //Artsを放つ
         ArtsInstantManager.InstantArts(artsObj, id);
-    }
-
-    //エフェクトの所持数の定義
-    void SetEffectCount()
-    {
-        //メインエフェクト
-        myEffectCount.effectCount[effectPicKUp.GetMainEffect] = mainEffectCount;
-
-        //サブエフェクト
-        foreach (var item in effectPicKUp.GetSubEffect)
-        {
-            myEffectCount.effectCount[item] = defaultEffectCount;
-        }
     }
 }

@@ -8,7 +8,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     static List<Enemy> enemyList = new List<Enemy>();
 
-    static readonly int maxCount = 25;
+    static readonly int maxCount = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,8 @@ public class EnemySpawnManager : MonoBehaviour
             enemyList.Add(enemy.GetComponent<Enemy>());
         }
     }
+
+
 
     /// <summary>
     /// エネミーの情報を取得する
