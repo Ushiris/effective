@@ -13,21 +13,28 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Slider slider;
     [SerializeField] Status status;
     Rigidbody rb;
-    EnemyBrainBase brain;
-    
     public bool isBoss;
     public bool IsDeath { get; private set; }
+    public EnemyBrainBase Brain { get; private set; }
+
     static Vector3 big = new Vector3(3, 2, 1);
 
     EnemyArtsPickUp artsPickUp;
     Status playerStatus;
 
-    private void Start()
+    private void Awake()
     {
         life = gameObject.AddComponent<Life>();
         slider = GetComponentInChildren<Slider>();
         artsPickUp=GetComponent<EnemyArtsPickUp>();
         rb = GetComponent<Rigidbody>();
+        Brain = GetComponent<EnemyBrainBase>();
+        status = GetComponent<Status>();
+    }
+
+    private void Start()
+    {
+        playerStatus = playerStatus == null ? PlayerManager.GetManager.GetPlObj.GetComponent<Status>() : playerStatus;
 
         //sliderの初期化
         slider.minValue = 0;
@@ -50,32 +57,24 @@ public class Enemy : MonoBehaviour
         life.AddDamageFunc(Damage);
         life.AddHealFunc(Heal);
 
-        brain = GetComponent<EnemyBrainBase>();
-
         //レベルのセット
-        status = GetComponent<Status>();
         status.Lv = WorldLevel.GetWorldLevel;
-
-        //プレイヤーのステータスを取得
-        playerStatus = PlayerManager.GetManager.GetPlObj.GetComponent<Status>();
-
-        if (!isBoss) gameObject.SetActive(false);
     }
 
     public void KnockBack()
     {
-        brain.Stan(0.2f);
+        Brain.Stan(0.2f);
         rb.AddForce(-transform.forward * 10);
     }
 
     public void Stan(float time)
     {
-        brain.Stan(time);
+        Brain.Stan(time);
     }
 
     public void Blind(float time)
     {
-        brain.Blind(time);
+        Brain.Blind(time);
     }
 
     //オブジェクトがアクティブになった時

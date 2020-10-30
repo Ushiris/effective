@@ -22,16 +22,6 @@ public enum StayAItype
 
 public interface IEnemySetting
 {
-    void SetPlayerFindDistance(float dist);
-
-    void SetFriendFindDistance(float dist);
-
-    void SetExtraAuraDistance(float dist);
-
-    void SetBestAttackDistance_Melee(float dist);
-
-    void SetBestAttackDistance_Range(float dist);
-
     void SetAI(ExAItype type);
 
     void SetAI(FindAItype type);

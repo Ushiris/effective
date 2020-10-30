@@ -29,6 +29,11 @@ public class EnemySpawnManager : MonoBehaviour
             var enemy = Instantiate(enemyArr[ranNum].gameObject, transform);
             enemyList.Add(enemy.GetComponent<Enemy>());
         }
+
+        enemyList.ForEach(item =>
+        {
+            item.gameObject.SetActive(false);
+        });
     }
 
 

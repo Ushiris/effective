@@ -16,6 +16,7 @@ public class EnemyBrainBase : MonoBehaviour
     protected Vector3 DefaultPos;
     protected Formation formation = new Formation();
     protected Transform HidePos;
+    public bool IsCommand { get; protected set; } = false;
     Rigidbody rb;
 
     public void Awake()
@@ -249,14 +250,17 @@ public class EnemyBrainBase : MonoBehaviour
                     navMesh.SetDestination(player.transform.position + (UnityEngine.Random.Range(0, 1) == 0 ? player.transform.right * 30 : -player.transform.right * 30));
                 };
                 break;
+
             case StayAItype.Ninja:
                 FindAction = () => { };
                 Hide();
                 Default = () => { Hide(); navMesh.SetDestination(HidePos.position); };
                 break;
+
             case StayAItype.Return:
                 Default = Default_;
                 break;
+
             default:
                 break;
         }
@@ -267,21 +271,23 @@ public class EnemyBrainBase : MonoBehaviour
         switch (type)
         {
             case FindAItype.Soldier:
+                IsCommand = false;
                 Default = Default_;
                 FindAction = FindAction_Circle;
                 break;
+
             case FindAItype.Commander:
+                IsCommand = true;
                 var enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+                RemoveNotActive(enemies);
+
+                if (enemies.Count == 0) break;
+
                 var tr = new List<Transform>();
                 enemies.ForEach(item => tr.Add(item.transform));
-                List<float> dist = new List<float>
-                {
-                    Vector3.Distance(transform.position,tr[0].position)
-                };
-                List<int> idx = new List<int>()
-                {
-                    0
-                };
+
+                List<float> dist = new List<float> { Vector3.Distance(transform.position, tr[0].position) };
+                List<int> idx = new List<int>() { 0 };
 
                 for (int j = 0; j < tr.Count; j++)
                 {
@@ -297,13 +303,23 @@ public class EnemyBrainBase : MonoBehaviour
                     }
                 }
 
-                for(int i = 0; i < 4; i++)
+                for(int i = 0; i < (enemies.Count< 4?enemies.Count:4); i++)
                 {
                     enemies[idx[i]].GetComponent<EnemyBrainBase>().Follow(transform);
                 }
                 break;
+
             default:
                 break;
+        }
+    }
+
+    protected void RemoveNotActive(List<GameObject> enemies)
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            var item = enemies[i];
+            if (!item.activeSelf) enemies.Remove(item);
         }
     }
 }

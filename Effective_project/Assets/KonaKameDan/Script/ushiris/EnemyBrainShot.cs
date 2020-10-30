@@ -12,11 +12,7 @@ public class EnemyBrainShot : EnemyBrainBase
 
     private void LateUpdate()
     {
-        if (state.move == EnemyState.MoveState.Confuse)
-        {
-            return;
-        }
-
+        navMesh.isStopped = true;
         if (FindFlag())
         {
             state.move = EnemyState.MoveState.Chase;
