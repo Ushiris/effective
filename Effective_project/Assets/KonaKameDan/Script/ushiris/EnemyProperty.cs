@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProperty : IEnemySetting
+public class EnemyProperty
 {
     public static EnemyProperty Instance { get; private set; } = new EnemyProperty();
     public static float PlayerFindDistance { get; private set; } = 50;
@@ -24,21 +24,6 @@ public class EnemyProperty : IEnemySetting
     public void SetExtraAuraDistance(float dist)
     {
         KnightDistance = dist;
-    }
-
-    public void SetAI(ExAItype type)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void SetAI(FindAItype type)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void SetAI(StayAItype type)
-    {
-        throw new System.NotImplementedException();
     }
 
     public void SetBestAttackDistance_Melee(float dist)

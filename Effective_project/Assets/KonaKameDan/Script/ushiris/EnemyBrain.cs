@@ -11,7 +11,7 @@ public class EnemyBrain :EnemyBrainBase
         base.Start();
 
         var rand = Random.Range(1, 10);
-        if (rand >= 8)
+        if (rand >= 9)
         {
             AIset(FindAItype.Commander);
         }

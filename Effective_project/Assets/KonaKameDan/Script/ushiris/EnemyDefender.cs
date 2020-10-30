@@ -58,9 +58,21 @@ public class EnemyDefender : EnemyBrainBase
     {
         List<GameObject> enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
         RemoveDefender(enemies);
+        RemoveNotActive(enemies);
+
+        if (enemies.Count == 0)
+        {
+            AIset(FindAItype.Soldier);
+        }
+
         List<Transform> e_trans = new List<Transform>();
         enemies.ForEach(item => e_trans.Add(item.transform));
         king = e_trans[0];
+
+        if (enemies.Count == 1)
+        {
+            return;
+        }
 
         var k_dist = Vector3.Distance(transform.position, king.position);
         e_trans.ForEach(item =>
