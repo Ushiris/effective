@@ -8,33 +8,77 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     [SerializeField] GoalIn goalIn;
+    [SerializeField] Texture portalDefaultTex;
+    [SerializeField] Texture portalActiveTex;
     [SerializeField] Material portalMaterial;
+    [SerializeField] ParticleSystem[] playerTriggerPlayParticle;
+    [SerializeField] ParticleSystem[] openPortalEffect;
     [SerializeField] float gageTime = 5f;
-    float timer = kStartPortalGage;
 
     static readonly string kPlayer_tag = "Player";
-    static readonly float kStartPortalGage = 0.6f;
+    static readonly float kDefaultPortalMaterialEmission = 1f;
+    static readonly float kActivePortalMaterialEmission = 15f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        portalMaterial.SetFloat("Vector1_FABC1965", kStartPortalGage);
+        if (IsReturn(other.tag)) return;
+
+        for (int i = 0; i < playerTriggerPlayParticle.Length; i++)
+        {
+            playerTriggerPlayParticle[i].Play();
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (!goalIn.isLock) return;
-        if (other.gameObject.tag == kPlayer_tag)
+        if (IsReturn(other.tag)) return;
+
+        if (gageTime >= 0)
         {
-            if (timer >= 0)
-            {
-                timer -= (kStartPortalGage / gageTime) * Time.deltaTime;
-                portalMaterial.SetFloat("Vector1_FABC1965", timer);
-            }
-            else
-            {
-                goalIn.isLock = false;
-            }
+            gageTime -= Time.deltaTime;
         }
+        else
+        {
+            goalIn.isLock = false;
+
+            //プレイヤーが近寄ると起きる演出を止めて、Portalに入れるようになった合図の演出を出す
+            for (int i = 0; i < playerTriggerPlayParticle.Length; i++)
+            {
+                playerTriggerPlayParticle[i].Stop();
+            }
+            for (int i = 0; i < openPortalEffect.Length; i++)
+            {
+                openPortalEffect[i].Play();
+
+                var s = openPortalEffect[i].GetComponent<PortalParticleControl>();
+                if (s != null) s.IsStart = true;
+            }
+
+            //ポータルのエミッションの値を変更する
+            portalMaterial.SetFloat("Vector1_377AAD1B", kActivePortalMaterialEmission);
+            //ポータルに表示するTextureを入れる
+            portalMaterial.SetTexture("Texture2D_9BBC0FDC", portalActiveTex);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (IsReturn(other.tag)) return;
+
+        for (int i = 0; i < playerTriggerPlayParticle.Length; i++)
+        {
+            playerTriggerPlayParticle[i].Stop();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        portalMaterial.SetFloat("Vector1_377AAD1B", kDefaultPortalMaterialEmission);
+        portalMaterial.SetTexture("Texture2D_9BBC0FDC", portalDefaultTex);
+    }
+
+    bool IsReturn(string tag)
+    {
+        return !goalIn.isLock || tag != kPlayer_tag;
     }
 }
