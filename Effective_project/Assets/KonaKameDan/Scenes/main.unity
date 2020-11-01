@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.056233324, g: 0.079379186, b: 0.12584744, a: 1}
+  m_IndirectSpecularColor: {r: 0.055667218, g: 0.07859674, b: 0.12481316, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2991,8 +2991,8 @@ MonoBehaviour:
   - "\u98DB\u7FD4"
   isCoolTimeChange: 0
   coolTimeChange: 0
-  isEnemySpawnArea: 0
-  isEnemySpawnEnabled: 0
+  isEnemySpawnArea: 1
+  isEnemySpawnEnabled: 1
 --- !u!4 &1881900230
 Transform:
   m_ObjectHideFlags: 0
@@ -3667,6 +3667,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8012069796867782620, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
+        type: 3}
+      propertyPath: seData.list.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012069796867782620, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
+        type: 3}
+      propertyPath: seData.list.Array.data[2].Key
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012069796867782620, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
+        type: 3}
+      propertyPath: seData.list.Array.data[2].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: 44ba331bd8d77424688ad3184ef6bdda, type: 3}
     - target: {fileID: 8012069796867782621, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
         type: 3}
       propertyPath: m_LocalPosition.x

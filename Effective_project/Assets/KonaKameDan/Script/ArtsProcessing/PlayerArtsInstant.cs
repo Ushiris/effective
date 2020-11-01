@@ -9,6 +9,7 @@ public class PlayerArtsInstant : MonoBehaviour
 {
     [SerializeField] string debugNum = "045";
     [SerializeField] GameObject artsObj;
+    [SerializeField] ArtsInstantParticleView artsInstantParticleView;
     MyEffectCount myEffectCount;
     string tmpArtsId;
     string artsId;
@@ -70,6 +71,8 @@ public class PlayerArtsInstant : MonoBehaviour
     {
         if (!coolTimes.ContainsKey(artsId))
         {
+            artsInstantParticleView.SetParticlePlay();
+
             //ここにそれぞれのクールタイムを入れる
             float timer;
             if (!isDebugCoolTime) timer = ArtsCoolTime.GetCoolTime(artsId, myEffectCount);
