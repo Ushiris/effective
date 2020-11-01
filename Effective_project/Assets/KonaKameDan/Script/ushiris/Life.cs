@@ -30,7 +30,11 @@ public class Life : MonoBehaviour
         {
             timer = gameObject.AddComponent<StopWatch>();
         }
-        HP = MaxHP;
+
+        if (GetComponent<Status>() != null)
+        {
+            HP = MaxHP;
+        }
 
         beat.Add(new BeatAction { active = true, act = () => { CheckDead(); } });
         timer.LapEvent = () => { beat.ForEach((live) => { live.Run(); }); };

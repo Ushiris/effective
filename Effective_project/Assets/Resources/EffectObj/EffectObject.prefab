@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1090544229439725499}
   - component: {fileID: 1090544229439725498}
   - component: {fileID: 3883142631717407067}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: EffectObject
   m_TagString: EffectObject
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 4932376056648898485}
   - component: {fileID: 8661088141205259025}
   - component: {fileID: 8557362216852317258}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
