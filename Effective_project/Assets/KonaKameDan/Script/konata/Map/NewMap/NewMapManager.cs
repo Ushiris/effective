@@ -30,8 +30,6 @@ public class NewMapManager : MonoBehaviour
 
     List<Vector3> eventPos = new List<Vector3>();
 
-
-
     //ナビゲーションメッシュ用
     public static UnityEvent OnMapGenerated = new UnityEvent();
 
@@ -41,6 +39,11 @@ public class NewMapManager : MonoBehaviour
     /// イベントを配置できる場所はtrue
     /// </summary>
     public static bool[,] GetEventPos { get; private set; }
+
+    /// <summary>
+    /// Mapに設定されているEffectを取得する
+    /// </summary>
+    public static List<GameObject> GetEffect { get; private set; } = new List<GameObject>();
 
     // Start is called before the first frame update
     void Awake()
@@ -55,6 +58,22 @@ public class NewMapManager : MonoBehaviour
         RandomSpawn(status);
         PointDelete(map);
         OnMapGenerated.Invoke();
+
+        //Mapに設定されているエフェクトをセットする
+        foreach(var item in statusList[statusListNum].effectItem)
+        {
+            if (GetEffect.Count != 0)
+            {
+                if (!GetEffect.Contains(item.item))
+                {
+                    GetEffect.Add(item.item);
+                }
+            }
+            else
+            {
+                GetEffect.Add(item.item);
+            }
+        }
 
         //プレイヤーとボス配置
         Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());

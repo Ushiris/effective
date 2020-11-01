@@ -93,23 +93,28 @@ public class ParticleHit : MonoBehaviour
     }
 
     //ダメージの処理
-    void Damage(GameObject enemy)
+    void Damage(GameObject obj)
     {
         float damage = hitDamageDefault * plusFormStatus;
         int damageCast = Mathf.CeilToInt(damage);
 
-        var life = enemy.GetComponent<Life>();
+        var life = obj.GetComponent<Life>();
         if (life != null) life.Damage(damageCast);
         DebugLogger.Log("name: " + artsStatus.myObj.name + " damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //ノックバック判定
-        if (enemy.tag == "Enemy" && isEnemyKnockBack)
+        if (obj.tag == "Enemy" && isEnemyKnockBack)
         {
-            enemy.GetComponent<Enemy>().KnockBack();
+            var enemy = obj.GetComponent<Enemy>();
+            if(enemy!=null)enemy.KnockBack();
         }
 
         //UI
-        if (enemy.tag == "Enemy") DamageCount.damageInput = damageCast;
+        if (obj.tag == "Enemy")
+        {
+            DamageCount.damageInput = damageCast;
+            //UIバグの調査をすること
+        }
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);
