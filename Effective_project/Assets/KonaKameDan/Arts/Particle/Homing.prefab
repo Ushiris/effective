@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 695842086504361663}
   - component: {fileID: 3189689843891667768}
   - component: {fileID: 114074325032814680}
+  - component: {fileID: 114557521450921802}
   m_Layer: 0
   m_Name: Homing
   m_TagString: Untagged
@@ -4716,12 +4717,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955953981792204030}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68e0323f7af386f4a9f9c22836468e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rendererType: 0
+--- !u!114 &114557521450921802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955953981792204030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2359dab8d84a0524f834ed9249ea6ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rendererType: 0
+  changeType: 1
 --- !u!1001 &4680217893303993098
 PrefabInstance:
   m_ObjectHideFlags: 0
