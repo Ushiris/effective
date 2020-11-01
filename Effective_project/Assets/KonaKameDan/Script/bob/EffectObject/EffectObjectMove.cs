@@ -8,19 +8,16 @@ public class EffectObjectMove : MonoBehaviour
     private float oldPositionY;// 初めの高さ
     public float rotationSpeed;// 回転スピード
     public float sinAdjustment;// 揺れ幅調整
-    public bool isStopMove;
 
     private void Start()
     {
-        oldPositionY = transform.position.y;
+        oldPositionY = transform.localPosition.y;
     }
     void Update()
     {
         sin = Mathf.Sin(Time.time) * sinAdjustment;
         transform.Rotate(new Vector3(0.0f, rotationSpeed, 0.0f));
-        if (!isStopMove)
-        {
-            transform.position = new Vector3(transform.position.x, sin + oldPositionY + sinAdjustment, transform.position.z);
-        }
+        var pos = transform.localPosition;
+        transform.localPosition = new Vector3(pos.x, sin + oldPositionY + sinAdjustment, pos.z);
     }
 }
