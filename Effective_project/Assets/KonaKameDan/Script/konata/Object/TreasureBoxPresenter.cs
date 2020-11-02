@@ -23,9 +23,9 @@ public class TreasureBoxPresenter : ObjStatus
     {
         if (IsDeath() && !isDeathPlay|| isDebug)
         {
-            SetEntityEnable(false);
             PlayBreakParticle();
             PlayEffectPurge();
+            Destroy(gameObject);
             isDeathPlay = true;
             isDebug = false;
         }

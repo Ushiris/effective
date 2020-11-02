@@ -24,11 +24,14 @@ public class NewMapManager : MonoBehaviour
     }
 
     [SerializeField] List<Status> statusList = new List<Status>();
+    [SerializeField] GameObject treasureBoxObj;
     [SerializeField] GameObject playerObj;
     [SerializeField] GameObject bossObj;
     [SerializeField] GameObject portalObj;
 
     List<Vector3> eventPos = new List<Vector3>();
+
+    static readonly bool kIsFieldEffectSet = false;
 
     //ナビゲーションメッシュ用
     public static UnityEvent OnMapGenerated = new UnityEvent();
@@ -89,13 +92,24 @@ public class NewMapManager : MonoBehaviour
         MapEventPosArr(status.mapSizX, status.mapSizY, 10, 0, map);
 
         //エフェクトオブジェクト設置
-        var eObj = status.effectItem;
-        var nums = GatyaGatyaInventory.RandomTableInstant(eObj);
-        for(int i = 0; i < status.effectItemMaxCount; i++)
+        if (kIsFieldEffectSet)
         {
-            var obj = GatyaGatyaInventory.RandomObj(nums, eObj);
-            obj = SetEvent(obj);
-            obj.transform.parent = transform;
+            var eObj = status.effectItem;
+            var nums = GatyaGatyaInventory.RandomTableInstant(eObj);
+            for (int i = 0; i < status.effectItemMaxCount; i++)
+            {
+                var obj = GatyaGatyaInventory.RandomObj(nums, eObj);
+                obj = SetEvent(obj);
+                obj.transform.parent = transform;
+            }
+        }
+        else
+        {
+            for(int i = 0; i < 10;i++)
+            {
+                var obj = SetEvent(treasureBoxObj);
+                obj.transform.parent = transform;
+            }
         }
     }
 
