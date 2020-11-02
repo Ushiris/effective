@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 
-namespace UnityEngine.AI
+namespace Digger.Navigation
 {
     public enum CollectObjects
     {
@@ -40,7 +42,7 @@ namespace UnityEngine.AI
         public LayerMask layerMask { get { return m_LayerMask; } set { m_LayerMask = value; } }
 
         [SerializeField]
-        NavMeshCollectGeometry m_UseGeometry = NavMeshCollectGeometry.RenderMeshes;
+        NavMeshCollectGeometry m_UseGeometry = NavMeshCollectGeometry.PhysicsColliders;
         public NavMeshCollectGeometry useGeometry { get { return m_UseGeometry; } set { m_UseGeometry = value; } }
 
         [SerializeField]
@@ -168,7 +170,8 @@ namespace UnityEngine.AI
                 sourcesBounds = CalculateWorldBounds(sources);
             }
 
-            NavMeshData data = NavMeshBuilder.BuildNavMeshData(GetBuildSettings(),sources, sourcesBounds, transform.position, transform.rotation);
+            var data = NavMeshBuilder.BuildNavMeshData(GetBuildSettings(),
+                    sources, sourcesBounds, transform.position, transform.rotation);
 
             if (data != null)
             {
@@ -268,7 +271,7 @@ namespace UnityEngine.AI
             }
         }
 
-        List<NavMeshBuildSource> CollectSources()
+        public List<NavMeshBuildSource> CollectSources()
         {
             var sources = new List<NavMeshBuildSource>();
             var markups = new List<NavMeshBuildMarkup>();
@@ -365,7 +368,7 @@ namespace UnityEngine.AI
             return new Bounds(worldPosition, worldSize);
         }
 
-        Bounds CalculateWorldBounds(List<NavMeshBuildSource> sources)
+        public Bounds CalculateWorldBounds(List<NavMeshBuildSource> sources)
         {
             // Use the unscaled matrix for the NavMeshSurface
             Matrix4x4 worldToLocal = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);

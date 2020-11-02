@@ -1,9 +1,11 @@
+using UnityEditor;
+using UnityEditor.AI;
 using UnityEditor.IMGUI.Controls;
 using UnityEditorInternal;
 using UnityEngine.AI;
 using UnityEngine;
 
-namespace UnityEditor.AI
+namespace Digger.Navigation
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(NavMeshModifierVolume))]

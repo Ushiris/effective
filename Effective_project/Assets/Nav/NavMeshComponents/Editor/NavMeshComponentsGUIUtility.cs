@@ -1,7 +1,9 @@
+using UnityEditor;
+using UnityEditor.AI;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace UnityEditor.AI
+namespace Digger.Navigation
 {
     public static class NavMeshComponentsGUIUtility
     {

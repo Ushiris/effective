@@ -4,6 +4,7 @@ using UnityEngine.AI;
 using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
+using Digger.Navigation;
 
 public class NavMeshSurfaceAgentTests
 {
