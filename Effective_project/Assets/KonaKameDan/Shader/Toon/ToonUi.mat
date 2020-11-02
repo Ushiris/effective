@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SlashMaterial
-  m_Shader: {fileID: 4800000, guid: 3b88e0898a6eeba4db176385b1e0c216, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_Name: ToonUi
+  m_Shader: {fileID: 4800000, guid: 136ada645cba84e4493296625b904888, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -21,6 +21,22 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_260B5659:
+        m_Texture: {fileID: 2800000, guid: 1571082568e215441bca14141e58818f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_4BC66CFD:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_CC1C6BA4:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D146CC32:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -106,16 +122,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_1188A6F5: 35
-    - Vector1_1832C8DB: 0
-    - Vector1_663E4A9E: 2
-    - Vector1_757BDD20: -5
-    - Vector1_8B0EDA4E: 0
-    - Vector1_A34E7AE2: -0.3
-    - Vector1_C77C7196: -0.3
-    - Vector1_D77BF341: 2
-    - Vector1_E1689068: 0.2
-    - Vector1_F8B6AC0: 100
+    - Boolean_984A99A5: 0
+    - Boolean_C0590640: 0
+    - Boolean_F575852: 0
+    - Boolean_F8BBD9DA: 0
+    - Vector1_24124C14: 4
+    - Vector1_4687774D: 10
+    - Vector1_5373E13F: 0.51
+    - Vector1_65E9DE19: 1
+    - Vector1_7985074E: 3
+    - Vector1_9D7D270: 1
+    - Vector1_EE9D57E6: 0
+    - Vector1_F36C456D: 3
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -210,7 +228,6 @@ Material:
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 0
-    - _TEXCOORD0: 0
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
@@ -229,7 +246,13 @@ Material:
     - _ZTestModeDistortion: 8
     - _ZWrite: 1
     m_Colors:
-    - Color_8CE7AA8C: {r: 0, g: 0.049056087, b: 0.93333334, a: 0.627451}
+    - Color_1C0307BF: {r: 0, g: 0, b: 0, a: 0}
+    - Color_560DFD9: {r: 0.7254902, g: 0.5333334, b: 0.5254902, a: 0}
+    - Color_AC90C40A: {r: 0, g: 0, b: 0, a: 0}
+    - Color_DB601A07: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
+    - Color_EA5E1BDF: {r: 0.36078426, g: 0.31764707, b: 0.972549, a: 0}
+    - Vector3_465F4042: {r: 2, g: 2, b: 2, a: 0}
+    - Vector4_F1C47902: {r: 2, g: 2, b: 2, a: 2}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

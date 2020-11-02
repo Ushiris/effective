@@ -67,12 +67,8 @@ public class ObjStatus : MonoBehaviour
             var ran = Random.Range(0, NewMapManager.GetEffect.Count - 1);
             var obj = Instantiate(NewMapManager.GetEffect[ran], transform);
 
-            if (obj.GetComponent<Rigidbody>() == null)
-            {
-                var rb = obj.AddComponent<Rigidbody>();
-                rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-                effectArr.Add(rb);
-            }
+            var rb = obj.GetComponent<Rigidbody>();
+            effectArr.Add(rb);
 
             obj.SetActive(false);
         }
@@ -98,7 +94,7 @@ public class ObjStatus : MonoBehaviour
     /// <param name="isActive"></param>
     protected void SetEntityEnable(bool isActive)
     {
-        hpBar.enabled = isActive;
+        hpBar.gameObject.SetActive(isActive);
         collider.enabled = isActive;
         mesh.enabled = isActive;
     }
@@ -108,6 +104,7 @@ public class ObjStatus : MonoBehaviour
     /// </summary>
     protected void PlayBreakParticle()
     {
+        particleSystem.gameObject.transform.parent = null;
         particleSystem.Play();
     }
 
@@ -117,6 +114,7 @@ public class ObjStatus : MonoBehaviour
     protected void SetBreakParticle()
     {
         var particle = Instantiate(breakParticle, transform);
+        particle.transform.position += new Vector3(0, 1.5f, 0);
         particleSystem = particle.GetComponent<ParticleSystem>();
     }
 

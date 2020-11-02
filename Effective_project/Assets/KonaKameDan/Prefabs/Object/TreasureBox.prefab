@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6229473128153083387}
   m_Layer: 0
   m_Name: TreasureBox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,8 +48,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 1.7, y: 3.5, z: 2}
+  m_Center: {x: 0, y: 1.3, z: 0}
 --- !u!114 &6229473128153083384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,9 +62,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8b28401deabf74bbbea54d6d47592d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 6229473128351958381}
+  model: {fileID: 994348816766597614}
   hpBar: {fileID: 6229473129312647204}
-  maxHp: 100
+  maxHp: 1000
   maxEffectCount: 5
   breakParticle: {fileID: 3256763540609829828, guid: e2669c0889d56ba4c9089783cd375589,
     type: 3}
@@ -426,7 +426,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 40}
+  m_SizeDelta: {x: 400, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6229473129312647204
 MonoBehaviour:
@@ -584,8 +584,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.3}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 3}
+  m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6229473129757464143
 Canvas:
@@ -841,7 +841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.865
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
       propertyPath: m_LocalPosition.z
@@ -881,15 +881,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -901,6 +901,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d5fe36e750771b04fb57b1c41ce82599, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
+--- !u!1 &994348816766597614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: d4b3d43cf4329974fa8473820cd02f52,
+    type: 3}
+  m_PrefabInstance: {fileID: 994348816766500686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &994348816766625230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4b3d43cf4329974fa8473820cd02f52,

@@ -3390,6 +3390,12 @@ PrefabInstance:
       propertyPath: statusList.Array.data[0].effectItemMaxCount
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 8326887859582480763, guid: 007a74ee600124a46b194e50e9eb54ec,
+        type: 3}
+      propertyPath: treasureBoxObj
+      value: 
+      objectReference: {fileID: 6229473128153083380, guid: d61885671d5bfe34c996c9ae774ce136,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
 --- !u!1001 &1763825007782605898
