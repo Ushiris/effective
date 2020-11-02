@@ -22,6 +22,9 @@ public class Enemy : MonoBehaviour
     EnemyArtsPickUp artsPickUp;
     Status playerStatus;
 
+    static readonly int kEffectDropCount = 3;
+    static readonly float kEffectDropRange = 10;
+
     private void Awake()
     {
         life = gameObject.AddComponent<Life>();
@@ -63,7 +66,7 @@ public class Enemy : MonoBehaviour
 
     public void KnockBack()
     {
-        Brain.Stan(0.2f);
+       // Brain.Stan(0.2f);
         rb.AddForce(-transform.forward * 10);
     }
 
@@ -91,10 +94,15 @@ public class Enemy : MonoBehaviour
 
     void DropEffect()
     {
-        var name = artsPickUp.GetEffect[Random.Range(0, artsPickUp.GetEffect.Count)];
-
-        var effect = Instantiate(Resources.Load("EffectObj/[" + name.ToString() + "]EffectObject")) as GameObject;
-        effect.transform.position = gameObject.transform.position;
+        var fixPos = new Vector3(0, 5, 0);
+        for (int i = 0; i < kEffectDropCount; i++)
+        {
+            var name = artsPickUp.GetEffect[Random.Range(0, artsPickUp.GetEffect.Count - 1)];
+            var effect = Instantiate(Resources.Load("EffectObj/[" + name.ToString() + "]EffectObject")) as GameObject;
+            effect.transform.position = gameObject.transform.position + fixPos;
+            var rb = effect.GetComponent<Rigidbody>();
+            rb.AddRelativeForce(Random.onUnitSphere * kEffectDropRange);
+        }
     }
 
     void Dead()

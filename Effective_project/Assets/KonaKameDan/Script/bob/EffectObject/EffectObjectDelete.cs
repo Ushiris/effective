@@ -5,11 +5,11 @@ using UnityEngine;
 public class EffectObjectDelete : MonoBehaviour
 {
     public string effectObject_tag = "EffectObject";
-    private void OnTriggerEnter(Collider other)// 何かに当たった瞬間
+    private void OnCollisionEnter(Collision collision)// 何かに当たった瞬間
     {
-        if(other.gameObject.tag == effectObject_tag)// エフェクトオブジェクトの場合
+        if(collision.gameObject.tag == effectObject_tag)// エフェクトオブジェクトの場合
         {
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
 
             //DebugLogger.Log("取得！");
         }

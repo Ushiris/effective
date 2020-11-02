@@ -25,11 +25,11 @@ public class EffectObjectAcquisition : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)// 何かに当たった瞬間
+    private void OnCollisionEnter(Collision collision)// 何かに当たった瞬間
     {
-        if (other.gameObject.GetComponent<EffectObjectID>() == null) return;
+        if (collision.gameObject.GetComponent<EffectObjectID>() == null) return;
 
-        GameObject anotherObject = other.gameObject;
+        GameObject anotherObject = collision.gameObject;
         effectObjectID = anotherObject.GetComponent<EffectObjectID>();
 
         AddEffect(effectObjectID.effectObjectType);
