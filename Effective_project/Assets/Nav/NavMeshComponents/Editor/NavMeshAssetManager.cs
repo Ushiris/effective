@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor;
 using UnityEditor.Experimental.SceneManagement;
 using UnityEditor.SceneManagement;
 using UnityEngine.AI;
 using UnityEngine;
 
-namespace UnityEditor.AI
+namespace Digger.Navigation
 {
     public class NavMeshAssetManager : ScriptableSingleton<NavMeshAssetManager>
     {
