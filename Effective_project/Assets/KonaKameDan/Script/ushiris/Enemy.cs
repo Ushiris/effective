@@ -94,14 +94,14 @@ public class Enemy : MonoBehaviour
 
     void DropEffect()
     {
-        var fixPos = new Vector3(0, 5, 0);
+        var fixPos = new Vector3(0, 1.5f, 0);
         for (int i = 0; i < kEffectDropCount; i++)
         {
             var name = artsPickUp.GetEffect[Random.Range(0, artsPickUp.GetEffect.Count - 1)];
             var effect = Instantiate(Resources.Load("EffectObj/[" + name.ToString() + "]EffectObject")) as GameObject;
             effect.transform.position = gameObject.transform.position + fixPos;
             var rb = effect.GetComponent<Rigidbody>();
-            rb.AddRelativeForce(Random.onUnitSphere * kEffectDropRange);
+            rb.AddRelativeForce(Random.onUnitSphere * kEffectDropRange, ForceMode.VelocityChange);
         }
     }
 
