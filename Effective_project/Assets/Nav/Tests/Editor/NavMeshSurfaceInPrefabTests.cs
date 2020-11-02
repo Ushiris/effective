@@ -4,6 +4,7 @@
 using System;
 using System.Collections;
 using System.IO;
+using Digger.Navigation;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEditor.AI;
