@@ -30,3 +30,4 @@ Buriedbornesとは違い
 ## 開発環境
 
 - [Unity2018.4.21f1](https://unity.com/)
+- [Unity2019.4.13f1](https://unity.com/)
