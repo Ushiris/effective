@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/KonaKameDan/Scenes/Start.unity
+    guid: c324b8ae01c529b46aecd32c3ae43bd3
+  - enabled: 1
+    path: Assets/KonaKameDan/Scenes/main.unity
+    guid: 67018bb4593e6104d9b5e66b5fb64975
+  - enabled: 1
+    path: Assets/KonaKameDan/Scenes/GameOver.unity
+    guid: 9e435afc3e9b9694dba0011eb1497148
+  - enabled: 1
+    path: Assets/KonaKameDan/Scenes/Result.unity
+    guid: 2516e705fd74d5c43bb91bfa4efeaf0b
   m_configObjects: {}
