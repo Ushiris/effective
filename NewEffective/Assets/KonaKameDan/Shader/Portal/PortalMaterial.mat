@@ -121,7 +121,7 @@ Material:
     - Vector1_1F069185: 30
     - Vector1_24C3821F: 0.8
     - Vector1_252F7B29: 0.12
-    - Vector1_377AAD1B: 1
+    - Vector1_377AAD1B: 5000
     - Vector1_53DF10B4: 0.002
     - Vector1_697B6925: 0.12
     - Vector1_74CE855C: 0.5
@@ -130,7 +130,7 @@ Material:
     - Vector1_B576A1DE: 0.58
     - Vector1_C04CC15E: 0.01
     - Vector1_C0EC670A: 0.13
-    - Vector1_EB9AC6AE: 0.003
+    - Vector1_EB9AC6AE: 0.01
     - Vector1_FABC1965: 0
     - _AORemapMax: 1
     - _AORemapMin: 0
