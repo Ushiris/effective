@@ -13,7 +13,7 @@ public class EnemyBrainBase : MonoBehaviour
     protected static GameObject player;
     protected NavMeshAgent navMesh;
     protected StopWatch thinkTimer;
-    protected List<StopWatch> EnchantTimer = new List<StopWatch>((int)Enchants.ENCHANT_AMOUNT);
+    protected List<StopWatch> EnchantTimer=new List<StopWatch>();
     protected Vector3 DefaultPos;
     protected Formation formation = new Formation();
     protected Transform HidePos;
@@ -25,16 +25,14 @@ public class EnemyBrainBase : MonoBehaviour
         thinkTimer = gameObject.AddComponent<StopWatch>();
         navMesh = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+        EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
     }
 
     protected void Start()
     {
         if (player == null) player = GameObject.FindWithTag("Player");
 
-        state.enchants = new bool[(int)Enchants.ENCHANT_AMOUNT].ToList();
-
         DefaultPos = transform.position;
-        EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
         thinkTimer.LapTime = 0.5f;
         InitDefaultAction();
 

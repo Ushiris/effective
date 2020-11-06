@@ -48,11 +48,19 @@ public class NewMapManager : MonoBehaviour
     /// </summary>
     public static List<GameObject> GetEffect { get; private set; } = new List<GameObject>();
 
+    /// <summary>
+    /// 次に選ばれるマップのTypeを決める
+    /// </summary>
+    /// <param name="mapType"></param>
+    /// <returns></returns>
+    public static MapType SetSelectMapType { get; set; } = MapType.Forest;
+
     // Start is called before the first frame update
     void Awake()
     {
         //変数セット
-        int statusListNum = Random.Range(0, statusList.Count);
+        MapType mapType = SetSelectMapType;
+        int statusListNum = GetRandomSelectFromType(mapType);
         Status status = statusList[statusListNum];
         GameObject map = Instantiate(status.map, transform);
         NewMapTerrainData.SetTerrainData(map);
@@ -183,5 +191,22 @@ public class NewMapManager : MonoBehaviour
                 Destroy(childTransform.gameObject);
             }
         }
+    }
+
+    //タイプと一致するものからランダムにマップ情報を取得する
+    int GetRandomSelectFromType(MapType mapType)
+    {
+        List<int> count = new List<int>();
+
+        for (int i = 0; i < statusList.Count; i++)
+        {
+            if (statusList[i].mapType == mapType)
+            {
+                count.Add(i);
+            }
+        }
+
+        var ran = Random.Range(0, count.Count);
+        return count[ran];
     }
 }
