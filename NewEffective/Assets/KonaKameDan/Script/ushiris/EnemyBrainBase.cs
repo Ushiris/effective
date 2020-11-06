@@ -4,6 +4,7 @@ using UnityEngine.AI;
 using MoveState = EnemyState.MoveState;
 using Enchants = EnemyState.Enchants;
 using System;
+using System.Linq;
 
 public class EnemyBrainBase : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class EnemyBrainBase : MonoBehaviour
     {
         if (player == null) player = GameObject.FindWithTag("Player");
 
+        state.enchants = new bool[(int)Enchants.ENCHANT_AMOUNT].ToList();
+
         DefaultPos = transform.position;
         EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
         thinkTimer.LapTime = 0.5f;
@@ -53,8 +56,12 @@ public class EnemyBrainBase : MonoBehaviour
             },
         };
 
-        Hide();
         rb.velocity = Vector3.zero;
+    }
+
+    void InitTargetPosition()
+    {
+        Hide();
     }
 
     void InitDefaultAction()
@@ -73,6 +80,7 @@ public class EnemyBrainBase : MonoBehaviour
     protected void OnEnable()
     {
         if (navMesh != null) navMesh.updatePosition = true;
+        Hide();
     }
 
     //オブジェクトが非表示になった時 
@@ -218,7 +226,16 @@ public class EnemyBrainBase : MonoBehaviour
 
     public void Hide()
     {
-        List<GameObject> effects = new List<GameObject>(GameObject.FindGameObjectsWithTag("EffectObject"));
+        var effects=new List<GameObject>();
+        foreach (var item in FindObjectsOfType<TreasureBoxPresenter>())
+        {
+            effects.Add(item.gameObject);
+        }
+        if (effects.Count == 0)
+        {
+            HidePos = transform;
+            return;
+        }
         List<Transform> e_trans = new List<Transform>();
         effects.ForEach(item => e_trans.Add(item.transform));
         HidePos = e_trans[0];
@@ -278,7 +295,11 @@ public class EnemyBrainBase : MonoBehaviour
 
             case FindAItype.Commander:
                 IsCommand = true;
-                var enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+                var enemies = new List<GameObject>();
+                foreach (var item in FindObjectsOfType<Enemy>())
+                {
+                    enemies.Add(item.gameObject);
+                }
                 RemoveNotActive(enemies);
 
                 if (enemies.Count == 0) break;
