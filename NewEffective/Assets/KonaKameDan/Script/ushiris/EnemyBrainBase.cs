@@ -4,6 +4,7 @@ using UnityEngine.AI;
 using MoveState = EnemyState.MoveState;
 using Enchants = EnemyState.Enchants;
 using System;
+using System.Linq;
 
 public class EnemyBrainBase : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class EnemyBrainBase : MonoBehaviour
     protected void Start()
     {
         if (player == null) player = GameObject.FindWithTag("Player");
+
+        state.enchants = new bool[(int)Enchants.ENCHANT_AMOUNT].ToList();
 
         DefaultPos = transform.position;
         EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
@@ -59,7 +62,6 @@ public class EnemyBrainBase : MonoBehaviour
     void InitTargetPosition()
     {
         Hide();
-
     }
 
     void InitDefaultAction()
