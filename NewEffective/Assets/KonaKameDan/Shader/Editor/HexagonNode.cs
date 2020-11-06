@@ -57,7 +57,7 @@ using System.Reflection;
 
 //            // 六角形タイルとして出力
 //            Hexagon = abs(max(p.x*1.5 + p.y, p.y*2.0) - 1.0);
-            
+
 //            float isInHex = step(p.x*1.5 + p.y, 1.0); // 六角形の内側なら1.0
 //            float isOutHex = 1.0 - isInHex; // 六角形の外側なら1.0
 
