@@ -15,6 +15,7 @@ public class StageSelectUI : MonoBehaviour
     Image image;
     Vector2 defaultSiz;
     RectTransform rectTransform;
+    NewMapManager.MapType selectMapType;
 
     [SerializeField] string SetSceneNameToChangeScene = NameDefinition.SceneName_Result;
 
@@ -24,6 +25,9 @@ public class StageSelectUI : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        //ステージTypeを決める
+        selectMapType = GetRandomMapType();
+
         image = GetComponent<Image>();
         image.raycastTarget = false;
         material = image.material = new Material(material);
@@ -66,6 +70,18 @@ public class StageSelectUI : MonoBehaviour
         Cursor.visible = false;
     }
 
+    //ランダムにマップタイプを出す
+    NewMapManager.MapType GetRandomMapType()
+    {
+        List<int> countList = new List<int>();
+        foreach (int i in System.Enum.GetValues(typeof(NewMapManager.MapType)))
+        {
+            countList.Add(i);
+        }
+        var ran = Random.Range(0, countList.Count);
+        return (NewMapManager.MapType)countList[ran];
+    }
+
     /// <summary>
     /// ポインターが触れた時
     /// </summary>
@@ -94,6 +110,7 @@ public class StageSelectUI : MonoBehaviour
         else
         {
             MainGameManager.GetArtsReset = false;
+            NewMapManager.SetSelectMapType = selectMapType;
         }
 
         SceneManager.LoadScene(SetSceneNameToChangeScene);
