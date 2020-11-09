@@ -15,13 +15,13 @@ public class StatusUp : MonoBehaviour
     [SerializeField] int plusSTR = 100;
     [SerializeField] int plusSTRReachCount = 10;
 
-    public float GetPlusSpeed { get; private set; }
-    public int GetPlusHP { get; private set; }
-    public int GetPlusSTR { get; private set; }
-
     float speed;
     int hp;
     int str;
+
+    int redCount;
+    int blueCount;
+    int greenCount;
 
     // Start is called before the first frame update
     void Start()
@@ -33,34 +33,48 @@ public class StatusUp : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (IsLimit()) return;
+
         var obj = collision.gameObject;
         var effectId = obj.GetComponent<EffectObjectID>();
 
-        if (effectId == null||IsLimit()) return;
+        if (effectId == null) return;
 
         var effectColor = NameDefinition.GetEffectColor(effectId.effectObjectType);
 
         switch (effectColor)
         {
-            case NameDefinition.EffectColor.Red:
+            case NameDefinition.EffectColor.Red: 
+                if (redCount >= plusSTRReachCount) return;
+                redCount++;
                 status.SetPlusStatus(Status.Name.STR, str);
+                DebugLogger.Log("RedEffect:" + redCount + " plussSTR:" + redCount * str);
                 break;
+
             case NameDefinition.EffectColor.Blue:
+                if (blueCount >= plusSpeedReachCount) return;
+                blueCount++;
                 status.SetPlusSpeed(speed);
+                DebugLogger.Log("RedEffect:" + blueCount + " plusSpeed" + blueCount * speed);
                 break;
+
             case NameDefinition.EffectColor.Green:
+                if (greenCount >= plusHpReachCount) return;
+                greenCount++;
                 status.SetPlusStatus(Status.Name.HP, hp);
+                DebugLogger.Log("RedEffect:" + greenCount + " plusHP" + greenCount * hp);
                 break;
 
             case NameDefinition.EffectColor.Nothing:break;
             default: break;
         }
-
     }
 
     //全てが限界値を超えたらtrue
     bool IsLimit()
     {
-        return speed > plusSpeed && hp > plusHP && str > plusSTR;
+        return redCount >= plusSTRReachCount &&
+            blueCount >= plusSpeedReachCount &&
+            greenCount >= plusHpReachCount;
     }
 }
