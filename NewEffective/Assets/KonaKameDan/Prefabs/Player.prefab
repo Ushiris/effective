@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 7642463699300045843}
   - component: {fileID: 7505584113060827357}
   - component: {fileID: 4852804697451384511}
+  - component: {fileID: 5193038887739858182}
   - component: {fileID: 114511514300449464}
   - component: {fileID: 8636135625816359887}
   - component: {fileID: 8302569552313217994}
@@ -310,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81fe69ddc6743342b05fd7c175ebba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: {fileID: 4852804697451384511}
   speed: 10
   slowSpeed: 10
   dashSpeed: 20
@@ -429,6 +431,25 @@ MonoBehaviour:
   - name: DEX
     enumName: 4
     f: 0
+--- !u!114 &5193038887739858182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505584113060827351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 550c9ef615d0e0c4d9c2f3b4e85c44ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status: {fileID: 4852804697451384511}
+  plusSpeed: 10
+  plusSpeedReachCount: 50
+  plusHP: 5000
+  plusHpReachCount: 50
+  plusSTR: 1000
+  plusSTRReachCount: 50
 --- !u!114 &114511514300449464
 MonoBehaviour:
   m_ObjectHideFlags: 0

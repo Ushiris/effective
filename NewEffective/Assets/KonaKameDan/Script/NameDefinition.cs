@@ -23,6 +23,12 @@ public class NameDefinition : MonoBehaviour
     }
 
     /// <summary>
+    /// Effectの色分け用
+    /// </summary>
+    public enum EffectColor { Red, Blue, Green, Nothing }
+
+
+    /// <summary>
     /// EffectNameをkeyに日本語の名前を引っ張ってくる
     /// </summary>
     public static Dictionary<EffectName, string> GetEffectJapanName { get; } = new Dictionary<EffectName, string>()
@@ -39,4 +45,35 @@ public class NameDefinition : MonoBehaviour
         {EffectName.Fly,        "飛翔" },
         {EffectName.Nothing,    "なし" }
     };
+
+    /// <summary>
+    /// エフェクトの名前からエフェクトの色を持ってきます
+    /// </summary>
+    /// <param name="effectName"></param>
+    /// <returns></returns>
+    public static EffectColor GetEffectColor(EffectName effectName)
+    {
+        switch (effectName)
+        {
+            case EffectName.Shot:
+            case EffectName.Slash:
+            case EffectName.Explosion:
+                return EffectColor.Red;
+
+            case EffectName.Spread:
+            case EffectName.Homing:
+            case EffectName.Fly:
+            case EffectName.Slow:
+                return EffectColor.Blue;
+
+            case EffectName.Barrier:
+            case EffectName.Trap:
+            case EffectName.Drain:
+                return EffectColor.Green;;
+            
+            case EffectName.Nothing:
+            default:
+                return EffectColor.Nothing;
+        }
+    }
 }
