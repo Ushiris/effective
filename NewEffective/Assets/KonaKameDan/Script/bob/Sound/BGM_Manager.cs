@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BGM_Manager : MonoBehaviour
 {
-    [SerializeField] int audioInstantMaxCount = 3;// そのシーンで流すBGMの最大の数
-
     AudioSource[] bgmArr;
 
     /// <summary>
@@ -13,71 +11,68 @@ public class BGM_Manager : MonoBehaviour
     /// </summary>
     public enum BGM_NAME
     {
-        Stage_1
+        Stage_1, Stage_1_Boss
     }
+    [Header("流れるBGM")]
+    [SerializeField] BGM_NAME bgm_Name;
+    private BGM_NAME bgm_NameOld;
 
     [System.Serializable]
-    /// <summary>
-    /// BGMのパート分け
-    /// </summary>
     public class bgmData
     {
+        [Header("BGMの名前")]
         public BGM_NAME name;
+        [Header("冒頭音源")]
         public AudioClip startBGM;
+        [Header("ループ音源")]
         public AudioClip loopBGM;
-        //public AudioClip bossBGM;// 仕様がどうなるのかわからないので保留
+        [Header("ボリューム調整")]
+        [Range(0, 1)]
+        public float bgmVolume = 0.8f;
+        public float bgmVolumeOld;
     }
+    /// <summary>
+    /// BGMの情報
+    /// </summary>
     public List<bgmData> bgmDataList = new List<bgmData>();
 
-    static BGM_Manager BGM_Manager_;
+    public static BGM_Manager BGM_Manager_;
     private bool playBgmSwitch;
 
-    void Start()
+    void Awake()
     {
-        //オーディオをアタッチする
-        for (int i = 0; i < audioInstantMaxCount; i++)
+        BGM_Manager_ = this;
+
+        // オーディオをアタッチし
+        for (int i = 0; i < bgmDataList.Count * 2; i++)
         {
             gameObject.AddComponent<AudioSource>();
         }
         bgmArr = GetComponents<AudioSource>();
 
-        for (int i = 0; i < audioInstantMaxCount; i++)
+        // AudioSourceをBGMごとにまとめる
+        for (int i = 0; i < bgmDataList.Count; i++)
         {
-            bgmArr[i].volume = 0.8f;
-            if(i != 0)// 前奏以外をループに
-                bgmArr[i].loop = true;
+            bgmDataList[i].bgmVolumeOld = bgmDataList[i].bgmVolume;
+
+            bgmArr[i * 2].clip = bgmDataList[i].startBGM;// 冒頭の曲をアタッチ
+            bgmArr[i * 2].playOnAwake = false;// 初っ端流れない
+            bgmArr[i * 2 + 1].clip = bgmDataList[i].loopBGM;// ループの曲をアタッチ
+            bgmArr[i * 2 + 1].playOnAwake = false;// 初っ端流れない
+            bgmArr[i * 2 + 1].loop = true;// ループの曲をループ設定をしておく
         }
 
-        BGM_Manager_ = this;
+        Debug.Log("bgmDataList[(int)bgm_Name].bgmVolume : " + bgmDataList[(int)bgm_Name].bgmVolume);
+        BGM_PlayBack.BgmStartPlayBack(bgm_Name, bgmDataList[(int)bgm_Name].bgmVolume, true);// 再生開始
+        bgm_NameOld = bgm_Name;
     }
     private void Update()
     {
-        if(playBgmSwitch)
+        if(bgm_NameOld != bgm_Name)
         {
-            bgmArr[1].Stop();// 停止
-            //bgmArr[2].Stop();// 停止
-            bgmArr[0].Play();// 再生
-            playBgmSwitch = false;
+            //BGM_Change.BgmChange(audioSourceDataList[(int)bgm_Name]);
+            bgm_NameOld = bgm_Name;
         }
-        if(!bgmArr[0].isPlaying && !bgmArr[1].isPlaying)
-        {
-            bgmArr[1].Play();// 再生
-            //bgmArr[2].Play();// 再生
-        }
-    }
-    /// <summary>
-    /// BGMの再生、どのBGMを使うか選択して！
-    /// </summary>
-    /// <param name="bgmType"></param>
-    public static void BgmPlay(BGM_NAME bgmType)
-    {
-        //BGMのパートを各自入れる
-        if (BGM_Manager_ != null)
-        {
-            BGM_Manager_.bgmArr[0].clip = BGM_Manager_.bgmDataList[(int)bgmType].startBGM;// 前奏
-            BGM_Manager_.bgmArr[1].clip = BGM_Manager_.bgmDataList[(int)bgmType].loopBGM;// ループ
 
-            BGM_Manager_.playBgmSwitch = true;
-        }
     }
 }

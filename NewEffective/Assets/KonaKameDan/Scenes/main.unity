@@ -979,7 +979,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &616488497
+--- !u!114 &662323012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1396,7 +1396,7 @@ PrefabInstance:
     - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
       propertyPath: bgmDataList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
@@ -1408,6 +1408,36 @@ PrefabInstance:
       propertyPath: bgmDataList.Array.data[0].loopBGM
       value: 
       objectReference: {fileID: 8300000, guid: ea07c92b564371d4aad14e7957c28571, type: 3}
+    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[1].startBGM
+      value: 
+      objectReference: {fileID: 8300000, guid: d623d683fd2325341ad69cc7b95e17e3, type: 3}
+    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[1].loopBGM
+      value: 
+      objectReference: {fileID: 8300000, guid: 8907d5d2ae522114ba92e42242338c01, type: 3}
+    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[1].name
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[0].bgmVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[1].bgmVolume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgm_Name
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5876063705799890565, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
       propertyPath: m_Name
@@ -1850,6 +1880,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   encoreBGM: 1
+--- !u!114 &1103334545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103334543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55bc7594a95b754ea9641092f32305d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeInSpead: 0.1
+  fadeOutSpead: 0.2
+--- !u!114 &1103334546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103334543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9087cf707631d7f4a9537fda1702d53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1219994091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,7 +2430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 1282aa51de4db2b49839520a8525a239, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 616488497}
+  m_SkySettings: {fileID: 662323012}
   m_SkySettingsFromProfile: {fileID: 7488742677745068149, guid: 1282aa51de4db2b49839520a8525a239,
     type: 2}
 --- !u!4 &1560460057
