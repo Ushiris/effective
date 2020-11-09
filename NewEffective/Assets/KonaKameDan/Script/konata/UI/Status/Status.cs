@@ -10,6 +10,7 @@ public class Status : MonoBehaviour
     [SerializeField] ParticleSystem.MinMaxCurve lvCurve;
     public int Lv;
     int tmpLv;
+    float fluctuation;
 
     [Header("LevelUpに必要な経験値数")]
     [SerializeField] ParticleSystem.MinMaxCurve expCurve;
@@ -33,6 +34,11 @@ public class Status : MonoBehaviour
     //[Header("変動値")]
     public Dictionary<Name, float> status { get; private set; }
 
+    public float GetMoveSpeed { get; private set; } = 10;
+
+    //ステータスに変動値を
+    Dictionary<Name, float> statusEffect = new Dictionary<Name, float>();
+
 
     //[HideInInspector] public float MP;
     //[HideInInspector] public float ATK;
@@ -53,6 +59,7 @@ public class Status : MonoBehaviour
         foreach (var def in defaultStatus)
         {
             status.Add(def.enumName, def.f);
+            statusEffect.Add(def.enumName, 0);
             //DebugLogger.Log(status.Count);
         }
     }
@@ -63,6 +70,11 @@ public class Status : MonoBehaviour
         LevelUp();
         if (islevelUpTimeScale) LvTime();
         if (isLevelUpEXP) LevelUp_EXP();
+    }
+
+    private void OnDisable()
+    {
+        //statusEffect.
     }
 
     void LevelUp_EXP()
@@ -79,11 +91,11 @@ public class Status : MonoBehaviour
     {
         if (tmpLv != Lv)
         {
-            float lv = lvCurve.Evaluate(Lv);
+            fluctuation = lvCurve.Evaluate(Lv);
 
             foreach (var def in defaultStatus)
             {
-                status[def.enumName] = def.f * lv;
+                status[def.enumName] = def.f * fluctuation + statusEffect[def.enumName];
                 //DebugLogger.Log(gameObject.name+" "+def.name + " " + status[def.enumName]);
             }
             tmpLv = Lv;
@@ -98,6 +110,26 @@ public class Status : MonoBehaviour
             Lv++;
             levelUpTimeScale *= 2;
         }
+    }
+
+    /// <summary>
+    /// ステータスにバフを
+    /// </summary>
+    /// <param name="statusName"></param>
+    /// <param name="plus"></param>
+    public void SetPlusStatus(Name statusName, float plus)
+    {
+        statusEffect[statusName] += plus;
+        status[statusName] += plus;
+    }
+
+    /// <summary>
+    /// 移動速度を変化させる用
+    /// </summary>
+    /// <param name="plus"></param>
+    public void SetPlusSpeed(float plus)
+    {
+        GetMoveSpeed += plus;
     }
 }
 
