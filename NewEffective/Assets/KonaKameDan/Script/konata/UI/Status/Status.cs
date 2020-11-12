@@ -113,23 +113,20 @@ public class Status : MonoBehaviour
     }
 
     /// <summary>
-    /// ステータスにバフを
+    /// ステータスに変動値をセットできます
     /// </summary>
-    /// <param name="statusName"></param>
-    /// <param name="plus"></param>
-    public void SetPlusStatus(Name statusName, float plus)
+    public void SetStatusEssence(Name statusName,float essence)
     {
-        statusEffect[statusName] += plus;
-        status[statusName] += plus;
+        statusEffect[statusName] = essence;
     }
 
     /// <summary>
-    /// 移動速度を変化させる用
+    /// 移動速度にプラス値を
     /// </summary>
-    /// <param name="plus"></param>
-    public void SetPlusSpeed(float plus)
+    /// <param name="plusSpeed"></param>
+    public void SetMoveSpeed(float plusSpeed)
     {
-        GetMoveSpeed += plus;
+        GetMoveSpeed = plusSpeed;
     }
 }
 

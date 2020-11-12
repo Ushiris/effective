@@ -176,11 +176,11 @@ GameObject:
   - component: {fileID: 7642463699300045843}
   - component: {fileID: 7505584113060827357}
   - component: {fileID: 4852804697451384511}
-  - component: {fileID: 5193038887739858182}
   - component: {fileID: 114511514300449464}
   - component: {fileID: 8636135625816359887}
   - component: {fileID: 8302569552313217994}
   - component: {fileID: 2379057899321639959}
+  - component: {fileID: 8603869694668530}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -431,25 +431,6 @@ MonoBehaviour:
   - name: DEX
     enumName: 4
     f: 0
---- !u!114 &5193038887739858182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7505584113060827351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550c9ef615d0e0c4d9c2f3b4e85c44ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  status: {fileID: 4852804697451384511}
-  plusSpeed: 10
-  plusSpeedReachCount: 50
-  plusHP: 5000
-  plusHpReachCount: 50
-  plusSTR: 1000
-  plusSTRReachCount: 50
 --- !u!114 &114511514300449464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c96309cb7f1e747880ba9274e2ec81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultEffect: 0000000004000000
 --- !u!114 &8302569552313217994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +484,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 745501880150449993}
   life: {fileID: 114511514300449464}
+--- !u!114 &8603869694668530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505584113060827351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3fc9e4a359b544096c43b35e7be754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status: {fileID: 4852804697451384511}
+  plusSpeed: 10
+  plusSpeedReachCount: 50
+  plusHP: 5000
+  plusHpReachCount: 50
+  plusSTR: 1000
+  plusSTRReachCount: 50
 --- !u!1 &7505584114165781117
 GameObject:
   m_ObjectHideFlags: 0

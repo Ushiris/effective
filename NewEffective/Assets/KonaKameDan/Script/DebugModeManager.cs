@@ -42,6 +42,7 @@ public class DebugModeManager : MonoBehaviour
     {
         if (isEffectCount)
         {
+            EffectObjectAcquisition.isDefaultStatusReset = false;
             EffectObjectAcquisition.effectObjectAcquisition = new List<EffectObjectAcquisition.EffectObjectClass>(effectCount);
             EffectObjectAcquisition.effectObjectName = new List<string>(effectObjectName);
         }
