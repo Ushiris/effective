@@ -62,7 +62,7 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            speed = status.GetMoveSpeed;
+            speed = status.GetMoveSpeed + slowSpeed;
         }
 
         //移動
