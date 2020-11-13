@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     EnemyArtsPickUp artsPickUp;
     Status playerStatus;
 
-    static readonly int kEffectDropCount = 3;
+    static readonly int kEffectDropCount = 1;
     static readonly float kEffectDropRange = 10;
 
     private void Awake()
