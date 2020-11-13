@@ -50,7 +50,7 @@ public class EnemyDefender : EnemyBrainBase
 
     void ExMove()
     {
-        if (!king.gameObject.activeSelf) FindJob();
+        if (king == null || !king.gameObject.activeSelf) FindJob();
         if (navMesh.pathStatus != UnityEngine.AI.NavMeshPathStatus.PathInvalid)
         {
             navMesh.SetDestination(king.position);
