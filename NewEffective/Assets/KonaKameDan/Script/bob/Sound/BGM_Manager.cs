@@ -37,7 +37,6 @@ public class BGM_Manager : MonoBehaviour
     public List<bgmData> bgmDataList = new List<bgmData>();
 
     public static BGM_Manager BGM_Manager_;
-    private bool playBgmSwitch;
 
     void Awake()
     {
@@ -74,5 +73,14 @@ public class BGM_Manager : MonoBehaviour
             bgm_NameOld = bgm_Name;
         }
 
+        for (int i = 0; i < bgmDataList.Count; i++)
+        {
+            // ボリューム変更したとき
+            if (bgmDataList[i].bgmVolumeOld != bgmDataList[i].bgmVolume)
+            {
+                BGM_PlayBack.VolumeChange(bgmDataList[i].name, bgmDataList[i].bgmVolume);// ボリューム変更
+                bgmDataList[i].bgmVolumeOld = bgmDataList[i].bgmVolume;// 変更を保存
+            }
+        }
     }
 }
