@@ -10,7 +10,7 @@ public class MainGameManager : MonoBehaviour
     /// <summary>
     /// 所持しているアーツをリセットするかどうか
     /// </summary>
-    public static bool GetArtsReset { get; set; }
+    public static bool GetArtsReset { get; set; } = true;
 
     /// <summary>
     /// 合計ダメージを取得

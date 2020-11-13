@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     int layerMask;
     int jumpCount;
 
+    [SerializeField] Status status;
     [SerializeField] float speed;
     [SerializeField] float slowSpeed = 10f;
     [SerializeField] float dashSpeed = 20f;
@@ -61,7 +62,7 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            speed = slowSpeed;
+            speed = status.GetMoveSpeed + slowSpeed;
         }
 
         //移動

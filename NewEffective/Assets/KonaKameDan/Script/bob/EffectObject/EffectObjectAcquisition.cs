@@ -11,17 +11,42 @@ public class EffectObjectAcquisition : MonoBehaviour
         public int count;
         [HideInInspector] public int id;
     }
-    private EffectObjectID effectObjectID;
+
+    [Header("初期値")]
+    [SerializeField] List<NameDefinition.EffectName> defaultEffect = new List<NameDefinition.EffectName>();
+
+    EffectObjectID effectObjectID;
+
     public static List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
     public static List<string> effectObjectName = new List<string>();// リスト作成
+    public static bool isDefaultStatusReset { get; set; } = true;
 
     private void Awake()
     {
         //初期化
-        if (MainGameManager.GetArtsReset)
+        if (MainGameManager.GetArtsReset && isDefaultStatusReset)
         {
-            if (effectObjectAcquisition != null) effectObjectAcquisition.Clear();
-            if (effectObjectName != null) effectObjectName.Clear();
+            if (effectObjectAcquisition != null)
+            {
+                effectObjectAcquisition.Clear();
+            }
+            if (effectObjectName != null)
+            {
+                effectObjectName.Clear();
+            }
+
+            //初期値のセット
+            foreach (var effect in defaultEffect)
+            {
+                var name = EffectObjectID.effectDictionary[effect];
+                effectObjectAcquisition.Add(new EffectObjectClass
+                {
+                    name = name,
+                    count = 1,
+                    id = (int)effect
+                });
+                effectObjectName.Add(name);
+            }
         }
     }
 
