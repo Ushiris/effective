@@ -65,7 +65,7 @@ MonoBehaviour:
   model: {fileID: 994348816766597614}
   hpBar: {fileID: 6229473129312647204}
   maxHp: 1000
-  maxEffectCount: 5
+  maxEffectCount: 7
   breakParticle: {fileID: 3256763540609829828, guid: e2669c0889d56ba4c9089783cd375589,
     type: 3}
   isDebug: 0
