@@ -23,7 +23,7 @@ public class GoalIn : MonoBehaviour
         stageSelectCanvas.SetActive(false);
     }
 
-    private void OnCollisionEnter(Collision other)// 何かに当たった瞬間
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == Player_tag && !isLock)// エフェクトオブジェクトの場合
         {
