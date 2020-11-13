@@ -99,7 +99,8 @@ public class Id079_Amaterasu : MonoBehaviour
                 else if (!satelliteBeamMaterial.isTimeStart)
                 {
                     //アーツの全ての処理を終えた場合、プールに戻す
-                    StartUpParticle.SetArts("Id079_Amaterasu", artsStatus);
+                    //StartUpParticle.SetArts("Id079_Amaterasu", artsStatus);
+                    Destroy(gameObject);
                 }
             }
         }
