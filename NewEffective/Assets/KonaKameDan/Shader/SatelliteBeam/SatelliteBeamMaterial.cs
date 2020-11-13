@@ -20,8 +20,9 @@ public class SatelliteBeamMaterial : MonoBehaviour
     static readonly float coreMaterialSpeed = 1.5f;
     static readonly string kCoreMaterialColorName = "_BaseColor";
     static readonly string kCoreMaterialEnissionColorName = "_EmissiveColor";
-    static readonly Color32 kBooleColorCode = new Color32(18, 0, 255, 0);
-    static readonly Color32 kRedColorCode = new Color32(255, 44, 0, 0);
+    static readonly Color kBooleColorCode = new Color(18, 0, 255, 0);
+    static readonly Color kRedColorCode = new Color(255, 44, 0, 0);
+    static readonly float kEmission = 10f;
 
     float timer;
     float coreMaterialTimer = 1;
@@ -45,13 +46,13 @@ public class SatelliteBeamMaterial : MonoBehaviour
         switch (artsStatus.type)
         {
             case ArtsStatus.ParticleType.Player:
-                coreMaterial.SetColor(kCoreMaterialEnissionColorName, kBooleColorCode);
+                coreMaterial.SetColor(kCoreMaterialEnissionColorName, kBooleColorCode * kEmission);
                 break;
             case ArtsStatus.ParticleType.Enemy:
-                coreMaterial.SetColor(kCoreMaterialEnissionColorName, kRedColorCode);
+                coreMaterial.SetColor(kCoreMaterialEnissionColorName, kRedColorCode * kEmission);
                 break;
-            case ArtsStatus.ParticleType.Unknown:break;
-            default:break;
+            case ArtsStatus.ParticleType.Unknown: break;
+            default: break;
         }
     }
 
