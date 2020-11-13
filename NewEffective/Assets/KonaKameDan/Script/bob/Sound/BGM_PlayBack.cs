@@ -47,11 +47,11 @@ public class BGM_PlayBack : MonoBehaviour
         }
     }
     /// <summary>
-    /// BGMを再生;
-    /// 　BGM_NAME:再生したいBGM・
-    /// 　volume:BGMの音量・
-    /// 　startOrLoop:「true」で冒頭から、「false」でループから
+    /// BGMを再生
     /// </summary>
+    /// <param name="bgmName">再生したいBGM</param>
+    /// <param name="startVolume">BGMの音量</param>
+    /// <param name="startOrLoop">「true」で冒頭から、「false」でループから</param>
     public static void BgmStartPlayBack(BGM_Manager.BGM_NAME bgmName,float startVolume, bool startOrLoop)
     {
         bgm_Name = bgmName;
@@ -61,21 +61,43 @@ public class BGM_PlayBack : MonoBehaviour
         else if (startOrLoop == false)
             playBgmLoopSwitch = true;// ループからスイッチ
     }
+    /// <summary>
+    /// 現在流れているBGMのナンバー
+    /// </summary>
     public static int PlayBGMArrNumber { get; private set; }
-    public static int RequesBgmFadeArrNumber { get; set; }
+    /// <summary>
+    /// フェードさせたいBGMのナンバーを入力
+    /// </summary>
+    public static BGM_Manager.BGM_NAME RequesBgmFadeArrNumber { get; set; }
+    /// <summary>
+    /// フェードイン、フェードアウトの値を受け取りAudioSourceに入力
+    /// </summary>
+    /// <param name="fadeInVolume">フェードインの値</param>
+    /// <param name="faeOutVolume">フェードアウトの値</param>
+    /// <returns></returns>
     public static bool OnFadeVolume (float fadeInVolume, float faeOutVolume)
     {
-        if (bgm[RequesBgmFadeArrNumber].volume > bgm_Manager.bgmDataList[RequesBgmFadeArrNumber / 2].bgmVolume)
+        if (bgm[(int)RequesBgmFadeArrNumber * 2].volume > bgm_Manager.bgmDataList[(int)RequesBgmFadeArrNumber].bgmVolume)
         {
-            bgm[RequesBgmFadeArrNumber].volume = bgm_Manager.bgmDataList[RequesBgmFadeArrNumber / 2].bgmVolume;
-            bgm[PlayBGMArrNumber].volume = 0.0f;
+            bgm[(int)RequesBgmFadeArrNumber * 2].volume = bgm_Manager.bgmDataList[(int)RequesBgmFadeArrNumber].bgmVolume;// フェードイン完了調整
+            bgm[PlayBGMArrNumber].volume = 0.0f;// フェードアウト完了調整
+            bgm_Name = bgm_Manager.bgmDataList[(int)RequesBgmFadeArrNumber].name;
             return false;
         }
         else
         {
             bgm[PlayBGMArrNumber].volume -= faeOutVolume;
-            bgm[RequesBgmFadeArrNumber].volume += fadeInVolume;
+            bgm[(int)RequesBgmFadeArrNumber * 2].volume += fadeInVolume;
             return true;
         }
+    }
+    /// <summary>
+    /// ボリューム調整
+    /// </summary>
+    /// <param name="bgmVolumeChange">変えたいボリュームの大きさ</param>
+    public static void VolumeChange(BGM_Manager.BGM_NAME　bgmNumber, float bgmVolumeChange)
+    {
+        bgm[(int)bgmNumber * 2].volume = bgmVolumeChange;
+        bgm[(int)bgmNumber * 2 + 1].volume = bgmVolumeChange;
     }
 }
