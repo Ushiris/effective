@@ -2,7 +2,8 @@
 using UnityEngine;
 
 #if UNITY_EDITOR
-using UnityEditor; 
+using UnityEditor;
+#endif
 
 public class UshirisSystem : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class UshirisSystem : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(UshirisSystem))]
 public class UshirisSystemEditor : Editor
 {

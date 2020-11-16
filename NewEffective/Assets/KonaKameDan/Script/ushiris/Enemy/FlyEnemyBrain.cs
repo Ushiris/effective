@@ -7,11 +7,9 @@ using Enchants = EnemyState.Enchants;
 [RequireComponent(typeof(NavMeshAgent))]
 public class FlyEnemyBrain : EnemyBrainBase
 {
-    EnemyArtsInstant bag;
     private new void Awake()
     {
         base.Awake();
-        bag = gameObject.GetComponent<EnemyArtsInstant>();
     }
 
     new void Start()
@@ -20,7 +18,7 @@ public class FlyEnemyBrain : EnemyBrainBase
         
         Default = Default__;
         var rand = Random.Range(1, 10);
-        if (rand == 10)
+        if (rand == 9)
         {
             AIset(FindAItype.Commander);
         }
@@ -28,11 +26,11 @@ public class FlyEnemyBrain : EnemyBrainBase
         {
             AIset(FindAItype.Soldier);
 
-            if (rand < 4)
+            if (rand < 3)
             {
                 AIset(StayAItype.Ambush);
             }
-            else if (rand > 8)
+            else if (rand > 7)
             {
                 AIset(StayAItype.Ninja);
             }
@@ -56,8 +54,6 @@ public class FlyEnemyBrain : EnemyBrainBase
                 Enchants.Blind,()=>Default()
             },
         };
-
-        bag.ChangeAction(() => bag.OnSelfIdSetAction(Random.Range(0, 2) == 0 ? "04" : "045"));
     }
 
     private void LateUpdate()
