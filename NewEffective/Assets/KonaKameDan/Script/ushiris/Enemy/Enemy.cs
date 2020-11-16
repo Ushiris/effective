@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Life life;
     [HideInInspector] public Slider slider;
     [SerializeField] Status status;
+    [SerializeField] int effectDropCount = 1;
     Rigidbody rb;
     public bool isBoss;
     public bool IsDeath { get; private set; }
@@ -20,7 +21,6 @@ public class Enemy : MonoBehaviour
     EnemyArtsPickUp artsPickUp;
     Status playerStatus;
 
-    static readonly int kEffectDropCount = 3;
     static readonly float kEffectDropRange = 10;
 
     private void Awake()
@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour
     void DropEffect()
     {
         var fixPos = new Vector3(0, 1.5f, 0);
-        for (int i = 0; i < kEffectDropCount; i++)
+        for (int i = 0; i < effectDropCount; i++)
         {
             var name = artsPickUp.GetEffect[Random.Range(0, artsPickUp.GetEffect.Count - 1)];
             var effect = Instantiate(Resources.Load("EffectObj/[" + name.ToString() + "]EffectObject")) as GameObject;
