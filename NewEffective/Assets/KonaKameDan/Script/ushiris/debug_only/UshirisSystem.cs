@@ -54,6 +54,7 @@ public class UshirisSystemEditor : Editor
 
         system.Enemy.ForEach(item =>
         {
+            if (item == null) return;
             if (GUILayout.Button("召喚：" + item.name))
             {
                 var enemy = Instantiate(item);
