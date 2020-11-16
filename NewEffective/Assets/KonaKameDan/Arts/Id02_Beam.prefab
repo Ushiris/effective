@@ -44,10 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab854e94f493d3b45b73e8ef2a0759d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beamParticleObj: {fileID: 2303640618854446028, guid: 1104d2591f4089747b889990bb0a1cdf,
+  beamParticleObj: {fileID: 6902709875706166550, guid: cf7ddd0e19d82a94dba44fbc6c9047cd,
     type: 3}
-  force: 200
-  lostTime: 3
+  lostStartTime: 5
   defaultDamage: 0.8
   plusDamage: 0.08
 --- !u!114 &114809336146001686
