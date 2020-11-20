@@ -11,7 +11,11 @@ public class EnemyPop : MonoBehaviour
 
     private void Awake()
     {
-        timer = StopWatch.Summon(Random.Range(5.0f, 12.0f), EnemySpawn, gameObject);
+        timer = StopWatch.Summon(Random.Range(GameBaranceManager.EnemyPopFast, GameBaranceManager.EnemyPopFast),()=> { }, gameObject);
+        timer.LapEvent = () => { 
+            EnemySpawn();
+            timer.LapTime = Random.Range(GameBaranceManager.EnemyPopFast, GameBaranceManager.EnemyPopFast); 
+        };
         timer.IsActive = false;
     }
 
@@ -38,8 +42,9 @@ public class EnemyPop : MonoBehaviour
     {
         Vector3 desirePos = playerTransform.position;
         float angle = playerTransform.rotation.eulerAngles.y + Random.Range(-0.4f * Mathf.PI, 0.4f * Mathf.PI);
-        desirePos.x += Mathf.Cos(angle);
-        desirePos.z += Mathf.Sin(angle);
+        float distance = Random.Range(GameBaranceManager.EnemyPopNear, GameBaranceManager.EnemyPopFar);
+        desirePos.x += Mathf.Cos(angle) * distance;
+        desirePos.z += Mathf.Sin(angle) * distance;
 
         return desirePos;
     }
