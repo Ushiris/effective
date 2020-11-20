@@ -37,7 +37,7 @@ public class EnemyPop : MonoBehaviour
     Vector3 SpawnPointSelector()
     {
         Vector3 desirePos = playerTransform.position;
-        float angle = Random.Range(0f, 2 * Mathf.PI);
+        float angle = playerTransform.rotation.eulerAngles.y + Random.Range(-0.4f * Mathf.PI, 0.4f * Mathf.PI);
         desirePos.x += Mathf.Cos(angle);
         desirePos.z += Mathf.Sin(angle);
 

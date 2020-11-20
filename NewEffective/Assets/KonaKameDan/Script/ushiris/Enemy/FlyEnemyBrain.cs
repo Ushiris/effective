@@ -78,11 +78,7 @@ public class FlyEnemyBrain : EnemyBrainBase
     {
         if (navMesh.isStopped)
         {
-            navMesh.SetDestination(new Vector3(
-                            Random.Range(transform.position.x - 10, transform.position.x + 10),
-                            transform.position.y,
-                            Random.Range(transform.position.z - 10, transform.position.z + 10)
-                            ));
+            LookAtPlayerXZ();
         }
     }
 
