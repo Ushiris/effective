@@ -77,7 +77,7 @@ public class Id024_Diffusion : MonoBehaviour
     {
         if (beamControlScript.isGetEnd)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
         else
         {
