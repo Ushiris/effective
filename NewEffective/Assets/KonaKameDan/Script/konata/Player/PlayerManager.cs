@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour
             SE_Manager.SePlay(SE_Manager.SE_NAME.Heel);// SE_Heel
             regene_timer.SetActive(false);
          };
+        regene_timer.SetActive(false);
         life.AddDamageFunc((x) => {
             life.ActiveEvent(Life.Timing.beat, RegeneEventID, false);
             regene_timer.ResetTimer();
