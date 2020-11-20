@@ -7,9 +7,8 @@ public class Id024_Diffusion : MonoBehaviour
     int count = 4;
 
     [SerializeField] GameObject beamParticleObj;
-    [SerializeField] float force = 100f;
     [SerializeField] float radius = 2f;
-    [SerializeField] float lostTime = 3f;
+    [SerializeField] float lostStartTime = 5;
 
     [Header("ダメージ")]
     [SerializeField] float defaultDamage = 0.8f;
@@ -22,11 +21,11 @@ public class Id024_Diffusion : MonoBehaviour
     [SerializeField] int defaultBullet = 4;
 
     [Header("拡散のスタック数に応じてたされる数")]
-    [SerializeField] int addBullet = 2;
+    [SerializeField] float addBullet = 2;
 
-    StopWatch timer;
     ArtsStatus artsStatus;
     ParticleHit[] hit;
+    Beam beamControlScript;
 
     int shotCount;
     int barrierCount;
@@ -37,15 +36,14 @@ public class Id024_Diffusion : MonoBehaviour
     void Start()
     {
         artsStatus = GetComponent<ArtsStatus>();
-
-        transform.parent = null;
+        Arts_Process.RollReset(gameObject);
 
         //エフェクトの所持数を代入
         shotCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Shot);
         spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
 
         //拡散数
-        count = defaultBullet + (spreadCount * addBullet);
+        count = (int)(defaultBullet + (spreadCount * addBullet));
         hit = new ParticleHit[count];
 
         //ダメージの計算
@@ -60,25 +58,39 @@ public class Id024_Diffusion : MonoBehaviour
             //円状に配置する
             beam[i] = Instantiate(beamParticleObj, transform);
             beam[i].transform.localPosition = pos[i];
-            beam[i].transform.LookAt(transform);
+            beam[i].transform.rotation = Look(beam[i], gameObject);
 
-            //移動
-            Arts_Process.RbMomentMove(beam[i], force);
-
+            //Beamを消す時間のセット
+            beamControlScript = beam[i].GetComponent<Beam>();
+            beamControlScript.lostStartTime = lostStartTime;
+            var beamCoreObj = beamControlScript.GetBeamObj.transform.GetChild(0);
 
             //ダメージ
-            hit[i] = Arts_Process.SetParticleDamageProcess(beam[i]);
+            hit[i] = Arts_Process.SetParticleDamageProcess(beamCoreObj.gameObject);
             //ダメージ処理
             Arts_Process.Damage(hit[i], artsStatus, damage, true);
         }
-
-        //オブジェクトの破壊
-        var timer = Arts_Process.TimeAction(gameObject, lostTime);
-        timer.LapEvent = () => { Destroy(gameObject); };
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (beamControlScript.isGetEnd)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            transform.position = PlayerManager.GetManager.GetPlObj.transform.position;
+            transform.rotation =
+                Quaternion.Euler(0, 1, 0) * PlayerManager.GetManager.GetPlObj.transform.rotation;
+        }
+    }
+
+    Quaternion Look(GameObject a, GameObject b)
+    {
+        var aim = a.transform.position - b.transform.position;
+        var look = Quaternion.LookRotation(aim);
+        return look * Quaternion.AngleAxis(90, Vector3.back);
     }
 }

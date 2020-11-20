@@ -44,15 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd2681b80df6ab4c861a732097457f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beamParticleObj: {fileID: 2303640618854446028, guid: 1104d2591f4089747b889990bb0a1cdf,
+  beamParticleObj: {fileID: 6902709875706166550, guid: cf7ddd0e19d82a94dba44fbc6c9047cd,
     type: 3}
-  force: 100
-  radius: 1.2
-  lostTime: 3
+  radius: 2
+  lostStartTime: 5
   defaultDamage: 10
   plusDamage: 0.1
-  defaultBullet: 4
-  addBullet: 2
+  defaultBullet: 2
+  addBullet: 0.2
 --- !u!114 &114668168811967358
 MonoBehaviour:
   m_ObjectHideFlags: 0
