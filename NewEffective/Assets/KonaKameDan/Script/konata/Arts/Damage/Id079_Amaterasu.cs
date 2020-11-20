@@ -42,11 +42,14 @@ public class Id079_Amaterasu : MonoBehaviour
         Arts_Process.ZoneDamage(satelliteCannonDamage, artsStatus, damage, false);
         hitCollision = Arts_Process.SetHitCollision(satelliteCannonParticleObj);
         satelliteBeamMaterial = satelliteCannonParticleObj.GetComponent<SatelliteBeamMaterial>();
+
+        satelliteCannonParticleObj.transform.localScale = new Vector3(10, 0, 10);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
         //エフェクトの所持数を代入
         shotCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Shot);
         explosionCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
@@ -109,7 +112,6 @@ public class Id079_Amaterasu : MonoBehaviour
     private void OnDisable()
     {
         //初期化
-        satelliteCannonParticleObj.transform.localScale = new Vector3(10, 0, 10);
         isPlayHitParticle = false;
         isSatelliteCannonInstant = false;
         satelliteCannonStartParticleObj.SetActive(true);

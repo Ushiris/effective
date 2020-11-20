@@ -70,7 +70,7 @@ public class SatelliteBeamMaterial : MonoBehaviour
                 Shader(shaderSpeed);
                 CoreMaterial(coreMaterialSpeed);
 
-                if (shaderTimer > 1 && coreMaterialTimer < 0)
+                if (shaderTimer >= 1 && coreMaterialTimer <= 0)
                 {
                     isTimeStart = false;
                 }

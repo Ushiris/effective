@@ -44,13 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439c39d4534341740aaf472c49444376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icarusParticleObj: {fileID: 79780720721125208, guid: 755863443df64764b8411f8054d8844c,
-    type: 3}
-  range: 50
-  force: 10
-  lostTime: 30
-  plusTime: 0.5
-  plusRange: 0.3
+  icarusParticleObj: {fileID: 0}
+  range: 0
+  force: 0
+  lostTime: 0
+  plusTime: 0
+  plusRange: 0
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BanArea : MonoBehaviour
 {
     static readonly string kPlayerTag = "Player";
+    static readonly string kEnemyTag = "Enemy";
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +15,7 @@ public class BanArea : MonoBehaviour
             var rb = other.GetComponent<Rigidbody>();
             rb.velocity = Vector3.zero;
         }
-        else
+        else if(other.tag== kEnemyTag)
         {
             Destroy(other);
         }
