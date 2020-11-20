@@ -38,7 +38,11 @@ public class UshirisSystemEditor : Editor
     float BestAttackDistance_Melee = EnemyProperty.BestAttackDistance_Melee;
     float BestAttackDistance_Range = EnemyProperty.BestAttackDistance_Range;
     float KnightDistance = EnemyProperty.KnightDistance;
-    float PlayerFindDistance = EnemyProperty.PlayerFindDistance;
+    float PlayerFindDistance = EnemyProperty.PlayerFindDistance; 
+    float EnemyPopNear  = GameBaranceManager.EnemyPopNear;
+    float EnemyPopFar  = GameBaranceManager.EnemyPopFar;
+    float EnemyPopFast = GameBaranceManager.EnemyPopFast;
+    float EnemyPopLate  = GameBaranceManager.EnemyPopLate;
 
     public override void OnInspectorGUI()
     {
@@ -53,6 +57,16 @@ public class UshirisSystemEditor : Editor
         EnemyProperty.Instance.SetBestAttackDistance_Range(BestAttackDistance_Range);
         EnemyProperty.Instance.SetPlayerFindDistance(PlayerFindDistance);
         EnemyProperty.Instance.SetExtraAuraDistance(KnightDistance);
+
+        EnemyPopNear = EditorGUILayout.FloatField("敵スポーン距離（最小値）", EnemyPopNear);
+        EnemyPopFar = EditorGUILayout.FloatField("敵スポーン距離（最大値）", EnemyPopFar);
+        EnemyPopFast = EditorGUILayout.FloatField("敵が湧くまでの速度（最小値）", EnemyPopFast);
+        EnemyPopLate = EditorGUILayout.FloatField("敵が湧くまでの速度（最大値）", EnemyPopLate);
+
+        GameBaranceManager.Instance.SetEnemyPopNear(EnemyPopNear);
+        GameBaranceManager.Instance.SetEnemyPopFar(EnemyPopFar);
+        GameBaranceManager.Instance.SetEnemyPopFast(EnemyPopFast);
+        GameBaranceManager.Instance.SetEnemyPopLate(EnemyPopLate);
 
         system.Enemy.ForEach(item =>
         {
