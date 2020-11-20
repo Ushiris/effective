@@ -16,7 +16,7 @@ public class StopWatch : MonoBehaviour
     public TimeEvent LapEvent { get; set; }
 
     public float LapTime { get; set; }
-    public bool IsActive { get; set; }
+    public bool IsActive { get; set; } = true;
     public float LapTimer { get; set; }
 
     public static StopWatch Summon(float lapTime, TimeEvent act, GameObject parent, bool isOneShot = false)
@@ -38,7 +38,7 @@ public class StopWatch : MonoBehaviour
 
     void Update()
     {
-        //if (!IsActive) return;
+        if (!IsActive) return;
 
         float delta = isReactiveFlame ? 0f : Time.deltaTime;
         ActiveTime += delta;
