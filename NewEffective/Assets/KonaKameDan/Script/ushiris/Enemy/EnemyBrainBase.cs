@@ -113,7 +113,7 @@ public class EnemyBrainBase : MonoBehaviour
         switch (state.move)
         {
             case MoveState.Chase:
-                transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+                LookAtPlayerXZ();
                 FindAction();
                 break;
 
@@ -202,7 +202,7 @@ public class EnemyBrainBase : MonoBehaviour
         }
 
         navMesh.SetDestination(player.transform.position + add);
-        gameObject.transform.LookAt(player.transform);
+        LookAtPlayerXZ();
     }
 
     private void EnchantAction_()
@@ -348,5 +348,10 @@ public class EnemyBrainBase : MonoBehaviour
             var item = enemies[i];
             if (item.GetComponent<EnemyBrainBase>().IsCommand) enemies.Remove(item);
         }
+    }
+
+    protected void LookAtPlayerXZ()
+    {
+        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
     }
 }

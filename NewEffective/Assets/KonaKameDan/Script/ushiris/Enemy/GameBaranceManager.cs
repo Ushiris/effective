@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GameBaranceManager
 {
-    public GameBaranceManager Instance { get; private set; } = new GameBaranceManager();
+    public static GameBaranceManager Instance { get; private set; } = new GameBaranceManager();
 
-    public float EnemyPopNear { get; private set; } = 25;
-    public float EnemyPopFar { get; private set; } = 45;
-    public float EnemyPopFast { get; private set; } = 5f;
-    public float EnemyPopLate { get; private set; } = 12f;
+    public static float EnemyPopNear { get; private set; } = 25;
+    public static float EnemyPopFar { get; private set; } = 45;
+    public static float EnemyPopFast { get; private set; } = 5f;
+    public static float EnemyPopLate { get; private set; } = 12f;
 
     public void SetEnemyPopNear(float value)
     {
