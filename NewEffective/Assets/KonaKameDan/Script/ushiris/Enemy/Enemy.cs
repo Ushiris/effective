@@ -98,8 +98,7 @@ public class Enemy : MonoBehaviour
             var name = artsPickUp.GetEffect[Random.Range(0, artsPickUp.GetEffect.Count - 1)];
             var effect = Instantiate(Resources.Load("EffectObj/[" + name.ToString() + "]EffectObject")) as GameObject;
             effect.transform.position = gameObject.transform.position + fixPos;
-            var rb = effect.GetComponent<Rigidbody>();
-            rb.AddRelativeForce(Random.onUnitSphere * kEffectDropRange, ForceMode.VelocityChange);
+            effect.GetComponent<Rigidbody>().AddRelativeForce(Random.onUnitSphere * kEffectDropRange, ForceMode.VelocityChange);
         }
     }
 

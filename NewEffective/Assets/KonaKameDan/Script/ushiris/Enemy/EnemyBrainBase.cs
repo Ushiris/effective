@@ -25,7 +25,11 @@ public class EnemyBrainBase : MonoBehaviour
         thinkTimer = gameObject.AddComponent<StopWatch>();
         navMesh = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
-        EnchantTimer.ForEach((item) => item = gameObject.AddComponent<StopWatch>());
+        for(int i = 0; i < (int)Enchants.ENCHANT_AMOUNT; ++i)
+        {
+            EnchantTimer.Add(gameObject.AddComponent<StopWatch>());
+            EnchantTimer[i].IsActive = false;
+        }
     }
 
     protected void Start()
@@ -101,6 +105,7 @@ public class EnemyBrainBase : MonoBehaviour
         EnchantTimer[(int)enchant].ResetTimer();
         EnchantTimer[(int)enchant].LapEvent = () => { state.enchants[(int)enchant] = false; EnchantTimer[(int)enchant].SetActive(false); };
         EnchantTimer[(int)enchant].LapTime = time;
+        EnchantTimer[(int)enchant].IsActive = true;
     }
 
     private void Think_()
@@ -256,7 +261,7 @@ public class EnemyBrainBase : MonoBehaviour
             case StayAItype.Ambush:
                 Default = () =>
                 {
-                    navMesh.SetDestination(player.transform.position + (UnityEngine.Random.Range(0, 1) == 0 ? player.transform.right * 30 : -player.transform.right * 30));
+                    navMesh.SetDestination(player.transform.position + player.transform.right * (UnityEngine.Random.Range(0, 1) == 0 ? 20 : -20));
                 };
                 break;
 
@@ -280,7 +285,6 @@ public class EnemyBrainBase : MonoBehaviour
         switch (type)
         {
             case FindAItype.Soldier:
-                IsCommand = false;
                 Default = Default_;
                 FindAction = FindAction_Circle;
                 break;
@@ -293,6 +297,7 @@ public class EnemyBrainBase : MonoBehaviour
                     enemies.Add(item.gameObject);
                 }
                 RemoveNotActive(enemies);
+                RemoveCommand(enemies);
 
                 if (enemies.Count == 0) break;
 
@@ -333,6 +338,15 @@ public class EnemyBrainBase : MonoBehaviour
         {
             var item = enemies[i];
             if (!item.activeSelf) enemies.Remove(item);
+        }
+    }
+
+    protected void RemoveCommand(List<GameObject> enemies)
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            var item = enemies[i];
+            if (item.GetComponent<EnemyBrainBase>().IsCommand) enemies.Remove(item);
         }
     }
 }
