@@ -49,7 +49,7 @@ public class Id02_Beam : MonoBehaviour
     {
         if (beamControlScript.isGetEnd)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
     }
 }
