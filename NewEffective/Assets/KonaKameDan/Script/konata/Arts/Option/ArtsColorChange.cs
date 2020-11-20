@@ -13,7 +13,7 @@ public class ArtsColorChange : MonoBehaviour
     static readonly string kColorValueName1 = "_Color1";
     static readonly string kColorValueName2 = "_Color2";
     static readonly Color32 kBooleColorCode1 = new Color32(18, 0, 255, 0);
-    static readonly Color32 kBooleColorCode2 = new Color32(0, 179, 255, 0);
+    static readonly Color32 kBooleColorCode2 = new Color32(0, 19, 87, 0);
     static readonly Color32 kRedColorCode1 = new Color32(255, 44, 0, 0);
     static readonly Color32 kRedColorCode2 = new Color32(255, 124, 0, 0);
 
