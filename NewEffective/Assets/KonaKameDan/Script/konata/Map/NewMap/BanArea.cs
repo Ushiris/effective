@@ -11,6 +11,12 @@ public class BanArea : MonoBehaviour
         if (other.tag == kPlayerTag)
         {
             other.transform.position = NewMapManager.GetPlayerRespawnPos;
+            var rb = other.GetComponent<Rigidbody>();
+            rb.velocity = Vector3.zero;
+        }
+        else
+        {
+            Destroy(other);
         }
     }
 }
