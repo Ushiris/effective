@@ -29,7 +29,6 @@ public class BGM_PlayBack : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("playBgmStartSwitch : " + playBgmStartSwitch);
         if (playBgmStartSwitch)// 冒頭を再生
         {
             bgm[(int)bgm_Name * 2 + 1].Stop();// 停止
@@ -66,6 +65,10 @@ public class BGM_PlayBack : MonoBehaviour
     /// </summary>
     public static int PlayBGMArrNumber { get; private set; }
     /// <summary>
+    /// 現在フェードインしてるBGMのナンバー
+    /// </summary>
+    private static int PlayFadeBGMArrNumber { get; set; }
+    /// <summary>
     /// フェードさせたいBGMのナンバーを入力
     /// </summary>
     public static BGM_Manager.BGM_NAME RequesBgmFadeArrNumber { get; set; }
@@ -86,8 +89,12 @@ public class BGM_PlayBack : MonoBehaviour
         }
         else
         {
+            if (!bgm[(int)RequesBgmFadeArrNumber * 2].isPlaying)//ループが流れていないとき
+                PlayFadeBGMArrNumber = ((int)RequesBgmFadeArrNumber * 2);// 冒頭からフェード
+            else
+                PlayFadeBGMArrNumber = ((int)RequesBgmFadeArrNumber * 2) + 1;// ループからフェード
             bgm[PlayBGMArrNumber].volume -= faeOutVolume;
-            bgm[(int)RequesBgmFadeArrNumber * 2].volume += fadeInVolume;
+            bgm[PlayFadeBGMArrNumber].volume += fadeInVolume;
             return true;
         }
     }
