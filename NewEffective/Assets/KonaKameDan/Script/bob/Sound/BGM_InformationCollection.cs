@@ -54,10 +54,17 @@ public class BGM_InformationCollection : MonoBehaviour
     /// </summary>
     [Header("BGMの情報集")]
     public List<bgmInformation> bgmDataList = new List<bgmInformation>();
+    /// <summary>
+    /// ゲーム開始時、再生するBGMの名前
+    /// </summary>
+    [Header("ゲーム開始時、再生するBGMの名前")]
+    public BGM_NAME firstPlay_bgm;
 
     private void Start()
     {
         bgm_Manager = GetComponent<BGM_Manager>();
+        // ゲーム開始時、BGMを再生する
+        BGM_Manager.BgmPlayback(firstPlay_bgm, BGM_TYPE.beginning, bgmDataList[(int)firstPlay_bgm * 2].bgmVolume, true);
     }
     private void Update()
     {

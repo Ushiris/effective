@@ -50,42 +50,42 @@ public class TestPlayBGM : MonoBehaviour
 
         if (boosBGM)
         {
-            //BGM
+            // BGM:( forest_Boss_BGM )の冒頭:( beginning )を再生したい時の書き方
             BGM_Manager.BgmPlayback(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f, true);
             boosBGM = false;
         }
 
         if (naturalBGM)
         {
-            //BGM
+            // BGM:( forest_BGM )の冒頭:( beginning )を再生したい時の書き方
             BGM_Manager.BgmPlayback(BGM_InformationCollection.BGM_NAME.forest_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f, true);
             naturalBGM = false;
         }
 
         if (boosBGMFadeIn)
         {
-            //BGM
+            // BGM:( forest_Boss_BGM )の冒頭:( beginning )をフェードインしたい時の書き方
             BGM_Manager.BgmFadeIn(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f);
             boosBGMFadeIn = false;
         }
 
         if (naturalBGMFadeIn)
         {
-            //BGM
+            // BGM:( forest_BGM )の冒頭:( beginning )をフェードインしたい時の書き方
             BGM_Manager.BgmFadeIn(BGM_InformationCollection.BGM_NAME.forest_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f);
             naturalBGMFadeIn = false;
         }
 
         if (boosBGMFadeOut)
         {
-            //BGM
+            // BGM:( forest_Boss_BGM )の冒頭:( beginning )をフェードアウトしたい時の書き方
             BGM_Manager.BgmFadeOut(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.0f);
             boosBGMFadeOut = false;
         }
 
         if (naturalBGMFadeOut)
         {
-            //BGM
+            // BGM:( forest_BGM )の冒頭:( beginning )をフェードアウトしたい時の書き方
             BGM_Manager.BgmFadeOut(BGM_InformationCollection.BGM_NAME.forest_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.0f);
             naturalBGMFadeOut = false;
         }
