@@ -239,6 +239,7 @@ MonoBehaviour:
   life: {fileID: 0}
   slider: {fileID: 0}
   status: {fileID: 6225329085623931612}
+  effectDropCount: 1
   isBoss: 0
 --- !u!114 &6225329085623931612
 MonoBehaviour:
@@ -645,7 +646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7426519282851801227}
   m_Layer: 12
-  m_Name: GameObject
+  m_Name: MuzzleArts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
