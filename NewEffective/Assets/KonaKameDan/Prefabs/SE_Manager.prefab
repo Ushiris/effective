@@ -47,6 +47,18 @@ MonoBehaviour:
   seData:
     list:
     - Key: 0
-      Value: {fileID: 8300000, guid: 150ba09ab372a0149b71817747493b14, type: 3}
+      Value:
+        audio: {fileID: 8300000, guid: c4b4f280588fda548a8b42c7c90f769a, type: 3}
+        seVolume: 0.1
     - Key: 1
-      Value: {fileID: 8300000, guid: b6c99519a29cba445b1c5c1a762bf8ee, type: 3}
+      Value:
+        audio: {fileID: 8300000, guid: b6c99519a29cba445b1c5c1a762bf8ee, type: 3}
+        seVolume: 0.1
+    - Key: 2
+      Value:
+        audio: {fileID: 8300000, guid: 735e3e46e8fd1e04f9a8e5c482a4fd0e, type: 3}
+        seVolume: 0.5
+    - Key: 3
+      Value:
+        audio: {fileID: 8300000, guid: e14c1278810ff3042b1d60d18d168ac0, type: 3}
+        seVolume: 0.5

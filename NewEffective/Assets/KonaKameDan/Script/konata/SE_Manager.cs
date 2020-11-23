@@ -19,6 +19,13 @@ public class SE_Manager : MonoBehaviour
         Hit, Shot, CastArts, Heel
     }
 
+    [System.Serializable]
+    public class SeData
+    {
+        public AudioClip audio;
+        [Range(0, 1f)] public float seVolume = 0.1f;
+    }
+
     //[System.Serializable]
     //public class SeData
     //{
@@ -66,7 +73,9 @@ public class SE_Manager : MonoBehaviour
             {
                 if (!se.isPlaying)
                 {
-                    se.PlayOneShot(SE_Manager_.seData.GetTable()[seType]);
+                    var audioData = SE_Manager_.seData.GetTable()[seType];
+                    se.volume = audioData.seVolume;
+                    se.PlayOneShot(audioData.audio);
                     break;
                 }
             }
@@ -74,11 +83,11 @@ public class SE_Manager : MonoBehaviour
     }
 
     [System.Serializable]
-    public class PrefabDictionary : Serialize.TableBase<SE_NAME, AudioClip, Name2Prefab> { }
+    public class PrefabDictionary : Serialize.TableBase<SE_NAME, SeData, Name2Prefab> { }
 
     [System.Serializable]
-    public class Name2Prefab : Serialize.KeyAndValue<SE_NAME, AudioClip>
+    public class Name2Prefab : Serialize.KeyAndValue<SE_NAME, SeData>
     {
-        public Name2Prefab(SE_NAME key, AudioClip value) : base(key, value) { }
+        public Name2Prefab(SE_NAME key, SeData value) : base(key, value) { }
     }
 }
