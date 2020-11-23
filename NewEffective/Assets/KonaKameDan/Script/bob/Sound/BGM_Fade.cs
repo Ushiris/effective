@@ -9,10 +9,10 @@ public class BGM_Fade : MonoBehaviour
 
     [Header("フェードインのスピード")]
     [Range(0, 1)]
-    [SerializeField] float fadeInSpead = 0.001f;
+    [SerializeField] float fadeInSpead = 0.005f;
     [Header("フェードアウトのスピード")]
     [Range(0, 1)]
-    [SerializeField] float fadeOutSpead = 0.002f;
+    [SerializeField] float fadeOutSpead = 0.005f;
 
     /// <summary>
     /// フェード処理をしているとき true、していないとき false

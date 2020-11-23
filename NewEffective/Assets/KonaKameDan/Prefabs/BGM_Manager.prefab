@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmDataList: []
+  firstPlay_bgm: 0
 --- !u!114 &8908635835213538823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,5 +71,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad63aae34c7e684b9f615a88d58417d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInSpead: 0.001
-  fadeOutSpead: 0.002
+  fadeInSpead: 0.005
+  fadeOutSpead: 0.005
