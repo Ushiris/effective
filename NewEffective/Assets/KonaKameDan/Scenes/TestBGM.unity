@@ -628,5 +628,115 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[0].elementName
+      value: "\u30B9\u30C6\u30FC\u30B8\u68EE_Beginning"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[0].bgmSource
+      value: 
+      objectReference: {fileID: 8300000, guid: 11c0516fbe9d2c14d8d7eaca78b51243, type: 3}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[0].bgmVolume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[0].whetherBossBgm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[1].elementName
+      value: "\u30B9\u30C6\u30FC\u30B8\u68EE_Loop"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[1].bgmSource
+      value: 
+      objectReference: {fileID: 8300000, guid: ea07c92b564371d4aad14e7957c28571, type: 3}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[1].bgmType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[1].bgmVolume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[2].elementName
+      value: "\u30B9\u30C6\u30FC\u30B8\u68EE_BOSS_Beginning"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[2].bgmSource
+      value: 
+      objectReference: {fileID: 8300000, guid: d623d683fd2325341ad69cc7b95e17e3, type: 3}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[2].bgmName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[2].whetherBossBgm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[2].bgmVolume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[3].elementName
+      value: "\u30B9\u30C6\u30FC\u30B8\u68EE_BOSS_Loop"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[3].bgmSource
+      value: 
+      objectReference: {fileID: 8300000, guid: 8907d5d2ae522114ba92e42242338c01, type: 3}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[3].bgmName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[3].bgmType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[3].bgmVolume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: bgmDataList.Array.data[3].whetherBossBgm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538822, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: fadeInSpead
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908635835213538822, guid: 59b51e777267a3049913b2e791979f13,
+        type: 3}
+      propertyPath: fadeOutSpead
+      value: 0.005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59b51e777267a3049913b2e791979f13, type: 3}
