@@ -51,42 +51,42 @@ public class TestPlayBGM : MonoBehaviour
         if (boosBGM)
         {
             //BGM
-            BGM_Manager_2.BgmPlayback(BGM_InformationCollection_2.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection_2.BGM_TYPE.beginning, 0.2f, true);
+            BGM_Manager.BgmPlayback(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f, true);
             boosBGM = false;
         }
 
         if (naturalBGM)
         {
             //BGM
-            BGM_Manager_2.BgmPlayback(BGM_InformationCollection_2.BGM_NAME.forest_BGM, BGM_InformationCollection_2.BGM_TYPE.beginning, 0.2f, true);
+            BGM_Manager.BgmPlayback(BGM_InformationCollection.BGM_NAME.forest_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f, true);
             naturalBGM = false;
         }
 
         if (boosBGMFadeIn)
         {
             //BGM
-            BGM_Manager_2.BgmFadeIn(BGM_InformationCollection_2.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection_2.BGM_TYPE.beginning, 0.2f);
+            BGM_Manager.BgmFadeIn(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f);
             boosBGMFadeIn = false;
         }
 
         if (naturalBGMFadeIn)
         {
             //BGM
-            BGM_Manager_2.BgmFadeIn(BGM_InformationCollection_2.BGM_NAME.forest_BGM, BGM_InformationCollection_2.BGM_TYPE.beginning, 0.2f);
+            BGM_Manager.BgmFadeIn(BGM_InformationCollection.BGM_NAME.forest_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f);
             naturalBGMFadeIn = false;
         }
 
         if (boosBGMFadeOut)
         {
             //BGM
-            BGM_Manager_2.BgmFadeOut(BGM_InformationCollection_2.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection_2.BGM_TYPE.beginning, 0.0f);
+            BGM_Manager.BgmFadeOut(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.0f);
             boosBGMFadeOut = false;
         }
 
         if (naturalBGMFadeOut)
         {
             //BGM
-            BGM_Manager_2.BgmFadeOut(BGM_InformationCollection_2.BGM_NAME.forest_BGM, BGM_InformationCollection_2.BGM_TYPE.beginning, 0.0f);
+            BGM_Manager.BgmFadeOut(BGM_InformationCollection.BGM_NAME.forest_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.0f);
             naturalBGMFadeOut = false;
         }
     }
