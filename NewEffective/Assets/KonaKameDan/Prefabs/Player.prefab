@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9dd614444e48494ab244e1e4c7afdd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 0}
+  model: {fileID: 580520358662230520}
   life: {fileID: 114511514300449464}
 --- !u!114 &8603869694668530
 MonoBehaviour:

@@ -15,7 +15,7 @@ public class StageSelectUI : MonoBehaviour
     Image image;
     Vector2 defaultSiz;
     RectTransform rectTransform;
-    NewMapManager.MapType selectMapType;
+    NewMap.MapType selectMapType;
 
     [SerializeField] string SetSceneNameToChangeScene = NameDefinition.SceneName_Result;
 
@@ -71,15 +71,15 @@ public class StageSelectUI : MonoBehaviour
     }
 
     //ランダムにマップタイプを出す
-    NewMapManager.MapType GetRandomMapType()
+    NewMap.MapType GetRandomMapType()
     {
         List<int> countList = new List<int>();
-        foreach (int i in System.Enum.GetValues(typeof(NewMapManager.MapType)))
+        foreach (int i in System.Enum.GetValues(typeof(NewMap.MapType)))
         {
             countList.Add(i);
         }
         var ran = Random.Range(0, countList.Count);
-        return (NewMapManager.MapType)countList[ran];
+        return (NewMap.MapType)countList[ran];
     }
 
     /// <summary>
@@ -110,7 +110,7 @@ public class StageSelectUI : MonoBehaviour
         else
         {
             MainGameManager.GetArtsReset = false;
-            NewMapManager.SetSelectMapType = selectMapType;
+            NewMap.SetSelectMapType = selectMapType;
         }
 
         SceneManager.LoadScene(SetSceneNameToChangeScene);

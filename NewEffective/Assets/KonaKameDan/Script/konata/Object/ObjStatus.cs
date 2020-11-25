@@ -64,8 +64,8 @@ public class ObjStatus : MonoBehaviour
     {
         for (int i = 0; i < maxEffectCount; i++)
         {
-            var ran = Random.Range(0, NewMapManager.GetEffect.Count - 1);
-            var obj = Instantiate(NewMapManager.GetEffect[ran], transform);
+            var ran = Random.Range(0, NewMap.GetEffect.Count - 1);
+            var obj = Instantiate(NewMap.GetEffect[ran], transform);
 
             var rb = obj.GetComponent<Rigidbody>();
             effectArr.Add(rb);

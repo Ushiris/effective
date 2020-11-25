@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemySpawnPoint : MonoBehaviour
 {
-    float siz;
     bool isEnemyActive;
     List<Enemy> enemyList = new List<Enemy>();
     [SerializeField] List<Vector3> spawnPos = new List<Vector3>();
@@ -16,9 +15,9 @@ public class EnemySpawnPoint : MonoBehaviour
     public static bool isSpawnEnabled = true;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        siz = transform.localScale.x / 2;
+        int siz = (int)(transform.localScale.x / 2);
 
         GetComponent<MeshRenderer>().enabled = isAreaEnabled;
         var c = GetComponent<Collider>();
@@ -27,19 +26,31 @@ public class EnemySpawnPoint : MonoBehaviour
         //敵が出現するエリアを決める
         var pos = transform.position;
 
-        //敵を設置できるところ追加
-        for (int x = FixPosX(-siz + pos.x); x < FixPosX(siz + pos.x); x += 10)
+        //ナビメッシュがセッティングされた後実行される
+        NewMap.SetMapEventStartUp += () =>
         {
-            for (int z = FixPosZ(-siz + pos.z); z < FixPosZ(siz + pos.z); z += 10)
+            //敵を設置できるところ追加
+            for (int x = -siz + (int)pos.x; x < siz + (int)pos.x; x++)
             {
-                Vector3 v3 = new Vector3(x, 0, z);
-                if (c.ClosestPoint(v3) == v3 && NewMapManager.GetEventPos[x, z])
+                for (int z = -siz + (int)pos.z; z < siz + (int)pos.z; z++)
                 {
-                    v3.y = NewMapTerrainData.GetTerrain.terrainData.GetHeight(x, z) + 5;
-                    spawnPos.Add(v3);
+                    if (x % NewMap.kMapEventRange == 0 && z % NewMap.kMapEventRange == 0)
+                    {
+                        for (int y = 0; y < (int)NewMap.GetMapMaxHeight; y++)
+                        {
+                            var v3 = new Vector3(x, y, z);
+
+                            //座標がコリジョン内であることとナビメッシュの上であること
+                            if (c.ClosestPoint(v3) == v3 && NewMap.GetNavMeshHeight.ContainsKey(v3))
+                            {
+                                v3.y = NewMap.GetNavMeshHeight[v3] + 2;
+                                spawnPos.Add(v3);
+                            }
+                        }
+                    }
                 }
             }
-        }
+        };
     }
 
     private void OnTriggerEnter(Collider other)
@@ -109,15 +120,5 @@ public class EnemySpawnPoint : MonoBehaviour
                 }
             }
         }
-    }
-
-    int FixPosX(float x)
-    {
-        return  Mathf.Clamp((int)x, 0, NewMapManager.GetEventPos.GetLength(0) - 1);
-    }
-
-    int FixPosZ(float z)
-    {
-        return Mathf.Clamp((int)z, 0, NewMapManager.GetEventPos.GetLength(1) - 1);
     }
 }
