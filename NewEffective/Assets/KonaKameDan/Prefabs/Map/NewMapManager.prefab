@@ -65,6 +65,7 @@ MonoBehaviour:
     - item: {fileID: 8922917191592098055, guid: 4113cc94eea44154490f3bc8bb3c1985,
         type: 3}
       probability: 1
+  treasureBoxObj: {fileID: 0}
   playerObj: {fileID: 7505584113060827351, guid: e1e991e09772c5f4e94aa21a22efd2bf,
     type: 3}
   bossObj: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad, type: 3}
