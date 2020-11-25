@@ -107,14 +107,15 @@ public class NewMap : MonoBehaviour
                 GetEffect.Add(item.item);
             }
         }
+        //プレイヤー配置
+        Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
 
         start = () =>
         {
             //ナビメッシュのベイク処理
             navMeshSurface.BuildNavMesh();
 
-            //プレイヤーとボス配置
-            Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
+            //ボス配置
             Instantiate(bossObj, status.bossSpawnPoint, new Quaternion());
 
             //ポータル設置
