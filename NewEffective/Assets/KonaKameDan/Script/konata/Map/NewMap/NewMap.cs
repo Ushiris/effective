@@ -77,8 +77,10 @@ public class NewMap : MonoBehaviour
         var mapType = SetSelectMapType;
         var statusListNum = GetRandomSelectFromType(mapType);
         var status = statusList[statusListNum];
-        var map = Instantiate(status.map, transform);
+        var map = status.map;
         GetMapMaxHeight = status.mapSizH;
+
+        map.SetActive(true);
 
         //プレイヤーのスポーンポイント
         GetPlayerRespawnPos = status.playerSpawnPoint;
@@ -107,6 +109,7 @@ public class NewMap : MonoBehaviour
                 GetEffect.Add(item.item);
             }
         }
+
         //プレイヤー配置
         Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
 
