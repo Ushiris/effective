@@ -26,10 +26,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.8678905
+  m_Height: 1.839107
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &2223555410175224183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,11 +104,11 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: 7c422d362f35247409deb892d964a863, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 91340d77b0f7e454abebf106e9846724, type: 2}
+      objectReference: {fileID: 2100000, guid: d8e77c0a8cc16c54fb5dff596aa17ddb, type: 2}
     - target: {fileID: 13700000, guid: 7c422d362f35247409deb892d964a863, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 76d9ce9b9d23aa445b7f44c795e6a73d, type: 2}
+      objectReference: {fileID: 2100000, guid: 64a32c1698cdab84b8f7ad2bbd4a96fc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c422d362f35247409deb892d964a863, type: 3}
 --- !u!1001 &2619090045235567622
@@ -217,6 +217,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StoppingDistance
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642206097694198832, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642206097694198832, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7fe2c416a1c1d449b1aaf6921ea3300, type: 3}

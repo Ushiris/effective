@@ -41,19 +41,20 @@ public class TpsPlayerControl : MonoBehaviour
         mouseDelta.y = Input.GetAxis("Mouse Y") * PlayerManager.GetManager.mouseSensitivity;
         
         pl.transform.Rotate(0, mouseDelta.x, 0);
-        var angle_x = cameraPivot.transform.localRotation.eulerAngles.x - mouseDelta.y;
-        if (angle_x >= 40 && angle_x <= 130)
+
+
+        desiredPosition = cameraDesirePos.transform.position;
+        float height = t.terrainData.GetInterpolatedHeight(desiredPosition.x / t.terrainData.size.x, desiredPosition.z / t.terrainData.size.z);
+        if (desiredPosition.y < height && mouseDelta.y >= 0)
+        {
+            desiredPosition.y = height + 0.02f;
+            mouseDelta.y = 0;
+        }
+        else if (desiredPosition.y >= head.transform.position.y + distance - 0.1f && mouseDelta.y <= 0)
         {
             mouseDelta.y = 0;
         }
         cameraPivot.transform.Rotate(-mouseDelta.y, 0, 0);
-
-        desiredPosition = cameraDesirePos.transform.position;
-        float height = t.terrainData.GetHeight((int)desiredPosition.x, (int)desiredPosition.z);
-        if (desiredPosition.y < height && height < distance + 0.2)
-        {
-            desiredPosition.y = height + 0.02f;
-        }
 
         cameraObj.transform.position = WallCheck() ? wallHitPosition : desiredPosition;
         cameraObj.transform.LookAt(head.transform);

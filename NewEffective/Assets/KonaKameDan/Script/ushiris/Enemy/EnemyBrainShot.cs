@@ -7,12 +7,10 @@ public class EnemyBrainShot : EnemyBrainBase
     private new void Start()
     {
         base.Start();
-        navMesh.isStopped = true;
     }
 
     private void LateUpdate()
     {
-        navMesh.isStopped = true;
         if (FindFlag())
         {
             state.move = EnemyState.MoveState.Chase;
@@ -22,5 +20,6 @@ public class EnemyBrainShot : EnemyBrainBase
         {
             state.move = EnemyState.MoveState.Stay;
         }
+        rb.velocity = Vector3.zero;
     }
 }

@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class TerritorySenses : MonoBehaviour
 {
     Canvas bossUI;
     Slider slider;
     GameObject BossName;
+    public static UnityEvent 
+        OnTerrtoryEnter = new UnityEvent(), 
+        OnTerrtoryExit = new UnityEvent();
+    static int bossCount = 0;
 
     private void Start()
     {
@@ -35,17 +40,32 @@ public class TerritorySenses : MonoBehaviour
         collider.transform.localPosition = Vector3.zero;
         collider.radius = 50;
         collider.isTrigger = true;
+
+        OnTerrtoryEnter.AddListener(() => bossCount++);
+        OnTerrtoryExit.AddListener(() => bossCount--);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player") return;
-        bossUI.gameObject.SetActive(true);
+        if (!other.CompareTag("Player")) return;
+
+        bossCount++;
+        if (bossCount == 1)
+        {
+            OnTerrtoryEnter.Invoke();
+            bossUI.gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag != "Player") return;
-        bossUI.gameObject.SetActive(false);
+        if (!other.CompareTag("Player")) return;
+
+        bossCount--;
+        if (bossCount == 0)
+        {
+            OnTerrtoryExit.Invoke();
+            bossUI.gameObject.SetActive(false);
+        }
     }
 }
