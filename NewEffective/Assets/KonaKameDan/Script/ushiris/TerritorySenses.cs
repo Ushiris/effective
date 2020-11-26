@@ -40,9 +40,6 @@ public class TerritorySenses : MonoBehaviour
         collider.transform.localPosition = Vector3.zero;
         collider.radius = 50;
         collider.isTrigger = true;
-
-        OnTerrtoryEnter.AddListener(() => bossCount++);
-        OnTerrtoryExit.AddListener(() => bossCount--);
     }
 
     private void OnTriggerEnter(Collider other)
