@@ -17,8 +17,8 @@ public class EnemyBrainBase : MonoBehaviour
     protected Vector3 DefaultPos;
     protected Formation formation = new Formation();
     protected Transform HidePos;
+    protected Rigidbody rb;
     public bool IsCommand { get; protected set; } = false;
-    Rigidbody rb;
 
     public void Awake()
     {
