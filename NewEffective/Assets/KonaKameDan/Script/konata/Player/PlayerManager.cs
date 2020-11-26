@@ -22,10 +22,18 @@ public class PlayerManager : MonoBehaviour
         var life = GetPlObj.GetComponent<Life>();
         life.LifeSetup(0.3f);
         RegeneEventID = life.AddBeat(() => { life.Heal((int)life.MaxHP / 100 + 1); });
-        var regene_timer = StopWatch.Summon(3, () => { life.ActiveEvent(Life.Timing.beat, RegeneEventID); }, gameObject);
+        var regene_timer = StopWatch.Summon(3, () => {}, gameObject);
+        regene_timer.LapEvent = () =>
+         {
+            life.ActiveEvent(Life.Timing.beat, RegeneEventID);
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Heel);// SE_Heel
+            regene_timer.SetActive(false);
+         };
+        regene_timer.SetActive(false);
         life.AddDamageFunc((x) => {
             life.ActiveEvent(Life.Timing.beat, RegeneEventID, false);
             regene_timer.ResetTimer();
+            regene_timer.SetActive(true);
         });
 
         life.AddLastword(() =>

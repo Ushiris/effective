@@ -167,6 +167,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6929485253059204035}
     m_Modifications:
+    - target: {fileID: 1358642966, guid: 56d34b58d79a34643af4ff773d1f22d6, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 974374066309183990, guid: 56d34b58d79a34643af4ff773d1f22d6,
         type: 3}
       propertyPath: isTimeStart

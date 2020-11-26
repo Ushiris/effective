@@ -90,6 +90,7 @@ public class NewMapManager : MonoBehaviour
         Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
         Instantiate(bossObj, status.bossSpawnPoint, new Quaternion());
 
+        //プレイヤーのスポーンポイント
         GetPlayerRespawnPos = status.playerSpawnPoint;
 
         //ポータル設置
