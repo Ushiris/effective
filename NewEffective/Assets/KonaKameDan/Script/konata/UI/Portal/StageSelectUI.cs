@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class StageSelectUI : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class StageSelectUI : MonoBehaviour
     NewMap.MapType selectMapType;
 
     [SerializeField] string SetSceneNameToChangeScene = NameDefinition.SceneName_Result;
+
+    /// <summary>
+    /// ポータルから他のシーンに飛んだ時に実行されるイベント
+    /// </summary>
+    public static UnityEvent OnAfterPortalChangeScene;
 
     static readonly float kMaxGage = 13f;
     static readonly float kMinGame = 0f;
@@ -112,6 +118,8 @@ public class StageSelectUI : MonoBehaviour
             MainGameManager.GetArtsReset = false;
             NewMap.SetSelectMapType = selectMapType;
         }
+
+        OnAfterPortalChangeScene.Invoke();
 
         SceneManager.LoadScene(SetSceneNameToChangeScene);
     }
