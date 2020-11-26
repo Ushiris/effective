@@ -73,7 +73,12 @@ public class UshirisSystemEditor : Editor
             if (item == null) return;
             if (GUILayout.Button("召喚：" + item.name))
             {
-                var enemy = Instantiate(item);
+                var enemy = EnemySpawnManager.GetEnemy().gameObject;
+                if (enemy == null)
+                {
+                    DebugLogger.Log("湧き上限です。これ以上敵を召喚することはできません。");
+                    return;
+                }
                 enemy.transform.position = PlayerManager.GetManager.GetPlObj.transform.position + PlayerManager.GetManager.GetPlObj.transform.forward * 25;
                 system.enemies.Add(enemy.GetComponent<Enemy>());
                 enemy.SetActive(true);
