@@ -9,8 +9,8 @@ using TMPro;
 /// </summary>
 public class UI_ArtsMaterialization : MonoBehaviour
 {
-    enum ICON { Left, Center, Right }
-    enum NAME_FRAME { Outside, Center, Inside }
+    enum ICON { Left, Center, Right, End }
+    enum NAME_FRAME { Outside, Center, Inside, End }
 
     [SerializeField] float interval = 0.3f;
     public bool displaySwitch = true;
@@ -53,18 +53,46 @@ public class UI_ArtsMaterialization : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI artsNameText;
 
-    List<GameObject> displayTurn = new List<GameObject>();
+    ActiveImageDelay[] iconImageDelay = new ActiveImageDelay[(int)ICON.End];
+    ActiveImageDelay[] iconFrameImageDelay = new ActiveImageDelay[(int)ICON.End];
+    ActiveImageDelay[] nameFrameImageDelay = new ActiveImageDelay[(int)NAME_FRAME.End];
+    ActiveTextMeshProDelay artsNameTextDelay;
+
+    static readonly int kDisplayTurnMaxCount = 3;
+    static readonly bool kIsIconSetPlaySe = false;
+    static readonly bool kIsIconFrameSetPlaySe = true;
+    static readonly bool kIsArtsNameFrameSetPlaySe = false;
+    static readonly bool kIsArtsNameSetPlaySe = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        //一括管理用]
-        for (int i = icon.Count - 1; i >= 0; i--) displayTurn.Add(icon[i].obj);
-        for (int i = iconFrame.Count - 1; i >= 0; i--) displayTurn.Add(iconFrame[i].obj);
-        foreach (var obj in nameFrame) displayTurn.Add(obj.obj);
+        for (int i = (int)ICON.End - 1; i >= 0; i--)
+        {
+            iconImageDelay[i] = icon[i].obj.GetComponent<ActiveImageDelay>();
+            iconFrameImageDelay[i] = iconFrame[i].obj.GetComponent<ActiveImageDelay>();
+
+            //エフェクトアイコンが出現するときのSEを流す処理の追加
+            iconImageDelay[i].onPlaySe = () => { UI_Manager.EffectIconSetPlaySe(); };
+            //エフェクトアイコンフレームが出現するときのSEを流す処理の追加
+            iconFrameImageDelay[i].onPlaySe = () => { UI_Manager.EffectIconFrameSetPlaySe(); };
+        }
+        for (int i = 0; i < (int)NAME_FRAME.End; i++)
+        {
+            nameFrameImageDelay[i]= nameFrame[i].obj.GetComponent<ActiveImageDelay>();
+
+            //アーツ名フレームが出現するときのSEを流す処理の追加
+            nameFrameImageDelay[i].onPlaySe = () => { UI_Manager.EffectNameFrameSetPlaySe(); }
+;        }
+
+        artsNameTextDelay = artsNameText.GetComponent<ActiveTextMeshProDelay>();
+
+        //アーツ名が出現するときにSEを流す処理の追加
+        artsNameTextDelay.onPlaySe = () => { UI_Manager.ArtsNameSetPlaySe(); };
+
 
         //初期化
-        IntervalDisplay(false, displayTurn.Count);
+        IntervalDisplay(false, kDisplayTurnMaxCount);
     }
 
     // Update is called once per frame
@@ -83,7 +111,7 @@ public class UI_ArtsMaterialization : MonoBehaviour
         {
 
             //画面をリセット
-            IntervalDisplay(false, displayTurn.Count);
+            IntervalDisplay(false, kDisplayTurnMaxCount);
             MoveReset();
 
             //画像を切り替える
@@ -107,27 +135,40 @@ public class UI_ArtsMaterialization : MonoBehaviour
     //表示＆表示にかかる時間設定
     void IntervalDisplay(bool on,int count, float intervalTime = 0)
     {
-        if (count == 3 || count == displayTurn.Count)
+        if (count == 3 || count == kDisplayTurnMaxCount)
         {
-            for (int i = 0; i < displayTurn.Count; i++)
-            {
-                displayTurn[i].GetComponent<ActiveImageDelay>().Delay(on, intervalTime * i);
-            }
+            //for (int i = 0; i < displayTurn.Count; i++)
+            //{
+            //    displayTurn[i].GetComponent<ActiveImageDelay>().Delay(on, intervalTime * i);
+            //}
+            iconImageDelay[(int)ICON.Right].Delay(on, intervalTime * 0);
+            iconImageDelay[(int)ICON.Center].Delay(on, intervalTime * 1);
+            iconImageDelay[(int)ICON.Left].Delay(on, intervalTime * 2);
+
+            iconFrameImageDelay[(int)ICON.Right].Delay(on, intervalTime * 0.2f);
+            iconFrameImageDelay[(int)ICON.Center].Delay(on, intervalTime * 1.2f);
+            iconFrameImageDelay[(int)ICON.Left].Delay(on, intervalTime * 2.2f);
+
+            nameFrameImageDelay[(int)NAME_FRAME.Outside].Delay(on, intervalTime * 2.3f);
+            nameFrameImageDelay[(int)NAME_FRAME.Center].Delay(on, intervalTime * 2.6f);
+            nameFrameImageDelay[(int)NAME_FRAME.Inside].Delay(on, intervalTime * 2.9f);
 
             //文字の表示
-            artsNameText.GetComponent<ActiveTextMeshProDelay>().Delay(on, intervalTime * displayTurn.Count);
+            artsNameTextDelay.Delay(on, intervalTime * 4);
         }
         else if (count == 2)
         {
-            icon[(int)ICON.Center].obj.GetComponent<ActiveImageDelay>().Delay(on, intervalTime * 0);
-            icon[(int)ICON.Left].obj.GetComponent<ActiveImageDelay>().Delay(on, intervalTime * 1);
-            iconFrame[(int)ICON.Center].obj.GetComponent<ActiveImageDelay>().Delay(on, intervalTime * 2);
-            iconFrame[(int)ICON.Left].obj.GetComponent<ActiveImageDelay>().Delay(on, intervalTime * 3);
-            nameFrame[(int)NAME_FRAME.Inside].obj.GetComponent<ActiveImageDelay>().Delay(on, intervalTime * 4);
-            nameFrame[(int)NAME_FRAME.Center].obj.GetComponent<ActiveImageDelay>().Delay(on, intervalTime * 5);
+            iconImageDelay[(int)ICON.Center].Delay(on, intervalTime * 0);
+            iconImageDelay[(int)ICON.Left].Delay(on, intervalTime * 1);
+
+            iconFrameImageDelay[(int)ICON.Center].Delay(on, intervalTime * 0.2f);
+            iconFrameImageDelay[(int)ICON.Left].Delay(on, intervalTime * 1.2f);
+
+            nameFrameImageDelay[(int)NAME_FRAME.Outside].Delay(on, intervalTime * 1.3f);
+            nameFrameImageDelay[(int)NAME_FRAME.Center].Delay(on, intervalTime * 1.6f);
 
             //文字の表示
-            artsNameText.GetComponent<ActiveTextMeshProDelay>().Delay(on, intervalTime * 6);
+            artsNameTextDelay.Delay(on, intervalTime * 2.5f);
         }
     }
 

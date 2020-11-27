@@ -16,7 +16,7 @@ public class SE_Manager : MonoBehaviour
     /// </summary>
     public enum SE_NAME
     {
-        Hit, Shot, CastArts, Heel, EffectPlate_EffectObject_Set, EffectPlate_ArtsName_Set, EffectPlate_Switching
+        Hit, Shot, CastArts, Heel, EffectPlate_EffectObject_Set, EffectPlate_ArtsName_Set, EffectPlate_Switching, Nothing
     }
 
     [System.Serializable]

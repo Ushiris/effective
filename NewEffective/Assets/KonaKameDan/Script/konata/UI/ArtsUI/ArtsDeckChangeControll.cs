@@ -9,24 +9,36 @@ public class ArtsDeckChangeControll : MonoBehaviour
 {
     public static int GetNum { get; private set; }
 
+    delegate void OnPlaySe();
+    OnPlaySe onPlaySe;
+
     float scroll;
+
+    static readonly float kMouseScrollWheelJudgeLine = 0;
+
+    private void Start()
+    {
+        onPlaySe = () => { UI_Manager.ArtsDeckChangePlaySe(); };
+    }
 
     private void FixedUpdate()
     {
         scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        if (scroll > 0)
+        if (scroll > kMouseScrollWheelJudgeLine)
         {
             if (GetNum > 0)
             {
                 GetNum--;
+                onPlaySe();
             }
         }
-        if (scroll < 0)
+        if (scroll < kMouseScrollWheelJudgeLine)
         {
             if (GetNum < transform.childCount - 1)
             {
                 GetNum++;
+                onPlaySe();
             }
         }
 
