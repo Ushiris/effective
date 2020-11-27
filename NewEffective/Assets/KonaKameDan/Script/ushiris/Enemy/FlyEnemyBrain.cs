@@ -16,7 +16,7 @@ public class FlyEnemyBrain : EnemyBrainBase
     {
         base.Start();
         
-        Default = Default__;
+        Stay = Default__;
         var rand = Random.Range(1, 10);
         if (rand == 9)
         {
@@ -51,7 +51,7 @@ public class FlyEnemyBrain : EnemyBrainBase
                 }
             },
             {
-                Enchants.Blind,()=>Default()
+                Enchants.Blind,()=>Stay()
             },
         };
     }
