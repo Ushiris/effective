@@ -51,42 +51,42 @@ public class TestPlayBGM : MonoBehaviour
         if (boosBGM)
         {
             // BGM:( forest_Boss_BGM )の冒頭:( beginning )を再生したい時の書き方
-            BGM_Manager.BgmPlayback(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f, true);
+            BGM_Manager.BgmPlayback(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection.BGM_TYPE.beginning, true);
             boosBGM = false;
         }
 
         if (naturalBGM)
         {
             // BGM:( forest_BGM )の冒頭:( beginning )を再生したい時の書き方
-            BGM_Manager.BgmPlayback(BGM_InformationCollection.BGM_NAME.forest_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f, true);
+            BGM_Manager.BgmPlayback(BGM_InformationCollection.BGM_NAME.forest_BGM, BGM_InformationCollection.BGM_TYPE.beginning, true);
             naturalBGM = false;
         }
 
         if (boosBGMFadeIn)
         {
-            // BGM:( forest_Boss_BGM )の冒頭:( beginning )をフェードインしたい時の書き方
-            BGM_Manager.BgmFadeIn(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f);
+            // BGM:( forest_Boss_BGM )をフェードインしたい時の書き方
+            BGM_Manager.BgmFadeIn(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM);
             boosBGMFadeIn = false;
         }
 
         if (naturalBGMFadeIn)
         {
-            // BGM:( forest_BGM )の冒頭:( beginning )をフェードインしたい時の書き方
-            BGM_Manager.BgmFadeIn(BGM_InformationCollection.BGM_NAME.forest_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.2f);
+            // BGM:( forest_BGM )をフェードインしたい時の書き方
+            BGM_Manager.BgmFadeIn(BGM_InformationCollection.BGM_NAME.forest_BGM);
             naturalBGMFadeIn = false;
         }
 
         if (boosBGMFadeOut)
         {
-            // BGM:( forest_Boss_BGM )の冒頭:( beginning )をフェードアウトしたい時の書き方
-            BGM_Manager.BgmFadeOut(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.0f);
+            // BGM:( forest_Boss_BGM )をフェードアウトしたい時の書き方
+            BGM_Manager.BgmFadeOut(BGM_InformationCollection.BGM_NAME.forest_Boss_BGM);
             boosBGMFadeOut = false;
         }
 
         if (naturalBGMFadeOut)
         {
-            // BGM:( forest_BGM )の冒頭:( beginning )をフェードアウトしたい時の書き方
-            BGM_Manager.BgmFadeOut(BGM_InformationCollection.BGM_NAME.forest_BGM, BGM_InformationCollection.BGM_TYPE.beginning, 0.0f);
+            // BGM:( forest_BGM )をフェードアウトしたい時の書き方
+            BGM_Manager.BgmFadeOut(BGM_InformationCollection.BGM_NAME.forest_BGM);
             naturalBGMFadeOut = false;
         }
     }

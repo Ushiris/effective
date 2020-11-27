@@ -726,7 +726,7 @@ PrefabInstance:
     - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
       propertyPath: bgmDataList.Array.data[3].whetherBossBgm
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8908635835213538822, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}

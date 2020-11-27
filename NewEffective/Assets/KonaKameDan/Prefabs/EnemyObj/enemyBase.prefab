@@ -240,6 +240,7 @@ MonoBehaviour:
   slider: {fileID: 0}
   status: {fileID: 6225329085623931612}
   effectDropCount: 1
+  muzzle: {fileID: 6579676720879186573}
   isBoss: 0
 --- !u!114 &6225329085623931612
 MonoBehaviour:

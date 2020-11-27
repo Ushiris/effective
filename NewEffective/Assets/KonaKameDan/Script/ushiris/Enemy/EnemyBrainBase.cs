@@ -18,10 +18,12 @@ public class EnemyBrainBase : MonoBehaviour
     protected Formation formation = new Formation();
     protected Transform HidePos;
     protected Rigidbody rb;
+    protected Enemy enemyData;
     public bool IsCommand { get; protected set; } = false;
 
     public void Awake()
     {
+        enemyData = GetComponent<Enemy>();
         thinkTimer = gameObject.AddComponent<StopWatch>();
         navMesh = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
@@ -54,7 +56,7 @@ public class EnemyBrainBase : MonoBehaviour
                 }
             },
             {
-                Enchants.Blind,()=>Default()
+                Enchants.Blind,()=>Stay()
             },
         };
 
@@ -63,14 +65,14 @@ public class EnemyBrainBase : MonoBehaviour
 
     void InitDefaultAction()
     {
-        Think = Think_;
-        Stan = Stan_;
-        Blind = Blind_;
-        Default = Default_;
+        Think = StandardThink;
+        Stan = StandardStan;
+        Blind = StandardBlind;
+        Stay = ReturnToHome;
         IsAttackable = IsAttackable_;
-        FindFlag = FindFlag_;
+        FindFlag = StandardFindFlag;
         FindAction = FindAction_Circle;
-        EnchantAction = EnchantAction_;
+        EnchantAction = StandardEnchantAction;
     }
 
     //オブジェクトがアクティブになった時 
@@ -93,7 +95,7 @@ public class EnemyBrainBase : MonoBehaviour
     public StopWatch.TimeEvent Think { get => thinkTimer.LapEvent; protected set => thinkTimer.LapEvent = value; }
     public EnemyStateChange Stan { get; protected set; }
     public EnemyStateChange Blind { get; protected set; }
-    public EnemyBrainAction Default { get; protected set; }
+    public EnemyBrainAction Stay { get; protected set; }
     public EnemyBrainFlag IsAttackable { get; protected set; }
     public EnemyBrainFlag FindFlag { get; protected set; }
     public EnemyBrainAction FindAction { get; protected set; }
@@ -108,7 +110,7 @@ public class EnemyBrainBase : MonoBehaviour
         EnchantTimer[(int)enchant].IsActive = true;
     }
 
-    private void Think_()
+    private void StandardThink()
     {
         switch (state.move)
         {
@@ -118,11 +120,11 @@ public class EnemyBrainBase : MonoBehaviour
                 break;
 
             case MoveState.Stay:
-                Default();
+                Stay();
                 break;
 
             case MoveState.Confuse:
-                Default();
+                Stay();
                 break;
 
             default:
@@ -133,7 +135,7 @@ public class EnemyBrainBase : MonoBehaviour
         EnchantAction();
     }
 
-    private void Default_()
+    private void ReturnToHome()
     {
         navMesh.SetDestination(DefaultPos);
     }
@@ -155,13 +157,13 @@ public class EnemyBrainBase : MonoBehaviour
         }
     }
 
-    private void Stan_(float time)
+    private void StandardStan(float time)
     {
         AddEnchant(Enchants.Stan, time);
         Think();
     }
 
-    private void Blind_(float time)
+    private void StandardBlind(float time)
     {
         AddEnchant(Enchants.Blind, time);
         Think();
@@ -205,7 +207,7 @@ public class EnemyBrainBase : MonoBehaviour
         LookAtPlayerXZ();
     }
 
-    private void EnchantAction_()
+    private void StandardEnchantAction()
     {
         for (int i = 0; i < state.enchants.Count; i++)
         {
@@ -216,7 +218,7 @@ public class EnemyBrainBase : MonoBehaviour
         }
     }
 
-    private bool FindFlag_() 
+    private bool StandardFindFlag() 
     {
         return Vector3.Distance(player.transform.position, transform.position) <= EnemyProperty.PlayerFindDistance;
     }
@@ -251,7 +253,7 @@ public class EnemyBrainBase : MonoBehaviour
     public void Follow(Transform boss)
     {
         FindAction = () => navMesh.SetDestination(boss.position);
-        Default = () => navMesh.SetDestination(boss.position);
+        Stay = () => navMesh.SetDestination(boss.position);
     }
 
     public void AIset(StayAItype type)
@@ -259,7 +261,7 @@ public class EnemyBrainBase : MonoBehaviour
         switch (type)
         {
             case StayAItype.Ambush:
-                Default = () =>
+                Stay = () =>
                 {
                     navMesh.SetDestination(player.transform.position + player.transform.right * (UnityEngine.Random.Range(0, 1) == 0 ? 20 : -20));
                 };
@@ -268,11 +270,11 @@ public class EnemyBrainBase : MonoBehaviour
             case StayAItype.Ninja:
                 FindAction = () => { };
                 Hide();
-                Default = () => { Hide(); navMesh.SetDestination(HidePos.position); };
+                Stay = () => { Hide(); navMesh.SetDestination(HidePos.position); };
                 break;
 
             case StayAItype.Return:
-                Default = Default_;
+                Stay = ReturnToHome;
                 break;
 
             default:
@@ -285,50 +287,55 @@ public class EnemyBrainBase : MonoBehaviour
         switch (type)
         {
             case FindAItype.Soldier:
-                Default = Default_;
+                Stay = ReturnToHome;
                 FindAction = FindAction_Circle;
                 break;
 
             case FindAItype.Commander:
                 IsCommand = true;
-                var enemies = new List<GameObject>();
-                foreach (var item in FindObjectsOfType<Enemy>())
-                {
-                    enemies.Add(item.gameObject);
-                }
-                RemoveNotActive(enemies);
-                RemoveCommand(enemies);
-
-                if (enemies.Count == 0) break;
-
-                var tr = new List<Transform>();
-                enemies.ForEach(item => tr.Add(item.transform));
-
-                List<float> dist = new List<float> { Vector3.Distance(transform.position, tr[0].position) };
-                List<int> idx = new List<int>() { 0 };
-
-                for (int j = 0; j < tr.Count; j++)
-                {
-                    for (int i = 0; i < dist.Count; i++)
-                    {
-                        var dist_x = Vector3.Distance(transform.position, tr[j].position);
-                        if (dist[i] > dist_x || i == dist.Count - 1)
-                        {
-                            dist.Insert(i, dist_x);
-                            idx.Insert(i, j);
-                            break;
-                        }
-                    }
-                }
-
-                for(int i = 0; i < (enemies.Count< 4?enemies.Count:4); i++)
-                {
-                    enemies[idx[i]].GetComponent<EnemyBrainBase>().Follow(transform);
-                }
+                Influence();
                 break;
 
             default:
                 break;
+        }
+    }
+
+    void Influence()
+    {
+        var enemies = new List<GameObject>();
+        foreach (var item in FindObjectsOfType<Enemy>())
+        {
+            enemies.Add(item.gameObject);
+        }
+        RemoveNotActive(enemies);
+        RemoveCommand(enemies);
+
+        if (enemies.Count == 0) return;
+
+        var tr = new List<Transform>();
+        enemies.ForEach(item => tr.Add(item.transform));
+
+        List<float> dist = new List<float> { Vector3.Distance(transform.position, tr[0].position) };
+        List<int> idx = new List<int>() { 0 };
+
+        for (int j = 0; j < tr.Count; j++)
+        {
+            for (int i = 0; i < dist.Count; i++)
+            {
+                var dist_x = Vector3.Distance(transform.position, tr[j].position);
+                if (dist[i] > dist_x || i == dist.Count - 1)
+                {
+                    dist.Insert(i, dist_x);
+                    idx.Insert(i, j);
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < (enemies.Count < 4 ? enemies.Count : 4); i++)
+        {
+            enemies[idx[i]].GetComponent<EnemyBrainBase>().Follow(transform);
         }
     }
 
@@ -353,5 +360,6 @@ public class EnemyBrainBase : MonoBehaviour
     protected void LookAtPlayerXZ()
     {
         transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+        enemyData.MuzzleLookAt(player.transform.position);
     }
 }
