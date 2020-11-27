@@ -33,6 +33,9 @@ public class ActiveImageDelay : MonoBehaviour
             if (interval < timer)
             {
                 img.enabled = true;
+
+                //SE
+                onPlaySe();
             }
             else
             {
@@ -46,15 +49,12 @@ public class ActiveImageDelay : MonoBehaviour
     /// </summary>
     /// <param name="onTrigger"></param>
     /// <param name="interval"></param>
-    public void Delay(bool onTrigger, float interval = 0, bool isPlaySe = false)
+    public void Delay(bool onTrigger, float interval = 0)
     {
         //初期化
         timer = 0;
         img = GetComponent<Image>();
         if (img.enabled) img.enabled = false;
-
-        //SE
-        if (onTrigger && isPlaySe) onPlaySe();
 
         this.onTrigger = onTrigger;
         this.interval = interval;

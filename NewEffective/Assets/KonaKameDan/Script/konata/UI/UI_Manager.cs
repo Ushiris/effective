@@ -172,6 +172,55 @@ public class UI_Manager : MonoBehaviour
     /// </summary>
     public static Canvas GetMainUiCanvas
     {
-        get{ return GetUI_Manager.uICanvas.GetComponent<Canvas>(); }
+        get { return GetUI_Manager.uICanvas.GetComponent<Canvas>(); }
     }
+
+
+
+    /*  SE  */
+    #region　SEを流す時に呼ばれる関数定義
+
+    /// <summary>
+    /// エフェクトアイコンが出現するときに流れるSE
+    /// </summary>
+    public static void EffectIconSetPlaySe()
+    {
+
+    }
+
+    /// <summary>
+    /// エフェクトがセットされるときに流れるSE
+    /// </summary>
+    public static void EffectIconFrameSetPlaySe()
+    {
+        //例
+        SE_Manager.SePlay(SE_Manager.SE_NAME.CastArts);
+    }
+
+    /// <summary>
+    /// アーツ名フレームが出現するときに流れるSE
+    /// </summary>
+    public static void EffectNameFrameSetPlaySe()
+    {
+
+    }
+
+    /// <summary>
+    /// アーツ名が出現するときに流れるSE
+    /// </summary>
+    public static void ArtsNameSetPlaySe()
+    {
+
+    }
+
+    /// <summary>
+    /// アーツデッキを切り替えるときに流れるSE
+    /// </summary>
+    public static void ArtsDeckChangePlaySe()
+    {
+        //例
+        SE_Manager.SePlay(SE_Manager.SE_NAME.CastArts);
+    }
+
+    #endregion
 }
