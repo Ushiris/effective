@@ -9,6 +9,9 @@ public class TitleMenuCamera : MonoBehaviour
     [SerializeField] Transform pivot;
     [SerializeField] float speed = 3f;
 
+    [SerializeField] TitleMenuSelectChange nextButton;
+    [SerializeField] TitleMenuSelectChange backButton;
+
     int listNum = 0;
     List<GameObject> select = new List<GameObject>();
 
@@ -20,32 +23,37 @@ public class TitleMenuCamera : MonoBehaviour
         {
             select.Add(obj.gameObject);
         }
+
+        //クリックに反応するようにする
+        nextButton.isPointerClick = () => Next();
+        backButton.isPointerClick = () => Back();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (IsListNumPlusMove())
-        {
-            if (listNum < select.Count - 1) listNum++;
-            else listNum = 0;
-        }
-        else if (IsListNumMinusMove())
-        {
-            if (listNum > 0) listNum--;
-            else listNum = select.Count - 1;
-        }
+        //次に進むために配列番号を進める
+        if (IsListNumPlusMove()) Next();
+        else if (IsListNumMinusMove()) Back();
 
-
+        //移動
         transform.LookAt(pivot);
         var target = select[listNum].transform.position;
         transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * speed);
     }
 
-    bool IsLimit(int target ,int max)
+    //次に進むために配列番号を進める
+    void Next()
     {
-        Debug.Log(listNum.ToString());
-        return target >= 0 && target < max;
+        if (listNum < select.Count - 1) listNum++;
+        else listNum = 0;
+    }
+
+    //前に戻るために配列番号を戻す
+    void Back()
+    {
+        if (listNum > 0) listNum--;
+        else listNum = select.Count - 1;
     }
 
     bool IsListNumPlusMove()
