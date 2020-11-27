@@ -38,12 +38,12 @@ public class BGM_InformationCollection : MonoBehaviour
         public float bgmVolume;
         [Header("現在のボリューム")]
         [Range(0, 1)]
-        public float bgmVolumeNow;
+        [HideInInspector] public float bgmVolumeNow;
+        [Header("基礎のボリューム")]
+        [Range(0, 1)]
+        public float bgmVolumeBasics;
         [Header("現在流れているか否か")]
         public bool bgmPlaybackNow;
-        [Header("フェード処理用のボリューム")]
-        [Range(0, 1)]
-        public float bgmVolumeHildValue;
         [Header("現在フェードインしてるか否か")]
         public bool bgmFadeInNow;
         [Header("現在フェードアウトしてるか否か")]
@@ -64,7 +64,7 @@ public class BGM_InformationCollection : MonoBehaviour
     {
         bgm_Manager = GetComponent<BGM_Manager>();
         // ゲーム開始時、BGMを再生する
-        BGM_Manager.BgmPlayback(firstPlay_bgm, BGM_TYPE.beginning, bgmDataList[(int)firstPlay_bgm * 2].bgmVolume, true);
+        BGM_Manager.BgmPlayback(firstPlay_bgm, BGM_TYPE.beginning, true);
     }
     private void Update()
     {
@@ -72,7 +72,7 @@ public class BGM_InformationCollection : MonoBehaviour
         {
             // ボリューム変更したとき
             if (bgmDataList[i].bgmVolumeNow != bgmDataList[i].bgmVolume)
-                bgm_Manager.VolumeChange(bgmDataList[i].bgmName, bgmDataList[i].bgmVolume);
+                bgm_Manager.VolumeChange(bgmDataList[i].bgmName, bgmDataList[i].bgmVolume, true);
         }
     }
 
@@ -81,7 +81,7 @@ public class BGM_InformationCollection : MonoBehaviour
     /// </summary>
     /// <param name="bgmName">ボリュームを変更したBGMの名前</param>
     /// <param name="volumeChange">変更したボリューム量</param>
-    public void Volume_InformationChange(BGM_NAME bgmName, float volumeChange) 
+    public void Volume_InformationChange(BGM_NAME bgmName, float volumeChange, bool bgmVolumeBasicsMemory) 
     {
         // 冒頭
         bgmDataList[(int)bgmName * 2].bgmVolume = volumeChange;
@@ -89,6 +89,11 @@ public class BGM_InformationCollection : MonoBehaviour
         // ループ
         bgmDataList[(int)bgmName * 2 + 1].bgmVolume = volumeChange;
         bgmDataList[(int)bgmName * 2 + 1].bgmVolumeNow = volumeChange;
+        if(bgmVolumeBasicsMemory)
+        {
+            bgmDataList[(int)bgmName * 2].bgmVolumeBasics = volumeChange;
+            bgmDataList[(int)bgmName * 2 + 1].bgmVolumeBasics = volumeChange;
+        }
     }
     /// <summary>
     /// BGMが再生したことを情報集に記録する

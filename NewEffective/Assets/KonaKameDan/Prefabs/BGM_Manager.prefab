@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8908635835213538821}
   - component: {fileID: 8908635835213538823}
   - component: {fileID: 8908635835213538822}
+  - component: {fileID: 4204212147484391233}
   m_Layer: 0
   m_Name: BGM_Manager
   m_TagString: Untagged
@@ -73,3 +74,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeInSpead: 0.005
   fadeOutSpead: 0.005
+--- !u!114 &4204212147484391233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8908635835213538818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb00c8eb69bf5f249b2a48031f156f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossBGMSet: 1
