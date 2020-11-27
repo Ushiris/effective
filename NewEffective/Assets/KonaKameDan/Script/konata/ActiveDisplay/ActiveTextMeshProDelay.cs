@@ -15,6 +15,9 @@ public class ActiveTextMeshProDelay : MonoBehaviour
 
     TextMeshProUGUI tMPro;
 
+    public delegate void OnPlaySe();
+    public OnPlaySe onPlaySe;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,12 +46,15 @@ public class ActiveTextMeshProDelay : MonoBehaviour
     /// </summary>
     /// <param name="onTrigger"></param>
     /// <param name="interval"></param>
-    public void Delay(bool onTrigger, float interval = 0)
+    public void Delay(bool onTrigger, float interval = 0, bool isPlaySe = false)
     {
         //初期化
         timer = 0;
         tMPro = GetComponent<TextMeshProUGUI>();
         if (tMPro.enabled) tMPro.enabled = false;
+
+        //SE
+        if (onTrigger && isPlaySe) onPlaySe();
 
         this.onTrigger = onTrigger;
         this.interval = interval;

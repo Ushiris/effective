@@ -15,6 +15,9 @@ public class ActiveImageDelay : MonoBehaviour
 
     Image img;
 
+    public delegate void OnPlaySe();
+    public OnPlaySe onPlaySe;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,12 +46,15 @@ public class ActiveImageDelay : MonoBehaviour
     /// </summary>
     /// <param name="onTrigger"></param>
     /// <param name="interval"></param>
-    public void Delay(bool onTrigger, float interval = 0)
+    public void Delay(bool onTrigger, float interval = 0, bool isPlaySe = false)
     {
         //初期化
         timer = 0;
         img = GetComponent<Image>();
         if (img.enabled) img.enabled = false;
+
+        //SE
+        if (onTrigger && isPlaySe) onPlaySe();
 
         this.onTrigger = onTrigger;
         this.interval = interval;

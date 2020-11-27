@@ -16,7 +16,7 @@ public class SE_Manager : MonoBehaviour
     /// </summary>
     public enum SE_NAME
     {
-        Hit, Shot, CastArts, Heel
+        Hit, Shot, CastArts, Heel, Nothing
     }
 
     [System.Serializable]
