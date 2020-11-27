@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleMenuSelectIcon : MonoBehaviour
 {
+    [SerializeField] string changeSceneName = NameDefinition.SceneName_Main;
+
     Vector3 siz;
+
+    static readonly float changeSiz = 1.3f;
 
     private void Start()
     {
@@ -13,7 +18,7 @@ public class TitleMenuSelectIcon : MonoBehaviour
 
     public bool OnSizChange()
     {
-        transform.localScale = siz * 1.3f;
+        transform.localScale = siz * changeSiz;
         return true;
     }
 
@@ -21,5 +26,10 @@ public class TitleMenuSelectIcon : MonoBehaviour
     {
         transform.localScale = siz;
         return false;
+    }
+
+    public void OnSceneChange()
+    {
+        SceneManager.LoadScene(changeSceneName);
     }
 }

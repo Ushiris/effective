@@ -5,28 +5,39 @@ using UnityEngine;
 public class TitleMenuMouse : MonoBehaviour
 {
     bool isSizChange;
+    TitleMenuSelectIcon s;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    static readonly float kRayRange = 10f;
 
     // Update is called once per frame
     void Update()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out var hit, 10.0f))
+        if (Physics.Raycast(ray, out var hit, kRayRange))
         {
-            var s = hit.collider.gameObject.GetComponent<TitleMenuSelectIcon>();
-            if (s != null)
+            if (s == null)
             {
-                if (!isSizChange)isSizChange = s.OnSizChange();
-
+                s = hit.collider.gameObject.GetComponent<TitleMenuSelectIcon>();
             }
             else
             {
-                //if (isSizChange)
+                //サイズを変える
+                if (!isSizChange) isSizChange = s.OnSizChange();
+
+                //シーンチェンジ処理
+                if (Input.GetMouseButtonDown(0)) s.OnSceneChange();
+            }
+        }
+        else
+        {
+            if (s != null)
+            {
+                //サイズをもとに戻す
+                if (isSizChange)
+                {
+                    isSizChange = s.OnDefaultSiz();
+                    s = null;
+                }
             }
         }
     }
