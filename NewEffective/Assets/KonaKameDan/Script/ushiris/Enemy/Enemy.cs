@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Slider slider;
     [SerializeField] Status status;
     [SerializeField] int effectDropCount = 1;
+    [SerializeField] public GameObject muzzle;
+    [SerializeField] Vector3 muzzleAngleLimit = new Vector3(30, 60, 60);
     Rigidbody rb;
     public bool isBoss;
     public bool IsDeath { get; private set; }
@@ -127,5 +129,32 @@ public class Enemy : MonoBehaviour
     void Heal(int true_heal)
     {
         slider.value += true_heal;
+    }
+
+    public void MuzzleLookAt(Vector3 target)
+    {
+        muzzle.transform.LookAt(target);
+        Vector3 angle = muzzle.transform.localEulerAngles;
+        if (angle.y > muzzleAngleLimit.y)
+        {
+            float rotate = muzzleAngleLimit.y - angle.y;
+            muzzle.transform.Rotate(Vector3.up, rotate, Space.Self);
+        }
+        else if (angle.y < -muzzleAngleLimit.y)
+        {
+            float rotate = -muzzleAngleLimit.y - angle.y;
+            muzzle.transform.Rotate(Vector3.up, rotate, Space.Self);
+        }
+        if (angle.x > muzzleAngleLimit.x)
+        {
+            float rotate = muzzleAngleLimit.x - angle.x;
+            muzzle.transform.Rotate(Vector3.up, rotate, Space.Self);
+        }
+        else if (angle.x < -muzzleAngleLimit.x)
+        {
+            float rotate = -muzzleAngleLimit.x - angle.x;
+            muzzle.transform.Rotate(Vector3.up, rotate, Space.Self);
+        }
+
     }
 }

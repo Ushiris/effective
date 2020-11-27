@@ -15,7 +15,7 @@ public class EnemyDefender : EnemyBrainBase
         FindJob();
 
         navMesh.stoppingDistance = EnemyProperty.KnightDistance;
-        Default = ExMove;
+        Stay = ExMove;
         FindAction = ExMove;
 
         var rand = Random.Range(1, 10);
