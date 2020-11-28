@@ -20,6 +20,7 @@ public class EnemyBrainBase : MonoBehaviour
     protected Rigidbody rb;
     protected Enemy enemyData;
     public bool IsCommand { get; protected set; } = false;
+    protected bool IsLockAI = false;
 
     public void Awake()
     {
@@ -252,12 +253,16 @@ public class EnemyBrainBase : MonoBehaviour
 
     public void Follow(Transform boss)
     {
+        if (IsLockAI) return;
+
         FindAction = () => navMesh.SetDestination(boss.position);
         Stay = () => navMesh.SetDestination(boss.position);
     }
 
     public void AIset(StayAItype type)
     {
+        if (IsLockAI) return;
+
         switch (type)
         {
             case StayAItype.Ambush:
@@ -284,6 +289,8 @@ public class EnemyBrainBase : MonoBehaviour
 
     public void AIset(FindAItype type)
     {
+        if (IsLockAI) return;
+
         switch (type)
         {
             case FindAItype.Soldier:
