@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TitleMenuMouse : MonoBehaviour
 {
+    [SerializeField] TitleMenuCamera titleMenuCamera;
+
     bool isSizChange;
     TitleMenuSelectIcon s;
 
@@ -12,6 +14,8 @@ public class TitleMenuMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (TitleMenuSelectIcon.IsSceneLoadProcess || !titleMenuCamera.IsMoveEnd) return;
+
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out var hit, kRayRange))
         {

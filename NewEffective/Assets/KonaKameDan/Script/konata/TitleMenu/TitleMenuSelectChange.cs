@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TitleMenuSelectChange : ArrowImageMove
 {
+    [SerializeField] Image image;
+
     public delegate void IsPointerClick();
     public IsPointerClick isPointerClick;
 
@@ -12,12 +15,18 @@ public class TitleMenuSelectChange : ArrowImageMove
     // Start is called before the first frame update
     void Start()
     {
+        image = GetComponent<Image>();
         StartUp();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (TitleMenuSelectIcon.IsSceneLoadProcess)
+        {
+            image.enabled = false;
+            return;
+        }
         if (isPlayMove)
         {
             OnVerticalMove();
