@@ -63,5 +63,5 @@ MonoBehaviour:
   type: 0
   myStatus: {fileID: 0}
   myEffectCount: {fileID: 0}
-  artsType: 1
+  artsType: 0
   myObj: {fileID: 0}
