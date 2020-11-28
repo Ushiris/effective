@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Status status;
     [SerializeField] int effectDropCount = 1;
     [SerializeField] public GameObject muzzle;
-    [SerializeField] Vector3 muzzleAngleLimit = new Vector3(30, 60, 60);
+    [SerializeField] public Vector3 muzzleAngleLimit = new Vector3(30, 60, 60);
     Rigidbody rb;
     public bool isBoss;
     public bool IsDeath { get; private set; }
@@ -155,6 +155,5 @@ public class Enemy : MonoBehaviour
             float rotate = -muzzleAngleLimit.x - angle.x;
             muzzle.transform.Rotate(Vector3.up, rotate, Space.Self);
         }
-
     }
 }

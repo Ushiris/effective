@@ -87,7 +87,7 @@ public class Map : MonoBehaviour
 
 
         //シード値固定用
-        if (seed != 0) Random.seed = seed;
+        if (seed != 0) Random.InitState(seed);
 
         //地形データ生成
         mapData = TerrainDataInstant.InstantMapChip(w, d, h, chaos);
@@ -163,20 +163,6 @@ public class V2
     public V2(int x = 0, int z = 0)
     {
         this.x = x;
-        this.z = z;
-    }
-}
-
-public class V3
-{
-    public int x;
-    public int y;
-    public int z;
-
-    public V3(int x = 0, int y = 0, int z = 0)
-    {
-        this.x = x;
-        this.y = y;
         this.z = z;
     }
 }
