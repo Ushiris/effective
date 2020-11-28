@@ -53,7 +53,7 @@ public class EnemyBrainBase : MonoBehaviour
                 Enchants.Stan,
                 ()=>
                 {
-                    navMesh.SetDestination(player.transform.position);
+                    navMesh.SetDestination(transform.position);
                 }
             },
             {

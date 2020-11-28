@@ -64,10 +64,10 @@ public class Enemy : MonoBehaviour
         status.Lv = WorldLevel.GetWorldLevel;
     }
 
-    public void KnockBack()
+    public void KnockBack(float power = 10, float stan_time = 0.2f)
     {
-        // Brain.Stan(0.2f);
-        rb.AddForce(-transform.forward * 10);
+        rb.AddForce(-transform.forward * power);
+        Stan(stan_time);
     }
 
     public void Stan(float time)
