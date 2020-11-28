@@ -27,7 +27,7 @@ public class EnemyPop : MonoBehaviour
 
     void EnemySpawn()
     {
-        var pos = SpawnPointFinder(0);
+        var pos = SpawnPointFinder();
         if (pos == null) return;
 
         var enemy = EnemySpawnManager.GetEnemy();
@@ -49,7 +49,7 @@ public class EnemyPop : MonoBehaviour
         return desirePos;
     }
 
-    Vector3? SpawnPointFinder(int loopCount)
+    Vector3? SpawnPointFinder(int loopCount = 0)
     {
         Vector3 desirePos = SpawnPointSelector();
 
@@ -64,9 +64,7 @@ public class EnemyPop : MonoBehaviour
         else return desirePos;
 
         if (loopCount >= findPointLoopLimiter) return null;
-        else SpawnPointFinder(++loopCount);
-
-        return null;
+        else return SpawnPointFinder(++loopCount);
     }
 
     bool IsOutHeight(Terrain terrain,Vector3 desirePos)

@@ -7,38 +7,20 @@ using Enchants = EnemyState.Enchants;
 [RequireComponent(typeof(NavMeshAgent))]
 public class FlyEnemyBrain : EnemyBrainBase
 {
+    SinWaver waver;
+
     private new void Awake()
     {
         base.Awake();
+        waver = SinWaver.Summon(20, 0.5f, gameObject);
     }
 
     new void Start()
     {
         base.Start();
-        
-        Stay = Default__;
-        var rand = Random.Range(1, 10);
-        if (rand == 9)
-        {
-            AIset(FindAItype.Commander);
-        }
-        else
-        {
-            AIset(FindAItype.Soldier);
 
-            if (rand < 3)
-            {
-                AIset(StayAItype.Ambush);
-            }
-            else if (rand > 7)
-            {
-                AIset(StayAItype.Ninja);
-            }
-            else
-            {
-                AIset(StayAItype.Return);
-            }
-        }
+        Stay = Default__;
+        SetRandomAI();
 
         FindAction = FindAction_Sniper;
 
@@ -58,6 +40,7 @@ public class FlyEnemyBrain : EnemyBrainBase
 
     private void LateUpdate()
     {
+        transform.position = new Vector3(transform.position.x, transform.position.y + waver.GetDeltaHeight(), transform.position.z);
         if (state.move == MoveState.Confuse)
         {
             return;
@@ -84,16 +67,42 @@ public class FlyEnemyBrain : EnemyBrainBase
 
     private void FindAction_Sniper()
     {
-        var pos = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-        var dist = Vector3.Distance(transform.position, player.transform.position);
-        if (dist < EnemyProperty.BestAttackDistance_Range)
+        if (Vector3.Distance(transform.position, player.transform.position) < EnemyProperty.BestAttackDistance_Range)
         {
-            transform.LookAt(pos);
-            navMesh.SetDestination(transform.position - (transform.forward * 5));
+            Vector3 run_target = transform.position - (transform.forward * 5);
+            transform.LookAt(run_target);
+            navMesh.SetDestination(run_target);
         }
         else
         {
-            navMesh.SetDestination(pos);
+            navMesh.SetDestination(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+            LookAtPlayerXZ();
+        }
+    }
+
+    void SetRandomAI()
+    {
+        var rand = Random.Range(1, 10);
+        if (rand == 9)
+        {
+            AIset(FindAItype.Commander);
+        }
+        else
+        {
+            AIset(FindAItype.Soldier);
+
+            if (rand < 3)
+            {
+                AIset(StayAItype.Ambush);
+            }
+            else if (rand > 7)
+            {
+                AIset(StayAItype.Ninja);
+            }
+            else
+            {
+                AIset(StayAItype.Return);
+            }
         }
     }
 }
