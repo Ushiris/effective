@@ -15,6 +15,9 @@ public class ActiveImageDelay : MonoBehaviour
 
     Image img;
 
+    public delegate void OnPlaySe();
+    public OnPlaySe onPlaySe;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,9 @@ public class ActiveImageDelay : MonoBehaviour
             if (interval < timer)
             {
                 img.enabled = true;
+
+                //SE
+                onPlaySe();
             }
             else
             {

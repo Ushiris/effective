@@ -15,6 +15,9 @@ public class ActiveTextMeshProDelay : MonoBehaviour
 
     TextMeshProUGUI tMPro;
 
+    public delegate void OnPlaySe();
+    public OnPlaySe onPlaySe;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,7 @@ public class ActiveTextMeshProDelay : MonoBehaviour
             if (interval < timer)
             {
                 tMPro.enabled = true;
+                onPlaySe();
             }
             else
             {

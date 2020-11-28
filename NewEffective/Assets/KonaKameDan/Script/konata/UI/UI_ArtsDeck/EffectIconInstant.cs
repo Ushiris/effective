@@ -12,6 +12,7 @@ public class EffectIconInstant : MonoBehaviour
     [SerializeField] float speed = 3;
     Vector3 tmpPos;
     Image img;
+    RectTransform rectTransform;
 
 
     [SerializeField] bool isTestReset;
@@ -20,7 +21,8 @@ public class EffectIconInstant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tmpPos = GetComponent<RectTransform>().localPosition;
+        rectTransform = GetComponent<RectTransform>();
+        tmpPos = rectTransform.localPosition;
         img = GetComponent<Image>();
     }
 
@@ -34,15 +36,15 @@ public class EffectIconInstant : MonoBehaviour
     //ポジションのリセット
     public void PosReset()
     {
-        GetComponent<RectTransform>().localPosition = tmpPos + movePos;
+        rectTransform.localPosition = tmpPos + movePos;
     }
 
     //移動
     public void move()
     {
         float step = speed * Time.deltaTime;
-        GetComponent<RectTransform>().localPosition =
-            Vector3.MoveTowards(GetComponent<RectTransform>().localPosition, tmpPos, step);
+        rectTransform.localPosition =
+            Vector3.MoveTowards(rectTransform.localPosition, tmpPos, step);
     }
 
     void MyDebug()
