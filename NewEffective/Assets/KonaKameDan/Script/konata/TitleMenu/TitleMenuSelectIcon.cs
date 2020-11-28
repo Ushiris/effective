@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class TitleMenuSelectIcon : MonoBehaviour
 {
     [SerializeField] string changeSceneName = NameDefinition.SceneName_Main;
+    [SerializeField] GameObject titleTextObj;
+    [SerializeField] GameObject loadingObj;
+    [SerializeField] GameObject loadingAnimationObj;
+
+    public static bool IsSceneLoadProcess { get; private set; } = false;
 
     Vector3 siz;
 
@@ -13,6 +18,7 @@ public class TitleMenuSelectIcon : MonoBehaviour
 
     private void Start()
     {
+        IsSceneLoadProcess = false;
         siz = transform.localScale;
     }
 
@@ -30,6 +36,31 @@ public class TitleMenuSelectIcon : MonoBehaviour
 
     public void OnSceneChange()
     {
-        SceneManager.LoadScene(changeSceneName);
+        titleTextObj.SetActive(false);
+        loadingObj.SetActive(true);
+        loadingAnimationObj.SetActive(true);
+        IsSceneLoadProcess = true;
+        //SceneManager.LoadScene(changeSceneName);
+        StartCoroutine(LoadScene());
+    }
+
+    IEnumerator LoadScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(changeSceneName);
+
+        //速攻で遷移しないようにする
+        asyncLoad.allowSceneActivation = false;
+
+        while (asyncLoad.progress < 0.9f)
+        {
+            Debug.Log("flg: " + asyncLoad.isDone + " time: " + asyncLoad.progress);
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield return new WaitForSeconds(10f);
+
+        //シーンの移動
+        asyncLoad.allowSceneActivation = true;
+
     }
 }

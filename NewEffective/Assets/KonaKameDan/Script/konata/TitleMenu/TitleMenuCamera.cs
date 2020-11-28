@@ -12,6 +12,8 @@ public class TitleMenuCamera : MonoBehaviour
     [SerializeField] TitleMenuSelectChange nextButton;
     [SerializeField] TitleMenuSelectChange backButton;
 
+    public bool IsMoveEnd { get; private set; }
+
     int listNum = 0;
     List<GameObject> select = new List<GameObject>();
 
@@ -40,11 +42,16 @@ public class TitleMenuCamera : MonoBehaviour
         transform.LookAt(pivot);
         var target = select[listNum].transform.position;
         transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * speed);
+
+        //移動が終了したかどうか
+        var dis = Vector3.Distance(transform.position, target);
+        IsMoveEnd = dis < 0.2f;
     }
 
     //次に進むために配列番号を進める
     void Next()
     {
+        if (TitleMenuSelectIcon.IsSceneLoadProcess) return;
         if (listNum < select.Count - 1) listNum++;
         else listNum = 0;
     }
@@ -52,6 +59,7 @@ public class TitleMenuCamera : MonoBehaviour
     //前に戻るために配列番号を戻す
     void Back()
     {
+        if (TitleMenuSelectIcon.IsSceneLoadProcess) return;
         if (listNum > 0) listNum--;
         else listNum = select.Count - 1;
     }
