@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AlphaCrystalMaterial
+  m_Name: AlphaLightCrystalMaterial
   m_Shader: {fileID: 4800000, guid: 372b4c95b94b3284ea1712e5552ea3be, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -272,11 +272,11 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_1C0307BF: {r: 0, g: 0.9448633, b: 1, a: 0}
-    - Color_560DFD9: {r: 0.5254902, g: 0.7129551, b: 0.7254902, a: 0}
+    - Color_1C0307BF: {r: 0.05724907, g: 1, b: 0, a: 0}
+    - Color_560DFD9: {r: 0.59302545, g: 0.7254902, b: 0.5254902, a: 0}
     - Color_AC90C40A: {r: 0, g: 0, b: 0, a: 0}
-    - Color_DB601A07: {r: 0.11347442, g: 0.83977354, b: 0.9622641, a: 0}
-    - Color_EA5E1BDF: {r: 0.3607842, g: 0.317647, b: 0.972549, a: 0}
+    - Color_DB601A07: {r: 0.11372546, g: 0.9607843, b: 0.18486275, a: 0}
+    - Color_EA5E1BDF: {r: 0.2284176, g: 0.5566038, b: 0.25163138, a: 0}
     - Vector3_465F4042: {r: 2, g: 2, b: 3.65, a: 0}
     - Vector4_F1C47902: {r: 2, g: 2, b: 2, a: 2}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
