@@ -33,6 +33,7 @@ public class ActiveTextMeshProDelay : MonoBehaviour
             if (interval < timer)
             {
                 tMPro.enabled = true;
+                onPlaySe();
             }
             else
             {
@@ -46,15 +47,12 @@ public class ActiveTextMeshProDelay : MonoBehaviour
     /// </summary>
     /// <param name="onTrigger"></param>
     /// <param name="interval"></param>
-    public void Delay(bool onTrigger, float interval = 0, bool isPlaySe = false)
+    public void Delay(bool onTrigger, float interval = 0)
     {
         //初期化
         timer = 0;
         tMPro = GetComponent<TextMeshProUGUI>();
         if (tMPro.enabled) tMPro.enabled = false;
-
-        //SE
-        if (onTrigger && isPlaySe) onPlaySe();
 
         this.onTrigger = onTrigger;
         this.interval = interval;
