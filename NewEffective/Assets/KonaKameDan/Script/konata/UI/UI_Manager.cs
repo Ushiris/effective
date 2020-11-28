@@ -185,7 +185,7 @@ public class UI_Manager : MonoBehaviour
     /// </summary>
     public static void EffectIconSetPlaySe()
     {
-
+        SE_Manager.SePlay(SE_Manager.SE_NAME.EffectPlate_EffectObject_Set);
     }
 
     /// <summary>
@@ -194,7 +194,7 @@ public class UI_Manager : MonoBehaviour
     public static void EffectIconFrameSetPlaySe()
     {
         //例
-        SE_Manager.SePlay(SE_Manager.SE_NAME.CastArts);
+        //SE_Manager.SePlay(SE_Manager.SE_NAME.CastArts);
     }
 
     /// <summary>
@@ -202,7 +202,7 @@ public class UI_Manager : MonoBehaviour
     /// </summary>
     public static void EffectNameFrameSetPlaySe()
     {
-
+        SE_Manager.SePlay(SE_Manager.SE_NAME.EffectPlate_ArtsName_Set);
     }
 
     /// <summary>
@@ -210,7 +210,7 @@ public class UI_Manager : MonoBehaviour
     /// </summary>
     public static void ArtsNameSetPlaySe()
     {
-
+        SE_Manager.SePlay(SE_Manager.SE_NAME.EffectPlate_ArtsName_Set);
     }
 
     /// <summary>
@@ -218,8 +218,7 @@ public class UI_Manager : MonoBehaviour
     /// </summary>
     public static void ArtsDeckChangePlaySe()
     {
-        //例
-        SE_Manager.SePlay(SE_Manager.SE_NAME.CastArts);
+        SE_Manager.SePlay(SE_Manager.SE_NAME.EffectPlate_Switching);
     }
 
     #endregion
