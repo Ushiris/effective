@@ -11,6 +11,8 @@ public class TitleMenuSelectIcon : MonoBehaviour
     [SerializeField] GameObject loadingAnimationObj;
 
     public static bool IsSceneLoadProcess { get; private set; } = false;
+    public static bool IsNextStageMove { get; private set; } = false;
+    public static bool IsSceneChange { get; set; } = false;
 
     Vector3 siz;
 
@@ -19,6 +21,8 @@ public class TitleMenuSelectIcon : MonoBehaviour
     private void Start()
     {
         IsSceneLoadProcess = false;
+        IsNextStageMove = false;
+        IsSceneChange = false;
         siz = transform.localScale;
     }
 
@@ -57,7 +61,13 @@ public class TitleMenuSelectIcon : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
+        IsNextStageMove = true;
+
+        while (!IsSceneChange)
+        {
+            yield return new WaitForEndOfFrame();
+        }
 
         //シーンの移動
         asyncLoad.allowSceneActivation = true;

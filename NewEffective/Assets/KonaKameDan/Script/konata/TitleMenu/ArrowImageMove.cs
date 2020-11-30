@@ -6,6 +6,7 @@ public class ArrowImageMove : MonoBehaviour
 {
     [SerializeField] float speed = 3f;
     [SerializeField] float verticalMoveRange = 10f;
+    [SerializeField] GameObject moveImage;
 
     float verticalMoveRangeHalf => verticalMoveRange / 2;
 
@@ -14,8 +15,9 @@ public class ArrowImageMove : MonoBehaviour
 
     protected void StartUp()
     {
-        rectTransform = GetComponent<RectTransform>();
-        defaultPos = rectTransform.position;
+        //rectTransform = GetComponent<RectTransform>();
+        rectTransform = moveImage.transform as RectTransform;
+        defaultPos = rectTransform.localPosition;
     }
 
     /// <summary>
@@ -25,7 +27,7 @@ public class ArrowImageMove : MonoBehaviour
     {
         var min = defaultPos.x - verticalMoveRangeHalf;
         var max = defaultPos.x + verticalMoveRangeHalf;
-        var move = rectTransform.position;
+        var move = rectTransform.localPosition;
 
         move.x += Time.deltaTime * speed;
         move.x = Mathf.Clamp(move.x, min, max);
@@ -33,7 +35,7 @@ public class ArrowImageMove : MonoBehaviour
         if (move.x == max) move.x = min;
         else if (move.x == min) move.x = max;
 
-        rectTransform.position = move;
+        rectTransform.localPosition = move;
     }
 
     /// <summary>
@@ -41,6 +43,6 @@ public class ArrowImageMove : MonoBehaviour
     /// </summary>
     protected void OnDefaultPos()
     {
-        rectTransform.position = defaultPos;
+        rectTransform.localPosition = defaultPos;
     }
 }

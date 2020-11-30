@@ -13,11 +13,11 @@ public class GameOverButton : MonoBehaviour
 
     public void ToResult()
     {
-        SceneManager.LoadScene("Result");
+        SceneManager.LoadScene(NameDefinition.SceneName_Result);
     }
 
     public void ToTitle()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene(NameDefinition.SceneName_TitleMenu);
     }
 }
