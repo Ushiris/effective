@@ -7,6 +7,7 @@ using Enchants = EnemyState.Enchants;
 [RequireComponent(typeof(NavMeshAgent))]
 public class FlyEnemyBrain : EnemyBrainBase
 {
+    [SerializeField] GameObject model;
     SinWaver waver;
 
     private new void Awake()
@@ -40,7 +41,7 @@ public class FlyEnemyBrain : EnemyBrainBase
 
     private void LateUpdate()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y + waver.GetDeltaHeight(), transform.position.z);
+        model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y + waver.GetDeltaHeight(), model.transform.position.z);
         if (state.move == MoveState.Confuse)
         {
             return;

@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         status.Lv = WorldLevel.GetWorldLevel;
     }
 
-    public void KnockBack(float power = 10, float stan_time = 0.2f)
+    public void KnockBack(float power = 10, float stan_time = 0.4f)
     {
         rb.AddForce(-transform.forward * power);
         Stan(stan_time);

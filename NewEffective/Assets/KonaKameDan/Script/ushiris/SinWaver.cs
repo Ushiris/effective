@@ -6,7 +6,7 @@ public class SinWaver : MonoBehaviour
 {
     float time = 0;
     int f_10s = 20;
-    float h_max = 0.5f;
+    float h_max = 5f;
     float beforeHeight = 0;
 
     void Start()

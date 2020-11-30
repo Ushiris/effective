@@ -36,8 +36,6 @@ public class EnemySpawnManager : MonoBehaviour
         });
     }
 
-
-
     /// <summary>
     /// エネミーの情報を取得する
     /// </summary>
