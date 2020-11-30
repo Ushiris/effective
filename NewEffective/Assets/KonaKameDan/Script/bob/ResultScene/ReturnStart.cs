@@ -14,7 +14,7 @@ public class ReturnStart : MonoBehaviour
     private void Update()
     {
         if (returnStartScene)
-            SceneManager.LoadScene("Start");
+            SceneManager.LoadScene(NameDefinition.SceneName_TitleMenu);
 
         if (Input.GetKeyDown(KeyCode.Space))
             OnClick();

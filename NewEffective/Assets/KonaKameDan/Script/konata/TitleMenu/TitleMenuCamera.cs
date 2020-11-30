@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TitleMenuCamera : MonoBehaviour
 {
-    [SerializeField] GameObject camera;
     [SerializeField] GameObject selectMenuIconGroup;
     [SerializeField] Transform pivot;
     [SerializeField] float speed = 3f;
@@ -34,6 +33,8 @@ public class TitleMenuCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (TitleMenuSelectIcon.IsSceneLoadProcess) return;
+
         //次に進むために配列番号を進める
         if (IsListNumPlusMove()) Next();
         else if (IsListNumMinusMove()) Back();
@@ -51,7 +52,6 @@ public class TitleMenuCamera : MonoBehaviour
     //次に進むために配列番号を進める
     void Next()
     {
-        if (TitleMenuSelectIcon.IsSceneLoadProcess) return;
         if (listNum < select.Count - 1) listNum++;
         else listNum = 0;
     }
@@ -59,7 +59,6 @@ public class TitleMenuCamera : MonoBehaviour
     //前に戻るために配列番号を戻す
     void Back()
     {
-        if (TitleMenuSelectIcon.IsSceneLoadProcess) return;
         if (listNum > 0) listNum--;
         else listNum = select.Count - 1;
     }

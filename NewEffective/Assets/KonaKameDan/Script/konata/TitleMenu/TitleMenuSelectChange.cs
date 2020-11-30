@@ -15,7 +15,6 @@ public class TitleMenuSelectChange : ArrowImageMove
     // Start is called before the first frame update
     void Start()
     {
-        image = GetComponent<Image>();
         StartUp();
     }
 
