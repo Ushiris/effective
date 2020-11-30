@@ -8,6 +8,7 @@ using UnityEngine;
 public class StopWatch : MonoBehaviour
 {
     public delegate void TimeEvent();
+    public static TimeEvent voidAction = () => { };
 
     public float ActiveTime { get; private set; }
     bool isReactiveFlame;

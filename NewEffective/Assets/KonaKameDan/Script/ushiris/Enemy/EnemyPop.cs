@@ -11,7 +11,7 @@ public class EnemyPop : MonoBehaviour
 
     private void Awake()
     {
-        timer = StopWatch.Summon(Random.Range(GameBaranceManager.EnemyPopFast, GameBaranceManager.EnemyPopFast),()=> { }, gameObject);
+        timer = StopWatch.Summon(Random.Range(GameBaranceManager.EnemyPopFast, GameBaranceManager.EnemyPopFast),StopWatch.voidAction, gameObject);
         timer.LapEvent = () => { 
             EnemySpawn();
             timer.LapTime = Random.Range(GameBaranceManager.EnemyPopFast, GameBaranceManager.EnemyPopFast); 
