@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/KonaKameDan/Scenes/TitleMenu.unity
+    guid: 6035d2b73594cab4388ca9c9132407a2
+  - enabled: 1
     path: Assets/KonaKameDan/Scenes/Start.unity
     guid: c324b8ae01c529b46aecd32c3ae43bd3
   - enabled: 1
