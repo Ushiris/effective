@@ -23,7 +23,7 @@ public class StageSelectUI : MonoBehaviour
     /// <summary>
     /// ポータルから他のシーンに飛んだ時に実行されるイベント
     /// </summary>
-    public static UnityEvent OnAfterPortalChangeScene;
+    public static UnityEvent OnAfterPortalChangeScene = new UnityEvent();
 
     static readonly float kMaxGage = 13f;
     static readonly float kMinGame = 0f;
