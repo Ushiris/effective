@@ -11,5 +11,6 @@ public class ShaderCanvas : MonoBehaviour
         var canvas = GetComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = Camera.main;
+        canvas.planeDistance = 0.3f;
     }
 }
