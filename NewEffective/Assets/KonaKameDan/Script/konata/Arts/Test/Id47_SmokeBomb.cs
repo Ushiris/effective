@@ -19,4 +19,9 @@ public class Id47_SmokeBomb : MonoBehaviour
     {
         if (gameObject.transform.childCount == 0) Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }
