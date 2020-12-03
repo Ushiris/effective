@@ -9,6 +9,8 @@ public class FlyEnemyBrain : EnemyBrainBase
 {
     [SerializeField] GameObject model;
     SinWaver waver;
+    int IcarusZone = 0;
+    float defaultY;
 
     private new void Awake()
     {
@@ -37,6 +39,23 @@ public class FlyEnemyBrain : EnemyBrainBase
                 Enchants.Blind,()=>Stay()
             },
         };
+
+        defaultY = model.transform.position.y;
+    }
+
+    private void Update()
+    {
+        if (IcarusZone == 0 && model.transform.position.y < defaultY - 0.3f)
+        {
+            model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y + 0.1f, model.transform.position.z);
+        }
+
+        if (IcarusZone >= 1)
+        {
+            if (model.transform.position.y <= transform.position.y + 0.5) return;
+
+            model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y - 0.1f, model.transform.position.z);
+        }
     }
 
     private void LateUpdate()
@@ -105,5 +124,17 @@ public class FlyEnemyBrain : EnemyBrainBase
                 AIset(StayAItype.Return);
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Id249_Icarus>() == null) return;
+        IcarusZone++;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Id249_Icarus>() == null) return;
+        IcarusZone--;
     }
 }
