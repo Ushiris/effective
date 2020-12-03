@@ -22,6 +22,9 @@ public class Id47_SmokeBomb : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.tag != "Enemy") return;
+
+        var enemy = other.gameObject.GetComponent<Enemy>();
+        enemy.KnockBack(0, 4f);
     }
 }
