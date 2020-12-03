@@ -373,8 +373,12 @@ public class Arts_Process : MonoBehaviour
     public static void GroundPosMatch(GameObject obj)
     {
         var pos = obj.transform.position;
-        var t = NewMapTerrainData.GetTerrain;
-        pos.y = t.terrainData.GetHeight((int)pos.x, (int)pos.z);
+        //var t = NewMapTerrainData.GetTerrain;
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(pos, out hit, 10f, NavMesh.AllAreas))
+        {
+            pos = hit.position;
+        }
         obj.transform.position = pos;
     }
 
@@ -812,5 +816,18 @@ public class Arts_Process : MonoBehaviour
         area.transform.localScale = Vector3.one * range;
 
         return area;
+    }
+
+    /// <summary>
+    /// corePosに向けてobjが吸い込まれる
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="corePos"></param>
+    /// <param name="speed"></param>
+    public static void Vacuum(GameObject obj,Vector3 corePos,float speed)
+    {
+        var rb = obj.GetComponent<Rigidbody>();
+        var dir = corePos - obj.transform.position;
+        rb.AddForce(dir.normalized * speed, ForceMode.Force);
     }
 }
