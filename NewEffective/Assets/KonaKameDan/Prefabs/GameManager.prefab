@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 517661563978576942}
   - component: {fileID: 262906321}
   - component: {fileID: 3826367547149665066}
-  - component: {fileID: 2043093127}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -158,8 +157,8 @@ MonoBehaviour:
       Value:
         prefab: {fileID: 6803105965938668464, guid: 271ed835952b51648a8c7b8749a86e43,
           type: 3}
-        coolTime: 15
-        coolTimeDown: 0.02
+        coolTime: 10
+        coolTimeDown: 0.05
         effect: 
     - Key: 59
       Value:
@@ -375,8 +374,8 @@ MonoBehaviour:
       Value:
         prefab: {fileID: 6803105965938668464, guid: 59ca4c3323b7dac4bb776df15e4cdcbf,
           type: 3}
-        coolTime: 20
-        coolTimeDown: 0.3
+        coolTime: 30
+        coolTimeDown: 0.1
         effect: 
     - Key: 127
       Value:
@@ -389,7 +388,7 @@ MonoBehaviour:
       Value:
         prefab: {fileID: 6803105965938668464, guid: 846b9dcb42721674ca9918780a2fe588,
           type: 3}
-        coolTime: 50
+        coolTime: 40
         coolTimeDown: 0.1
         effect: 
     - Key: 07
@@ -448,6 +447,27 @@ MonoBehaviour:
         coolTime: 0
         coolTimeDown: 0
         effect: 
+    - Key: 47
+      Value:
+        prefab: {fileID: 6803105965938668464, guid: d3ead5cec0c29ba41af6175616c420a1,
+          type: 3}
+        coolTime: 0
+        coolTimeDown: 0
+        effect: 
+    - Key: 279
+      Value:
+        prefab: {fileID: 6803105965938668464, guid: 0b249b3bd4caaf34c8c5a040fabd93d9,
+          type: 3}
+        coolTime: 0
+        coolTimeDown: 0
+        effect: 
+    - Key: 457
+      Value:
+        prefab: {fileID: 6803105965938668464, guid: e0190fd1d6809064ba5898dd50120dbb,
+          type: 3}
+        coolTime: 0
+        coolTimeDown: 0
+        effect: 
 --- !u!114 &262906321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,20 +494,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c8451a8a4aed54cbf27dfece36abd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2043093127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6216928581571088659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: ee578f133b13a494caaf0f787753769f, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0

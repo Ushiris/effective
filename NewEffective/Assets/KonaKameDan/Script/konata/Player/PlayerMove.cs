@@ -99,4 +99,14 @@ public class PlayerMove : MonoBehaviour
         }
         return false;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //敵に当たった場合跳ねあがるやつの防止
+            rb.velocity = Vector3.zero;
+            rb.AddForce(transform.up * -50, ForceMode.Impulse);
+        }
+    }
 }
