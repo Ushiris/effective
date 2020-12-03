@@ -106,7 +106,7 @@ public class ParticleHit : MonoBehaviour
         if (obj.tag == "Enemy" && isEnemyKnockBack)
         {
             var enemy = obj.GetComponent<Enemy>();
-            if(enemy!=null)enemy.KnockBack();
+            if (enemy != null) enemy.KnockBack(100, 0.5f);
         }
 
         //UI

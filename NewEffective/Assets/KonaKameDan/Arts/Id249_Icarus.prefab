@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6929485253059204035}
   - component: {fileID: 114467258633991074}
   - component: {fileID: 114101397220471554}
+  - component: {fileID: 3655454735398317217}
   m_Layer: 0
   m_Name: Id249_Icarus
   m_TagString: Arts
@@ -44,12 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439c39d4534341740aaf472c49444376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icarusParticleObj: {fileID: 0}
-  range: 0
-  force: 0
-  lostTime: 0
-  plusTime: 0
-  plusRange: 0
+  icarusParticleObj: {fileID: 79780720721125208, guid: 755863443df64764b8411f8054d8844c,
+    type: 3}
+  range: 10
+  force: 500
+  lostTime: 30
+  plusTime: 0.5
+  plusRange: 0.3
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,3 +69,16 @@ MonoBehaviour:
   myEffectCount: {fileID: 0}
   artsType: 1
   myObj: {fileID: 0}
+--- !u!135 &3655454735398317217
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
