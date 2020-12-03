@@ -37,6 +37,22 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// 相手のタグを見極める
+    /// </summary>
+    /// <param name="artsStatus"></param>
+    /// <returns></returns>
+    public static string GetEnemyTag(ArtsStatus artsStatus)
+    {
+        switch (artsStatus.type)
+        {
+            case ArtsStatus.ParticleType.Player: return "Enemy";
+            case ArtsStatus.ParticleType.Enemy: return "Player";
+            case ArtsStatus.ParticleType.Unknown: return "";
+            default: return "";
+        }
+    }
+
+    /// <summary>
     /// Artsを放った人が同じであればtrueを返す
     /// 違う場合listに格納する
     /// </summary>
