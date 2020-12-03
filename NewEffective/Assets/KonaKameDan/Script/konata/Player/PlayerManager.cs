@@ -27,7 +27,6 @@ public class PlayerManager : MonoBehaviour
         regeneTimer.LapEvent = Regene;
         regeneTimer.SetActive(false);
         life.AddDamageFunc(OnDamege);
-
         life.AddLastword(OnPlayerDead);
 
         GetManager = this;
