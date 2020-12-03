@@ -143,6 +143,13 @@ public class EnemyBrainBase : MonoBehaviour
 
     private bool IsAttackable_()
     {
+        bool isEnchant = false;
+        state.enchants.ForEach(item =>
+        {
+            if (item == true) isEnchant = true;
+        });
+        if (isEnchant) return true;
+
         switch (state.move)
         {
             case MoveState.Chase:
@@ -151,8 +158,6 @@ public class EnemyBrainBase : MonoBehaviour
                 return false;
             case MoveState.Confuse:
                 return true;
-            case MoveState.STATE_AMOUNT:
-                throw new NotImplementedException();
             default:
                 throw new NotImplementedException();
         }
