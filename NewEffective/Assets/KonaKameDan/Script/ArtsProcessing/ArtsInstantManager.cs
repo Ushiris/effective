@@ -101,6 +101,7 @@ public class ArtsInstantManager : MonoBehaviour
                 case "47": InstantArts(); break;
                 case "279": InstantArts(); break;
                 case "457": InstantArts(); break;
+                case "247": InstantArts(); break;
                 default: break;
             }
 
