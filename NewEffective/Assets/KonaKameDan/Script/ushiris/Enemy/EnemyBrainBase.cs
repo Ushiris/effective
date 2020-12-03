@@ -148,7 +148,7 @@ public class EnemyBrainBase : MonoBehaviour
         {
             if (item == true) isEnchant = true;
         });
-        if (isEnchant) return true;
+        if (isEnchant) return false;
 
         switch (state.move)
         {
