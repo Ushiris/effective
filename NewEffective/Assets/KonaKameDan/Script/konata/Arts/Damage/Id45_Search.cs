@@ -6,7 +6,7 @@ public class Id45_Search : MonoBehaviour
 {
     [Header("サーチシェーダー")]
     [SerializeField] Material worldSearchShader;
-    [SerializeField] float speed = 30;
+    [SerializeField] float speed = 3;
 
     [Header("エフェクトオブジェクト")]
     [SerializeField] Material effectObjectMaterialChange;
@@ -16,9 +16,11 @@ public class Id45_Search : MonoBehaviour
     [Header("追尾のスタック数に応じてたされる数")]
     [SerializeField] float plusTime = 0.05f;
 
+    static readonly float defaultShaderDis = 0.6f;
+
     StopWatch timer;
     GameObject[] effectObj;
-    float dis;
+    float dis = defaultShaderDis;
 
     ArtsStatus artsStatus;
 
@@ -37,12 +39,11 @@ public class Id45_Search : MonoBehaviour
         materialChangeTime += plusTime * (float)homingCount;
 
         //シェーダーの初期化
-        Arts_Process.SearchPosSet(worldSearchShader, pos);
-        Arts_Process.SearchShaderReset(worldSearchShader);
+        worldSearchShader.SetFloat("Vector1_34E5147", defaultShaderDis);
 
         //エフェクトオブジェクトのマテリアル変更
         effectObj = GameObject.FindGameObjectsWithTag("EffectObject");
-        Arts_Process.MaterialsChange(effectObj, effectObjectMaterialChange, 1);
+        Arts_Process.MaterialsChange(effectObj, effectObjectMaterialChange, 2);
 
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = materialChangeTime;
@@ -56,17 +57,16 @@ public class Id45_Search : MonoBehaviour
     void Update()
     {
         dis += speed * Time.deltaTime;
-        Arts_Process.SearchShaderStart(worldSearchShader, dis);
 
-        if (dis > 200f)
+        if (dis < 2f)
         {
-            Arts_Process.SearchShaderStart(worldSearchShader, 0);
-            Destroy(gameObject);
+            worldSearchShader.SetFloat("Vector1_34E5147", dis);
         }
     }
 
     void EffectMaterialDefault()
     {
         Arts_Process.MaterialsChange(effectObj, effectObjectMaterialDefault, 1);
+        Destroy(gameObject);
     }
 }

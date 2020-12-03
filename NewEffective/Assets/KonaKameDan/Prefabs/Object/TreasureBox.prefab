@@ -884,6 +884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: testcl01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
+      propertyPath: m_TagString
+      value: EffectObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -941,6 +945,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 7cd8946c010584e4695bd7ad52169dc6, type: 2}
@@ -948,6 +956,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fdb66b9e0c3e61a4b9f260556845be33, type: 2}
+    - target: {fileID: 2300000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f206474d6fea82c4b9fa6e040a61473d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4b3d43cf4329974fa8473820cd02f52, type: 3}
 --- !u!1 &994348816766597614 stripped
