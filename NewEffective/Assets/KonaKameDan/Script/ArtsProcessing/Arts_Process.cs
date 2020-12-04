@@ -821,7 +821,7 @@ public class Arts_Process : MonoBehaviour
     /// <param name="range"></param>
     /// <param name="name"></param>
     /// <returns></returns>
-    public static GameObject SphereColliderObjInstant(Transform parent, float range=10f,string name="HitArea")
+    public static GameObject SphereColliderObjInstant(Transform parent, float range = 10f, string name = "HitArea")
     {
         GameObject area = Instantiate(new GameObject("HitArea"), parent);
         var c = area.AddComponent<SphereCollider>();
