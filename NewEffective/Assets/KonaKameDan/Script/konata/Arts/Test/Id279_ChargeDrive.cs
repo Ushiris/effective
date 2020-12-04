@@ -9,8 +9,14 @@ public class Id279_ChargeDrive : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerMotion.OnPlayerRunningMotion = true;
         var obj = PlayerManager.GetManager.GetPlObj;
         Arts_Process.RbMomentMove(obj, force);
         Destroy(gameObject, 0.5f);
+    }
+
+    private void OnDestroy()
+    {
+        PlayerMotion.OnPlayerRunningMotion = false;
     }
 }
