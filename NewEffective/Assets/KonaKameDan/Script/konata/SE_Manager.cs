@@ -44,8 +44,6 @@ public class SE_Manager : MonoBehaviour
         }
         seArr = GetComponents<AudioSource>();
 
-        for (int i = 0; i < audioInstantMaxCount; i++) seArr[i].volume = 0.1f;
-
         SE_Manager_ = this;
     }
 
@@ -63,6 +61,7 @@ public class SE_Manager : MonoBehaviour
             {
                 if (!se.isPlaying)
                 {
+                    se.loop = false;
                     var audioData = SE_Manager_.seData.GetTable()[seType];
                     se.volume = audioData.seVolume;
                     se.PlayOneShot(audioData.audio);
@@ -94,6 +93,16 @@ public class SE_Manager : MonoBehaviour
     {
         if (se == null) return;
         behaviour.StartCoroutine(OnFadeOut(se, speed));
+    }
+
+    /// <summary>
+    /// SEをループする
+    /// </summary>
+    /// <param name="se"></param>
+    public static void OnLoop(AudioSource se)
+    {
+        if (se == null) return;
+        se.loop = true;
     }
 
     //フェードアウト処理
