@@ -82,9 +82,6 @@ public class NewMap : MonoBehaviour
 
         map.SetActive(true);
 
-        //プレイヤーのスポーンポイント
-        GetPlayerRespawnPos = status.playerSpawnPoint;
-
         //Diggerに変えた場合消す
         NewMapTerrainData.SetTerrainData(map);
 
@@ -93,6 +90,9 @@ public class NewMap : MonoBehaviour
         status.playerSpawnPoint = plAndBoosPos.Item1;
         status.bossSpawnPoint = plAndBoosPos.Item2;
         PointDelete(map);
+
+        //プレイヤーのスポーンポイント
+        GetPlayerRespawnPos = status.playerSpawnPoint;
 
         //Mapに設定されているエフェクトをセットする
         foreach (var item in statusList[statusListNum].effectItem)
