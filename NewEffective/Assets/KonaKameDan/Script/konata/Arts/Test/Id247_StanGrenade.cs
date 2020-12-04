@@ -98,7 +98,7 @@ public class Id247_StanGrenade : MonoBehaviour
         if (obj.tag == "Enemy")
         {
             var enemy = obj.GetComponent<Enemy>();
-            enemy.KnockBack(0, enemyStanTime);
+            enemy.Stan(enemyStanTime);
             var particle = Instantiate(electricalParticle, obj.transform);
             Destroy(particle, enemyStanTime);
         }
