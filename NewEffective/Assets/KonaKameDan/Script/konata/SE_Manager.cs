@@ -26,22 +26,12 @@ public class SE_Manager : MonoBehaviour
         [Range(0, 1f)] public float seVolume = 0.1f;
     }
 
-    //[System.Serializable]
-    //public class SeData
-    //{
-    //    [HideInInspector] public string name;
-    //    public AudioClip audio;
-    //}
-    //public List<SeData> seDataList = new List<SeData>()
-    //{
-    //    //リストの初期化
-    //    new SeData{name=SE_NAME.Hit.ToString(),audio=null },
-    //    new SeData{name=SE_NAME.Shot.ToString(),audio=null },
-    //};
-
     public PrefabDictionary seData;
 
     static SE_Manager SE_Manager_;
+
+    delegate void Action();
+    static List<Action> OnFadeList = new List<Action>();
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +53,7 @@ public class SE_Manager : MonoBehaviour
     /// SEの再生、どのSEを使うか選択して！
     /// </summary>
     /// <param name="seType"></param>
-    public static void SePlay(SE_NAME seType)
+    public static AudioSource SePlay(SE_NAME seType)
     {
         //被って流せる音は最大10つまで
         //再生中でないオーディオを探す
@@ -76,10 +66,45 @@ public class SE_Manager : MonoBehaviour
                     var audioData = SE_Manager_.seData.GetTable()[seType];
                     se.volume = audioData.seVolume;
                     se.PlayOneShot(audioData.audio);
-                    break;
+                    return se;
                 }
             }
         }
+        return null;
+    }
+
+    /// <summary>
+    /// SEを強制強的に止める
+    /// </summary>
+    /// <param name="se"></param>
+    public static void ForcedPlayStop(AudioSource se)
+    {
+        if (se == null) return;
+        se.Stop();
+    }
+
+    /// <summary>
+    /// フェードアウト処理(呼び出すのは一度だけでよい)
+    /// behaviourはthis すれば大丈夫
+    /// </summary>
+    /// <param name="behaviour"></param>
+    /// <param name="se"></param>
+    /// <param name="speed"></param>
+    public static void SetFadeOut(MonoBehaviour behaviour, AudioSource se, float speed = 0.5f)
+    {
+        if (se == null) return;
+        behaviour.StartCoroutine(OnFadeOut(se, speed));
+    }
+
+    //フェードアウト処理
+    static IEnumerator OnFadeOut(AudioSource se, float speed = 0.5f)
+    {
+        while (se.volume != 0f)
+        {
+            se.volume -= speed * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        se.Stop();
     }
 
     [System.Serializable]
