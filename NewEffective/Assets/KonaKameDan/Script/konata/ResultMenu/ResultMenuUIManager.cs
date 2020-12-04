@@ -34,11 +34,14 @@ public class ResultMenuUIManager : MonoBehaviour
     {
         if (resultMenuUIs[scoreRollPlayNum].IsPlay)
         {
-
+            
         }
-        else if (titleNameArr.Length != scoreRollPlayNum)
+        else if (titleNameArr.Length - 1 != scoreRollPlayNum)
         {
             scoreRollPlayNum++;
+            resultMenuUIs[scoreRollPlayNum].IsPlay = true;
         }
+
+        Debug.Log("aaaa" + scoreRollPlayNum);
     }
 }
