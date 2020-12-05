@@ -39,4 +39,9 @@ public class ResultMenuUI : MonoBehaviour
             IsPlay = false ;
         }
     }
+
+    public void ForcedDisplay()
+    {
+        scoreText.text = SetScore.ToString();
+    }
 }
