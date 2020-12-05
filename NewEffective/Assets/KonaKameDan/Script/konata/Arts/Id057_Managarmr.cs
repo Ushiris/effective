@@ -23,6 +23,9 @@ public class Id057_Managarmr : MonoBehaviour
 
         //敵のポジションを持ってくる
         target = Arts_Process.GetNearTarget(artsStatus);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id057_Managarmr_first);
     }
 
     // Update is called once per frame
@@ -38,7 +41,13 @@ public class Id057_Managarmr : MonoBehaviour
 
         if (managarmrParticle != null)
         {
-            if (managarmrParticle.transform.childCount == 0) Destroy(gameObject);
+            if (managarmrParticle.transform.childCount == 0)
+            {
+                Destroy(gameObject);
+
+                //SE
+                SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+            }
         }
     }
 }

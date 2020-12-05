@@ -50,7 +50,7 @@ public class Id45_Search : MonoBehaviour
         timer.LapEvent = () => { EffectMaterialDefault(); };
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Shot);
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id45_Search_first);
     }
 
     // Update is called once per frame

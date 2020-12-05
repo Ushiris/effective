@@ -53,6 +53,9 @@ public class Id49_Impact : MonoBehaviour
         //敵を吹き飛ばす
         int layerMask = Arts_Process.GetVsLayerMask(artsStatus);
         Arts_Process.Impact(transform.position, radius, layerMask, explosionForce, uppersModifier);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id49_Impact_first);
     }
 
     // Update is called once per frame

@@ -12,6 +12,9 @@ public class Id29_Escape : MonoBehaviour
         //Vector3 vector = new Vector3(Input.GetAxis("Vertical"), 0f, Input.GetAxis("Horizontal"));
         var obj = PlayerManager.GetManager.GetPlObj;
         Arts_Process.RbMomentMove(obj, -force);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id29_Escape_first);
     }
 
     // Update is called once per frame

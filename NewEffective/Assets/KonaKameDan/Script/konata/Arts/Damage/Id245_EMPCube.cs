@@ -61,6 +61,9 @@ public class Id245_EMPCube : MonoBehaviour
         //定期的に呼び出す
         timer = Arts_Process.TimeAction(gameObject, timeSpace);
         timer.LapEvent = () => { InstantEMP(); };
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id245_EMPCube_first);
     }
 
     void Update()
@@ -82,7 +85,13 @@ public class Id245_EMPCube : MonoBehaviour
         {
             ArtsActiveObj.Id245_EMPCube.Remove(artsStatus.myObj);
             Destroy(gameObject);
+
+            //SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Id245_EMPCube_third);
         }
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id245_EMPCube_second);
 
         count++;
     }

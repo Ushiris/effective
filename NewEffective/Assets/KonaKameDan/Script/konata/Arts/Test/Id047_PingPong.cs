@@ -72,6 +72,9 @@ public class Id047_PingPong : MonoBehaviour
 
         var timer = Arts_Process.TimeAction(gameObject, lostTime);
         timer.LapEvent = () => { Lost(bullet); };
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_first);
     }
 
     private void Update()
@@ -90,6 +93,9 @@ public class Id047_PingPong : MonoBehaviour
                 Destroy(obj[i]);
                 var explosion = Instantiate(explosionParticleObj, pos, Quaternion.identity);
                 Destroy(gameObject, 2);
+
+                //SE
+                SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
             }
         }
     }

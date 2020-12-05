@@ -57,6 +57,9 @@ public class Id25_UnbreakableShield : MonoBehaviour
         //オブジェクトの破壊
         timer = Arts_Process.TimeAction(gameObject, timeOver);
         timer.LapEvent = () => { Lost(); };
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_first);
     }
 
     // Update is called once per frame
@@ -71,5 +74,8 @@ public class Id25_UnbreakableShield : MonoBehaviour
     {
         ArtsActiveObj.Id25_UnbreakableShield.Remove(artsStatus.myObj);
         Destroy(gameObject);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third);
     }
 }
