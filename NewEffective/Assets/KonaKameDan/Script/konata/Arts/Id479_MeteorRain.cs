@@ -85,6 +85,9 @@ public class Id479_MeteorRain : MonoBehaviour
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = interval;
         timer.LapEvent = () => { Instant(); };
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id049_ArrowRain_first);
     }
 
     // Update is called once per frame

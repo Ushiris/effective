@@ -64,6 +64,9 @@ public class Id59_Funnel : MonoBehaviour
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = lostTime;
         timer.LapEvent = () => { Lost(); };
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id59_Funnel_first);
     }
 
     // Update is called once per frame
@@ -83,5 +86,8 @@ public class Id59_Funnel : MonoBehaviour
         ArtsActiveObj.Id59_Funnel.Remove(artsStatus.myObj);
         Instantiate(DestParticleObj, transform.position, new Quaternion());
         Destroy(gameObject);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id59_Funnel_third);
     }
 }

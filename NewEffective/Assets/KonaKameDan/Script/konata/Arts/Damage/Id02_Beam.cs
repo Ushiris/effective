@@ -42,6 +42,9 @@ public class Id02_Beam : MonoBehaviour
         hit = Arts_Process.SetParticleDamageProcess(beamCoreObj.gameObject);
         //ダメージ処理
         Arts_Process.Damage(hit, artsStatus, damage, true);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id024_Diffusion_first);
     }
 
     // Update is called once per frame

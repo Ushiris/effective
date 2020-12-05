@@ -67,7 +67,7 @@ public class Id045_Hounds : MonoBehaviour
         target = Arts_Process.GetNearTarget(artsStatus);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Shot);
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id045_Hounds_first);
     }
 
     // Update is called once per frame

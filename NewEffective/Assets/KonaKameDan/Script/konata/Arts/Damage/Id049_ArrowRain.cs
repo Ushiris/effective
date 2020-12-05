@@ -60,6 +60,9 @@ public class Id049_ArrowRain : MonoBehaviour
             magicCircle, Vector3.zero, magicCircleMaxSiz,
             magicCircleSizUpSpeed,
             ObjSizChange.SizChangeMode.ScaleUp);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id049_ArrowRain_first);
     }
 
     // Update is called once per frame

@@ -50,6 +50,9 @@ public class Id79_Grenade : MonoBehaviour
 
         //軌跡を生成
         miracles = Arts_Process.Trajectory(miracles, trajectorySpace, v0);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id79_Grenade_first);
     }
 
     // Update is called once per frame
@@ -89,6 +92,9 @@ public class Id79_Grenade : MonoBehaviour
             {
                 Destroy(grenade);
                 Destroy(gameObject, 3);
+
+                //SE
+                SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
             }
         }
     }
@@ -101,6 +107,9 @@ public class Id79_Grenade : MonoBehaviour
             Destroy(obj);
             var explosion = Instantiate(grenadeObj, pos, Quaternion.identity);
             Destroy(gameObject, 2);
+
+            //SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
         }
     }
 
