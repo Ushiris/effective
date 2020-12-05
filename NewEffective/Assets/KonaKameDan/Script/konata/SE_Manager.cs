@@ -18,7 +18,31 @@ public class SE_Manager : MonoBehaviour
     {
         Hit, Shot, CastArts, Heel, EffectPlate_EffectObject_Set, EffectPlate_ArtsName_Set, EffectPlate_Switching, Nothing,
         //アーツSE
-        
+        Id024_Diffusion_first, Id024_Diffusion_second, 
+        Id025_PrimitiveShield_first, Id025_PrimitiveShield_third,
+        Id029_JumpCube_first, Id029_JumpCube_third,
+        Id045_Hounds_first, Id045_Hounds_second,
+        Id047_PingPong_first, Id047_PingPong_second, Id047_PingPong_third,
+        Id049_ArrowRain_first, Id049_ArrowRain_second,
+        Id057_Managarmr_first,
+        Id059_SummonPixie_first,
+        Id079_Amaterasu_second,
+        Id245_EMPCube_first, Id245_EMPCube_second, Id245_EMPCube_third,
+        Id249_Icarus_first, Id249_Icarus_second,
+        Id257_Haiyoru_first, Id257_Haiyoru_second,
+        Id279_ChargeDrive_first,
+        Id457_BigBang_second,
+        Id459_Direction_second,
+        Id479_MeteorRain_second,
+        Id04_ShotGun_first,
+        Id07_RocketLauncher_first, Id07_RocketLauncher_second,
+        Id09_Arrow_first, Id09_Arrow_second,
+        Id25_UnbreakableShield_second,
+        Id29_Escape_first,
+        Id45_Search_first,
+        Id49_Impact_first,
+        Id59_Funnel_first, Id59_Funnel_third,
+        Id79_Grenade_first
     }
 
     [System.Serializable]
