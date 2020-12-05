@@ -26,7 +26,7 @@ public class SE_Manager : MonoBehaviour
         Id049_ArrowRain_first, Id049_ArrowRain_second,
         Id057_Managarmr_first,
         Id059_SummonPixie_first,
-        Id079_Amaterasu_second,
+        Id079_Amaterasu_first,Id079_Amaterasu_second,
         Id245_EMPCube_first, Id245_EMPCube_second, Id245_EMPCube_third,
         Id249_Icarus_first, Id249_Icarus_second,
         Id257_Haiyoru_first, Id257_Haiyoru_second,
