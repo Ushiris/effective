@@ -1,0 +1,1 @@
+クスクス声_出現…[https://taira-komori.jpn.org/magic01.html]の「魔法」の「天の声」
