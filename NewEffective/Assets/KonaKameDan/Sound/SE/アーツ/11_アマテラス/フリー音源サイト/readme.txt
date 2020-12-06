@@ -1,1 +1,0 @@
-アマテラス_チャージ…「https://soundeffect-lab.info/sound/battle/」の「魔法」の「魔法陣を展開」

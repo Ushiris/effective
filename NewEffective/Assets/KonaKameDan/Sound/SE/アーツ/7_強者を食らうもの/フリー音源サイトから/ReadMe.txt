@@ -1,1 +1,0 @@
-bomb…「https://taira-komori.jpn.org/arms01.html」の「爆発・破壊」の「ボン！」
