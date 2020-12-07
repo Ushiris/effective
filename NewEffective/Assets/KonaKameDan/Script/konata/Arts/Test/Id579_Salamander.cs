@@ -22,7 +22,9 @@ public class Id579_Salamander : MonoBehaviour
         timer.LapTime = lapTime;
         timer.LapEvent = () =>
         {
-            Instantiate(id79_Grenade, fairy.transform);
+            var grenade = Instantiate(id79_Grenade, fairy.transform);
+            var grenadeAs = grenade.GetComponent<ArtsStatus>();
+            grenadeAs.newArtsStatus(artsStatus);
         };
     }
 }

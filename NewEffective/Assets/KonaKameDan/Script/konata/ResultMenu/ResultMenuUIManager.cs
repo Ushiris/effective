@@ -27,6 +27,9 @@ public class ResultMenuUIManager : MonoBehaviour
             var pos = new Vector3(radius * Mathf.Cos(r), 0f, radius * Mathf.Sin(r));
             scoreUi[i] = Instantiate(scoreUi[i], pos, Quaternion.identity);
             scoreUi[i].transform.rotation = Look(transform.position, scoreUi[i].transform.position);
+
+            var point = scoreUi[i].GetComponent<ResultMenuUI>();
+            point.SetScore = ResultPoint.GetPoint(i);
         }
 
         resultMenuUI = scoreUi[scoreRollPlayNum].GetComponent<ResultMenuUI>();
@@ -38,21 +41,22 @@ public class ResultMenuUIManager : MonoBehaviour
     {
         if (TitleMenuSelectIcon.IsSceneLoadProcess) return;
 
-        if (resultMenuUI.IsPlay)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            var s = scoreUi[scoreRollPlayNum].GetComponent<TitleMenuSelectIcon>();
+            s.OnSceneChange();
+        }
+
+        if (!resultMenuUI.IsPlay)
+        {
+            if (scoreUi.Length - 1 != scoreRollPlayNum && !isScoreRollPlayEnd)
             {
-                var s = scoreUi[scoreRollPlayNum].GetComponent<TitleMenuSelectIcon>();
-                s.OnSceneChange();
+                scoreRollPlayNum++;
+                OnScoreRollPlay();
+                OnNextUi();
             }
+            else isScoreRollPlayEnd = true;
         }
-        else if (scoreUi.Length - 1 != scoreRollPlayNum && !isScoreRollPlayEnd)
-        {
-            scoreRollPlayNum++;
-            OnScoreRollPlay();
-            OnNextUi();
-        }
-        else isScoreRollPlayEnd = true;
     }
 
     Quaternion Look(Vector3 target, Vector3 my)

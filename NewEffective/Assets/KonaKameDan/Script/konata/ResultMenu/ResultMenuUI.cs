@@ -36,12 +36,18 @@ public class ResultMenuUI : MonoBehaviour
         }
         else
         {
-            IsPlay = false ;
+            StartCoroutine(Delay());
         }
     }
 
     public void ForcedDisplay()
     {
         scoreText.text = SetScore.ToString();
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        IsPlay = false;
     }
 }

@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 2133081995203879733}
   scoreText: {fileID: 5267007271987876986}
-  SetScore: 9999
+  SetScore: 99999
   ChangeScoreSpeed: 1000
 --- !u!114 &7882822704934219836
 MonoBehaviour:
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb22595be04d68143b32e94f9f34983c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeSceneName: main
+  changeSceneName: TitleMenu
   titleTextObj: {fileID: 2362697421093874488}
   loadingObj: {fileID: 457324812840582339}
   loadingAnimationObj: {fileID: 5228121110484935617}

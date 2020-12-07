@@ -49,6 +49,7 @@ MonoBehaviour:
   id79_Grenade: {fileID: 1206908859274040434, guid: 66c2c5d634b82c3478ca4910f03b84a5,
     type: 3}
   lostTime: 10
+  lapTime: 3
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
