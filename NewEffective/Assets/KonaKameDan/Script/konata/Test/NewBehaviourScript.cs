@@ -4,34 +4,34 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    [SerializeField] GameObject obj;
-    static readonly int max= 10;
-
+    AudioSource se;
+    AudioSource se1;
     // Start is called before the first frame update
     void Start()
     {
-        //InvokeRepeating("Instant", 1f, 0.5f);
-
-        Invoke("Instant", 3);
-
-        if (obj.GetComponent<Rigidbody>() == null)
-        {
-            obj.AddComponent<Rigidbody>();
-        }
+        
     }
 
-    void Instant()
+    private void Update()
     {
-        for (int i = 0; i < 10; i++)
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            var o = Instantiate(obj, transform);
-            var rb = o.GetComponent<Rigidbody>();
+            se = SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);
+        }
 
-            var x = Random.Range(-max, max);
-            var y = Random.Range(-max, max);
-            var z = Random.Range(-max, max);
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            se1 = SE_Manager.SePlay(SE_Manager.SE_NAME.Heel);
+        }
 
-            rb.AddRelativeFor​​ce(Random.onUnitSphere * max, ForceMode.VelocityChange);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SE_Manager.SetFadeOut(this, se, 0.1f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            SE_Manager.SetFadeOut(this, se1, 0.1f);
         }
     }
 }

@@ -58,6 +58,9 @@ public class Id025_PrimitiveShield : MonoBehaviour
         //消す
         timer = Arts_Process.TimeAction(gameObject, lostTime);
         timer.LapEvent = () => { Lost(); };
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_first);
     }
 
     // Update is called once per frame
@@ -70,5 +73,8 @@ public class Id025_PrimitiveShield : MonoBehaviour
     {
         ArtsActiveObj.Id025_PrimitiveShield.Remove(artsStatus.myObj);
         Destroy(gameObject);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third);
     }
 }

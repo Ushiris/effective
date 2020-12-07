@@ -16,7 +16,33 @@ public class SE_Manager : MonoBehaviour
     /// </summary>
     public enum SE_NAME
     {
-        Hit, Shot, CastArts, Heel, EffectPlate_EffectObject_Set, EffectPlate_ArtsName_Set, EffectPlate_Switching, Nothing
+        Hit, Shot, CastArts, Heel, EffectPlate_EffectObject_Set, EffectPlate_ArtsName_Set, EffectPlate_Switching, Nothing,
+        //アーツSE
+        Id024_Diffusion_first, Id024_Diffusion_second, 
+        Id025_PrimitiveShield_first, Id025_PrimitiveShield_third,
+        Id029_JumpCube_first, Id029_JumpCube_third,
+        Id045_Hounds_first, Id045_Hounds_second,
+        Id047_PingPong_first, Id047_PingPong_second, Id047_PingPong_third,
+        Id049_ArrowRain_first, Id049_ArrowRain_second,
+        Id057_Managarmr_first,
+        Id059_SummonPixie_first,
+        Id079_Amaterasu_first,Id079_Amaterasu_second,
+        Id245_EMPCube_first, Id245_EMPCube_second, Id245_EMPCube_third,
+        Id249_Icarus_first, Id249_Icarus_second,
+        Id257_Haiyoru_first, Id257_Haiyoru_second,
+        Id279_ChargeDrive_first,
+        Id457_BigBang_second,
+        Id459_Direction_second,
+        Id479_MeteorRain_second,
+        Id04_ShotGun_first,
+        Id07_RocketLauncher_first, Id07_RocketLauncher_second,
+        Id09_Arrow_first, Id09_Arrow_second,
+        Id25_UnbreakableShield_second,
+        Id29_Escape_first,
+        Id45_Search_first,
+        Id49_Impact_first,
+        Id59_Funnel_first, Id59_Funnel_third,
+        Id79_Grenade_first
     }
 
     [System.Serializable]
@@ -26,22 +52,12 @@ public class SE_Manager : MonoBehaviour
         [Range(0, 1f)] public float seVolume = 0.1f;
     }
 
-    //[System.Serializable]
-    //public class SeData
-    //{
-    //    [HideInInspector] public string name;
-    //    public AudioClip audio;
-    //}
-    //public List<SeData> seDataList = new List<SeData>()
-    //{
-    //    //リストの初期化
-    //    new SeData{name=SE_NAME.Hit.ToString(),audio=null },
-    //    new SeData{name=SE_NAME.Shot.ToString(),audio=null },
-    //};
-
     public PrefabDictionary seData;
 
     static SE_Manager SE_Manager_;
+
+    delegate void Action();
+    static List<Action> OnFadeList = new List<Action>();
 
     // Start is called before the first frame update
     void Start()
@@ -50,11 +66,8 @@ public class SE_Manager : MonoBehaviour
         for (int i = 0; i < audioInstantMaxCount; i++)
         {
             gameObject.AddComponent<AudioSource>();
-
         }
         seArr = GetComponents<AudioSource>();
-
-        for (int i = 0; i < audioInstantMaxCount; i++) seArr[i].volume = 0.1f;
 
         SE_Manager_ = this;
     }
@@ -63,7 +76,7 @@ public class SE_Manager : MonoBehaviour
     /// SEの再生、どのSEを使うか選択して！
     /// </summary>
     /// <param name="seType"></param>
-    public static void SePlay(SE_NAME seType)
+    public static AudioSource SePlay(SE_NAME seType)
     {
         //被って流せる音は最大10つまで
         //再生中でないオーディオを探す
@@ -73,13 +86,59 @@ public class SE_Manager : MonoBehaviour
             {
                 if (!se.isPlaying)
                 {
+                    se.loop = false;
                     var audioData = SE_Manager_.seData.GetTable()[seType];
                     se.volume = audioData.seVolume;
                     se.PlayOneShot(audioData.audio);
-                    break;
+                    return se;
                 }
             }
         }
+        return null;
+    }
+
+    /// <summary>
+    /// SEを強制強的に止める
+    /// </summary>
+    /// <param name="se"></param>
+    public static void ForcedPlayStop(AudioSource se)
+    {
+        if (se == null) return;
+        se.Stop();
+    }
+
+    /// <summary>
+    /// フェードアウト処理(呼び出すのは一度だけでよい)
+    /// behaviourはthis すれば大丈夫
+    /// </summary>
+    /// <param name="behaviour"></param>
+    /// <param name="se"></param>
+    /// <param name="speed"></param>
+    public static void SetFadeOut(MonoBehaviour behaviour, AudioSource se, float speed = 0.5f)
+    {
+        if (se == null) return;
+        behaviour.StartCoroutine(OnFadeOut(se, speed));
+    }
+
+    /// <summary>
+    /// SEをループする
+    /// </summary>
+    /// <param name="se"></param>
+    public static void OnLoop(AudioSource se)
+    {
+        if (se == null) return;
+        se.loop = true;
+    }
+
+    //フェードアウト処理
+    static IEnumerator OnFadeOut(AudioSource se, float speed = 0.5f)
+    {
+        while (se.volume != 0f)
+        {
+            se.volume -= speed * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        se.Stop();
     }
 
     [System.Serializable]

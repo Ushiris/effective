@@ -30,6 +30,8 @@ public class Id57_Bomber : MonoBehaviour
         playExplosion =
             Arts_Process.SetParticleHitPlay(bomber, explosionParticleObj, transform, artsStatus);
 
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id257_Haiyoru_first);
     }
 
     // Update is called once per frame
@@ -48,6 +50,12 @@ public class Id57_Bomber : MonoBehaviour
         }
 
         //消す
-        if (transform.childCount == 0) Destroy(gameObject);
+        if (transform.childCount == 0)
+        {
+            Destroy(gameObject);
+
+            //SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+        }
     }
 }

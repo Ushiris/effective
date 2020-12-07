@@ -74,6 +74,9 @@ public class Id059_SummonPixie : MonoBehaviour
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = lostTime;
         timer.LapEvent = () => { Destroy(gameObject); };
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id059_SummonPixie_first);
     }
 
     // Update is called once per frame

@@ -19,4 +19,12 @@ public class Id47_SmokeBomb : MonoBehaviour
     {
         if (gameObject.transform.childCount == 0) Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag != "Enemy") return;
+
+        var enemy = other.gameObject.GetComponent<Enemy>();
+        enemy.Stan(4f);
+    }
 }

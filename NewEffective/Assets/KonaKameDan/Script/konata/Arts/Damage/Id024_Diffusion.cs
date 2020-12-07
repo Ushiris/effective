@@ -70,6 +70,8 @@ public class Id024_Diffusion : MonoBehaviour
             //ダメージ処理
             Arts_Process.Damage(hit[i], artsStatus, damage, true);
         }
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id024_Diffusion_first);
     }
 
     // Update is called once per frame

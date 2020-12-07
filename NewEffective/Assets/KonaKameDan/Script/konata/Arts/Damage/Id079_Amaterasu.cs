@@ -64,6 +64,9 @@ public class Id079_Amaterasu : MonoBehaviour
         var pos = transform.position;
         pos.y = 0;
         transform.position = pos;
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id079_Amaterasu_first);
     }
 
     // Update is called once per frame

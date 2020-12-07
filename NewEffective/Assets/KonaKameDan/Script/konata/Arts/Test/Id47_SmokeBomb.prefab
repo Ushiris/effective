@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6929485253059204035}
   - component: {fileID: 114521859007368392}
   - component: {fileID: 114101397220471554}
+  - component: {fileID: 2897526064812830675}
   m_Layer: 0
   m_Name: Id47_SmokeBomb
   m_TagString: Arts
@@ -63,3 +64,16 @@ MonoBehaviour:
   myEffectCount: {fileID: 0}
   artsType: 1
   myObj: {fileID: 0}
+--- !u!135 &2897526064812830675
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803105965938668464}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}

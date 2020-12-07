@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 2673947256252297321}
   - component: {fileID: 6448668823122528505}
   - component: {fileID: 4470926415031033881}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: enemyFinder
   m_TagString: NearEnemyPos
   m_Icon: {fileID: 0}

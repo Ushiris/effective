@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Id27_Suicide : MonoBehaviour
 {
-    [SerializeField] GameObject explosionParticleObj;
-
     [Header("現在HPの割合ダメージ")]
     [SerializeField] float selfHarmRate = 0.5f;
 
@@ -20,13 +18,15 @@ public class Id27_Suicide : MonoBehaviour
         var life = artsStatus.myObj.GetComponent<Life>();
         var selfHarm = life.HP * selfHarmRate;
         life.Damage((int)selfHarm);
-
-        Instantiate(explosionParticleObj, transform);
+        Destroy(gameObject, 2f);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (transform.childCount == 0) Destroy(gameObject);
+        if (other.gameObject.tag == Arts_Process.GetEnemyTag(artsStatus))
+        {
+            //ダメージ処理
+            Debug.Log(other.gameObject.name + "に???ダメージ");
+        }
     }
 }

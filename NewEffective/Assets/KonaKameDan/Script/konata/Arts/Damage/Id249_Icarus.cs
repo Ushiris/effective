@@ -45,6 +45,8 @@ public class Id249_Icarus : MonoBehaviour
 
         //範囲変更
         range += plusRange * (float)spreadCount;
+        var collider = GetComponent<SphereCollider>();
+        collider.radius = range;
 
         //パーティクルの生成
         Instantiate(icarusParticleObj, transform);
@@ -56,32 +58,33 @@ public class Id249_Icarus : MonoBehaviour
         //特定の時間が来たらObjectを消す
         timer = Arts_Process.TimeAction(gameObject, lostTime);
         timer.LapEvent = () => { Lost(); };
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id249_Icarus_first);
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = artsStatus.myObj.transform.position;
-
-        Collider[] enemies;
-        Vector3 pos = transform.position;
-        enemies = Physics.OverlapSphere(pos, range, layerMask);
-
-        //範囲に入った敵に下向きに力を加える
-        foreach (Collider hit in enemies)
-        {
-            Rigidbody rb = hit.GetComponent<Rigidbody>();
-
-            if (rb != null)
-            {
-                rb.AddForce(new Vector3(0, -1, 0) * force, ForceMode.Impulse);
-            }
-        }
     }
 
     void Lost()
     {
         ArtsActiveObj.Id249_Icarus.Remove(artsStatus.myObj);
         Destroy(gameObject);
+    }
+
+    //範囲に入った敵に下向きに力を加える
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == Arts_Process.GetEnemyTag(artsStatus))
+        {
+            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(new Vector3(0, -1, 0) * force, ForceMode.Impulse);
+            }
+        }
     }
 }

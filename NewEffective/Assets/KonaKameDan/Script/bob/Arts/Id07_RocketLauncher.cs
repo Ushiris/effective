@@ -29,11 +29,17 @@ public class Id07_RocketLauncher : MonoBehaviour
 
         //ダメージ処理
         Damage();
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id07_RocketLauncher_first);
     }
     void Update()
     {
         //オブジェクトを消す
-        if (transform.childCount == 0) Destroy(gameObject);
+        if (transform.childCount == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Damage()

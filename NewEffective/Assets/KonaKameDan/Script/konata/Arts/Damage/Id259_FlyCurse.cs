@@ -68,6 +68,9 @@ public class Id259_FlyCurse : MonoBehaviour
         //特定の時間が来たらObjectを消す
         timer = Arts_Process.TimeAction(gameObject, lostTime);
         timer.LapEvent = () => { Lost(); };
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id249_Icarus_first);
     }
 
     // Update is called once per frame

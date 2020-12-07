@@ -468,6 +468,20 @@ MonoBehaviour:
         coolTime: 0
         coolTimeDown: 0
         effect: 
+    - Key: 247
+      Value:
+        prefab: {fileID: 6803105965938668464, guid: ac8b8d1d473e31f4c9689a95de0ad3cd,
+          type: 3}
+        coolTime: 0
+        coolTimeDown: 0
+        effect: 
+    - Key: 579
+      Value:
+        prefab: {fileID: 6803105965938668464, guid: 0035f6436e0dadc4482dead6b6eb9dc7,
+          type: 3}
+        coolTime: 0
+        coolTimeDown: 0
+        effect: 
 --- !u!114 &262906321
 MonoBehaviour:
   m_ObjectHideFlags: 0

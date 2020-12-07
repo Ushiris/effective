@@ -67,6 +67,9 @@ public class Id09_Arrow : MonoBehaviour
         //敵のチャージタイム決める
         const float kMinTime = 1f, kMaxTime = 5f;
         enemyChargeTime = Random.Range(kMinTime, kMaxTime);
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id09_Arrow_first);
     }
 
     // Update is called once per frame
@@ -92,6 +95,9 @@ public class Id09_Arrow : MonoBehaviour
                 //矢を放つ
                 arrowParticle.startSpeed = power;
                 var obj = Instantiate(arrowParticleObj, transform);
+
+                //SE
+                SE_Manager.SePlay(SE_Manager.SE_NAME.Id09_Arrow_second);
 
                 //ダメージ
                 var hit = Arts_Process.SetParticleDamageProcess(obj);

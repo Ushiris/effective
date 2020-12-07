@@ -32,6 +32,9 @@ public class Id457_BigBang : MonoBehaviour
         explosionObj.SetActive(true);
         Destroy(gameObject, 1.5f);
 
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+
         //ダメージの処理
     }
 
