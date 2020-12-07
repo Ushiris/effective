@@ -129,6 +129,14 @@ public class Arts_Process : MonoBehaviour
         return timer;
     }
 
+    public static ParticleHitSe SetGroundHitSe(GameObject obj, SE_Manager.SE_NAME seName, bool isPlayerAndEnemyHit = false)
+    {
+        var s = obj.AddComponent<ParticleHitSe>();
+        s.SetSeName(seName);
+        s.isPlayerAndEnemyHit = isPlayerAndEnemyHit;
+        return s;
+    }
+
     /// <summary>
     /// 自分が所持しているエフェクトの数を出す
     /// </summary>

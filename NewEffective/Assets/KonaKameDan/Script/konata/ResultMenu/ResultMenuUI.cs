@@ -8,10 +8,11 @@ public class ResultMenuUI : MonoBehaviour
     [SerializeField] TextMesh scoreText;
 
     public int SetScore;
-    public float ChangeScoreSpeed = 10f;
+    public float ChangeScoreSpeed = 1000f;
     public bool IsPlay { get; set; }
 
-    int tmpNum;
+    float tmpNum;
+    float time;
 
     // Start is called before the first frame update
     void Start()
@@ -23,15 +24,30 @@ public class ResultMenuUI : MonoBehaviour
     void Update()
     {
         if (!IsPlay) return;
-        if (tmpNum == SetScore)
+        if (tmpNum != SetScore)
         {
-            tmpNum += (int)(ChangeScoreSpeed * Time.deltaTime);
+            time += Time.deltaTime;
+            tmpNum = (time * time) * ChangeScoreSpeed;
             tmpNum = Mathf.Clamp(tmpNum, 0, SetScore);
-            scoreText.text = tmpNum.ToString();
+
+            int strNum = (int)tmpNum;
+
+            scoreText.text = strNum.ToString();
         }
         else
         {
-            IsPlay = false ;
+            StartCoroutine(Delay());
         }
+    }
+
+    public void ForcedDisplay()
+    {
+        scoreText.text = SetScore.ToString();
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        IsPlay = false;
     }
 }
