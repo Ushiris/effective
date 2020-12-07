@@ -66,7 +66,6 @@ public class SE_Manager : MonoBehaviour
         for (int i = 0; i < audioInstantMaxCount; i++)
         {
             gameObject.AddComponent<AudioSource>();
-
         }
         seArr = GetComponents<AudioSource>();
 
