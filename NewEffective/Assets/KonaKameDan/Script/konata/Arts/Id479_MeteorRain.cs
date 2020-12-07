@@ -116,5 +116,8 @@ public class Id479_MeteorRain : MonoBehaviour
         //隕石を動かす
         var forwardMove = Arts_Process.SetForwardMove(starDustParticle, -speed);
         forwardMove.isStart = true;
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id479_MeteorRain_second);
     }
 }

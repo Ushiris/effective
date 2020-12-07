@@ -50,6 +50,8 @@ public class Beam : MonoBehaviour
                         beamObjSiz.z += kSizUpSpeed * time;
                         beamObj.transform.localScale = beamObjSiz;
 
+                        //SE
+                        SE_Manager.SePlay(SE_Manager.SE_NAME.Id024_Diffusion_second);
                     }
                 }
             }

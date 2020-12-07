@@ -17,6 +17,9 @@ public class Id257_Haiyoru : MonoBehaviour
     ArtsStatus artsStatus;
     ParticleHitPlayExplosion playExplosion;
 
+    bool oneShotSE_second;
+    bool oneShotSE_third;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +59,9 @@ public class Id257_Haiyoru : MonoBehaviour
             //回す
             transform.position = artsStatus.myObj.transform.position;
             Arts_Process.ObjRoll(gameObject, rollSpeed);
+
+            oneShotSE_second = true;
+            oneShotSE_third = true;
         }
         else if(bomb!=null)
         {
@@ -63,21 +69,32 @@ public class Id257_Haiyoru : MonoBehaviour
             var pos = bomb.transform.position;
             pos = Vector3.MoveTowards(pos, target.transform.position, Time.deltaTime * speed);
             bomb.transform.position = pos;
+
+            if(oneShotSE_second)
+            {
+                //SE
+                SE_Manager.SePlay(SE_Manager.SE_NAME.Id257_Haiyoru_second);
+                oneShotSE_second = false;
+            }
         }
 
         //爆弾を破壊
         if (playExplosion.isTrigger == true)
         {
             Destroy(bomb);
+
+            if (oneShotSE_third)
+            {
+                //SE
+                SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+                oneShotSE_third = false;
+            }
         }
 
         //消す
         if (transform.childCount == 0)
         {
             Destroy(gameObject);
-
-            //SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
         }
     }
 }
