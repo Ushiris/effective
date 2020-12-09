@@ -267,13 +267,21 @@ public class NewMap : MonoBehaviour
     //宝箱を選別する
     void SetTreasureBox(GameObject treasureBoxGroup, int max)
     {
+        var table = new List<int>();
         var childTransform = treasureBoxGroup.transform;
         var allCount = childTransform.childCount;
+
+        for(int i = 0; i < allCount; i++)
+        {
+            table.Add(i);
+        }
+
         for (int i = 0; i < allCount - max; i++)
         {
-            var ran = Random.Range(0, childTransform.childCount);
-            childTransform.GetChild(ran).gameObject.SetActive(false);
-            Destroy(childTransform.GetChild(ran).gameObject);
+            var ran = Random.Range(0, table.Count);
+            childTransform.GetChild(table[ran]).gameObject.SetActive(false);
+            Destroy(childTransform.GetChild(table[ran]).gameObject);
+            table.RemoveAt(ran);
         }
     }
 
