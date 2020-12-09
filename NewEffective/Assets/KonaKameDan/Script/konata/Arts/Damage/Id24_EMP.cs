@@ -77,6 +77,7 @@ public class Id24_EMP : MonoBehaviour
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id245_EMPCube_first);
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id245_EMPCube_second);
     }
 
     // Update is called once per frame
