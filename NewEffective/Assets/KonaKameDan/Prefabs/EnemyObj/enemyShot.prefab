@@ -49,22 +49,6 @@ CapsuleCollider:
   m_Height: 1.8194379
   m_Direction: 1
   m_Center: {x: 0, y: 0.4928977, z: -0.033080757}
---- !u!114 &114866326227589502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4884296567427790718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034fb9b5528c11c429476c7ed548700d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coolTime: 3
-  artsObj: {fileID: 0}
-  mainEffectCount: 3
-  defaultEffectCount: 1
 --- !u!114 &2320462188813057228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,22 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63df57c5412ebbf4891c1598035c79cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4363220418442632232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4884296567427790718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034fb9b5528c11c429476c7ed548700d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coolTime: 3
-  artsObj: {fileID: 0}
-  mainEffectCount: 3
-  defaultEffectCount: 1
 --- !u!1001 &2915421977767696605
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -45,22 +45,22 @@ public class FlyEnemyBrain : EnemyBrainBase
 
     private void Update()
     {
-        if (IcarusZone == 0 && model.transform.position.y < defaultY - 0.3f)
+        if (IcarusZone <= 0 && model.transform.position.y < defaultY - 0.3f)
         {
-            model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y + 0.1f, model.transform.position.z);
+            model.transform.position = new Vector3(transform.position.x, model.transform.position.y + 0.1f, transform.position.z);
         }
 
         if (IcarusZone >= 1)
         {
             if (model.transform.position.y <= transform.position.y + 0.5) return;
 
-            model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y - 0.1f, model.transform.position.z);
+            model.transform.position = new Vector3(transform.position.x, model.transform.position.y - 0.1f, transform.position.z);
         }
     }
 
     private void LateUpdate()
     {
-        model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y + waver.GetDeltaHeight(), model.transform.position.z);
+        model.transform.position = new Vector3(transform.position.x, model.transform.position.y + waver.GetDeltaHeight(), transform.position.z);
         if (state.move == MoveState.Confuse)
         {
             return;

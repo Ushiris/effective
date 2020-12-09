@@ -51,7 +51,7 @@ public class ParticleHit : MonoBehaviour
     private void OnParticleCollision(GameObject obj)
     {
         if (!isParticleCollision) return;
-        if (obj.tag == hitObjTag)
+        if (obj.CompareTag(hitObjTag))
         {
             Damage(obj);
             isTrigger = true;
@@ -103,20 +103,20 @@ public class ParticleHit : MonoBehaviour
         DebugLogger.Log("name: " + artsStatus.myObj.name + " damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //ノックバック判定
-        if (obj.tag == "Enemy" && isEnemyKnockBack)
+        if (obj.CompareTag("Enemy") && isEnemyKnockBack)
         {
             var enemy = obj.GetComponent<Enemy>();
             if (enemy != null) enemy.KnockBack(100, 0.5f);
         }
 
         //UI&Point
-        if (obj.tag == "Enemy")
+        if (obj.CompareTag("Enemy"))
         {
             ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] = damageCast;
             DamageCount.damageInput = damageCast;
             //UIバグの調査をすること
         }
-        else if (obj.tag == "Player")
+        else if (obj.CompareTag("Player"))
         {
             ResultPoint.SetPoint[ResultPoint.PointName.EnemyDamage] = damageCast;
         }
