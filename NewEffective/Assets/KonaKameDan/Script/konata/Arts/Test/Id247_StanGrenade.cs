@@ -33,6 +33,8 @@ public class Id247_StanGrenade : MonoBehaviour
         image.color = c;
 
         OnEnemyStan = () => { };
+        // SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id79_Grenade_first);
     }
 
     // Update is called once per frame
@@ -42,6 +44,8 @@ public class Id247_StanGrenade : MonoBehaviour
         if (!grenadeParticle.activeSelf && process == Process.Start)
         {
             process = Process.FadeIn;
+            // SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Id247_StanGrenade_second);
             OnEnemyStan();
         }
 

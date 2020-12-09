@@ -11,11 +11,15 @@ public class Id027_AnnihilationRay : MonoBehaviour
     float timer;
     Quaternion roll;
 
+    bool isPlaySe;
+
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, 5);
         roll= pivot.transform.localRotation;
+
+        isPlaySe = true;
     }
 
     // Update is called once per frame
@@ -26,7 +30,12 @@ public class Id027_AnnihilationRay : MonoBehaviour
             timer += Time.deltaTime;
             return;
         }
-
+        if(isPlaySe)
+        {
+            // SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Id027_annihilationRay_first);
+            isPlaySe = false;
+        }
         //回転
         float step = speed * Time.deltaTime;
         pivot.transform.localRotation =

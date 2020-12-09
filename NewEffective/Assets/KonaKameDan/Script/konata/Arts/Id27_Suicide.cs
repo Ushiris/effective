@@ -19,6 +19,8 @@ public class Id27_Suicide : MonoBehaviour
         var selfHarm = life.HP * selfHarmRate;
         life.Damage((int)selfHarm);
         Destroy(gameObject, 2f);
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id27_Suicide_first);
     }
 
     private void OnTriggerEnter(Collider other)

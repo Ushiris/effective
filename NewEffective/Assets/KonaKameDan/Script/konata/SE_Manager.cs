@@ -42,7 +42,10 @@ public class SE_Manager : MonoBehaviour
         Id45_Search_first,
         Id49_Impact_first,
         Id59_Funnel_first, Id59_Funnel_third,
-        Id79_Grenade_first
+        Id79_Grenade_first,
+        Id027_annihilationRay_first,
+        Id247_StanGrenade_second,
+        Id27_Suicide_first
     }
 
     [System.Serializable]
