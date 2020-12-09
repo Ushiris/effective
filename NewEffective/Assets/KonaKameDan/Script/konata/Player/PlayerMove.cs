@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
         speed = slowSpeed;
 
         //地面判定のレイヤー取得
-        layerMask = LayerMask.GetMask("Map");
+        layerMask = LayerMask.GetMask("Map", "ExceptionMap");
 
         //重力の変更
         Physics.gravity = new Vector3(0, -20, 0);

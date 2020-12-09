@@ -1,0 +1,273 @@
+fileFormatVersion: 2
+guid: e6f1a8fa2d7924f28a95c09857ab744b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Character01
+    100002: Face
+    100004: Face_Tip
+    100006: Front_Robe
+    100008: Front_Robe1
+    100010: Front_Robe2
+    100012: Front_Robe3
+    100014: Front_Robe4
+    100016: Front_Robe5
+    100018: Hip
+    100020: Left_Back_Robe
+    100022: Left_Back_Robe1
+    100024: Left_Back_Robe2
+    100026: Left_Back_Robe3
+    100028: Left_Back_Robe4
+    100030: Left_Back_Robe_Tip
+    100032: Left_BackSide_Robe
+    100034: Left_BackSide_Robe1
+    100036: Left_BackSide_Robe2
+    100038: Left_BackSide_Robe3
+    100040: Left_BackSide_Robe4
+    100042: Left_BackSide_Robe5
+    100044: Left_Front_Robe
+    100046: Left_Front_Robe1
+    100048: Left_Front_Robe2
+    100050: Left_Front_Robe3
+    100052: Left_Front_Robe4
+    100054: Left_Front_Robe_Tip
+    100056: Left_FrontSide_Robe
+    100058: Left_FrontSide_Robe1
+    100060: Left_FrontSide_Robe2
+    100062: Left_FrontSide_Robe3
+    100064: Left_FrontSide_Robe4
+    100066: Left_FrontSide_Robe_Tip
+    100068: Left_Hip
+    100070: LeftFoot
+    100072: LeftLeg
+    100074: LeftUpLeg
+    100076: Medal
+    100078: Medal_Tip
+    100080: Neck
+    100082: //RootNode
+    100084: Right_Back_Robe
+    100086: Right_Back_Robe1
+    100088: Right_Back_Robe2
+    100090: Right_Back_Robe3
+    100092: Right_Back_Robe4
+    100094: Right_Back_Robe_Tip
+    100096: Right_BackSide_Robe
+    100098: Right_BackSide_Robe1
+    100100: Right_BackSide_Robe2
+    100102: Right_BackSide_Robe3
+    100104: Right_BackSide_Robe4
+    100106: Right_BackSide_Robe5
+    100108: Right_Front_Robe
+    100110: Right_Front_Robe1
+    100112: Right_Front_Robe2
+    100114: Right_Front_Robe3
+    100116: Right_Front_Robe4
+    100118: Right_Front_Robe_Tip
+    100120: Right_FrontSide_Robe
+    100122: Right_FrontSide_Robe1
+    100124: Right_FrontSide_Robe2
+    100126: Right_FrontSide_Robe3
+    100128: Right_FrontSide_Robe4
+    100130: Right_FrontSide_Robe_Tip
+    100132: Right_Hip
+    100134: RightFoot
+    100136: RightLeg
+    100138: RightUpLeg
+    100140: Spine
+    100142: Spine1
+    400000: Character01
+    400002: Face
+    400004: Face_Tip
+    400006: Front_Robe
+    400008: Front_Robe1
+    400010: Front_Robe2
+    400012: Front_Robe3
+    400014: Front_Robe4
+    400016: Front_Robe5
+    400018: Hip
+    400020: Left_Back_Robe
+    400022: Left_Back_Robe1
+    400024: Left_Back_Robe2
+    400026: Left_Back_Robe3
+    400028: Left_Back_Robe4
+    400030: Left_Back_Robe_Tip
+    400032: Left_BackSide_Robe
+    400034: Left_BackSide_Robe1
+    400036: Left_BackSide_Robe2
+    400038: Left_BackSide_Robe3
+    400040: Left_BackSide_Robe4
+    400042: Left_BackSide_Robe5
+    400044: Left_Front_Robe
+    400046: Left_Front_Robe1
+    400048: Left_Front_Robe2
+    400050: Left_Front_Robe3
+    400052: Left_Front_Robe4
+    400054: Left_Front_Robe_Tip
+    400056: Left_FrontSide_Robe
+    400058: Left_FrontSide_Robe1
+    400060: Left_FrontSide_Robe2
+    400062: Left_FrontSide_Robe3
+    400064: Left_FrontSide_Robe4
+    400066: Left_FrontSide_Robe_Tip
+    400068: Left_Hip
+    400070: LeftFoot
+    400072: LeftLeg
+    400074: LeftUpLeg
+    400076: Medal
+    400078: Medal_Tip
+    400080: Neck
+    400082: //RootNode
+    400084: Right_Back_Robe
+    400086: Right_Back_Robe1
+    400088: Right_Back_Robe2
+    400090: Right_Back_Robe3
+    400092: Right_Back_Robe4
+    400094: Right_Back_Robe_Tip
+    400096: Right_BackSide_Robe
+    400098: Right_BackSide_Robe1
+    400100: Right_BackSide_Robe2
+    400102: Right_BackSide_Robe3
+    400104: Right_BackSide_Robe4
+    400106: Right_BackSide_Robe5
+    400108: Right_Front_Robe
+    400110: Right_Front_Robe1
+    400112: Right_Front_Robe2
+    400114: Right_Front_Robe3
+    400116: Right_Front_Robe4
+    400118: Right_Front_Robe_Tip
+    400120: Right_FrontSide_Robe
+    400122: Right_FrontSide_Robe1
+    400124: Right_FrontSide_Robe2
+    400126: Right_FrontSide_Robe3
+    400128: Right_FrontSide_Robe4
+    400130: Right_FrontSide_Robe_Tip
+    400132: Right_Hip
+    400134: RightFoot
+    400136: RightLeg
+    400138: RightUpLeg
+    400140: Spine
+    400142: Spine1
+    2100000: lambert6
+    4300000: Character01
+    7400000: PlayerSideMoveLeft01
+    9500000: //RootNode
+    13700000: Character01
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CharaUV01test
+    second: {fileID: 2800000, guid: 8674a6e04b39141ae96528d9c490ed29, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: PlayerSideMoveLeft01
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
