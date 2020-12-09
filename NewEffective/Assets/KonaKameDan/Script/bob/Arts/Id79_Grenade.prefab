@@ -48,7 +48,7 @@ MonoBehaviour:
     type: 3}
   grenadeObj: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
     type: 3}
-  bulletObj: {fileID: 7341266824481953958, guid: 235a64747f5a73441a9f98801b823297,
+  bulletObj: {fileID: 1524775705073130834, guid: d3565107e243746498b152232f41b1a5,
     type: 3}
   v0: {x: 0, y: 5, z: 7}
   trajectoryCount: 10
