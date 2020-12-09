@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour
         {
             slider.GetComponentInParent<Canvas>().transform.localScale = big;
             GameObject Territory = new GameObject();
+            Territory.tag = "BossZone";
             Territory.transform.parent = gameObject.transform;
             Territory.AddComponent<TerritorySenses>();
         }

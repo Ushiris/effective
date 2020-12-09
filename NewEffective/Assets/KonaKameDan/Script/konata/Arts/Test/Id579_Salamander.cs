@@ -7,9 +7,10 @@ public class Id579_Salamander : MonoBehaviour
     [SerializeField] GameObject fairy;
     [SerializeField] ParticleSystem boom;
     [SerializeField] GameObject explosion;
-    [SerializeField] float lostTime = 10f;
+    [SerializeField] int playCount = 3;
     [SerializeField] float lapTime = 3f;
 
+    int count;
     StopWatch timer;
     ArtsStatus artsStatus;
 
@@ -17,7 +18,6 @@ public class Id579_Salamander : MonoBehaviour
     void Start()
     {
         artsStatus = GetComponent<ArtsStatus>();
-        Destroy(gameObject, lostTime);
 
         var objs = ArtsActiveObj.Id579_Salamander;
         Arts_Process.OldArtsDestroy(objs, artsStatus.myObj);
@@ -29,7 +29,9 @@ public class Id579_Salamander : MonoBehaviour
         timer.LapTime = lapTime;
         timer.LapEvent = () =>
         {
+            if (count == playCount) Destroy(gameObject);
             boom.Play();
+            count++;
         };
         // SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id059_SummonPixie_first);
