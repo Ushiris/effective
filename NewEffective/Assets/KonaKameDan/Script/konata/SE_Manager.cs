@@ -8,6 +8,7 @@ using UnityEngine;
 public class SE_Manager : MonoBehaviour
 {
     [SerializeField] int audioInstantMaxCount = 10;
+    [SerializeField] GameObject se3dObj;
 
     AudioSource[] seArr;
 
@@ -52,6 +53,13 @@ public class SE_Manager : MonoBehaviour
         [Range(0, 1f)] public float seVolume = 0.1f;
     }
 
+    public class Se3d
+    {
+        public GameObject obj;
+        public AudioSource se;
+    }
+    Se3d[] se3D;
+
     public PrefabDictionary seData;
 
     static SE_Manager SE_Manager_;
@@ -70,6 +78,23 @@ public class SE_Manager : MonoBehaviour
         seArr = GetComponents<AudioSource>();
 
         SE_Manager_ = this;
+    }
+
+    //3DSEを使用する場合Startで宣言すること
+    void StartUp3dSe(int maxCount)
+    {
+        var group = new GameObject("3dSeGroup");
+        group.transform.parent = transform;
+        se3D = new Se3d[maxCount];
+
+        for (int i = 0; i < maxCount; i++)
+        {
+            var obj = Instantiate(se3dObj, group.transform);
+            var se= obj.AddComponent<AudioSource>();
+
+            se3D[i].obj = obj;
+            se3D[i].se = se;
+        }
     }
 
     /// <summary>
@@ -91,6 +116,31 @@ public class SE_Manager : MonoBehaviour
                     se.volume = audioData.seVolume;
                     se.PlayOneShot(audioData.audio);
                     return se;
+                }
+            }
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// 3DSE用
+    /// オブジェクトの位置を変えることでその位置で鳴らすことができる
+    /// </summary>
+    /// <param name="seType"></param>
+    /// <returns></returns>
+    public static Se3d Se3dPlay(SE_NAME seType)
+    {
+        if (SE_Manager_ != null)
+        {
+            foreach (var se3d in SE_Manager_.se3D)
+            {
+                if (!se3d.se.isPlaying)
+                {
+                    se3d.se.loop = false;
+                    var audioData = SE_Manager_.seData.GetTable()[seType];
+                    se3d.se.volume = audioData.seVolume;
+                    se3d.se.PlayOneShot(audioData.audio);
+                    return se3d;
                 }
             }
         }
