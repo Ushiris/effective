@@ -51,8 +51,6 @@ public class Id79_Grenade : MonoBehaviour
         //軌跡を生成
         miracles = Arts_Process.Trajectory(miracles, trajectorySpace, v0);
 
-        //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id79_Grenade_first);
     }
 
     // Update is called once per frame
@@ -83,6 +81,9 @@ public class Id79_Grenade : MonoBehaviour
 
             var timer = Arts_Process.TimeAction(gameObject, slidingThroughLostTime);
             timer.LapEvent = () => { Lost(grenade); };
+
+            //SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Id79_Grenade_first);
         }
 
         if(particleHitPlay != null)

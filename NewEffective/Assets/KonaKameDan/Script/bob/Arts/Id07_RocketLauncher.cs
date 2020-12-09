@@ -32,6 +32,7 @@ public class Id07_RocketLauncher : MonoBehaviour
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id07_RocketLauncher_first);
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id07_RocketLauncher_second);
     }
     void Update()
     {
