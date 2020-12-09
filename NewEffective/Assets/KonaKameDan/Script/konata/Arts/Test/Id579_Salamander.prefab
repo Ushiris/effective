@@ -105,7 +105,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -4804,7 +4804,7 @@ MonoBehaviour:
   boom: {fileID: 6300707635174437844}
   explosion: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
     type: 3}
-  lostTime: 10
+  playCount: 3
   lapTime: 3
 --- !u!114 &114101397220471554
 MonoBehaviour:
