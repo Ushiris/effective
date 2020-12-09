@@ -14,7 +14,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &354606345341323955
 CapsuleCollider:
@@ -193,6 +193,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.69
       objectReference: {fileID: 0}
+    - target: {fileID: 4101466989299026290, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
       propertyPath: mainType
@@ -207,6 +212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: artsTable.Array.data[1]
       value: 07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6579676720879186573, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8071045039221122133, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
