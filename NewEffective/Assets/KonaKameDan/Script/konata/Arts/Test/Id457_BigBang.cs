@@ -13,6 +13,8 @@ public class Id457_BigBang : MonoBehaviour
 
     StopWatch timer;
 
+    AudioSource se;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class Id457_BigBang : MonoBehaviour
         timer.LapEvent = () => { Explosion(); };
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id457_BigBang_second);
+        se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id457_BigBang_second);
     }
 
     void Explosion()
@@ -37,6 +39,7 @@ public class Id457_BigBang : MonoBehaviour
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+        SE_Manager.ForcedPlayStop(se);
 
         //ダメージの処理
     }
