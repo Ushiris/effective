@@ -8,12 +8,6 @@ public class Magma : MonoBehaviour
     [SerializeField, Header("時間からlapTimeを割った値")] int lapTime = 2;
     Life playerLife;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerLife = PlayerManager.GetManager.GetPlObj.GetComponent<Life>();
-    }
-
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -21,6 +15,10 @@ public class Magma : MonoBehaviour
             //継続ダメージ処理
             if ((int)Time.time % lapTime == 0)
             {
+                if (playerLife == null)
+                {
+                    playerLife = collision.gameObject.GetComponent<Life>();
+                }
                 playerLife.Damage(damage);
             }
         }

@@ -4880,7 +4880,7 @@ MonoBehaviour:
   electricalParticle: {fileID: 2227364003810025019, guid: 7da1494e3a15eb44f9d5633fe33e1c44,
     type: 3}
   fadeOut: 2
-  fadeIn: 30
+  fadeIn: 10
   delay: 1.5
   enemyStanTime: 10
 --- !u!114 &114101397220471554

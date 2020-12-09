@@ -24,7 +24,7 @@ public class Id247_StanGrenade : MonoBehaviour
     Action OnEnemyStan;
 
     static readonly float kMinAlpha = 0;
-    static readonly float kMaxAlpha = 5f;
+    static readonly float kMaxAlpha = 0.5f;
 
     private void Start()
     {

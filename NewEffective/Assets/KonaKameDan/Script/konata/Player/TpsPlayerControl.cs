@@ -44,7 +44,9 @@ public class TpsPlayerControl : MonoBehaviour
 
 
         desiredPosition = cameraDesirePos.transform.position;
-        float height = t.terrainData.GetInterpolatedHeight(desiredPosition.x / t.terrainData.size.x, desiredPosition.z / t.terrainData.size.z);
+        var pos = new Vector3(desiredPosition.x / t.terrainData.size.x, desiredPosition.y, desiredPosition.z / t.terrainData.size.z);
+        float height = NewMap.GetGroundPosRay(pos);
+        //t.terrainData.GetInterpolatedHeight(desiredPosition.x / t.terrainData.size.x, desiredPosition.z / t.terrainData.size.z);
         if (desiredPosition.y < height && mouseDelta.y >= 0)
         {
             desiredPosition.y = height + 0.02f;
