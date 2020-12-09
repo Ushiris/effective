@@ -101,7 +101,7 @@ public class NewMap : MonoBehaviour
         GetPlayerRespawnPos = status.playerSpawnPoint;
 
         //Mapに設定されているエフェクトをセットする
-        foreach (var item in statusList[statusListNum].effectItem)
+        foreach (var item in status.effectItem)
         {
             if (GetEffect.Count != 0)
             {
