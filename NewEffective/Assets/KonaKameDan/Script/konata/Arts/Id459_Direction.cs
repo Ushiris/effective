@@ -40,5 +40,8 @@ public class Id459_Direction : MonoBehaviour
         navMeshAgent = Arts_Process.SetNavMeshAgent(gameObject);
         navMeshAgent.speed = speed;
         navMeshAgent.destination = GoalIn.GetGoalPos;
+
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id459_Direction_second);
     }
 }

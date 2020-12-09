@@ -34,6 +34,8 @@ public class Id079_Amaterasu : MonoBehaviour
     HitCollision hitCollision;
     ArtsStatus artsStatus;
 
+    AudioSource se;
+
     private void Awake()
     {
         //宣言＆アタッチ
@@ -82,6 +84,9 @@ public class Id079_Amaterasu : MonoBehaviour
             satelliteBeamMaterial.isTimeStart = true;
 
             Damage();
+
+            //SE
+            se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id079_Amaterasu_second);
         }
 
         if (isSatelliteCannonInstant)
@@ -104,6 +109,9 @@ public class Id079_Amaterasu : MonoBehaviour
                 }
                 else if (!satelliteBeamMaterial.isTimeStart)
                 {
+                    //SEをフェード
+                    SE_Manager.SetFadeOut(this, se, 0.1f);
+
                     //アーツの全ての処理を終えた場合、プールに戻す
                     //StartUpParticle.SetArts("Id079_Amaterasu", artsStatus);
                     Destroy(gameObject);

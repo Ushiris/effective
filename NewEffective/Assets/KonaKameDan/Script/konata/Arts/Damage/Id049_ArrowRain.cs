@@ -39,6 +39,8 @@ public class Id049_ArrowRain : MonoBehaviour
     int flyCount;
     float damage;
 
+    AudioSource se;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +88,9 @@ public class Id049_ArrowRain : MonoBehaviour
                 var hit = Arts_Process.SetParticleDamageProcess(arrowRainObj);
                 //ダメージ処理
                 Arts_Process.Damage(hit, artsStatus, damage, true);
+
+                //SE
+                se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id049_ArrowRain_second);
             }
             if (magicCircle.transform.childCount == 0)
             {
@@ -98,6 +103,9 @@ public class Id049_ArrowRain : MonoBehaviour
                 //魔法陣を小さくするモードに変更
                 isMagicCircleSiz.SetSizChangeMode = ObjSizChange.SizChangeMode.ScaleDown;
                 isMagicCircleSiz.GetSizFlag = false;
+
+                //SEをフェード
+                SE_Manager.SetFadeOut(this, se, 0.1f);
             }
         }
     }

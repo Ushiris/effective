@@ -68,6 +68,7 @@ public class Id045_Hounds : MonoBehaviour
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id045_Hounds_first);
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id045_Hounds_second);
     }
 
     // Update is called once per frame

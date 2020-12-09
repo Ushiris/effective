@@ -34,6 +34,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7884679491920403538}
   - component: {fileID: 5941129494631516268}
+  - component: {fileID: 8359489042549182188}
   m_Layer: 10
   m_Name: Arts
   m_TagString: Untagged
@@ -67,6 +68,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c41f4a7e8889b418049c0c0bbc47fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8359489042549182188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5091989620496555492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1447741db9a0d8c4f81a6b36d0e29a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectBag: {fileID: 5941129494631516268}
 --- !u!1 &6766839896632091133
 GameObject:
   m_ObjectHideFlags: 0

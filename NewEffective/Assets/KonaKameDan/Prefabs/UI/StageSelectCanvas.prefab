@@ -690,6 +690,11 @@ PrefabInstance:
       propertyPath: texture
       value: 
       objectReference: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 1250517719814012445, guid: 5a04600698e390f47bb9e48df89a200a,
+        type: 3}
+      propertyPath: SetSceneNameToChangeScene
+      value: ResultMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 5001649597043200118, guid: 5a04600698e390f47bb9e48df89a200a,
         type: 3}
       propertyPath: m_LocalPosition.x

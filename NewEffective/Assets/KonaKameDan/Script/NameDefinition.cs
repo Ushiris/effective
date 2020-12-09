@@ -7,7 +7,7 @@ public class NameDefinition : MonoBehaviour
     /// <summary>
     /// リザルトシーンのシーン名
     /// </summary>
-    public static readonly string SceneName_Result= "Result";
+    public static readonly string SceneName_Result= "ResultMenu";
 
     /// <summary>
     /// メインシーンのシーン名

@@ -109,11 +109,16 @@ public class ParticleHit : MonoBehaviour
             if (enemy != null) enemy.KnockBack(100, 0.5f);
         }
 
-        //UI
+        //UI&Point
         if (obj.tag == "Enemy")
         {
+            ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] = damageCast;
             DamageCount.damageInput = damageCast;
             //UIバグの調査をすること
+        }
+        else if (obj.tag == "Player")
+        {
+            ResultPoint.SetPoint[ResultPoint.PointName.EnemyDamage] = damageCast;
         }
 
         //SE
