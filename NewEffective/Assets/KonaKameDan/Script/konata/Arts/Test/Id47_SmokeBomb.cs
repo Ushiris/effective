@@ -12,6 +12,8 @@ public class Id47_SmokeBomb : MonoBehaviour
     {
         transform.parent = null;
         smokeBombObj = Instantiate(smokeBombParticle, transform);
+        //SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id257_Haiyoru_second);
     }
 
     // Update is called once per frame

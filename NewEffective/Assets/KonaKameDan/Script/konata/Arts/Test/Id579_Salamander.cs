@@ -22,7 +22,8 @@ public class Id579_Salamander : MonoBehaviour
         var objs = ArtsActiveObj.Id579_Salamander;
         Arts_Process.OldArtsDestroy(objs, artsStatus.myObj);
 
-        Arts_Process.SetParticleHitPlay(boom.gameObject, explosion, transform, artsStatus);
+        var particleHitPlay = Arts_Process.SetParticleHitPlay(boom.gameObject, explosion, transform, artsStatus);
+        particleHitPlay.OnExplosion += () => { SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third); };
 
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = lapTime;
@@ -30,5 +31,7 @@ public class Id579_Salamander : MonoBehaviour
         {
             boom.Play();
         };
+        // SE
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Id059_SummonPixie_first);
     }
 }
