@@ -19,7 +19,7 @@ public class EnemyArtsPickUp : MonoBehaviour
 
     int lv = 0;
     int lvLearnArtsTableCount;
-    List<string> artsTable = new List<string>();
+    public List<string> ArtsTable { get; private set; }
 
     [System.Serializable]
     class LvArtsTable
@@ -31,6 +31,7 @@ public class EnemyArtsPickUp : MonoBehaviour
 
     private void Start()
     {
+        ArtsTable = new List<string>();
         //レベルアップしたらArtsを新しく覚える
         if (lv != WorldLevel.GetWorldLevel)
         {
@@ -38,14 +39,14 @@ public class EnemyArtsPickUp : MonoBehaviour
             {
                 for (int artsCount = 0; artsCount < lvLearnArtsTable[lv].artsArr.Length; artsCount++)
                 {
-                    artsTable.Add(lvLearnArtsTable[lv].artsArr[artsCount]);
+                    ArtsTable.Add(lvLearnArtsTable[lv].artsArr[artsCount]);
                 }
                 if (lvLearnArtsTable.Length - 1 == lv) break;
             }
         }
 
         //アーツをランダムにピック
-        GetArtsId = artsTable[Random.Range(0, artsTable.Count)];
+        GetArtsId = ArtsTable[Random.Range(0, ArtsTable.Count)];
 
         //アーツIDからEffect情報に変換
         GetEffect.Clear();
