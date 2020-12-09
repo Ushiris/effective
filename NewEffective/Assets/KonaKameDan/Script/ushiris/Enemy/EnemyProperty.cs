@@ -10,6 +10,9 @@ public class EnemyProperty
     public static float BestAttackDistance_Range { get; private set; } = 22;
     public static float FriendFindDistance { get; private set; } = 30;
     public static float KnightDistance { get; private set; } = 5;
+    public static float BossAngryDistance { get; private set; } = 7;
+    public static float PortalDefenceDistance { get; private set; } = 25;
+
 
     public void SetPlayerFindDistance(float dist)
     {

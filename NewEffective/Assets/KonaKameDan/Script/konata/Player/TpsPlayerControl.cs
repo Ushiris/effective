@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// カメラとプレイヤーの向きを制御
@@ -42,23 +43,25 @@ public class TpsPlayerControl : MonoBehaviour
         
         pl.transform.Rotate(0, mouseDelta.x, 0);
 
-
         desiredPosition = cameraDesirePos.transform.position;
-        var pos = new Vector3(desiredPosition.x / t.terrainData.size.x, desiredPosition.y, desiredPosition.z / t.terrainData.size.z);
-        float height = NewMap.GetGroundPosRay(pos);
-        //t.terrainData.GetInterpolatedHeight(desiredPosition.x / t.terrainData.size.x, desiredPosition.z / t.terrainData.size.z);
-        if (desiredPosition.y < height && mouseDelta.y >= 0)
+        bool isBlock = WallCheck();
+        if (!isBlock)
         {
-            desiredPosition.y = height + 0.02f;
-            mouseDelta.y = 0;
-        }
-        else if (desiredPosition.y >= head.transform.position.y + distance - 0.1f && mouseDelta.y <= 0)
-        {
-            mouseDelta.y = 0;
+            float height = NewMap.GetGroundPosRay(desiredPosition);
+            //t.terrainData.GetInterpolatedHeight(desiredPosition.x / t.terrainData.size.x, desiredPosition.z / t.terrainData.size.z);
+            if (desiredPosition.y < height && mouseDelta.y >= 0)
+            {
+                desiredPosition.y = height + 0.02f;
+                mouseDelta.y = 0;
+            }
+            else if (desiredPosition.y >= head.transform.position.y + distance - 0.1f && mouseDelta.y <= 0)
+            {
+                mouseDelta.y = 0;
+            }
         }
         cameraPivot.transform.Rotate(-mouseDelta.y, 0, 0);
 
-        cameraObj.transform.position = WallCheck() ? wallHitPosition : desiredPosition;
+        cameraObj.transform.position = isBlock ? wallHitPosition : desiredPosition;
         cameraObj.transform.LookAt(head.transform);
     }
 

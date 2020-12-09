@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyPop : MonoBehaviour
 {
@@ -49,22 +50,16 @@ public class EnemyPop : MonoBehaviour
         return desirePos;
     }
 
-    Vector3? SpawnPointFinder(int loopCount = 0)
+    Vector3? SpawnPointFinder()
     {
         Vector3 desirePos = SpawnPointSelector();
+        NavMeshHit edgePos;
+        if (NavMesh.FindClosestEdge(desirePos, out edgePos, NavMesh.AllAreas))
+        {
+            return edgePos.position;
+        }
 
-        var terrain = NewMapTerrainData.GetTerrain;
-        if (!IsOutHeight(terrain, desirePos)) return desirePos;
-        else desirePos.x += differPos;
-        if (IsOutHeight(terrain, desirePos)) desirePos.x -= 2 * differPos;
-        else return desirePos;
-        if (IsOutHeight(terrain, desirePos)) desirePos.z += differPos;
-        else return desirePos;
-        if (IsOutHeight(terrain, desirePos)) desirePos.z -= 2 * differPos;
-        else return desirePos;
-
-        if (loopCount >= findPointLoopLimiter) return null;
-        else return SpawnPointFinder(++loopCount);
+        return null;
     }
 
     bool IsOutHeight(Terrain terrain,Vector3 desirePos)
