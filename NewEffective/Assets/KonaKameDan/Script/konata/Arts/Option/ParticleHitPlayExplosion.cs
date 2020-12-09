@@ -16,6 +16,8 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     public Mode mode = Mode.You;
     public bool isAllHit = false;
+    public delegate void Action();
+    public Action OnExplosion;
 
     public bool isTrigger { get; private set; }
 
@@ -42,6 +44,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
                 notHitObjTag = "Enemy";
                 break;
         }
+        OnExplosion += () => { };
     }
 
     private void OnParticleCollision(GameObject other)
@@ -84,6 +87,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
             case Mode.You: obj.transform.position = target.transform.position; break;
             default: break;
         }
+        OnExplosion();
         Destroy(obj, particleLostTime);
     }
 

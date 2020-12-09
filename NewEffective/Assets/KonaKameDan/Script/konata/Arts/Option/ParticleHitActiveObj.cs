@@ -41,5 +41,11 @@ public class ParticleHitActiveObj : MonoBehaviour
             obj[i].SetActive(true);
             Destroy(obj[i], 3f);
         }
+        for (int i = 0; i < obj.Length; i++)
+        {
+            yield return new WaitForSeconds(delay);
+            // SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+        }
     }
 }
