@@ -28,6 +28,9 @@ public class SatelliteBeamMaterial : MonoBehaviour
     float coreMaterialTimer = 1;
     float shaderTimer = 0;
 
+    AudioSource se;
+    bool isSePlay;
+
     private void Start()
     {
         ArtsStatus artsStatus = GetComponentInParent<ArtsStatus>();
@@ -54,6 +57,8 @@ public class SatelliteBeamMaterial : MonoBehaviour
             case ArtsStatus.ParticleType.Unknown: break;
             default: break;
         }
+
+        isSePlay = true;
     }
 
     // Update is called once per frame
@@ -64,9 +69,22 @@ public class SatelliteBeamMaterial : MonoBehaviour
             if (timer < coolTime)
             {
                 timer += Time.deltaTime;
+
+                if (isSePlay)
+                {
+                    //SE
+                    se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id079_Amaterasu_second);
+                    isSePlay = false;
+                }
             }
             else
             {
+                if (!isSePlay)
+                {
+                    //SEをフェード
+                    SE_Manager.SetFadeOut(this, se, 0.3f);
+                    isSePlay = true;
+                }
                 Shader(shaderSpeed);
                 CoreMaterial(coreMaterialSpeed);
 

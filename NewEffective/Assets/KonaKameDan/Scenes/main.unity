@@ -943,6 +943,107 @@ MonoBehaviour:
     type: 3}
   pos: {x: 0, y: 0, z: 0}
   canvas: {fileID: 413742545}
+--- !u!114 &560392719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 10
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  hdriSky:
+    m_OverrideState: 0
+    m_Value: {fileID: 8900000, guid: 8253d41e6e8b11a4cbe77a4f8f82934d, type: 3}
+  enableBackplate:
+    m_OverrideState: 0
+    m_Value: 0
+  backplateType:
+    m_OverrideState: 0
+    m_Value: 0
+  groundLevel:
+    m_OverrideState: 0
+    m_Value: 0
+  scale:
+    m_OverrideState: 0
+    m_Value: {x: 32, y: 32}
+  projectionDistance:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 0.0000001
+  plateRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0}
+  blendAmount:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 100
+  shadowTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  pointLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  dirLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  rectLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!1 &575724511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,107 +1331,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833579863}
   m_CullTransparentMesh: 0
---- !u!114 &883086252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 10
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  hdriSky:
-    m_OverrideState: 0
-    m_Value: {fileID: 8900000, guid: 8253d41e6e8b11a4cbe77a4f8f82934d, type: 3}
-  enableBackplate:
-    m_OverrideState: 0
-    m_Value: 0
-  backplateType:
-    m_OverrideState: 0
-    m_Value: 0
-  groundLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  scale:
-    m_OverrideState: 0
-    m_Value: {x: 32, y: 32}
-  projectionDistance:
-    m_OverrideState: 0
-    m_Value: 16
-    min: 0.0000001
-  plateRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  blendAmount:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 100
-  shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  pointLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  dirLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  rectLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!1001 &954367594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2512,7 +2512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 1282aa51de4db2b49839520a8525a239, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 883086252}
+  m_SkySettings: {fileID: 560392719}
   m_SkySettingsFromProfile: {fileID: 7488742677745068149, guid: 1282aa51de4db2b49839520a8525a239,
     type: 2}
 --- !u!4 &1560460057
@@ -6552,7 +6552,7 @@ PrefabInstance:
         type: 3}
       propertyPath: seData.list.Array.data[7].Value.audio
       value: 
-      objectReference: {fileID: 8300000, guid: 52709f09387006541bff39da83118bd8, type: 3}
+      objectReference: {fileID: 8300000, guid: 09e2bdebeecf7d041b46d917ef6510ac, type: 3}
     - target: {fileID: 8012069796867782620, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
         type: 3}
       propertyPath: seData.list.Array.data[7].Value.seVolume
@@ -6792,7 +6792,7 @@ PrefabInstance:
         type: 3}
       propertyPath: seData.list.Array.data[23].Value.audio
       value: 
-      objectReference: {fileID: 8300000, guid: 52bd1b35ceb5df44a950ae7ab8ce5426, type: 3}
+      objectReference: {fileID: 8300000, guid: 519c9933564f605469b2804de864c343, type: 3}
     - target: {fileID: 8012069796867782620, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
         type: 3}
       propertyPath: seData.list.Array.data[23].Value.seVolume
@@ -6822,7 +6822,7 @@ PrefabInstance:
         type: 3}
       propertyPath: seData.list.Array.data[25].Value.audio
       value: 
-      objectReference: {fileID: 8300000, guid: c6e16e5e7b01b164dbec2036b5d41ca1, type: 3}
+      objectReference: {fileID: 8300000, guid: a216f18c02d5a6042ac07ebece15c2d9, type: 3}
     - target: {fileID: 8012069796867782620, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
         type: 3}
       propertyPath: seData.list.Array.data[25].Value.seVolume
@@ -6927,7 +6927,7 @@ PrefabInstance:
         type: 3}
       propertyPath: seData.list.Array.data[32].Value.audio
       value: 
-      objectReference: {fileID: 8300000, guid: f798dbc8c8f2a2949ba518c525e33026, type: 3}
+      objectReference: {fileID: 8300000, guid: ea2d7d0cb94502e4399de1ab8e4b256a, type: 3}
     - target: {fileID: 8012069796867782620, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
         type: 3}
       propertyPath: seData.list.Array.data[32].Value.seVolume
@@ -6957,7 +6957,7 @@ PrefabInstance:
         type: 3}
       propertyPath: seData.list.Array.data[34].Value.audio
       value: 
-      objectReference: {fileID: 8300000, guid: f2f6ded5226051242a83403650165f11, type: 3}
+      objectReference: {fileID: 8300000, guid: 3c77f179d19268046b8946ada05982b7, type: 3}
     - target: {fileID: 8012069796867782620, guid: 5b9e8f3ac2a00c44f8f3cb17b975cc09,
         type: 3}
       propertyPath: seData.list.Array.data[34].Value.seVolume
