@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResultMenuUIManager : MonoBehaviour
 {
-    public GameObject[] scoreUi;
+    [SerializeField] ResultMenuCamera resultMenuCamera;
     [SerializeField] float radius = 10;
 
     bool isScoreRollPlayEnd;
@@ -13,6 +13,7 @@ public class ResultMenuUIManager : MonoBehaviour
     public delegate void Action();
     public Action isNext;
 
+    public GameObject[] scoreUi;
     public int scoreRollPlayNum = 0;
 
     static readonly float kAngle = 360;
@@ -41,12 +42,17 @@ public class ResultMenuUIManager : MonoBehaviour
     {
         if (TitleMenuSelectIcon.IsSceneLoadProcess) return;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        //タイトルに移動する処理
+        if (resultMenuCamera.IsMoveEnd)
         {
-            var s = scoreUi[scoreRollPlayNum].GetComponent<TitleMenuSelectIcon>();
-            s.OnSceneChange();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                var s = scoreUi[scoreRollPlayNum].GetComponent<TitleMenuSelectIcon>();
+                s.OnSceneChange();
+            }
         }
 
+        //得点が動ききり、一定の秒数後にCameraを動かす命令を出す
         if (!resultMenuUI.IsPlay)
         {
             if (scoreUi.Length - 1 != scoreRollPlayNum && !isScoreRollPlayEnd)

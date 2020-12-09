@@ -53,9 +53,6 @@ public class Id57_Bomber : MonoBehaviour
         if (transform.childCount == 0)
         {
             Destroy(gameObject);
-
-            //SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
         }
     }
 }

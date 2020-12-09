@@ -19,6 +19,8 @@ public class Id25_UnbreakableShield : MonoBehaviour
 
     const int count = 3;
 
+    AudioSource se;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +62,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_first);
+        se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id25_UnbreakableShield_second);
     }
 
     // Update is called once per frame
@@ -75,6 +78,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
         ArtsActiveObj.Id25_UnbreakableShield.Remove(artsStatus.myObj);
         Destroy(gameObject);
 
+        SE_Manager.ForcedPlayStop(se);
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third);
     }

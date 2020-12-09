@@ -44,9 +44,6 @@ public class Id057_Managarmr : MonoBehaviour
             if (managarmrParticle.transform.childCount == 0)
             {
                 Destroy(gameObject);
-
-                //SE
-                SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
             }
         }
     }

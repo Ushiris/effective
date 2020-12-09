@@ -39,6 +39,8 @@ public class Id09_Arrow : MonoBehaviour
 
     ArtsStatus artsStatus;
 
+    AudioSource se;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +71,7 @@ public class Id09_Arrow : MonoBehaviour
         enemyChargeTime = Random.Range(kMinTime, kMaxTime);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id09_Arrow_first);
+        se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id09_Arrow_first);
     }
 
     // Update is called once per frame
@@ -96,6 +98,7 @@ public class Id09_Arrow : MonoBehaviour
                 arrowParticle.startSpeed = power;
                 var obj = Instantiate(arrowParticleObj, transform);
 
+                SE_Manager.ForcedPlayStop(se);
                 //SE
                 SE_Manager.SePlay(SE_Manager.SE_NAME.Id09_Arrow_second);
 

@@ -64,6 +64,7 @@ public class EnemyPop : MonoBehaviour
 
     bool IsOutHeight(Terrain terrain,Vector3 desirePos)
     {
-        return terrain.terrainData.GetInterpolatedHeight(desirePos.x / terrain.terrainData.size.x, desirePos.z / terrain.terrainData.size.z) >= 15;
+        var pos = new Vector3(desirePos.x / terrain.terrainData.size.x, desirePos.y, desirePos.z / terrain.terrainData.size.z);
+        return NewMap.GetGroundPosMatch(pos) >= 15;
     }
 }

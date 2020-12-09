@@ -46,6 +46,8 @@ public class Id479_MeteorRain : MonoBehaviour
     const float r = 45;
     const float fixX = -30;
 
+    AudioSource se;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +81,8 @@ public class Id479_MeteorRain : MonoBehaviour
         //隕石が降るところにマークを置く
         var mark = Instantiate(markObj, transform);
         mark.transform.localScale = instantSiz * instantSpace;
-        mark.transform.localPosition = new Vector3(4, 0, 12);
+        var y = mark.transform.position.y - NewMap.GetGroundPosMatch(transform.position);
+        mark.transform.localPosition = new Vector3(4, y, 12);
 
         //一定時間ごとに隕石を生成
         timer = gameObject.AddComponent<StopWatch>();
@@ -93,7 +96,11 @@ public class Id479_MeteorRain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (groupObj.transform.childCount == 0 && boxPos.Count == 0) Destroy(gameObject);
+        if (groupObj.transform.childCount == 0 && boxPos.Count == 0)
+        {
+            SE_Manager.ForcedPlayStop(se);
+            Destroy(gameObject);
+        }
     }
 
     void Instant()
@@ -118,6 +125,6 @@ public class Id479_MeteorRain : MonoBehaviour
         forwardMove.isStart = true;
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id479_MeteorRain_second);
+        se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id479_MeteorRain_second);
     }
 }

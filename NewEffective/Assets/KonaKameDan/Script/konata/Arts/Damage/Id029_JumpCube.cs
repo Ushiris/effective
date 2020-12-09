@@ -58,8 +58,6 @@ public class Id029_JumpCube : MonoBehaviour
         transform.localPosition = new Vector3(0, 1f, 0);
         layerMask = LayerMask.GetMask("Map");
 
-        //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id029_JumpCube_first);
     }
 
     // Update is called once per frame
@@ -77,6 +75,9 @@ public class Id029_JumpCube : MonoBehaviour
             jumpCubeRb.AddRelativeFor​​ce(v0, ForceMode.VelocityChange);
 
             isStart = false;
+
+            //SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Id029_JumpCube_first);
         }
 
         if (jumpCube != null)

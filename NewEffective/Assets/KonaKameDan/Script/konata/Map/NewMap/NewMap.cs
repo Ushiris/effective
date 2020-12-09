@@ -16,6 +16,11 @@ public class NewMap : MonoBehaviour
     public class Status
     {
         public GameObject map;
+        public GameObject terrainData;
+        public GameObject playerSpawnPos;
+        public GameObject bossSpawnPos;
+        public GameObject treasureBoxSpawnPos;
+        public bool autoTreasureBoxSpawn = false;
         public MapType mapType;
         public int mapSizX, mapSizY, mapSizH;
         [HideInInspector] public Vector3 playerSpawnPoint;
@@ -83,13 +88,13 @@ public class NewMap : MonoBehaviour
         map.SetActive(true);
 
         //Diggerに変えた場合消す
-        NewMapTerrainData.SetTerrainData(map);
+        NewMapTerrainData.SetTerrainData(status.terrainData);
 
         //プレイヤーとボスの位置を決める
-        var plAndBoosPos = RandomSpawn(map);
-        status.playerSpawnPoint = plAndBoosPos.Item1;
-        status.bossSpawnPoint = plAndBoosPos.Item2;
-        PointDelete(map);
+        status.playerSpawnPoint = RandomSpawnPos(status.playerSpawnPos);
+        status.bossSpawnPoint = RandomSpawnPos(status.bossSpawnPos);
+        PointDelete(status.playerSpawnPos);
+        PointDelete(status.bossSpawnPos);
 
         //プレイヤーのスポーンポイント
         GetPlayerRespawnPos = status.playerSpawnPoint;
@@ -130,10 +135,17 @@ public class NewMap : MonoBehaviour
             GetNavMeshHeight = navMeshPos.Item1;
 
             //宝箱を設置する
-            for (int i = 0; i < treasureBoxCount; i++)
+            if (status.autoTreasureBoxSpawn)
             {
-                var obj = SetEvent(treasureBoxObj, navMeshPos.Item2);
-                obj.transform.parent = transform;
+                for (int i = 0; i < treasureBoxCount; i++)
+                {
+                    var obj = SetEvent(treasureBoxObj, navMeshPos.Item2);
+                    obj.transform.parent = transform;
+                }
+            }
+            else
+            {
+                SetTreasureBox(status.treasureBoxSpawnPos, treasureBoxCount);
             }
         };
     }
@@ -167,6 +179,23 @@ public class NewMap : MonoBehaviour
 
         //ポジションを格納
         return (pPos[pNum], bPos[bNum]);
+    }
+
+    //オブジェクトからボスとプレイヤーのポイントを探す
+    Vector3 RandomSpawnPos(GameObject a)
+    {
+        List<Vector3> pos = new List<Vector3>();
+        foreach (Transform childTransform in a.transform)
+        {
+            switch (childTransform.tag)
+            {
+                case "BossPoint": pos.Add(childTransform.position); break;
+                case "PlayerPoint": pos.Add(childTransform.position); break;
+                default: break;
+            }
+        }
+        var num = Random.Range(0, pos.Count);
+        return pos[num];
     }
 
     //余計なものを消す
@@ -233,5 +262,47 @@ public class NewMap : MonoBehaviour
         var e = eventPos[rand];
         eventPos.RemoveAt(rand);
         return Instantiate(obj, e, Quaternion.identity);
+    }
+
+    //宝箱を選別する
+    void SetTreasureBox(GameObject treasureBoxGroup, int max)
+    {
+        var childTransform = treasureBoxGroup.transform;
+        var allCount = childTransform.childCount;
+        for (int i = 0; i < allCount - max; i++)
+        {
+            var ran = Random.Range(0, childTransform.childCount);
+            childTransform.GetChild(ran).gameObject.SetActive(false);
+            Destroy(childTransform.GetChild(ran).gameObject);
+        }
+    }
+
+    /// <summary>
+    /// 座標から見て一番近いnavMeshの高さを返す
+    /// ない場合は現在の高さを返す
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <returns></returns>
+    public static float GetGroundPosMatch(Vector3 pos, float range = 10)
+    {
+        if (NavMesh.SamplePosition(pos, out var hit, range, NavMesh.AllAreas))
+        {
+            return hit.position.y + 0.2f;
+        }
+        else return pos.y + 0.2f;
+    }
+
+    /// <summary>
+    /// 下向きにRayを飛ばして地面の高さ(ワールド座標)を取る
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <returns></returns>
+    public static float GetGroundPosRay(Vector3 pos)
+    {
+        if (Physics.Raycast(pos, Vector3.down, out var hit, 30.0f))
+        {
+            return hit.point.y;
+        }
+        else return pos.y;
     }
 }
