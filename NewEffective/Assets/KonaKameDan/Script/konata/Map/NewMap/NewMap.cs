@@ -84,6 +84,7 @@ public class NewMap : MonoBehaviour
         var status = statusList[statusListNum];
         var map = status.map;
         GetMapMaxHeight = status.mapSizH;
+        SetMapEventStartUp = () => { };
 
         map.SetActive(true);
 
