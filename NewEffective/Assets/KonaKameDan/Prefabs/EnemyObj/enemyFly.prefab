@@ -42,6 +42,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 3638674418072377506}
+  skinnedMesh: {fileID: 3638674418069263778}
+  material_index: 0
 --- !u!1001 &645132006311459127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,6 +320,12 @@ PrefabInstance:
 --- !u!1 &3638674418072377506 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 018646fa624e41a4da75cb0ecbb23e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 3638674418072346114}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &3638674418069263778 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: 018646fa624e41a4da75cb0ecbb23e80,
     type: 3}
   m_PrefabInstance: {fileID: 3638674418072346114}
   m_PrefabAsset: {fileID: 0}

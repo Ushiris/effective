@@ -9,18 +9,39 @@ using System.Linq;
 public class EnemyBrainBase : MonoBehaviour
 {
     public EnemyState state = new EnemyState();
+    public bool IsCommand { get; protected set; } = false;
 
     protected static GameObject player;
     protected NavMeshAgent navMesh;
     protected StopWatch thinkTimer;
+    protected Rigidbody rb;
     protected List<StopWatch> EnchantTimer=new List<StopWatch>();
     protected Vector3 DefaultPos;
     protected Formation formation = new Formation();
     protected Transform HidePos;
-    protected Rigidbody rb;
     protected Enemy enemyData;
-    public bool IsCommand { get; protected set; } = false;
     protected bool IsLockAI = false;
+    protected Material mainMaterial;
+    StayAItype ai_stay = StayAItype.Return;
+    FindAItype ai_find = FindAItype.Soldier;
+
+    #region VariableMoves
+    public delegate void EnemyBrainAction();
+    public delegate bool EnemyBrainFlag();
+    public delegate void EnemyStateChange(float time);
+
+    public StopWatch.TimeEvent Think { get => thinkTimer.LapEvent; protected set => thinkTimer.LapEvent = value; }
+    public EnemyStateChange Stan { get; protected set; }
+    public EnemyStateChange Blind { get; protected set; }
+    EnemyBrainAction stay_;
+    public EnemyBrainAction Stay { get { return stay_; } protected set { if (!IsLockAI) stay_ = value; } }
+    public EnemyBrainFlag IsAttackable { get; protected set; }
+    public EnemyBrainFlag FindFlag { get; protected set; }
+    EnemyBrainAction find_;
+    public EnemyBrainAction FindAction {  get { return find_; } protected set { if (!IsLockAI) find_ = value; } }
+    public EnemyBrainAction EnchantAction { get; protected set; }
+    protected EnemyBrainAction ApplyChangeColor = () => { };
+    #endregion
 
     public void Awake()
     {
@@ -53,7 +74,7 @@ public class EnemyBrainBase : MonoBehaviour
                 Enchants.Stan,
                 ()=>
                 {
-                    navMesh.SetDestination(transform.position);
+                    if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(transform.position);
                 }
             },
             {
@@ -64,43 +85,16 @@ public class EnemyBrainBase : MonoBehaviour
         rb.velocity = Vector3.zero;
     }
 
-    void InitDefaultAction()
-    {
-        Think = StandardThink;
-        Stan = StandardStan;
-        Blind = StandardBlind;
-        Stay = ReturnToHome;
-        IsAttackable = IsAttackable_;
-        FindFlag = StandardFindFlag;
-        FindAction = FindAction_Circle;
-        EnchantAction = StandardEnchantAction;
-    }
-
-    //オブジェクトがアクティブになった時 
     protected void OnEnable()
     {
         if (navMesh != null) navMesh.updatePosition = true;
-        Hide();
+        HidePositionSet();
     }
 
-    //オブジェクトが非表示になった時 
     void OnDisable()
     {
         if (navMesh != null) navMesh.updatePosition = false;
     }
-
-    public delegate void EnemyBrainAction();
-    public delegate bool EnemyBrainFlag();
-    public delegate void EnemyStateChange(float time);
-
-    public StopWatch.TimeEvent Think { get => thinkTimer.LapEvent; protected set => thinkTimer.LapEvent = value; }
-    public EnemyStateChange Stan { get; protected set; }
-    public EnemyStateChange Blind { get; protected set; }
-    public EnemyBrainAction Stay { get; protected set; }
-    public EnemyBrainFlag IsAttackable { get; protected set; }
-    public EnemyBrainFlag FindFlag { get; protected set; }
-    public EnemyBrainAction FindAction { get; protected set; }
-    public EnemyBrainAction EnchantAction { get; protected set; }
 
     public void AddEnchant(Enchants enchant, float time)
     {
@@ -111,6 +105,208 @@ public class EnemyBrainBase : MonoBehaviour
         EnchantTimer[(int)enchant].IsActive = true;
     }
 
+    protected void RemoveNotActive(List<GameObject> enemies)
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            var item = enemies[i];
+            if (!item.activeSelf) enemies.Remove(item);
+        }
+    }
+
+    protected void RemoveCommand(List<GameObject> enemies)
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            var item = enemies[i];
+            if (item.GetComponent<EnemyBrainBase>().IsCommand) enemies.Remove(item);
+        }
+    }
+
+    protected void LookAtPlayerXZ()
+    {
+        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+        enemyData.MuzzleLookAt(player.transform.position);
+    }
+
+    protected void ColorSet()
+    {
+        Material material = new Material(mainMaterial);
+        var color= EnemyProperty.enemyColors[ai_stay.ToString() + "_" + ai_find.ToString()];
+        if (color != Color.clear) material.SetColor(EnemyProperty.EnemyColorID, color);
+
+        mainMaterial = material;
+        ApplyChangeColor();
+    }
+
+    protected void ColorSet(Color32 color)
+    {
+        Material material = new Material(mainMaterial);
+        if (color != Color.clear) material.SetColor(EnemyProperty.EnemyColorID, color);
+
+        mainMaterial = material;
+        ApplyChangeColor();
+    }
+
+    #region AIsetting
+    void InitDefaultAction()
+    {
+        Think = StandardThink;
+        Stan = StandardStan;
+        Blind = StandardBlind;
+        Stay = ReturnToHome;
+        IsAttackable = StandardIsAttackable;
+        FindFlag = StandardFindFlag;
+        FindAction = FindAction_Circle;
+        EnchantAction = StandardEnchantAction;
+    }
+
+    public void LockAI()
+    {
+        IsLockAI = true;
+    }
+
+    public void AIset(StayAItype type)
+    {
+        if (IsLockAI) return;
+        ai_stay = type;
+
+        switch (type)
+        {
+            case StayAItype.Ambush:
+                Stay = () =>
+                {
+                    if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(player.transform.position + player.transform.right * (UnityEngine.Random.Range(0, 1) == 0 ? 20 : -20));
+                };
+                break;
+
+            case StayAItype.Ninja:
+                FindAction = () => { };
+                HidePositionSet();
+                Stay = () => { HidePositionSet(); if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(HidePos.position); };
+                break;
+
+            case StayAItype.Return:
+                Stay = ReturnToHome;
+                break;
+
+            default:
+                break;
+        }
+
+        ColorSet();
+    }
+
+    public void AIset(FindAItype type)
+    {
+        if (IsLockAI) return;
+        ai_find = type;
+
+        switch (type)
+        {
+            case FindAItype.Soldier:
+                Stay = ReturnToHome;
+                FindAction = FindAction_Circle;
+                break;
+
+            case FindAItype.Commander:
+                IsCommand = true;
+                Invoke("Influence", 0.2f);
+                break;
+
+            default:
+                break;
+        }
+
+        ColorSet();
+    }
+
+    public void HidePositionSet()
+    {
+        var effects=new List<GameObject>();
+        foreach (var item in FindObjectsOfType<TreasureBoxPresenter>())
+        {
+            effects.Add(item.gameObject);
+        }
+        if (effects.Count == 0)
+        {
+            HidePos = transform;
+            return;
+        }
+        List<Transform> e_trans = new List<Transform>();
+        effects.ForEach(item => e_trans.Add(item.transform));
+        HidePos = e_trans[0];
+
+        var k_dist = Vector3.Distance(transform.position, HidePos.position);
+        e_trans.ForEach(item =>
+        {
+            if (k_dist > Vector3.Distance(item.position, HidePos.position))
+            {
+                HidePos = item;
+                k_dist = Vector3.Distance(transform.position, HidePos.position);
+            }
+        });
+    }
+
+    public void Follow(Transform boss)
+    {
+        if (IsLockAI) return;
+
+        FindAction = () =>
+        {
+            if (!boss.gameObject.activeSelf) AIset(ai_find);
+            if (navMesh.pathStatus != NavMeshPathStatus.PathInvalid) navMesh.SetDestination(boss.position);
+        };
+        Stay = () =>
+        {
+            if (!boss.gameObject.activeSelf) AIset(ai_stay);
+            if (navMesh.pathStatus != NavMeshPathStatus.PathInvalid) navMesh.SetDestination(boss.position);
+        };
+
+        ColorSet(EnemyProperty.enemyColors["Follower"]);
+    }
+
+    void Influence()
+    {
+        var enemies = new List<GameObject>();
+        foreach (var item in FindObjectsOfType<Enemy>())
+        {
+            enemies.Add(item.gameObject);
+        }
+        RemoveNotActive(enemies);
+        RemoveCommand(enemies);
+
+        if (enemies.Count == 0) return;
+
+        var tr = new List<Transform>();
+        enemies.ForEach(item => tr.Add(item.transform));
+
+        List<float> dist = new List<float> { Vector3.Distance(transform.position, tr[0].position) };
+        List<int> idx = new List<int>() { 0 };
+
+        for (int j = 0; j < tr.Count; j++)
+        {
+            for (int i = 0; i < dist.Count; i++)
+            {
+                var dist_x = Vector3.Distance(transform.position, tr[j].position);
+                if (dist[i] > dist_x || i == dist.Count - 1)
+                {
+                    dist.Insert(i, dist_x);
+                    idx.Insert(i, j);
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < (enemies.Count < 4 ? enemies.Count : 4); i++)
+        {
+            enemies[idx[i]].GetComponent<EnemyBrainBase>().Follow(transform);
+        }
+    }
+
+    #endregion
+
+    #region Standard
     private void StandardThink()
     {
         switch (state.move)
@@ -138,10 +334,10 @@ public class EnemyBrainBase : MonoBehaviour
 
     private void ReturnToHome()
     {
-        navMesh.SetDestination(DefaultPos);
+        if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(DefaultPos);
     }
 
-    private bool IsAttackable_()
+    private bool StandardIsAttackable()
     {
         bool isEnchant = false;
         state.enchants.ForEach(item =>
@@ -209,7 +405,7 @@ public class EnemyBrainBase : MonoBehaviour
                 break;
         }
 
-        navMesh.SetDestination(player.transform.position + add);
+        if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(player.transform.position + add);
         LookAtPlayerXZ();
     }
 
@@ -228,150 +424,5 @@ public class EnemyBrainBase : MonoBehaviour
     {
         return Vector3.Distance(player.transform.position, transform.position) <= EnemyProperty.PlayerFindDistance;
     }
-
-    public void Hide()
-    {
-        var effects=new List<GameObject>();
-        foreach (var item in FindObjectsOfType<TreasureBoxPresenter>())
-        {
-            effects.Add(item.gameObject);
-        }
-        if (effects.Count == 0)
-        {
-            HidePos = transform;
-            return;
-        }
-        List<Transform> e_trans = new List<Transform>();
-        effects.ForEach(item => e_trans.Add(item.transform));
-        HidePos = e_trans[0];
-
-        var k_dist = Vector3.Distance(transform.position, HidePos.position);
-        e_trans.ForEach(item =>
-        {
-            if (k_dist > Vector3.Distance(item.position, HidePos.position))
-            {
-                HidePos = item;
-                k_dist = Vector3.Distance(transform.position, HidePos.position);
-            }
-        });
-    }
-
-    public void Follow(Transform boss)
-    {
-        if (IsLockAI) return;
-
-        FindAction = () => navMesh.SetDestination(boss.position);
-        Stay = () => navMesh.SetDestination(boss.position);
-    }
-
-    public void AIset(StayAItype type)
-    {
-        if (IsLockAI) return;
-
-        switch (type)
-        {
-            case StayAItype.Ambush:
-                Stay = () =>
-                {
-                    navMesh.SetDestination(player.transform.position + player.transform.right * (UnityEngine.Random.Range(0, 1) == 0 ? 20 : -20));
-                };
-                break;
-
-            case StayAItype.Ninja:
-                FindAction = () => { };
-                Hide();
-                Stay = () => { Hide(); navMesh.SetDestination(HidePos.position); };
-                break;
-
-            case StayAItype.Return:
-                Stay = ReturnToHome;
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    public void AIset(FindAItype type)
-    {
-        if (IsLockAI) return;
-
-        switch (type)
-        {
-            case FindAItype.Soldier:
-                Stay = ReturnToHome;
-                FindAction = FindAction_Circle;
-                break;
-
-            case FindAItype.Commander:
-                IsCommand = true;
-                Influence();
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    void Influence()
-    {
-        var enemies = new List<GameObject>();
-        foreach (var item in FindObjectsOfType<Enemy>())
-        {
-            enemies.Add(item.gameObject);
-        }
-        RemoveNotActive(enemies);
-        RemoveCommand(enemies);
-
-        if (enemies.Count == 0) return;
-
-        var tr = new List<Transform>();
-        enemies.ForEach(item => tr.Add(item.transform));
-
-        List<float> dist = new List<float> { Vector3.Distance(transform.position, tr[0].position) };
-        List<int> idx = new List<int>() { 0 };
-
-        for (int j = 0; j < tr.Count; j++)
-        {
-            for (int i = 0; i < dist.Count; i++)
-            {
-                var dist_x = Vector3.Distance(transform.position, tr[j].position);
-                if (dist[i] > dist_x || i == dist.Count - 1)
-                {
-                    dist.Insert(i, dist_x);
-                    idx.Insert(i, j);
-                    break;
-                }
-            }
-        }
-
-        for (int i = 0; i < (enemies.Count < 4 ? enemies.Count : 4); i++)
-        {
-            enemies[idx[i]].GetComponent<EnemyBrainBase>().Follow(transform);
-        }
-    }
-
-    protected void RemoveNotActive(List<GameObject> enemies)
-    {
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            var item = enemies[i];
-            if (!item.activeSelf) enemies.Remove(item);
-        }
-    }
-
-    protected void RemoveCommand(List<GameObject> enemies)
-    {
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            var item = enemies[i];
-            if (item.GetComponent<EnemyBrainBase>().IsCommand) enemies.Remove(item);
-        }
-    }
-
-    protected void LookAtPlayerXZ()
-    {
-        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-        enemyData.MuzzleLookAt(player.transform.position);
-    }
+    #endregion
 }
