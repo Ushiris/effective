@@ -116,6 +116,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3378621404537696161}
     m_Modifications:
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].lv
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].lv
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1682135070442393693, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
         type: 3}
       propertyPath: defaultStatus.Array.data[1].f

@@ -223,8 +223,93 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[0].artsArr.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].artsArr.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
       propertyPath: artsTable.Array.data[0]
       value: 079
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].lv
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[0].artsArr.Array.data[1]
+      value: 05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[0].artsArr.Array.data[2]
+      value: 07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[0].artsArr.Array.data[3]
+      value: 09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].artsArr.Array.data[1]
+      value: 045
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].artsArr.Array.data[0]
+      value: 02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].artsArr.Array.data[2]
+      value: 047
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].artsArr.Array.data[3]
+      value: 027
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].lv
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.data[0]
+      value: 024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.data[1]
+      value: 079
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.data[2]
+      value: 059
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.data[3]
+      value: 027
       objectReference: {fileID: 0}
     - target: {fileID: 8071045039221122133, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
