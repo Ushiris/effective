@@ -6,6 +6,10 @@ public class Id057_Managarmr : MonoBehaviour
 {
     [SerializeField] GameObject managarmrParticleObj;
     [SerializeField] float force = 30f;
+    [SerializeField] float defaultDamage = 1.2f;
+
+    [Header("射撃のスタック数に応じてたされる数")]
+    [SerializeField] float plusDamage = 0.05f;
 
     GameObject managarmrParticle;
     GameObject target;
@@ -17,6 +21,9 @@ public class Id057_Managarmr : MonoBehaviour
     void Start()
     {
         artsStatus = GetComponent<ArtsStatus>();
+
+        var shotCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Shot);
+        var explosionCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
 
         managarmrParticle = Instantiate(managarmrParticleObj, transform);
         particleSystem = managarmrParticle.GetComponent<ParticleSystem>();

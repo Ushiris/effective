@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!135 &2155775226709622720
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763702051527405372}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6803105965938668464
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,10 +61,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 1, z: 20}
-  vacuumPower: 200
+  vacuumPower: 100
   explosionTiming: 5
+  defaultDamage: 4
+  collider: {fileID: 4865192541945554422}
   explosionObj: {fileID: 4763702051527405372}
   vacuumParticle: {fileID: 4907457841960366639}
+  plusSiz: 0.02
+  plusDamage: 0.1
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
