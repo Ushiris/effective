@@ -5210,18 +5210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae6887a948af0e45adc7ef6c7675431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionObjArr:
-  - {fileID: 4572793869657117610}
-  - {fileID: 4572793867899812069}
-  - {fileID: 4572793867932230264}
-  - {fileID: 4572793868371091792}
-  - {fileID: 4572793867659969575}
   annihilationRayParticleObj: {fileID: 891474833}
   pivot: {fileID: 64962202}
   speed: 200
-  defaultDamage: 0.8
-  plusDamageShot: 0.02
-  plusDamageExplosion: 0.02
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
