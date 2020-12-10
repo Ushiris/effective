@@ -4806,6 +4806,10 @@ MonoBehaviour:
     type: 3}
   playCount: 3
   lapTime: 3
+  defaultDamage: 0.6
+  minusTime: 0.01
+  plusDamage: 0.03
+  plusCount: 0.05
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

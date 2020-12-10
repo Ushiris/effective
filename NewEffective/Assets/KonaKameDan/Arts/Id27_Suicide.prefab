@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selfHarmRate: 0.5
+  defaultDamage: 2
+  minusDamage: 0.0005
+  plusDamage: 0.1
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -50,6 +50,9 @@ MonoBehaviour:
     type: 3}
   speed: 10
   rollSpeed: 100
+  defaultDamage: 0.6
+  plusCount: 0.02
+  plusDamage: 0.08
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
