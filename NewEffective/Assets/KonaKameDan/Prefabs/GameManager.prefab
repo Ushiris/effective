@@ -164,7 +164,7 @@ MonoBehaviour:
       Value:
         prefab: {fileID: 6803105965938668464, guid: b81a0d66ae67e1144b3a2886394da96f,
           type: 3}
-        coolTime: 0
+        coolTime: 10
         coolTimeDown: 0
         effect: 
     - Key: 059
@@ -360,15 +360,15 @@ MonoBehaviour:
       Value:
         prefab: {fileID: 6803105965938668464, guid: b9f11506dbe32dd4c92a886f8fb6bf61,
           type: 3}
-        coolTime: 0
-        coolTimeDown: 0
+        coolTime: 30
+        coolTimeDown: 0.02
         effect: 
     - Key: 057
       Value:
         prefab: {fileID: 6803105965938668464, guid: fc993f4701e5f1e45b42e5cd2f7aaac0,
           type: 3}
-        coolTime: 0
-        coolTimeDown: 0
+        coolTime: 10
+        coolTimeDown: 0.01
         effect: 
     - Key: 079
       Value:
@@ -409,15 +409,15 @@ MonoBehaviour:
       Value:
         prefab: {fileID: 6803105965938668464, guid: 32f33a6127d08a04aa3cf16ff9d71db9,
           type: 3}
-        coolTime: 0
+        coolTime: 1
         coolTimeDown: 0
         effect: 
     - Key: 57
       Value:
         prefab: {fileID: 6803105965938668464, guid: c3c0e82b90c6f1748a16e0dbf06d3577,
           type: 3}
-        coolTime: 0
-        coolTimeDown: 0
+        coolTime: 7
+        coolTimeDown: 0.01
         effect: 
     - Key: 147
       Value:
@@ -430,8 +430,8 @@ MonoBehaviour:
       Value:
         prefab: {fileID: 6803105965938668464, guid: 7a135471116d9a04ca5067902b790b6e,
           type: 3}
-        coolTime: 0
-        coolTimeDown: 0
+        coolTime: 7
+        coolTimeDown: 0.01
         effect: 
     - Key: 047
       Value:
@@ -444,42 +444,42 @@ MonoBehaviour:
       Value:
         prefab: {fileID: 1206908859274040434, guid: 66c2c5d634b82c3478ca4910f03b84a5,
           type: 3}
-        coolTime: 0
+        coolTime: 1
         coolTimeDown: 0
         effect: 
     - Key: 47
       Value:
         prefab: {fileID: 6803105965938668464, guid: d3ead5cec0c29ba41af6175616c420a1,
           type: 3}
-        coolTime: 0
-        coolTimeDown: 0
+        coolTime: 15
+        coolTimeDown: 0.01
         effect: 
     - Key: 279
       Value:
         prefab: {fileID: 6803105965938668464, guid: 0b249b3bd4caaf34c8c5a040fabd93d9,
           type: 3}
-        coolTime: 0
+        coolTime: 3
         coolTimeDown: 0
         effect: 
     - Key: 457
       Value:
         prefab: {fileID: 6803105965938668464, guid: e0190fd1d6809064ba5898dd50120dbb,
           type: 3}
-        coolTime: 0
-        coolTimeDown: 0
+        coolTime: 75
+        coolTimeDown: 0.05
         effect: 
     - Key: 247
       Value:
         prefab: {fileID: 6803105965938668464, guid: ac8b8d1d473e31f4c9689a95de0ad3cd,
           type: 3}
-        coolTime: 0
-        coolTimeDown: 0
+        coolTime: 15
+        coolTimeDown: 0.01
         effect: 
     - Key: 579
       Value:
         prefab: {fileID: 6803105965938668464, guid: 0035f6436e0dadc4482dead6b6eb9dc7,
           type: 3}
-        coolTime: 0
+        coolTime: 10
         coolTimeDown: 0
         effect: 
 --- !u!114 &262906321
