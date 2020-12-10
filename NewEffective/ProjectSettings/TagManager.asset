@@ -18,6 +18,7 @@ TagManager:
   - BossZpne
   - ArtsDeckUI
   - EnemyBullet
+  - BossZone
   layers:
   - Default
   - TransparentFX
@@ -45,7 +46,7 @@ TagManager:
   - UI3dObj
   - 
   - EffectObj
-  - 
+  - ExceptionMap
   - 
   - 
   - 

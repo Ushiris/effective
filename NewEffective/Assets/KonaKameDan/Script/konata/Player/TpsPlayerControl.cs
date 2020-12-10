@@ -36,7 +36,7 @@ public class TpsPlayerControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         mouseDelta.x = Input.GetAxis("Mouse X") * PlayerManager.GetManager.mouseSensitivity;
         mouseDelta.y = Input.GetAxis("Mouse Y") * PlayerManager.GetManager.mouseSensitivity;
