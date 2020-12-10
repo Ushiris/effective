@@ -83,6 +83,7 @@ public class EnemyBrainBase : MonoBehaviour
         };
 
         rb.velocity = Vector3.zero;
+        transform.localScale *= UnityEngine.Random.Range(0.8f, 1.3f);
     }
 
     protected void OnEnable()

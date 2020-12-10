@@ -12,6 +12,8 @@ public class FlyEnemyBrain : EnemyBrainBase
     [SerializeField] int material_index;
 
     SinWaver waver;
+    float runSpeed;
+    float normalSpeed;
     int IcarusZone = 0;
     float defaultY;
 
@@ -23,6 +25,8 @@ public class FlyEnemyBrain : EnemyBrainBase
 
     new void Start()
     {
+        runSpeed= navMesh.speed * 1.3f;
+        normalSpeed = navMesh.speed;
         mainMaterial = skinnedMesh.materials[material_index];
         ApplyChangeColor = () =>
         {
@@ -90,6 +94,7 @@ public class FlyEnemyBrain : EnemyBrainBase
 
     public void Default__()
     {
+        navMesh.speed = normalSpeed;
         if (navMesh.isStopped)
         {
             LookAtPlayerXZ();
@@ -100,12 +105,14 @@ public class FlyEnemyBrain : EnemyBrainBase
     {
         if (Vector3.Distance(transform.position, player.transform.position) < EnemyProperty.BestAttackDistance_Range)
         {
+            navMesh.speed =runSpeed;
             Vector3 run_target = transform.position - (transform.forward * 5);
             transform.LookAt(run_target);
             if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(run_target);
         }
         else
         {
+            navMesh.speed = normalSpeed;
             if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             LookAtPlayerXZ();
         }

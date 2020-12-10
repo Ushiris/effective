@@ -35,7 +35,7 @@ public class EnemyBrainBoss : MonoBehaviour
     private void Start()
     {
         player = PlayerManager.GetManager.GetPlObj;
-        portal_tr = GameObject.Find("Portal").transform;
+        portal_tr = GameObject.Find("Portal(Clone)").transform;
         brain.AIset(StayAItype.Return);
         brain.LockAI();
         life.AddBeat(CheckArea);
@@ -67,6 +67,6 @@ public class EnemyBrainBoss : MonoBehaviour
         {
             ArtsInstantManager.InstantArts(muzzle, artsList[Random.Range(0, artsList.Count)]);
         }
-        artsFireParticle.Play();
+        //artsFireParticle.Play();
     }
 }
