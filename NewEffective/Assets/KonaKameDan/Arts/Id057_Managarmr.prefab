@@ -47,6 +47,8 @@ MonoBehaviour:
   managarmrParticleObj: {fileID: 5867083205964189026, guid: f9d4c10653cbc6d45bfb9fee4f9a2263,
     type: 3}
   force: 30
+  defaultDamage: 1.2
+  plusDamage: 0.05
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
