@@ -5,8 +5,19 @@ using static EnemyState;
 
 public class EnemyBrainShot : EnemyBrainBase
 {
+    [SerializeField] SkinnedMeshRenderer changePoint;
+    [SerializeField] int material_index;
+
     private new void Start()
     {
+        mainMaterial = changePoint.materials[material_index];
+        ApplyChangeColor = () =>
+          {
+              var temp = changePoint.materials;
+              temp[material_index] = mainMaterial;
+              changePoint.materials = temp;
+          };
+
         base.Start();
         FindAction = FindActionShot;
         Stay = StayActionShot;
@@ -19,12 +30,12 @@ public class EnemyBrainShot : EnemyBrainBase
     {
         if (FindFlag())
         {
-            state.move = EnemyState.MoveState.Chase;
+            state.move = MoveState.Chase;
             Think();
         }
         else
         {
-            state.move = EnemyState.MoveState.Stay;
+            state.move = MoveState.Stay;
         }
     }
 
