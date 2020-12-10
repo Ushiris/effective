@@ -9,30 +9,69 @@ public class Id247_StanGrenade : MonoBehaviour
 
     [SerializeField] Image image;
     [SerializeField] GameObject grenadeParticle;
-    [SerializeField] GameObject electricalParticle;
+    [SerializeField] GameObject stanArea;
+    [SerializeField] Vector3 v0 = new Vector3(0, 5, 7);
+    [SerializeField] Vector3 stanAreaSiz = new Vector3(30, 30, 30);
     [SerializeField] float fadeOut = 1f;
     [SerializeField] float fadeIn = 3f;
     [SerializeField] float delay = 3f;
     [SerializeField] float enemyStanTime = 10f;
+
+    [Header("防御のスタック数に応じてたされる数")]
+    [SerializeField] float plusStanTime = 0.01f;
+
+    [Header("拡散のスタック数に応じてたされる数")]
+    [SerializeField] float plusPow = 0.5f;
+
+    [Header("爆発のスタック数に応じてたされる数")]
+    [SerializeField] float plusSiz = 0.05f;
 
     bool isFadePlay;
     float alpha;
     float time;
     Process process = Process.Start;
 
-    delegate void Action();
-    Action OnEnemyStan;
+    ArtsStatus artsStatus;
+    ParticleHitPos particleHitPos;
 
     static readonly float kMinAlpha = 0;
     static readonly float kMaxAlpha = 0.5f;
 
     private void Start()
     {
+        artsStatus = GetComponent<ArtsStatus>();
+        transform.parent = null;
+
         var c = image.color;
         c.a = kMinAlpha;
         image.color = c;
 
-        OnEnemyStan = () => { };
+        //エフェクトの所持数を代入
+        var barrierCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Barrier);
+        var spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
+        var explosionCount= Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
+
+        //エフェクト数値によるステータス変動計算
+        enemyStanTime += (float)barrierCount * plusStanTime;
+        v0.z += (float)spreadCount * plusPow;
+        stanAreaSiz += Vector3.one * ((float)explosionCount * plusSiz);
+
+
+        //投げる処理
+        Rigidbody rb = grenadeParticle.GetComponent<Rigidbody>();
+        rb.AddRelativeFor​​ce(v0, ForceMode.VelocityChange);
+
+        //スタン処理
+        particleHitPos= grenadeParticle.GetComponent<ParticleHitPos>();
+        particleHitPos.OnPlay = () => 
+        {
+            stanArea.transform.position = particleHitPos.GetParticlePos;
+            stanArea.transform.localScale = stanAreaSiz;
+            stanArea.SetActive(true);
+            grenadeParticle.SetActive(false);
+        };
+
+
         // SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id79_Grenade_first);
     }
@@ -46,7 +85,6 @@ public class Id247_StanGrenade : MonoBehaviour
             process = Process.FadeIn;
             // SE
             SE_Manager.SePlay(SE_Manager.SE_NAME.Id247_StanGrenade_second);
-            OnEnemyStan();
         }
 
         //キャンバスの画像のAlpha値を変更する処理
@@ -87,24 +125,6 @@ public class Id247_StanGrenade : MonoBehaviour
         else
         {
             return true;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (process != Process.Start) return;
-        var obj = other.gameObject;
-        OnEnemyStan += () => { EnemyStan(obj); };
-    }
-
-    void EnemyStan(GameObject obj)
-    {
-        if (obj.tag == "Enemy")
-        {
-            var enemy = obj.GetComponent<Enemy>();
-            enemy.Stan(enemyStanTime);
-            var particle = Instantiate(electricalParticle, obj.transform);
-            Destroy(particle, enemyStanTime);
         }
     }
 }

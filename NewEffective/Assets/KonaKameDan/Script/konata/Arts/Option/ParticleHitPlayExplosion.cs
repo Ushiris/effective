@@ -23,6 +23,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     string hitObjTag;
     string notHitObjTag;
+    List<string> layerNameList = new List<string>();
 
     static readonly List<string> kExceptionTags = new List<string>()
     {
@@ -50,7 +51,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         var tag = other.tag;
-        if (IsCheckTag(tag))
+        if (IsCheckTag(tag) || IsCheckLayer(other))
         {
             InstantParticle(other);
             isTrigger = true;
@@ -60,7 +61,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var tag = other.gameObject.tag;
-        if (IsCheckTag(tag))
+        if (IsCheckTag(tag) || IsCheckLayer(other.gameObject))
         {
             InstantParticle(other.gameObject);
             isTrigger = true;
@@ -70,7 +71,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         var tag = collision.gameObject.tag;
-        if (IsCheckTag(tag))
+        if (IsCheckTag(tag) || IsCheckLayer(collision.gameObject))
         {
             InstantParticle(collision.gameObject);
             isTrigger = true;
@@ -103,5 +104,30 @@ public class ParticleHitPlayExplosion : MonoBehaviour
             }
         }
         return false;
+    }
+
+    //シールドとEMPで弾くよう
+    bool IsCheckLayer(GameObject obj)
+    {
+
+        if (artsStatus.type == ArtsStatus.ParticleType.Player)
+        {
+            if (obj.layer == Layer("Enemy")) return true;
+            else return false;
+        }
+        if (artsStatus.type == ArtsStatus.ParticleType.Enemy)
+        {
+            if (obj.layer == Layer("Player")) return true;
+            else return false;
+        }
+        else return false;
+    }
+
+    LayerMask Layer(string layerName)
+    {
+        if (artsStatus.artsType == ArtsStatus.ArtsType.Shot) layerNameList.Add("FlyCurse");
+        layerNameList.Add(layerName + "Shield");
+        layerNameList.Add(layerName + "EMP");
+        return LayerMask.GetMask(layerNameList.ToArray());
     }
 }
