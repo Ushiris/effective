@@ -9,6 +9,7 @@ public class TitleMenuSelectIcon : MonoBehaviour
     [SerializeField] GameObject titleTextObj;
     [SerializeField] GameObject loadingObj;
     [SerializeField] GameObject loadingAnimationObj;
+    [SerializeField] bool isDataReset = false;
 
     public static bool IsSceneLoadProcess { get; private set; } = false;
     public static bool IsNextStageMove { get; private set; } = false;
@@ -40,6 +41,7 @@ public class TitleMenuSelectIcon : MonoBehaviour
 
     public void OnSceneChange()
     {
+        MainGameManager.GetArtsReset = isDataReset;
         titleTextObj.SetActive(false);
         loadingObj.SetActive(true);
         loadingAnimationObj.SetActive(true);

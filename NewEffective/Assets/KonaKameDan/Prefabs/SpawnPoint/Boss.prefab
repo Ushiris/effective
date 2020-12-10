@@ -118,6 +118,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
         type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
       propertyPath: lvLearnArtsTable.Array.data[2].lv
       value: 1
       objectReference: {fileID: 0}

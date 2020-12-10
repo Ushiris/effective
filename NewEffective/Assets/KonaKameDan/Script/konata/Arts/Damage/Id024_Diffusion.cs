@@ -24,7 +24,6 @@ public class Id024_Diffusion : MonoBehaviour
     [SerializeField] float addBullet = 2;
 
     ArtsStatus artsStatus;
-    ParticleHit[] hit;
     Beam beamControlScript;
 
     int shotCount;
@@ -44,7 +43,6 @@ public class Id024_Diffusion : MonoBehaviour
 
         //拡散数
         count = (int)(defaultBullet + (spreadCount * addBullet));
-        hit = new ParticleHit[count];
 
         //ダメージの計算
         damage = Arts_Process.GetDamage(defaultDamage, plusDamage, shotCount);
@@ -66,9 +64,9 @@ public class Id024_Diffusion : MonoBehaviour
             var beamCoreObj = beamControlScript.GetBeamObj.transform.GetChild(0);
 
             //ダメージ
-            hit[i] = Arts_Process.SetParticleDamageProcess(beamCoreObj.gameObject);
+            var hit = Arts_Process.SetParticleZoneDamageProcess(beamCoreObj.gameObject);
             //ダメージ処理
-            Arts_Process.Damage(hit[i], artsStatus, damage, true);
+            Arts_Process.ZoneDamage(hit, artsStatus, damage, true);
         }
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id024_Diffusion_first);
