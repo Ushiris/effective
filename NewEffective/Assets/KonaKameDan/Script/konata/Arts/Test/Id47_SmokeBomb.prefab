@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokeBombParticle: {fileID: 3023255915652076547, guid: 3202fb4600fd01c42b00567cd9c58d44,
     type: 3}
+  defaultPlayTime: 10
+  plusTime: 0.02
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

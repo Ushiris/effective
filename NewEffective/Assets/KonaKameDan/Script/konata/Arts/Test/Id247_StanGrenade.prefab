@@ -4925,10 +4925,14 @@ MonoBehaviour:
   grenadeParticle: {fileID: 2986848607330207501}
   stanArea: {fileID: 6263546923206542229}
   v0: {x: 0, y: 10, z: 15}
+  stanAreaSiz: {x: 30, y: 30, z: 30}
   fadeOut: 2
   fadeIn: 10
   delay: 1.5
   enemyStanTime: 10
+  plusStanTime: 0.01
+  plusPow: 0.5
+  plusSiz: 0.05
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

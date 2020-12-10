@@ -52,7 +52,7 @@ MonoBehaviour:
   force: 10
   defaultDamage: 0.1
   defaultBullet: 15
-  plusDamage: 0.05
+  plusDamage: 0.002
   addBullet: 1
 --- !u!114 &114738973216699150
 MonoBehaviour:

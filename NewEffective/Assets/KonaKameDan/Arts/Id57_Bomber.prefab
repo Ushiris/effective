@@ -49,6 +49,9 @@ MonoBehaviour:
   explosionParticleObj: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
     type: 3}
   rollSpeed: 100
+  defaultDamage: 0.7
+  plusCount: 0.02
+  plusDamage: 0.07
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0
