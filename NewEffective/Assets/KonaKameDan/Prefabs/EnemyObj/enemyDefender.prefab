@@ -42,6 +42,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 189359f77f52d5f4eb284cf7a3d19b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ColorChangeablePoint: {fileID: 331891879432342050}
+  material_index: 1
 --- !u!1001 &331891879437648258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +113,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 98d05f352a0535d4c8c1b530b86fb985, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c422d362f35247409deb892d964a863, type: 3}
+--- !u!137 &331891879432342050 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: 7c422d362f35247409deb892d964a863,
+    type: 3}
+  m_PrefabInstance: {fileID: 331891879437648258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2619090045235567622
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,6 +8,9 @@ using Enchants = EnemyState.Enchants;
 public class FlyEnemyBrain : EnemyBrainBase
 {
     [SerializeField] GameObject model;
+    [SerializeField] SkinnedMeshRenderer skinnedMesh;
+    [SerializeField] int material_index;
+
     SinWaver waver;
     int IcarusZone = 0;
     float defaultY;
@@ -20,6 +23,14 @@ public class FlyEnemyBrain : EnemyBrainBase
 
     new void Start()
     {
+        mainMaterial = skinnedMesh.materials[material_index];
+        ApplyChangeColor = () =>
+        {
+            var temp = skinnedMesh.materials;
+            temp[material_index] = mainMaterial;
+            skinnedMesh.materials = temp;
+        };
+
         base.Start();
 
         Stay = Default__;
@@ -32,7 +43,7 @@ public class FlyEnemyBrain : EnemyBrainBase
                 Enchants.Stan,
                 ()=>
                 {
-                    navMesh.SetDestination(player.transform.position);
+                    if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(player.transform.position);
                 }
             },
             {
@@ -91,19 +102,19 @@ public class FlyEnemyBrain : EnemyBrainBase
         {
             Vector3 run_target = transform.position - (transform.forward * 5);
             transform.LookAt(run_target);
-            navMesh.SetDestination(run_target);
+            if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(run_target);
         }
         else
         {
-            navMesh.SetDestination(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+            if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             LookAtPlayerXZ();
         }
     }
 
     void SetRandomAI()
     {
-        var rand = Random.Range(1, 10);
-        if (rand == 9)
+        var rand = Random.Range(0, 10);
+        if (rand == 5)
         {
             AIset(FindAItype.Commander);
         }
@@ -115,7 +126,7 @@ public class FlyEnemyBrain : EnemyBrainBase
             {
                 AIset(StayAItype.Ambush);
             }
-            else if (rand > 7)
+            else if (rand > 6)
             {
                 AIset(StayAItype.Ninja);
             }

@@ -145,6 +145,7 @@ public class Enemy : MonoBehaviour
             float rotate = -muzzleAngleLimit.y - angle.y;
             muzzle.transform.Rotate(Vector3.up, rotate, Space.Self);
         }
+
         if (angle.x > muzzleAngleLimit.x)
         {
             float rotate = muzzleAngleLimit.x - angle.x;

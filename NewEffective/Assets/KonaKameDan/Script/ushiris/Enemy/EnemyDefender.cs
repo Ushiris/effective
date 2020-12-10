@@ -1,15 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyDefender : EnemyBrainBase
 {
+    [SerializeField] SkinnedMeshRenderer ColorChangeablePoint;
+    [SerializeField] int material_index;
     Transform king;
 
     // Start is called before the first frame update
     new void Start()
     {
+        mainMaterial = ColorChangeablePoint.materials[material_index];
+
+        ApplyChangeColor = () =>
+        {
+            var temp = ColorChangeablePoint.materials;
+            temp[material_index] = mainMaterial;
+            ColorChangeablePoint.materials = temp;
+        };
+
         base.Start();
 
         FindJob();
@@ -53,7 +64,7 @@ public class EnemyDefender : EnemyBrainBase
         if (king == null || !king.gameObject.activeSelf) FindJob();
         if (navMesh.pathStatus != UnityEngine.AI.NavMeshPathStatus.PathInvalid)
         {
-            navMesh.SetDestination(king.position);
+            if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(king.position);
         }
     }
 
