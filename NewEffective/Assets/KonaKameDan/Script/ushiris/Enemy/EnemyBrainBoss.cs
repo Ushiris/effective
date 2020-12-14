@@ -54,9 +54,13 @@ public class EnemyBrainBoss : MonoBehaviour
             attackManager.ChangeAction(() => ArtsFire(Random.Range(1, 2)));
         }
         //迎撃モード
-        else
+        else if(brain.IsAttackable())
         {
             attackManager.ChangeAction(() => ArtsFire(Random.Range(1, 3)));
+        }
+        else
+        {
+            attackManager.ChangeAction(() => { });
         }
     }
 
