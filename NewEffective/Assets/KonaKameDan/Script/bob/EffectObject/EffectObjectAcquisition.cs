@@ -19,6 +19,7 @@ public class EffectObjectAcquisition : MonoBehaviour
 
     public static List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
     public static List<string> effectObjectName = new List<string>();// リスト作成
+    public static List<int> effectObjNum = new List<int>();
     public static bool isDefaultStatusReset { get; set; } = true;
 
     private void Awake()
@@ -33,6 +34,7 @@ public class EffectObjectAcquisition : MonoBehaviour
             if (effectObjectName != null)
             {
                 effectObjectName.Clear();
+                effectObjNum.Clear();
             }
 
             //初期値のセット
@@ -46,6 +48,7 @@ public class EffectObjectAcquisition : MonoBehaviour
                     id = (int)effect
                 });
                 effectObjectName.Add(name);
+                effectObjNum.Add((int)effect);
             }
         }
     }
@@ -64,7 +67,9 @@ public class EffectObjectAcquisition : MonoBehaviour
     {
         var effectName = EffectObjectID.effectDictionary[type];
         if (effectObjectName.Contains(effectName))
+        {
             effectObjectAcquisition[effectObjectName.IndexOf(effectName)].count++;// ストック追加
+        }
         else
         {
             effectObjectAcquisition.Add(new EffectObjectClass { name = effectName, count = 1 });// リストに作成
@@ -73,6 +78,7 @@ public class EffectObjectAcquisition : MonoBehaviour
             effectObjectAcquisition[effectObjectAcquisition.Count - 1].id = (int)type;
 
             effectObjectName.Add(effectName);
+            effectObjNum.Add((int)type);
         }
     }
 
