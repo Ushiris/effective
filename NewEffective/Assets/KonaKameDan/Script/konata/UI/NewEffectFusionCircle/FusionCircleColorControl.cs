@@ -5,20 +5,33 @@ using UnityEngine.UI;
 
 public class FusionCircleColorControl : MonoBehaviour
 {
-    public enum ColorMode { Before, After, Custom }
+    public enum ColorMode { Before, After, Lock, Custom }
 
     [SerializeField] Color beforeColor;
     [SerializeField] Color afterColor;
+    [SerializeField] Color lockColor;
+    [SerializeField] Image icon;
 
     public ColorMode GetColorMode { get; private set; }
 
     Image image;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         image = GetComponent<Image>();
-        ColorChangeBefore();
+    }
+
+    /// <summary>
+    /// ロック時の色
+    /// </summary>
+    public void ColorChangeLock()
+    {
+        if (icon != null)
+        {
+            icon.color = new Color(icon.color.r, icon.color.g, icon.color.b, 0.1f);
+        }
+        image.color = lockColor;
+        GetColorMode = ColorMode.Lock;
     }
 
     /// <summary>

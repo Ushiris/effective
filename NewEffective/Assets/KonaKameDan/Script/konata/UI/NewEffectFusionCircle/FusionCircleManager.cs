@@ -45,6 +45,21 @@ public class FusionCircleManager : MonoBehaviour
     {
         var effectCheck = PlayerManager.GetManager.GetPlObj.GetComponent<EffectCheckManager>();
         effectCount = effectCheck.effectCount;
+
+        //画像のリセット
+        for (int i = 0; i < circleCutArr.Length; i++)
+        {
+            var num = (NameDefinition.EffectName)circleCutArr[i].effectId;
+
+            if (effectCount.effectCount[num] == 0)
+            {
+                circleCutArr[i].pieceColorControl.ColorChangeLock();
+            }
+            else
+            {
+                circleCutArr[i].pieceColorControl.ColorChangeBefore();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -57,12 +72,13 @@ public class FusionCircleManager : MonoBehaviour
         //エフェクトを持っていない場合操作をさせない
         var effectId = circleCutArr[selectCount].effectId;
         var effectName = (NameDefinition.EffectName)effectId;
-        //if (effectCount.effectCount[effectName] == 0) return;
+        if (effectCount.effectCount[effectName] == 0) return;
 
         if (EffectFusionUI_ChoiceTrigger())
         {
             var s = circleCutArr[selectCount].pieceColorControl;
-            if (s.GetColorMode == FusionCircleColorControl.ColorMode.Before)
+            if (s.GetColorMode == FusionCircleColorControl.ColorMode.Before||
+                s.GetColorMode == FusionCircleColorControl.ColorMode.Lock)
             {
                 if (GetHitPosItem.numList.Count >= 3) return;
 
