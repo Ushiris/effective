@@ -39,6 +39,7 @@ public class UI_Manager : MonoBehaviour
 
     public static UI_Manager GetUI_Manager;
     int tmpEffectListCount = 0;
+    delegate void Action();
 
     void Awake()
     {
@@ -66,40 +67,47 @@ public class UI_Manager : MonoBehaviour
             EffectListCount = MainGameManager.GetPlEffectList.Count;
         }
 
-        EffectFusionUI();
-        //PizzaReset();
-    }
-
-    void EffectFusionUI()
-    {
         //アーツを作るUI表示
         if (EffectFusionUI_ActiveTrigger() && EffectListCount != 0)
         {
-            if (!effectFusionUI_Obj.activeSelf)
-            {
-                effectFusionUI_Obj.SetActive(true);
-                //effectFusionUI_CircleMakeByPizza.SetActive(true);
-                textObj.SetActive(true);
+            EffectFusionUI();
+        }
+        //PizzaReset();
 
-                //カメラ操作を切る
-                if (cameraControlObj != null)
-                    cameraControlObj.GetComponent<TpsPlayerControl>().enabled = false;
+        //Artsを登録した後にUIを消す
+        if (ArtsEntryTrigger())
+        {
+            StartCoroutine(FrameWait(() => EffectFusionUI(), 1));
+        }
+    }
 
-                //マウスカーソルを表示
-                Cursor.visible = true;
-            }
-            else
-            {
-                effectFusionUI_Obj.SetActive(false);
-                //effectFusionUI_CircleMakeByPizza.SetActive(false);
-                textObj.SetActive(false);
+    //アーツを作るUI表示
+    void EffectFusionUI()
+    {
+        if (!effectFusionUI_Obj.activeSelf)
+        {
+            effectFusionUI_Obj.SetActive(true);
+            //effectFusionUI_CircleMakeByPizza.SetActive(true);
+            textObj.SetActive(true);
 
-                //カメラ操作を復活させる
-                cameraControlObj.GetComponent<TpsPlayerControl>().enabled = true;
+            //カメラ操作を切る
+            if (cameraControlObj != null)
+                cameraControlObj.GetComponent<TpsPlayerControl>().enabled = false;
 
-                //マウスカーソルを非表示
-                Cursor.visible = false;
-            }
+            //マウスカーソルを表示
+            Cursor.visible = true;
+        }
+        else
+        {
+            effectFusionUI_Obj.SetActive(false);
+            //effectFusionUI_CircleMakeByPizza.SetActive(false);
+            textObj.SetActive(false);
+
+            //カメラ操作を復活させる
+            cameraControlObj.GetComponent<TpsPlayerControl>().enabled = true;
+
+            //マウスカーソルを非表示
+            Cursor.visible = false;
         }
     }
 
@@ -114,6 +122,16 @@ public class UI_Manager : MonoBehaviour
                 tmpEffectListCount = EffectListCount;
             }
         }
+    }
+
+    //〇〇フレーム遅延させるやつ
+    IEnumerator FrameWait(Action action, int frameCount)
+    {
+        for(int i = 0; i < frameCount; i++)
+        {
+            yield return null;
+        }
+        action();
     }
 
     /// <summary>
