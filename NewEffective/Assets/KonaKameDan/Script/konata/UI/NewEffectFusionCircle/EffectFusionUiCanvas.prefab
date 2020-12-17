@@ -167,6 +167,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 973256982676141664, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9819c21f804633d42b4b14d1195a15ae,
+        type: 3}
+    - target: {fileID: 1773016562751042103, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 31e3f8c639d6c33459a98a912eb5573a,
+        type: 3}
     - target: {fileID: 2173173871444523911, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -182,6 +194,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: EffectFusionCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 3043462111079243998, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d70ed36b064ea34cb24d302159d27f8,
+        type: 3}
+    - target: {fileID: 7947907348830445840, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d194ab9bf788224ba04268299766f13,
+        type: 3}
+    - target: {fileID: 8413206190662923934, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce463c509d7373f4d9327a170f94a420,
+        type: 3}
     - target: {fileID: 8488210311072305824, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -287,6 +317,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8498790811149903075, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a1f5a992a5f22d4fadc81320dfb5540,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8bcfbf969c4b39468c2a0cda5bd3be1, type: 3}
 --- !u!224 &4657321450422329940 stripped

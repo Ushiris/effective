@@ -18,6 +18,7 @@ public class EffectObjectAcquisition : MonoBehaviour
     EffectObjectID effectObjectID;
 
     public static List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
+    public static MyEffectCount GetEffectBag { get; private set; } = new MyEffectCount();
     public static List<string> effectObjectName = new List<string>();// リスト作成
     public static List<int> effectObjNum = new List<int>();
     public static bool isDefaultStatusReset { get; set; } = true;
@@ -27,6 +28,8 @@ public class EffectObjectAcquisition : MonoBehaviour
         //初期化
         if (MainGameManager.GetArtsReset && isDefaultStatusReset)
         {
+            GetEffectBag.Reset();
+
             if (effectObjectAcquisition != null)
             {
                 effectObjectAcquisition.Clear();
@@ -49,6 +52,7 @@ public class EffectObjectAcquisition : MonoBehaviour
                 });
                 effectObjectName.Add(name);
                 effectObjNum.Add((int)effect);
+                GetEffectBag.effectCount[effect] = 1;
             }
         }
     }
@@ -80,6 +84,8 @@ public class EffectObjectAcquisition : MonoBehaviour
             effectObjectName.Add(effectName);
             effectObjNum.Add((int)type);
         }
+
+        GetEffectBag.effectCount[type]++;
     }
 
     /// <summary>
@@ -87,6 +93,16 @@ public class EffectObjectAcquisition : MonoBehaviour
     /// </summary>
     public static List<EffectObjectClass> GetEffectList
     {
-        get { return new List<EffectObjectClass>(effectObjectAcquisition); }
+        get { return effectObjectAcquisition; }
+    }
+
+    /// <summary>
+    /// 所持数を好きな数にできる
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="num"></param>
+    public static void SetEffectBag(NameDefinition.EffectName name, int num)
+    {
+        GetEffectBag.effectCount[name] = num;
     }
 }
