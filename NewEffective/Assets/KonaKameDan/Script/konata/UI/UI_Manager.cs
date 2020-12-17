@@ -145,17 +145,17 @@ public class UI_Manager : MonoBehaviour
     /// <summary>
     /// 選択したエフェクト
     /// </summary>
-    public static EffectFusionUi.NumAndList GetEffectFusionUI_ChoiceNum
+    public static FusionCircleManager.NumAndList GetEffectFusionUI_ChoiceNum
     {
-        get { return EffectFusionUi.GetHitPosItem; }
+        get { return FusionCircleManager.GetHitPosItem; }
     }
 
     /// <summary>
     /// 選択したエフェクトの角度
     /// </summary>
-    public static EffectFusionUi.NumAndList GetEffectFusionUI_ChoiceAng
+    public static FusionCircleManager.NumAndList GetEffectFusionUI_ChoiceAng
     {
-        get { return EffectFusionUi.GetHitPosAng; }
+        get { return FusionCircleManager.GetHitPosAng; }
     }
 
     /// <summary>

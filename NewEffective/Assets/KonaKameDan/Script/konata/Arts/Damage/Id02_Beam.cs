@@ -14,7 +14,6 @@ public class Id02_Beam : MonoBehaviour
     [SerializeField] float plusDamage = 0.08f;
 
     ArtsStatus artsStatus;
-    ParticleHit hit;
     Beam beamControlScript;
 
     int shotCount;
@@ -39,9 +38,9 @@ public class Id02_Beam : MonoBehaviour
 
 
         //ダメージ
-        hit = Arts_Process.SetParticleDamageProcess(beamCoreObj.gameObject);
+        var hit = Arts_Process.SetParticleZoneDamageProcess(beamCoreObj.gameObject);
         //ダメージ処理
-        Arts_Process.Damage(hit, artsStatus, damage, true);
+        Arts_Process.ZoneDamage(hit, artsStatus, damage, true);
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id024_Diffusion_first);
