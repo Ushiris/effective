@@ -19,6 +19,6 @@ public class UIText : MonoBehaviour
     void Update()
     {
         int num = UI_Manager.GetEffectFusionUI_ChoiceAng.num;
-        txt.text = "x " + MainGameManager.GetPlEffectList[num].count;
+        //txt.text = "x " + MainGameManager.GetPlEffectList[num].count;
     }
 }
