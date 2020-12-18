@@ -15,6 +15,8 @@ public class ParticleHitZoneDamage : MonoBehaviour
 
     public bool isParticleCollision = true;
 
+    public static bool isAllDamageEnable = true;
+
     string hitObjTag;
     bool isTrigger;
 
@@ -58,8 +60,11 @@ public class ParticleHitZoneDamage : MonoBehaviour
         timer += Time.deltaTime * 10;
         if (!OnDestroyArtsZone(other.gameObject))
         {
-            if (other.CompareTag(hitObjTag) && (int)timer % 5 == 0)
+            var damageScale = Mathf.FloorToInt(timer);
+            if (other.CompareTag(hitObjTag) && damageScale % 5 == 0)
             {
+                Debug.Log(other.gameObject.name);
+                Debug.Log("DamageTime" + damageScale);
                 Damage(other.gameObject);
                 isTrigger = true;
             }
@@ -73,6 +78,8 @@ public class ParticleHitZoneDamage : MonoBehaviour
     //ダメージの処理
     void Damage(GameObject enemy)
     {
+        if (!isAllDamageEnable) return;
+
         float damage = hitDamageDefault * plusFormStatus;
         int damageCast = Mathf.CeilToInt(damage);
 

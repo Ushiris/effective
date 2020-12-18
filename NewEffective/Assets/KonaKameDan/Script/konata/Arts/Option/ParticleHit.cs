@@ -11,6 +11,8 @@ public class ParticleHit : MonoBehaviour
     public bool isParticleCollision = true;
     public bool isEnemyKnockBack = true;
 
+    public static bool isAllDamageEnable = true;
+
     string hitObjTag;
     bool isTrigger;
 
@@ -95,6 +97,8 @@ public class ParticleHit : MonoBehaviour
     //ダメージの処理
     void Damage(GameObject obj)
     {
+        if (!isAllDamageEnable) return;
+
         float damage = hitDamageDefault * plusFormStatus;
         int damageCast = Mathf.CeilToInt(damage);
 

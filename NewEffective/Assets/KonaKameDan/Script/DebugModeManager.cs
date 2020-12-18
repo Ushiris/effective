@@ -23,6 +23,10 @@ public class DebugModeManager : MonoBehaviour
     [SerializeField] bool isEnemySpawnArea;
     [SerializeField] bool isEnemySpawnEnabled = true;
 
+    [Header("ダメージを無効")]
+    [SerializeField] bool isAllDamage = true;
+    [SerializeField] bool isAllDamageZone = true;
+
     // Start is called before the first frame update
     void Reset()
     {
@@ -71,6 +75,9 @@ public class DebugModeManager : MonoBehaviour
 
         EnemySpawnPoint.isAreaEnabled = isEnemySpawnArea;
         EnemySpawnPoint.isSpawnEnabled = isEnemySpawnEnabled;
+
+        ParticleHit.isAllDamageEnable = isAllDamage;
+        ParticleHitZoneDamage.isAllDamageEnable = isAllDamageZone;
     }
 
     private void Update()
