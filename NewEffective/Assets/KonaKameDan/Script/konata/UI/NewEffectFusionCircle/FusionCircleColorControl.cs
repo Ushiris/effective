@@ -30,7 +30,7 @@ public class FusionCircleColorControl : MonoBehaviour
         {
             icon.color = new Color(icon.color.r, icon.color.g, icon.color.b, 0.1f);
         }
-        image.color = lockColor;
+        if (image != null) image.color = lockColor;
         GetColorMode = ColorMode.Lock;
     }
 
@@ -39,7 +39,11 @@ public class FusionCircleColorControl : MonoBehaviour
     /// </summary>
     public void ColorChangeBefore()
     {
-        image.color = beforeColor;
+        if (icon != null)
+        {
+            icon.color = new Color(icon.color.r, icon.color.g, icon.color.b, 1f);
+        }
+        if (image != null) image.color = beforeColor;
         GetColorMode = ColorMode.Before;
     }
 

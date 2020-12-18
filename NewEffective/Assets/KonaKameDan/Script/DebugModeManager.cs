@@ -23,6 +23,10 @@ public class DebugModeManager : MonoBehaviour
     [SerializeField] bool isEnemySpawnArea;
     [SerializeField] bool isEnemySpawnEnabled = true;
 
+    [Header("ダメージを無効")]
+    [SerializeField] bool isAllDamage = true;
+    [SerializeField] bool isAllDamageZone = true;
+
     // Start is called before the first frame update
     void Reset()
     {
@@ -34,6 +38,7 @@ public class DebugModeManager : MonoBehaviour
             effectCount.Add(new EffectObjectAcquisition.EffectObjectClass { name = ed[key], count = 1 });
             effectCount[effectCount.Count - 1].id = (int)key;
             effectObjectName.Add(ed[key]);
+
         }
     }
 
@@ -45,6 +50,20 @@ public class DebugModeManager : MonoBehaviour
             EffectObjectAcquisition.isDefaultStatusReset = false;
             EffectObjectAcquisition.effectObjectAcquisition = new List<EffectObjectAcquisition.EffectObjectClass>(effectCount);
             EffectObjectAcquisition.effectObjectName = new List<string>(effectObjectName);
+
+            //バッグの方の設定
+            for (int i = 0; i < effectCount.Count; i++)
+            {
+                var name = (NameDefinition.EffectName)effectCount[i].id;
+                var count = effectCount[i].count;
+
+                var effectBag = EffectObjectAcquisition.GetEffectBag.effectCount;
+                if (effectBag.ContainsKey(name))
+                {
+                    effectBag[name] = count;
+                }
+            }
+
         }
 
         if (isCoolTimeChange)
@@ -56,6 +75,9 @@ public class DebugModeManager : MonoBehaviour
 
         EnemySpawnPoint.isAreaEnabled = isEnemySpawnArea;
         EnemySpawnPoint.isSpawnEnabled = isEnemySpawnEnabled;
+
+        ParticleHit.isAllDamageEnable = isAllDamage;
+        ParticleHitZoneDamage.isAllDamageEnable = isAllDamageZone;
     }
 
     private void Update()

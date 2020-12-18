@@ -23,7 +23,7 @@ public class FusionCircleManager : MonoBehaviour
     public static NumAndList GetHitPosItem { get; private set; }
     public static NumAndList GetHitPosAng { get; private set; }
 
-    MyEffectCount effectCount;
+
     string id;
 
     static readonly int kCutNum = 6;
@@ -43,23 +43,7 @@ public class FusionCircleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var effectCheck = PlayerManager.GetManager.GetPlObj.GetComponent<EffectCheckManager>();
-        effectCount = effectCheck.effectCount;
-
-        //画像のリセット
-        for (int i = 0; i < circleCutArr.Length; i++)
-        {
-            var num = (NameDefinition.EffectName)circleCutArr[i].effectId;
-
-            if (effectCount.effectCount[num] == 0)
-            {
-                circleCutArr[i].pieceColorControl.ColorChangeLock();
-            }
-            else
-            {
-                circleCutArr[i].pieceColorControl.ColorChangeBefore();
-            }
-        }
+        ResetImage();
     }
 
     // Update is called once per frame
@@ -72,7 +56,7 @@ public class FusionCircleManager : MonoBehaviour
         //エフェクトを持っていない場合操作をさせない
         var effectId = circleCutArr[selectCount].effectId;
         var effectName = (NameDefinition.EffectName)effectId;
-        if (effectCount.effectCount[effectName] == 0) return;
+        if (EffectObjectAcquisition.GetEffectBag.effectCount[effectName] == 0) return;
 
         if (EffectFusionUI_ChoiceTrigger())
         {
@@ -116,19 +100,38 @@ public class FusionCircleManager : MonoBehaviour
     private void OnEnable()
     {
         //画像のリセット
-        for (int i = 0; i < GetHitPosAng.numList.Count; i++)
-        {
-            var num = GetHitPosAng.numList[i];
-            circleCutArr[num].pieceColorControl.ColorChangeBefore();
-        }
-
+        if (EffectObjectAcquisition.GetEffectBag.effectCount != null) ResetImage();
+        //for (int i = 0; i < GetHitPosAng.numList.Count; i++)
+        //{
+        //    var num = GetHitPosAng.numList[i];
+        //    circleCutArr[num].pieceColorControl.ColorChangeBefore();
+        //}
         ResetList();
+        fusionCirclePreview.ImageChange("");
     }
 
     void ResetList()
     {
         if (GetHitPosItem != null) GetHitPosItem.numList.Clear();
         if (GetHitPosAng != null) GetHitPosAng.numList.Clear();
+    }
+
+    //画像のリセット
+    void ResetImage()
+    {
+        for (int i = 0; i < circleCutArr.Length; i++)
+        {
+            var num = (NameDefinition.EffectName)circleCutArr[i].effectId;
+
+            if (EffectObjectAcquisition.GetEffectBag.effectCount[num] == 0)
+            {
+                circleCutArr[i].pieceColorControl.ColorChangeLock();
+            }
+            else
+            {
+                circleCutArr[i].pieceColorControl.ColorChangeBefore();
+            }
+        }
     }
 
     //マウスの位置から選択しているものを調べる

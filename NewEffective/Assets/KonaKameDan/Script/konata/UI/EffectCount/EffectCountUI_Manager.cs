@@ -28,7 +28,10 @@ public class EffectCountUI_Manager : MonoBehaviour
 
         if (MainGameManager.GetPlEffectList.Count != effectListCount)
         {
-            InstantUI(effectListCount);
+            for (int i = effectListCount; i < MainGameManager.GetPlEffectList.Count; i++)
+            {
+                InstantUI(i);
+            }
             effectListCount = MainGameManager.GetPlEffectList.Count;
         }
     }
