@@ -61,7 +61,7 @@ public class SE_Manager : MonoBehaviour
         public GameObject obj;
         public AudioSource se;
     }
-    Se3d[] se3D;
+    List<Se3d> se3D = new List<Se3d>();
 
     public PrefabDictionary seData;
 
@@ -81,6 +81,8 @@ public class SE_Manager : MonoBehaviour
         seArr = GetComponents<AudioSource>();
 
         SE_Manager_ = this;
+
+        StartUp3dSe(audioInstantMaxCount);
     }
 
     //3DSEを使用する場合Startで宣言すること
@@ -88,13 +90,13 @@ public class SE_Manager : MonoBehaviour
     {
         var group = new GameObject("3dSeGroup");
         group.transform.parent = transform;
-        se3D = new Se3d[maxCount];
 
         for (int i = 0; i < maxCount; i++)
         {
             var obj = Instantiate(se3dObj, group.transform);
-            var se= obj.AddComponent<AudioSource>();
+            var se = obj.GetComponent<AudioSource>();
 
+            se3D.Add(new Se3d());
             se3D[i].obj = obj;
             se3D[i].se = se;
         }
@@ -148,6 +150,17 @@ public class SE_Manager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    /// <summary>
+    /// 3DSEを動かす時に使う
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <param name="se"></param>
+    public static void Se3dMove(Vector3 pos,Se3d se)
+    {
+        se.obj.transform.position = pos;
+        if (!se.se.isPlaying) se = null;
     }
 
     /// <summary>
