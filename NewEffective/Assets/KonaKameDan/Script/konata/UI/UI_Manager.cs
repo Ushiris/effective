@@ -152,6 +152,11 @@ public class UI_Manager : MonoBehaviour
         return Time.timeScale > 0.1f && Input.GetKeyDown(GetUI_Manager.artsEntryKey);
     }
 
+    public static bool ClickTrigger()
+    {
+        return Time.timeScale > 0.1f && Input.GetMouseButtonDown(0);
+    }
+
     /// <summary>
     /// エフェクト選択メニュー画面がアクティブかどうか
     /// </summary>

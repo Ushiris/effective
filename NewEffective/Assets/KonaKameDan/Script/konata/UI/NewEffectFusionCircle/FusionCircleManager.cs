@@ -92,7 +92,12 @@ public class FusionCircleManager : MonoBehaviour
                 id += GetHitPosItem.numList[i].ToString();
             }
 
-            //中央の文字を変更する
+            if (ArtsEntryTrigger())
+            {
+                fusionCirclePreview.OnCreateArtsCheck(id);
+            }
+
+            //中央に表示している情報を操作する
             fusionCirclePreview.ImageChange(id);
         }
     }
@@ -172,6 +177,15 @@ public class FusionCircleManager : MonoBehaviour
     /// <returns></returns>
     bool EffectFusionUI_ChoiceTrigger()
     {
-        return Input.GetMouseButtonDown(0);
+        return UI_Manager.ClickTrigger();
+    }
+
+    /// <summary>
+    /// アーツを登録するButton
+    /// </summary>
+    /// <returns></returns>
+    bool ArtsEntryTrigger()
+    {
+        return UI_Manager.ArtsEntryTrigger();
     }
 }

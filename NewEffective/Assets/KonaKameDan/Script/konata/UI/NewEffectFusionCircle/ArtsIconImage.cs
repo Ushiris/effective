@@ -11,7 +11,6 @@ public class ArtsIconImage : MonoBehaviour
         public Image image;
     }
 
-
     public PrefabDictionary data;
 
     [System.Serializable]
