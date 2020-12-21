@@ -74,7 +74,12 @@ public class Id059_SummonPixie : MonoBehaviour
         //〇〇秒後オブジェクトを破壊する
         timer = gameObject.AddComponent<StopWatch>();
         timer.LapTime = lostTime;
-        timer.LapEvent = () => { Destroy(gameObject); };
+        timer.LapEvent = () =>
+        {
+            //SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Id59_Funnel_third); 
+            Destroy(gameObject);
+        };
 
         //SE
         se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id059_SummonPixie_first);
@@ -102,6 +107,9 @@ public class Id059_SummonPixie : MonoBehaviour
         }
         else
         {
+            //SE
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Id59_Funnel_third);
+
             Destroy(gameObject);
         }
     }
