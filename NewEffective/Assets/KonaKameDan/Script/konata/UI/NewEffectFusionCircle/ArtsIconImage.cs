@@ -8,9 +8,8 @@ public class ArtsIconImage : MonoBehaviour
     [System.Serializable]
     public class Icon
     {
-        public Image image;
+        public Sprite image;
     }
-
 
     public PrefabDictionary data;
 
