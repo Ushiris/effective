@@ -16,9 +16,11 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //SEを流す処理
             se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Hit);
         }
 
+        //SEを移動させる処理
         if (se != null)
         {
             SE_Manager.Se3dMove(transform.position, se);

@@ -28,6 +28,7 @@ public class Id059_SummonPixie : MonoBehaviour
 
     StopWatch timer;
     GameObject enemy;
+    SE_Manager.Se3d se;
 
     int shotCount;
     int homingCount;
@@ -76,7 +77,7 @@ public class Id059_SummonPixie : MonoBehaviour
         timer.LapEvent = () => { Destroy(gameObject); };
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id059_SummonPixie_first);
+        se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id059_SummonPixie_first);
     }
 
     // Update is called once per frame
@@ -96,6 +97,8 @@ public class Id059_SummonPixie : MonoBehaviour
             //敵の方向を見る
             fairyParticle.transform.rotation =
                 Arts_Process.GetLookRotation(fairyParticle.transform, enemy.transform);
+
+            SE_Manager.Se3dMove(fairyParticle.transform.position, se);
         }
         else
         {

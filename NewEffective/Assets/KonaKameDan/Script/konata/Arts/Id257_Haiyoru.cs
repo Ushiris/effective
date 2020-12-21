@@ -127,7 +127,9 @@ public class Id257_Haiyoru : MonoBehaviour
             if (oneShotSE_third)
             {
                 //SE
-                SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+                var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+                SE_Manager.Se3dMove(bomb[0].transform.position, se);
+
                 oneShotSE_third = false;
             }
         }

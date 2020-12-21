@@ -22,7 +22,7 @@ public class Id457_BigBang : MonoBehaviour
     float damage;
 
     StopWatch timer;
-    AudioSource se;
+    SE_Manager.Se3d se1;
     ArtsStatus artsStatus;
 
     // Start is called before the first frame update
@@ -49,7 +49,8 @@ public class Id457_BigBang : MonoBehaviour
         timer.LapEvent = () => { Explosion(); };
 
         //SE
-        se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id457_BigBang_second);
+        se1 = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id457_BigBang_second);
+        SE_Manager.Se3dMove(transform.position, se1);
     }
 
     void Explosion()
@@ -60,8 +61,9 @@ public class Id457_BigBang : MonoBehaviour
         Destroy(gameObject, 1.5f);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
-        SE_Manager.ForcedPlayStop(se);
+        var se2 = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+        SE_Manager.Se3dMove(transform.position, se2);
+        SE_Manager.ForcedPlayStop(se1.se);
 
         //ダメージの処理
         var damageProcess = Arts_Process.SetParticleDamageProcess(explosionObj);

@@ -16,6 +16,7 @@ public class Id459_Direction : MonoBehaviour
     static GameObject id459_DirectionObj;
 
     NavMeshAgent navMeshAgent;
+    SE_Manager.Se3d se;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,14 @@ public class Id459_Direction : MonoBehaviour
         navMeshAgent.destination = GoalIn.GetGoalPos;
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id459_Direction_second);
+        se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id459_Direction_second);
+    }
+
+    private void Update()
+    {
+        if (se != null)
+        {
+            SE_Manager.Se3dMove(transform.position, se);
+        }
     }
 }
