@@ -66,7 +66,7 @@ public class Id45_Search : MonoBehaviour
 
     void EffectMaterialDefault()
     {
-        Arts_Process.MaterialsChange(effectObj, effectObjectMaterialDefault, 1);
+        Arts_Process.MaterialsChange(effectObj, effectObjectMaterialDefault, 2);
         Destroy(gameObject);
     }
 }

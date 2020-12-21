@@ -28,8 +28,8 @@ public class SatelliteBeamMaterial : MonoBehaviour
     float coreMaterialTimer = 1;
     float shaderTimer = 0;
 
-    AudioSource se;
     bool isSePlay;
+    SE_Manager.Se3d se;
 
     private void Start()
     {
@@ -73,7 +73,8 @@ public class SatelliteBeamMaterial : MonoBehaviour
                 if (isSePlay)
                 {
                     //SE
-                    se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id079_Amaterasu_second);
+                    se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id079_Amaterasu_second);
+                    SE_Manager.Se3dMove(transform.position, se);
                     isSePlay = false;
                 }
             }
@@ -82,7 +83,7 @@ public class SatelliteBeamMaterial : MonoBehaviour
                 if (!isSePlay)
                 {
                     //SEをフェード
-                    SE_Manager.SetFadeOut(this, se, 0.3f);
+                    SE_Manager.SetFadeOut(this, se.se, 0.3f);
                     isSePlay = true;
                 }
                 Shader(shaderSpeed);

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    AudioSource se;
-    AudioSource se1;
+    SE_Manager.Se3d se;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,24 +14,16 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            se = SE_Manager.SePlay(SE_Manager.SE_NAME.Hit);
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            se1 = SE_Manager.SePlay(SE_Manager.SE_NAME.Heel);
-        }
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SE_Manager.SetFadeOut(this, se, 0.1f);
+            //SEを流す処理
+            se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Hit);
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        //SEを移動させる処理
+        if (se != null)
         {
-            SE_Manager.SetFadeOut(this, se1, 0.1f);
+            SE_Manager.Se3dMove(transform.position, se);
         }
     }
 }

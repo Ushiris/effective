@@ -36,7 +36,7 @@ public class Id279_ChargeDrive : MonoBehaviour
         Arts_Process.Damage(damageProcess, artsStatus, damage, true);
 
         PlayerMotion.OnPlayerRunningMotion = true;
-        var obj = PlayerManager.GetManager.GetPlObj;
+        var obj = artsStatus.myObj;
         Arts_Process.RbMomentMove(obj, force);
         Destroy(gameObject, 0.5f);
 

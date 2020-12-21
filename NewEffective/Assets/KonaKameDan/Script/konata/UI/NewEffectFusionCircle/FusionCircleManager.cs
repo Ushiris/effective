@@ -61,7 +61,7 @@ public class FusionCircleManager : MonoBehaviour
         if (EffectFusionUI_ChoiceTrigger())
         {
             var s = circleCutArr[selectCount].pieceColorControl;
-            if (s.GetColorMode == FusionCircleColorControl.ColorMode.Before||
+            if (s.GetColorMode == FusionCircleColorControl.ColorMode.Before ||
                 s.GetColorMode == FusionCircleColorControl.ColorMode.Lock)
             {
                 if (GetHitPosItem.numList.Count >= 3) return;
@@ -85,15 +85,21 @@ public class FusionCircleManager : MonoBehaviour
             }
 
             //ArtsのID作成
-            var id = "";
+            id = "";
             GetHitPosItem.numList.Sort();
             for (int i = 0; i < GetHitPosItem.numList.Count; i++)
             {
                 id += GetHitPosItem.numList[i].ToString();
             }
 
-            //中央の文字を変更する
+            //中央に表示している情報を操作する
             fusionCirclePreview.ImageChange(id);
+        }
+
+        //作成したアーツを登録する
+        if (ArtsEntryTrigger())
+        {
+            fusionCirclePreview.OnCreateArtsCheck(id);
         }
     }
 
@@ -172,6 +178,15 @@ public class FusionCircleManager : MonoBehaviour
     /// <returns></returns>
     bool EffectFusionUI_ChoiceTrigger()
     {
-        return Input.GetMouseButtonDown(0);
+        return UI_Manager.ClickTrigger();
+    }
+
+    /// <summary>
+    /// アーツを登録するButton
+    /// </summary>
+    /// <returns></returns>
+    bool ArtsEntryTrigger()
+    {
+        return UI_Manager.ArtsEntryTrigger();
     }
 }

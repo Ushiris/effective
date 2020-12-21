@@ -68,6 +68,12 @@ public class Id047_PingPong : MonoBehaviour
 
             //ダメージ処理
             Arts_Process.Damage(bulletDamage, artsStatus, damage, true);
+
+            particleHitPlay.OnExplosion += () => 
+            {
+                var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+                SE_Manager.Se3dMove(bullet[i].transform.position, se);
+            };
         }
 
         var timer = Arts_Process.TimeAction(gameObject, lostTime);
@@ -90,12 +96,14 @@ public class Id047_PingPong : MonoBehaviour
             for (int i = 0; i < obj.Count; i++)
             {
                 pos = obj[i].transform.position;
-                Destroy(obj[i]);
                 var explosion = Instantiate(explosionParticleObj, pos, Quaternion.identity);
-                Destroy(gameObject, 2);
 
                 //SE
-                SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+                var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+                SE_Manager.Se3dMove(pos, se);
+
+                Destroy(obj[i]);
+                Destroy(gameObject, 2);
             }
         }
     }

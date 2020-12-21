@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// UIのマネージャー
@@ -16,6 +17,7 @@ public class UI_Manager : MonoBehaviour
 
     [SerializeField] GameObject textObj;
     [SerializeField] GameObject cameraControlObj;
+    [SerializeField] Image reticle;
 
     [Header("アーツを登録するキー")]
     public KeyCode artsEntryKey = KeyCode.Q;
@@ -96,6 +98,9 @@ public class UI_Manager : MonoBehaviour
 
             //マウスカーソルを表示
             Cursor.visible = true;
+
+            //レティクルを非表示
+            reticle.enabled = false;
         }
         else
         {
@@ -108,6 +113,9 @@ public class UI_Manager : MonoBehaviour
 
             //マウスカーソルを非表示
             Cursor.visible = false;
+
+            //レティクルを表示
+            reticle.enabled = true;
         }
     }
 
@@ -150,6 +158,11 @@ public class UI_Manager : MonoBehaviour
     public static bool ArtsEntryTrigger()
     {
         return Time.timeScale > 0.1f && Input.GetKeyDown(GetUI_Manager.artsEntryKey);
+    }
+
+    public static bool ClickTrigger()
+    {
+        return Time.timeScale > 0.1f && Input.GetMouseButtonDown(0);
     }
 
     /// <summary>

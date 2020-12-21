@@ -38,7 +38,11 @@ public class Id579_Salamander : MonoBehaviour
         var flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);
 
         var particleHitPlay = Arts_Process.SetParticleHitPlay(boom.gameObject, explosion, transform, artsStatus);
-        particleHitPlay.OnExplosion += () => { SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third); };
+        particleHitPlay.OnExplosion += () => 
+        {
+            var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+            SE_Manager.Se3dMove(boom.gameObject.transform.position, se);
+        };
 
         //ダメージ
         var damageProcess = Arts_Process.SetParticleDamageProcess(boom.gameObject);

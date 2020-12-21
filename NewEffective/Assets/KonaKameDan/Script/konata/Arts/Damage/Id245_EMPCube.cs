@@ -89,7 +89,7 @@ public class Id245_EMPCube : MonoBehaviour
             //SE
             SE_Manager.SePlay(SE_Manager.SE_NAME.Id245_EMPCube_third);
         }
-        else Destroy(gameObject);
+        if (count == maxCount) Destroy(gameObject);
 
         //SE
         SE_Manager.SePlay(SE_Manager.SE_NAME.Id245_EMPCube_second);

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioInstantMaxCount: 10
+  se3dObj: {fileID: 6371555299203423936, guid: f943c7677d616a64eb2f08b6e68dea90, type: 3}
   seData:
     list:
     - Key: 0
