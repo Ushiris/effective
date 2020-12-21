@@ -44,8 +44,10 @@ public class ParticleHitActiveObj : MonoBehaviour
         for (int i = 0; i < obj.Length; i++)
         {
             yield return new WaitForSeconds(delay);
+
             // SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+            var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+            SE_Manager.Se3dMove(obj[i].transform.position, se);
         }
     }
 }

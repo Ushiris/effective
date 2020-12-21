@@ -46,7 +46,7 @@ public class Id479_MeteorRain : MonoBehaviour
     const float r = 45;
     const float fixX = -30;
 
-    AudioSource se;
+    SE_Manager.Se3d se2;
 
     // Start is called before the first frame update
     void Start()
@@ -90,7 +90,10 @@ public class Id479_MeteorRain : MonoBehaviour
         timer.LapEvent = () => { Instant(); };
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id049_ArrowRain_first);
+        var se1 = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id049_ArrowRain_first);
+        se2 = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id479_MeteorRain_second);
+        SE_Manager.Se3dMove(transform.position, se1);
+        SE_Manager.Se3dMove(transform.position, se2);
     }
 
     // Update is called once per frame
@@ -98,7 +101,7 @@ public class Id479_MeteorRain : MonoBehaviour
     {
         if (groupObj.transform.childCount == 0 && boxPos.Count == 0)
         {
-            SE_Manager.ForcedPlayStop(se);
+            SE_Manager.ForcedPlayStop(se2.se);
             Destroy(gameObject);
         }
     }
@@ -123,8 +126,5 @@ public class Id479_MeteorRain : MonoBehaviour
         //隕石を動かす
         var forwardMove = Arts_Process.SetForwardMove(starDustParticle, -speed);
         forwardMove.isStart = true;
-
-        //SE
-        se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id479_MeteorRain_second);
     }
 }

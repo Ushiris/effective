@@ -92,10 +92,12 @@ public class Id029_JumpCube : MonoBehaviour
             foreach (Collider hit in enemies)
             {
                 parent.transform.position = jumpCube.transform.position;
-                Destroy(gameObject);
 
                 //SE
-                SE_Manager.SePlay(SE_Manager.SE_NAME.Id029_JumpCube_third);
+                var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id029_JumpCube_third);
+                SE_Manager.Se3dMove(jumpCube.transform.position, se);
+
+                Destroy(gameObject);
             }
         }
     }

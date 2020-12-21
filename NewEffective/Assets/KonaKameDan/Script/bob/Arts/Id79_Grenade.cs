@@ -91,11 +91,12 @@ public class Id79_Grenade : MonoBehaviour
             //爆弾を破壊
             if (particleHitPlay.isTrigger == true)
             {
+                //SE
+                var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+                SE_Manager.Se3dMove(grenade.transform.position, se);
+
                 Destroy(grenade);
                 Destroy(gameObject, 3);
-
-                //SE
-                SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
             }
         }
     }
@@ -107,10 +108,12 @@ public class Id79_Grenade : MonoBehaviour
             pos = obj.transform.position;
             Destroy(obj);
             var explosion = Instantiate(grenadeObj, pos, Quaternion.identity);
-            Destroy(gameObject, 2);
 
             //SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+            var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
+            SE_Manager.Se3dMove(grenade.transform.position, se);
+
+            Destroy(gameObject, 2);
         }
     }
 

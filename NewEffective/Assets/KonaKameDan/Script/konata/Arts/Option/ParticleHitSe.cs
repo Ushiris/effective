@@ -7,9 +7,9 @@ public class ParticleHitSe : MonoBehaviour
     [SerializeField] SE_Manager.SE_NAME seName;
 
     public bool isPlayerAndEnemyHit = false;
-    public AudioSource GetSe => se;
+    public SE_Manager.Se3d GetSe => se;
 
-    AudioSource se;
+    SE_Manager.Se3d se;
     List<string> hitTagName = new List<string>()
     {
         "Default","Map","Ground","PostProcessing"
@@ -44,7 +44,8 @@ public class ParticleHitSe : MonoBehaviour
     {
         if (hitTagName.Contains(obj.tag))
         {
-            se = SE_Manager.SePlay(seName);
+            se = SE_Manager.Se3dPlay(seName);
+            SE_Manager.Se3dMove(transform.position, se);
         }
     }
 
@@ -52,7 +53,8 @@ public class ParticleHitSe : MonoBehaviour
     {
         if (hitTagName.Contains(other.gameObject.tag))
         {
-            se = SE_Manager.SePlay(seName);
+            se = SE_Manager.Se3dPlay(seName);
+            SE_Manager.Se3dMove(transform.position, se);
         }
     }
 
@@ -60,7 +62,8 @@ public class ParticleHitSe : MonoBehaviour
     {
         if (hitTagName.Contains(collision.gameObject.tag))
         {
-            se = SE_Manager.SePlay(seName);
+            se = SE_Manager.Se3dPlay(seName);
+            SE_Manager.Se3dMove(transform.position, se);
         }
     }
 }
