@@ -61,7 +61,7 @@ public class FusionCircleManager : MonoBehaviour
         if (EffectFusionUI_ChoiceTrigger())
         {
             var s = circleCutArr[selectCount].pieceColorControl;
-            if (s.GetColorMode == FusionCircleColorControl.ColorMode.Before||
+            if (s.GetColorMode == FusionCircleColorControl.ColorMode.Before ||
                 s.GetColorMode == FusionCircleColorControl.ColorMode.Lock)
             {
                 if (GetHitPosItem.numList.Count >= 3) return;
@@ -85,20 +85,21 @@ public class FusionCircleManager : MonoBehaviour
             }
 
             //ArtsのID作成
-            var id = "";
+            id = "";
             GetHitPosItem.numList.Sort();
             for (int i = 0; i < GetHitPosItem.numList.Count; i++)
             {
                 id += GetHitPosItem.numList[i].ToString();
             }
 
-            if (ArtsEntryTrigger())
-            {
-                fusionCirclePreview.OnCreateArtsCheck(id);
-            }
-
             //中央に表示している情報を操作する
             fusionCirclePreview.ImageChange(id);
+        }
+
+        //作成したアーツを登録する
+        if (ArtsEntryTrigger())
+        {
+            fusionCirclePreview.OnCreateArtsCheck(id);
         }
     }
 

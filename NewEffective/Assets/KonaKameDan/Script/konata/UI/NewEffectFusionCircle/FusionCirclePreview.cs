@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// アーツ作成メニューの中央に表示されるものの処理
+/// </summary>
 public class FusionCirclePreview : MonoBehaviour
 {
     [SerializeField] Image unknown;
@@ -13,7 +16,7 @@ public class FusionCirclePreview : MonoBehaviour
 
     ArtsIconImage beforeArtsIconImage;
     ArtsIconImage afterArtsIconImage;
-    Dictionary<string, bool> isCreateArts = new Dictionary<string, bool>();
+    static Dictionary<string, bool> isCreateArts = new Dictionary<string, bool>();
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +25,14 @@ public class FusionCirclePreview : MonoBehaviour
         beforeArtsIconImage = beforeIcon.gameObject.GetComponent<ArtsIconImage>();
         afterArtsIconImage = afterIcon.gameObject.GetComponent<ArtsIconImage>();
 
-        foreach (var item in afterArtsIconImage.data.GetTable())
+        //初期化
+        if (MainGameManager.GetArtsReset || isCreateArts == null)
         {
-            isCreateArts.Add(item.Key, false);
+            isCreateArts.Clear();
+            foreach (var item in afterArtsIconImage.data.GetTable())
+            {
+                isCreateArts.Add(item.Key, false);
+            }
         }
     }
 
@@ -44,12 +52,12 @@ public class FusionCirclePreview : MonoBehaviour
             //画像の変更
             if (isCreateArts[id])
             {
-                afterIcon = afterArtsIconImage.data.GetTable()[id].image;
+                afterIcon.sprite = afterArtsIconImage.data.GetTable()[id].image;
                 OnAfterImage();
             }
             else
             {
-                beforeIcon = beforeArtsIconImage.data.GetTable()[id].image;
+                beforeIcon.sprite = beforeArtsIconImage.data.GetTable()[id].image;
                 OnBeforeImage();
             }
 
