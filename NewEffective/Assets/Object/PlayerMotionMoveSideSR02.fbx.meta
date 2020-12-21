@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 39fbbd7770cc7498685b7e201d2c6625
+guid: a7ef767f797bf4c8fb7d2280b5ad81fa
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
@@ -443,7 +443,7 @@ ModelImporter:
     second: Character01
   - first:
       74: 7400000
-    second: PlayerMotionSideLeftStart
+    second: PlayerMotionRightStart01
   - first:
       95: 9500000
     second: //RootNode
@@ -479,7 +479,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: PlayerMotionSideLeftStart
+      name: PlayerMotionRightStart01
       takeName: Take 001
       internalID: 0
       firstFrame: 0
