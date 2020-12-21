@@ -23,7 +23,7 @@ public class DebugModeManager : MonoBehaviour
     [SerializeField] bool isEnemySpawnArea;
     [SerializeField] bool isEnemySpawnEnabled = true;
 
-    [Header("ダメージを無効")]
+    [Header("ダメージを有効にする")]
     [SerializeField] bool isAllDamage = true;
     [SerializeField] bool isAllDamageZone = true;
 
