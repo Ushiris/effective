@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// プレイヤーの移動
 /// </summary>
 public class PlayerMove : MonoBehaviour
 {
-
     Rigidbody rb;
 
     Vector3 dirVertical;
@@ -27,10 +27,18 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] GameObject jumpColliderPos;
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
 
+    public UnityEvent 
+        OnJumpBegin = new UnityEvent(),
+        OnNearGround = new UnityEvent();
+    StopWatch FlyTimer;
+    bool IsCheckGroundRequest = false;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        FlyTimer = StopWatch.Summon(0.3f, () => IsCheckGroundRequest = true, gameObject);
+        FlyTimer.SetActive(false);
 
         speed = slowSpeed;
 
@@ -50,25 +58,45 @@ public class PlayerMove : MonoBehaviour
         dirHorizontal = new Vector3(-Mathf.Cos(angleDir), 0, Mathf.Sin(angleDir)) * Input.GetAxis("Horizontal") * speed;
 
         //ジャンプ
-        jump = Vector3.up * JumpTrigger(maxJumpCount) * jumpPower;
+        var jumpCOEF = JumpTrigger(maxJumpCount);
+        if (jumpCOEF > 0)
+        {
+            OnJumpBegin.Invoke();
+            DebugLogger.Log("OnJumpBegin");
+
+        }
+        jump = Vector3.up * jumpCOEF * jumpPower;
 
         //入力したときにカメラの向きを基準とした動き
         move = dirVertical + -dirHorizontal + jump;
-
-        //速度の変更
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = dashSpeed;
-        }
-        else
-        {
-            speed = status.GetMoveSpeed + slowSpeed;
-        }
+        speed = status.GetMoveSpeed + slowSpeed;
 
         //移動
         Vector3 v = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         Vector3 force = new Vector3(speed * (move.x - v.x), move.y, speed * (move.z - v.z));
         rb.AddForce(force);
+
+        CheckNearGround();
+    }
+
+    //地面との接近判定。これはアニメーションの切り替えに用いられます。
+    void CheckNearGround()
+    {
+        if (!IsLanding()) FlyTimer.SetActive(true);
+        if (IsNearGround() && IsCheckGroundRequest)
+        {
+            //地面に”接近”した場合、OnNearGroundイベントをトリガーさせます。これは一定時間以上滞空（もしくはジャンプ）しなければ発生しません。
+            OnNearGround.Invoke();
+            DebugLogger.Log("OnNearGround");
+            IsCheckGroundRequest = false;
+            FlyTimer.ResetTimer();
+            FlyTimer.SetActive(false);
+        }
+        else if(IsLanding())
+        {
+            FlyTimer.ResetTimer();
+            FlyTimer.SetActive(false);
+        }
     }
 
     //ジャンプ制限付きトリガーチェック
@@ -82,14 +110,30 @@ public class PlayerMove : MonoBehaviour
             jumpCount++;
             return Input.GetAxis("Jump");
         }
+
         else return 0;
     }
 
     //着地した時、真を返す
-    bool IsLanding()
+    public bool IsLanding()
     {
         var pos = jumpColliderPos.transform.position;
         Collider[] ground = Physics.OverlapSphere(pos, 0.1f, layerMask);
+        if (ground != null)
+        {
+            if (ground.Length != 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool IsNearGround()
+    {
+        var pos = jumpColliderPos.transform.position;
+        pos.y -= 2.5f;
+        Collider[] ground = Physics.OverlapSphere(pos, 0.2f, layerMask);
         if (ground != null)
         {
             if (ground.Length != 0)
@@ -106,7 +150,6 @@ public class PlayerMove : MonoBehaviour
         {
             //敵に当たった場合跳ねあがるやつの防止
             rb.velocity = Vector3.zero;
-            rb.AddForce(transform.up * -50, ForceMode.Impulse);
         }
     }
 }
