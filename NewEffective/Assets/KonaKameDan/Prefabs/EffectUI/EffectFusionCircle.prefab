@@ -318,7 +318,7 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: baf3a5090d8e85d42b22e5c966db609a, type: 3}
     - Key: 07
       Value:
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 5e83a4b6deb64ba4b875c13a5a00dbb0, type: 3}
     - Key: 09
       Value:
         image: {fileID: 21300000, guid: bcf5090737d3d774b8d62d521bfd253b, type: 3}
@@ -342,16 +342,16 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: 9ee965d9cfcc54b46937b3fbb1eacc55, type: 3}
     - Key: 49
       Value:
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 71f7eedf89e69574c88386315141932c, type: 3}
     - Key: 57
       Value:
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: cb3dd04cc94dbf6418493ee046cb59f3, type: 3}
     - Key: 59
       Value:
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 85006e5ca2d252549a725df51d689485, type: 3}
     - Key: 79
       Value:
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 59ada3ddc8d4fad4db5ff9659859c687, type: 3}
 --- !u!1 &1857670146
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +641,7 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: a4411c856933cb14aab2d6fcf8e294e3, type: 3}
     - Key: 07
       Value:
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: b1d1365d95a08c84280a23979aa6cd48, type: 3}
     - Key: 09
       Value:
         image: {fileID: 21300000, guid: 6c9a1bd00cc58f24fb347d706cd52428, type: 3}
@@ -665,16 +665,16 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: 107a5e11a30acdf4181468195103c571, type: 3}
     - Key: 49
       Value:
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 5be00753a6d8d774a805e1096e451cac, type: 3}
     - Key: 57
       Value:
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 86aaa4dc293fe0947866eb7ad4eb7f60, type: 3}
     - Key: 59
       Value:
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: dee2744c857ce36488d21eec6acdf86a, type: 3}
     - Key: 79
       Value:
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: a286d4b473abd7e439d65b5ce9faa86f, type: 3}
 --- !u!1 &3007601156440558013
 GameObject:
   m_ObjectHideFlags: 0
