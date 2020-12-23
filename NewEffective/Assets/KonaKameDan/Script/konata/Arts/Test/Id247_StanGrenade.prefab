@@ -4877,7 +4877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 6297321002607045949}
   grenadeParticle: {fileID: 2986848607330207501}
-  stanArea: {fileID: 6263546923206542229}
+  stanArea: {fileID: 0}
   v0: {x: 0, y: 10, z: 15}
   stanAreaSiz: {x: 30, y: 30, z: 30}
   fadeOut: 2
