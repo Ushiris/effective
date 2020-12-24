@@ -297,6 +297,12 @@ MonoBehaviour:
   maxJumpCount: 1
   jumpColliderPos: {fileID: 1965409661}
   jumpKey: 32
+  OnJumpBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNearGround:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4852804697451384511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,7 +558,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 65
   field of view: 60
   orthographic: 0
   orthographic size: 5

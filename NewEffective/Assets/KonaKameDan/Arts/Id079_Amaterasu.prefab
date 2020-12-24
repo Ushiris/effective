@@ -176,6 +176,26 @@ PrefabInstance:
       propertyPath: isTimeStart
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 974374066309183990, guid: 56d34b58d79a34643af4ff773d1f22d6,
+        type: 3}
+      propertyPath: kBooleColorCode.r
+      value: 0.4392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 974374066309183990, guid: 56d34b58d79a34643af4ff773d1f22d6,
+        type: 3}
+      propertyPath: kBooleColorCode.b
+      value: 5.992157
+      objectReference: {fileID: 0}
+    - target: {fileID: 974374066309183990, guid: 56d34b58d79a34643af4ff773d1f22d6,
+        type: 3}
+      propertyPath: kRedColorCode.r
+      value: 5.992157
+      objectReference: {fileID: 0}
+    - target: {fileID: 974374066309183990, guid: 56d34b58d79a34643af4ff773d1f22d6,
+        type: 3}
+      propertyPath: kRedColorCode.g
+      value: 1.0352942
+      objectReference: {fileID: 0}
     - target: {fileID: 3654896423777089148, guid: 56d34b58d79a34643af4ff773d1f22d6,
         type: 3}
       propertyPath: m_LocalPosition.x
