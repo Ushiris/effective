@@ -98,7 +98,7 @@ public class Id09_Arrow : MonoBehaviour
                 arrowParticle.startSpeed = power;
                 var obj = Instantiate(arrowParticleObj, transform);
 
-                SE_Manager.ForcedPlayStop(se.se);
+                if (se != null) SE_Manager.ForcedPlayStop(se.se);
                 //SE
                 Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id09_Arrow_second, transform.position, artsStatus);
 
