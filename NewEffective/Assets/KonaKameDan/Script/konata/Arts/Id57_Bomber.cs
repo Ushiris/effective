@@ -69,7 +69,7 @@ public class Id57_Bomber : MonoBehaviour
         }
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id257_Haiyoru_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id257_Haiyoru_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame

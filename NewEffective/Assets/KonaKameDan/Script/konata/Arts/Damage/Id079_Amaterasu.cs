@@ -66,8 +66,7 @@ public class Id079_Amaterasu : MonoBehaviour
         transform.position = pos;
 
         //SE
-        var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id079_Amaterasu_first);
-        SE_Manager.Se3dMove(transform.position, se);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id079_Amaterasu_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame

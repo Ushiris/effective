@@ -46,7 +46,7 @@ public class Id479_MeteorRain : MonoBehaviour
     const float r = 45;
     const float fixX = -30;
 
-    SE_Manager.Se3d se2;
+    SE_Manager.Se3d se;
 
     // Start is called before the first frame update
     void Start()
@@ -90,10 +90,8 @@ public class Id479_MeteorRain : MonoBehaviour
         timer.LapEvent = () => { Instant(); };
 
         //SE
-        var se1 = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id049_ArrowRain_first);
-        se2 = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id479_MeteorRain_second);
-        SE_Manager.Se3dMove(transform.position, se1);
-        SE_Manager.Se3dMove(transform.position, se2);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id049_ArrowRain_first, transform.position, artsStatus);
+        se = Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id479_MeteorRain_second, transform.position, artsStatus);
     }
 
     // Update is called once per frame
@@ -101,7 +99,7 @@ public class Id479_MeteorRain : MonoBehaviour
     {
         if (groupObj.transform.childCount == 0 && boxPos.Count == 0)
         {
-            SE_Manager.ForcedPlayStop(se2.se);
+            SE_Manager.ForcedPlayStop(se.se);
             Destroy(gameObject);
         }
     }

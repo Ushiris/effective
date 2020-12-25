@@ -19,7 +19,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
 
     const int count = 3;
 
-    AudioSource se;
+    SE_Manager.Se3d se;
 
     // Start is called before the first frame update
     void Start()
@@ -54,15 +54,15 @@ public class Id25_UnbreakableShield : MonoBehaviour
             Arts_Process.SetShieldLayer(artsStatus, shields[i]);
         }
 
-        
+
 
         //オブジェクトの破壊
         timer = Arts_Process.TimeAction(gameObject, timeOver);
         timer.LapEvent = () => { Lost(); };
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_first);
-        se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id25_UnbreakableShield_second);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_first, transform.position, artsStatus);
+        se = Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id25_UnbreakableShield_second, transform.position, artsStatus);
     }
 
     // Update is called once per frame
@@ -78,8 +78,8 @@ public class Id25_UnbreakableShield : MonoBehaviour
         ArtsActiveObj.Id25_UnbreakableShield.Remove(artsStatus.myObj);
         Destroy(gameObject);
 
-        SE_Manager.ForcedPlayStop(se);
+        SE_Manager.ForcedPlayStop(se.se);
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third, transform.position, artsStatus);
     }
 }

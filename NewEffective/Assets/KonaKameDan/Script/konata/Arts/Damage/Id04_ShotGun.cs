@@ -48,7 +48,7 @@ public class Id04_ShotGun : MonoBehaviour
         Arts_Process.SetBulletCount(pse, defaultBullet, addBullet, spreadCount);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id04_ShotGun_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id04_ShotGun_first, transform.position, artsStatus);
     }
 
     void LateUpdate()

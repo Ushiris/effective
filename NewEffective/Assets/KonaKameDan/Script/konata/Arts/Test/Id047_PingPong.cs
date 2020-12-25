@@ -71,8 +71,7 @@ public class Id047_PingPong : MonoBehaviour
 
             particleHitPlay.OnExplosion += () => 
             {
-                var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
-                SE_Manager.Se3dMove(bullet[i].transform.position, se);
+                Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third, bullet[i].transform.position, artsStatus);
             };
         }
 
@@ -80,7 +79,7 @@ public class Id047_PingPong : MonoBehaviour
         timer.LapEvent = () => { Lost(bullet); };
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_first, transform.position, artsStatus);
     }
 
     private void Update()
@@ -99,8 +98,7 @@ public class Id047_PingPong : MonoBehaviour
                 var explosion = Instantiate(explosionParticleObj, pos, Quaternion.identity);
 
                 //SE
-                var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
-                SE_Manager.Se3dMove(pos, se);
+                Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third, pos, artsStatus);
 
                 Destroy(obj[i]);
                 Destroy(gameObject, 2);

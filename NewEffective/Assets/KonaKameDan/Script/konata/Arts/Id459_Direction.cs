@@ -21,6 +21,8 @@ public class Id459_Direction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var artsStatus = GetComponent<ArtsStatus>();
+
         //すでに存在している場合前のオブジェクトを消す
         if (id459_DirectionObj != null) Destroy(id459_DirectionObj);
         id459_DirectionObj = gameObject;
@@ -43,7 +45,7 @@ public class Id459_Direction : MonoBehaviour
         navMeshAgent.destination = GoalIn.GetGoalPos;
 
         //SE
-        se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id459_Direction_second);
+        se = Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id459_Direction_second, transform.position, artsStatus);
     }
 
     private void Update()

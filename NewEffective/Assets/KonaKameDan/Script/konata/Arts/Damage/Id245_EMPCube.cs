@@ -63,7 +63,7 @@ public class Id245_EMPCube : MonoBehaviour
         timer.LapEvent = () => { InstantEMP(); };
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id245_EMPCube_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id245_EMPCube_first, transform.position, artsStatus);
     }
 
     void Update()
@@ -87,12 +87,12 @@ public class Id245_EMPCube : MonoBehaviour
             Destroy(gameObject);
 
             //SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id245_EMPCube_third);
+            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id245_EMPCube_third, transform.position, artsStatus);
         }
         if (count == maxCount) Destroy(gameObject);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id245_EMPCube_second);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id245_EMPCube_second, transform.position, artsStatus);
 
         count++;
     }

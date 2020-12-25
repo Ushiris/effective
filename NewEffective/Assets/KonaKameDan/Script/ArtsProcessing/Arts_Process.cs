@@ -53,6 +53,30 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// アーツ用のSE
+    /// </summary>
+    /// <param name="seType"></param>
+    /// <param name="pos"></param>
+    /// <param name="artsStatus"></param>
+    /// <returns></returns>
+    public static SE_Manager.Se3d Se3dPlay(SE_Manager.SE_NAME seType, Vector3 pos, ArtsStatus artsStatus)
+    {
+        if (artsStatus == null) return SePlay(seType);
+
+        var type = artsStatus.type;
+        if (type == ArtsStatus.ParticleType.Enemy) return null;
+
+        return SePlay(seType);
+
+        SE_Manager.Se3d SePlay(SE_Manager.SE_NAME seName)
+        {
+            var se = SE_Manager.Se3dPlay(seName);
+            SE_Manager.Se3dMove(pos, se);
+            return se;
+        }
+    }
+
+    /// <summary>
     /// Artsを放った人が同じであればtrueを返す
     /// 違う場合listに格納する
     /// </summary>

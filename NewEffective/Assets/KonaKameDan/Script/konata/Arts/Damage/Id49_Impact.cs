@@ -55,7 +55,7 @@ public class Id49_Impact : MonoBehaviour
         Arts_Process.Impact(transform.position, radius, layerMask, explosionForce, uppersModifier);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id49_Impact_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id49_Impact_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame
