@@ -297,6 +297,12 @@ MonoBehaviour:
   maxJumpCount: 1
   jumpColliderPos: {fileID: 1965409661}
   jumpKey: 32
+  OnJumpBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNearGround:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4852804697451384511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c96309cb7f1e747880ba9274e2ec81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectBag: {fileID: 5941129494631516268}
   defaultEffect: 0000000004000000
 --- !u!114 &8302569552313217994
 MonoBehaviour:

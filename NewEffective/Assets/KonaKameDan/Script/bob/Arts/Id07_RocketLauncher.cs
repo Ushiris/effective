@@ -31,8 +31,8 @@ public class Id07_RocketLauncher : MonoBehaviour
         Damage();
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id07_RocketLauncher_first);
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id07_RocketLauncher_second);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id07_RocketLauncher_first, transform.position, artsStatus);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id07_RocketLauncher_second, transform.position, artsStatus);
     }
     void Update()
     {

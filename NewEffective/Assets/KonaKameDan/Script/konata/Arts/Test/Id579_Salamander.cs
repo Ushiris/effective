@@ -40,8 +40,7 @@ public class Id579_Salamander : MonoBehaviour
         var particleHitPlay = Arts_Process.SetParticleHitPlay(boom.gameObject, explosion, transform, artsStatus);
         particleHitPlay.OnExplosion += () => 
         {
-            var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
-            SE_Manager.Se3dMove(boom.gameObject.transform.position, se);
+            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third, transform.position, artsStatus);
         };
 
         //ダメージ
@@ -67,6 +66,6 @@ public class Id579_Salamander : MonoBehaviour
             count++;
         };
         // SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id059_SummonPixie_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id059_SummonPixie_first, transform.position, artsStatus);
     }
 }

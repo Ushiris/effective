@@ -74,7 +74,7 @@ public class Id257_Haiyoru : MonoBehaviour
         }
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id257_Haiyoru_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id257_Haiyoru_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame
@@ -116,7 +116,7 @@ public class Id257_Haiyoru : MonoBehaviour
             if (oneShotSE_second)
             {
                 //SE
-                SE_Manager.SePlay(SE_Manager.SE_NAME.Id257_Haiyoru_second);
+                Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id257_Haiyoru_second, transform.position, artsStatus);
                 oneShotSE_second = false;
             }
         }
@@ -127,8 +127,7 @@ public class Id257_Haiyoru : MonoBehaviour
             if (oneShotSE_third)
             {
                 //SE
-                var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
-                SE_Manager.Se3dMove(bomb[0].transform.position, se);
+                Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third, bomb[0].transform.position, artsStatus);
 
                 oneShotSE_third = false;
             }

@@ -28,6 +28,7 @@ public class Id059_SummonPixie : MonoBehaviour
 
     StopWatch timer;
     GameObject enemy;
+    ArtsStatus artsStatus;
     SE_Manager.Se3d se;
 
     int shotCount;
@@ -38,7 +39,7 @@ public class Id059_SummonPixie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var artsStatus = GetComponent<ArtsStatus>();
+        artsStatus = GetComponent<ArtsStatus>();
         transform.parent = null;
 
         //エフェクトの所持数を代入
@@ -77,12 +78,12 @@ public class Id059_SummonPixie : MonoBehaviour
         timer.LapEvent = () =>
         {
             //SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id59_Funnel_third); 
+            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id59_Funnel_third, transform.position, artsStatus);
             Destroy(gameObject);
         };
 
         //SE
-        se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id059_SummonPixie_first);
+        se = Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id059_SummonPixie_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame
@@ -109,6 +110,7 @@ public class Id059_SummonPixie : MonoBehaviour
         {
             //SE
             SE_Manager.SePlay(SE_Manager.SE_NAME.Id59_Funnel_third);
+            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id59_Funnel_third, transform.position, artsStatus);
 
             Destroy(gameObject);
         }

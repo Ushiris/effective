@@ -73,8 +73,7 @@ public class SatelliteBeamMaterial : MonoBehaviour
                 if (isSePlay)
                 {
                     //SE
-                    se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id079_Amaterasu_second);
-                    SE_Manager.Se3dMove(transform.position, se);
+                    Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id079_Amaterasu_second, transform.position, null);
                     isSePlay = false;
                 }
             }
