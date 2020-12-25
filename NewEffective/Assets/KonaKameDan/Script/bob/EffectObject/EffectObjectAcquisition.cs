@@ -65,7 +65,7 @@ public class EffectObjectAcquisition : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)// 何かに当たった瞬間
+    private void OnTriggerEnter(Collider collision)// 何かに当たった瞬間
     {
         if (collision.gameObject.GetComponent<EffectObjectID>() == null) return;
 
