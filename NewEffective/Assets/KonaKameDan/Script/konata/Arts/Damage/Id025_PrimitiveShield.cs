@@ -60,7 +60,7 @@ public class Id025_PrimitiveShield : MonoBehaviour
         timer.LapEvent = () => { Lost(); };
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame
@@ -75,6 +75,6 @@ public class Id025_PrimitiveShield : MonoBehaviour
         Destroy(gameObject);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third, transform.position, artsStatus);
     }
 }

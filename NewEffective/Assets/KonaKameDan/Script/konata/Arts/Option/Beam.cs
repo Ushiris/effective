@@ -51,7 +51,7 @@ public class Beam : MonoBehaviour
                         beamObj.transform.localScale = beamObjSiz;
 
                         //SE
-                        SE_Manager.SePlay(SE_Manager.SE_NAME.Id024_Diffusion_second);
+                        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id459_Direction_second, transform.position, null);
                     }
                 }
             }

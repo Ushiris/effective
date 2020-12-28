@@ -32,7 +32,7 @@ public class Id057_Managarmr : MonoBehaviour
         target = Arts_Process.GetNearTarget(artsStatus);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id057_Managarmr_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id057_Managarmr_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame

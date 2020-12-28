@@ -12,19 +12,27 @@ public class EffectObjectAcquisition : MonoBehaviour
         [HideInInspector] public int id;
     }
 
+    public MyEffectCount effectBag;
     [Header("初期値")]
     [SerializeField] List<NameDefinition.EffectName> defaultEffect = new List<NameDefinition.EffectName>();
 
     EffectObjectID effectObjectID;
 
     public static List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
-    public static MyEffectCount GetEffectBag { get; private set; } = new MyEffectCount();
+    public static MyEffectCount GetEffectBag { get; private set; }
     public static List<string> effectObjectName = new List<string>();// リスト作成
     public static List<int> effectObjNum = new List<int>();
     public static bool isDefaultStatusReset { get; set; } = true;
 
+    private void OnValidate()
+    {
+        GetEffectBag = effectBag;
+    }
+
     private void Awake()
     {
+        if (GetEffectBag == null) GetEffectBag = effectBag;
+
         //初期化
         if (MainGameManager.GetArtsReset && isDefaultStatusReset)
         {
@@ -57,7 +65,7 @@ public class EffectObjectAcquisition : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)// 何かに当たった瞬間
+    private void OnTriggerEnter(Collider collision)// 何かに当たった瞬間
     {
         if (collision.gameObject.GetComponent<EffectObjectID>() == null) return;
 

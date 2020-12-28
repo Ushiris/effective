@@ -63,7 +63,7 @@ public class Id027_AnnihilationRay : MonoBehaviour
         if(isPlaySe)
         {
             // SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id027_annihilationRay_first);
+            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id027_annihilationRay_first, transform.position, artsStatus);
             isPlaySe = false;
         }
         //回転

@@ -15,7 +15,7 @@ public class SuperBall_SE : MonoBehaviour
            )
         {
             //SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id047_PingPong_second);
+            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_second, transform.position, null);
         }
     }
 }

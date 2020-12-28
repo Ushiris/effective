@@ -53,7 +53,7 @@ public class Id05_Homing : MonoBehaviour
         target = Arts_Process.GetNearTarget(artsStatus);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id045_Hounds_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id045_Hounds_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame

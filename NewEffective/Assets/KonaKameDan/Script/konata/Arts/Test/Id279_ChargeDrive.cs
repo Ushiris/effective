@@ -41,7 +41,7 @@ public class Id279_ChargeDrive : MonoBehaviour
         Destroy(gameObject, 0.5f);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id279_ChargeDrive_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id279_ChargeDrive_first, transform.position, artsStatus);
     }
 
     private void OnDestroy()

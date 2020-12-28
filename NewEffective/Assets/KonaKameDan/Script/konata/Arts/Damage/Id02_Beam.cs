@@ -43,7 +43,7 @@ public class Id02_Beam : MonoBehaviour
         Arts_Process.ZoneDamage(hit, artsStatus, damage, true);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id024_Diffusion_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id024_Diffusion_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame

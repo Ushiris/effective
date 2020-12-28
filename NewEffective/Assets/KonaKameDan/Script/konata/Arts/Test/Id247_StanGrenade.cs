@@ -73,7 +73,7 @@ public class Id247_StanGrenade : MonoBehaviour
 
 
         // SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id79_Grenade_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id79_Grenade_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame
@@ -84,7 +84,7 @@ public class Id247_StanGrenade : MonoBehaviour
         {
             process = Process.FadeIn;
             // SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id247_StanGrenade_second);
+            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id247_StanGrenade_second, transform.position, artsStatus);
         }
 
         //キャンバスの画像のAlpha値を変更する処理

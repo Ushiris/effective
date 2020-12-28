@@ -16,13 +16,13 @@ public class SatelliteBeamMaterial : MonoBehaviour
     [SerializeField] Material shader;
     [SerializeField] Material coreMaterial;
 
+    [SerializeField, ColorUsage(false, true)] Color kBooleColorCode = new Color(18, 0, 255, 0);
+    [SerializeField, ColorUsage(false, true)] Color kRedColorCode = new Color(255, 44, 0, 0);
+
     static readonly float shaderSpeed = 1;
     static readonly float coreMaterialSpeed = 1.5f;
     static readonly string kCoreMaterialColorName = "_BaseColor";
     static readonly string kCoreMaterialEnissionColorName = "_EmissiveColor";
-    static readonly Color kBooleColorCode = new Color(18, 0, 255, 0);
-    static readonly Color kRedColorCode = new Color(255, 44, 0, 0);
-    static readonly float kEmission = 10f;
 
     float timer;
     float coreMaterialTimer = 1;
@@ -49,10 +49,10 @@ public class SatelliteBeamMaterial : MonoBehaviour
         switch (artsStatus.type)
         {
             case ArtsStatus.ParticleType.Player:
-                coreMaterial.SetColor(kCoreMaterialEnissionColorName, kBooleColorCode * kEmission);
+                coreMaterial.SetColor(kCoreMaterialEnissionColorName, kBooleColorCode);
                 break;
             case ArtsStatus.ParticleType.Enemy:
-                coreMaterial.SetColor(kCoreMaterialEnissionColorName, kRedColorCode * kEmission);
+                coreMaterial.SetColor(kCoreMaterialEnissionColorName, kRedColorCode);
                 break;
             case ArtsStatus.ParticleType.Unknown: break;
             default: break;
@@ -73,8 +73,7 @@ public class SatelliteBeamMaterial : MonoBehaviour
                 if (isSePlay)
                 {
                     //SE
-                    se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id079_Amaterasu_second);
-                    SE_Manager.Se3dMove(transform.position, se);
+                    se = Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id079_Amaterasu_second, transform.position, null);
                     isSePlay = false;
                 }
             }

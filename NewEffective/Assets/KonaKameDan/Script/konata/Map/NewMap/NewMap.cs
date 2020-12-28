@@ -76,6 +76,9 @@ public class NewMap : MonoBehaviour
     /// <returns></returns>
     public static MapType SetSelectMapType { get; set; } = MapType.Forest;
 
+    static readonly string kBossTag = "BossPoint";
+    static readonly string kPlayerTag = "PlayerPoint";
+
     private void Awake()
     {
         var navMeshSurface = GetComponent<NavMeshSurface>();
@@ -92,10 +95,10 @@ public class NewMap : MonoBehaviour
         NewMapTerrainData.SetTerrainData(status.terrainData);
 
         //プレイヤーとボスの位置を決める
-        status.playerSpawnPoint = RandomSpawnPos(status.playerSpawnPos);
-        status.bossSpawnPoint = RandomSpawnPos(status.bossSpawnPos);
-        PointDelete(status.playerSpawnPos);
-        PointDelete(status.bossSpawnPos);
+        status.playerSpawnPoint = RandomSpawnPos(status.playerSpawnPos, kPlayerTag);
+        status.bossSpawnPoint = RandomSpawnPos(status.bossSpawnPos, kBossTag);
+        PointDelete(status.playerSpawnPos, kPlayerTag);
+        PointDelete(status.bossSpawnPos, kBossTag);
 
         //プレイヤーのスポーンポイント
         GetPlayerRespawnPos = status.playerSpawnPoint;
@@ -163,16 +166,11 @@ public class NewMap : MonoBehaviour
     {
         List<Vector3> pPos = new List<Vector3>();
         List<Vector3> bPos = new List<Vector3>();
-
         //テーブル作成
         foreach (Transform childTransform in mapObj.transform)
         {
-            switch (childTransform.tag)
-            {
-                case "BossPoint": bPos.Add(childTransform.position); break;
-                case "PlayerPoint": pPos.Add(childTransform.position); break;
-                default: break;
-            }
+            if (childTransform.tag == kBossTag) bPos.Add(childTransform.position);
+            if (childTransform.tag == kPlayerTag) pPos.Add(childTransform.position);
         }
 
         var pNum = Random.Range(0, pPos.Count);
@@ -183,28 +181,23 @@ public class NewMap : MonoBehaviour
     }
 
     //オブジェクトからボスとプレイヤーのポイントを探す
-    Vector3 RandomSpawnPos(GameObject a)
+    Vector3 RandomSpawnPos(GameObject a,string searchTag)
     {
         List<Vector3> pos = new List<Vector3>();
         foreach (Transform childTransform in a.transform)
         {
-            switch (childTransform.tag)
-            {
-                case "BossPoint": pos.Add(childTransform.position); break;
-                case "PlayerPoint": pos.Add(childTransform.position); break;
-                default: break;
-            }
+            if (childTransform.tag == searchTag) pos.Add(childTransform.position);
         }
         var num = Random.Range(0, pos.Count);
         return pos[num];
     }
 
     //余計なものを消す
-    void PointDelete(GameObject mapObj)
+    void PointDelete(GameObject mapObj,string destroyObjTag)
     {
         foreach (Transform childTransform in mapObj.transform)
         {
-            if (childTransform.tag == "BossPoint" || childTransform.tag == "PlayerPoint")
+            if (childTransform.tag == destroyObjTag)
             {
                 childTransform.gameObject.SetActive(false);
                 Destroy(childTransform.gameObject);

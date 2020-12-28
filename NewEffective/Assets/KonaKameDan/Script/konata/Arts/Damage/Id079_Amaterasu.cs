@@ -61,13 +61,12 @@ public class Id079_Amaterasu : MonoBehaviour
         //位置の初期設定
         transform.localPosition = instantPos;
         Arts_Process.RollReset(gameObject);
-        var pos = transform.position;
-        pos.y = 0;
-        transform.position = pos;
+        //var pos = transform.position;
+        //pos.y = 0;
+        //transform.position = pos;
 
         //SE
-        var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id079_Amaterasu_first);
-        SE_Manager.Se3dMove(transform.position, se);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id079_Amaterasu_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame

@@ -83,7 +83,7 @@ public class Id79_Grenade : MonoBehaviour
             timer.LapEvent = () => { Lost(grenade); };
 
             //SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id79_Grenade_first);
+            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id79_Grenade_first, transform.position, artsStatus);
         }
 
         if(particleHitPlay != null)
@@ -92,8 +92,7 @@ public class Id79_Grenade : MonoBehaviour
             if (particleHitPlay.isTrigger == true)
             {
                 //SE
-                var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
-                SE_Manager.Se3dMove(grenade.transform.position, se);
+                Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third,grenade.transform.position, artsStatus);
 
                 Destroy(grenade);
                 Destroy(gameObject, 3);
@@ -110,8 +109,7 @@ public class Id79_Grenade : MonoBehaviour
             var explosion = Instantiate(grenadeObj, pos, Quaternion.identity);
 
             //SE
-            var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
-            SE_Manager.Se3dMove(grenade.transform.position, se);
+            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third,grenade.transform.position, artsStatus);
 
             Destroy(gameObject, 2);
         }

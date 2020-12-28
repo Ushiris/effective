@@ -157,8 +157,9 @@ public class SE_Manager : MonoBehaviour
     /// </summary>
     /// <param name="pos"></param>
     /// <param name="se"></param>
-    public static void Se3dMove(Vector3 pos,Se3d se)
+    public static void Se3dMove(Vector3 pos, Se3d se)
     {
+        if (se == null) return;
         se.obj.transform.position = pos;
         if (!se.se.isPlaying) se = null;
     }

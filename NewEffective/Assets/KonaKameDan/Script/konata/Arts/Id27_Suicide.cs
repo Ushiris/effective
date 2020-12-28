@@ -43,7 +43,7 @@ public class Id27_Suicide : MonoBehaviour
         life.Damage((int)selfHarm);
         Destroy(gameObject, 2f);
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id27_Suicide_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id27_Suicide_first, transform.position, artsStatus);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,7 +51,7 @@ public class Id27_Suicide : MonoBehaviour
         if (other.gameObject.tag == Arts_Process.GetEnemyTag(artsStatus))
         {
             //ダメージ処理
-            Debug.Log(other.gameObject.name + "に???ダメージ");
+            DebugLogger.Log(other.gameObject.name + "に???ダメージ");
         }
     }
 }

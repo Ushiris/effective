@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 200
+  defaultDamage: 0.2
+  plusDamage: 0.1
+  plusPow: 1
 --- !u!114 &114101397220471554
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class Id47_SmokeBomb : MonoBehaviour
         main.startLifetime = defaultPlayTime;
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id257_Haiyoru_second);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id257_Haiyoru_second, transform.position, artsStatus);
     }
 
     // Update is called once per frame

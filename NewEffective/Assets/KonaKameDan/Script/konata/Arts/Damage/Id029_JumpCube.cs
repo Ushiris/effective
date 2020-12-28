@@ -77,7 +77,7 @@ public class Id029_JumpCube : MonoBehaviour
             isStart = false;
 
             //SE
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Id029_JumpCube_first);
+            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id029_JumpCube_first, transform.position, artsStatus);
         }
 
         if (jumpCube != null)
@@ -94,8 +94,7 @@ public class Id029_JumpCube : MonoBehaviour
                 parent.transform.position = jumpCube.transform.position;
 
                 //SE
-                var se = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id029_JumpCube_third);
-                SE_Manager.Se3dMove(jumpCube.transform.position, se);
+                Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third, transform.position, artsStatus);
 
                 Destroy(gameObject);
             }
