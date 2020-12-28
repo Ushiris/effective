@@ -66,7 +66,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2779821043610950349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -155,15 +155,77 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779821043610950349}
     m_Modifications:
+    - target: {fileID: 219904513, guid: d8bcfbf969c4b39468c2a0cda5bd3be1, type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219904513, guid: d8bcfbf969c4b39468c2a0cda5bd3be1, type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219904513, guid: d8bcfbf969c4b39468c2a0cda5bd3be1, type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219904513, guid: d8bcfbf969c4b39468c2a0cda5bd3be1, type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 627593593, guid: d8bcfbf969c4b39468c2a0cda5bd3be1, type: 3}
       propertyPath: circleCenter
       value: 
       objectReference: {fileID: 2779821043545994077}
+    - target: {fileID: 1983746752, guid: d8bcfbf969c4b39468c2a0cda5bd3be1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 322660279924035010, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: data.list.Array.data[23].Value.image
+      value: 
+      objectReference: {fileID: 21300000, guid: 8330e9d2bb2544e40adb79204814ae24,
+        type: 3}
+    - target: {fileID: 322660279924035010, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: data.list.Array.data[33].Value.image
+      value: 
+      objectReference: {fileID: 21300000, guid: eb4d7b0ef521acd4faffb670bd77fab8,
+        type: 3}
+    - target: {fileID: 322660279924035010, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: data.list.Array.data[34].Value.image
+      value: 
+      objectReference: {fileID: 21300000, guid: 3f5280f16b0782c45bce6fb9b8a78119,
+        type: 3}
     - target: {fileID: 3007601156440558013, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
         type: 3}
       propertyPath: m_Name
       value: EffectFusionCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 6871785761617390037, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: data.list.Array.data[23].Value.image
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a1ba8d40286bc54cad4412065a5e164,
+        type: 3}
+    - target: {fileID: 6871785761617390037, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: data.list.Array.data[33].Value.image
+      value: 
+      objectReference: {fileID: 21300000, guid: 9636af741fc67e0439a309eed72f740d,
+        type: 3}
+    - target: {fileID: 6871785761617390037, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: data.list.Array.data[34].Value.image
+      value: 
+      objectReference: {fileID: 21300000, guid: 195ea8049c47c084aa8a08b74dd0f194,
+        type: 3}
+    - target: {fileID: 8218258872001609778, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dff86dd354a8ab243a101416f9886541,
+        type: 3}
     - target: {fileID: 8488210311072305824, guid: d8bcfbf969c4b39468c2a0cda5bd3be1,
         type: 3}
       propertyPath: m_LocalPosition.x
