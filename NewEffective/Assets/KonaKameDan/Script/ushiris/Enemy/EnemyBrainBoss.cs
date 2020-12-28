@@ -5,16 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyBrainBoss : MonoBehaviour
 {
-    /*
-     入れるもの
-    ・ボスはターゲットが存在しない場合、ポータルの前に居る
-    ・ボスはポータルから離れることができない
-    　(一定の距離、離れるとポータルの位置に戻る)
-    ・複数のアーツを使用する(1～3のアーツを同時に)
-    ・使用するアーツによってボスの色またはパーティクルを出す
-    ・プレイヤーがポータルに近づくと激しく攻撃をする
-　   1~3のアーツを使っていたところ3つに常になるとか、速度が上がるとか
-     */
     [SerializeField] ParticleSystem artsFireParticle;
     [SerializeField] GameObject muzzle;
     [SerializeField] EnemyBrainBase brain;
