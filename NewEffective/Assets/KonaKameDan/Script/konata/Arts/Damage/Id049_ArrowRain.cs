@@ -39,7 +39,7 @@ public class Id049_ArrowRain : MonoBehaviour
     int flyCount;
     float damage;
 
-    AudioSource se;
+    SE_Manager.Se3d se;
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +64,7 @@ public class Id049_ArrowRain : MonoBehaviour
             ObjSizChange.SizChangeMode.ScaleUp);
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id049_ArrowRain_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id049_ArrowRain_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame
@@ -90,7 +90,7 @@ public class Id049_ArrowRain : MonoBehaviour
                 Arts_Process.Damage(hit, artsStatus, damage, true);
 
                 //SE
-                se = SE_Manager.SePlay(SE_Manager.SE_NAME.Id049_ArrowRain_second);
+                se=Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id049_ArrowRain_second, transform.position, artsStatus);
             }
             if (magicCircle.transform.childCount == 0)
             {
@@ -105,7 +105,7 @@ public class Id049_ArrowRain : MonoBehaviour
                 isMagicCircleSiz.GetSizFlag = false;
 
                 //SEをフェード
-                SE_Manager.SetFadeOut(this, se, 0.1f);
+                SE_Manager.SetFadeOut(this, se.se, 0.1f);
             }
         }
     }

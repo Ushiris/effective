@@ -5,7 +5,7 @@ using UnityEngine;
 public class EffectObjectDelete : MonoBehaviour
 {
     public string effectObject_tag = "EffectObject";
-    private void OnCollisionEnter(Collision collision)// 何かに当たった瞬間
+    private void OnTriggerEnter(Collider collision)// 何かに当たった瞬間
     {
         if(collision.gameObject.tag == effectObject_tag)// エフェクトオブジェクトの場合
         {

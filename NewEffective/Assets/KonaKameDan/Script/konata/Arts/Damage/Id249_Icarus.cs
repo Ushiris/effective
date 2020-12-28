@@ -60,7 +60,7 @@ public class Id249_Icarus : MonoBehaviour
         timer.LapEvent = () => { Lost(); };
 
         //SE
-        SE_Manager.SePlay(SE_Manager.SE_NAME.Id249_Icarus_first);
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id249_Icarus_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame
