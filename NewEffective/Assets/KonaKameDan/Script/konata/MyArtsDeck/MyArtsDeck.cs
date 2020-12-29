@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class MyArtsDeck : MonoBehaviour
 {
+    public delegate void Action();
+    public static Action SetArtsSelectAfterProcess;
+
     static List<ArtsList.ArtsData> GetMyArtsDeck;
 
     // Start is called before the first frame update
@@ -23,6 +26,8 @@ public class MyArtsDeck : MonoBehaviour
                 GetMyArtsDeck.Add(new ArtsList.ArtsData());
             }
         }
+
+        SetArtsSelectAfterProcess = () => { };
     }
 
     // Update is called once per frame
@@ -49,6 +54,8 @@ public class MyArtsDeck : MonoBehaviour
                     }
 
                 }
+
+                SetArtsSelectAfterProcess();
             }
         }
     }

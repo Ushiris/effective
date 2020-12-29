@@ -32,6 +32,7 @@ public class ArtsDeckChangeControll : MonoBehaviour
                 GetNum--;
                 onPlaySe();
             }
+            else GetNum = transform.childCount - 1;
         }
         if (scroll < kMouseScrollWheelJudgeLine)
         {
@@ -40,8 +41,9 @@ public class ArtsDeckChangeControll : MonoBehaviour
                 GetNum++;
                 onPlaySe();
             }
+            else GetNum = 0;
         }
-
+        Debug.Log("Num: "+GetNum);
         SelectKey();
     }
 

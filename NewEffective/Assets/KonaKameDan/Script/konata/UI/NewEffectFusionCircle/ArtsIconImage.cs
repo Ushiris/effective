@@ -12,6 +12,29 @@ public class ArtsIconImage : MonoBehaviour
     }
 
     public PrefabDictionary data;
+    Image image;
+
+    private void Awake()
+    {
+        image = GetComponent<Image>();
+    }
+
+    /// <summary>
+    /// イメージを変更する
+    /// </summary>
+    /// <param name="key"></param>
+    public void ChangeImage(string key)
+    {
+        if (data.GetTable().ContainsKey(key))
+        {
+            image.enabled = true;
+            image.sprite = data.GetTable()[key].image;
+        }
+        else
+        {
+            image.enabled = false;
+        }
+    }
 
     [System.Serializable]
     public class PrefabDictionary : Serialize.TableBase<string, Icon, Name2Prefab> { }
