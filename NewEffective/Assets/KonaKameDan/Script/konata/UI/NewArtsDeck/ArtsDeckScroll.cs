@@ -8,7 +8,7 @@ using UnityEngine;
 public class ArtsDeckScroll : MonoBehaviour
 {
 
-    [SerializeField] int selectDeckNum;
+    //[SerializeField] int selectDeckNum;
     [SerializeField] float speed = 500f;
     [SerializeField] List<RectTransform> decks = new List<RectTransform>();
 
@@ -92,6 +92,6 @@ public class ArtsDeckScroll : MonoBehaviour
     //デッキ番号を入れるところ
     int SelectDeckNum()
     {
-        return selectDeckNum;
+        return UI_Manager.GetChoiceArtsDeckNum;//selectDeckNum;
     }
 }
