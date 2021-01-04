@@ -240,7 +240,8 @@ MonoBehaviour:
   slider: {fileID: 0}
   status: {fileID: 6225329085623931612}
   effectDropCount: 1
-  muzzle: {fileID: 6579676720879186573}
+  muzzle: {fileID: 0}
+  muzzleAngleLimit: {x: 30, y: 60, z: 60}
   isBoss: 0
 --- !u!114 &6225329085623931612
 MonoBehaviour:
@@ -646,6 +647,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7426519282851801227}
+  - component: {fileID: 1336178396310925907}
   m_Layer: 12
   m_Name: MuzzleArts
   m_TagString: Untagged
@@ -667,6 +669,19 @@ Transform:
   m_Father: {fileID: 212912623975855608}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1336178396310925907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579676720879186573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c072cb74dd39b24ebf8dc613baa7dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzleAngleLimit: {x: 30, y: 60, z: 60}
 --- !u!1001 &859225934395889145
 PrefabInstance:
   m_ObjectHideFlags: 0
