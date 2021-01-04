@@ -95,7 +95,7 @@ public class Id049_ArrowRain : MonoBehaviour
             if (magicCircle.transform.childCount == 0)
             {
                 //オブジェクトを消す
-                if (isMagicCircleSiz.SetSizChangeMode == ObjSizChange.SizChangeMode.ScaleDown)
+                if (isMagicCircleSiz.SetSizChangeMode == ObjSizChange.SizChangeMode.ScaleDown && se.se.volume <= 0.0f)
                 {
                     Destroy(gameObject);
                 }
@@ -105,7 +105,7 @@ public class Id049_ArrowRain : MonoBehaviour
                 isMagicCircleSiz.GetSizFlag = false;
 
                 //SEをフェード
-                SE_Manager.SetFadeOut(this, se.se, 0.1f);
+                SE_Manager.SetFadeOut(this, se.se, 0.5f);
             }
         }
     }

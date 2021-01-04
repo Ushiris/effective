@@ -63,6 +63,11 @@ public class Id024_Diffusion : MonoBehaviour
             beamControlScript.lostStartTime = lostStartTime;
             var beamCoreObj = beamControlScript.GetBeamObj.transform.GetChild(0);
 
+            if (i == 0)
+            {
+                beamControlScript.SePlayOneShot = true;
+            }
+
             //ダメージ
             var hit = Arts_Process.SetParticleZoneDamageProcess(beamCoreObj.gameObject);
             //ダメージ処理
