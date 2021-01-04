@@ -62,7 +62,6 @@ public class PlayerMove : MonoBehaviour
         if (jumpCOEF > 0)
         {
             OnJumpBegin.Invoke();
-            DebugLogger.Log("OnJumpBegin");
 
         }
         jump = Vector3.up * jumpCOEF * jumpPower;
@@ -87,7 +86,6 @@ public class PlayerMove : MonoBehaviour
         {
             //地面に”接近”した場合、OnNearGroundイベントをトリガーさせます。これは一定時間以上滞空（もしくはジャンプ）しなければ発生しません。
             OnNearGround.Invoke();
-            DebugLogger.Log("OnNearGround");
             IsCheckGroundRequest = false;
             FlyTimer.ResetTimer();
             FlyTimer.SetActive(false);
