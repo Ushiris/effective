@@ -14,10 +14,8 @@ public class ArtsPlateEffectIcon : MonoBehaviour
     public PrefabDictionary data;
     public delegate void Action();
     public Action updata;
+    public bool isEndChangeMove;
 
-    public bool GetIsCheckMove => isChangeMove;
-
-    bool isChangeMove = true;
     Image image;
     Vector3 tmpPos;
     Vector3 tmpSiz;
@@ -32,6 +30,8 @@ public class ArtsPlateEffectIcon : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         tmpPos = rectTransform.localPosition;
         tmpSiz = rectTransform.localScale;
+
+        //isChangeMove = true;
 
         updata = () => { };
     }
@@ -59,11 +59,11 @@ public class ArtsPlateEffectIcon : MonoBehaviour
     public void ChangeMove(float speed)
     {
         bool isChangeMoveStart = true;
-        isChangeMove = true;
+        bool isChange = true;
 
         updata = () =>
         {
-            if (!isChangeMove) return;
+            if (!isChange) return;
 
             //ポジション初期化
             if (isChangeMoveStart)
@@ -79,7 +79,11 @@ public class ArtsPlateEffectIcon : MonoBehaviour
 
             //距離のチェック
             var dis = Vector3.Distance(rectTransform.localPosition, tmpPos);
-            if (dis == 0) isChangeMove = false;
+            if (dis == 0)
+            {
+                isChange = false;
+                isEndChangeMove = true;
+            }
         };
     }
 
@@ -89,11 +93,11 @@ public class ArtsPlateEffectIcon : MonoBehaviour
     public void ChangeMoveSiz(float speed)
     {
         bool isChangeMoveStart = true;
-        isChangeMove = true;
+        bool isChange = true;
 
         updata = () =>
         {
-            if (!isChangeMove) return;
+            if (!isChange) return;
 
             //ポジション初期化
             if (isChangeMoveStart)
@@ -109,7 +113,11 @@ public class ArtsPlateEffectIcon : MonoBehaviour
 
             //距離のチェック
             var dis = Vector3.Distance(rectTransform.localScale, tmpSiz);
-            if (dis == 0) isChangeMove = false;
+            if (dis == 0)
+            {
+                isChange = false;
+                isEndChangeMove = true;
+            }
         };
     }
 

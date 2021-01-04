@@ -30,20 +30,22 @@ public class ArtsDeckChangeControll : MonoBehaviour
             if (GetNum > 0)
             {
                 GetNum--;
-                onPlaySe();
             }
             else GetNum = transform.childCount - 1;
+
+            onPlaySe();
         }
         if (scroll < kMouseScrollWheelJudgeLine)
         {
             if (GetNum < transform.childCount - 1)
             {
                 GetNum++;
-                onPlaySe();
             }
             else GetNum = 0;
+
+            onPlaySe();
         }
-        Debug.Log("Num: "+GetNum);
+
         SelectKey();
     }
 

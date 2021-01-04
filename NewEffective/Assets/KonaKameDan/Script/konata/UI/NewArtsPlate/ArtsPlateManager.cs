@@ -15,8 +15,8 @@ public class ArtsPlateManager : MonoBehaviour
     [SerializeField] float waitTime = 0.3f;
     [SerializeField] float speed = 30f;
 
-    int effectIconMoveNum;
-    string SetId;
+    bool isEffectIconEndMove;
+    string SetId = "";
 
     // Start is called before the first frame update
     void Start()
@@ -27,15 +27,15 @@ public class ArtsPlateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (effectIconMoveNum == effectIconArr.Length - 1) return;
+        if (isEffectIconEndMove) return;
 
-        for (int i = 0; i < effectIconArr.Length; i++)
+        for (int i = 0; i < SetId.Length; i++)
         {
-            if (!effectIconArr[i].GetIsCheckMove)
+            if (effectIconArr[SetId.Length - 1].isEndChangeMove)
             {
-                effectIconMoveNum++;
+                //EffectIconのサイズが変更しきったかどうか確認するためのフラグ
+                isEffectIconEndMove = true;
             }
-
             effectIconArr[i].updata();
         }
     }
@@ -47,7 +47,7 @@ public class ArtsPlateManager : MonoBehaviour
     public void OnArtsPlateChange(string id)
     {
         SetId = id;
-        effectIconMoveNum = 0;
+        isEffectIconEndMove = false;
         OnReset();
         Process();
     }
@@ -71,7 +71,11 @@ public class ArtsPlateManager : MonoBehaviour
 
         IEnumerator OnEffectIcon(int num, string id, float waitTime)
         {
+            //フラグを戻す
+            effectIconArr[num].isEndChangeMove = false;
+
             yield return new WaitForSeconds(waitTime);
+
             if (num < effectIconArr.Length && id.Length > num)
             {
                 effectIconArr[num].ImageChange(id[num].ToString());
@@ -89,6 +93,9 @@ public class ArtsPlateManager : MonoBehaviour
             if (num < frameArr.Length && id.Length > num)
             {
                 frameArr[num].ChangeImage(id[num].ToString());
+
+                //SE
+                UI_Manager.EffectIconFrameSetPlaySe();
             }
             else
             {
@@ -106,12 +113,15 @@ public class ArtsPlateManager : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
             artsIcon.ChangeImage(id);
+
+            //SE
+            UI_Manager.ArtsNameSetPlaySe();
         }
     }
 
     void OnReset()
     {
-        for(int i=0;i< effectIconArr.Length; i++)
+        for (int i = 0; i < effectIconArr.Length; i++)
         {
             effectIconArr[i].ImageChange("");
             frameArr[i].ChangeImage("");
