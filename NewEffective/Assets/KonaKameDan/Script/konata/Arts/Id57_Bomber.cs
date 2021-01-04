@@ -38,7 +38,6 @@ public class Id57_Bomber : MonoBehaviour
         var damage = defaultDamage + (plusDamage * (float)explosionCount);
 
         var f = (float)spreadCount * plusCount;
-        Debug.Log("f " + f + " s " + spreadCount);
         maxCount += (int)f;
 
         //円状の座標取得
@@ -75,21 +74,16 @@ public class Id57_Bomber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //爆弾を破壊
-        if (playExplosion.isTrigger == true)
+        //消す
+        if (transform.childCount == 0)
         {
+            Destroy(gameObject);
         }
         else
         {
             //回す
             transform.position = artsStatus.myObj.transform.position;
             Arts_Process.ObjRoll(gameObject, rollSpeed);
-        }
-
-        //消す
-        if (transform.childCount == 0)
-        {
-            Destroy(gameObject);
         }
     }
 }
