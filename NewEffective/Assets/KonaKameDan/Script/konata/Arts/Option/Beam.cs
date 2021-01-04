@@ -22,6 +22,8 @@ public class Beam : MonoBehaviour
     static readonly float kDefaultSiz = 0f;
     static readonly float kStartDelay = 1f;
 
+    public bool SePlayOneShot = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,8 +52,11 @@ public class Beam : MonoBehaviour
                         beamObjSiz.z += kSizUpSpeed * time;
                         beamObj.transform.localScale = beamObjSiz;
 
-                        //SE
-                        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id459_Direction_second, transform.position, null);
+                        if(SePlayOneShot)
+                        {
+                            //SE
+                            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id024_Diffusion_second, transform.position, null);
+                        }
                     }
                 }
             }

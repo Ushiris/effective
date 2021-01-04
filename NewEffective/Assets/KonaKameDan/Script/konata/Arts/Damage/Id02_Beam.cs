@@ -35,7 +35,7 @@ public class Id02_Beam : MonoBehaviour
         beamControlScript = beam.GetComponent<Beam>();
         beamControlScript.lostStartTime = lostStartTime;
         var beamCoreObj = beamControlScript.GetBeamObj.transform.GetChild(0);
-
+        beamControlScript.SePlayOneShot = true;
 
         //ダメージ
         var hit = Arts_Process.SetParticleZoneDamageProcess(beamCoreObj.gameObject);

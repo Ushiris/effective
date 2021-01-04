@@ -63,8 +63,6 @@ public class ParticleHitZoneDamage : MonoBehaviour
             var damageScale = Mathf.FloorToInt(timer);
             if (other.CompareTag(hitObjTag) && damageScale % 5 == 0)
             {
-                Debug.Log(other.gameObject.name);
-                Debug.Log("DamageTime" + damageScale);
                 Damage(other.gameObject);
                 isTrigger = true;
             }

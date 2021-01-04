@@ -13,7 +13,6 @@ public class ParticleHitPos : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("aaa");
         if(other.gameObject.tag == "Ground")
         {
             GetParticlePos = transform.position;
