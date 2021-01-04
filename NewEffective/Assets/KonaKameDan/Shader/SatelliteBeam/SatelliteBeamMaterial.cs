@@ -82,8 +82,11 @@ public class SatelliteBeamMaterial : MonoBehaviour
                 if (!isSePlay)
                 {
                     //SEをフェード
-                    SE_Manager.SetFadeOut(this, se.se, 0.3f);
-                    isSePlay = true;
+                    if (se != null)
+                    {
+                        SE_Manager.SetFadeOut(this, se.se, 0.3f);
+                        isSePlay = true;
+                    }
                 }
                 Shader(shaderSpeed);
                 CoreMaterial(coreMaterialSpeed);
