@@ -676,10 +676,11 @@ public class Arts_Process : MonoBehaviour
     /// </summary>
     /// <param name="obj"></param>
     /// <param name="force"></param>
-    public static void RbMomentMove(GameObject obj,float force)
+    public static Rigidbody RbMomentMove(GameObject obj,float force)
     {
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         rb.AddForce(obj.transform.forward * force, ForceMode.Impulse);
+        return rb;
     }
 
     /// <summary>
