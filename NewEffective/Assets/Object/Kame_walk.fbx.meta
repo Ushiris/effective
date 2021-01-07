@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: 36c682afcb07ed040951bb8aaeca6df3
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Arm01
+    100002: Body01
+    100004: Body02
+    100006: Body03
+    100008: Foot01
+    100010: Head01
+    100012: Head01 1
+    100014: Head02
+    100016: Hip
+    100018: ikHandle1
+    100020: ikHandle2
+    100022: ikHandle3
+    100024: ikHandle4
+    100026: //RootNode
+    100028: LeftA01
+    100030: LeftA02
+    100032: LeftA03
+    100034: LeftA04
+    100036: LeftA05
+    100038: LeftF01
+    100040: LeftF02
+    100042: LeftF03
+    100044: LeftF04
+    100046: Neak
+    100048: Neak02
+    100050: RightA01
+    100052: RightA02
+    100054: RightA03
+    100056: RightA04
+    100058: RightA05
+    100060: RightF01
+    100062: RightF02
+    100064: RightF03
+    100066: RightF04
+    100068: Spine
+    400000: Arm01
+    400002: Body01
+    400004: Body02
+    400006: Body03
+    400008: Foot01
+    400010: Head01
+    400012: Head01 1
+    400014: Head02
+    400016: Hip
+    400018: ikHandle1
+    400020: ikHandle2
+    400022: ikHandle3
+    400024: ikHandle4
+    400026: //RootNode
+    400028: LeftA01
+    400030: LeftA02
+    400032: LeftA03
+    400034: LeftA04
+    400036: LeftA05
+    400038: LeftF01
+    400040: LeftF02
+    400042: LeftF03
+    400044: LeftF04
+    400046: Neak
+    400048: Neak02
+    400050: RightA01
+    400052: RightA02
+    400054: RightA03
+    400056: RightA04
+    400058: RightA05
+    400060: RightF01
+    400062: RightF02
+    400064: RightF03
+    400066: RightF04
+    400068: Spine
+    2100000: lambert2
+    2100002: lambert1
+    4300000: Body01
+    4300002: Head01
+    4300004: Body02
+    4300006: Arm01
+    4300008: Foot01
+    4300010: Body03
+    7400000: kame_Walk01
+    9500000: //RootNode
+    13700000: Arm01
+    13700002: Body01
+    13700004: Body02
+    13700006: Body03
+    13700008: Foot01
+    13700010: Head01
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 541dda1e3fd77e2449d9608212389b78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 1eb2a3bfa6b0f23439e86218e4bc1a8b, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: kamecyan_bace
+    second: {fileID: 2800000, guid: 2deaccc2a7c8c634a9c23aadd093a71f, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: kame_Walk01
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
