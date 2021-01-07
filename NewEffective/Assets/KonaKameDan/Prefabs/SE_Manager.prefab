@@ -186,7 +186,7 @@ MonoBehaviour:
     - Key: 35
       Value:
         audio: {fileID: 8300000, guid: 3c77f179d19268046b8946ada05982b7, type: 3}
-        seVolume: 0.2
+        seVolume: 0.25
     - Key: 36
       Value:
         audio: {fileID: 8300000, guid: 2e990b83c9693914d9e72953aaffe12c, type: 3}
@@ -194,19 +194,19 @@ MonoBehaviour:
     - Key: 37
       Value:
         audio: {fileID: 8300000, guid: 0304aa32123fc8c46b42f4e5dff46d9d, type: 3}
-        seVolume: 0.5
+        seVolume: 0.4
     - Key: 38
       Value:
         audio: {fileID: 8300000, guid: b7499abe60e418e48a9c71a726d5840b, type: 3}
-        seVolume: 0.05
+        seVolume: 0.02
     - Key: 39
-      Value:
-        audio: {fileID: 8300000, guid: fc2e75abd267d964dbb9de07eacbb717, type: 3}
-        seVolume: 0.2
-    - Key: 40
       Value:
         audio: {fileID: 8300000, guid: a24e4555b1950db4e9dcb89163b7fda6, type: 3}
         seVolume: 0.2
+    - Key: 40
+      Value:
+        audio: {fileID: 8300000, guid: fc2e75abd267d964dbb9de07eacbb717, type: 3}
+        seVolume: 0.07
     - Key: 41
       Value:
         audio: {fileID: 8300000, guid: 6f531fabb8d84354cb8ceb6cc65f58ac, type: 3}
@@ -214,7 +214,7 @@ MonoBehaviour:
     - Key: 42
       Value:
         audio: {fileID: 8300000, guid: 35e07afffa16baf4abf2cad595cfe5b8, type: 3}
-        seVolume: 0.2
+        seVolume: 0.5
     - Key: 43
       Value:
         audio: {fileID: 8300000, guid: 14e23ecf5c5394e4d9797bf5e046848c, type: 3}
@@ -222,7 +222,7 @@ MonoBehaviour:
     - Key: 44
       Value:
         audio: {fileID: 8300000, guid: 583f2715daf1af149a5308365bd0895d, type: 3}
-        seVolume: 0.2
+        seVolume: 0.3
     - Key: 45
       Value:
         audio: {fileID: 8300000, guid: 0346a60240584ac4caa32cb7b1ef48e5, type: 3}
@@ -246,4 +246,4 @@ MonoBehaviour:
     - Key: 50
       Value:
         audio: {fileID: 8300000, guid: 6e04de8fd3042434cb23d199aced119a, type: 3}
-        seVolume: 0.2
+        seVolume: 0.4
