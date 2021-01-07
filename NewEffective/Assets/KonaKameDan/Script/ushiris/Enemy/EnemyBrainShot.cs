@@ -12,13 +12,14 @@ public class EnemyBrainShot : EnemyBrainBase
     {
         mainMaterial = changePoint.materials[material_index];
         ApplyChangeColor = () =>
-          {
-              var temp = changePoint.materials;
-              temp[material_index] = mainMaterial;
-              changePoint.materials = temp;
-          };
+        {
+            var temp = changePoint.materials;
+            temp[material_index] = mainMaterial;
+            changePoint.materials = temp;
+        };
 
         base.Start();
+
         FindAction = FindActionShot;
         Stay = StayActionShot;
         Think = ShotThink;
