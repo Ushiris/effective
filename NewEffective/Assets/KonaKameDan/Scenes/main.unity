@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1229721, g: 0.15236972, b: 0.2016739, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -196,6 +196,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3439291}
   m_CullTransparentMesh: 0
+--- !u!114 &20586136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 1
+  exposure:
+    m_OverrideState: 0
+    m_Value: 10
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 0.05
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 0.8
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  hdriSky:
+    m_OverrideState: 0
+    m_Value: {fileID: 8900000, guid: 8253d41e6e8b11a4cbe77a4f8f82934d, type: 3}
+  enableBackplate:
+    m_OverrideState: 0
+    m_Value: 0
+  backplateType:
+    m_OverrideState: 0
+    m_Value: 0
+  groundLevel:
+    m_OverrideState: 0
+    m_Value: 0
+  scale:
+    m_OverrideState: 0
+    m_Value: {x: 32, y: 32}
+  projectionDistance:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 0.0000001
+  plateRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0}
+  blendAmount:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 100
+  shadowTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  pointLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  dirLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  rectLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!1 &219096475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,7 +2377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 1282aa51de4db2b49839520a8525a239, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 1935098049}
+  m_SkySettings: {fileID: 20586136}
   m_SkySettingsFromProfile: {fileID: 7488742677745068149, guid: 1282aa51de4db2b49839520a8525a239,
     type: 2}
 --- !u!4 &1560460057
@@ -2491,107 +2592,6 @@ MonoBehaviour:
   enemies: []
   gameObjects: []
   select_enemy: 0
---- !u!114 &1935098049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 1
-  exposure:
-    m_OverrideState: 0
-    m_Value: 10
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 0.05
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 0.8
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  hdriSky:
-    m_OverrideState: 0
-    m_Value: {fileID: 8900000, guid: 8253d41e6e8b11a4cbe77a4f8f82934d, type: 3}
-  enableBackplate:
-    m_OverrideState: 0
-    m_Value: 0
-  backplateType:
-    m_OverrideState: 0
-    m_Value: 0
-  groundLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  scale:
-    m_OverrideState: 0
-    m_Value: {x: 32, y: 32}
-  projectionDistance:
-    m_OverrideState: 0
-    m_Value: 16
-    min: 0.0000001
-  plateRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  blendAmount:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 100
-  shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  pointLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  dirLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  rectLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!1 &2022142854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,6 +2855,14 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
       propertyPath: statusList.Array.data[0].terrainData
       value: 
       objectReference: {fileID: 974853523}
@@ -2911,6 +2919,96 @@ PrefabInstance:
     - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
       propertyPath: statusList.Array.data[0].mapSizH
       value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].map
+      value: 
+      objectReference: {fileID: 974853523}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].terrainData
+      value: 
+      objectReference: {fileID: 974853523}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].playerSpawnPos
+      value: 
+      objectReference: {fileID: 974853523}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].bossSpawnPos
+      value: 
+      objectReference: {fileID: 974853523}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].autoTreasureBoxSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].mapSizX
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].mapSizY
+      value: 470
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].mapSizH
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[0].item
+      value: 
+      objectReference: {fileID: 4071026826131853580, guid: 25e11a0df7316aa458a58c858c1542f2,
+        type: 3}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[0].probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[1].item
+      value: 
+      objectReference: {fileID: 4702145262850176614, guid: a406051ac1425d644980ffa00580c16a,
+        type: 3}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[1].probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[2].item
+      value: 
+      objectReference: {fileID: 651668260010506856, guid: 2f267bfa35255754fa4b2fd201836382,
+        type: 3}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[2].probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[3].item
+      value: 
+      objectReference: {fileID: 8922917191592098055, guid: 4113cc94eea44154490f3bc8bb3c1985,
+        type: 3}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[3].probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[4].item
+      value: 
+      objectReference: {fileID: 1847551651988070515, guid: 0538c634621e40b44b501f8a3bd9f3d9,
+        type: 3}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[4].probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[5].item
+      value: 
+      objectReference: {fileID: 437334634217711547, guid: 430ccc2816319894eb3b295004ae1456,
+        type: 3}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].effectItem.Array.data[5].probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644984381, guid: 007a74ee600124a46b194e50e9eb54ec, type: 3}
+      propertyPath: statusList.Array.data[1].mapType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4059163603509916879, guid: 007a74ee600124a46b194e50e9eb54ec,
         type: 3}

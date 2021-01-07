@@ -117,6 +117,7 @@ public class StageSelectUI : MonoBehaviour
         {
             MainGameManager.GetArtsReset = false;
             NewMap.SetSelectMapType = selectMapType;
+            DebugLogger.Log(NewMap.SetSelectMapType);
         }
 
         OnAfterPortalChangeScene.Invoke();
