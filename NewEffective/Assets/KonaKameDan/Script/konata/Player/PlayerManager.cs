@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour
     int RegeneEventID;
     Life life;
     StopWatch regeneTimer;
+    StopWatch traceTimer;
+    public Vector3 tracePoint;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,8 @@ public class PlayerManager : MonoBehaviour
         regeneTimer.SetActive(false);
         life.AddDamageFunc(OnDamege);
         life.AddLastword(OnPlayerDead);
+
+        traceTimer = StopWatch.Summon(10.0f, () => tracePoint = GetPlObj.transform.position, gameObject);
 
         GetManager = this;
     }

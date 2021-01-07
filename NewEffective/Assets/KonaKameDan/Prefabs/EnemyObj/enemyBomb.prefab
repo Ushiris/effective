@@ -43,7 +43,7 @@ CapsuleCollider:
   m_Height: 1.839107
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &2223555410175224183
+--- !u!114 &1141646892769784523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,11 +52,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2786754424243087865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 189359f77f52d5f4eb284cf7a3d19b22, type: 3}
+  m_Script: {fileID: 11500000, guid: b58dc5aaab10543409a6db95776146b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorChangeablePoint: {fileID: 0}
-  material_index: 1
 --- !u!1001 &1879950492053056304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 212912623975855615, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
       propertyPath: m_Name
-      value: enemyDefender
+      value: enemyBomb
       objectReference: {fileID: 0}
     - target: {fileID: 212912624150374271, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
