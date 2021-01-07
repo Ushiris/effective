@@ -61,6 +61,7 @@ public class Id079_Amaterasu : MonoBehaviour
         //位置の初期設定
         transform.localPosition = instantPos;
         Arts_Process.RollReset(gameObject);
+        transform.localScale = new Vector3(1, 1, 1);
         //var pos = transform.position;
         //pos.y = 0;
         //transform.position = pos;
@@ -124,8 +125,8 @@ public class Id079_Amaterasu : MonoBehaviour
     Vector3 HitParticlePos()
     {
         var pos = satelliteCannonParticleObj.transform.position;
-        var t = NewMap.GetGroundPosMatch(pos);
-        pos.y = t;
+        var siz = satelliteCannonParticleObj.transform.localScale;
+        pos.y = pos.y - (siz.y * 2);
         return pos;
     }
 
