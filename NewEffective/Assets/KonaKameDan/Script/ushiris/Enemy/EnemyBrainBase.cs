@@ -25,6 +25,7 @@ public class EnemyBrainBase : MonoBehaviour
     StayAItype ai_stay = StayAItype.Return;
     FindAItype ai_find = FindAItype.Soldier;
 
+
     #region VariableMoves
     public delegate void EnemyBrainAction();
     public delegate bool EnemyBrainFlag();

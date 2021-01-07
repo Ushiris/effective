@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3089eec8018fcfe4da4643e6253d6acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changePoint: {fileID: 4764562263977830487}
+  material_index: 1
 --- !u!1001 &4764562263974618103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81,6 +83,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 98d05f352a0535d4c8c1b530b86fb985, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c422d362f35247409deb892d964a863, type: 3}
+--- !u!137 &4764562263977830487 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: 7c422d362f35247409deb892d964a863,
+    type: 3}
+  m_PrefabInstance: {fileID: 4764562263974618103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8785990327141863747
 PrefabInstance:
   m_ObjectHideFlags: 0
