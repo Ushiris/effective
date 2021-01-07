@@ -36,7 +36,7 @@ public class EnemySpawnPoint : MonoBehaviour
                 {
                     if (x % NewMap.kMapEventRange == 0 && z % NewMap.kMapEventRange == 0)
                     {
-                        for (int y = 0; y < (int)NewMap.GetMapMaxHeight; y++)
+                        for (int y = NewMap.GetUnderLimit; y < (int)NewMap.GetMapMaxHeight; y++)
                         {
                             var v3 = new Vector3(x, y, z);
 

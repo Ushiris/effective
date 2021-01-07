@@ -20,6 +20,18 @@ public class ArtsPlateArrControl : MonoBehaviour
             artsPlateArr[SelectArtsPlateNum()].OnArtsPlateChange(GetArtsId());
             tmpArtsId = GetArtsId();
         };
+
+        //アーツUI、シーンまたいだ時の保持用
+        if (!MainGameManager.GetArtsReset)
+        {
+            if (MyArtsDeck.GetArtsDeck != null)
+            {
+                for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)
+                {
+                    artsPlateArr[i].OnArtsPlateChange(MyArtsDeck.GetArtsDeck[i].id);
+                }
+            }
+        }
     }
 
     // Update is called once per frame
