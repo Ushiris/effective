@@ -18,6 +18,7 @@ public class EnemyBomb : EnemyBrainBase
         };
         base.Start();
 
-
+        AIset(StayAItype.Return);
+        AIset(FindAItype.Soldier);
     }
 }

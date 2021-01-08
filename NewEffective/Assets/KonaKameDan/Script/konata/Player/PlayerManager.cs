@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour
         life.AddDamageFunc(OnDamege);
         life.AddLastword(OnPlayerDead);
 
-        traceTimer = StopWatch.Summon(10.0f, () => tracePoint = GetPlObj.transform.position, gameObject);
+        traceTimer = StopWatch.Summon(5.0f, () => tracePoint = GetPlObj.transform.position, GetPlObj);
 
         GetManager = this;
     }

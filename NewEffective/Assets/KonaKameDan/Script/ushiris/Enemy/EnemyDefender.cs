@@ -40,25 +40,6 @@ public class EnemyDefender : EnemyBrainBase
         }
     }
 
-
-    private void LateUpdate()
-    {
-        if (state.move == EnemyState.MoveState.Confuse)
-        {
-            return;
-        }
-
-        if (FindFlag())
-        {
-            state.move = EnemyState.MoveState.Chase;
-            Think();
-        }
-        else
-        {
-            state.move = EnemyState.MoveState.Stay;
-        }
-    }
-
     void ExMove()
     {
         if (king == null || !king.gameObject.activeSelf) FindJob();
