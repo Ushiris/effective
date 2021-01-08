@@ -64,7 +64,7 @@ public class Arts_Process : MonoBehaviour
         if (artsStatus == null) return SePlay(seType);
 
         var type = artsStatus.type;
-        if (type == ArtsStatus.ParticleType.Enemy) return null;
+        //if (type == ArtsStatus.ParticleType.Enemy) return null;
 
         return SePlay(seType);
 
