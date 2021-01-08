@@ -87,6 +87,25 @@ public class EnemyBrainBase : MonoBehaviour
         transform.localScale *= UnityEngine.Random.Range(0.8f, 1.3f);
     }
 
+    protected void Update()
+    {
+        if (state.move == MoveState.Confuse)
+        {
+            return;
+        }
+
+        if (FindFlag())
+        {
+            state.move = MoveState.Chase;
+            Think();
+            enemyData.MuzzleLookAt(player.transform.position);
+        }
+        else
+        {
+            state.move = MoveState.Stay;
+        }
+    }
+
     protected void OnEnable()
     {
         if (navMesh != null) navMesh.updatePosition = true;

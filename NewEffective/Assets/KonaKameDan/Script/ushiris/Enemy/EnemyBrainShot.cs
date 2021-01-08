@@ -27,17 +27,11 @@ public class EnemyBrainShot : EnemyBrainBase
         IsLockAI = true;
     }
 
-    private void LateUpdate()
+    private new void Update()
     {
-        if (FindFlag())
-        {
-            state.move = MoveState.Chase;
-            Think();
-        }
-        else
-        {
-            state.move = MoveState.Stay;
-        }
+        base.Update();
+
+        enemyData.MuzzleLookAt(player.transform.position);
     }
 
     void ShotThink()
