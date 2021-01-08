@@ -9,7 +9,7 @@ public class NewMap : MonoBehaviour
 {
     public enum MapType
     {
-        Forest
+        Volcano, Grassland
     }
 
     [System.Serializable]
@@ -69,12 +69,17 @@ public class NewMap : MonoBehaviour
     /// </summary>
     public static List<GameObject> GetEffect { get; private set; } = new List<GameObject>();
 
+    /// <summary> 
+    /// イベント設置箇所の最低高さ 
+    /// </summary> 
+    public static int GetUnderLimit { get; private set; } = 0;
+
     /// <summary>
     /// 次に選ばれるマップのTypeを決める
     /// </summary>
     /// <param name="mapType"></param>
     /// <returns></returns>
-    public static MapType SetSelectMapType { get; set; } = MapType.Forest;
+    public static MapType SetSelectMapType { get; set; } = MapType.Grassland;
 
     static readonly string kBossTag = "BossPoint";
     static readonly string kPlayerTag = "PlayerPoint";
@@ -135,7 +140,10 @@ public class NewMap : MonoBehaviour
             Instantiate(portalObj, status.bossSpawnPoint + randPortalPos, new Quaternion());
 
             //ナビメッシュのある位置にイベントを設置したい
-            var navMeshPos = GetNavMeshHeightAndPos(status.mapSizX, status.mapSizY, 0, status.mapSizH);
+            var underLimit = 0;
+            if (status.mapType == MapType.Grassland) underLimit = -35;
+            var navMeshPos = GetNavMeshHeightAndPos(status.mapSizX, status.mapSizY, underLimit, status.mapSizH);
+            GetUnderLimit = underLimit;
             GetNavMeshHeight = navMeshPos.Item1;
 
             //宝箱を設置する
