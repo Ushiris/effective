@@ -41,6 +41,7 @@ public class TitleMenuSelectIcon : MonoBehaviour
 
     public void OnSceneChange()
     {
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Menu_Decide);
         MainGameManager.GetArtsReset = isDataReset;
         titleTextObj.SetActive(false);
         loadingObj.SetActive(true);
