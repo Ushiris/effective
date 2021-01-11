@@ -45,6 +45,7 @@ public class TitleMenuSelectChange : ArrowImageMove
 
     public void OnPointerClick()
     {
+        SE_Manager.SePlay(SE_Manager.SE_NAME.Menu_Change);
         isPointerClick();
     }
 }
