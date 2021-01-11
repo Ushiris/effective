@@ -44,18 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb3c9e279c42e74a990b30c428c4984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPosObj: {fileID: 4677742786143473792, guid: bce6ab19718266f46b52aeb74b6b811a,
-    type: 3}
-  magicCircleObj: {fileID: 4976810010877162446, guid: b7918955ba36c064581002843395fdec,
-    type: 3}
-  magicCircleSizUpSpeed: 1
-  magicCircleMaxSiz: {x: 1, y: 1, z: 1}
-  arrowRainParticle: {fileID: 7481011833392780257, guid: 637b5c1e39996c742b7f21b3393e08c5,
-    type: 3}
-  instantHigh: 10
-  defaultDamage: 0.8
-  plusDamage: 0.03
-  plusTime: 0.2
+  pointPosObj: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  magicCircleObj: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  magicCircleSizUpSpeed: 1.5206568e+15
+  magicCircleMaxSiz: {x: 5.42e-43, y: 1.5206504e+15, z: 5.42e-43}
+  arrowRainParticle: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  instantHigh: 1.5206439e+15
+  defaultDamage: 5.42e-43
+  plusDamage: 1.5206375e+15
+  plusTime: 5.42e-43
 --- !u!114 &114782030401215588
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,8 +10,9 @@ public class BGM_InformationCollection : MonoBehaviour
     /// </summary>
     public enum BGM_NAME
     {
-        forest_BGM,     // ステージ1＿森
-        forest_Boss_BGM // ステージ1＿森＿ボス曲
+        forest_BGM,     // 森
+        forest_Boss_BGM,// 森＿ボス曲
+        meadow_BGM      // 草原
     }
     /// <summary>
     /// BGMの冒頭かループか
