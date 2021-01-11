@@ -12,7 +12,7 @@ public class PauseGame : MonoBehaviour
         {
             if (pauseUIInstansce == null)
             {
-                if(Time.timeScale != 0) Pause();
+                if (Time.timeScale != 0) Pause();
             }
             else
             {
@@ -30,6 +30,10 @@ public class PauseGame : MonoBehaviour
     {
         Destroy(pauseUIInstansce);
         Time.timeScale = 1.0f;
-        Cursor.visible = false;// マウスカーソ削除！
+
+        if (!UI_Manager.GetIsEffectFusionUI_ChoiceActive)
+        {
+            Cursor.visible = false;// マウスカーソ削除！
+        }
     }
 }
