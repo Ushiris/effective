@@ -26,7 +26,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_A204B0BF:
-        m_Texture: {fileID: 2800000, guid: 109b8d0b24cc5d24d83d911c3cc98d02, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4278c414c82a81e4c80f3ee82cc98f7b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
