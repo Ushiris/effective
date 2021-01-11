@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class StageSelectUI : MonoBehaviour
 {
     [SerializeField] Texture2D texture;
+    [SerializeField] NewMap.MapType mapType;
     [SerializeField] float siz;
     [SerializeField] float speed = 5f;
     [SerializeField] Material material;
@@ -32,7 +33,7 @@ public class StageSelectUI : MonoBehaviour
     void Awake()
     {
         //ステージTypeを決める
-        selectMapType = GetRandomMapType();
+        selectMapType = mapType;//GetRandomMapType();
 
         image = GetComponent<Image>();
         image.raycastTarget = false;
