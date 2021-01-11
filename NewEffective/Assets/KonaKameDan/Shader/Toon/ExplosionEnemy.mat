@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HomingEnemy2
+  m_Name: ExplosionEnemy
   m_Shader: {fileID: 4800000, guid: 136ada645cba84e4493296625b904888, type: 3}
   m_ShaderKeywords: BOOLEAN_984A99A5_ON
   m_LightmapFlags: 4
@@ -22,11 +22,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_260B5659:
-        m_Texture: {fileID: 2800000, guid: 542d0ab5fdc45e64d859b3f57d4ce806, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2deaccc2a7c8c634a9c23aadd093a71f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_4BC66CFD:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fb3e45552cb9d3948aa23f148214c58a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_CC1C6BA4:
@@ -125,10 +125,10 @@ Material:
     - Boolean_984A99A5: 1
     - Boolean_C0590640: 1
     - Boolean_F575852: 0
-    - Boolean_F8BBD9DA: 0
+    - Boolean_F8BBD9DA: 1
     - Vector1_24124C14: 6
     - Vector1_4687774D: 10
-    - Vector1_5373E13F: 1
+    - Vector1_5373E13F: 5
     - Vector1_65E9DE19: 1
     - Vector1_7985074E: 1
     - Vector1_9D7D270: 1
