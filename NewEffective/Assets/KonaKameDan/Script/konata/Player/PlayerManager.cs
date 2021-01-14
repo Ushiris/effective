@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
 
     public static PlayerManager GetManager { private set; get; }
 
-    public GameObject GetPlObj;
+    public GameObject GetPlObj => NewMap.GetPlayerObj;
     int RegeneEventID;
     Life life;
     StopWatch regeneTimer;
@@ -20,8 +20,6 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetPlObj = GameObject.FindGameObjectWithTag("Player");
-
         life = GetPlObj.GetComponent<Life>();
         life.LifeSetup(0.3f);
         RegeneEventID = life.AddBeat(() => { life.Heal((int)life.MaxHP / 100 + 1); });
