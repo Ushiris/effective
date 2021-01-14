@@ -17,7 +17,7 @@ public class Portal : MonoBehaviour
 
     static readonly string kPlayer_tag = "Player";
     static readonly float kDefaultPortalMaterialEmission = 1f;
-    static readonly float kActivePortalMaterialEmission = 5000f;
+    static readonly float kActivePortalMaterialEmission = 50f;
 
     private void OnTriggerEnter(Collider other)
     {

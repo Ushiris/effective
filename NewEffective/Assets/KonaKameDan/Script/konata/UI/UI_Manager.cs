@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class UI_Manager : MonoBehaviour
 {
     public GameObject uICanvas;
+    public GameObject artsPlateCanvas;
 
     [Header("アーツを作るUI表示")]
     public KeyCode effectFusionUI_ActiveKey = KeyCode.E;
@@ -206,7 +207,16 @@ public class UI_Manager : MonoBehaviour
         get { return GetUI_Manager.uICanvas.GetComponent<Canvas>(); }
     }
 
-
+    /// <summary>
+    /// 表示しているUIの表示・非表示
+    /// </summary>
+    /// <param name="isEnable"></param>
+    public static void OnUIEnable(bool isEnable)
+    {
+        GetUI_Manager.uICanvas.GetComponent<Canvas>().enabled = isEnable;
+        GetUI_Manager.artsPlateCanvas.GetComponent<Canvas>().enabled = isEnable;
+        GetUI_Manager.effectFusionUI_Obj.GetComponent<Canvas>().enabled = isEnable;
+    }
 
     /*  SE  */
     #region　SEを流す時に呼ばれる関数定義

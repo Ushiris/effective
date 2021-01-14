@@ -81,6 +81,11 @@ public class NewMap : MonoBehaviour
     /// <returns></returns>
     public static MapType SetSelectMapType { get; set; } = MapType.Grassland;
 
+    /// <summary>
+    /// プレイヤーの情報を取得
+    /// </summary>
+    public static GameObject GetPlayerObj { get; private set; }
+
     static readonly string kBossTag = "BossPoint";
     static readonly string kPlayerTag = "PlayerPoint";
 
@@ -125,7 +130,7 @@ public class NewMap : MonoBehaviour
         }
 
         //プレイヤー配置
-        Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
+        GetPlayerObj = Instantiate(playerObj, status.playerSpawnPoint, new Quaternion());
 
         start = () =>
         {
