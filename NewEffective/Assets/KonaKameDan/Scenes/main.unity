@@ -196,6 +196,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3439291}
   m_CullTransparentMesh: 0
+--- !u!114 &139630416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 1
+  exposure:
+    m_OverrideState: 0
+    m_Value: 10
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 0.05
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 0.8
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  hdriSky:
+    m_OverrideState: 0
+    m_Value: {fileID: 8900000, guid: 8253d41e6e8b11a4cbe77a4f8f82934d, type: 3}
+  enableBackplate:
+    m_OverrideState: 0
+    m_Value: 0
+  backplateType:
+    m_OverrideState: 0
+    m_Value: 0
+  groundLevel:
+    m_OverrideState: 0
+    m_Value: 0
+  scale:
+    m_OverrideState: 0
+    m_Value: {x: 32, y: 32}
+  projectionDistance:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 0.0000001
+  plateRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0}
+  blendAmount:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 100
+  shadowTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  pointLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  dirLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  rectLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!1 &219096475
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,295 +986,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881123001348880554, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4204212147484391233, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: stageBGMSet
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[0].startBGM
-      value: 
-      objectReference: {fileID: 8300000, guid: 11c0516fbe9d2c14d8d7eaca78b51243, type: 3}
-    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[0].loopBGM
-      value: 
-      objectReference: {fileID: 8300000, guid: ea07c92b564371d4aad14e7957c28571, type: 3}
-    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[1].startBGM
-      value: 
-      objectReference: {fileID: 8300000, guid: d623d683fd2325341ad69cc7b95e17e3, type: 3}
-    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[1].loopBGM
-      value: 
-      objectReference: {fileID: 8300000, guid: 8907d5d2ae522114ba92e42242338c01, type: 3}
-    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[1].name
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[0].bgmVolume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[1].bgmVolume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgm_Name
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5623716959951712180, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5876063705799890565, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538818, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
       propertyPath: m_Name
       value: BGM_Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: bgmDataList.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[0].bgmSource
-      value: 
-      objectReference: {fileID: 8300000, guid: 11c0516fbe9d2c14d8d7eaca78b51243, type: 3}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[0].elementName
-      value: "\u68EE_Beginning"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[0].bgmVolume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[1].elementName
-      value: "\u68EE_Loop"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[1].bgmSource
-      value: 
-      objectReference: {fileID: 8300000, guid: ea07c92b564371d4aad14e7957c28571, type: 3}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[1].bgmType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[1].bgmVolume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[1].whetherBossBgm
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: bgmDataList.Array.data[2].bgmSource
-      value: 
-      objectReference: {fileID: 8300000, guid: d623d683fd2325341ad69cc7b95e17e3, type: 3}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[2].elementName
-      value: "\u68EE_BOSS_Beginning"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[2].bgmName
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[2].whetherBossBgm
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[2].bgmVolume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[3].bgmSource
-      value: 
-      objectReference: {fileID: 8300000, guid: 8907d5d2ae522114ba92e42242338c01, type: 3}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[3].elementName
-      value: "\u68EE_BOSS_Loop"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[3].bgmName
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[3].bgmType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[3].bgmVolume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[3].whetherBossBgm
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[4].elementName
-      value: "\u8349\u539F_Biginning"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[4].bgmSource
-      value: 
-      objectReference: {fileID: 8300000, guid: d7c53aa381d13034e8ca391aaf652452, type: 3}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[4].bgmName
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[4].bgmType
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: bgmDataList.Array.data[4].whetherBossBgm
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: bgmDataList.Array.data[4].bgmVolume
-      value: 0.1
+      propertyPath: m_LocalRotation.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: bgmDataList.Array.data[5].elementName
-      value: "\u8349\u539F_Loop"
+      propertyPath: m_LocalRotation.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: bgmDataList.Array.data[5].bgmSource
-      value: 
-      objectReference: {fileID: 8300000, guid: 63e77cd6b20ce5744986d42019c48796, type: 3}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: bgmDataList.Array.data[5].bgmName
-      value: 2
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: bgmDataList.Array.data[5].bgmType
+      propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: bgmDataList.Array.data[5].whetherBossBgm
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: bgmDataList.Array.data[5].bgmVolume
-      value: 0.1
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538821, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: firstPlay_bgm
-      value: 2
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538822, guid: 59b51e777267a3049913b2e791979f13,
+    - target: {fileID: 8908635835213538820, guid: 59b51e777267a3049913b2e791979f13,
         type: 3}
-      propertyPath: fadeInSpead
-      value: 0.002
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908635835213538822, guid: 59b51e777267a3049913b2e791979f13,
-        type: 3}
-      propertyPath: fadeOutSpead
-      value: 0.002
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59b51e777267a3049913b2e791979f13, type: 3}
@@ -2346,7 +2217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 1282aa51de4db2b49839520a8525a239, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 1670099439}
+  m_SkySettings: {fileID: 139630416}
   m_SkySettingsFromProfile: {fileID: 7488742677745068149, guid: 1282aa51de4db2b49839520a8525a239,
     type: 2}
 --- !u!4 &1560460057
@@ -2363,107 +2234,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1670099439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 1
-  exposure:
-    m_OverrideState: 0
-    m_Value: 10
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 0.05
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 0.8
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  hdriSky:
-    m_OverrideState: 0
-    m_Value: {fileID: 8900000, guid: 8253d41e6e8b11a4cbe77a4f8f82934d, type: 3}
-  enableBackplate:
-    m_OverrideState: 0
-    m_Value: 0
-  backplateType:
-    m_OverrideState: 0
-    m_Value: 0
-  groundLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  scale:
-    m_OverrideState: 0
-    m_Value: {x: 32, y: 32}
-  projectionDistance:
-    m_OverrideState: 0
-    m_Value: 16
-    min: 0.0000001
-  plateRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  blendAmount:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 100
-  shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  pointLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  dirLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  rectLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!1 &1743027304
 GameObject:
   m_ObjectHideFlags: 0
