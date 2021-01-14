@@ -43,49 +43,35 @@ public class Id79_Grenade : MonoBehaviour
         explosionCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
         flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);
 
+        //Grenade生成
+        grenade = Instantiate(bulletObj, transform);
+
+        //grenadeを投げる
+        Rigidbody jumpCubeRb = grenade.GetComponent<Rigidbody>();
+        jumpCubeRb.AddRelativeFor​​ce(v0, ForceMode.VelocityChange);
+
+        Damage(grenade);
+
+        //爆発するエフェクトのセット
+        particleHitPlay =
+            Arts_Process.SetParticleHitPlay(grenade, grenadeObj, transform, artsStatus, lostTime, ParticleHitPlayExplosion.Mode.My, true);
+        isStart = false;
+
         for (int i = 0; i < trajectoryCount; i++)
         {
-            miracles.Add(Instantiate(trajectoryObj, transform));
+            Destroy(miracles[i]);
         }
 
-        //軌跡を生成
-        miracles = Arts_Process.Trajectory(miracles, trajectorySpace, v0);
+        var timer = Arts_Process.TimeAction(gameObject, slidingThroughLostTime);
+        timer.LapEvent = () => { Lost(grenade); };
 
+        //SE
+        Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id79_Grenade_first, transform.position, artsStatus);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0) && isStart)
-        {
-            transform.parent = null;
-
-            //Grenade生成
-            grenade = Instantiate(bulletObj, transform);
-
-            //grenadeを投げる
-            Rigidbody jumpCubeRb = grenade.GetComponent<Rigidbody>();
-            jumpCubeRb.AddRelativeFor​​ce(v0, ForceMode.VelocityChange);
-
-            Damage(grenade);
-
-            //爆発するエフェクトのセット
-            particleHitPlay =
-                Arts_Process.SetParticleHitPlay(grenade, grenadeObj, transform, artsStatus, lostTime, ParticleHitPlayExplosion.Mode.My, true);
-            isStart = false;
-
-            for (int i = 0; i < trajectoryCount; i++)
-            {
-                Destroy(miracles[i]);
-            }
-
-            var timer = Arts_Process.TimeAction(gameObject, slidingThroughLostTime);
-            timer.LapEvent = () => { Lost(grenade); };
-
-            //SE
-            Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id79_Grenade_first, transform.position, artsStatus);
-        }
-
         if(particleHitPlay != null)
         {
             //爆弾を破壊
