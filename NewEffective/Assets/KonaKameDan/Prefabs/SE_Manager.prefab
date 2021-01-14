@@ -257,5 +257,5 @@ MonoBehaviour:
         seVolume: 0.4
     - Key: 53
       Value:
-        audio: {fileID: 8300000, guid: 80093eb2044df254dbaf7114a4ca7cb3, type: 3}
-        seVolume: 0.4
+        audio: {fileID: 8300000, guid: 09c112a29bf6d1b48aa56902b71f43e7, type: 3}
+        seVolume: 0.2

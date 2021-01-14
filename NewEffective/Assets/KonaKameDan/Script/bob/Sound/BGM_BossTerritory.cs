@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BGM_BossTerritory : MonoBehaviour
 {
-    [SerializeField] BGM_InformationCollection.BGM_NAME stageBGMSet;
+    [SerializeField] public BGM_InformationCollection.BGM_NAME stageBGMSet;
     [SerializeField] BGM_InformationCollection.BGM_NAME bossBGMSet;
 
     void Start()
