@@ -19,7 +19,7 @@ public class SE_Manager : MonoBehaviour
     {
         Hit, Shot, CastArts, Heel, EffectPlate_EffectObject_Set, EffectPlate_ArtsName_Set, EffectPlate_Switching, Nothing,
         //アーツSE
-        Id024_Diffusion_first, Id024_Diffusion_second, 
+        Id024_Diffusion_first, Id024_Diffusion_second,
         Id025_PrimitiveShield_first, Id025_PrimitiveShield_third,
         Id029_JumpCube_first, Id029_JumpCube_third,
         Id045_Hounds_first, Id045_Hounds_second,
@@ -27,7 +27,7 @@ public class SE_Manager : MonoBehaviour
         Id049_ArrowRain_first, Id049_ArrowRain_second,
         Id057_Managarmr_first,
         Id059_SummonPixie_first,
-        Id079_Amaterasu_first,Id079_Amaterasu_second,
+        Id079_Amaterasu_first, Id079_Amaterasu_second,
         Id245_EMPCube_first, Id245_EMPCube_second, Id245_EMPCube_third,
         Id249_Icarus_first, Id249_Icarus_second,
         Id257_Haiyoru_first, Id257_Haiyoru_second,
@@ -46,7 +46,10 @@ public class SE_Manager : MonoBehaviour
         Id79_Grenade_first,
         Id027_annihilationRay_first,
         Id247_StanGrenade_second,
-        Id27_Suicide_first
+        Id27_Suicide_first,
+
+        //メニュー
+        Menu_Change, Menu_Decide, Menu_SceneChange
     }
 
     [System.Serializable]

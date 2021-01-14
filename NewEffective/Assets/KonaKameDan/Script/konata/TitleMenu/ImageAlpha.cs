@@ -10,6 +10,8 @@ public class ImageAlpha : MonoBehaviour
     Color color;
     public bool IsAlpha = false;
 
+    bool isSePlay = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,11 @@ public class ImageAlpha : MonoBehaviour
     void Update()
     {
         if (!IsAlpha) return;
+        if (isSePlay)
+        {
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Menu_SceneChange);
+            isSePlay = false;
+        }
 
         color.a += speed * Time.deltaTime;
         color.a = Mathf.Clamp(color.a, 0, 255);
