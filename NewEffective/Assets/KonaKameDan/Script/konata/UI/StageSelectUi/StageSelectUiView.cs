@@ -40,8 +40,8 @@ public class StageSelectUiView : MonoBehaviour
         if (!isSceneChange) return;
 
         //シーンの移動
-        SceneManager.LoadScene(NameDefinition.SceneName_Main);
-        //asyncLoad.allowSceneActivation = true;
+        //SceneManager.LoadScene(NameDefinition.SceneName_Main);
+        asyncLoad.allowSceneActivation = true;
     }
 
     /// <summary>
@@ -89,17 +89,17 @@ public class StageSelectUiView : MonoBehaviour
 
     IEnumerator LoadScene()
     {
-        //var sceneName = NameDefinition.SceneName_Main;
-        //asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        var sceneName = NameDefinition.SceneName_Main;
+        asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
-        ////速攻で遷移しないようにする
-        //asyncLoad.allowSceneActivation = false;
+        //速攻で遷移しないようにする
+        asyncLoad.allowSceneActivation = false;
 
-        //while (asyncLoad.progress < 0.9f)
-        //{
-        //    DebugLogger.Log(" time: " + asyncLoad.progress);
-        //    yield return new WaitForEndOfFrame();
-        //}
+        while (asyncLoad.progress < 0.9f)
+        {
+            DebugLogger.Log(" time: " + asyncLoad.progress);
+            yield return new WaitForEndOfFrame();
+        }
 
         while (stageSelectUiAction.isEndProcess())
         {
