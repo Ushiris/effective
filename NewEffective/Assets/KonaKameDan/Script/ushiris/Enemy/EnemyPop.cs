@@ -22,7 +22,7 @@ public class EnemyPop : MonoBehaviour
 
     private void Start()
     {
-        playerTransform = PlayerManager.GetManager.GetPlObj.transform;
+        playerTransform = NewMap.GetPlayerObj.transform;
         timer.IsActive = true;
     }
 
