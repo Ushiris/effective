@@ -91,7 +91,14 @@ NewEffective/Assets/KonaKameDan/Scenes/main_shade 1.unity
 
 NewEffective/Assets/KonaKameDan/Scenes/main_shade 1.unity.meta
 
-NewEffective/Assets/AllSkyFree/
+NewEffective/Assets/AllSkyFree/**/*.mat
+
+NewEffective/Assets/AllSkyFree/**/*.png
+NewEffective/Assets/AllSkyFree/**/*.prefab
+NewEffective/Assets/AllSkyFree/**/*.fbx
+NewEffective/Assets/AllSkyFree/**/*.psd
+NewEffective/Assets/AllSkyFree/**/*.flare
+NewEffective/Assets/AllSkyFree/**/*.unity
 
 NewEffective/Assets/KonaKameDan/Scenes/stage2_shade_test.unity
 
