@@ -46,7 +46,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17333f6f94f790409df4ffa866c8da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmDataList: []
+  bgmDataList:
+  - elementName: "\u68EE_Beginning"
+    bgmSource: {fileID: 8300000, guid: 11c0516fbe9d2c14d8d7eaca78b51243, type: 3}
+    bgmName: 0
+    bgmType: 0
+    whetherBossBgm: 0
+    bgmVolume: 0.2
+    bgmVolumeNow: 0
+    bgmVolumeBasics: 0
+    bgmPlaybackNow: 0
+    bgmFadeInNow: 0
+    bgmFadeOutNow: 0
+  - elementName: "\u68EE_Loop"
+    bgmSource: {fileID: 8300000, guid: ea07c92b564371d4aad14e7957c28571, type: 3}
+    bgmName: 0
+    bgmType: 1
+    whetherBossBgm: 0
+    bgmVolume: 0.2
+    bgmVolumeNow: 0
+    bgmVolumeBasics: 0
+    bgmPlaybackNow: 0
+    bgmFadeInNow: 0
+    bgmFadeOutNow: 0
+  - elementName: "\u68EE_BOSS_Beginning"
+    bgmSource: {fileID: 8300000, guid: d623d683fd2325341ad69cc7b95e17e3, type: 3}
+    bgmName: 1
+    bgmType: 0
+    whetherBossBgm: 1
+    bgmVolume: 0.1
+    bgmVolumeNow: 0
+    bgmVolumeBasics: 0
+    bgmPlaybackNow: 0
+    bgmFadeInNow: 0
+    bgmFadeOutNow: 0
+  - elementName: "\u68EE_BOSS_Loop"
+    bgmSource: {fileID: 8300000, guid: 8907d5d2ae522114ba92e42242338c01, type: 3}
+    bgmName: 1
+    bgmType: 1
+    whetherBossBgm: 1
+    bgmVolume: 0.1
+    bgmVolumeNow: 0
+    bgmVolumeBasics: 0
+    bgmPlaybackNow: 0
+    bgmFadeInNow: 0
+    bgmFadeOutNow: 0
+  - elementName: "\u8349\u539F_Biginning"
+    bgmSource: {fileID: 8300000, guid: d7c53aa381d13034e8ca391aaf652452, type: 3}
+    bgmName: 2
+    bgmType: 0
+    whetherBossBgm: 0
+    bgmVolume: 0.1
+    bgmVolumeNow: 0
+    bgmVolumeBasics: 0
+    bgmPlaybackNow: 0
+    bgmFadeInNow: 0
+    bgmFadeOutNow: 0
+  - elementName: "\u8349\u539F_Loop"
+    bgmSource: {fileID: 8300000, guid: 63e77cd6b20ce5744986d42019c48796, type: 3}
+    bgmName: 2
+    bgmType: 1
+    whetherBossBgm: 0
+    bgmVolume: 0.1
+    bgmVolumeNow: 0
+    bgmVolumeBasics: 0
+    bgmPlaybackNow: 0
+    bgmFadeInNow: 0
+    bgmFadeOutNow: 0
+  - elementName: "\u30E1\u30CB\u30E5\u30FC_Biginning"
+    bgmSource: {fileID: 8300000, guid: fe0ca5dcbecaa9547a1b3537571f9ec4, type: 3}
+    bgmName: 3
+    bgmType: 0
+    whetherBossBgm: 0
+    bgmVolume: 0.2
+    bgmVolumeNow: 0
+    bgmVolumeBasics: 0
+    bgmPlaybackNow: 0
+    bgmFadeInNow: 0
+    bgmFadeOutNow: 0
+  - elementName: "\u30E1\u30CB\u30E5\u30FC_Loop"
+    bgmSource: {fileID: 8300000, guid: cbb9b597dd9de2b43aef6ff807dd191e, type: 3}
+    bgmName: 3
+    bgmType: 1
+    whetherBossBgm: 0
+    bgmVolume: 0.1
+    bgmVolumeNow: 0
+    bgmVolumeBasics: 0
+    bgmPlaybackNow: 0
+    bgmFadeInNow: 0
+    bgmFadeOutNow: 0
   firstPlay_bgm: 0
 --- !u!114 &8908635835213538823
 MonoBehaviour:
@@ -72,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad63aae34c7e684b9f615a88d58417d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInSpead: 0.005
-  fadeOutSpead: 0.005
+  fadeInSpead: 0.002
+  fadeOutSpead: 0.002
 --- !u!114 &4204212147484391233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,4 +174,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb00c8eb69bf5f249b2a48031f156f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageBGMSet: 0
   bossBGMSet: 1

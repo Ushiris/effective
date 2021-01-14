@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BGM_InformationCollection : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class BGM_InformationCollection : MonoBehaviour
     {
         forest_BGM,     // 森
         forest_Boss_BGM,// 森＿ボス曲
-        meadow_BGM      // 草原
+        meadow_BGM,     // 草原
+        menu_BGM        // メニュー画面
     }
     /// <summary>
     /// BGMの冒頭かループか
@@ -61,11 +63,33 @@ public class BGM_InformationCollection : MonoBehaviour
     [Header("ゲーム開始時、再生するBGMの名前")]
     public BGM_NAME firstPlay_bgm;
 
+    private BGM_BossTerritory bgm_BossTerritory;
+
     private void Start()
     {
         bgm_Manager = GetComponent<BGM_Manager>();
-        // ゲーム開始時、BGMを再生する
-        BGM_Manager.BgmPlayback(firstPlay_bgm, BGM_TYPE.beginning, true);
+        bgm_BossTerritory = GetComponent<BGM_BossTerritory>();
+        if (SceneManager.GetActiveScene().name == NameDefinition.SceneName_Main)
+        {
+            if (NewMap.SetSelectMapType == NewMap.MapType.Grassland)
+            {
+                firstPlay_bgm = BGM_NAME.meadow_BGM;
+                bgm_BossTerritory.stageBGMSet = BGM_NAME.meadow_BGM;
+            }
+            else if (NewMap.SetSelectMapType == NewMap.MapType.Volcano)
+            {
+                firstPlay_bgm = BGM_NAME.forest_BGM;
+                bgm_BossTerritory.stageBGMSet = BGM_NAME.forest_BGM;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == NameDefinition.SceneName_TitleMenu)
+        {
+            firstPlay_bgm = BGM_NAME.menu_BGM;
+            bgm_BossTerritory.stageBGMSet = BGM_NAME.menu_BGM;
+        }
+            // ゲーム開始時、BGMを再生する
+            BGM_Manager.BgmPlayback(firstPlay_bgm, BGM_TYPE.beginning, true);
+
     }
     private void Update()
     {
