@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf921e9f88176641b51780135a9a24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beforeColor: {r: 0, g: 0, b: 0, a: 0.6862745}
+  beforeColor: {r: 0, g: 0, b: 0, a: 0.9411765}
   afterColor: {r: 1, g: 0.9424448, b: 0, a: 0.8784314}
   lockColor: {r: 0, g: 0, b: 0, a: 0.05490196}
   icon: {fileID: 231269734149097164}

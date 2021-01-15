@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Id049_ArrowRain : MonoBehaviour
 {
-    [Header("生成位置目印用")]
-    [SerializeField] GameObject pointPosObj;
-    GameObject instantPointPos;
-
     [Header("魔法陣")]
     [SerializeField] GameObject magicCircleObj;
     [SerializeField] float magicCircleSizUpSpeed = 0.1f;
@@ -90,12 +86,12 @@ public class Id049_ArrowRain : MonoBehaviour
                 Arts_Process.Damage(hit, artsStatus, damage, true);
 
                 //SE
-                se=Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id049_ArrowRain_second, transform.position, artsStatus);
+                se = Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id049_ArrowRain_second, transform.position, artsStatus);
             }
             if (magicCircle.transform.childCount == 0)
             {
                 //オブジェクトを消す
-                if (isMagicCircleSiz.SetSizChangeMode == ObjSizChange.SizChangeMode.ScaleDown && se.se.volume <= 0.0f)
+                if (isMagicCircleSiz.SetSizChangeMode == ObjSizChange.SizChangeMode.ScaleDown)
                 {
                     Destroy(gameObject);
                 }
@@ -105,7 +101,7 @@ public class Id049_ArrowRain : MonoBehaviour
                 isMagicCircleSiz.GetSizFlag = false;
 
                 //SEをフェード
-                SE_Manager.SetFadeOut(this, se.se, 0.5f);
+                if (se != null) SE_Manager.SetFadeOut(this, se.se, 0.5f);
             }
         }
     }
