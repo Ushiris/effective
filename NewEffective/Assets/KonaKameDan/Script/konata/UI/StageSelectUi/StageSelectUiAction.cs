@@ -56,7 +56,7 @@ public class StageSelectUiAction : Image2DAnimation
                 }
                 else
                 {
-                    OnStageImageNoiseMove();
+                    //OnStageImageNoiseMove();
                 }
             }
             else
