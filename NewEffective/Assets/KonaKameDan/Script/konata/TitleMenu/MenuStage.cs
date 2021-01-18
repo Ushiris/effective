@@ -15,6 +15,13 @@ public class MenuStage : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+#if UNITY_EDITOR
+    void OnValidate()
+    {
+        staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
+    }
+#endif
+
     /// <summary>
     /// テラインのデータを取得する
     /// </summary>
