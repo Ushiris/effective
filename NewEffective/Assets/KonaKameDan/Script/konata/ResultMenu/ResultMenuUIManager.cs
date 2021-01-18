@@ -16,6 +16,7 @@ public class ResultMenuUIManager : MonoBehaviour
     public GameObject[] scoreUi;
     public int scoreRollPlayNum = 0;
 
+    static readonly Vector3 fixPos = new Vector3(332.9f, 62.07f, 223.1f);
     static readonly float kAngle = 360;
 
     private void Awake()
@@ -25,9 +26,9 @@ public class ResultMenuUIManager : MonoBehaviour
             float r = (kAngle / scoreUi.Length) * i;
             r *= Mathf.Deg2Rad;
 
-            var pos = new Vector3(radius * Mathf.Cos(r), 0f, radius * Mathf.Sin(r));
+            var pos = new Vector3(radius * Mathf.Cos(r), 0f, radius * Mathf.Sin(r)) + fixPos;
             scoreUi[i] = Instantiate(scoreUi[i], pos, Quaternion.identity);
-            scoreUi[i].transform.rotation = Look(transform.position, scoreUi[i].transform.position);
+            scoreUi[i].transform.rotation = Look(fixPos, scoreUi[i].transform.position);
 
             var point = scoreUi[i].GetComponent<ResultMenuUI>();
             point.SetScore = ResultPoint.GetPoint(i);

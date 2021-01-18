@@ -9,7 +9,7 @@ public class NewMap : MonoBehaviour
 {
     public enum MapType
     {
-        Volcano, Grassland
+        Volcano, Grassland, DebugMap
     }
 
     [System.Serializable]
@@ -96,6 +96,8 @@ public class NewMap : MonoBehaviour
         var statusListNum = GetRandomSelectFromType(mapType);
         var status = statusList[statusListNum];
         var map = status.map;
+
+        status.terrainData = MenuStage.GetTerrainData(mapType);//追加
         GetMapMaxHeight = status.mapSizH;
         SetMapEventStartUp = () => { };
 
