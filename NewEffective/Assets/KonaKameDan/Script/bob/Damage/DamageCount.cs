@@ -18,6 +18,7 @@ public class DamageCount : MonoBehaviour
 	public static void Damage(GameObject col)
 	{
 		//　DamageUIをインスタンス化。登場位置は接触したコライダの中心からカメラの方向に少し寄せた位置
-		var obj = Instantiate(damageUI, col.transform.position - Camera.main.transform.forward * 1.0f, Quaternion.identity);
+		var obj = Instantiate(damageUI, col.transform.position - Camera.main.transform.forward * 1.0f + Camera.main.transform.up * 2.0f, Quaternion.identity);
+		obj.transform.SetParent(col.transform);
 	}
 }
