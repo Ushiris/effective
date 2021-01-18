@@ -348,7 +348,7 @@ MonoBehaviour:
     f: 10000
   - name: STR
     enumName: 2
-    f: 800
+    f: 500
   - name: DEF
     enumName: 3
     f: 0

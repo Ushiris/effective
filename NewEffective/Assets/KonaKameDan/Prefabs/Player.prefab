@@ -406,7 +406,7 @@ MonoBehaviour:
     f: 0
   - name: HP
     enumName: 1
-    f: 10000
+    f: 15000
   - name: STR
     enumName: 2
     f: 1500
