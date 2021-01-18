@@ -134,10 +134,10 @@ public class Image2DAnimation : MonoBehaviour
     /// </summary>
     /// <param name="speed"></param>
     /// <param name="fixSiz"></param>
-    protected void SizSinAction(float speed,float fixSiz)
+    protected void SizSinAction(float speed, float fixSiz, float limit)
     {
         var siz = rect.localScale;
-        siz = siz * (fixSiz * Mathf.Sin(Time.unscaledTime * speed));
+        siz = Vector3.one * (fixSiz * Mathf.Sin(Time.unscaledTime * speed) + (fixSiz + limit));
         rect.localScale = siz;
     }
 
