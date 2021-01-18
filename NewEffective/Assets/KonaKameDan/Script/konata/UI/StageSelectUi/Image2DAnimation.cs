@@ -130,6 +130,18 @@ public class Image2DAnimation : MonoBehaviour
     }
 
     /// <summary>
+    /// ふわふわサイズを変える
+    /// </summary>
+    /// <param name="speed"></param>
+    /// <param name="fixSiz"></param>
+    protected void SizSinAction(float speed,float fixSiz)
+    {
+        var siz = rect.localScale;
+        siz = siz * (fixSiz * Mathf.Sin(Time.unscaledTime * speed));
+        rect.localScale = siz;
+    }
+
+    /// <summary>
     /// UIが上に行く
     /// </summary>
     /// <param name="speed"></param>

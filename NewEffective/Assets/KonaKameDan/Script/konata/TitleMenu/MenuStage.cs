@@ -4,13 +4,45 @@ using UnityEngine;
 
 public class MenuStage : MonoBehaviour
 {
+    [SerializeField] PrefabDictionary data;
 
-    [SerializeField] List<NewMap.Status> statusList = new List<NewMap.Status>();
-
-    public static List<NewMap.Status> GetMapStatusList = new List<NewMap.Status>();
+    static Dictionary<NewMap.MapType, GameObject> staticData;
 
     private void Awake()
     {
-        
+        staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    /// <summary>
+    /// テラインのデータを取得する
+    /// </summary>
+    /// <param name="mapType"></param>
+    /// <returns></returns>
+    public static GameObject GetTerrainData(NewMap.MapType mapType)
+    {
+        foreach (var key in staticData.Keys)
+        {
+            var item = staticData[key];
+            if (mapType == key)
+            {
+                item.SetActive(true);
+            }
+            else
+            {
+                item.SetActive(false);
+            }
+        }
+        return staticData[mapType];
+    }
+
+    [System.Serializable]
+    public class PrefabDictionary : Serialize.TableBase<NewMap.MapType, GameObject, Name2Prefab> { }
+
+    [System.Serializable]
+    public class Name2Prefab : Serialize.KeyAndValue<NewMap.MapType, GameObject>
+    {
+        public Name2Prefab(NewMap.MapType key, GameObject value) : base(key, value) { }
     }
 }
