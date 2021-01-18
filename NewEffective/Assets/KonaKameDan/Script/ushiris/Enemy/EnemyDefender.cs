@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyDefender : EnemyBrainBase
 {
-    [SerializeField] SkinnedMeshRenderer ColorChangeablePoint;
+    [SerializeField] MeshRenderer ColorChangeablePoint;
     [SerializeField] int material_index;
     Transform king;
 
