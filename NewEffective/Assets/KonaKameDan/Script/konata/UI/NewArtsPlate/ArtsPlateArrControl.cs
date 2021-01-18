@@ -15,12 +15,6 @@ public class ArtsPlateArrControl : MonoBehaviour
 
     private void Start()
     {
-        MyArtsDeck.SetArtsSelectAfterProcess += () =>
-        {
-            artsPlateArr[SelectArtsPlateNum()].OnArtsPlateChange(GetArtsId());
-            tmpArtsId = GetArtsId();
-        };
-
         //アーツUI、シーンまたいだ時の保持用
         if (!MainGameManager.GetArtsReset)
         {
@@ -28,10 +22,17 @@ public class ArtsPlateArrControl : MonoBehaviour
             {
                 for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)
                 {
+                    DebugLogger.Log(MyArtsDeck.GetArtsDeck[i].name);
                     artsPlateArr[i].OnArtsPlateChange(MyArtsDeck.GetArtsDeck[i].id);
                 }
             }
         }
+
+        MyArtsDeck.SetArtsSelectAfterProcess += () =>
+        {
+            artsPlateArr[SelectArtsPlateNum()].OnArtsPlateChange(GetArtsId());
+            tmpArtsId = GetArtsId();
+        };
     }
 
     // Update is called once per frame

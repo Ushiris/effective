@@ -4825,7 +4825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f683dcf1de90a42b69a1f299331b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageSelectCanvas: {fileID: 8525495308461444608, guid: 9f89b773869daf744b898014fad86e41,
+  StageSelectCanvas: {fileID: 8907190844775398636, guid: 47d2091dae74ff44a997fd77a3dfe734,
     type: 3}
   isLock: 1
 --- !u!65 &8043105859689622456

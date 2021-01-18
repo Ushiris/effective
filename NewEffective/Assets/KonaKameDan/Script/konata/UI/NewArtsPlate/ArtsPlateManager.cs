@@ -46,7 +46,8 @@ public class ArtsPlateManager : MonoBehaviour
     /// <param name="id"></param>
     public void OnArtsPlateChange(string id)
     {
-        SetId = id;
+        if (id == null) SetId = "";
+        else SetId = id;
         isEffectIconEndMove = false;
         OnReset();
         Process();

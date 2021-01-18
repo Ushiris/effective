@@ -128,6 +128,29 @@ MonoBehaviour:
   - {fileID: -3731508891516225994}
   - {fileID: -4241670442614807300}
   - {fileID: -3766835404694565157}
+  - {fileID: 2451865488951575549}
+--- !u!114 &2451865488951575549
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f034cba68ab55e046ae1445a42f18c0e, type: 3}
+  m_Name: IndirectLightingController
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  indirectSpecularIntensity:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  indirectDiffuseIntensity:
+    m_OverrideState: 1
+    m_Value: 2
+    min: 0
 --- !u!114 &2909533909746653619
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -372,7 +395,7 @@ MonoBehaviour:
     min: 0
   baseHeight:
     m_OverrideState: 1
-    m_Value: -10
+    m_Value: -36
   maximumHeight:
     m_OverrideState: 1
     m_Value: 20
@@ -396,7 +419,7 @@ MonoBehaviour:
     max: 1
   globalLightProbeDimmer:
     m_OverrideState: 0
-    m_Value: 0.893
+    m_Value: 0
     min: 0
     max: 1
   depthExtent:

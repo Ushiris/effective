@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/KonaKameDan/Scenes/ResultMenu.unity
     guid: cfbee9e0e7af5894aa3f23e6fa8e2e42
+  - enabled: 0
+    path: Assets/KonaKameDan/Scenes/TestScene/Ui.unity
+    guid: 0d1807da80969994382c8cd59e0081b0
   m_configObjects: {}

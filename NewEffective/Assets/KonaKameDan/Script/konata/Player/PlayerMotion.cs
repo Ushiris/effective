@@ -30,7 +30,7 @@ public class PlayerMotion : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        PlayerMove pl_move = PlayerManager.GetManager.GetPlObj.GetComponent<PlayerMove>();
+        PlayerMove pl_move = NewMap.GetPlayerObj.GetComponent<PlayerMove>();
         pl_move.OnNearGround.AddListener(() => animator.SetTrigger("OnGround"));
         pl_move.OnJumpBegin.AddListener(() => animator.SetTrigger("OnJump"));
     }

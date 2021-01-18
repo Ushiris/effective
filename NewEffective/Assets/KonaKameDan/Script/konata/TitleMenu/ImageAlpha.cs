@@ -30,7 +30,7 @@ public class ImageAlpha : MonoBehaviour
             isSePlay = false;
         }
 
-        color.a += speed * Time.deltaTime;
+        color.a += speed * Time.unscaledDeltaTime;
         color.a = Mathf.Clamp(color.a, 0, 255);
         image.color = color;
     }
