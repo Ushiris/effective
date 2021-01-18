@@ -31,7 +31,7 @@ public class MenuStage : MonoBehaviour
             }
             else
             {
-                item.SetActive(false);
+                if (item != null) item.SetActive(false);
             }
         }
         return staticData[mapType];
