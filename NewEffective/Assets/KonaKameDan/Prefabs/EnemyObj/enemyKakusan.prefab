@@ -27,6 +27,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changePoint: {fileID: 2842813744457031528}
   material_index: 0
+--- !u!136 &411460236208937544
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704375218154286400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.7178495
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.63906467, z: 0}
 --- !u!1001 &2842813744443331786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: b8a266b11a470564f89432ade0540f20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: b8a266b11a470564f89432ade0540f20, type: 3}
       propertyPath: m_LocalPosition.z
@@ -182,6 +196,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemyKakusan
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426519282851801227, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.572
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426519282851801227, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642206097694198832, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7fe2c416a1c1d449b1aaf6921ea3300, type: 3}

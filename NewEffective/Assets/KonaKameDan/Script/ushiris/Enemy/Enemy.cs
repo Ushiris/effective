@@ -11,8 +11,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Slider slider;
     [SerializeField] Status status;
     [SerializeField] int effectDropCount = 1;
-    [SerializeField] public AimBot muzzle;
-    [SerializeField] public Vector3 muzzleAngleLimit = new Vector3(30, 60, 60);
+    public AimBot muzzle;
     Rigidbody rb;
     public bool isBoss;
     public bool IsDeath { get; private set; }

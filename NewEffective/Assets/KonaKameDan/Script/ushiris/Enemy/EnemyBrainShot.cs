@@ -23,7 +23,7 @@ public class EnemyBrainShot : EnemyBrainBase
         FindAction = FindActionShot;
         Stay = StayActionShot;
         Think = ShotThink;
-        enemyData.muzzleAngleLimit = new Vector3(360, 360, 360);
+        enemyData.muzzle.muzzleAngleLimit = new Vector3(360, 360, 360);
         IsLockAI = true;
     }
 
