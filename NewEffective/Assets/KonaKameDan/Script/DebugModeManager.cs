@@ -90,12 +90,14 @@ public class DebugModeManager : MonoBehaviour
         if (isDebugMap)
         {
             stageData.SetActive(true);
+            MenuStage.isDebug = true;
             NewMap.SetSelectMapType = NewMap.MapType.DebugMap;
         }
         else
         {
             stageData.SetActive(false);
-            NewMap.SetSelectMapType = startMapType;
+            MenuStage.isDebug = false;
+            //NewMap.SetSelectMapType = startMapType;
         }
     }
 

@@ -78,6 +78,7 @@ public class StageSelectUiView : MonoBehaviour
     public void OnPointerClick()
     {
         NewMap.SetSelectMapType = mapType;
+        DebugLogger.Log("MapName: " + mapType);
         whiteImage.IsAlpha = true;
         isEndProcess = true;
         OnPointerExit();
