@@ -27,7 +27,6 @@ public class Id79_Grenade : MonoBehaviour
 
     Vector3 pos;
     GameObject grenade;
-    List<GameObject> miracles = new List<GameObject>();
 
     bool isStart = true;
 
@@ -56,11 +55,6 @@ public class Id79_Grenade : MonoBehaviour
         particleHitPlay =
             Arts_Process.SetParticleHitPlay(grenade, grenadeObj, transform, artsStatus, lostTime, ParticleHitPlayExplosion.Mode.My, true);
         isStart = false;
-
-        for (int i = 0; i < trajectoryCount; i++)
-        {
-            Destroy(miracles[i]);
-        }
 
         var timer = Arts_Process.TimeAction(gameObject, slidingThroughLostTime);
         timer.LapEvent = () => { Lost(grenade); };

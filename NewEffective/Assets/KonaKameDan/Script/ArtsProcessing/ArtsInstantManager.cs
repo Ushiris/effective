@@ -140,7 +140,7 @@ public class ArtsInstantManager : MonoBehaviour
                 artsStatus.myEffectCount = artsPivot.GetComponentInParent<MyEffectCount>();
                 artsStatus.myStatus = artsPivot.GetComponentInParent<Status>();
                 artsStatus.artsType = artsType;
-                artsStatus.myObj = artsPivot.transform.root.gameObject;
+                artsStatus.myObj = artsPivot.transform.parent.gameObject;
 
                 if (artsPivot.transform.parent.gameObject.tag == "Player")
                 {
