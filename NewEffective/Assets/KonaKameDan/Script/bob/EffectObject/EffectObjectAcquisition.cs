@@ -19,24 +19,24 @@ public class EffectObjectAcquisition : MonoBehaviour
     EffectObjectID effectObjectID;
 
     public static List<EffectObjectClass> effectObjectAcquisition = new List<EffectObjectClass>();// リスト作成
-    public static MyEffectCount GetEffectBag { get; private set; }
+    public static Dictionary<NameDefinition.EffectName, int> GetEffectBag { get; private set; } = new Dictionary<NameDefinition.EffectName, int>();
     public static List<string> effectObjectName = new List<string>();// リスト作成
     public static List<int> effectObjNum = new List<int>();
     public static bool isDefaultStatusReset { get; set; } = true;
 
     private void OnValidate()
     {
-        GetEffectBag = effectBag;
+        GetEffectBag = new Dictionary<NameDefinition.EffectName, int>(effectBag.effectCount);
     }
 
     private void Awake()
     {
-        if (GetEffectBag == null) GetEffectBag = effectBag;
+        if (GetEffectBag == null) GetEffectBag = new Dictionary<NameDefinition.EffectName, int>(effectBag.effectCount);
 
         //初期化
         if (MainGameManager.GetArtsReset && isDefaultStatusReset)
         {
-            GetEffectBag.Reset();
+            ResetBag();
 
             if (effectObjectAcquisition != null)
             {
@@ -60,7 +60,7 @@ public class EffectObjectAcquisition : MonoBehaviour
                 });
                 effectObjectName.Add(name);
                 effectObjNum.Add((int)effect);
-                GetEffectBag.effectCount[effect] = 1;
+                GetEffectBag[effect] = 1;
             }
         }
     }
@@ -93,7 +93,24 @@ public class EffectObjectAcquisition : MonoBehaviour
             effectObjNum.Add((int)type);
         }
 
-        GetEffectBag.effectCount[type]++;
+        GetEffectBag[type]++;
+    }
+
+    void ResetBag()
+    {
+        GetEffectBag= new Dictionary<NameDefinition.EffectName, int>()
+        {
+            {NameDefinition.EffectName.Shot,        0 },
+            {NameDefinition.EffectName.Slash,       0 },
+            {NameDefinition.EffectName.Barrier,     0 },
+            {NameDefinition.EffectName.Trap,        0 },
+            {NameDefinition.EffectName.Spread,      0 },
+            {NameDefinition.EffectName.Homing,      0 },
+            {NameDefinition.EffectName.Drain,       0 },
+            {NameDefinition.EffectName.Explosion,   0 },
+            {NameDefinition.EffectName.Slow,        0 },
+            {NameDefinition.EffectName.Fly,         0 },
+        };
     }
 
     /// <summary>
@@ -111,6 +128,6 @@ public class EffectObjectAcquisition : MonoBehaviour
     /// <param name="num"></param>
     public static void SetEffectBag(NameDefinition.EffectName name, int num)
     {
-        GetEffectBag.effectCount[name] = num;
+        GetEffectBag[name] = num;
     }
 }
