@@ -78,7 +78,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
         ArtsActiveObj.Id25_UnbreakableShield.Remove(artsStatus.myObj);
         Destroy(gameObject);
 
-        SE_Manager.ForcedPlayStop(se.se);
+        if (se != null) SE_Manager.ForcedPlayStop(se.se);
         //SE
         Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third, transform.position, artsStatus);
     }

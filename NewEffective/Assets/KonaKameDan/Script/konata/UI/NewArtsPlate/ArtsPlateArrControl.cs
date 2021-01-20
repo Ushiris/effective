@@ -22,8 +22,11 @@ public class ArtsPlateArrControl : MonoBehaviour
             {
                 for (int i = 0; i < MyArtsDeck.GetArtsDeck.Count; i++)
                 {
-                    DebugLogger.Log(MyArtsDeck.GetArtsDeck[i].name);
-                    artsPlateArr[i].OnArtsPlateChange(MyArtsDeck.GetArtsDeck[i].id);
+                    if (MyArtsDeck.GetArtsDeck[i].id != null)
+                    {
+                        DebugLogger.Log(MyArtsDeck.GetArtsDeck[i].name);
+                        artsPlateArr[i].OnArtsPlateChange(MyArtsDeck.GetArtsDeck[i].id);
+                    }
                 }
             }
         }
