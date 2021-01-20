@@ -12,16 +12,16 @@ public class ArtsDeckScroll : MonoBehaviour
     [SerializeField] float speed = 500f;
     [SerializeField] List<RectTransform> decks = new List<RectTransform>();
 
-    Vector3[] posArr; 
     int tmpSelectDeckNum;
     bool isChange;
+    Vector3[] posArr;
 
     // Start is called before the first frame update
     void Start()
     {
         tmpSelectDeckNum = SelectDeckNum();
-        posArr = new Vector3[decks.Count];
 
+        posArr = new Vector3[decks.Count];
         for (int i = 0; i < decks.Count; i++)
         {
             posArr[i] = decks[i].localPosition;
