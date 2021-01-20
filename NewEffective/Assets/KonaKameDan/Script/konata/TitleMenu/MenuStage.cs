@@ -8,6 +8,8 @@ public class MenuStage : MonoBehaviour
 
     static Dictionary<NewMap.MapType, GameObject> staticData;
 
+    public static bool isDebug { get; set; }
+
     private void Awake()
     {
         staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
@@ -18,7 +20,10 @@ public class MenuStage : MonoBehaviour
 #if UNITY_EDITOR
     void OnValidate()
     {
-        staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
+        if (isDebug)
+        {
+            staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
+        }
     }
 #endif
 
