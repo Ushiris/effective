@@ -61,13 +61,17 @@ public class DebugModeManager : MonoBehaviour
                 var name = (NameDefinition.EffectName)effectCount[i].id;
                 var count = effectCount[i].count;
 
-                var effectBag = EffectObjectAcquisition.GetEffectBag.effectCount;
+                var effectBag = EffectObjectAcquisition.GetEffectBag;
                 if (effectBag.ContainsKey(name))
                 {
                     effectBag[name] = count;
                 }
             }
 
+        }
+        else
+        {
+            EffectObjectAcquisition.isDefaultStatusReset = true;
         }
 
         if (isCoolTimeChange)

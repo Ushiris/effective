@@ -23,7 +23,6 @@ public class FusionCircleManager : MonoBehaviour
     public static NumAndList GetHitPosItem { get; private set; }
     public static NumAndList GetHitPosAng { get; private set; }
 
-
     string id;
 
     static readonly int kCutNum = 6;
@@ -49,6 +48,7 @@ public class FusionCircleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //選択
         selectCount = CircleCutSelectNum();
         GetHitPosAng.num = selectCount;
@@ -56,7 +56,7 @@ public class FusionCircleManager : MonoBehaviour
         //エフェクトを持っていない場合操作をさせない
         var effectId = circleCutArr[selectCount].effectId;
         var effectName = (NameDefinition.EffectName)effectId;
-        if (EffectObjectAcquisition.GetEffectBag.effectCount[effectName] == 0) return;
+        if (EffectObjectAcquisition.GetEffectBag[effectName] == 0) return;
 
         if (EffectFusionUI_ChoiceTrigger())
         {
@@ -106,7 +106,7 @@ public class FusionCircleManager : MonoBehaviour
     private void OnEnable()
     {
         //画像のリセット
-        if (EffectObjectAcquisition.GetEffectBag.effectCount != null) ResetImage();
+        if (EffectObjectAcquisition.GetEffectBag != null) ResetImage();
         //for (int i = 0; i < GetHitPosAng.numList.Count; i++)
         //{
         //    var num = GetHitPosAng.numList[i];
@@ -129,12 +129,13 @@ public class FusionCircleManager : MonoBehaviour
         {
             var num = (NameDefinition.EffectName)circleCutArr[i].effectId;
 
-            if (EffectObjectAcquisition.GetEffectBag.effectCount[num] == 0)
+            if (EffectObjectAcquisition.GetEffectBag[num] == 0)
             {
                 circleCutArr[i].pieceColorControl.ColorChangeLock();
             }
             else
             {
+                Debug.Log("Effect: " + circleCutArr[i].effectId.ToString() + " Count: " + EffectObjectAcquisition.GetEffectBag[num]);
                 circleCutArr[i].pieceColorControl.ColorChangeBefore();
             }
         }

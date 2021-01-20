@@ -18,6 +18,6 @@ public class EffectCircleCutManager : MonoBehaviour
     private void Update()
     {
         var effectName = (NameDefinition.EffectName)effectId;
-        effectCount.text = "x" + EffectObjectAcquisition.GetEffectBag.effectCount[effectName];
+        effectCount.text = "x" + EffectObjectAcquisition.GetEffectBag[effectName];
     }
 }

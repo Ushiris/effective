@@ -16,7 +16,7 @@ public class TitleManager : Image2DAnimation
 
         if (Input.GetMouseButtonDown(0))
         {
-            SE_Manager.SePlay(SE_Manager.SE_NAME.Menu_SceneChange);
+            SE_Manager.SePlay(SE_Manager.SE_NAME.Menu_Decide);
             SceneManager.LoadScene(NameDefinition.SceneName_TitleMenu);
         }
     }
