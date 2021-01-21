@@ -88,4 +88,9 @@ public class EnemyDefender : EnemyBrainBase
             if (item.name.Contains("Defender")) enemies.Remove(item);
         }
     }
+
+    void KnockBack()
+    {
+
+    }
 }
