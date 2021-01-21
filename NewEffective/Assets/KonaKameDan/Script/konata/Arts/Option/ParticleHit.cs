@@ -121,13 +121,13 @@ public class ParticleHit : MonoBehaviour
         //UI&Point
         if (obj.CompareTag("Enemy"))
         {
-            ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] = damageCast;
+            ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] += damageCast;
             DamageCount.damageInput = damageCast;
             //UIバグの調査をすること
         }
         else if (obj.CompareTag("Player"))
         {
-            ResultPoint.SetPoint[ResultPoint.PointName.EnemyDamage] = damageCast;
+            ResultPoint.SetPoint[ResultPoint.PointName.EnemyDamage] += damageCast;
         }
 
         //SE

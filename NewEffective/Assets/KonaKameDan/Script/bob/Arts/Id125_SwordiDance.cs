@@ -44,6 +44,7 @@ public class Id125_SwordiDance : MonoBehaviour
     void Update()
     {
         //回転
+        if (artsStatus.myObj == null) Lost();
         transform.position = artsStatus.myObj.transform.position;
         Arts_Process.ObjRoll(gameObject, speed);
     }
