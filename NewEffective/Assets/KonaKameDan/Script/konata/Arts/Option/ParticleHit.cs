@@ -26,10 +26,15 @@ public class ParticleHit : MonoBehaviour
         //ダメージUIを出すやつ
         gameObject.AddComponent<DamageHit>();
 
-        var p = GetComponent<ParticleSystem>();
-        var c = p.collision;
+        ParticleSystem p;
+        ParticleSystem.CollisionModule c;
 
         if (!isParticleCollision) p = null;
+        else
+        {
+            p = GetComponent<ParticleSystem>();
+            if (p != null) c = p.collision;
+        }
 
         switch (artsStatus.type)
         {
