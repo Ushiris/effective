@@ -106,6 +106,11 @@ public class EnemyBrainBase : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        rb.velocity *= 0.98f;
+    }
+
     protected void OnEnable()
     {
         if (navMesh != null) navMesh.updatePosition = true;

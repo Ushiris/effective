@@ -40,6 +40,8 @@ public class TerritorySenses : MonoBehaviour
         collider.transform.localPosition = Vector3.zero;
         collider.radius = 50;
         collider.isTrigger = true;
+
+        StageSelectUI.OnAfterPortalChangeScene.AddListener(() => bossCount = 0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,11 +60,16 @@ public class TerritorySenses : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        bossCount--;
+        if (bossCount > 0) bossCount--;
         if (bossCount == 0)
         {
             OnTerrtoryExit.Invoke();
             bossUI.gameObject.SetActive(false);
         }
+    }
+
+    private void OnDestroy()
+    {
+        bossCount = 0;
     }
 }

@@ -37,7 +37,7 @@ public class FlyEnemyBrain : EnemyBrainBase
 
         base.Start();
 
-        Stay = Default__;
+        Stay = FlayStayMove;
         SetRandomAI();
 
         FindAction = FindAction_Sniper;
@@ -92,7 +92,7 @@ public class FlyEnemyBrain : EnemyBrainBase
         }
     }
 
-    public void Default__()
+    public void FlayStayMove()
     {
         navMesh.speed = normalSpeed;
         if (navMesh.isStopped)
@@ -103,17 +103,21 @@ public class FlyEnemyBrain : EnemyBrainBase
 
     private void FindAction_Sniper()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < EnemyProperty.BestAttackDistance_Range)
+        if (Vector3.Distance(transform.position, player.transform.position) < EnemyProperty.BestAttackDistance_Range - 5)
         {
-            navMesh.speed =runSpeed;
+            navMesh.speed = runSpeed;
             Vector3 run_target = transform.position - (transform.forward * 5);
             transform.LookAt(run_target);
-            if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(run_target);
+            if (navMesh.pathStatus != NavMeshPathStatus.PathInvalid) navMesh.SetDestination(run_target);
+        }
+        else if (Vector3.Distance(transform.position, player.transform.position) > EnemyProperty.BestAttackDistance_Range)
+        {
+            navMesh.speed = normalSpeed;
+            if (navMesh.pathStatus != NavMeshPathStatus.PathInvalid) navMesh.SetDestination(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+            LookAtPlayerXZ();
         }
         else
         {
-            navMesh.speed = normalSpeed;
-            if(navMesh.pathStatus != NavMeshPathStatus.PathInvalid)navMesh.SetDestination(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             LookAtPlayerXZ();
         }
     }
