@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1090544229439725498}
   - component: {fileID: 3883142631717407067}
   - component: {fileID: 8456914554992284779}
+  - component: {fileID: 1424755416057084370}
   m_Layer: 25
   m_Name: EffectObject
   m_TagString: EffectObject
@@ -107,7 +108,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGo: 0
-  targetPos: {x: 0, y: 0, z: 0}
+  targetPos: {fileID: 0}
+--- !u!114 &1424755416057084370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090544229439725500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0823844edb134e8dee3fc21a5908a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &220092093613103666
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class MyEffectCount : MonoBehaviour
         {NameDefinition.EffectName.Fly,         0 },
     };
 
-    public void Reset()
+    public void DataReset()
     {
         effectCount = new Dictionary<NameDefinition.EffectName, int>()
         {
@@ -37,4 +37,5 @@ public class MyEffectCount : MonoBehaviour
             {NameDefinition.EffectName.Fly,         0 },
         };
     }
+
 }

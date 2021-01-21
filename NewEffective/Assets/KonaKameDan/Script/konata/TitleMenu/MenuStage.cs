@@ -8,12 +8,24 @@ public class MenuStage : MonoBehaviour
 
     static Dictionary<NewMap.MapType, GameObject> staticData;
 
+    public static bool isDebug { get; set; }
+
     private void Awake()
     {
         staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
 
         DontDestroyOnLoad(gameObject);
     }
+
+#if UNITY_EDITOR
+    void OnValidate()
+    {
+        if (isDebug)
+        {
+            staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
+        }
+    }
+#endif
 
     /// <summary>
     /// テラインのデータを取得する
@@ -31,7 +43,7 @@ public class MenuStage : MonoBehaviour
             }
             else
             {
-                item.SetActive(false);
+                if (item != null) item.SetActive(false);
             }
         }
         return staticData[mapType];

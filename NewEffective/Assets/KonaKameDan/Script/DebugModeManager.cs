@@ -27,6 +27,11 @@ public class DebugModeManager : MonoBehaviour
     [SerializeField] bool isAllDamage = true;
     [SerializeField] bool isAllDamageZone = true;
 
+    [Header("Mapの操作")]
+    [SerializeField] GameObject stageData;
+    [SerializeField] bool isDebugMap = false;
+    [SerializeField] NewMap.MapType startMapType = NewMap.MapType.Grassland;
+
     // Start is called before the first frame update
     void Reset()
     {
@@ -38,7 +43,6 @@ public class DebugModeManager : MonoBehaviour
             effectCount.Add(new EffectObjectAcquisition.EffectObjectClass { name = ed[key], count = 1 });
             effectCount[effectCount.Count - 1].id = (int)key;
             effectObjectName.Add(ed[key]);
-
         }
     }
 
@@ -57,13 +61,17 @@ public class DebugModeManager : MonoBehaviour
                 var name = (NameDefinition.EffectName)effectCount[i].id;
                 var count = effectCount[i].count;
 
-                var effectBag = EffectObjectAcquisition.GetEffectBag.effectCount;
+                var effectBag = EffectObjectAcquisition.GetEffectBag;
                 if (effectBag.ContainsKey(name))
                 {
                     effectBag[name] = count;
                 }
             }
 
+        }
+        else
+        {
+            EffectObjectAcquisition.isDefaultStatusReset = true;
         }
 
         if (isCoolTimeChange)
@@ -78,6 +86,19 @@ public class DebugModeManager : MonoBehaviour
 
         ParticleHit.isAllDamageEnable = isAllDamage;
         ParticleHitZoneDamage.isAllDamageEnable = isAllDamageZone;
+
+        if (isDebugMap)
+        {
+            stageData.SetActive(true);
+            MenuStage.isDebug = true;
+            NewMap.SetSelectMapType = NewMap.MapType.DebugMap;
+        }
+        else
+        {
+            stageData.SetActive(false);
+            MenuStage.isDebug = false;
+            //NewMap.SetSelectMapType = startMapType;
+        }
     }
 
     private void Update()

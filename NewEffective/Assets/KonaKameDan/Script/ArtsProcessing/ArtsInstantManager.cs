@@ -140,14 +140,15 @@ public class ArtsInstantManager : MonoBehaviour
                 artsStatus.myEffectCount = artsPivot.GetComponentInParent<MyEffectCount>();
                 artsStatus.myStatus = artsPivot.GetComponentInParent<Status>();
                 artsStatus.artsType = artsType;
-                artsStatus.myObj = artsPivot.transform.root.gameObject;
 
-                if (artsPivot.transform.parent.gameObject.tag == "Player")
+                if (artsPivot.transform.root.gameObject.tag == "Player")
                 {
+                    artsStatus.myObj = artsPivot.transform.root.gameObject;
                     artsStatus.type = ArtsStatus.ParticleType.Player;
                 }
                 else if (artsPivot.transform.parent.gameObject.tag == "Enemy")
                 {
+                    artsStatus.myObj = artsPivot.transform.parent.gameObject;
                     artsStatus.type = ArtsStatus.ParticleType.Enemy;
                 }
             }

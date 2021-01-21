@@ -18,6 +18,7 @@ public class ArtsDeckChangeControll : MonoBehaviour
 
     private void Start()
     {
+        GetNum = 0;
         onPlaySe = () => { UI_Manager.ArtsDeckChangePlaySe(); };
     }
 
