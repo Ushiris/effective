@@ -69,6 +69,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
     void Update()
     {
         //回転
+        if (artsStatus.myObj.activeSelf == false) Lost();
         transform.position = artsStatus.myObj.transform.position;
         Arts_Process.ObjRoll(gameObject, speed);
     }
