@@ -7,6 +7,7 @@ public class ObjGoToTarget : MonoBehaviour
     public bool isGo;
     public Transform targetPos;
 
+    float time;
     Rigidbody rb;
     new BoxCollider collider;
 
@@ -28,6 +29,7 @@ public class ObjGoToTarget : MonoBehaviour
     void Update()
     {
         if (!isGo) return;
-        transform.position = Vector3.MoveTowards(transform.position, targetPos.position, speed * Time.deltaTime);
+        time += Time.deltaTime * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, targetPos.position, speed * time);
     }
 }

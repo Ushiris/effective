@@ -26,10 +26,15 @@ public class ParticleHit : MonoBehaviour
         //ダメージUIを出すやつ
         gameObject.AddComponent<DamageHit>();
 
-        var p = GetComponent<ParticleSystem>();
-        var c = p.collision;
+        ParticleSystem p;
+        ParticleSystem.CollisionModule c;
 
         if (!isParticleCollision) p = null;
+        else
+        {
+            p = GetComponent<ParticleSystem>();
+            if (p != null) c = p.collision;
+        }
 
         switch (artsStatus.type)
         {
@@ -116,13 +121,13 @@ public class ParticleHit : MonoBehaviour
         //UI&Point
         if (obj.CompareTag("Enemy"))
         {
-            ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] = damageCast;
+            ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] += damageCast;
             DamageCount.damageInput = damageCast;
             //UIバグの調査をすること
         }
         else if (obj.CompareTag("Player"))
         {
-            ResultPoint.SetPoint[ResultPoint.PointName.EnemyDamage] = damageCast;
+            ResultPoint.SetPoint[ResultPoint.PointName.EnemyDamage] += damageCast;
         }
 
         //SE

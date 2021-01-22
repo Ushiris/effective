@@ -13,7 +13,7 @@ public class MenuStage : MonoBehaviour
     private void Awake()
     {
         staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
-
+        transform.parent = null;
         DontDestroyOnLoad(gameObject);
     }
 

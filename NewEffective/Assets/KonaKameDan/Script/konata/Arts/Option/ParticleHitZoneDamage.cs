@@ -5,7 +5,6 @@ using UnityEngine;
 /// <summary>
 /// 継続ダメージ処理　
 /// </summary>
-[RequireComponent(typeof(DamageHit))]
 public class ParticleHitZoneDamage : MonoBehaviour
 {
     public float hitDamageDefault = 3f;
@@ -15,10 +14,9 @@ public class ParticleHitZoneDamage : MonoBehaviour
 
     public bool isParticleCollision = true;
 
-    public static bool isAllDamageEnable = true;
+    public static bool isAllDamageEnable { get; set; } = true;
 
     string hitObjTag;
-    bool isTrigger;
 
     List<string> layerNameList = new List<string>()
     {
@@ -30,21 +28,17 @@ public class ParticleHitZoneDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var p = GetComponent<ParticleSystem>();
-        var c = p.collision;
-
-        if (!isParticleCollision) p = null;
+        //ダメージUIを出すやつ
+        gameObject.AddComponent<DamageHit>();
 
         switch (artsStatus.type)
         {
             case ArtsStatus.ParticleType.Player:
-                if (p != null) c.collidesWith = Layer("Enemy");
                 gameObject.layer = LayerMask.NameToLayer("PlayerArts");
                 hitObjTag = "Enemy";
                 break;
 
             case ArtsStatus.ParticleType.Enemy:
-                if (p != null) c.collidesWith = Layer("Player");
                 gameObject.layer = LayerMask.NameToLayer("EnemyArts");
                 hitObjTag = "Player";
                 break;
@@ -61,10 +55,9 @@ public class ParticleHitZoneDamage : MonoBehaviour
         if (!OnDestroyArtsZone(other.gameObject))
         {
             var damageScale = Mathf.FloorToInt(timer);
-            if (other.CompareTag(hitObjTag) && damageScale % 5 == 0)
+            if (other.gameObject.tag == hitObjTag && damageScale % 5 == 0)
             {
                 Damage(other.gameObject);
-                isTrigger = true;
             }
         }
         else
@@ -74,26 +67,26 @@ public class ParticleHitZoneDamage : MonoBehaviour
     }
 
     //ダメージの処理
-    void Damage(GameObject enemy)
+    void Damage(GameObject obj)
     {
-        if (!isAllDamageEnable) return;
+        if (!isAllDamageEnable && obj == null) return;
 
         float damage = hitDamageDefault * plusFormStatus;
         int damageCast = Mathf.CeilToInt(damage);
 
-        var life = enemy.GetComponent<Life>();
+        var life = obj.GetComponent<Life>();
         if (life != null) life.Damage(damageCast);
         DebugLogger.Log("name: " + artsStatus.myObj.name + " damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //UI&Point
-        if (enemy.tag == "Enemy")
+        if (obj.tag == "Enemy")
         {
-            ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] = damageCast;
             DamageCount.damageInput = damageCast;
+            ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] += damageCast;
         }
-        else if(enemy.tag=="Player")
+        else if(obj.tag=="Player")
         {
-            ResultPoint.SetPoint[ResultPoint.PointName.EnemyDamage] = damageCast;
+            ResultPoint.SetPoint[ResultPoint.PointName.EnemyDamage] += damageCast;
         }
 
         //SE

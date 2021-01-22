@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6311068689902517866}
   - component: {fileID: 6983799282255171523}
   - component: {fileID: 564049627026399480}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Monument_NoSymbol
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,9 +67,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6311068689902517866}
     m_Modifications:
+    - target: {fileID: 100000, guid: ca777d714e45a7a4dbbcf8212fe45962, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: ca777d714e45a7a4dbbcf8212fe45962, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: ca777d714e45a7a4dbbcf8212fe45962, type: 3}
       propertyPath: m_Name
       value: wouldObjectP02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: ca777d714e45a7a4dbbcf8212fe45962, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ca777d714e45a7a4dbbcf8212fe45962, type: 3}
       propertyPath: m_LocalPosition.x
