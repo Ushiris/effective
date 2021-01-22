@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6424790053204444056}
   - component: {fileID: 8232412719071659926}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Monument_Finger
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 8dbf069d5a372774bb458dddfaf5f98d, type: 3}
       propertyPath: m_Name
       value: wouldObjectGareki01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8dbf069d5a372774bb458dddfaf5f98d, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8dbf069d5a372774bb458dddfaf5f98d, type: 3}
       propertyPath: m_LocalPosition.x
