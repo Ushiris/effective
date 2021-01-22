@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8252111633383182898}
-  - component: {fileID: 8252111633383182909}
-  - component: {fileID: 8252111633383182908}
+  - component: {fileID: 1451709826}
+  - component: {fileID: 1451709829}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8252111633383182909
+--- !u!114 &1451709826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,13 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8252111633383182911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7365780a5c25c438e27c9b0747e316, type: 3}
+  m_Script: {fileID: 11500000, guid: a296d723905e5964bafc89ca2edf5c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfEnemys: 0
-  enemys:
-  - {fileID: 2459166526397551225, guid: 421e2d382beb5e149811baa494bdc14c, type: 3}
---- !u!114 &8252111633383182908
+--- !u!114 &1451709829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,8 +53,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 8252111633383182911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae06065162af32441b6a2c6e81d93e4d, type: 3}
+  m_Script: {fileID: 11500000, guid: c9c48b70d840aee4ba9d182ad2d9a5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnRange: 5
-  posY: 0
+  prefabs:
+    list:
+    - Key: 0
+      Value: {fileID: 4884296567427790718, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+    - Key: 2
+      Value: {fileID: 7219421737134395862, guid: e789ddae41a982c4e86e7f44e5b42f71,
+        type: 3}
+    - Key: 4
+      Value: {fileID: 2704375218154286400, guid: 0aa83efa749da5947af5dc8c63c21214,
+        type: 3}
+    - Key: 5
+      Value: {fileID: 8870526936976843964, guid: 7a282266d722bab4eb62fe516aabc5e1,
+        type: 3}
+    - Key: 7
+      Value: {fileID: 2786754424243087865, guid: c7c718967cf1e7845b611bd541fba217,
+        type: 3}
+    - Key: 9
+      Value: {fileID: 722707631653457096, guid: 35198665acd1a5b40aeea37bad35b6c0,
+        type: 3}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    [SerializeField] Enemy[] enemyArr;
+    [SerializeField] PrefabDictionary prefabs;
 
     static List<Enemy> enemyList = new List<Enemy>();
 
@@ -15,18 +15,20 @@ public class EnemySpawnManager : MonoBehaviour
     {
         enemyList.Clear();
 
+        var enemyNameArr = NewMap.GetEnemyType;
         int count;
-        for (count = 0; count < enemyArr.Length; count++)
+        for (count = 0; count < enemyNameArr.Length; count++)
         {
-            var enemy = Instantiate(enemyArr[count].gameObject, transform);
+            var enemyObj = prefabs.GetTable()[enemyNameArr[count]];
+            var enemy = Instantiate(enemyObj, transform);
             enemyList.Add(enemy.GetComponent<Enemy>());
-            
         }
 
         for (; count < maxCount; count++)
         {
-            var ranNum = Random.Range(0, enemyArr.Length);
-            var enemy = Instantiate(enemyArr[ranNum].gameObject, transform);
+            var ranNum = Random.Range(0, enemyNameArr.Length);
+            var enemyObj = prefabs.GetTable()[enemyNameArr[ranNum]];
+            var enemy = Instantiate(enemyObj, transform);
             enemyList.Add(enemy.GetComponent<Enemy>());
         }
 
@@ -57,5 +59,14 @@ public class EnemySpawnManager : MonoBehaviour
     {
         enemy.gameObject.SetActive(false);
         enemyList.Add(enemy);
+    }
+
+    [System.Serializable]
+    public class PrefabDictionary : Serialize.TableBase<NameDefinition.EffectName, GameObject, Name2Prefab> { }
+
+    [System.Serializable]
+    public class Name2Prefab : Serialize.KeyAndValue<NameDefinition.EffectName, GameObject>
+    {
+        public Name2Prefab(NameDefinition.EffectName key, GameObject value) : base(key, value) { }
     }
 }
