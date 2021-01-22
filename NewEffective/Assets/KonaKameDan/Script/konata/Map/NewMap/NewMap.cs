@@ -26,6 +26,7 @@ public class NewMap : MonoBehaviour
         [HideInInspector] public Vector3 playerSpawnPoint;
         [HideInInspector] public Vector3 bossSpawnPoint;
         public List<GatyaGatyaInventory.ItemClass> effectItem = new List<GatyaGatyaInventory.ItemClass>();
+        public NameDefinition.EffectName[] enemyType;
     }
 
     [SerializeField] List<Status> statusList = new List<Status>();
@@ -86,6 +87,8 @@ public class NewMap : MonoBehaviour
     /// </summary>
     public static GameObject GetPlayerObj { get; private set; }
 
+    public static NameDefinition.EffectName[] GetEnemyType { get; private set; }
+
     static readonly string kBossTag = "BossPoint";
     static readonly string kPlayerTag = "PlayerPoint";
 
@@ -99,6 +102,7 @@ public class NewMap : MonoBehaviour
 
         status.terrainData = MenuStage.GetTerrainData(mapType);//追加
         GetMapMaxHeight = status.mapSizH;
+        GetEnemyType = status.enemyType;
         SetMapEventStartUp = () => { };
 
         map.SetActive(true);
