@@ -9,10 +9,14 @@ public class Id07_RocketLauncher : MonoBehaviour
     GameObject RocketLauncherParticle;
 
     [Header("爆発のスタック数に応じてたされる数")]
-    [SerializeField] float plusDamage = 0.05f;
+    [SerializeField] float plusDamageExplosion = 0.05f;
+
+    [Header("射撃のスタック数に応じてたされる数")]
+    [SerializeField] float plusDamageShot = 0.05f;
 
     //エフェクトの所持数用
     int explosionCount;
+    int shotCount;
     float damage;
 
     ArtsStatus artsStatus;
@@ -26,6 +30,7 @@ public class Id07_RocketLauncher : MonoBehaviour
 
         //エフェクトの所持数を代入
         explosionCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
+        shotCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Shot);
 
         //ダメージ処理
         Damage();
@@ -49,7 +54,7 @@ public class Id07_RocketLauncher : MonoBehaviour
         var rocketLauncherDamage = Arts_Process.SetParticleDamageProcess(RocketLauncherParticle);
 
         //ダメージの計算
-        damage = defaultDamage + (plusDamage * (float)explosionCount);
+        damage = defaultDamage + ((plusDamageExplosion + plusDamageShot) * (float)explosionCount);
 
         //ダメージ処理
         Arts_Process.Damage(rocketLauncherDamage, artsStatus, damage, true);
