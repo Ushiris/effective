@@ -131,8 +131,8 @@ public class Enemy : MonoBehaviour
         slider.value += true_heal;
     }
 
-    public void MuzzleLookAt(Vector3 target)
+    public void Aim()
     {
-        muzzle.MuzzleLookAt(target);
+        muzzle.Aim();
     }
 }

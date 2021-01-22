@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class KameMotion : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    bool isMove = false;
     NavMeshAgent agent;
 
     private void Start()
@@ -16,6 +15,6 @@ public class KameMotion : MonoBehaviour
 
     private void Update()
     {
-        isMove = !agent.isStopped;
+        animator.SetBool("IsMove", !agent.isStopped);
     }
 }

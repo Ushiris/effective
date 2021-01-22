@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7691246187486713230}
   - component: {fileID: 7627490535666284483}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Monument_Sun
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,9 +52,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7691246187486713230}
     m_Modifications:
+    - target: {fileID: 100000, guid: 54fd6b349391e7041a22a17e71e7bf64, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 54fd6b349391e7041a22a17e71e7bf64, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 54fd6b349391e7041a22a17e71e7bf64, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 54fd6b349391e7041a22a17e71e7bf64, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 54fd6b349391e7041a22a17e71e7bf64, type: 3}
       propertyPath: m_Name
       value: wouldObjectP01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 54fd6b349391e7041a22a17e71e7bf64, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 54fd6b349391e7041a22a17e71e7bf64, type: 3}
       propertyPath: m_LocalPosition.x
