@@ -16,6 +16,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &5413597111497445287
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7219421737134395862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7498859
+  m_Center: {x: 0, y: 1.449144, z: 0}
 --- !u!114 &1767306211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +60,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0b5059f7cb9d9ba4b8e3bfc1bad2199f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0b5059f7cb9d9ba4b8e3bfc1bad2199f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -118,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 212912623975855608, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212912623975855608, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
@@ -169,6 +182,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemyDefender
+      objectReference: {fileID: 0}
+    - target: {fileID: 212912624150374271, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336178396310925907, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: muzzleAngleLimit.x
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336178396310925907, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: muzzleAngleLimit.y
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336178396310925907, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: muzzleAngleLimit.z
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642206097694198832, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7fe2c416a1c1d449b1aaf6921ea3300, type: 3}

@@ -59,7 +59,7 @@ public class EnemyBrainBase : MonoBehaviour
 
     protected void Start()
     {
-        if (player == null) player = GameObject.FindWithTag("Player");
+        if (player == null) player = PlayerManager.GetManager.GetPlObj;
 
         DefaultPos = transform.position;
         thinkTimer.LapTime = 0.5f;
@@ -98,7 +98,7 @@ public class EnemyBrainBase : MonoBehaviour
         {
             state.move = MoveState.Chase;
             Think();
-            enemyData.MuzzleLookAt(player.transform.position);
+            enemyData.Aim();
         }
         else
         {
@@ -152,7 +152,7 @@ public class EnemyBrainBase : MonoBehaviour
     protected void LookAtPlayerXZ()
     {
         transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-        enemyData.MuzzleLookAt(player.transform.position);
+        enemyData.Aim();
     }
 
     protected void ColorSet()
