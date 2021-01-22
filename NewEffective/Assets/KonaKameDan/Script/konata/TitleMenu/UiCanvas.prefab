@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5839691940376521828}
   - component: {fileID: 5839691940376521835}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UiCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -203,6 +203,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow
       objectReference: {fileID: 0}
+    - target: {fileID: 4577478745381220347, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577478745381220347, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 140
+      objectReference: {fileID: 0}
     - target: {fileID: 4989045623706720754, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -271,12 +281,12 @@ PrefabInstance:
     - target: {fileID: 4989045623706720754, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4989045623706720754, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 80
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4989045623706720754, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
         type: 3}
@@ -339,6 +349,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Arrow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577478745381220347, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577478745381220347, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 4989045623706720754, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
         type: 3}
@@ -408,12 +428,12 @@ PrefabInstance:
     - target: {fileID: 4989045623706720754, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4989045623706720754, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 80
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4989045623706720754, guid: 12b15266bb5f9da45b4bd8d2d663f4c3,
         type: 3}
