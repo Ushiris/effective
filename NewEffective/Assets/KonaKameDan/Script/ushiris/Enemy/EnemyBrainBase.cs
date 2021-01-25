@@ -159,7 +159,7 @@ public class EnemyBrainBase : MonoBehaviour
     {
         Material material = new Material(mainMaterial);
         var color= EnemyProperty.enemyColors[ai_stay.ToString() + "_" + ai_find.ToString()];
-        if (color != Color.clear) material.SetColor(EnemyProperty.EnemyColorID, color);
+        if (color != Color.clear) material.SetColor(EnemyProperty.ColorID, color);
 
         mainMaterial = material;
         ApplyChangeColor();
@@ -168,7 +168,7 @@ public class EnemyBrainBase : MonoBehaviour
     protected void ColorSet(Color32 color)
     {
         Material material = new Material(mainMaterial);
-        if (color != Color.clear) material.SetColor(EnemyProperty.EnemyColorID, color);
+        if (color != Color.clear) material.SetColor(EnemyProperty.ColorID, color);
 
         mainMaterial = material;
         ApplyChangeColor();
