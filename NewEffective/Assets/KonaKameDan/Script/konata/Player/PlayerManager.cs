@@ -22,10 +22,16 @@ public class PlayerManager : MonoBehaviour
         Vector3
             now = Vector3.zero,
             prev = Vector3.zero;
+        readonly StopWatch timer;
+
+        public DelayAimPoint(StopWatch aimTimer)
+        {
+            timer = aimTimer;
+        }
 
         public Vector3 AimPoint()
         {
-            return prev;
+            return Vector3.Lerp(prev,now,timer.LapTimer/timer.LapTime);
         }
 
         public void Update(Vector3 pos)
@@ -34,7 +40,7 @@ public class PlayerManager : MonoBehaviour
             now = pos;
         }
     }
-    public DelayAimPoint aimPoint = new DelayAimPoint();
+    public DelayAimPoint aimPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +56,7 @@ public class PlayerManager : MonoBehaviour
 
         traceTimer = StopWatch.Summon(5.0f, () => tracePoint = GetPlObj.transform.position, GetPlObj);
         aimTimer = StopWatch.Summon(.5f, () => aimPoint.Update(GetPlObj.transform.position), GetPlObj);
+        aimPoint = new DelayAimPoint(aimTimer);
 
         GetManager = this;
     }
