@@ -5,7 +5,6 @@ using UnityEngine;
 public class AimBot : MonoBehaviour
 {
     public Vector3 muzzleAngleLimit = new Vector3(30, 60, 60);
-    Vector3 prevPlayerPos;
 
     public void Aim()
     {
