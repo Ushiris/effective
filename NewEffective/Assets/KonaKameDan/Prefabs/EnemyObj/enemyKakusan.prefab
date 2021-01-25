@@ -1,32 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &3679602109100143047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2842813744443363936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f41a10d6969af764cac6f0b0f346a3ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 2842813744452755882}
---- !u!114 &6478159605303853055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2704375218154286400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2388c1c9c8d51b0459bad0ae6036749c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changePoint: {fileID: 2842813744457031528}
-  material_index: 0
 --- !u!136 &411460236208937544
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41,6 +14,33 @@ CapsuleCollider:
   m_Height: 1.7178495
   m_Direction: 1
   m_Center: {x: 0, y: 0.63906467, z: 0}
+--- !u!114 &6478159605303853055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704375218154286400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2388c1c9c8d51b0459bad0ae6036749c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changePoint: {fileID: 2842813744457031528}
+  material_index: 0
+--- !u!114 &3679602109100143047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842813744443363936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41a10d6969af764cac6f0b0f346a3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2842813744452755882}
 --- !u!1001 &2842813744443331786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,6 +196,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemyKakusan
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].artsArr.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].lv
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.data[0]
+      value: 457
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].lv
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].artsArr.Array.data[0]
+      value: 047
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].artsArr.Array.data[1]
+      value: 045
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.data[1]
+      value: 479
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].artsArr.Array.data[2]
+      value: 049
       objectReference: {fileID: 0}
     - target: {fileID: 7426519282851801227, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
