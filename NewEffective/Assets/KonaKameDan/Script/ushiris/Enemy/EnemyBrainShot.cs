@@ -30,8 +30,7 @@ public class EnemyBrainShot : EnemyBrainBase
     private new void Update()
     {
         base.Update();
-
-        enemyData.MuzzleLookAt(player.transform.position);
+        enemyData.Aim();
     }
 
     void ShotThink()
@@ -60,7 +59,6 @@ public class EnemyBrainShot : EnemyBrainBase
 
     void FindActionShot()
     {
-        enemyData.MuzzleLookAt(player.transform.position);
     }
 
     void StayActionShot()

@@ -15,7 +15,26 @@ public class PlayerManager : MonoBehaviour
     Life life;
     StopWatch regeneTimer;
     StopWatch traceTimer;
+    StopWatch aimTimer;
     public Vector3 tracePoint;
+    public class DelayAimPoint
+    {
+        Vector3
+            now = Vector3.zero,
+            prev = Vector3.zero;
+
+        public Vector3 AimPoint()
+        {
+            return prev;
+        }
+
+        public void Update(Vector3 pos)
+        {
+            prev = now;
+            now = pos;
+        }
+    }
+    public DelayAimPoint aimPoint = new DelayAimPoint();
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +49,7 @@ public class PlayerManager : MonoBehaviour
         life.AddLastword(OnPlayerDead);
 
         traceTimer = StopWatch.Summon(5.0f, () => tracePoint = GetPlObj.transform.position, GetPlObj);
+        aimTimer = StopWatch.Summon(.5f, () => aimPoint.Update(GetPlObj.transform.position), GetPlObj);
 
         GetManager = this;
     }
