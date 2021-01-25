@@ -16,6 +16,9 @@ public class ArtsDeckScroll : MonoBehaviour
     bool isChange;
     Vector3[] posArr;
 
+    static readonly Vector3 defaultSiz = Vector3.one;
+    static readonly Vector3 selectSiz = Vector3.one * 1.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,8 @@ public class ArtsDeckScroll : MonoBehaviour
         {
             posArr[i] = decks[i].localPosition;
         }
+
+        decks[0].localScale = selectSiz;
     }
 
     // Update is called once per frame
@@ -66,8 +71,12 @@ public class ArtsDeckScroll : MonoBehaviour
     void DeckChange()
     {
         var deck = decks[0];
+        deck.localScale = defaultSiz;
+
         decks.RemoveAt(0);
         decks.Add(deck);
+
+        decks[0].localScale = selectSiz;
 
         //子の順番を変える
         deck.SetAsFirstSibling();
