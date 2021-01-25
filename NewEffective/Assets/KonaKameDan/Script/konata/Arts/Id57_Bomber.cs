@@ -8,6 +8,7 @@ public class Id57_Bomber : MonoBehaviour
     [SerializeField] GameObject explosionParticleObj;
     [SerializeField] float rollSpeed = 100f;
     [SerializeField] float defaultDamage = 0.7f;
+    [SerializeField] int maxCount = 1;
 
     [Header("拡散のスタック数に応じてたされる数")]
     [SerializeField] float plusCount = 0.02f;
@@ -16,8 +17,6 @@ public class Id57_Bomber : MonoBehaviour
     [SerializeField] float plusDamage = 0.07f;
 
     List<GameObject> bomber = new List<GameObject>();
-
-    int maxCount = 1;
 
     ArtsStatus artsStatus;
     ParticleHitPlayExplosion playExplosion;
