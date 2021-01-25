@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b4158209191894eab2b299d2aa789e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RocketLauncherParticleObj: {fileID: 11040906638969291, guid: 6615a64fdd751ec4dafcc0ed53916c65,
+  RocketLauncherParticleObj: {fileID: 8442511208195005431, guid: ee298d99d2ab7394b9d45f54811acd65,
     type: 3}
   defaultDamage: 6.7
   plusDamageExplosion: 0.07
