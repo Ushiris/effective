@@ -13,9 +13,9 @@ public class EnemyProperty
     public static float BossAngryDistance           { get; private set; } = 7;
     public static float PortalDefenceDistance       { get; private set; } = 25;
 
-    public static float EnemyAimSpeed = 0.5f;
+    public static float AimSpeed = .5f;
 
-    public static string EnemyColorID = "Color_DB601A07";
+    public static string ColorID = "Color_DB601A07";
 
     public static Dictionary<string, Color> enemyColors = new Dictionary<string, Color>
     {

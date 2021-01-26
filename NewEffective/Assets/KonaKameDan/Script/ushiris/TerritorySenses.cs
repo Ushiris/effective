@@ -10,7 +10,7 @@ public class TerritorySenses : MonoBehaviour
     Slider slider;
     GameObject BossName;
     public static UnityEvent 
-        OnTerrtoryEnter = new UnityEvent(), 
+        OnTerrtoryEnter = new UnityEvent(),
         OnTerrtoryExit = new UnityEvent();
     static int bossCount = 0;
 
@@ -18,22 +18,23 @@ public class TerritorySenses : MonoBehaviour
     {
         //gameObject.tag = "BossZone";
 
-        bossUI = Instantiate(new GameObject()).AddComponent<Canvas>();
-        bossUI.gameObject.SetActive(false);
+        bossUI = new GameObject().AddComponent<Canvas>();
         bossUI.renderMode = RenderMode.ScreenSpaceOverlay;
-
+        bossUI.sortingOrder = 10;
+        var setting=bossUI.gameObject.AddComponent<CanvasScaler>();
+        setting.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        setting.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
+        setting.referenceResolution = new Vector3(720, 1280);
+        setting.referencePixelsPerUnit = 100;
         BossName = Instantiate(Resources.Load("UI/BossName"))as GameObject;
+
         BossName.GetComponent<RectTransform>().SetParent(bossUI.GetComponent<RectTransform>());
-        BossName.transform.localPosition = new Vector3(0, 250);
+        BossName.transform.localPosition = new Vector3(-50, 250);
 
         Enemy enemy = transform.parent.gameObject.GetComponent<Enemy>();
         slider = Instantiate(enemy.slider);
-        slider.transform.SetParent(bossUI.transform);
-        slider.transform.localPosition = new Vector3(0, 225, 0);
-        slider.transform.localScale = new Vector3(0.5f, 8, 0.1f);
-        slider.direction = Slider.Direction.RightToLeft;
-        enemy.life.AddDamageFunc((num) => { slider.value -= num; });
-        enemy.life.AddHealFunc((num) => { slider.value += num; });
+        BossName.GetComponent<BossNameUI>().Generate(slider, bossUI);
+        BossName.SetActive(false);
 
         SphereCollider collider= gameObject.AddComponent<SphereCollider>();
         collider.transform.parent = gameObject.transform;
@@ -52,7 +53,7 @@ public class TerritorySenses : MonoBehaviour
         if (bossCount == 1)
         {
             OnTerrtoryEnter.Invoke();
-            bossUI.gameObject.SetActive(true);
+            BossName.SetActive(true);
         }
     }
 
@@ -64,7 +65,7 @@ public class TerritorySenses : MonoBehaviour
         if (bossCount == 0)
         {
             OnTerrtoryExit.Invoke();
-            bossUI.gameObject.SetActive(false);
+            BossName.SetActive(false);
         }
     }
 

@@ -55,7 +55,7 @@ public class PlayerManager : MonoBehaviour
         life.AddLastword(OnPlayerDead);
 
         traceTimer = StopWatch.Summon(5.0f, () => tracePoint = GetPlObj.transform.position, GetPlObj);
-        aimTimer = StopWatch.Summon(.5f, () => aimPoint.Update(GetPlObj.transform.position), GetPlObj);
+        aimTimer = StopWatch.Summon(EnemyProperty.AimSpeed, () => aimPoint.Update(GetPlObj.transform.position), GetPlObj);
         aimPoint = new DelayAimPoint(aimTimer);
 
         GetManager = this;
