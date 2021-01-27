@@ -45,6 +45,6 @@ public class Id47_SmokeBomb : MonoBehaviour
         if (other.gameObject.tag != "Enemy") return;
 
         var enemy = other.gameObject.GetComponent<Enemy>();
-        enemy.Stan(4f);
+        if(enemy!=null) enemy.Stan(4f);
     }
 }

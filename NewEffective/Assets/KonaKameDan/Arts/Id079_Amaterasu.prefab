@@ -74,6 +74,7 @@ MonoBehaviour:
   myEffectCount: {fileID: 0}
   artsType: 1
   myObj: {fileID: 0}
+  modelSiz: 0
 --- !u!1001 &1929121343094834350
 PrefabInstance:
   m_ObjectHideFlags: 0

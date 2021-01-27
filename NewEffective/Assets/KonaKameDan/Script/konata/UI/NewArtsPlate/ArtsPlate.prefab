@@ -234,13 +234,14 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: b5648241edc3fbc44ba732445a477699, type: 3}
     - Key: 5
       Value:
-        image: {fileID: 21300000, guid: 2f959fee33a45034ca37ee5a6f737002, type: 3}
+        image: {fileID: 21300000, guid: 2b73ad46baf448943bf1ec5bd1bdfc48, type: 3}
     - Key: 7
       Value:
         image: {fileID: 21300000, guid: d37e3673463fd7f47a8a57fa16b538fb, type: 3}
     - Key: 9
       Value:
         image: {fileID: 21300000, guid: 55fcbc3e2b57ba441a40acd6f43bb251, type: 3}
+  isEndChangeMove: 0
 --- !u!1 &275833230681708418
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,13 +538,14 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: b5648241edc3fbc44ba732445a477699, type: 3}
     - Key: 5
       Value:
-        image: {fileID: 21300000, guid: 2f959fee33a45034ca37ee5a6f737002, type: 3}
+        image: {fileID: 21300000, guid: 2b73ad46baf448943bf1ec5bd1bdfc48, type: 3}
     - Key: 7
       Value:
         image: {fileID: 21300000, guid: d37e3673463fd7f47a8a57fa16b538fb, type: 3}
     - Key: 9
       Value:
         image: {fileID: 21300000, guid: 55fcbc3e2b57ba441a40acd6f43bb251, type: 3}
+  isEndChangeMove: 0
 --- !u!1 &275833231108185583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,13 +1173,14 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: b5648241edc3fbc44ba732445a477699, type: 3}
     - Key: 5
       Value:
-        image: {fileID: 21300000, guid: 2f959fee33a45034ca37ee5a6f737002, type: 3}
+        image: {fileID: 21300000, guid: 2b73ad46baf448943bf1ec5bd1bdfc48, type: 3}
     - Key: 7
       Value:
         image: {fileID: 21300000, guid: d37e3673463fd7f47a8a57fa16b538fb, type: 3}
     - Key: 9
       Value:
         image: {fileID: 21300000, guid: 55fcbc3e2b57ba441a40acd6f43bb251, type: 3}
+  isEndChangeMove: 0
 --- !u!1 &275833232040955570
 GameObject:
   m_ObjectHideFlags: 0

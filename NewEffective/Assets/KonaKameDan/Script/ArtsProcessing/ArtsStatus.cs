@@ -44,4 +44,9 @@ public class ArtsStatus : MonoBehaviour
     /// 親情報の格納
     /// </summary>
     [HideInInspector] public GameObject myObj;
+
+    /// <summary>
+    /// Artsのサイズ変更用
+    /// </summary>
+    [HideInInspector] public float modelSiz;
 }

@@ -194,6 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 212912623975855608}
   - component: {fileID: 3701564274393747139}
+  - component: {fileID: 5200251395177192674}
   - component: {fileID: 6225329085623931612}
   - component: {fileID: 114969958561679762}
   - component: {fileID: 8642206097694198832}
@@ -243,6 +244,19 @@ MonoBehaviour:
   effectDropCount: 1
   muzzle: {fileID: 1336178396310925907}
   isBoss: 0
+--- !u!114 &5200251395177192674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212912623975855615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ea66be4fc1d234cad5e4f342884e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelSiz: 1
 --- !u!114 &6225329085623931612
 MonoBehaviour:
   m_ObjectHideFlags: 0

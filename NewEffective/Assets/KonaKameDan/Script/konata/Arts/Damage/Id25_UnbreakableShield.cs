@@ -40,6 +40,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
         timeOver += plusTime * (float)homingCount;
 
         //円状の座標取得
+        radius *= artsStatus.modelSiz;
         var pos = Arts_Process.GetCirclePutPos(count, radius, 360);
 
         GameObject[] shields = new GameObject[count];

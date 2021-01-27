@@ -65,3 +65,4 @@ MonoBehaviour:
   myEffectCount: {fileID: 0}
   artsType: 0
   myObj: {fileID: 0}
+  modelSiz: 0

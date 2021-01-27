@@ -40,7 +40,9 @@ public class Id57_Bomber : MonoBehaviour
         maxCount += (int)f;
 
         //円状の座標取得
-        var pos = Arts_Process.GetCirclePutPos(maxCount, 1, 360);
+        var radius = 1f;
+        radius *= artsStatus.modelSiz;
+        var pos = Arts_Process.GetCirclePutPos(maxCount, radius, 360);
 
         //生成
         for (int i = 0; i < maxCount; i++)
