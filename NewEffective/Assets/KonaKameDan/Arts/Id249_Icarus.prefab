@@ -69,6 +69,7 @@ MonoBehaviour:
   myEffectCount: {fileID: 0}
   artsType: 1
   myObj: {fileID: 0}
+  modelSiz: 0
 --- !u!135 &3655454735398317217
 SphereCollider:
   m_ObjectHideFlags: 0

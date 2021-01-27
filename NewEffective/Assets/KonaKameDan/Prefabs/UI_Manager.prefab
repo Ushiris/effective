@@ -45,11 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uICanvas: {fileID: 0}
+  artsPlateCanvas: {fileID: 0}
   effectFusionUI_ActiveKey: 101
   effectFusionUI_Obj: {fileID: 0}
   textObj: {fileID: 0}
   cameraControlObj: {fileID: 7505584113060827351, guid: e1e991e09772c5f4e94aa21a22efd2bf,
     type: 3}
+  reticle: {fileID: 0}
   artsEntryKey: 113
   effectFusionUI_ChoiceKey: 323
   artsSetTimingTnterval: 0.1
@@ -108,7 +110,7 @@ MonoBehaviour:
     iconFrame: []
     nameFrame: []
   - name: "\u8FFD\u5C3E"
-    effectIcon: {fileID: 21300000, guid: 2f959fee33a45034ca37ee5a6f737002, type: 3}
+    effectIcon: {fileID: 21300000, guid: 2b73ad46baf448943bf1ec5bd1bdfc48, type: 3}
     iconFrame: []
     nameFrame: []
   - name: "\u5438\u53CE"

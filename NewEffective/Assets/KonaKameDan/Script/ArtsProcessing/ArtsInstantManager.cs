@@ -141,6 +141,9 @@ public class ArtsInstantManager : MonoBehaviour
                 artsStatus.myStatus = artsPivot.GetComponentInParent<Status>();
                 artsStatus.artsType = artsType;
 
+                var data = artsPivot.GetComponentInParent<ArtsRequiredData>();
+                artsStatus.modelSiz = data.modelSiz;
+
                 if (artsPivot.transform.root.gameObject.tag == "Player")
                 {
                     artsStatus.myObj = artsPivot.transform.root.gameObject;
