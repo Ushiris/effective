@@ -183,6 +183,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemyDefender
       objectReference: {fileID: 0}
+    - target: {fileID: 212912624150374271, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336178396310925907, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: muzzleAngleLimit.x
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336178396310925907, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: muzzleAngleLimit.y
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336178396310925907, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: muzzleAngleLimit.z
+      value: 360
+      objectReference: {fileID: 0}
     - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
       propertyPath: lvLearnArtsTable.Array.size
@@ -248,25 +268,10 @@ PrefabInstance:
       propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.data[1]
       value: 24
       objectReference: {fileID: 0}
-    - target: {fileID: 212912624150374271, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+    - target: {fileID: 7426519282851801227, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.887
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336178396310925907, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
-        type: 3}
-      propertyPath: muzzleAngleLimit.x
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336178396310925907, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
-        type: 3}
-      propertyPath: muzzleAngleLimit.y
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336178396310925907, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
-        type: 3}
-      propertyPath: muzzleAngleLimit.z
-      value: 360
+      propertyPath: m_LocalPosition.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8642206097694198832, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
