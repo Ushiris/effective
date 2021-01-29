@@ -67,9 +67,9 @@ public class FlyEnemyBrain : EnemyBrainBase
 
         if (IcarusZone >= 1)
         {
-            if (model.transform.localPosition.y <= transform.localPosition.y + 0.5) return;
+            if (model.transform.localPosition.y <= 0f) return;
 
-            model.transform.localPosition = new Vector3(model.transform.localPosition.x, model.transform.localPosition.y - 0.1f, model.transform.localPosition.z);
+            model.transform.localPosition = new Vector3(transform.localPosition.x, model.transform.localPosition.y - 0.1f, transform.localPosition.z);
         }
     }
 
