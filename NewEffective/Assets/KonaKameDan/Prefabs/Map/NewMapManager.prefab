@@ -80,7 +80,7 @@ MonoBehaviour:
     - item: {fileID: 437334634217711547, guid: 430ccc2816319894eb3b295004ae1456, type: 3}
       probability: 1
     enemyType: 070000000400000005000000
-    enemyBossType: 070000000400000005000000
+    enemyBossType: 05000000
   - map: {fileID: 7475921402673805999}
     terrainData: {fileID: 0}
     playerSpawnPos: {fileID: 7475921403800476033}
@@ -111,7 +111,7 @@ MonoBehaviour:
     - item: {fileID: 437334634217711547, guid: 430ccc2816319894eb3b295004ae1456, type: 3}
       probability: 0
     enemyType: 000000000200000009000000
-    enemyBossType: 000000000200000009000000
+    enemyBossType: 0000000009000000
   - map: {fileID: 4589095871232485162}
     terrainData: {fileID: 0}
     playerSpawnPos: {fileID: 4589095871232485162}
@@ -170,19 +170,19 @@ MonoBehaviour:
       Value: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad,
         type: 3}
     - Key: 2
-      Value: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad,
+      Value: {fileID: 1711314119595844921, guid: 843fc3e16ee1f234e94642e8b1180edd,
         type: 3}
     - Key: 4
-      Value: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad,
+      Value: {fileID: 6236005369619095350, guid: 5dfec96a54d47fc4fbb97f681961b005,
         type: 3}
     - Key: 5
-      Value: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad,
+      Value: {fileID: 152696771560520714, guid: 459322652aefbee40ae16afa19f14e62,
         type: 3}
     - Key: 7
-      Value: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad,
+      Value: {fileID: 5859870038806301277, guid: f637f3abfd6b1b342a2fe6774b0a1338,
         type: 3}
     - Key: 9
-      Value: {fileID: 4523503785744429535, guid: 0dd239411e049e042a60a27e6aad4cad,
+      Value: {fileID: 894049140209269789, guid: fae3429fe4c1f374585710d9607d7471,
         type: 3}
 --- !u!114 &1644984383
 MonoBehaviour:
