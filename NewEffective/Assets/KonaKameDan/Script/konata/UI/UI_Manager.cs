@@ -102,6 +102,9 @@ public class UI_Manager : MonoBehaviour
 
             //レティクルを非表示
             reticle.enabled = false;
+
+            Time.timeScale = 0.3f;
+            Time.fixedDeltaTime *= 0.3f;
         }
         else
         {
@@ -117,6 +120,9 @@ public class UI_Manager : MonoBehaviour
 
             //レティクルを表示
             reticle.enabled = true;
+
+            Time.timeScale = 1.0f;
+            Time.fixedDeltaTime /= 0.3f;
         }
     }
 
