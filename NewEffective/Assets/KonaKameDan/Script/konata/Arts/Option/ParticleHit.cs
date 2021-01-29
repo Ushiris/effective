@@ -15,6 +15,7 @@ public class ParticleHit : MonoBehaviour
 
     string hitObjTag;
     bool isTrigger;
+    ParticleSystem p;
 
     List<string> layerNameList = new List<string>()
     {
@@ -23,10 +24,6 @@ public class ParticleHit : MonoBehaviour
 
     private void Start()
     {
-        //ダメージUIを出すやつ
-        gameObject.AddComponent<DamageHit>();
-
-        ParticleSystem p;
         ParticleSystem.CollisionModule c;
 
         if (!isParticleCollision) p = null;
@@ -42,6 +39,9 @@ public class ParticleHit : MonoBehaviour
                 if (p != null) c.collidesWith = Layer("Enemy");
                 gameObject.layer = LayerMask.NameToLayer("PlayerArts");
                 hitObjTag = "Enemy";
+
+                //ダメージUIを出すやつ
+                gameObject.AddComponent<DamageHit>();
                 break;
 
             case ArtsStatus.ParticleType.Enemy:
@@ -58,6 +58,7 @@ public class ParticleHit : MonoBehaviour
     private void OnParticleCollision(GameObject obj)
     {
         if (!isParticleCollision) return;
+        if (p == null) return;
         if (obj.CompareTag(hitObjTag))
         {
             Damage(obj);
