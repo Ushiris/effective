@@ -27,6 +27,7 @@ public class NewMap : MonoBehaviour
         [HideInInspector] public Vector3 bossSpawnPoint;
         public List<GatyaGatyaInventory.ItemClass> effectItem = new List<GatyaGatyaInventory.ItemClass>();
         public NameDefinition.EffectName[] enemyType;
+        public NameDefinition.EffectName[] enemyBossType;
     }
 
     [SerializeField] List<Status> statusList = new List<Status>();
@@ -35,6 +36,7 @@ public class NewMap : MonoBehaviour
     [SerializeField] GameObject playerObj;
     [SerializeField] GameObject bossObj;
     [SerializeField] GameObject portalObj;
+    [SerializeField] EnemyList bossList;
 
     public delegate void StartUp();
     StartUp start;
@@ -99,11 +101,14 @@ public class NewMap : MonoBehaviour
         var statusListNum = GetRandomSelectFromType(mapType);
         var status = statusList[statusListNum];
         var map = status.map;
+        var ran = Random.Range(0, status.enemyBossType.Length);
+        var bossName = status.enemyBossType[ran];
 
         status.terrainData = MenuStage.GetTerrainData(mapType);//追加
         GetMapMaxHeight = status.mapSizH;
         GetEnemyType = status.enemyType;
         SetMapEventStartUp = () => { };
+        bossObj = bossList.GetGameObject(bossName);
 
         map.SetActive(true);
 
