@@ -20,7 +20,7 @@ public class TerritorySenses : MonoBehaviour
 
         bossUI = new GameObject().AddComponent<Canvas>();
         bossUI.renderMode = RenderMode.ScreenSpaceOverlay;
-        bossUI.sortingOrder = 10;
+        bossUI.sortingOrder = -100;
         var setting=bossUI.gameObject.AddComponent<CanvasScaler>();
         setting.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         setting.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
