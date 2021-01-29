@@ -28,14 +28,14 @@ public class ParticleHitZoneDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ダメージUIを出すやつ
-        gameObject.AddComponent<DamageHit>();
-
         switch (artsStatus.type)
         {
             case ArtsStatus.ParticleType.Player:
                 gameObject.layer = LayerMask.NameToLayer("PlayerArts");
                 hitObjTag = "Enemy";
+
+                //ダメージUIを出すやつ
+                gameObject.AddComponent<DamageHit>();
                 break;
 
             case ArtsStatus.ParticleType.Enemy:
