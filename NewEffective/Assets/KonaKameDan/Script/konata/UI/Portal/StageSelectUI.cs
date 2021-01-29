@@ -13,6 +13,8 @@ public class StageSelectUI : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] Material material;
 
+    public static UnityEvent OnBeginSelectWindow = new UnityEvent();
+
     float gage = kMaxGage;
     Image image;
     Vector2 defaultSiz;
@@ -67,6 +69,7 @@ public class StageSelectUI : MonoBehaviour
         gage = kMaxGage;
         Time.timeScale = 0;
         Cursor.visible = true;
+        OnBeginSelectWindow.Invoke();
     }
 
     //非表示時
