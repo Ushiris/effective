@@ -26,7 +26,7 @@ public class TerritorySenses : MonoBehaviour
         setting.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
         setting.referenceResolution = new Vector3(720, 1280);
         setting.referencePixelsPerUnit = 100;
-        BossName = Instantiate(Resources.Load("UI/BossName"))as GameObject;
+        BossName = Instantiate(Resources.Load("UI/BossName")) as GameObject;
 
         BossName.GetComponent<RectTransform>().SetParent(bossUI.GetComponent<RectTransform>());
         BossName.transform.localPosition = new Vector3(-50, 250);
@@ -43,6 +43,7 @@ public class TerritorySenses : MonoBehaviour
         collider.isTrigger = true;
 
         StageSelectUI.OnAfterPortalChangeScene.AddListener(() => bossCount = 0);
+        StageSelectUI.OnBeginSelectWindow.AddListener(() => bossUI.worldCamera.gameObject.SetActive(false));
     }
 
     private void OnTriggerEnter(Collider other)
