@@ -37,7 +37,8 @@ public class TerritorySenses : MonoBehaviour
         slider = Instantiate(enemy.slider);
         BossName.GetComponent<BossNameUI>().Generate(slider, bossUI);
         BossName.SetActive(false);
-        enemy.life.AddDamageFunc((damege) => slider.value -= damege);
+        var UiSlider = BossName.GetComponentInChildren<Slider>();
+        enemy.life.AddDamageFunc((damege) => UiSlider.value -= damege);
         enemy.life.AddLastword(() => gameObject.SetActive(false));
 
 
@@ -85,7 +86,8 @@ public class TerritorySenses : MonoBehaviour
 
     public void SetName(string new_name)
     {
-        if (isStartFinished) BossName.GetComponent<BossNameUI>().SetName(new_name);
-        else OnStartFinish.AddListener(() => BossName.GetComponent<BossNameUI>().SetName(new_name));
+        string trueName = new_name.Replace("(clone)", "");
+        if (isStartFinished) BossName.GetComponent<BossNameUI>().SetName(trueName);
+        else OnStartFinish.AddListener(() => BossName.GetComponent<BossNameUI>().SetName(trueName));
     }
 }
