@@ -13,6 +13,8 @@ public class TerritorySenses : MonoBehaviour
         OnTerrtoryEnter = new UnityEvent(),
         OnTerrtoryExit = new UnityEvent();
     static int bossCount = 0;
+    UnityEvent OnStartFinish = new UnityEvent();
+    bool isStartFinished = false;
 
     private void Start()
     {
@@ -47,6 +49,9 @@ public class TerritorySenses : MonoBehaviour
 
         StageSelectUI.OnAfterPortalChangeScene.AddListener(() => bossCount = 0);
         StageSelectUI.OnBeginSelectWindow.AddListener(() => bossUI.worldCamera.gameObject.SetActive(false));
+
+        isStartFinished = true;
+        OnStartFinish.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -80,6 +85,7 @@ public class TerritorySenses : MonoBehaviour
 
     public void SetName(string new_name)
     {
-        BossName.GetComponent<BossNameUI>().SetName(new_name);
+        if (isStartFinished) BossName.GetComponent<BossNameUI>().SetName(new_name);
+        else OnStartFinish.AddListener(() => BossName.GetComponent<BossNameUI>().SetName(new_name));
     }
 }
