@@ -148,6 +148,11 @@ PrefabInstance:
       propertyPath: effectDropCount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4300200132989286388, guid: 35198665acd1a5b40aeea37bad35b6c0,
+        type: 3}
+      propertyPath: enemyName
+      value: Sky fish emperor
+      objectReference: {fileID: 0}
     - target: {fileID: 6560489389714596272, guid: 35198665acd1a5b40aeea37bad35b6c0,
         type: 3}
       propertyPath: lvLearnArtsTable.Array.data[1].lv

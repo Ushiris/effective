@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2388c1c9c8d51b0459bad0ae6036749c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changePoint: {fileID: 0}
+  changePoint: {fileID: 2929279566909870656}
   material_index: 0
 --- !u!114 &832823939248994367
 MonoBehaviour:
@@ -284,6 +284,12 @@ GameObject:
 --- !u!95 &2929279566905666690 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: b8a266b11a470564f89432ade0540f20,
+    type: 3}
+  m_PrefabInstance: {fileID: 2929279566912952802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2929279566909870656 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700002, guid: b8a266b11a470564f89432ade0540f20,
     type: 3}
   m_PrefabInstance: {fileID: 2929279566912952802}
   m_PrefabAsset: {fileID: 0}

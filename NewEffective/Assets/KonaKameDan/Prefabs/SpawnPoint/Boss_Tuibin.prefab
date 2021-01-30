@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: effectDropCount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5381945313869897600, guid: 7a282266d722bab4eb62fe516aabc5e1,
+        type: 3}
+      propertyPath: enemyName
+      value: Elder ghost
+      objectReference: {fileID: 0}
     - target: {fileID: 8870526936396783488, guid: 7a282266d722bab4eb62fe516aabc5e1,
         type: 3}
       propertyPath: m_AnchorMax.x
