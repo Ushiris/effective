@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 {
     [HideInInspector] public Life life;
     [HideInInspector] public Slider slider;
+    [SerializeField] string enemyName = "";
     [SerializeField] Status status;
     [SerializeField] int effectDropCount = 1;
     public AimBot muzzle;
@@ -43,6 +44,8 @@ public class Enemy : MonoBehaviour
         slider.maxValue = life.MaxHP;
         slider.value = life.MaxHP;
 
+        if (enemyName == "") enemyName = gameObject.name;
+
         if (isBoss)
         {
             slider.GetComponentInParent<Canvas>().transform.localScale = big;
@@ -50,7 +53,7 @@ public class Enemy : MonoBehaviour
             Territory.tag = "BossZone";
             Territory.transform.parent = gameObject.transform;
             var sence = Territory.AddComponent<TerritorySenses>();
-            sence.SetName(gameObject.name);
+            sence.SetName(enemyName);
         }
 
         //Lifeの初期化

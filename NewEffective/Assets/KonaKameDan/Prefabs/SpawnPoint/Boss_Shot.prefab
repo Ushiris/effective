@@ -173,6 +173,11 @@ PrefabInstance:
       propertyPath: effectDropCount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8242275777051331650, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: enemyName
+      value: Ether plant
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf, type: 3}
 --- !u!1 &3405297231844150360 stripped
