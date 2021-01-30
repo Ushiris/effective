@@ -77,4 +77,9 @@ public class TerritorySenses : MonoBehaviour
     {
         bossCount = 0;
     }
+
+    public void SetName(string new_name)
+    {
+        BossName.GetComponent<BossNameUI>().SetName(new_name);
+    }
 }
