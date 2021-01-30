@@ -49,7 +49,8 @@ public class Enemy : MonoBehaviour
             GameObject Territory = new GameObject();
             Territory.tag = "BossZone";
             Territory.transform.parent = gameObject.transform;
-            Territory.AddComponent<TerritorySenses>();
+            var sence = Territory.AddComponent<TerritorySenses>();
+            sence.SetName(gameObject.name);
         }
 
         //Lifeの初期化

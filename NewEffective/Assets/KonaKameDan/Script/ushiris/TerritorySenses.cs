@@ -35,6 +35,9 @@ public class TerritorySenses : MonoBehaviour
         slider = Instantiate(enemy.slider);
         BossName.GetComponent<BossNameUI>().Generate(slider, bossUI);
         BossName.SetActive(false);
+        enemy.life.AddDamageFunc((damege) => slider.value -= damege);
+        enemy.life.AddLastword(() => gameObject.SetActive(false));
+
 
         SphereCollider collider= gameObject.AddComponent<SphereCollider>();
         collider.transform.parent = gameObject.transform;
@@ -73,5 +76,10 @@ public class TerritorySenses : MonoBehaviour
     private void OnDestroy()
     {
         bossCount = 0;
+    }
+
+    public void SetName(string new_name)
+    {
+        BossName.GetComponent<BossNameUI>().SetName(new_name);
     }
 }
