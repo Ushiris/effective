@@ -28,7 +28,7 @@ public class Id02_Beam : MonoBehaviour
         shotCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Shot);
 
         //ダメージの計算
-        damage = Arts_Process.GetDamage(defaultDamage, plusDamage, shotCount);
+        damage = defaultDamage + (plusDamage * (float)shotCount);
 
         //生成
         var beam = Instantiate(beamParticleObj, transform);
@@ -39,6 +39,7 @@ public class Id02_Beam : MonoBehaviour
 
         //ダメージ
         var hit = Arts_Process.SetParticleZoneDamageProcess(beamCoreObj.gameObject);
+        Debug.Log("name: " + artsStatus.myObj.name + "damage: " + damage);
         //ダメージ処理
         Arts_Process.ZoneDamage(hit, artsStatus, damage, true);
 

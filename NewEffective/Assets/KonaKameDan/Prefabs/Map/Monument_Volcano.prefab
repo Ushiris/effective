@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5241103675287952588
 Transform:
@@ -47,6 +47,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5241103675287952588}
     m_Modifications:
+    - target: {fileID: 2444247737747107101, guid: 1e2fe380dd477a0479dd33f80e24218d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6424790053204444056, guid: 1e2fe380dd477a0479dd33f80e24218d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -122,6 +127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monument_Finger (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6496644571387947818, guid: 1e2fe380dd477a0479dd33f80e24218d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2fe380dd477a0479dd33f80e24218d, type: 3}
 --- !u!4 &8925069044746097396 stripped
@@ -137,6 +147,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5241103675287952588}
     m_Modifications:
+    - target: {fileID: 2444247737747107101, guid: 1e2fe380dd477a0479dd33f80e24218d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6424790053204444056, guid: 1e2fe380dd477a0479dd33f80e24218d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -212,6 +227,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monument_Finger (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6496644571387947818, guid: 1e2fe380dd477a0479dd33f80e24218d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2fe380dd477a0479dd33f80e24218d, type: 3}
 --- !u!4 &8824076810951547133 stripped
@@ -227,6 +247,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5241103675287952588}
     m_Modifications:
+    - target: {fileID: 2545532426839962400, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4364061219096376683, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -302,6 +327,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monument_Monolis (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9117275791977519609, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3, type: 3}
 --- !u!4 &1733885810030984994 stripped
@@ -317,6 +347,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5241103675287952588}
     m_Modifications:
+    - target: {fileID: 2444247737747107101, guid: 1e2fe380dd477a0479dd33f80e24218d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6424790053204444056, guid: 1e2fe380dd477a0479dd33f80e24218d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -392,6 +427,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monument_Finger (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6496644571387947818, guid: 1e2fe380dd477a0479dd33f80e24218d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2fe380dd477a0479dd33f80e24218d, type: 3}
 --- !u!4 &9160988452536638877 stripped
@@ -407,6 +447,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5241103675287952588}
     m_Modifications:
+    - target: {fileID: 2444247737747107101, guid: 1e2fe380dd477a0479dd33f80e24218d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6424790053204444056, guid: 1e2fe380dd477a0479dd33f80e24218d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -482,6 +527,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monument_Finger
       objectReference: {fileID: 0}
+    - target: {fileID: 6496644571387947818, guid: 1e2fe380dd477a0479dd33f80e24218d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2fe380dd477a0479dd33f80e24218d, type: 3}
 --- !u!4 &7185620953254386224 stripped
@@ -497,10 +547,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5241103675287952588}
     m_Modifications:
+    - target: {fileID: 5550459732285144864, guid: 593c9849cecd7e34fb96b28d92f2f6d6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550459732285144872, guid: 593c9849cecd7e34fb96b28d92f2f6d6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550459732285144874, guid: 593c9849cecd7e34fb96b28d92f2f6d6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550459732285144876, guid: 593c9849cecd7e34fb96b28d92f2f6d6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550459732285144878, guid: 593c9849cecd7e34fb96b28d92f2f6d6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7407087239693509417, guid: 593c9849cecd7e34fb96b28d92f2f6d6,
         type: 3}
       propertyPath: m_Name
       value: Monument_Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407087239693509417, guid: 593c9849cecd7e34fb96b28d92f2f6d6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7691246187486713230, guid: 593c9849cecd7e34fb96b28d92f2f6d6,
         type: 3}
@@ -592,6 +672,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monument_NoSymbol
       objectReference: {fileID: 0}
+    - target: {fileID: 935428761504541503, guid: d587360d656a5c341af7041497d2b526,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6311068689902517866, guid: d587360d656a5c341af7041497d2b526,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -662,6 +747,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5.337287
       objectReference: {fileID: 0}
+    - target: {fileID: 8115676945188325296, guid: d587360d656a5c341af7041497d2b526,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115676945188325298, guid: d587360d656a5c341af7041497d2b526,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115676945188325300, guid: d587360d656a5c341af7041497d2b526,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d587360d656a5c341af7041497d2b526, type: 3}
 --- !u!4 &7675089499574796555 stripped
@@ -677,6 +777,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5241103675287952588}
     m_Modifications:
+    - target: {fileID: 2545532426839962400, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4364061219096376683, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -752,6 +857,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monument_Monolis
       objectReference: {fileID: 0}
+    - target: {fileID: 9117275791977519609, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3, type: 3}
 --- !u!4 &8746400046184148417 stripped
@@ -767,6 +877,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5241103675287952588}
     m_Modifications:
+    - target: {fileID: 2444247737747107101, guid: 1e2fe380dd477a0479dd33f80e24218d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6424790053204444056, guid: 1e2fe380dd477a0479dd33f80e24218d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -842,6 +957,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monument_Finger (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6496644571387947818, guid: 1e2fe380dd477a0479dd33f80e24218d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2fe380dd477a0479dd33f80e24218d, type: 3}
 --- !u!4 &1275806661853859743 stripped
@@ -857,6 +977,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5241103675287952588}
     m_Modifications:
+    - target: {fileID: 2545532426839962400, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4364061219096376683, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -916,6 +1041,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Monument_Monolis (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117275791977519609, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b357459e1c7e3d4cb9e73b6b74f5cc3, type: 3}

@@ -16,7 +16,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
     ArtsStatus artsStatus;
 
     int homingCount;
-
+    float h;
     const int count = 3;
 
     SE_Manager.Se3d se;
@@ -30,6 +30,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
         var objs = ArtsActiveObj.Id25_UnbreakableShield;
         Arts_Process.OldArtsDestroy(objs, artsStatus.myObj);
 
+        h = transform.position.y;
         transform.parent = null;
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
@@ -41,7 +42,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
 
         //円状の座標取得
         radius *= artsStatus.modelSiz;
-        var pos = Arts_Process.GetCirclePutPos(count, radius, 360);
+        var pos = Arts_Process.GetCirclePutPos(count, radius, 360, 0);
 
         GameObject[] shields = new GameObject[count];
         for (int i = 0; i < count; i++)
@@ -71,7 +72,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
     {
         //回転
         if (artsStatus.myObj.activeSelf == false) Lost();
-        transform.position = artsStatus.myObj.transform.position;
+        transform.position = Arts_Process.FixHeightChaseCharacter(artsStatus, h);
         Arts_Process.ObjRoll(gameObject, speed);
     }
 

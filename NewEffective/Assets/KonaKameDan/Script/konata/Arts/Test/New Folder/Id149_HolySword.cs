@@ -21,7 +21,7 @@ public class Id149_HolySword : MonoBehaviour
         transform.position = myPos;
 
         //円状の座標取得
-        var pos = Arts_Process.GetCirclePutPos(maxCont, radius, 360);
+        var pos = Arts_Process.GetCirclePutPos(maxCont, radius, 360, 0);
 
         GameObject[] holySwordArr = new GameObject[maxCont];
         for(int i = 0; i < maxCont; i++)

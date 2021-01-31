@@ -22,7 +22,7 @@ public class Id125_SwordiDance : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
         //円状の座標取得
-        var pos = Arts_Process.GetCirclePutPos(count, radius, 360);
+        var pos = Arts_Process.GetCirclePutPos(count, radius, 360, 0);
 
         GameObject[] swords = new GameObject[count];
         for (int i = 0; i < count; i++)

@@ -30,11 +30,13 @@ public class Id024_Diffusion : MonoBehaviour
     int barrierCount;
     int spreadCount;
     float damage;
+    float h;
 
     // Start is called before the first frame update
     void Start()
     {
         artsStatus = GetComponent<ArtsStatus>();
+        h = transform.position.y;
         Arts_Process.RollReset(gameObject);
 
         //エフェクトの所持数を代入
@@ -49,7 +51,7 @@ public class Id024_Diffusion : MonoBehaviour
 
         //円状の座標取得
         radius *= artsStatus.modelSiz;
-        var pos = Arts_Process.GetCirclePutPos(count, radius, 360);
+        var pos = Arts_Process.GetCirclePutPos(count, radius, 360, 0);
 
         GameObject[] beam = new GameObject[count];
         for (int i = 0; i < count; i++)
@@ -87,9 +89,9 @@ public class Id024_Diffusion : MonoBehaviour
         }
         else
         {
-            transform.position = PlayerManager.GetManager.GetPlObj.transform.position;
+            transform.position = Arts_Process.FixHeightChaseCharacter(artsStatus, h);
             transform.rotation =
-                Quaternion.Euler(0, 1, 0) * PlayerManager.GetManager.GetPlObj.transform.rotation;
+                Quaternion.Euler(0, 1, 0) * artsStatus.myObj.transform.rotation;
         }
     }
 

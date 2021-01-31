@@ -240,6 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: {fileID: 0}
   slider: {fileID: 0}
+  enemyName: 
   status: {fileID: 6225329085623931612}
   effectDropCount: 1
   muzzle: {fileID: 1336178396310925907}
@@ -356,7 +357,7 @@ MonoBehaviour:
   defaultStatus:
   - name: DROP_EXP
     enumName: 0
-    f: 0
+    f: 10
   - name: HP
     enumName: 1
     f: 10000

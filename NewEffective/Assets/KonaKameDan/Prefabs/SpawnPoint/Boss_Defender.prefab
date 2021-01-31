@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: lvLearnArtsTable.Array.data[2].lv
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3836100710737542318, guid: e789ddae41a982c4e86e7f44e5b42f71,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[0].artsArr.Array.data[0]
+      value: 025
+      objectReference: {fileID: 0}
     - target: {fileID: 6168376978117487338, guid: e789ddae41a982c4e86e7f44e5b42f71,
         type: 3}
       propertyPath: isBoss

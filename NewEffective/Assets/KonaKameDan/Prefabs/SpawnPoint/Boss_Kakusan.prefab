@@ -153,6 +153,11 @@ PrefabInstance:
       propertyPath: defaultStatus.Array.data[2].f
       value: 8000
       objectReference: {fileID: 0}
+    - target: {fileID: 8149118218522839651, guid: 0aa83efa749da5947af5dc8c63c21214,
+        type: 3}
+      propertyPath: defaultStatus.Array.data[0].f
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8398024161728380984, guid: 0aa83efa749da5947af5dc8c63c21214,
         type: 3}
       propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.size

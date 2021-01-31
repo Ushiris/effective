@@ -307,7 +307,7 @@ PrefabInstance:
     - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
       propertyPath: lvLearnArtsTable.Array.data[0].artsArr.Array.data[0]
-      value: 025
+      value: 024
       objectReference: {fileID: 0}
     - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}

@@ -77,6 +77,20 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// キャラクターの位置を持っ来る
+    /// 高さを修正したもの
+    /// </summary>
+    /// <param name="artsStatus"></param>
+    /// <param name="h"></param>
+    /// <returns></returns>
+    public static Vector3 FixHeightChaseCharacter(ArtsStatus artsStatus, float h)
+    {
+        var pos = artsStatus.myObj.transform.position;
+        pos.y = h;
+        return pos;
+    }
+
+    /// <summary>
     /// Artsを放った人が同じであればtrueを返す
     /// 違う場合listに格納する
     /// </summary>
@@ -170,7 +184,15 @@ public class Arts_Process : MonoBehaviour
     public static int GetEffectCount(ArtsStatus artsStatus, NameDefinition.EffectName name)
     {
         var ec = artsStatus.myEffectCount;
-        return ec.effectCount[name] - 1;
+
+        if (artsStatus.type == ArtsStatus.ParticleType.Player)
+        {
+            return ec.effectCount[name] - 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     /// <summary>
@@ -564,7 +586,7 @@ public class Arts_Process : MonoBehaviour
     /// <param name="radius">半径</param>
     /// <param name="angle">角度</param>
     /// <returns></returns>
-    public static List<Vector3> GetCirclePutPos(int count,float radius,float angle)
+    public static List<Vector3> GetCirclePutPos(int count, float radius, float angle, float h)
     {
         List<Vector3> pos = new List<Vector3>();
         for (int i = 0; i < count; i++)
@@ -572,7 +594,7 @@ public class Arts_Process : MonoBehaviour
 
             float r = (angle / count) * i;
             r *= Mathf.Deg2Rad;
-            pos.Add(new Vector3(radius * Mathf.Cos(r), 0f, radius * Mathf.Sin(r)));
+            pos.Add(new Vector3(radius * Mathf.Cos(r), h, radius * Mathf.Sin(r)));
         }
         return new List<Vector3>(pos);
     }

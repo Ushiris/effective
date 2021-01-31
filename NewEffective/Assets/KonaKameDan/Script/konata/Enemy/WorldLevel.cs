@@ -9,7 +9,7 @@ public class WorldLevel : MonoBehaviour
 {
     [SerializeField] float levelUpTimeScale = 60f;
 
-    float tmpLevelUpTimeScale;
+    static float tmpLevelUpTimeScale;
 
     /// <summary> 
     /// 世界のレベルを返す 
@@ -19,25 +19,28 @@ public class WorldLevel : MonoBehaviour
     // Start is called before the first frame update 
     void Start()
     {
-        if (GetWorldLevel == 0 || MainGameManager.GetArtsReset) WorldLevelReset();
-        tmpLevelUpTimeScale = levelUpTimeScale;
+        if (GetWorldLevel == 0 || MainGameManager.GetArtsReset)
+        {
+            WorldLevelReset();
+            tmpLevelUpTimeScale = levelUpTimeScale;
+        }
     }
 
     // Update is called once per frame 
     void Update()
     {
         //レベルアップ 
-        if (levelUpTimeScale < WorldTime.GetWorldTime)
+        if (tmpLevelUpTimeScale < WorldTime.GetWorldTime)
         {
             GetWorldLevel++;
-            levelUpTimeScale += LevelUpTimeScaleConversion();
+            tmpLevelUpTimeScale += LevelUpTimeScaleConversion();
         }
     }
 
     //次レベルアップに必要な時間を足す 
     float LevelUpTimeScaleConversion()
     {
-        return tmpLevelUpTimeScale;
+        return levelUpTimeScale;
     }
 
     /// <summary> 

@@ -79,7 +79,8 @@ public class Status : MonoBehaviour
 
     void LevelUp_EXP()
     {
-        if (EXP > expCurve.Evaluate(Lv))
+        var e = expCurve.Evaluate(Lv) * 100;
+        if (EXP > e)
         {
             EXP = 0;
             Lv++;
@@ -96,7 +97,7 @@ public class Status : MonoBehaviour
             foreach (var def in defaultStatus)
             {
                 status[def.enumName] = def.f * fluctuation + statusEffect[def.enumName];
-                //DebugLogger.Log(gameObject.name+" "+def.name + " " + status[def.enumName]);
+                DebugLogger.Log(gameObject.name+" "+def.name + " " + status[def.enumName]);
             }
             tmpLv = Lv;
         }
