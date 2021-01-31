@@ -58,7 +58,7 @@ public class ParticleHit : MonoBehaviour
     private void OnParticleCollision(GameObject obj)
     {
         if (!isParticleCollision) return;
-        if (p == null) return;
+        if (obj.tag == null) return;
         if (obj.CompareTag(hitObjTag))
         {
             Damage(obj);
