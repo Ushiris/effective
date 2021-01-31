@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewMapRandom : MonoBehaviour
+public class ArtsRequiredData : MonoBehaviour
 {
-   
+    public float modelSiz = 1;
 }

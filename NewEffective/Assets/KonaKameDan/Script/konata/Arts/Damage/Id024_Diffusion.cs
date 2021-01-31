@@ -48,6 +48,7 @@ public class Id024_Diffusion : MonoBehaviour
         damage = Arts_Process.GetDamage(defaultDamage, plusDamage, shotCount);
 
         //円状の座標取得
+        radius *= artsStatus.modelSiz;
         var pos = Arts_Process.GetCirclePutPos(count, radius, 360);
 
         GameObject[] beam = new GameObject[count];

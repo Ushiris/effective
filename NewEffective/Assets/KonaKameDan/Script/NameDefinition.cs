@@ -71,11 +71,11 @@ public class NameDefinition : MonoBehaviour
                 return EffectColor.Red;
 
             case EffectName.Spread:
-            case EffectName.Homing:
             case EffectName.Fly:
             case EffectName.Slow:
                 return EffectColor.Blue;
 
+            case EffectName.Homing:
             case EffectName.Barrier:
             case EffectName.Trap:
             case EffectName.Drain:

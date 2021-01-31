@@ -61,8 +61,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c8cf6bff403f94a8f6121858691b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 10
   myStatus: {fileID: 0}
   myEffectCount: {fileID: 0}
-  artsType: 1
+  artsType: 10
   myObj: {fileID: 0}
+  modelSiz: NaN
