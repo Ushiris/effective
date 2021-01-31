@@ -104,6 +104,7 @@ public class EnemyBrainBase : MonoBehaviour
         {
             state.move = MoveState.Stay;
         }
+        LookAtXZ(navMesh.nextPosition);
     }
 
     private void LateUpdate()
@@ -152,6 +153,12 @@ public class EnemyBrainBase : MonoBehaviour
     protected void LookAtPlayerXZ()
     {
         transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+        enemyData.Aim();
+    }
+
+    protected void LookAtXZ(Vector3 target)
+    {
+        transform.LookAt(new Vector3(target.x, transform.position.y, target.z));
         enemyData.Aim();
     }
 
@@ -237,7 +244,7 @@ public class EnemyBrainBase : MonoBehaviour
 
             case FindAItype.Commander:
                 IsCommand = true;
-                Invoke("Influence", 0.2f);
+                Invoke(nameof(Influence), 0.2f);
                 break;
 
             default:
