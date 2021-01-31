@@ -39,8 +39,7 @@ public class TerritorySenses : MonoBehaviour
         BossName.SetActive(false);
         var UiSlider = BossName.GetComponentInChildren<Slider>();
         enemy.life.AddDamageFunc((damege) => UiSlider.value -= damege);
-        enemy.life.AddLastword(() => gameObject.SetActive(false));
-
+        enemy.life.AddLastword(() => { bossCount = 0; OnTerrtoryExit.Invoke(); gameObject.SetActive(false); });
 
         SphereCollider collider= gameObject.AddComponent<SphereCollider>();
         collider.transform.parent = gameObject.transform;

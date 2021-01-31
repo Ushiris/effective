@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class PlayerMotion : MonoBehaviour
 {
-    public enum MoveVector : int
-    {
-        Forward = 0, Back = 1, Right = 2, Left = 3, stop = 4
-    }
-
-    public struct PlayerMoveInfo
+    public class PlayerMoveInfo
     {
         public bool
-            IsDefault,
-            IsRunning;
-        public MoveVector
-            moveTo;
+            IsDefault = true,
+            IsRunning = false;
+        public bool[]
+            InputVector
+        { get; private set; } = new bool[4] { false, false, false, false };
+
+        public void SetInput(bool[] input)
+        {
+            InputVector = input;
+        }
     }
 
     Animator animator;
-    PlayerMoveInfo info;
+    PlayerMoveInfo info = new PlayerMoveInfo();
 
     /// <summary>
     /// プレイヤーの走るモーションを起動
@@ -37,6 +38,7 @@ public class PlayerMotion : MonoBehaviour
 
     private void Update()
     {
+        bool[] input = new bool[4] { false, false, false, false };
         if (Input.GetAxis("Vertical") != 0 ||
             Input.GetAxis("Horizontal") != 0 ||
             OnPlayerRunningMotion)
@@ -46,31 +48,67 @@ public class PlayerMotion : MonoBehaviour
             animator.SetBool("IsDefault", false);
             animator.SetBool("IsRunning", true);
 
-            if (Input.GetAxis("Vertical") > 0f)
-            {
-                info.moveTo = MoveVector.Forward;
-            }
-            else if (Input.GetAxis("Vertical") < 0f)
-            {
-                info.moveTo = MoveVector.Back;
-            }
-            else if (Input.GetAxis("Horizontal") > 0f)
-            {
-                info.moveTo = MoveVector.Right;
-            }
-            else if (Input.GetAxis("Horizontal") < 0f)
-            {
-                info.moveTo = MoveVector.Left;
-            }
+            input[0] = Input.GetAxis("Vertical") > 0f;//前
+            input[1] = Input.GetAxis("Vertical") < 0f;//後ろ
+            input[2] = Input.GetAxis("Horizontal") > 0f;//右
+            input[3] = Input.GetAxis("Horizontal") < 0f;//左
+            info.SetInput(input);
         }
         else
         {
             info.IsDefault = true;
             info.IsRunning = false;
-            info.moveTo = MoveVector.stop;
+            info.SetInput(input);
             animator.SetBool("IsDefault", true);
             animator.SetBool("IsRunning", false);
         }
-        animator.SetInteger("MoveVector", (int)info.moveTo);
+        animator.SetInteger("MoveVector", MoveVector(info.InputVector));
+        DebugLogger.Log(MoveVector(info.InputVector));
+    }
+
+    //前=0で時計回りに8方位。8は停止。
+    int MoveVector(bool[] input)
+    {
+        if (input[0] && input[1])
+        {
+            input[0] = input[1] = false;
+        }
+        if (input[2] && input[3])
+        {
+            input[2] = input[3] = false;
+        }
+
+        //前進
+        if (input[0])
+        {
+            if (input[2])
+            {
+                return 1;
+            }
+            else if (input[3])
+            {
+                return 7;
+            }
+
+            return 0;
+        }
+        //後退
+        else if (input[1])
+        {
+            if (input[2])
+            {
+                return 3;
+            }
+            else if (input[3])
+            {
+                return 5;
+            }
+
+            return 4;
+        }
+        else if (input[2]) return 2;
+        else if (input[3]) return 6;
+
+        return 8;
     }
 }
