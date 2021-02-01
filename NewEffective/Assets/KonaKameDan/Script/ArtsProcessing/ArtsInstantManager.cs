@@ -140,6 +140,7 @@ public class ArtsInstantManager : MonoBehaviour
                 artsStatus.myEffectCount = artsPivot.GetComponentInParent<MyEffectCount>();
                 artsStatus.myStatus = artsPivot.GetComponentInParent<Status>();
                 artsStatus.artsType = artsType;
+                artsStatus.artsPivot = artsPivot.transform;
 
                 var data = artsPivot.GetComponentInParent<ArtsRequiredData>();
                 artsStatus.modelSiz = data.modelSiz;

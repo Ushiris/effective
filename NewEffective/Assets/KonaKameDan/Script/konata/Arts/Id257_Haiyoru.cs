@@ -99,7 +99,7 @@ public class Id257_Haiyoru : MonoBehaviour
         if (target == null)
         {
             //回す
-            transform.position = artsStatus.myObj.transform.position;
+            transform.position = Arts_Process.GetCharacterChasePos(artsStatus);
             Arts_Process.ObjRoll(gameObject, rollSpeed);
 
             oneShotSE_second = true;

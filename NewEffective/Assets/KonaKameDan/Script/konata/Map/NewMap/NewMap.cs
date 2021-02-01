@@ -127,16 +127,12 @@ public class NewMap : MonoBehaviour
         //Mapに設定されているエフェクトをセットする
         foreach (var item in status.effectItem)
         {
-            if (GetEffect.Count != 0)
+            if (item.probability != 0)
             {
-                if (!GetEffect.Contains(item.item))
+                for (int i = 0; i < item.probability; i++)
                 {
                     GetEffect.Add(item.item);
                 }
-            }
-            else
-            {
-                GetEffect.Add(item.item);
             }
         }
 
