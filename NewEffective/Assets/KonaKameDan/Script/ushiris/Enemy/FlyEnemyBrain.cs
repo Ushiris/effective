@@ -66,8 +66,9 @@ public class FlyEnemyBrain : EnemyBrainBase
         }
     }
 
-    private void LateUpdate()
+    private new void LateUpdate()
     {
+        base.LateUpdate();
         model.transform.position = new Vector3(transform.position.x, model.transform.position.y + waver.GetDeltaHeight(), transform.position.z);
         if (state.move == MoveState.Confuse)
         {
