@@ -578,6 +578,18 @@ public class Arts_Process : MonoBehaviour
     }
 
     /// <summary>
+    /// キャラクターに追尾させるためのやつ
+    /// </summary>
+    /// <param name="artsStatus"></param>
+    /// <returns></returns>
+    public static Vector3 GetCharacterChasePos(ArtsStatus artsStatus)
+    {
+        var pos = artsStatus.myObj.transform.position;
+        pos.y = artsStatus.artsPivot.position.y;
+        return pos;
+    }
+
+    /// <summary>
     /// 盾のレイヤーを決めるやつ(EnemyかPlayerか)
     /// </summary>
     /// <param name="artsStatus"></param>

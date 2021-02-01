@@ -68,4 +68,5 @@ MonoBehaviour:
   myEffectCount: {fileID: 0}
   artsType: 1
   myObj: {fileID: 0}
+  artsPivot: {fileID: 0}
   modelSiz: 0

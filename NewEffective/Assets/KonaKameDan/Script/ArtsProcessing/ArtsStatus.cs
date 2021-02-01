@@ -46,6 +46,11 @@ public class ArtsStatus : MonoBehaviour
     [HideInInspector] public GameObject myObj;
 
     /// <summary>
+    /// Artsを召喚する位置
+    /// </summary>
+    [HideInInspector] public Transform artsPivot;
+
+    /// <summary>
     /// Artsのサイズ変更用
     /// </summary>
     [HideInInspector] public float modelSiz;

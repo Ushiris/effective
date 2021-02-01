@@ -71,7 +71,7 @@ public class Id25_UnbreakableShield : MonoBehaviour
     {
         //回転
         if (artsStatus.myObj.activeSelf == false) Lost();
-        transform.position = artsStatus.myObj.transform.position;
+        transform.position = Arts_Process.GetCharacterChasePos(artsStatus);
         Arts_Process.ObjRoll(gameObject, speed);
     }
 
