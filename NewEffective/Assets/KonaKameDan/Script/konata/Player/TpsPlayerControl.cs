@@ -45,19 +45,13 @@ public class TpsPlayerControl : MonoBehaviour
 
         desiredPosition = cameraDesirePos.transform.position;
         bool isBlock = WallCheck();
-        if (!isBlock)
+        if (desiredPosition.y <= head.transform.position.y - distance + 0.1f && mouseDelta.y >= 0)
         {
-            float height = NewMap.GetGroundPosRay(desiredPosition);
-            //t.terrainData.GetInterpolatedHeight(desiredPosition.x / t.terrainData.size.x, desiredPosition.z / t.terrainData.size.z);
-            if (desiredPosition.y < height && mouseDelta.y >= 0)
-            {
-                desiredPosition.y = height + 0.02f;
-                mouseDelta.y = 0;
-            }
-            else if (desiredPosition.y >= head.transform.position.y + distance - 0.1f && mouseDelta.y <= 0)
-            {
-                mouseDelta.y = 0;
-            }
+            mouseDelta.y = 0;
+        }
+        if (desiredPosition.y >= head.transform.position.y + distance - 0.1f && mouseDelta.y <= 0)
+        {
+            mouseDelta.y = 0;
         }
         cameraPivot.transform.Rotate(-mouseDelta.y, 0, 0);
 
@@ -70,7 +64,7 @@ public class TpsPlayerControl : MonoBehaviour
         targetPosition = head.transform.position;
         if (Physics.Raycast(targetPosition, desiredPosition - targetPosition, out wallHit, Vector3.Distance(targetPosition, desiredPosition), wallLayers, QueryTriggerInteraction.Ignore))
         {
-            wallHitPosition = wallHit.point;
+            wallHitPosition = wallHit.point - (desiredPosition - wallHit.point) * 0.2f;
             return true;
         }
         else
