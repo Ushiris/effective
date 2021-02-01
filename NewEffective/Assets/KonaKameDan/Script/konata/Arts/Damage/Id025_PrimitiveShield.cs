@@ -66,7 +66,8 @@ public class Id025_PrimitiveShield : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(force * (force * rb.transform.forward - rb.velocity),ForceMode.Impulse);
+        
+        rb.velocity = force/2.5f*Time.timeScale * rb.transform.forward;
     }
 
     void Lost()
