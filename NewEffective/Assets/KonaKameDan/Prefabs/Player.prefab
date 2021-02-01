@@ -843,7 +843,7 @@ MonoBehaviour:
     f: 0
   - name: HP
     enumName: 1
-    f: 15000
+    f: 150000
   - name: STR
     enumName: 2
     f: 1500
@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectBag: {fileID: 5941129494631516268}
-  defaultEffect: 0000000004000000
+  defaultEffect: 000000000200000004000000050000000700000009000000
 --- !u!114 &8302569552313217994
 MonoBehaviour:
   m_ObjectHideFlags: 0
