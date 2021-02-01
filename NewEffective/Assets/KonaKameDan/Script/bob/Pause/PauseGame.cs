@@ -23,6 +23,7 @@ public class PauseGame : MonoBehaviour
     }
     public void Pause()
     {
+        if (UI_Manager.GetUI_Manager.effectFusionUI_Obj.activeSelf) return;
         pauseUIInstansce = Instantiate(pauseUI);
         beforeTimeScale = Time.timeScale;
         Time.timeScale = 0.0f;// pause

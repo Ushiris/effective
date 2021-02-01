@@ -126,6 +126,16 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        FixFixedDeltaTime();
+    }
+
+    public static void FixFixedDeltaTime()
+    {
+        Time.fixedDeltaTime = .02f;
+    }
+
     //ピザのリセット
     void PizzaReset()
     {
