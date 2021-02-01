@@ -44,4 +44,13 @@ public class MainGameManager : MonoBehaviour
     {
         get { return new List<EffectObjectAcquisition.EffectObjectClass>(EffectObjectAcquisition.GetEffectList); }
     }
+
+    private void Start()
+    {
+        if (GetArtsReset)
+        {
+            //スコアのリセット 
+            ResultPoint.OnResetPoint();
+        }
+    }
 }

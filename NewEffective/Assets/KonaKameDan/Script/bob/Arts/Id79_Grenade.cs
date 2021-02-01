@@ -37,6 +37,7 @@ public class Id79_Grenade : MonoBehaviour
     void Start()
     {
         artsStatus = GetComponent<ArtsStatus>();
+        transform.parent = null;
 
         //エフェクトの所持数を代入
         explosionCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
