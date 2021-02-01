@@ -33,7 +33,7 @@ public class ScorePanelController : MonoBehaviour
         {
             //スコアを取得
             var name = scoreManagers[i].GetName();
-            var score = ResultPoint.SetPoint[name];
+            var score = ResultPoint.GetPoint((int)name);
 
             //スコアアニメーション実行命令を発行
             scoreManagers[i].SetMoveTime(scoreCountMoveTime);

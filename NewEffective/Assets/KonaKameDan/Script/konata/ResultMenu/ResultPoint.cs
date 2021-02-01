@@ -19,6 +19,22 @@ public class ResultPoint : MonoBehaviour
         {PointName.TotalScore,       0 },
     };
 
+    public static void OnResetPoint()
+    {
+        SetPoint = new Dictionary<PointName, int>()
+        {
+            {PointName.PlayerDamage,     0 },
+            {PointName.EnemyDamage,      0 },
+            {PointName.Shot,             0 },
+            {PointName.Barrier,          0 },
+            {PointName.Spread,           0 },
+            {PointName.Homing,           0 },
+            {PointName.Explosion,        0 },
+            {PointName.Fly,              0 },
+            {PointName.TotalScore,       0 },
+        };
+    }
+
     public static int GetPoint(int num)
     {
         if ((PointName)num != PointName.TotalScore)
