@@ -67,6 +67,7 @@ MonoBehaviour:
   myEffectCount: {fileID: 0}
   artsType: 1
   myObj: {fileID: 0}
+  artsPivot: {fileID: 0}
   modelSiz: 0
 --- !u!135 &4865192541945554422
 SphereCollider:

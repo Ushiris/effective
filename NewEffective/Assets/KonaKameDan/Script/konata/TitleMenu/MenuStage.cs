@@ -10,11 +10,14 @@ public class MenuStage : MonoBehaviour
 
     public static bool isDebug { get; set; }
 
+    static readonly NewMap.MapType defaultMap = NewMap.MapType.Grassland;
+
     private void Awake()
     {
         staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
         transform.parent = null;
         DontDestroyOnLoad(gameObject);
+        NewMap.SetSelectMapType = defaultMap;
     }
 
 #if UNITY_EDITOR

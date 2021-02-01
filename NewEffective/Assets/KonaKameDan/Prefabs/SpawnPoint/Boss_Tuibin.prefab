@@ -71,7 +71,12 @@ PrefabInstance:
     - target: {fileID: 3425784073997157279, guid: 7a282266d722bab4eb62fe516aabc5e1,
         type: 3}
       propertyPath: defaultStatus.Array.data[2].f
-      value: 8000
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425784073997157279, guid: 7a282266d722bab4eb62fe516aabc5e1,
+        type: 3}
+      propertyPath: defaultStatus.Array.data[0].f
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5381945313869897600, guid: 7a282266d722bab4eb62fe516aabc5e1,
         type: 3}

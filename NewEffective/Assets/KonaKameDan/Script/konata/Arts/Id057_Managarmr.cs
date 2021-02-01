@@ -28,6 +28,13 @@ public class Id057_Managarmr : MonoBehaviour
         managarmrParticle = Instantiate(managarmrParticleObj, transform);
         particleSystem = managarmrParticle.GetComponent<ParticleSystem>();
 
+        //ダメージ処理
+        var particleDamage = Arts_Process.SetParticleDamageProcess(managarmrParticle);
+        var effectCount = shotCount + explosionCount;
+        var damage = defaultDamage + (plusDamage * (float)effectCount);
+        Arts_Process.Damage(particleDamage, artsStatus, damage, true);
+
+
         //敵のポジションを持ってくる
         target = Arts_Process.GetNearTarget(artsStatus);
 

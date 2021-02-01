@@ -84,7 +84,7 @@ public class Id57_Bomber : MonoBehaviour
         {
             //回す
             if (artsStatus.myObj.activeSelf == false) Destroy(gameObject);
-            transform.position = artsStatus.myObj.transform.position;
+            transform.position = Arts_Process.GetCharacterChasePos(artsStatus);
             Arts_Process.ObjRoll(gameObject, rollSpeed);
         }
     }
