@@ -97,6 +97,11 @@ public class Id029_JumpCube : MonoBehaviour
                 if (pos.y > -50)
                 {
                     artsStatus.myObj.transform.position = pos;
+                    var rb = artsStatus.myObj.GetComponent<Rigidbody>();
+                    if (rb !=null)
+                    {
+                        rb.velocity = Vector3.zero;
+                    }
                 }
 
 
@@ -115,6 +120,11 @@ public class Id029_JumpCube : MonoBehaviour
                 //SE
                 Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third, transform.position, artsStatus);
 
+                Destroy(gameObject);
+            }
+
+            if (jumpCube.transform.position.y < -50)
+            {
                 Destroy(gameObject);
             }
         }
