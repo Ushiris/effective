@@ -21,6 +21,7 @@ public class Id029_JumpCube : MonoBehaviour
     List<GameObject> miracles = new List<GameObject>();
 
     LayerMask layerMask;
+    LayerMask magmaMask;
 
     bool isStart = true;
 
@@ -57,7 +58,7 @@ public class Id029_JumpCube : MonoBehaviour
 
         transform.localPosition = new Vector3(0, 1f, 0);
         layerMask = LayerMask.GetMask("Map");
-
+        magmaMask = LayerMask.GetMask("ExceptionMap");
     }
 
     // Update is called once per frame
@@ -89,6 +90,18 @@ public class Id029_JumpCube : MonoBehaviour
             //マップにjumpCubeが当たった場合親を移動させる
             Collider[] enemies;
             enemies = Physics.OverlapSphere(jumpCube.transform.position, 0.3f, layerMask);
+            foreach (Collider hit in enemies)
+            {
+                parent.transform.position = jumpCube.transform.position;
+
+                //SE
+                Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third, transform.position, artsStatus);
+
+                Destroy(gameObject);
+            }
+
+            enemies= Physics.OverlapSphere(jumpCube.transform.position, 0.3f, magmaMask);
+
             foreach (Collider hit in enemies)
             {
                 parent.transform.position = jumpCube.transform.position;
