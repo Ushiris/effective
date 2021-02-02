@@ -49,8 +49,8 @@ public class TerritorySenses : MonoBehaviour
 
         StageSelectUI.OnAfterPortalChangeScene.AddListener(() => bossCount = 0);
         StageSelectUiView.OnAfterPortalChangeScene.AddListener(() => bossCount = 0);
-        StageSelectUI.OnBeginSelectWindow.AddListener(() => bossUI.worldCamera.gameObject.SetActive(false));
-        StageSelectUiView.OnBeginSelectWindow.AddListener(() => bossUI.worldCamera.gameObject.SetActive(false));
+        StageSelectUI.OnBeginSelectWindow.AddListener(() => bossUI.gameObject.SetActive(false));
+        StageSelectUiView.OnBeginSelectWindow.AddListener(() => bossUI.gameObject.SetActive(false));
 
         isStartFinished = true;
         OnStartFinish.Invoke();
