@@ -43,6 +43,9 @@ public class Id79_Grenade : MonoBehaviour
         explosionCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Explosion);
         flyCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Fly);
 
+        //飛距離調整
+        v0.z += addForth * (float)flyCount;
+
         //Grenade生成
         grenade = Instantiate(bulletObj, transform);
 

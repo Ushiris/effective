@@ -10,6 +10,7 @@ public class Id047_PingPong : MonoBehaviour
     [SerializeField] float lostTime = 3.5f;
     [SerializeField] Vector3 v0 = new Vector3(5, 5, 10);
     [SerializeField] float defaultDamage = 1f;
+    [SerializeField] int defaultBulletCount = 3;
 
     [Header("射撃のスタック数に応じてたされる数")]
     [SerializeField] float plusDamage = 0.05f;
@@ -43,7 +44,7 @@ public class Id047_PingPong : MonoBehaviour
         spreadCount = Arts_Process.GetEffectCount(artsStatus, NameDefinition.EffectName.Spread);
 
         //弾数を増やす計算
-        float bulletCount = addBullet * (float)spreadCount + 1f;
+        float bulletCount = addBullet * (float)spreadCount + (float)defaultBulletCount;
         bulletCount = Mathf.Floor(bulletCount);
         float bulletDir = (bulletCount / 2 + 0.5f) - bulletCount;
 

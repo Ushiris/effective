@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icarusParticleObj: {fileID: 79780720721125208, guid: 755863443df64764b8411f8054d8844c,
     type: 3}
-  range: 10
+  range: 30
   force: 500
   lostTime: 30
   plusTime: 0.5

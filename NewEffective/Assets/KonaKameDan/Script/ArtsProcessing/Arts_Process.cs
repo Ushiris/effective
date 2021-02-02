@@ -170,7 +170,14 @@ public class Arts_Process : MonoBehaviour
     public static int GetEffectCount(ArtsStatus artsStatus, NameDefinition.EffectName name)
     {
         var ec = artsStatus.myEffectCount;
-        return ec.effectCount[name] - 1;
+        if (artsStatus.type == ArtsStatus.ParticleType.Player)
+        {
+            return ec.effectCount[name] - 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     /// <summary>

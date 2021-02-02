@@ -58,7 +58,7 @@ public class Id457_BigBang : MonoBehaviour
         vacuumParticle.SetActive(false);
         collider.enabled = false;
         explosionObj.SetActive(true);
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 2f);
 
         //SE
         var se2 = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
