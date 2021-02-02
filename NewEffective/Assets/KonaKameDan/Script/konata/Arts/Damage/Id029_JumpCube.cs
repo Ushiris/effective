@@ -93,7 +93,7 @@ public class Id029_JumpCube : MonoBehaviour
             foreach (Collider hit in enemies)
             {
                 var pos = jumpCube.transform.position;
-                pos.y += NewMap.GetGroundPosMatch(transform.position) + 2f;
+                pos.y = NewMap.GetGroundPosMatch(transform.position) + 2f;
                 if (pos.y > -50)
                 {
                     artsStatus.myObj.transform.position = pos;

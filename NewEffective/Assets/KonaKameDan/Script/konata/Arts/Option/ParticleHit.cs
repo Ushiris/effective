@@ -110,7 +110,7 @@ public class ParticleHit : MonoBehaviour
 
         var life = obj.GetComponent<Life>();
         if (life != null) life.Damage(damageCast);
-        DebugLogger.Log("name: " + artsStatus.myObj.name + " damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
+        DebugLogger.Log("ArtsName:" + artsStatus.gameObject.name + "name: " + artsStatus.myObj.name + " damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
 
         //ノックバック判定
         if (obj.CompareTag("Enemy") && isEnemyKnockBack)

@@ -60,6 +60,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
         type: 3}
+      propertyPath: lvLearnArtsTable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[3].artsArr.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[1].artsArr.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[0].artsArr.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
       propertyPath: lvLearnArtsTable.Array.data[2].lv
       value: 1
       objectReference: {fileID: 0}
@@ -67,6 +87,31 @@ PrefabInstance:
         type: 3}
       propertyPath: lvLearnArtsTable.Array.data[1].lv
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.data[0]
+      value: 079
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[3].lv
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[3].artsArr.Array.data[0]
+      value: 059
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[2].artsArr.Array.data[1]
+      value: 027
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352374347610855942, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: lvLearnArtsTable.Array.data[0].artsArr.Array.data[0]
+      value: 027
       objectReference: {fileID: 0}
     - target: {fileID: 1682135070442393693, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
         type: 3}
