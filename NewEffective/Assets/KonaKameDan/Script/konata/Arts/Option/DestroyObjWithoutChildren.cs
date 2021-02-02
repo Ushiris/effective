@@ -9,7 +9,7 @@ public class DestroyObjWithoutChildren : MonoBehaviour
     {
         if (transform.childCount == 0)
         {
-            Destroy(gameObject, 0.3f);
+            Destroy(gameObject, 0.5f);
         }
     }
 }

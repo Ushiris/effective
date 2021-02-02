@@ -5106,7 +5106,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &707345128
 SphereCollider:
@@ -5119,7 +5119,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &389947342
 SphereCollider:
@@ -5132,7 +5132,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &1681342373
 SphereCollider:
@@ -5145,7 +5145,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &1332126874
 SphereCollider:
@@ -5158,7 +5158,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6803105965938668464
 GameObject:
@@ -5210,11 +5210,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae6887a948af0e45adc7ef6c7675431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionObjArr: []
+  explosionObjArr:
+  - {fileID: 4572793869657117610}
+  - {fileID: 4572793867899812069}
+  - {fileID: 4572793867932230264}
+  - {fileID: 4572793868371091792}
+  - {fileID: 4572793867659969575}
   annihilationRayParticleObj: {fileID: 891474833}
   pivot: {fileID: 64962202}
   speed: 200
-  defaultDamage: 0.8
+  defaultDamage: 2
   plusDamageShot: 0.02
   plusDamageExplosion: 0.02
 --- !u!114 &114101397220471554
@@ -5256,7 +5261,7 @@ PrefabInstance:
     - target: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4572793868401362738, guid: 67353f7b019547f4d933fda0abe64ebc,
         type: 3}
@@ -5357,7 +5362,7 @@ PrefabInstance:
     - target: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4572793868401362738, guid: 67353f7b019547f4d933fda0abe64ebc,
         type: 3}
@@ -5458,7 +5463,7 @@ PrefabInstance:
     - target: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4572793868401362738, guid: 67353f7b019547f4d933fda0abe64ebc,
         type: 3}
@@ -5559,7 +5564,7 @@ PrefabInstance:
     - target: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4572793868401362738, guid: 67353f7b019547f4d933fda0abe64ebc,
         type: 3}
@@ -5660,7 +5665,7 @@ PrefabInstance:
     - target: {fileID: 4572793868401362737, guid: 67353f7b019547f4d933fda0abe64ebc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4572793868401362738, guid: 67353f7b019547f4d933fda0abe64ebc,
         type: 3}

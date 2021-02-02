@@ -129,6 +129,7 @@ public class NewMap : MonoBehaviour
         {
             if (item.probability != 0)
             {
+                DebugLogger.Log(item.item.name);
                 for (int i = 0; i < item.probability; i++)
                 {
                     GetEffect.Add(item.item);

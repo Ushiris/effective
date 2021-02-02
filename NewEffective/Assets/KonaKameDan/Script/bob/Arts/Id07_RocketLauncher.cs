@@ -44,7 +44,7 @@ public class Id07_RocketLauncher : MonoBehaviour
         //オブジェクトを消す
         if (transform.childCount == 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1.5f);
         }
     }
 
