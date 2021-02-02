@@ -18,6 +18,8 @@ public class StageSelectUiView : MonoBehaviour
 
     public static bool isEndProcess { get; set; } = false;
 
+    public static UnityEvent OnBeginSelectWindow = new UnityEvent();
+
     /// <summary>
     /// ポータルから他のシーンに飛んだ時に実行されるイベント
     /// </summary>
@@ -42,6 +44,11 @@ public class StageSelectUiView : MonoBehaviour
         //シーンの移動
         //SceneManager.LoadScene(NameDefinition.SceneName_Main);
         asyncLoad.allowSceneActivation = true;
+    }
+
+    private void OnEnable()
+    {
+        OnBeginSelectWindow.Invoke();
     }
 
     /// <summary>

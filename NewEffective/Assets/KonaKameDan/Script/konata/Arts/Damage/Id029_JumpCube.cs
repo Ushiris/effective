@@ -94,7 +94,10 @@ public class Id029_JumpCube : MonoBehaviour
             {
                 var pos = jumpCube.transform.position;
                 pos.y += NewMap.GetGroundPosMatch(transform.position) + 2f;
-                artsStatus.myObj.transform.position = pos;
+                if (pos.y > -50)
+                {
+                    artsStatus.myObj.transform.position = pos;
+                }
 
 
                 //SE
