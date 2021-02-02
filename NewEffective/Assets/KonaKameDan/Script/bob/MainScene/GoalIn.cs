@@ -28,6 +28,7 @@ public class GoalIn : MonoBehaviour
         if (other.gameObject.tag == Player_tag && !isLock)// エフェクトオブジェクトの場合
         {
             if (other.GetComponent<Life>().HP == 0) return;
+            if (UI_Manager.GetUI_Manager.effectFusionUI_Obj.activeSelf) return;
             UI_Manager.OnUIEnable(false);
             //UI_Manager.GetMainUiCanvas.enabled = false;
             stageSelectCanvas.SetActive(true);

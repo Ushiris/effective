@@ -64,17 +64,11 @@ public class FlyEnemyBrain : EnemyBrainBase
         {
             model.transform.localPosition = new Vector3(transform.position.x, model.transform.localPosition.y + 0.1f, transform.position.z);
         }
-
-        if (IcarusZone >= 1)
-        {
-            if (model.transform.localPosition.y <= 0f) return;
-
-            model.transform.localPosition = new Vector3(transform.localPosition.x, model.transform.localPosition.y - 0.1f, transform.localPosition.z);
-        }
     }
 
-    private void LateUpdate()
+    private new void LateUpdate()
     {
+        base.LateUpdate();
         model.transform.position = new Vector3(transform.position.x, model.transform.position.y + waver.GetDeltaHeight(), transform.position.z);
         if (state.move == MoveState.Confuse)
         {
@@ -158,5 +152,14 @@ public class FlyEnemyBrain : EnemyBrainBase
     {
         if (other.GetComponent<Id249_Icarus>() == null) return;
         IcarusZone--;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<Id249_Icarus>() == null) return;
+        if (model.transform.localPosition.y <= -2.5f) return;
+
+        model.transform.localPosition = new Vector3(transform.localPosition.x, model.transform.localPosition.y - 0.15f, transform.localPosition.z);
+
     }
 }

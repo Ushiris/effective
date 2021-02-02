@@ -107,7 +107,7 @@ public class EnemyBrainBase : MonoBehaviour
         LookAtXZ(navMesh.nextPosition);
     }
 
-    private void LateUpdate()
+    protected void LateUpdate()
     {
         rb.velocity *= 0.98f;
     }

@@ -6,6 +6,7 @@ public class PauseGame : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject pauseUIInstansce;
+    float beforeTimeScale = 1.0f;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -22,14 +23,16 @@ public class PauseGame : MonoBehaviour
     }
     public void Pause()
     {
-        pauseUIInstansce = GameObject.Instantiate(pauseUI) as GameObject;
+        if (UI_Manager.GetUI_Manager.effectFusionUI_Obj.activeSelf) return;
+        pauseUIInstansce = Instantiate(pauseUI);
+        beforeTimeScale = Time.timeScale;
         Time.timeScale = 0.0f;// pause
         Cursor.visible = true;// マウスカーソル出現！
     }
     public void NoPause()
     {
         Destroy(pauseUIInstansce);
-        Time.timeScale = 1.0f;
+        Time.timeScale = beforeTimeScale;
 
         if (!UI_Manager.GetIsEffectFusionUI_ChoiceActive)
         {

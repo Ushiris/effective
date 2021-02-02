@@ -37,7 +37,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        FlyTimer = StopWatch.Summon(0.3f, () => IsCheckGroundRequest = true, gameObject);
+        FlyTimer = StopWatch.Summon(0.5f, () => IsCheckGroundRequest = true, gameObject);
         FlyTimer.SetActive(false);
 
         speed = slowSpeed;
@@ -130,8 +130,8 @@ public class PlayerMove : MonoBehaviour
     bool IsNearGround()
     {
         var pos = jumpColliderPos.transform.position;
-        pos.y -= 2.5f;
-        Collider[] ground = Physics.OverlapSphere(pos, 0.2f, layerMask);
+        pos.y -= 1.5f;
+        Collider[] ground = Physics.OverlapSphere(pos, 0.4f, layerMask);
         if (ground != null)
         {
             if (ground.Length != 0)
@@ -144,7 +144,7 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             //敵に当たった場合跳ねあがるやつの防止
             rb.velocity = Vector3.zero;

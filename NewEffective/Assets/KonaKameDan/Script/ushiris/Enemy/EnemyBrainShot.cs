@@ -63,6 +63,5 @@ public class EnemyBrainShot : EnemyBrainBase
 
     void StayActionShot()
     {
-        return;
     }
 }

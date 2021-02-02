@@ -7,8 +7,6 @@ public class EnemyPop : MonoBehaviour
 {
     Transform playerTransform;
     StopWatch timer;
-    int findPointLoopLimiter = 5;
-    float differPos=5;
 
     private void Awake()
     {
@@ -35,7 +33,6 @@ public class EnemyPop : MonoBehaviour
         if (enemy == null) return;
 
         enemy.transform.position = (Vector3)pos;
-        enemy.life.AddLastword(() => EnemySpawnManager.SetEnemy(enemy));
         enemy.gameObject.SetActive(true);
     }
 
@@ -53,18 +50,11 @@ public class EnemyPop : MonoBehaviour
     Vector3? SpawnPointFinder()
     {
         Vector3 desirePos = SpawnPointSelector();
-        NavMeshHit edgePos;
-        if (NavMesh.FindClosestEdge(desirePos, out edgePos, NavMesh.AllAreas))
+        if (NavMesh.FindClosestEdge(desirePos, out NavMeshHit edgePos, NavMesh.AllAreas))
         {
             return edgePos.position;
         }
 
         return null;
-    }
-
-    bool IsOutHeight(Terrain terrain,Vector3 desirePos)
-    {
-        var pos = new Vector3(desirePos.x / terrain.terrainData.size.x, desirePos.y, desirePos.z / terrain.terrainData.size.z);
-        return NewMap.GetGroundPosMatch(pos) >= 15;
     }
 }

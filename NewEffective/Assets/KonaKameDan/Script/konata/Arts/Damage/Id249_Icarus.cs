@@ -76,15 +76,15 @@ public class Id249_Icarus : MonoBehaviour
     }
 
     //範囲に入った敵に下向きに力を加える
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == Arts_Process.GetEnemyTag(artsStatus))
-        {
-            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.AddForce(new Vector3(0, -1, 0) * force, ForceMode.Impulse);
-            }
-        }
-    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.gameObject.tag == Arts_Process.GetEnemyTag(artsStatus))
+    //    {
+    //        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+    //        if (rb != null)
+    //        {
+    //            rb.AddForce(new Vector3(0, -1, 0) * force, ForceMode.Impulse);
+    //        }
+    //    }
+    //}
 }
