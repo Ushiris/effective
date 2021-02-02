@@ -47,7 +47,7 @@ MonoBehaviour:
   shieldObj: {fileID: 606073160352393122, guid: 8beb19a1768f45445a7700f424a6e562,
     type: 3}
   siz: 3
-  force: 500
+  force: 100
   lostTime: 4
   plusTime: 0.2
 --- !u!114 &114378054479745966

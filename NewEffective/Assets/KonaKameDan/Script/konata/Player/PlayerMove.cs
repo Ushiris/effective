@@ -33,6 +33,8 @@ public class PlayerMove : MonoBehaviour
     StopWatch FlyTimer;
     bool IsCheckGroundRequest = false;
 
+    static readonly float kLimitY = -100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +78,13 @@ public class PlayerMove : MonoBehaviour
         rb.AddForce(force);
 
         CheckNearGround();
+
+        //すり抜けたときの処理
+        if (transform.position.y < kLimitY)
+        {
+            transform.position = NewMap.GetPlayerRespawnPos;
+            rb.velocity = Vector3.zero;
+        }
     }
 
     //地面との接近判定。これはアニメーションの切り替えに用いられます。
