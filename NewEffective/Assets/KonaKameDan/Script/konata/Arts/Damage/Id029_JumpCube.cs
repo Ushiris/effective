@@ -92,7 +92,13 @@ public class Id029_JumpCube : MonoBehaviour
             enemies = Physics.OverlapSphere(jumpCube.transform.position, 0.3f, layerMask);
             foreach (Collider hit in enemies)
             {
-                parent.transform.position = jumpCube.transform.position;
+                var pos = jumpCube.transform.position;
+                pos.y += NewMap.GetGroundPosMatch(transform.position) + 2f;
+                if (pos.y > -50)
+                {
+                    artsStatus.myObj.transform.position = pos;
+                }
+
 
                 //SE
                 Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id025_PrimitiveShield_third, transform.position, artsStatus);

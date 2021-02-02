@@ -48,9 +48,9 @@ MonoBehaviour:
     type: 3}
   radius: 2
   lostStartTime: 5
-  defaultDamage: 10
+  defaultDamage: 1
   plusDamage: 0.1
-  defaultBullet: 2
+  defaultBullet: 4
   addBullet: 0.2
 --- !u!114 &114668168811967358
 MonoBehaviour:

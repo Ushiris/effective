@@ -47,7 +47,7 @@ MonoBehaviour:
   beamParticleObj: {fileID: 6902709875706166550, guid: cf7ddd0e19d82a94dba44fbc6c9047cd,
     type: 3}
   lostStartTime: 5
-  defaultDamage: 0.01
+  defaultDamage: 0.05
   plusDamage: 0.01
 --- !u!114 &114809336146001686
 MonoBehaviour:
