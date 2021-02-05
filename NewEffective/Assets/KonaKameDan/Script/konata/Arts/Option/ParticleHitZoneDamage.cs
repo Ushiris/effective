@@ -83,6 +83,13 @@ public class ParticleHitZoneDamage : MonoBehaviour
         if (obj.tag == "Enemy")
         {
             DamageCount.damageInput = damageCast;
+
+            var reaction = obj.GetComponent<ArtsHitReaction>();
+            if (reaction != null)
+            {
+                reaction.OnParticlePlay();
+            }
+
             ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] += damageCast;
         }
         else if(obj.tag=="Player")

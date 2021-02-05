@@ -123,6 +123,13 @@ public class ParticleHit : MonoBehaviour
         if (obj.CompareTag("Enemy"))
         {
             ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] += damageCast;
+
+            var reaction = obj.GetComponent<ArtsHitReaction>();
+            if (reaction != null)
+            {
+                reaction.OnParticlePlay();
+            }
+
             DamageCount.damageInput = damageCast;
             //UIバグの調査をすること
         }

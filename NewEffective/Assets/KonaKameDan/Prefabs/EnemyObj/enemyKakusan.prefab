@@ -123,6 +123,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.7
       objectReference: {fileID: 0}
+    - target: {fileID: 2151973639332098788, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151973639332098788, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6050711937883674759, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
       propertyPath: lvLearnArtsTable.Array.size
