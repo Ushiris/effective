@@ -27,7 +27,7 @@ public class DamageRed : MonoBehaviour
         }
     }
 
-    public void ButtonOn()
+    public void DamageHitRed()
     {
         damageHidRed = true;
     }

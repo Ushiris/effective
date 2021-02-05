@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour
     StopWatch traceTimer;
     StopWatch aimTimer;
     public Vector3 tracePoint;
+    private DamageRed damageRed;
+
     public class DelayAimPoint
     {
         Vector3
@@ -58,6 +60,9 @@ public class PlayerManager : MonoBehaviour
         aimTimer = StopWatch.Summon(EnemyProperty.AimSpeed, () => aimPoint.Update(GetPlObj.transform.position), GetPlObj);
         aimPoint = new DelayAimPoint(aimTimer);
 
+        GameObject damageRedObject = GameObject.Find("DamageHIt");
+        damageRed = damageRedObject.GetComponent<DamageRed>();
+
         GetManager = this;
     }
 
@@ -84,6 +89,7 @@ public class PlayerManager : MonoBehaviour
         life.ActiveEvent(Life.Timing.beat, RegeneEventID, false);
         regeneTimer.ResetTimer();
         regeneTimer.SetActive(true);
+        damageRed.DamageHitRed();
     }
 
     private void Regene()
