@@ -6,13 +6,18 @@ public class BanArea : MonoBehaviour
 {
     static readonly string kPlayerTag = "Player";
 
+    PlayerRespawn playerRespawn;
+
+    private void Start()
+    {
+        playerRespawn = NewMap.GetPlayerObj.GetComponent<PlayerRespawn>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == kPlayerTag)
         {
-            other.transform.position = NewMap.GetPlayerRespawnPos;
-            var rb = other.GetComponent<Rigidbody>();
-            rb.velocity = Vector3.zero;
+            playerRespawn.OnLock(true);
         }
     }
 }

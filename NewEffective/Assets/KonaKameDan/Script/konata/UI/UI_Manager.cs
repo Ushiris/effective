@@ -44,6 +44,8 @@ public class UI_Manager : MonoBehaviour
     int tmpEffectListCount = 0;
     delegate void Action();
 
+    AudioSource artsFusionMenuSe;
+
     void Awake()
     {
         //所持エフェクト
@@ -89,6 +91,9 @@ public class UI_Manager : MonoBehaviour
     {
         if (!effectFusionUI_Obj.activeSelf)
         {
+            //SE
+            artsFusionMenuSe = SE_Manager.SePlay(SE_Manager.SE_NAME.SlowMotion);
+
             effectFusionUI_Obj.SetActive(true);
             //effectFusionUI_CircleMakeByPizza.SetActive(true);
             textObj.SetActive(true);
@@ -108,6 +113,11 @@ public class UI_Manager : MonoBehaviour
         }
         else
         {
+            if (artsFusionMenuSe != null)
+            {
+                SE_Manager.SetFadeOut(this, artsFusionMenuSe, 3);
+            }
+
             effectFusionUI_Obj.SetActive(false);
             //effectFusionUI_CircleMakeByPizza.SetActive(false);
             textObj.SetActive(false);
@@ -179,7 +189,10 @@ public class UI_Manager : MonoBehaviour
 
     public static bool ClickTrigger()
     {
-        return Time.timeScale > 0.1f && Input.GetMouseButtonDown(0);
+        var on = Time.timeScale > 0.1f && Input.GetMouseButtonDown(0);
+        if (on) SE_Manager.SePlay(SE_Manager.SE_NAME.Menu_Change);
+        return on;
+
     }
 
     /// <summary>

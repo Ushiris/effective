@@ -152,7 +152,8 @@ public class ArtsInstantManager : MonoBehaviour
                 }
                 else if (artsPivot.transform.parent.gameObject.tag == "Enemy")
                 {
-                    artsStatus.myObj = artsPivot.transform.parent.gameObject;
+                    var obj = artsPivot.transform.parent.gameObject;
+                    artsStatus.myObj = obj;
                     artsStatus.type = ArtsStatus.ParticleType.Enemy;
                 }
             }

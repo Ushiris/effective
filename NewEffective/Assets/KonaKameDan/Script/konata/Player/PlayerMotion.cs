@@ -63,7 +63,7 @@ public class PlayerMotion : MonoBehaviour
             animator.SetBool("IsRunning", false);
         }
         animator.SetInteger("MoveVector", MoveVector(info.InputVector));
-        DebugLogger.Log(MoveVector(info.InputVector));
+        //DebugLogger.Log(MoveVector(info.InputVector));
     }
 
     //前=0で時計回りに8方位。8は停止。
