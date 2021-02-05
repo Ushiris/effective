@@ -15,9 +15,16 @@ public class Portal : MonoBehaviour
     [SerializeField] ParticleSystem[] openPortalEffect;
     [SerializeField] float gageTime = 5f;
 
+    static bool isPortalOpen = false;
+
     static readonly string kPlayer_tag = "Player";
     static readonly float kDefaultPortalMaterialEmission = 1f;
     static readonly float kActivePortalMaterialEmission = 50f;
+
+    private void Start()
+    {
+        isPortalOpen = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,7 +44,7 @@ public class Portal : MonoBehaviour
         {
             gageTime -= Time.deltaTime;
         }
-        else
+        else if(isPortalOpen)
         {
             goalIn.isLock = false;
 
@@ -80,5 +87,10 @@ public class Portal : MonoBehaviour
     bool IsReturn(string tag)
     {
         return !goalIn.isLock || tag != kPlayer_tag;
+    }
+
+    public static void OnPortalOpen()
+    {
+        isPortalOpen = true;
     }
 }

@@ -258,6 +258,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2.12
       objectReference: {fileID: 0}
+    - target: {fileID: 1472721142449333927, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472721142449333927, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472721142449333927, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151973639332098788, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4101466989299026290, guid: f7fe2c416a1c1d449b1aaf6921ea3300,
         type: 3}
       propertyPath: m_Layer

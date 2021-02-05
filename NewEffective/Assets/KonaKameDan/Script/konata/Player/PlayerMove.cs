@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
     Vector3 dirHorizontal;
     Vector3 jump;
     Vector3 move;
+    PlayerRespawn playerRespawn;
 
     int layerMask;
     int jumpCount;
@@ -49,6 +50,8 @@ public class PlayerMove : MonoBehaviour
 
         //重力の変更
         Physics.gravity = new Vector3(0, -20, 0);
+
+        playerRespawn = GetComponent<PlayerRespawn>();
     }
 
     // Update is called once per frame
@@ -82,8 +85,7 @@ public class PlayerMove : MonoBehaviour
         //すり抜けたときの処理
         if (transform.position.y < kLimitY)
         {
-            transform.position = NewMap.GetPlayerRespawnPos;
-            rb.velocity = Vector3.zero;
+            playerRespawn.OnLock(true);
         }
     }
 
