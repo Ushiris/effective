@@ -15,6 +15,8 @@ public class Status : MonoBehaviour
     [Header("LevelUpに必要な経験値数")]
     [SerializeField] ParticleSystem.MinMaxCurve expCurve;
     public float EXP;
+    public float nextExp { get; private set; }
+    public int GetExpInt => Mathf.CeilToInt(EXP);
     [SerializeField] bool isLevelUpEXP = false;
 
     [Header("〇〇秒後にレベルアップ")]
@@ -67,9 +69,9 @@ public class Status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LevelUp();
         if (islevelUpTimeScale) LvTime();
         if (isLevelUpEXP) LevelUp_EXP();
+        LevelUp();
     }
 
     private void OnDisable()
@@ -79,8 +81,9 @@ public class Status : MonoBehaviour
 
     void LevelUp_EXP()
     {
-        var e = expCurve.Evaluate(Lv) * 100;
-        if (EXP > e)
+        var ne = Mathf.Ceil(expCurve.Evaluate(Lv) * 100);
+        nextExp = ne;
+        if (EXP > ne)
         {
             EXP = 0;
             Lv++;
