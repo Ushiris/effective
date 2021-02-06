@@ -77,20 +77,18 @@ public class ParticleHitZoneDamage : MonoBehaviour
         var life = obj.GetComponent<Life>();
         if (life != null) life.Damage(damageCast);
         DebugLogger.Log("name: " + artsStatus.myObj.name + " damage: " + damage + " damageCast: " + damageCast + " hitDamageDefault: " + hitDamageDefault);
-        DebugLogger.Log("ArtsName:" + artsStatus.gameObject.name);
 
         //UI&Point
         if (obj.tag == "Enemy")
         {
-            DamageCount.damageInput = damageCast;
+            ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] += damageCast;
 
             var reaction = obj.GetComponent<ArtsHitReaction>();
             if (reaction != null)
             {
                 reaction.OnParticlePlay();
             }
-
-            ResultPoint.SetPoint[ResultPoint.PointName.PlayerDamage] += damageCast;
+            DamageCount.damageInput = damageCast;
         }
         else if(obj.tag=="Player")
         {
