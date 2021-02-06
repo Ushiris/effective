@@ -76,6 +76,9 @@ public class Id027_AnnihilationRay2 : MonoBehaviour
                     //ダメージ
                     var particleHit = Arts_Process.SetParticleZoneDamageProcess(obj);
                     Arts_Process.ZoneDamage(particleHit, artsStatus, damage, true);
+
+                    //se
+                    Arts_Process.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third, obj.transform.position, artsStatus);
                 }
                 wait.enabled = false;
             };
