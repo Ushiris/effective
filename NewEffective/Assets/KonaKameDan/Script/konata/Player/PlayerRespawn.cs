@@ -56,6 +56,7 @@ public class PlayerRespawn : MonoBehaviour
         {
             SE_Manager.SePlay(SE_Manager.SE_NAME.PlayerFall);
             deathParticle.Play();
+            timer = 0;
         }
 
         model.SetActive(isEnable);
