@@ -29,11 +29,12 @@ public class ScorePanelController : MonoBehaviour
     /// </summary>
     public void ScoreCountMove()
     {
+        isScoreCountMove = true;
         for (int i = 0; i < scoreManagers.Length; i++)
         {
             //スコアを取得
             var name = scoreManagers[i].GetName();
-            var score = ResultPoint.GetPoint((int)name);
+            var score = ResultPoint.GetPoint((int)name);//Random.Range(5, 500);
 
             //スコアアニメーション実行命令を発行
             scoreManagers[i].SetMoveTime(scoreCountMoveTime);
@@ -56,9 +57,7 @@ public class ScorePanelController : MonoBehaviour
 
     //スコアアニメーションが終了待ち用
     IEnumerator ScoreWaitTime()
-    {
-        isScoreCountMove = true;
-
+    { 
         for (int i = 0; i < scoreManagers.Length; i++)
         {
             yield return new WaitWhile(() => scoreManagers[i].isCountMove);

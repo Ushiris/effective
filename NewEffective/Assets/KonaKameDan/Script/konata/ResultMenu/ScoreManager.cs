@@ -30,9 +30,11 @@ public class ScoreManager : MonoBehaviour
 
         //スコアアニメーション処理
         time += Time.deltaTime * Time.deltaTime;
-        count += (int)(time * a);
+        count += Mathf.CeilToInt(time * a);
         count = Mathf.Clamp(count, 0, score);
-        text.text = count.ToString();
+        text.text = string.Format("{0}", count);
+
+        //Debug.Log(gameObject.name + ": " + count);
 
         if (count == score) isCountMove = false;
     }

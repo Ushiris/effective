@@ -216,7 +216,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962596971903622766}
-  m_Text: 99999999999
+  m_Text: ---------------
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -359,7 +359,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962596972147048076}
-  m_Text: 99999999999
+  m_Text: ---------------
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -576,7 +576,7 @@ Transform:
   m_GameObject: {fileID: 962596973528757804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.5, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children: []
   m_Father: {fileID: 962596973707081247}
   m_RootOrder: 1
@@ -668,7 +668,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962596973707081244}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -709,8 +709,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeSceneName: TitleMenu
   titleTextObj: {fileID: 962596972449470898}
-  loadingObj: {fileID: 962596973528757804}
-  loadingAnimationObj: {fileID: 962596972449470898}
+  loadingObj: {fileID: 962596971826228815}
+  loadingAnimationObj: {fileID: 962596973528757804}
   isDataReset: 0
 --- !u!114 &962596973707081232
 MonoBehaviour:
