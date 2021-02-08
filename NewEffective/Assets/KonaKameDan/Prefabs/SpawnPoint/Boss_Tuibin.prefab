@@ -93,6 +93,31 @@ PrefabInstance:
       propertyPath: enemyName
       value: Elder ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 7898807646884034532, guid: 7a282266d722bab4eb62fe516aabc5e1,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898807646884034532, guid: 7a282266d722bab4eb62fe516aabc5e1,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898807646884034532, guid: 7a282266d722bab4eb62fe516aabc5e1,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898807646884034532, guid: 7a282266d722bab4eb62fe516aabc5e1,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898807646884034532, guid: 7a282266d722bab4eb62fe516aabc5e1,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 8870526936396783488, guid: 7a282266d722bab4eb62fe516aabc5e1,
         type: 3}
       propertyPath: m_AnchorMax.x
