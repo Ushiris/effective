@@ -74,6 +74,11 @@ public class ObjStatus : MonoBehaviour
         }
     }
 
+    protected void SetSelfDropItem()
+    {
+
+    }
+
     /// <summary>
     /// エフェクトオブジェクトをばらまく
     /// </summary>
