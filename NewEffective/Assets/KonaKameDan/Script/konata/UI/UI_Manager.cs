@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// UIのマネージャー
@@ -60,6 +61,8 @@ public class UI_Manager : MonoBehaviour
         Cursor.visible = false;
 
         cameraControlObj = GameObject.FindGameObjectWithTag("CameraPivot");
+
+        SceneManager.sceneUnloaded += FixFixedDeltaTime;
     }
 
     // Update is called once per frame
@@ -130,9 +133,7 @@ public class UI_Manager : MonoBehaviour
 
             //レティクルを表示
             reticle.enabled = true;
-
-            Time.timeScale = 1.0f;
-            Time.fixedDeltaTime /= 0.3f;
+            FixFixedDeltaTime();
         }
     }
 
@@ -140,10 +141,16 @@ public class UI_Manager : MonoBehaviour
     {
         FixFixedDeltaTime();
     }
+    public static void FixFixedDeltaTime(Scene scene)
+    {
+        Time.fixedDeltaTime = .02f;
+        Time.timeScale = 1.0f;
+    }
 
     public static void FixFixedDeltaTime()
     {
         Time.fixedDeltaTime = .02f;
+        Time.timeScale = 1.0f;
     }
 
     //ピザのリセット

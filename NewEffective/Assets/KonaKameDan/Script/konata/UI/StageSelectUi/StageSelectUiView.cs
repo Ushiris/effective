@@ -16,7 +16,7 @@ public class StageSelectUiView : MonoBehaviour
     AsyncOperation asyncLoad;
     bool isSceneChange = false;
 
-    public static bool isEndProcess { get; set; } = false;
+    public static bool IsEndProcess { get; set; } = false;
 
     public static UnityEvent OnBeginSelectWindow = new UnityEvent();
 
@@ -34,7 +34,7 @@ public class StageSelectUiView : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         defaultSiz = rectTransform.localScale;
-        isEndProcess = false;
+        IsEndProcess = false;
     }
 
     private void Update()
@@ -67,7 +67,7 @@ public class StageSelectUiView : MonoBehaviour
     /// </summary>
     public void OnPointerEnter()
     {
-        if (stageSelectUiAction.isStartProcess() || isEndProcess) return;
+        if (stageSelectUiAction.isStartProcess() || IsEndProcess) return;
         rectTransform.localScale *= mouseHoverSiz;
     }
 
@@ -87,7 +87,7 @@ public class StageSelectUiView : MonoBehaviour
         NewMap.SetSelectMapType = mapType;
         DebugLogger.Log("MapName: " + mapType);
         whiteImage.IsAlpha = true;
-        isEndProcess = true;
+        IsEndProcess = true;
         OnPointerExit();
         MainGameManager.GetArtsReset = false;
         OnAfterPortalChangeScene.Invoke();
@@ -111,7 +111,7 @@ public class StageSelectUiView : MonoBehaviour
 
         while (stageSelectUiAction.isEndProcess())
         {
-            DebugLogger.Log("End: " + isEndProcess);
+            DebugLogger.Log("End: " + IsEndProcess);
             yield return new WaitForEndOfFrame();
         }
 
