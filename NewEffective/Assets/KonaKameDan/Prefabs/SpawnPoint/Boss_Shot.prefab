@@ -213,6 +213,41 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6146502191031116838, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146502191031116838, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146502191031116838, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146502191031116838, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146502191031116838, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146502191031116838, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146502191031116838, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
+        type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8242275777051331650, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
         type: 3}
       propertyPath: isBoss

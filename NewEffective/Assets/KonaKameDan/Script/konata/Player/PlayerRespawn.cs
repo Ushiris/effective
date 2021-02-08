@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
+    [SerializeField] float selfHarmRate = 0.25f;
     [SerializeField] float speed = 30f;
     [SerializeField] ParticleSystem deathParticle;
     [SerializeField] ParticleSystem spawnParticle;
@@ -57,6 +58,11 @@ public class PlayerRespawn : MonoBehaviour
             SE_Manager.SePlay(SE_Manager.SE_NAME.PlayerFall);
             deathParticle.Play();
             timer = 0;
+
+            //自傷ダメージ
+            var life = PlayerManager.GetManager.GetPlObj.GetComponent<Life>();
+            var selfHarm = life.HP * selfHarmRate;
+            life.Damage((int)selfHarm);
         }
 
         model.SetActive(isEnable);

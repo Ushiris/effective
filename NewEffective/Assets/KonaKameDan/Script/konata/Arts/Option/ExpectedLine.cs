@@ -12,6 +12,7 @@ public class ExpectedLine : MonoBehaviour
     static readonly Vector3 id079_Amaterasu = new Vector3(0, 0, 5);
     static readonly Vector3 id049_ArrowRain = new Vector3(0, 0, 12);
     static readonly Vector3 id479_MeteorRain = new Vector3(5, 0, 13);
+    static readonly Vector3 id457_BigBang = new Vector3(0, 0, 20);
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class ExpectedLine : MonoBehaviour
         {
             tmpId = arts.id;
 
-            if(tmpId== "079" || tmpId == "049" || tmpId == "479")
+            if (tmpId == "079" || tmpId == "049" || tmpId == "479" || tmpId == "457")
             {
                 expectedLineObj.SetActive(true);
             }
@@ -42,6 +43,7 @@ public class ExpectedLine : MonoBehaviour
             case "079": OnLine(id079_Amaterasu); break;
             case "049": OnLine(id049_ArrowRain); break;
             case "479": OnLine(id479_MeteorRain); break;
+            case "457": OnLine(id457_BigBang); break;
             default: break;
         }
     }
