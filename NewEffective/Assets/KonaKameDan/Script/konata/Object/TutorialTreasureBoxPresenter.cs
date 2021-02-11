@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class TutorialTreasureBoxPresenter : ObjStatus
 {
+    [SerializeField] GameObject[] dropItemList;
     [SerializeField] bool isDebug;
     bool isDeathPlay;
 
@@ -15,7 +16,7 @@ public class TutorialTreasureBoxPresenter : ObjStatus
     {
         SetUp(gameObject);
         SetBreakParticle();
-        SetEffect();
+        SetSelfDropItem(dropItemList);
     }
 
     // Update is called once per frame

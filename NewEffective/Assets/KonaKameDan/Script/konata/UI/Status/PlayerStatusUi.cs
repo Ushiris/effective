@@ -27,7 +27,7 @@ public class PlayerStatusUi : MonoBehaviour
     {
         tmpLv = status.Lv;
         lvText.text = string.Format("{0}{1}", klv, tmpLv);
-        speedText.text = string.Format("{0}{1}", kSpeed, status.GetMoveSpeed);
+        speedText.text = string.Format("{0}{1}", kSpeed, Mathf.CeilToInt(status.GetMoveSpeed));
         strText.text = string.Format("{0}{1}", kStr, Mathf.CeilToInt(status.status[Status.Name.STR]));
         expText.text = string.Format("{0}{1}/{2}", kExp, status.GetExpInt, status.nextExp);
     }
