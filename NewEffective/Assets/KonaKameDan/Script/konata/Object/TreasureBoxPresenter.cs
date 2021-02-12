@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class TreasureBoxPresenter : ObjStatus
 {
+    [SerializeField] int maxEffectCount;
     [SerializeField] bool isDebug;
     bool isDeathPlay;
 
@@ -15,7 +16,7 @@ public class TreasureBoxPresenter : ObjStatus
     {
         SetUp(gameObject);
         SetBreakParticle();
-        SetEffect();
+        SetEffect(maxEffectCount);
     }
 
     // Update is called once per frame
