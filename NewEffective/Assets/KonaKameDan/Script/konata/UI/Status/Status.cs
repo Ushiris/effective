@@ -36,7 +36,7 @@ public class Status : MonoBehaviour
     //[Header("変動値")]
     public Dictionary<Name, float> status { get; private set; }
 
-    public float GetMoveSpeed { get; private set; } = 10;
+    public float GetMoveSpeed { get; private set; } = 1;
 
     //ステータスに変動値を
     Dictionary<Name, float> statusEffect = new Dictionary<Name, float>();
