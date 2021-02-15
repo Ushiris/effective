@@ -51,6 +51,8 @@ public class MainGameManager : MonoBehaviour
         {
             //スコアのリセット 
             ResultPoint.OnResetPoint();
+            ResultScore.OnArtsCountReset();
+            ResultScore.OnBossKillCountReset();
         }
     }
 }
