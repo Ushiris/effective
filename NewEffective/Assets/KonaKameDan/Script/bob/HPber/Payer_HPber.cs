@@ -19,6 +19,7 @@ public class Payer_HPber : MonoBehaviour
     static readonly string kStr = "STR:";
     static readonly string kExp = "EXP:";
     float tmpPlayerSpeed;
+    float tmpPlayerEXP;
     void Start()
     {
         GameObject playerStatusObject = GameObject.FindWithTag("Player");
@@ -33,6 +34,9 @@ public class Payer_HPber : MonoBehaviour
     {
         if(tmpPlayerLv != playerStatus.Lv)// レベル上がった！
             StatusUpdate();
+
+        if(tmpPlayerEXP != playerStatus.nextExp)
+            berEXP.maxValue = playerStatus.nextExp;// EXPバーマックス
 
         berHP.value = playerLife.GetHitPointSafety();// ダメージくらった！
         berEXP.value = playerStatus.GetExpInt;// 経験値を得た！
@@ -53,6 +57,5 @@ public class Payer_HPber : MonoBehaviour
         berHP.maxValue = maxHP;// HPバーマックス
         tmpPlayerLv = playerStatus.Lv;
         berEXP.maxValue = playerStatus.nextExp;// EXPバーマックス
-        //Debug.Log("あいうえおplayerStatus.nextExp : " + playerStatus.nextExp);
     }
 }
