@@ -244,7 +244,7 @@ MonoBehaviour:
   slider: {fileID: 0}
   enemyName: 
   status: {fileID: 6225329085623931612}
-  effectDropCount: 1
+  effectDropCount: 2
   muzzle: {fileID: 1336178396310925907}
   isBoss: 0
 --- !u!114 &5200251395177192674
