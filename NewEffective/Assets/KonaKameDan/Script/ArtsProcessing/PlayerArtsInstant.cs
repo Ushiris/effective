@@ -83,6 +83,9 @@ public class PlayerArtsInstant : MonoBehaviour
             //生成
             ArtsInstantManager.InstantArts(artsObj, artsId);
             coolTimes.Add(artsId, timer);
+
+            //使用したArtsを登録する
+            ResultScore.SetArtsCount(artsId);
         }
     }
 
