@@ -116,12 +116,12 @@ PrefabInstance:
     - target: {fileID: 1682135070442393693, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
         type: 3}
       propertyPath: defaultStatus.Array.data[1].f
-      value: 1000000
+      value: 300000
       objectReference: {fileID: 0}
     - target: {fileID: 1682135070442393693, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
         type: 3}
       propertyPath: defaultStatus.Array.data[2].f
-      value: 5000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1682135070442393693, guid: 2f78c8ed52cc0254e80be0dc2b4adaaf,
         type: 3}
