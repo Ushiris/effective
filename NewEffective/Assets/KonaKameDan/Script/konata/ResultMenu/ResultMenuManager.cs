@@ -93,4 +93,6 @@ public class ResultMenuManager : MonoBehaviour
         endCallText.enabled = true;
         isMoveEnd = true;
     }
+
+
 }

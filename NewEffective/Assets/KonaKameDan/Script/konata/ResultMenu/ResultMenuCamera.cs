@@ -7,7 +7,7 @@ public class ResultMenuCamera : MenuCamera
     [SerializeField] TitleMenuSelectChange nextButton;
     [SerializeField] TitleMenuSelectChange backButton;
     //[SerializeField] ResultMenuUIManager uIManager;
-    [SerializeField] ResultMenuManager newUI_Manager;
+    [SerializeField] ResultScorePresenter newUI_Manager;
 
     public bool IsMoveEnd { get; private set; }
 
@@ -46,6 +46,7 @@ public class ResultMenuCamera : MenuCamera
 
     void NextUi()
     {
+        if (TitleMenuSelectIcon.IsSceneLoadProcess) return;
         Next();
         //uIManager.ForcedScoreRollPlay(GetListNum);
         newUI_Manager.ForcedScoreRollPlay(GetListNum);
@@ -53,6 +54,7 @@ public class ResultMenuCamera : MenuCamera
 
     void BackUi()
     {
+        if (TitleMenuSelectIcon.IsSceneLoadProcess) return;
         Back();
         //uIManager.ForcedScoreRollPlay(GetListNum);
         newUI_Manager.ForcedScoreRollPlay(GetListNum);

@@ -119,6 +119,12 @@ public class DebugModeManager : MonoBehaviour
                 DebugLogger.Log(i + "位 " + "id: " + id[i] + " count: " + count[i]);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            var life = PlayerManager.GetManager.GetPlObj.GetComponent<Life>();
+            life.Damage(999999999);
+        }
     }
 }
 #endif
