@@ -45,6 +45,7 @@ public class TerritorySenses : MonoBehaviour
                 OnTerrtoryExit.Invoke();
                 bossUI.gameObject.SetActive(false);
                 Portal.OnPortalOpen();
+                ResultScore.OnBossKillCountPlus();
             });
 
         SphereCollider collider= gameObject.AddComponent<SphereCollider>();

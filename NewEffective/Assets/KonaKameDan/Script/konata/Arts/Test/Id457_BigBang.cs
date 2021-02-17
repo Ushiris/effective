@@ -62,8 +62,11 @@ public class Id457_BigBang : MonoBehaviour
 
         //SE
         var se2 = SE_Manager.Se3dPlay(SE_Manager.SE_NAME.Id047_PingPong_third);
-        SE_Manager.Se3dMove(transform.position, se2);
-        SE_Manager.ForcedPlayStop(se1.se);
+        if (se2 != null)
+        {
+            SE_Manager.Se3dMove(transform.position, se2);
+            SE_Manager.ForcedPlayStop(se1.se);
+        }
 
         //ダメージの処理
         var damageProcess = Arts_Process.SetParticleDamageProcess(explosionObj);
