@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialBarrierInfo : MonoBehaviour
 {
     public static TutorialBarrierInfo instance;
-    [SerializeField] TMPro.TMP_Text infoArea;
+    [SerializeField] Text infoArea;
     [SerializeField] float fadeStartTime = 5f, fadeTime = 2f;
     [SerializeField] string message;
     StopWatch fader;

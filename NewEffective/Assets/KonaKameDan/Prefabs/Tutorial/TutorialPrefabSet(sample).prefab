@@ -453,7 +453,7 @@ PrefabInstance:
         type: 3}
       propertyPath: infoArea
       value: 
-      objectReference: {fileID: 2347501747715592648}
+      objectReference: {fileID: 7321172864282125040}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25403ffd924da9c46bd1059dee07a4da, type: 3}
 --- !u!4 &2347501747946114965 stripped
@@ -564,28 +564,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9a26e4b0cad5546bd32bc5b922cd8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2347501747715592648 stripped
+--- !u!114 &7321172864282125040 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8111835728185265322, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+  m_CorrespondingSourceObject: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
     type: 3}
   m_PrefabInstance: {fileID: 5766586623177022818}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3117264791289982119 stripped
+--- !u!114 &3547522312357591124 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8882708377350156741, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+  m_CorrespondingSourceObject: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
     type: 3}
   m_PrefabInstance: {fileID: 5766586623177022818}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6848657571296404121
@@ -869,7 +869,7 @@ PrefabInstance:
         type: 3}
       propertyPath: messageArea
       value: 
-      objectReference: {fileID: 3117264791289982119}
+      objectReference: {fileID: 3547522312357591124}
     - target: {fileID: 6765488733340472928, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: m_LocalPosition.x

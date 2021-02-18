@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class TutorialEvent : MonoBehaviour
 {
@@ -18,8 +19,9 @@ public class TutorialEvent : MonoBehaviour
 
     [SerializeField] string 
         wasd, breakBox, openUI, fusion, battle, boss, portal;
-    [SerializeField] TMPro.TMP_Text messageArea;
-    List<string> message = new List<string>();
+    [SerializeField] Text messageArea;
+    string message;
+
 
     [SerializeField] KeyGuideControl guide;
     [SerializeField]
@@ -39,15 +41,7 @@ public class TutorialEvent : MonoBehaviour
     {
         OnStartTutorial.Invoke();
 
-        message = new List<string>{
-            wasd,
-            breakBox,
-            openUI,
-            fusion,
-            battle,
-            boss,
-            portal
-        };
+        message = wasd;
     }
 
     private void Update()
@@ -110,19 +104,34 @@ public class TutorialEvent : MonoBehaviour
 
     IEnumerable NextMessage()
     {
-        yield return wasd;
-        yield return breakBox;
-        yield return openUI;
-        yield return fusion;
-        yield return battle;
-        yield return boss;
-        yield return portal;
+        message = wasd;
+        yield return 0;
+
+        message = breakBox;
+        yield return 1;
+
+        message = openUI;
+        yield return 2;
+
+        message = fusion;
+        yield return 3;
+
+        message = battle;
+        yield return 4;
+
+        message = boss;
+        yield return 5;
+
+        message = portal;
+        yield return 6;
+
         throw new System.Exception("no message");
     }
 
     public void SetMessage()
     {
-        messageArea.text = (string)NextMessage();
+        messageArea.text = message;
+        NextMessage();
     }
 
     public void ShowWasdKeyGuide()
