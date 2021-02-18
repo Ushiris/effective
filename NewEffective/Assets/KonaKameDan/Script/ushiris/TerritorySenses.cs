@@ -54,9 +54,7 @@ public class TerritorySenses : MonoBehaviour
         collider.radius = 50;
         collider.isTrigger = true;
 
-        StageSelectUI.OnAfterPortalChangeScene.AddListener(() => bossCount = 0);
         StageSelectUiView.OnAfterPortalChangeScene.AddListener(() => bossCount = 0);
-        StageSelectUI.OnBeginSelectWindow.AddListener(() => bossUI.gameObject.SetActive(false));
         StageSelectUiView.OnBeginSelectWindow.AddListener(() => bossUI.gameObject.SetActive(false));
 
         isStartFinished = true;

@@ -44,7 +44,7 @@ public class StageSelectUiAction : Image2DAnimation
     // Update is called once per frame
     void Update()
     {
-        if (!StageSelectUiView.isEndProcess)
+        if (!StageSelectUiView.IsEndProcess)
         {
             if (!GetStartAction)
             {
