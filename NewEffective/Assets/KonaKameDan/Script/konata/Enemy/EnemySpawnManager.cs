@@ -13,6 +13,7 @@ public class EnemySpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (NewMap.SetSelectMapType == NewMap.MapType.Tutorial) return;
         enemyList.Clear();
 
         var enemyNameArr = NewMap.GetEnemyType;

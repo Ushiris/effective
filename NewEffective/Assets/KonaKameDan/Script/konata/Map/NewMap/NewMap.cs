@@ -9,7 +9,7 @@ public class NewMap : MonoBehaviour
 {
     public enum MapType
     {
-        Volcano, Grassland, DebugMap, Nothing
+        Volcano, Grassland, DebugMap, Nothing,Tutorial
     }
 
     [System.Serializable]
@@ -283,6 +283,7 @@ public class NewMap : MonoBehaviour
     //宝箱を選別する
     void SetTreasureBox(GameObject treasureBoxGroup, int max)
     {
+        if (treasureBoxGroup == null) return;
         var table = new List<int>();
         var childTransform = treasureBoxGroup.transform;
         var allCount = childTransform.childCount;

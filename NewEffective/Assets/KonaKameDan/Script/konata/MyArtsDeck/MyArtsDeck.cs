@@ -101,4 +101,31 @@ public class MyArtsDeck : MonoBehaviour
             return new List<ArtsList.ArtsData>(GetMyArtsDeck);
         }
     }
+
+    /// <summary>
+    /// 外部から直接Artsをセットする
+    /// </summary>
+    /// <param name="deckNum"></param>
+    /// <param name="artsData"></param>
+    public  void OnArtsSelfSet(int deckNum,ArtsList.ArtsData artsData)
+    {
+        GetMyArtsDeck[deckNum] = artsData;
+
+        //エフェクト所持数チェック
+        for (int i = 0; i < GetMyArtsDeck[deckNum].effectStockCount.Length; i++)
+        {
+            try
+            {
+                GetMyArtsDeck[deckNum].effectStockCount[i] =
+                    SearchEffectStockCount(GetMyArtsDeck[deckNum].effectList[i]);
+            }
+            catch (System.ArgumentException)
+            {
+                GetMyArtsDeck[deckNum].effectStockCount[i] = 0;
+            }
+
+        }
+
+        SetArtsSelectAfterProcess();
+    }
 }
