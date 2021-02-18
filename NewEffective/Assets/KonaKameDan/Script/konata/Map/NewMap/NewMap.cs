@@ -9,7 +9,7 @@ public class NewMap : MonoBehaviour
 {
     public enum MapType
     {
-        Volcano, Grassland, DebugMap, Nothing
+        Volcano, Grassland, DebugMap, Nothing,Tutorial
     }
 
     [System.Serializable]
