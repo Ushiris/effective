@@ -7,6 +7,7 @@ public class TutorialEvent : MonoBehaviour
 {
     public enum EndSection
     {
+        start,
         wasd,
         breakBox,
         openUI,
@@ -30,6 +31,9 @@ public class TutorialEvent : MonoBehaviour
         OnPassedFusion = new UnityEvent(),
         OnPassedBattle = new UnityEvent(),
         OnPassedBoss = new UnityEvent();
+
+    EndSection EndedSection = EndSection.start;
+    bool[] wasdCheck = new bool[4];
 
     private void Start()
     {
@@ -62,6 +66,46 @@ public class TutorialEvent : MonoBehaviour
         };
 
         guide.SetState(input);
+
+        CheckTutorialTask();
+    }
+
+    void CheckTutorialTask()
+    {
+        switch (EndedSection)
+        {
+            case EndSection.start:
+                if (!wasdCheck[0]) wasdCheck[0] = Input.GetKey(KeyCode.W);
+                if (!wasdCheck[1]) wasdCheck[1] = Input.GetKey(KeyCode.A);
+                if (!wasdCheck[2]) wasdCheck[2] = Input.GetKey(KeyCode.S);
+                if (!wasdCheck[3]) wasdCheck[3] = Input.GetKey(KeyCode.D);
+                if (wasdCheck[0] || wasdCheck[1] || wasdCheck[2] || wasdCheck[3])
+                    InvokeEvent(EndSection.wasd);
+                break;
+
+            case EndSection.wasd:
+                break;
+
+            case EndSection.breakBox:
+                if (Input.GetKey(KeyCode.E)) InvokeEvent(EndSection.openUI);
+                break;
+
+            case EndSection.openUI:
+                if (Input.GetKey(KeyCode.Q)) InvokeEvent(EndSection.fusion);
+                break;
+
+            case EndSection.fusion:
+                break;
+
+            case EndSection.battle:
+                break;
+
+            case EndSection.boss:
+                break;
+
+            default:
+                break;
+        }
     }
 
     IEnumerable NextMessage()
