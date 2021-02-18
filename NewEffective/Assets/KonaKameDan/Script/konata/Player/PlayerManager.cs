@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
+    public MyArtsDeck myArtsDeck;
+
     [Header("マウス感度")]
     public float mouseSensitivity = 1f;
 
