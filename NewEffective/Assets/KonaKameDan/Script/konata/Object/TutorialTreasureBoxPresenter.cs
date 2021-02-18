@@ -8,6 +8,7 @@ using UnityEngine;
 public class TutorialTreasureBoxPresenter : ObjStatus
 {
     [SerializeField] GameObject[] dropItemList;
+    [SerializeField] TutorialEvent eventer;
     [SerializeField] bool isDebug;
     bool isDeathPlay;
 
@@ -27,6 +28,7 @@ public class TutorialTreasureBoxPresenter : ObjStatus
             PlaySe();
             PlayBreakParticle();
             PlayEffectPurge();
+            eventer.InvokeEvent(TutorialEvent.EndSection.breakBox);
             Destroy(gameObject);
             isDeathPlay = true;
             isDebug = false;
