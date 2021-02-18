@@ -555,6 +555,76 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8111835727244989108, guid: 9e1cdcbd6639ed547a57612a4752ba41,
         type: 3}
       propertyPath: m_Material

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeyGuideControl : MonoBehaviour
 {
-    [SerializeField] ImageSwitcher w, a, s, d, e, q, space, wheel, left;
+    [SerializeField] ImageSwitcher w, a, s, d, space, e, q, wheel, left;
     List<ImageSwitcher> switchers;
     Dictionary<string, int> keyIndex = new Dictionary<string, int>
     {
@@ -12,16 +12,16 @@ public class KeyGuideControl : MonoBehaviour
         {"a",1 },
         {"s",2 },
         {"d",3 },
-        {"e",4 },
-        {"q",5 },
-        {"space",6 },
+        {"space",4 },
+        {"e",5 },
+        {"q",6 },
         {"wheel",7 },
         {"left",8 }
     };
 
     private void Awake()
     {
-        switchers = new List<ImageSwitcher> { w, a, s, d, e, q, space, wheel, left };
+        switchers = new List<ImageSwitcher> { w, a, s, d, space, e, q, wheel, left };
     }
 
     public void SetState(List<bool> inputs)

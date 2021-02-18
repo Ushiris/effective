@@ -15,7 +15,7 @@ public class StopWatch : MonoBehaviour
     bool isOneShot = false;
 
     public TimeEvent LapEvent { get; set; }
-    public TimeEvent DuringEvent { get; set; }
+    public TimeEvent DuringEvent { get; set; } = () => { };
 
     public float LapTime { get; set; }
     public bool IsActive { get; set; } = true;
