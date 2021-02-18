@@ -535,6 +535,11 @@ PrefabInstance:
       propertyPath: infoArea
       value: 
       objectReference: {fileID: 7321172864282125040}
+    - target: {fileID: 7509684429302881431, guid: 25403ffd924da9c46bd1059dee07a4da,
+        type: 3}
+      propertyPath: message
+      value: " \u6B21\u306E\u76EE\u6A19\u306B\u9032\u3093\u3067\u304F\u3060\u3055\u3044\uFF01"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25403ffd924da9c46bd1059dee07a4da, type: 3}
 --- !u!4 &2347501747946114965 stripped
@@ -554,6 +559,86 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244147196411794, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006566673753105718, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8111835727117615760, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8111835727117615760, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8111835727244989108, guid: 9e1cdcbd6639ed547a57612a4752ba41,
         type: 3}
@@ -625,6 +710,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8111835728670936400, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8111835728670936400, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e1cdcbd6639ed547a57612a4752ba41, type: 3}
 --- !u!224 &5169930552180151404 stripped
@@ -643,6 +738,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d9a26e4b0cad5546bd32bc5b922cd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2347501746602612922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8111835727050294744, guid: 9e1cdcbd6639ed547a57612a4752ba41,
+    type: 3}
+  m_PrefabInstance: {fileID: 5766586623177022818}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7321172864282125040 stripped
@@ -684,32 +791,32 @@ PrefabInstance:
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: OnStartTutorial.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: OnPassedWasd.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: OnPassedBrakeBox.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: OnPassedOpenFusionUI.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: OnPassedFusion.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: OnPassedBattle.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
@@ -739,37 +846,40 @@ PrefabInstance:
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: wasd
-      value: '[W][A][S][D] : Move'
+      value: "[W][A][S][D] : \u79FB\u52D5"
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: breakBox
-      value: 'Find crystal and brake it. [Mouse left] : Fire arts'
+      value: "\u30AF\u30EA\u30B9\u30BF\u30EB\u3092\u898B\u3064\u3051\u3066\u7834\u58CA\u3057\u3088\u3046!
+        [\u30DE\u30A6\u30B9\u5DE6\u30AF\u30EA\u30C3\u30AF] : \u6280\u3092\u51FA\u3059"
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: openUI
-      value: '[E] : Open effect fusion GUI'
+      value: "[E] : \u6280\u3092\u4F5C\u6210\u3059\u308B\u753B\u9762\u3092\u51FA\u305D\u3046!"
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: fusion
-      value: '[Q] : Create arts'
+      value: "[Q] : \u6280\u3092\u4F5C\u6210\u3057\u3088\u3046!!"
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: battle
-      value: 'Try beat enemy! [Mouse scroll] : Select arts'
+      value: "\u6575\u3068\u6226\u3063\u3066\u307F\u3088\u3046[\u30DE\u30A6\u30B9\u30B9\u30AF\u30ED\u30FC\u30EB]
+        : \u4F5C\u6210\u3057\u305F\u6280\u3092\u5207\u308A\u66FF\u3048\u308B"
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: boss
-      value: 'Try beat enemy boss! [Mouse left] : Fire arts'
+      value: "\u30DC\u30B9\u3092\u5012\u305D\u3046![\u30DE\u30A6\u30B9\u5DE6\u30AF\u30EA\u30C3\u30AF]
+        : \u6280\u3092\u51FA\u3059"
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: portal
-      value: Great! If you reach portal, begin the true charenge...
+      value: "\u30DD\u30FC\u30BF\u30EB\u306B\u89E6\u308C\u3066\u6B21\u306E\u30B9\u30C6\u30FC\u30B8\u3078\u884C\u3053\u3046!!"
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
@@ -875,11 +985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnPassedFusion.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 687654126754734952}
+      objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: OnPassedFusion.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetMessage
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
@@ -889,7 +999,7 @@ PrefabInstance:
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: OnPassedFusion.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
@@ -925,11 +1035,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnPassedBoss.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 687654126754734952}
+      objectReference: {fileID: 4269787177736485319}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: OnPassedBoss.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetMessage
+      value: Invisible
       objectReference: {fileID: 0}
     - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
@@ -951,6 +1061,36 @@ PrefabInstance:
       propertyPath: messageArea
       value: 
       objectReference: {fileID: 3547522312357591124}
+    - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
+        type: 3}
+      propertyPath: OnPassedBoss.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
+        type: 3}
+      propertyPath: OnPassedBoss.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
+        type: 3}
+      propertyPath: OnPassedBoss.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4269787177736485319}
+    - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
+        type: 3}
+      propertyPath: OnPassedBoss.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Invisible
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
+        type: 3}
+      propertyPath: OnPassedBoss.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233078703797387761, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
+        type: 3}
+      propertyPath: mouseImage
+      value: 
+      objectReference: {fileID: 2347501746602612922}
     - target: {fileID: 6765488733340472928, guid: fbd61b2c41d4fb744a1f42ac81cdee7b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -8,6 +8,6 @@ public class TutorialBarrier : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player")) return;
 
-        TutorialBarrierInfo.instance.Burrier();
+        gameObject.GetComponentInParent<TutorialBarrierInfo>().Burrier();
     }
 }

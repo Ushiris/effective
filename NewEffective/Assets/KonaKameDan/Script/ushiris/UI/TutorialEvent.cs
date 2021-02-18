@@ -22,7 +22,7 @@ public class TutorialEvent : MonoBehaviour
     [SerializeField] Text messageArea;
     string message;
 
-
+    [SerializeField] Image mouseImage;
     [SerializeField] KeyGuideControl guide;
     [SerializeField]
     UnityEvent
@@ -39,9 +39,11 @@ public class TutorialEvent : MonoBehaviour
 
     private void Start()
     {
-        OnStartTutorial.Invoke();
-
-        message = wasd;
+        FindObjectOfType<EnemyBrainBoss>()
+            .gameObject
+            .GetComponent<Life>()
+            .AddLastword(() => { InvokeEvent(EndSection.boss); guide.Invisible(); mouseImage.enabled = false; });
+        InvokeEvent(EndSection.start);
     }
 
     private void Update()
@@ -73,7 +75,7 @@ public class TutorialEvent : MonoBehaviour
                 if (!wasdCheck[1]) wasdCheck[1] = Input.GetKey(KeyCode.A);
                 if (!wasdCheck[2]) wasdCheck[2] = Input.GetKey(KeyCode.S);
                 if (!wasdCheck[3]) wasdCheck[3] = Input.GetKey(KeyCode.D);
-                if (wasdCheck[0] || wasdCheck[1] || wasdCheck[2] || wasdCheck[3])
+                if (wasdCheck[0] && wasdCheck[1] && wasdCheck[2] && wasdCheck[3])
                     InvokeEvent(EndSection.wasd);
                 break;
 
@@ -102,36 +104,27 @@ public class TutorialEvent : MonoBehaviour
         }
     }
 
-    IEnumerable NextMessage()
+    string NextMessage(EndSection section)
     {
-        message = wasd;
-        yield return 0;
-
-        message = breakBox;
-        yield return 1;
-
-        message = openUI;
-        yield return 2;
-
-        message = fusion;
-        yield return 3;
-
-        message = battle;
-        yield return 4;
-
-        message = boss;
-        yield return 5;
-
-        message = portal;
-        yield return 6;
-
-        throw new System.Exception("no message");
-    }
-
-    public void SetMessage()
-    {
-        messageArea.text = message;
-        NextMessage();
+        switch (section)
+        {
+            case EndSection.start:
+                return wasd;
+            case EndSection.wasd:
+                return breakBox;
+            case EndSection.breakBox:
+                return openUI;
+            case EndSection.openUI:
+                return fusion;
+            case EndSection.fusion:
+                return battle;
+            case EndSection.battle:
+                return boss;
+            case EndSection.boss:
+                return portal;
+            default:
+                throw new System.Exception("no message");
+        }
     }
 
     public void ShowWasdKeyGuide()
@@ -151,18 +144,26 @@ public class TutorialEvent : MonoBehaviour
 
     public void ShowOpenUiKey()
     {
-        guide.Show("E");
+        guide.Show("e");
     }
 
     public void ShowFusionKey()
     {
-        guide.Show("Q");
+        guide.Show("q");
     }
 
     public void InvokeEvent(EndSection section)
     {
+        EndedSection = section;
+        message = NextMessage(EndedSection);
+        messageArea.text = message;
+
         switch (section)
         {
+            case EndSection.start:
+                OnStartTutorial.Invoke();
+                break;
+
             case EndSection.wasd:
                 OnPassedWasd.Invoke();
                 break;
