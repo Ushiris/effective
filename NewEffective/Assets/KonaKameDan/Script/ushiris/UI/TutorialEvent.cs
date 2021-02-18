@@ -22,7 +22,7 @@ public class TutorialEvent : MonoBehaviour
     [SerializeField] Text messageArea;
     string message;
 
-
+    [SerializeField] Image mouseImage;
     [SerializeField] KeyGuideControl guide;
     [SerializeField]
     UnityEvent
@@ -42,7 +42,7 @@ public class TutorialEvent : MonoBehaviour
         FindObjectOfType<EnemyBrainBoss>()
             .gameObject
             .GetComponent<Life>()
-            .AddLastword(() => InvokeEvent(EndSection.boss));
+            .AddLastword(() => { InvokeEvent(EndSection.boss); guide.Invisible(); mouseImage.enabled = false; });
         InvokeEvent(EndSection.start);
     }
 

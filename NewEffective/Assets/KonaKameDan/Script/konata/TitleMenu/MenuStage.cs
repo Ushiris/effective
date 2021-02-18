@@ -15,6 +15,7 @@ public class MenuStage : MonoBehaviour
     private void Awake()
     {
         staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
+        NewMap.SetSelectMapType = defaultMap;
         transform.parent = null;
         DontDestroyOnLoad(gameObject);
     }
@@ -36,16 +37,18 @@ public class MenuStage : MonoBehaviour
     /// <returns></returns>
     public static GameObject GetTerrainData(NewMap.MapType mapType)
     {
+        GameObject tmpItem = null;
         foreach (var key in staticData.Keys)
         {
             var item = staticData[key];
             if (mapType == key)
             {
                 item.SetActive(true);
+                tmpItem = item;
             }
             else
             {
-                if (item != null) item.SetActive(false);
+                if (item != null && tmpItem != item) item.SetActive(false);
             }
         }
         return staticData[mapType];

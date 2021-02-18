@@ -43,4 +43,12 @@ public class KeyGuideControl : MonoBehaviour
     {
         switchers[keyIndex[key]].Show(state);
     }
+
+    public void Invisible()
+    {
+        switchers.ForEach(item =>
+        {
+            item.Hide();
+        });
+    }
 }
