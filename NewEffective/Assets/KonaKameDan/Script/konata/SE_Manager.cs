@@ -49,7 +49,14 @@ public class SE_Manager : MonoBehaviour
         Id27_Suicide_first,
 
         //メニュー
-        Menu_Change, Menu_Decide, Menu_SceneChange
+        Menu_Change, Menu_Decide, Menu_SceneChange,
+
+        //演出
+        EnemySpawn, PlayerSpawn, PlayerFall,
+        SlowMotion,
+
+        //オブジェクト
+        ObjCrash1, ObjCrash2
     }
 
     [System.Serializable]

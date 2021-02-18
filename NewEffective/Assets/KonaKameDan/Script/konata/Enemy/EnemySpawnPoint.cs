@@ -57,11 +57,19 @@ public class EnemySpawnPoint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            var isSePlay = false;
             var maxCount = kDefaultCount + WorldLevel.GetWorldLevel;
             for (int i = enemyList.Count; i < maxCount; i++)
             {
                 var enemy = EnemySpawnManager.GetEnemy();
                 if (enemy == null) break;
+
+                if (!isSePlay)
+                {
+                    SE_Manager.SePlay(SE_Manager.SE_NAME.EnemySpawn);
+                    isSePlay = true;
+                }
+
                 var ranNum = Random.Range(0, spawnPos.Count);
                 enemy.gameObject.transform.position = spawnPos[ranNum];
                 enemyList.Add(enemy);

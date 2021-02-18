@@ -9,7 +9,7 @@ public class NewMap : MonoBehaviour
 {
     public enum MapType
     {
-        Volcano, Grassland, DebugMap
+        Volcano, Grassland, DebugMap, Nothing,Tutorial
     }
 
     [System.Serializable]
@@ -125,6 +125,7 @@ public class NewMap : MonoBehaviour
         GetPlayerRespawnPos = status.playerSpawnPoint;
 
         //Mapに設定されているエフェクトをセットする
+        GetEffect.Clear();
         foreach (var item in status.effectItem)
         {
             if (item.probability != 0)

@@ -20,6 +20,8 @@ public class PlayerArtsInstant : MonoBehaviour
     bool isEntryTrigger;
     bool isCoolTimeUI;
 
+    public bool isArtsInstantLock { get; set; } = false;
+
     //デバッグ用
     public static bool isDebugCoolTime;
     public static float debugCoolTime;
@@ -81,6 +83,9 @@ public class PlayerArtsInstant : MonoBehaviour
             //生成
             ArtsInstantManager.InstantArts(artsObj, artsId);
             coolTimes.Add(artsId, timer);
+
+            //使用したArtsを登録する
+            ResultScore.SetArtsCount(artsId);
         }
     }
 
@@ -138,6 +143,7 @@ public class PlayerArtsInstant : MonoBehaviour
     //アーツを放つキー
     bool OnTrigger()
     {
-        return Time.timeScale > 0.1f && Input.GetMouseButtonDown(0) && !UI_Manager.GetIsEffectFusionUI_ChoiceActive;
+        var on = Time.timeScale > 0.1f && Input.GetMouseButtonDown(0) && !UI_Manager.GetIsEffectFusionUI_ChoiceActive;
+        return on && !isArtsInstantLock;
     }
 }

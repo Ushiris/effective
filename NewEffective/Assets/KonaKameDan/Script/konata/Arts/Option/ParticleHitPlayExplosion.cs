@@ -16,6 +16,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     public Mode mode = Mode.You;
     public bool isAllHit = false;
+    public bool isSelf = false;
     public delegate void Action();
     public Action OnExplosion;
 
@@ -50,6 +51,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        if (isSelf) return;
         var tag = other.tag;
         if (IsCheckTag(tag) || IsCheckLayer(other))
         {
@@ -60,6 +62,7 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isSelf) return;
         var tag = other.gameObject.tag;
         if (IsCheckTag(tag) || IsCheckLayer(other.gameObject))
         {
@@ -70,10 +73,22 @@ public class ParticleHitPlayExplosion : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (isSelf) return;
         var tag = collision.gameObject.tag;
         if (IsCheckTag(tag) || IsCheckLayer(collision.gameObject))
         {
             InstantParticle(collision.gameObject);
+            isTrigger = true;
+        }
+    }
+
+    public void OnSelfExplosion(GameObject obj)
+    {
+        if (!isSelf) return;
+        var tag = obj.gameObject.tag;
+        if (IsCheckTag(tag) || IsCheckLayer(obj.gameObject))
+        {
+            InstantParticle(obj.gameObject);
             isTrigger = true;
         }
     }

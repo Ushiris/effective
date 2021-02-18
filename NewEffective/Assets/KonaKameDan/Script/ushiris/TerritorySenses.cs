@@ -39,7 +39,14 @@ public class TerritorySenses : MonoBehaviour
         BossName.SetActive(false);
         var UiSlider = BossName.GetComponentInChildren<Slider>();
         enemy.life.AddDamageFunc((damege) => UiSlider.value -= damege);
-        enemy.life.AddLastword(() => { bossCount = 0; OnTerrtoryExit.Invoke(); bossUI.gameObject.SetActive(false); });
+        enemy.life.AddLastword(
+            () => {
+                bossCount = 0;
+                OnTerrtoryExit.Invoke();
+                bossUI.gameObject.SetActive(false);
+                Portal.OnPortalOpen();
+                ResultScore.OnBossKillCountPlus();
+            });
 
         SphereCollider collider= gameObject.AddComponent<SphereCollider>();
         collider.transform.parent = gameObject.transform;
@@ -47,9 +54,7 @@ public class TerritorySenses : MonoBehaviour
         collider.radius = 50;
         collider.isTrigger = true;
 
-        StageSelectUI.OnAfterPortalChangeScene.AddListener(() => bossCount = 0);
         StageSelectUiView.OnAfterPortalChangeScene.AddListener(() => bossCount = 0);
-        StageSelectUI.OnBeginSelectWindow.AddListener(() => bossUI.gameObject.SetActive(false));
         StageSelectUiView.OnBeginSelectWindow.AddListener(() => bossUI.gameObject.SetActive(false));
 
         isStartFinished = true;

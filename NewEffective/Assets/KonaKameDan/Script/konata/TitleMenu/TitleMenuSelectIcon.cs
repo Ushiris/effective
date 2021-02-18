@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TitleMenuSelectIcon : MonoBehaviour
 {
     [SerializeField] string changeSceneName = NameDefinition.SceneName_Main;
+    [SerializeField] NewMap.MapType MapType = NewMap.MapType.Grassland;
     [SerializeField] GameObject titleTextObj;
     [SerializeField] GameObject loadingObj;
     [SerializeField] GameObject loadingAnimationObj;
@@ -43,6 +44,7 @@ public class TitleMenuSelectIcon : MonoBehaviour
     {
         SE_Manager.SePlay(SE_Manager.SE_NAME.Menu_Decide);
         MainGameManager.GetArtsReset = isDataReset;
+        NewMap.SetSelectMapType = MapType;
         titleTextObj.SetActive(false);
         loadingObj.SetActive(true);
         loadingAnimationObj.SetActive(true);

@@ -17,7 +17,6 @@ public class MenuStage : MonoBehaviour
         staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
         transform.parent = null;
         DontDestroyOnLoad(gameObject);
-        if (!isDebug) NewMap.SetSelectMapType = defaultMap;
     }
 
 #if UNITY_EDITOR

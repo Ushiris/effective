@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// UIのマネージャー
@@ -44,6 +45,8 @@ public class UI_Manager : MonoBehaviour
     int tmpEffectListCount = 0;
     delegate void Action();
 
+    AudioSource artsFusionMenuSe;
+
     void Awake()
     {
         //所持エフェクト
@@ -58,6 +61,8 @@ public class UI_Manager : MonoBehaviour
         Cursor.visible = false;
 
         cameraControlObj = GameObject.FindGameObjectWithTag("CameraPivot");
+
+        SceneManager.sceneUnloaded += FixFixedDeltaTime;
     }
 
     // Update is called once per frame
@@ -89,6 +94,9 @@ public class UI_Manager : MonoBehaviour
     {
         if (!effectFusionUI_Obj.activeSelf)
         {
+            //SE
+            artsFusionMenuSe = SE_Manager.SePlay(SE_Manager.SE_NAME.SlowMotion);
+
             effectFusionUI_Obj.SetActive(true);
             //effectFusionUI_CircleMakeByPizza.SetActive(true);
             textObj.SetActive(true);
@@ -108,6 +116,11 @@ public class UI_Manager : MonoBehaviour
         }
         else
         {
+            if (artsFusionMenuSe != null)
+            {
+                SE_Manager.SetFadeOut(this, artsFusionMenuSe, 3);
+            }
+
             effectFusionUI_Obj.SetActive(false);
             //effectFusionUI_CircleMakeByPizza.SetActive(false);
             textObj.SetActive(false);
@@ -120,9 +133,7 @@ public class UI_Manager : MonoBehaviour
 
             //レティクルを表示
             reticle.enabled = true;
-
-            Time.timeScale = 1.0f;
-            Time.fixedDeltaTime /= 0.3f;
+            FixFixedDeltaTime();
         }
     }
 
@@ -130,10 +141,16 @@ public class UI_Manager : MonoBehaviour
     {
         FixFixedDeltaTime();
     }
+    public static void FixFixedDeltaTime(Scene scene)
+    {
+        Time.fixedDeltaTime = .02f;
+        Time.timeScale = 1.0f;
+    }
 
     public static void FixFixedDeltaTime()
     {
         Time.fixedDeltaTime = .02f;
+        Time.timeScale = 1.0f;
     }
 
     //ピザのリセット
@@ -179,7 +196,10 @@ public class UI_Manager : MonoBehaviour
 
     public static bool ClickTrigger()
     {
-        return Time.timeScale > 0.1f && Input.GetMouseButtonDown(0);
+        var on = Time.timeScale > 0.1f && Input.GetMouseButtonDown(0);
+        if (on) SE_Manager.SePlay(SE_Manager.SE_NAME.Menu_Change);
+        return on;
+
     }
 
     /// <summary>

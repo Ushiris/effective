@@ -79,10 +79,10 @@ public class Id479_MeteorRain : MonoBehaviour
         groupObj.transform.localPosition = pos;
 
         //隕石が降るところにマークを置く
-        var mark = Instantiate(markObj, transform);
-        mark.transform.localScale = instantSiz * instantSpace;
-        var y = mark.transform.position.y - NewMap.GetGroundPosMatch(transform.position) + 0.5f;
-        mark.transform.localPosition = new Vector3(5, y, 13);
+        //var mark = Instantiate(markObj, transform);
+        //mark.transform.localScale = instantSiz * instantSpace;
+        //var y = mark.transform.position.y - NewMap.GetGroundPosMatch(transform.position) + 0.5f;
+        //mark.transform.localPosition = new Vector3(5, y, 13);
 
         //一定時間ごとに隕石を生成
         timer = gameObject.AddComponent<StopWatch>();

@@ -31,11 +31,11 @@ public class PlayerStatusUp : MonoBehaviour
         str = plusSTR / plusSTRReachCount;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         if (IsLimit()) return;
 
-        var obj = collision.gameObject;
+        var obj = other.gameObject;
         var effectId = obj.GetComponent<EffectObjectID>();
 
         if (effectId == null) return;
@@ -55,14 +55,14 @@ public class PlayerStatusUp : MonoBehaviour
                 if (blueCount >= plusSpeedReachCount) return;
                 blueCount++;
                 status.SetMoveSpeed(speed * blueCount);
-                DebugLogger.Log("RedEffect:" + blueCount + " plusSpeed" + blueCount * speed);
+                DebugLogger.Log("BlueEffect:" + blueCount + " plusSpeed" + blueCount * speed);
                 break;
 
             case NameDefinition.EffectColor.Green:
                 if (greenCount >= plusHpReachCount) return;
                 greenCount++;
                 status.SetStatusEssence(Status.Name.HP, hp + greenCount);
-                DebugLogger.Log("RedEffect:" + greenCount + " plusHP" + greenCount * hp);
+                DebugLogger.Log("GreenEffect:" + greenCount + " plusHP" + greenCount * hp);
                 break;
 
             case NameDefinition.EffectColor.Nothing: break;

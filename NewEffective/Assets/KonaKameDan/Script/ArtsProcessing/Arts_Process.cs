@@ -256,7 +256,10 @@ public class Arts_Process : MonoBehaviour
     /// <returns></returns>
     public static ParticleHitPlayExplosion SetParticleHitPlay(
         GameObject obj, GameObject particle, Transform parent, ArtsStatus artsStatus,
-        float lostTime = 3f, ParticleHitPlayExplosion.Mode mode = ParticleHitPlayExplosion.Mode.You, bool isAllHit = false
+        float lostTime = 3f,
+        ParticleHitPlayExplosion.Mode mode = ParticleHitPlayExplosion.Mode.You,
+        bool isAllHit = false,
+        bool isSelf = false
         )
     {
         var s = obj.AddComponent<ParticleHitPlayExplosion>();
@@ -266,6 +269,7 @@ public class Arts_Process : MonoBehaviour
         s.isAllHit = isAllHit;
         s.particleLostTime = lostTime;
         s.artsStatus = artsStatus;
+        s.isSelf = isSelf;
         return s;
     }
 

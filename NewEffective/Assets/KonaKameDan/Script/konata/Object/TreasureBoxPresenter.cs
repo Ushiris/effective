@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class TreasureBoxPresenter : ObjStatus
 {
+    [SerializeField] int maxEffectCount;
     [SerializeField] bool isDebug;
     bool isDeathPlay;
 
@@ -15,7 +16,7 @@ public class TreasureBoxPresenter : ObjStatus
     {
         SetUp(gameObject);
         SetBreakParticle();
-        SetEffect();
+        SetEffect(maxEffectCount);
     }
 
     // Update is called once per frame
@@ -23,6 +24,7 @@ public class TreasureBoxPresenter : ObjStatus
     {
         if (IsDeath() && !isDeathPlay|| isDebug)
         {
+            PlaySe();
             PlayBreakParticle();
             PlayEffectPurge();
             Destroy(gameObject);
@@ -32,6 +34,19 @@ public class TreasureBoxPresenter : ObjStatus
         else
         {
             SetHpBarControl();
+        }
+    }
+
+    void PlaySe()
+    {
+        var ran = Random.Range(0, 1);
+        if (ran == 0)
+        {
+            SE_Manager.SePlay(SE_Manager.SE_NAME.ObjCrash1);
+        }
+        else
+        {
+            SE_Manager.SePlay(SE_Manager.SE_NAME.ObjCrash2);
         }
     }
 }

@@ -107,6 +107,24 @@ public class DebugModeManager : MonoBehaviour
         {
             EditorApplication.isPaused = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            DebugLogger.Log("称号: " + ResultScore.GetRankName());
+
+            var id= ResultScore.GetTopArts().Item1;
+            var count = ResultScore.GetTopArts().Item2;
+            for (int i = 0; i < 3; i++)
+            {
+                DebugLogger.Log(i + "位 " + "id: " + id[i] + " count: " + count[i]);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            var life = PlayerManager.GetManager.GetPlObj.GetComponent<Life>();
+            life.Damage(999999999);
+        }
     }
 }
 #endif

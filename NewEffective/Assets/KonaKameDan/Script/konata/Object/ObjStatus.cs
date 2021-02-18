@@ -12,7 +12,6 @@ public class ObjStatus : MonoBehaviour
     [SerializeField] GameObject model;
     [SerializeField] Slider hpBar;
     [SerializeField] int maxHp;
-    [SerializeField] int maxEffectCount;
 
     [SerializeField] GameObject breakParticle;
 
@@ -60,12 +59,29 @@ public class ObjStatus : MonoBehaviour
     /// <summary>
     /// ドロップするEffectを設定
     /// </summary>    
-    protected void SetEffect()
+    protected void SetEffect(int maxEffectCount)
     {
         for (int i = 0; i < maxEffectCount; i++)
         {
             var ran = Random.Range(0, NewMap.GetEffect.Count);
             var obj = Instantiate(NewMap.GetEffect[ran], transform);
+
+            var rb = obj.GetComponent<Rigidbody>();
+            effectArr.Add(rb);
+
+            obj.SetActive(false);
+        }
+    }
+
+    /// <summary>
+    /// ドロップしたいアイテムをセットします
+    /// </summary>
+    /// <param name="item"></param>
+    protected void SetSelfDropItem(GameObject[] item)
+    {
+        for (int i = 0; i < item.Length; i++)
+        {
+            var obj = Instantiate(item[i], transform);
 
             var rb = obj.GetComponent<Rigidbody>();
             effectArr.Add(rb);
