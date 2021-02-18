@@ -307,6 +307,7 @@ MonoBehaviour:
   sizSpeed: 3
   fixSiz: 0.05
   limitSiz: 0.7
+  videoControl: {fileID: 0}
 --- !u!1 &756799515
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +892,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303957640459338687, guid: c115b5d366aab1f499eac57a0e2387a5,
+        type: 3}
+      propertyPath: data.list.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303957640459338687, guid: c115b5d366aab1f499eac57a0e2387a5,
+        type: 3}
+      propertyPath: data.list.Array.data[3].Key
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303957640459338687, guid: c115b5d366aab1f499eac57a0e2387a5,
+        type: 3}
+      propertyPath: data.list.Array.data[3].Value
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c115b5d366aab1f499eac57a0e2387a5, type: 3}
