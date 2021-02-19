@@ -9,9 +9,9 @@ public class PlayerDefaultArts : MonoBehaviour
     bool isArtsGet;
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-        if (isArtsGet) return;
+        if (isArtsGet || !MainGameManager.GetArtsReset) return;
         var myArtsDeck = PlayerManager.GetManager.myArtsDeck;
         myArtsDeck.OnArtsSelfSet(0, ArtsList.GetLookedForArts(artsId));
         isArtsGet = true;

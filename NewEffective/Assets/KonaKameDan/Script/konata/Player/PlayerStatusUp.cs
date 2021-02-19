@@ -19,6 +19,8 @@ public class PlayerStatusUp : MonoBehaviour
     int hp;
     int str;
 
+    static int saveLv;
+    static float saveExp;
     static int redCount;
     static int blueCount;
     static int greenCount;
@@ -29,6 +31,19 @@ public class PlayerStatusUp : MonoBehaviour
         speed = plusSpeed / plusSpeedReachCount;
         hp = plusHP / plusHpReachCount;
         str = plusSTR / plusSTRReachCount;
+
+        if (redCount != 0) status.SetStatusEssence(Status.Name.STR, str * redCount);
+        if (blueCount != 0) status.SetMoveSpeed(speed * blueCount);
+        if (greenCount != 0) status.SetStatusEssence(Status.Name.HP, hp + greenCount);
+
+        if (saveLv != 0) status.Lv = saveLv;
+        if (saveExp != 0) status.EXP = saveExp;
+    }
+
+    private void OnDestroy()
+    {
+        saveLv = status.Lv;
+        saveExp = status.EXP;
     }
 
     private void OnTriggerEnter(Collider other)
