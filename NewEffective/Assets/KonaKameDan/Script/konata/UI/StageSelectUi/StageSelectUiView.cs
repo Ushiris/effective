@@ -35,6 +35,7 @@ public class StageSelectUiView : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         defaultSiz = rectTransform.localScale;
         IsEndProcess = false;
+        OnBeginSelectWindow.RemoveAllListeners();
     }
 
     private void Update()

@@ -5,49 +5,35 @@ using UnityEngine;
 public class Magma : MonoBehaviour
 {
     [SerializeField] int damage = 100;
-    [SerializeField, Header("時間からlapTimeを割った値")] int lapTime = 2;
+    [SerializeField] float lapTime = 2;
     Life playerLife;
-    StopWatch FireTimer;
-    bool IsHitDamage = false;
+    bool isHitDamage;
 
     private void Start()
     {
-        FireTimer = StopWatch.Summon(0.5f, () => IsHitDamage = false, gameObject);
-        FireTimer.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (!IsHitDamage) return;
-
-        playerLife.Damage(damage/2);
+        playerLife = NewMap.GetPlayerObj.GetComponent<Life>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Player")) return;
-
-        if (playerLife == null)
-        {
-            playerLife = collision.gameObject.GetComponent<Life>();
-        }
-        FireTimer.SetActive(false);
-        FireTimer.ResetTimer();
-        IsHitDamage = true;
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (!collision.gameObject.CompareTag("Player")) return;
-
-        FireTimer.SetActive(false);
-        FireTimer.ResetTimer();
+        isHitDamage = true;
+        StartCoroutine(Damage(lapTime));
     }
 
     private void OnCollisionExit(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Player")) return;
+        isHitDamage = false;
+    }
 
-        FireTimer.SetActive(true);
+    IEnumerator Damage(float lapTime)
+    {
+        while (isHitDamage && playerLife != null)
+        {
+            playerLife.Damage(damage);
+            yield return new WaitForSeconds(lapTime);
+            //yield return new WaitForEndOfFrame();
+        }
     }
 }

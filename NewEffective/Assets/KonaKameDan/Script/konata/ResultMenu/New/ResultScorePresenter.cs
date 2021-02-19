@@ -76,10 +76,7 @@ public class ResultScorePresenter : MonoBehaviour
             //タイトルメニューへ行くための処理
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                for (int i = 0; i < sceneChangeManager.Length; i++)
-                {
-                    sceneChangeManager[i].OnSceneChange();
-                }
+                sceneChangeManager[scoreRollPlayNum].OnSceneChange();
             }
         }
     }
@@ -131,5 +128,7 @@ public class ResultScorePresenter : MonoBehaviour
     {
         endCallText.enabled = true;
         isMoveEnd = true;
+        scoreRollPlayNum = num;
+        OnScoreAction(scoreRollPlayNum);
     }
 }
