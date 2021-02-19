@@ -7,6 +7,7 @@ public class MenuStage : MonoBehaviour
     [SerializeField] PrefabDictionary data;
 
     static Dictionary<NewMap.MapType, GameObject> staticData;
+    static GameObject myObj;
 
     public static bool isDebug { get; set; }
 
@@ -17,6 +18,7 @@ public class MenuStage : MonoBehaviour
         staticData = new Dictionary<NewMap.MapType, GameObject>(data.GetTable());
         NewMap.SetSelectMapType = defaultMap;
         transform.parent = null;
+        myObj = gameObject;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -30,6 +32,14 @@ public class MenuStage : MonoBehaviour
     }
 #endif
 
+    void AllHide()
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+    }
+
     /// <summary>
     /// テラインのデータを取得する
     /// </summary>
@@ -37,20 +47,13 @@ public class MenuStage : MonoBehaviour
     /// <returns></returns>
     public static GameObject GetTerrainData(NewMap.MapType mapType)
     {
-        GameObject tmpItem = null;
-        foreach (var key in staticData.Keys)
+        for (int i = 0; i < myObj.transform.childCount; i++)
         {
-            var item = staticData[key];
-            if (mapType == key)
-            {
-                item.SetActive(true);
-                tmpItem = item;
-            }
-            else
-            {
-                if (item != null && tmpItem != item) item.SetActive(false);
-            }
+            myObj.transform.GetChild(i).gameObject.SetActive(false);
         }
+
+        staticData[mapType].gameObject.SetActive(true);
+
         return staticData[mapType];
     }
 

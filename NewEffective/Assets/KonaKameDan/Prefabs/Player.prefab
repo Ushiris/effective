@@ -921,8 +921,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: {fileID: 4852804697451384511}
-  speed: 10
-  slowSpeed: 10
+  speed: 17
+  slowSpeed: 17
   dashSpeed: 20
   jumpPower: 1000
   maxJumpCount: 1
@@ -1112,7 +1112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: {fileID: 4852804697451384511}
-  plusSpeed: 10
+  plusSpeed: 5
   plusSpeedReachCount: 50
   plusHP: 5000
   plusHpReachCount: 50
