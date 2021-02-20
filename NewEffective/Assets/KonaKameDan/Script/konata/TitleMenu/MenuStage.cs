@@ -47,9 +47,9 @@ public class MenuStage : MonoBehaviour
     /// <returns></returns>
     public static GameObject GetTerrainData(NewMap.MapType mapType)
     {
-        for (int i = 0; i < myObj.transform.childCount; i++)
+        foreach (var key in staticData.Keys)
         {
-            myObj.transform.GetChild(i).gameObject.SetActive(false);
+            staticData[key].SetActive(false);
         }
 
         staticData[mapType].gameObject.SetActive(true);
