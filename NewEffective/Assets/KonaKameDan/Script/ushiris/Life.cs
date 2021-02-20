@@ -14,9 +14,9 @@ public class Life : MonoBehaviour
     public bool IsFreeze { get; private set; }
     public bool damageGuard = false;// 無敵化するか否か
 
-    class BeatAction { public bool active; public HeartBeat act; public void Run() { if (active) act(); } };
-    class DeadAction { public bool active; public Dead act; public void Run() { if (active) act(); } };
-    class LifeAction { public bool active; public DamageEvent act; public void Run(int num) { if (active) act(num); } };
+    class BeatAction { public bool active; public HeartBeat act;    public void Run()           { if (active) act(); } };
+    class DeadAction { public bool active; public Dead act;         public void Run()           { if (active) act(); } };
+    class LifeAction { public bool active; public DamageEvent act;  public void Run(int num)    { if (active) act(num); } };
 
     StopWatch timer;
     List<BeatAction> beat = new List<BeatAction>();

@@ -32,9 +32,20 @@ public class PlayerStatusUp : MonoBehaviour
         hp = plusHP / plusHpReachCount;
         str = plusSTR / plusSTRReachCount;
 
+        //Level初期化
+        if (MainGameManager.GetArtsReset)
+        {
+            saveLv = 0;
+            saveExp = 0;
+            redCount = 0;
+            blueCount = 0;
+            greenCount = 0;
+        }
+
         if (redCount != 0) status.SetStatusEssence(Status.Name.STR, str * redCount);
         if (blueCount != 0) status.SetMoveSpeed(speed * blueCount);
         if (greenCount != 0) status.SetStatusEssence(Status.Name.HP, hp + greenCount);
+
 
         if (saveLv != 0) status.Lv = saveLv;
         if (saveExp != 0) status.EXP = saveExp;

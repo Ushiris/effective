@@ -71,7 +71,7 @@ public class BGM_InformationCollection : MonoBehaviour
         bgm_BossTerritory = GetComponent<BGM_BossTerritory>();
         if (SceneManager.GetActiveScene().name == NameDefinition.SceneName_Main)
         {
-            if (NewMap.SetSelectMapType == NewMap.MapType.Grassland)
+            if (NewMap.SetSelectMapType == NewMap.MapType.Grassland || NewMap.SetSelectMapType == NewMap.MapType.Tutorial)
             {
                 firstPlay_bgm = BGM_NAME.meadow_BGM;
                 bgm_BossTerritory.stageBGMSet = BGM_NAME.meadow_BGM;
@@ -87,8 +87,8 @@ public class BGM_InformationCollection : MonoBehaviour
             firstPlay_bgm = BGM_NAME.menu_BGM;
             bgm_BossTerritory.stageBGMSet = BGM_NAME.menu_BGM;
         }
-            // ゲーム開始時、BGMを再生する
-            BGM_Manager.BgmPlayback(firstPlay_bgm, BGM_TYPE.beginning, true);
+        // ゲーム開始時、BGMを再生する
+        BGM_Manager.BgmPlayback(firstPlay_bgm, BGM_TYPE.beginning, true);
 
     }
     private void Update()
